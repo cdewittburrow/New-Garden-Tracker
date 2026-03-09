@@ -1,0 +1,1397 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Front Yard Garden — 2026 Season Tracker</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=DM+Mono:wght@300;400;500&family=DM+Sans:wght@300;400;500&display=swap');
+
+  :root {
+    --zone1: #E53935; --zone1-light: #FFCDD2; --zone1-pipe: #C62828;
+    --zone2: #2E7D32; --zone2-light: #C8E6C9; --zone2-pipe: #1B5E20;
+    --trunk: #4E342E; --spigot: #FF8F00;
+    --bg: #F1EDE6; --text: #1C1008; --text-muted: #6D4C41;
+    --panel: #FFFDF8; --shadow: rgba(60,30,10,0.15);
+    --status-planned: #90A4AE; --status-sown: #81C784;
+    --status-germinating: #AED581; --status-growing: #4CAF50;
+    --status-ready: #F9A825; --status-harvested: #8D6E63;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    background: var(--bg);
+    font-family: 'DM Sans', sans-serif;
+    color: var(--text);
+    min-height: 100vh;
+    padding: 24px 16px;
+  }
+
+  /* ── HEADER ── */
+  .page-header {
+    max-width: 1200px;
+    margin: 0 auto 8px auto;
+  }
+
+  h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: var(--text);
+    margin-bottom: 2px;
+  }
+
+  .subtitle {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.68rem;
+    letter-spacing: 1px;
+    color: var(--text-muted);
+    text-transform: uppercase;
+  }
+
+  /* ── STATS STRIP ── */
+  .stats-strip {
+    display: flex;
+    gap: 6px;
+    max-width: 1200px;
+    margin: 12px auto 0 auto;
+    flex-wrap: wrap;
+  }
+
+  .stat-chip {
+    background: var(--panel);
+    border-radius: 20px;
+    padding: 4px 12px;
+    font-family: 'DM Mono', monospace;
+    font-size: 0.68rem;
+    color: var(--text-muted);
+    box-shadow: 0 1px 4px var(--shadow);
+    white-space: nowrap;
+  }
+
+  .stat-chip strong {
+    color: var(--text);
+    font-weight: 500;
+  }
+
+  /* ── TABS ── */
+  .tab-bar {
+    display: flex;
+    gap: 4px;
+    border-bottom: 2px solid #DDD0C4;
+    max-width: 1200px;
+    margin: 16px auto 0 auto;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .tab-btn {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.68rem;
+    letter-spacing: 0.8px;
+    text-transform: uppercase;
+    padding: 9px 18px;
+    border: none;
+    background: transparent;
+    color: var(--text-muted);
+    cursor: pointer;
+    border-bottom: 3px solid transparent;
+    margin-bottom: -2px;
+    transition: color 0.15s, border-color 0.15s, background 0.15s;
+    border-radius: 6px 6px 0 0;
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
+  .tab-btn:hover { color: var(--text); background: #EDE5DA; }
+  .tab-btn.active { color: var(--text); border-bottom-color: var(--trunk); background: var(--panel); font-weight: 500; }
+
+  .tab-panel { display: none; }
+  .tab-panel.active { display: block; animation: fadeIn 0.18s ease; }
+  @keyframes fadeIn { from { opacity:0; transform:translateY(3px); } to { opacity:1; transform:translateY(0); } }
+
+  /* ── TAB 1 LAYOUT ──
+     Desktop: diagram fixed-width left, inspector fills right (independently scrollable)
+     Mobile: stacked, diagram then inspector
+  ── */
+  .tab1-layout {
+    display: grid;
+    grid-template-columns: 380px 1fr;
+    gap: 20px;
+    max-width: 1200px;
+    margin: 20px auto 0 auto;
+    align-items: start;
+  }
+
+  /* Diagram column: fixed, doesn't scroll with page on desktop */
+  .diagram-col {
+    position: sticky;
+    top: 20px;
+  }
+
+  .diagram-wrap {
+    background: var(--panel);
+    border-radius: 16px;
+    padding: 20px;
+    box-shadow: 0 4px 24px var(--shadow);
+  }
+
+  svg { width: 100%; height: auto; display: block; }
+
+  /* Inspector column: fills remaining width, independently scrollable */
+  .inspector-col {
+    background: var(--panel);
+    border-radius: 16px;
+    padding: 24px 26px;
+    box-shadow: 0 4px 24px var(--shadow);
+    min-height: 500px;
+  }
+
+  /* ── INSPECTOR CONTENT ── */
+  .inspector-hint {
+    padding: 40px 0 20px 0;
+    text-align: center;
+    color: var(--text-muted);
+  }
+
+  .hint-icon {
+    font-size: 2rem;
+    margin-bottom: 10px;
+    opacity: 0.4;
+  }
+
+  .hint-text {
+    font-size: 0.85rem;
+    font-style: italic;
+    line-height: 1.6;
+  }
+
+  .insp-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 6px;
+    flex-wrap: wrap;
+  }
+
+  .insp-id {
+    font-family: 'Playfair Display', serif;
+    font-size: 2rem;
+    font-weight: 700;
+    line-height: 1;
+  }
+
+  .zone-tag {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.65rem;
+    padding: 4px 12px;
+    border-radius: 20px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+  .z1-tag { background: var(--zone1-light); color: var(--zone1-pipe); }
+  .z2-tag { background: var(--zone2-light); color: var(--zone2-pipe); }
+
+  /* Status badge */
+  .status-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-family: 'DM Mono', monospace;
+    font-size: 0.68rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    padding: 4px 12px;
+    border-radius: 20px;
+    margin-bottom: 20px;
+  }
+  .status-dot { width: 7px; height: 7px; border-radius: 50%; }
+  .s-planned     { background: #ECEFF1; color: #607D8B; }
+  .s-planned     .status-dot { background: var(--status-planned); }
+  .s-sown        { background: #E8F5E9; color: #388E3C; }
+  .s-sown        .status-dot { background: var(--status-sown); }
+  .s-germinating { background: #F1F8E9; color: #558B2F; }
+  .s-germinating .status-dot { background: var(--status-germinating); }
+  .s-growing     { background: #E8F5E9; color: #2E7D32; }
+  .s-growing     .status-dot { background: var(--status-growing); }
+  .s-ready       { background: #FFF8E1; color: #F57F17; }
+  .s-ready       .status-dot { background: var(--status-ready); }
+  .s-harvested   { background: #EFEBE9; color: #5D4037; }
+  .s-harvested   .status-dot { background: var(--status-harvested); }
+
+  /* Section label */
+  .section-label {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.6rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    margin: 20px 0 8px 0;
+    display: block;
+    padding-bottom: 5px;
+    border-bottom: 1px solid #EDE0D4;
+  }
+
+  /* Data rows */
+  .data-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    font-size: 0.85rem;
+    padding: 6px 0;
+    border-bottom: 1px solid #F5EDE4;
+    gap: 12px;
+  }
+  .data-row:last-of-type { border-bottom: none; }
+  .dr-label { color: var(--text-muted); flex-shrink: 0; }
+  .dr-val { font-weight: 500; text-align: right; }
+
+  /* Rotation card */
+  .rotation-card {
+    display: flex;
+    align-items: stretch;
+    gap: 0;
+    background: #F5EFE6;
+    border-radius: 10px;
+    margin: 8px 0 4px 0;
+    overflow: hidden;
+  }
+  .rot-slot {
+    flex: 1;
+    padding: 12px 14px;
+  }
+  .rot-slot.slot-b {
+    opacity: 0.7;
+    border-left: 1px solid #E0D5C8;
+  }
+  .rs-label {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.58rem;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    color: var(--text-muted);
+    margin-bottom: 4px;
+  }
+  .rs-crop { font-weight: 600; font-size: 0.88rem; margin-bottom: 2px; }
+  .rs-detail { font-size: 0.75rem; color: var(--text-muted); }
+  .rot-divider {
+    display: flex;
+    align-items: center;
+    padding: 0 2px;
+    color: #A1887F;
+    font-size: 1.1rem;
+    background: #EDE5D8;
+  }
+
+  /* Notes */
+  .note-row {
+    display: flex;
+    gap: 8px;
+    font-size: 0.82rem;
+    padding: 5px 0;
+    color: var(--text-muted);
+    line-height: 1.45;
+    border-bottom: 1px solid #F5EDE4;
+  }
+  .note-row:last-of-type { border-bottom: none; }
+  .note-icon { flex-shrink: 0; color: #A1887F; }
+
+  /* ── LOG ── */
+  .log-entries { margin-top: 2px; }
+
+  .log-entry {
+    padding: 8px 0;
+    border-bottom: 1px solid #F5EDE4;
+    animation: fadeIn 0.2s ease;
+  }
+  .log-entry:last-of-type { border-bottom: none; }
+
+  .log-date {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.65rem;
+    color: var(--text-muted);
+    margin-bottom: 3px;
+  }
+
+  .log-text { font-size: 0.85rem; line-height: 1.5; }
+
+  .log-empty {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    font-style: italic;
+    padding: 6px 0 10px 0;
+  }
+
+  .log-add-row {
+    display: flex;
+    gap: 8px;
+    margin-top: 12px;
+    padding-top: 12px;
+    border-top: 1px solid #EDE0D4;
+  }
+
+  .log-input {
+    flex: 1;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.85rem;
+    padding: 9px 12px;
+    border: 1px solid #D7CCC8;
+    border-radius: 8px;
+    background: #FAFAFA;
+    color: var(--text);
+    resize: none;
+    outline: none;
+    transition: border-color 0.15s;
+    line-height: 1.4;
+  }
+  .log-input:focus { border-color: #A1887F; background: white; }
+
+  .log-add-btn {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.7rem;
+    padding: 9px 16px;
+    background: var(--trunk);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background 0.15s;
+    white-space: nowrap;
+    align-self: flex-end;
+  }
+  .log-add-btn:hover { background: #3E2723; }
+
+  /* ── PIPE ANIMATION ── */
+  .pipe-flow { stroke-dasharray: 8 6; animation: flow 1.5s linear infinite; }
+  @keyframes flow { to { stroke-dashoffset: -28; } }
+
+  /* ── BED PILLS ── */
+  .bed-rect { cursor: pointer; }
+  .bed-rect rect { transition: filter 0.15s; }
+  .bed-rect:hover rect { filter: brightness(1.2); }
+  .bed-rect.selected rect { stroke-width: 3; filter: brightness(1.25) drop-shadow(0 0 5px rgba(255,255,255,0.7)); }
+
+  /* ── TAB 2 / 3 shared ── */
+  .layout-wide {
+    display: grid;
+    grid-template-columns: 1fr 340px;
+    gap: 24px;
+    max-width: 1200px;
+    margin: 20px auto 0 auto;
+  }
+
+  .card {
+    background: var(--panel);
+    border-radius: 12px;
+    padding: 18px 20px;
+    box-shadow: 0 2px 12px var(--shadow);
+  }
+
+  .card-label {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.65rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    margin-bottom: 14px;
+    display: block;
+  }
+
+  .sidebar { display: flex; flex-direction: column; gap: 16px; }
+  .legend-item { display: flex; align-items: center; gap: 10px; margin-bottom: 9px; font-size: 0.82rem; }
+  .swatch { width: 28px; height: 10px; border-radius: 3px; flex-shrink: 0; }
+  .swatch.pipe { height: 6px; }
+  .swatch.dot { width: 12px; height: 12px; border-radius: 50%; }
+
+  .comp-list-item { padding: 8px 0; border-bottom: 1px solid #EDE0D4; }
+  .comp-list-item:last-child { border-bottom: none; }
+  .comp-list-item strong { display: block; font-size: 0.82rem; margin-bottom: 2px; }
+  .comp-list-item p { font-size: 0.75rem; color: var(--text-muted); line-height: 1.5; }
+
+  .step-item { display: flex; gap: 12px; padding: 9px 0; border-bottom: 1px solid #EDE0D4; }
+  .step-item:last-child { border-bottom: none; }
+  .step-num { font-family: 'Playfair Display', serif; font-size: 1.1rem; font-weight: 700; color: var(--trunk); min-width: 20px; line-height: 1; padding-top: 2px; }
+  .step-text strong { display: block; font-size: 0.83rem; margin-bottom: 2px; }
+  .step-text p { font-size: 0.75rem; color: var(--text-muted); line-height: 1.5; }
+
+  .hint { font-size: 0.82rem; color: var(--text-muted); font-style: italic; line-height: 1.5; }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 700px) {
+    body { padding: 16px 12px; }
+
+    h1 { font-size: 1.4rem; }
+
+    .tab-btn { padding: 8px 12px; font-size: 0.62rem; }
+
+    /* Tab 1: stack diagram above inspector */
+    .tab1-layout {
+      grid-template-columns: 1fr;
+    }
+
+    /* Unstick diagram on mobile — just flows naturally */
+    .diagram-col {
+      position: static;
+    }
+
+    /* Inspector gets full width below */
+    .inspector-col {
+      padding: 18px 16px;
+      min-height: unset;
+    }
+
+    /* Tab 2/3 also stack */
+    .layout-wide {
+      grid-template-columns: 1fr;
+    }
+
+    .insp-id { font-size: 1.6rem; }
+  }
+</style>
+</head>
+<body>
+
+<div class="page-header">
+  <h1>Front Yard Garden</h1>
+  <p class="subtitle">2026 Season Tracker · West Valley City, UT</p>
+  <div class="stats-strip">
+    <span class="stat-chip"><strong>12</strong> beds</span>
+    <span class="stat-chip"><strong>2</strong> zones</span>
+    <span class="stat-chip"><strong>64</strong> emitters</span>
+    <span class="stat-chip"><strong>~90 ft</strong> PVC</span>
+    <span class="stat-chip"><strong>25–30 PSI</strong> system pressure</span>
+  </div>
+</div>
+
+<div class="tab-bar">
+  <button class="tab-btn active" onclick="switchTab('tab-beds',this)">Bed Layout &amp; Tracker</button>
+  <button class="tab-btn" onclick="switchTab('tab-plumbing',this)">Garden Plumbing</button>
+  <button class="tab-btn" onclick="switchTab('tab-detail',this)">Bed Connection</button>
+</div>
+
+<!-- ══════════════════════════════════════════════════════
+     TAB 1 — BED LAYOUT & TRACKER
+══════════════════════════════════════════════════════ -->
+<div id="tab-beds" class="tab-panel active">
+  <div class="tab1-layout">
+
+    <!-- LEFT: Diagram (sticky on desktop) -->
+    <div class="diagram-col">
+      <div class="diagram-wrap">
+        <svg viewBox="0 0 420 620" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <pattern id="g1" width="10" height="10" patternUnits="userSpaceOnUse"><path d="M10 0L0 0 0 10" fill="none" stroke="#E0D5C8" stroke-width="0.5"/></pattern>
+            <filter id="ds"><feDropShadow dx="0" dy="2" stdDeviation="2" flood-color="rgba(60,30,10,0.25)"/></filter>
+          </defs>
+          <rect width="420" height="620" fill="url(#g1)"/>
+          <rect x="15" y="15" width="390" height="590" rx="8" fill="#C8A96E" opacity="0.18"/>
+          <rect x="15" y="15" width="390" height="55" rx="8" fill="#A5D6A7" opacity="0.4"/>
+          <text x="210" y="48" font-family="'DM Sans',sans-serif" font-size="13" fill="#388E3C" text-anchor="middle">House (North)</text>
+          <text x="210" y="85" font-family="'DM Mono',monospace" font-size="9" fill="#8D6E63" text-anchor="middle">↑ N</text>
+          <text x="210" y="598" font-family="'DM Mono',monospace" font-size="9" fill="#8D6E63" text-anchor="middle">↓ S</text>
+          <text x="22" y="390" font-family="'DM Mono',monospace" font-size="9" fill="#8D6E63">W</text>
+          <text x="395" y="390" font-family="'DM Mono',monospace" font-size="9" fill="#8D6E63">E</text>
+
+          <!-- Zone backgrounds -->
+          <rect x="220" y="148" width="50" height="342" rx="6" fill="#FFCDD2" opacity="0.55"/>
+          <text x="245" y="143" font-family="'DM Mono',monospace" font-size="8" fill="#C62828" text-anchor="middle">ZONE 1</text>
+          <rect x="70" y="148" width="140" height="342" rx="6" fill="#C8E6C9" opacity="0.4"/>
+          <text x="140" y="143" font-family="'DM Mono',monospace" font-size="8" fill="#1B5E20" text-anchor="middle">ZONE 2</text>
+
+          <!-- Spigot run -->
+          <line x1="30" y1="130" x2="75" y2="130" stroke="#FF8F00" stroke-width="5" stroke-linecap="round"/>
+          <!-- Trunk -->
+          <line x1="75" y1="130" x2="275" y2="130" stroke="#4E342E" stroke-width="5" stroke-linecap="round"/>
+          <line x1="75" y1="130" x2="275" y2="130" stroke="#8D6E63" stroke-width="3" class="pipe-flow" opacity="0.6"/>
+          <rect x="274" y="126" width="7" height="8" rx="1" fill="#3E2723"/>
+          <!-- Zone valves -->
+          <rect x="236" y="123" width="16" height="10" rx="2" fill="#C62828"/>
+          <text x="244" y="131" font-family="'DM Mono',monospace" font-size="6" fill="white" text-anchor="middle">Z1</text>
+          <rect x="66" y="123" width="16" height="10" rx="2" fill="#1B5E20"/>
+          <text x="74" y="131" font-family="'DM Mono',monospace" font-size="6" fill="white" text-anchor="middle">Z2</text>
+          <!-- Laterals -->
+          <line x1="95" y1="130" x2="95" y2="500" stroke="#2E7D32" stroke-width="3.5" stroke-linecap="round"/>
+          <line x1="95" y1="130" x2="95" y2="500" stroke="#81C784" stroke-width="2" class="pipe-flow" opacity="0.7"/>
+          <rect x="91" y="499" width="8" height="6" rx="1" fill="#1B5E20"/>
+          <line x1="170" y1="130" x2="170" y2="500" stroke="#2E7D32" stroke-width="3.5" stroke-linecap="round"/>
+          <line x1="170" y1="130" x2="170" y2="500" stroke="#81C784" stroke-width="2" class="pipe-flow" opacity="0.7"/>
+          <rect x="166" y="499" width="8" height="6" rx="1" fill="#1B5E20"/>
+          <line x1="245" y1="130" x2="245" y2="500" stroke="#C62828" stroke-width="3.5" stroke-linecap="round"/>
+          <line x1="245" y1="130" x2="245" y2="500" stroke="#EF9A9A" stroke-width="2" class="pipe-flow" opacity="0.7"/>
+          <rect x="241" y="499" width="8" height="6" rx="1" fill="#C62828"/>
+          <!-- Tees -->
+          <circle cx="95" cy="130" r="5" fill="#388E3C" stroke="#1B5E20" stroke-width="1.5"/>
+          <circle cx="170" cy="130" r="5" fill="#388E3C" stroke="#1B5E20" stroke-width="1.5"/>
+          <circle cx="245" cy="130" r="5" fill="#C62828" stroke="#B71C1C" stroke-width="1.5"/>
+          <!-- Spigot -->
+          <circle cx="30" cy="130" r="9" fill="#FF8F00" stroke="#E65100" stroke-width="1.5" filter="url(#ds)"/>
+          <text x="30" y="134" font-family="'DM Mono',monospace" font-size="6" fill="white" text-anchor="middle">BIB</text>
+
+          <!-- ROW 1 -->
+          <g id="pill-w1" onclick="selectBed('w1')" class="bed-rect">
+            <rect x="80" y="160" width="30" height="60" rx="15" fill="#2E7D32" stroke="#1B5E20" stroke-width="1.5" filter="url(#ds)"/>
+            <text x="95" y="193" font-family="'DM Mono',monospace" font-size="7" fill="white" text-anchor="middle" font-weight="500">W1</text>
+            <circle cx="95" cy="166" r="2" fill="#A5D6A7"/><circle cx="95" cy="174" r="2" fill="#A5D6A7"/>
+            <circle cx="95" cy="206" r="2" fill="#A5D6A7"/><circle cx="95" cy="213" r="2" fill="#A5D6A7"/>
+          </g>
+          <g id="pill-c1" onclick="selectBed('c1')" class="bed-rect">
+            <rect x="155" y="160" width="30" height="60" rx="15" fill="#2E7D32" stroke="#1B5E20" stroke-width="1.5" filter="url(#ds)"/>
+            <text x="170" y="193" font-family="'DM Mono',monospace" font-size="7" fill="white" text-anchor="middle" font-weight="500">C1</text>
+            <circle cx="170" cy="166" r="2" fill="#A5D6A7"/><circle cx="170" cy="174" r="2" fill="#A5D6A7"/>
+            <circle cx="170" cy="206" r="2" fill="#A5D6A7"/><circle cx="170" cy="213" r="2" fill="#A5D6A7"/>
+          </g>
+          <g id="pill-e1" onclick="selectBed('e1')" class="bed-rect">
+            <rect x="230" y="160" width="30" height="60" rx="15" fill="#E53935" stroke="#B71C1C" stroke-width="1.5" filter="url(#ds)"/>
+            <text x="245" y="193" font-family="'DM Mono',monospace" font-size="7" fill="white" text-anchor="middle" font-weight="500">E1</text>
+            <circle cx="245" cy="166" r="2.5" fill="#FF8A80"/><circle cx="245" cy="176" r="2.5" fill="#FF8A80"/>
+            <circle cx="245" cy="206" r="2.5" fill="#FF8A80"/><circle cx="245" cy="214" r="2.5" fill="#FF8A80"/>
+          </g>
+
+          <!-- ROW 2 -->
+          <g id="pill-w2" onclick="selectBed('w2')" class="bed-rect">
+            <rect x="80" y="250" width="30" height="60" rx="15" fill="#2E7D32" stroke="#1B5E20" stroke-width="1.5" filter="url(#ds)"/>
+            <text x="95" y="283" font-family="'DM Mono',monospace" font-size="7" fill="white" text-anchor="middle" font-weight="500">W2</text>
+            <circle cx="95" cy="256" r="2" fill="#A5D6A7"/><circle cx="95" cy="264" r="2" fill="#A5D6A7"/>
+            <circle cx="95" cy="296" r="2" fill="#A5D6A7"/><circle cx="95" cy="303" r="2" fill="#A5D6A7"/>
+          </g>
+          <g id="pill-c2" onclick="selectBed('c2')" class="bed-rect">
+            <rect x="155" y="250" width="30" height="60" rx="15" fill="#2E7D32" stroke="#1B5E20" stroke-width="1.5" filter="url(#ds)"/>
+            <text x="170" y="283" font-family="'DM Mono',monospace" font-size="7" fill="white" text-anchor="middle" font-weight="500">C2</text>
+            <circle cx="170" cy="256" r="2" fill="#A5D6A7"/><circle cx="170" cy="264" r="2" fill="#A5D6A7"/>
+            <circle cx="170" cy="296" r="2" fill="#A5D6A7"/><circle cx="170" cy="303" r="2" fill="#A5D6A7"/>
+          </g>
+          <g id="pill-e2" onclick="selectBed('e2')" class="bed-rect">
+            <rect x="230" y="250" width="30" height="60" rx="15" fill="#E53935" stroke="#B71C1C" stroke-width="1.5" filter="url(#ds)"/>
+            <text x="245" y="283" font-family="'DM Mono',monospace" font-size="7" fill="white" text-anchor="middle" font-weight="500">E2</text>
+            <circle cx="245" cy="256" r="2.5" fill="#FF8A80"/><circle cx="245" cy="266" r="2.5" fill="#FF8A80"/>
+            <circle cx="245" cy="296" r="2.5" fill="#FF8A80"/><circle cx="245" cy="304" r="2.5" fill="#FF8A80"/>
+          </g>
+
+          <!-- ROW 3 -->
+          <g id="pill-w3" onclick="selectBed('w3')" class="bed-rect">
+            <rect x="80" y="340" width="30" height="60" rx="15" fill="#2E7D32" stroke="#1B5E20" stroke-width="2" filter="url(#ds)"/>
+            <text x="95" y="373" font-family="'DM Mono',monospace" font-size="7" fill="white" text-anchor="middle" font-weight="500">W3</text>
+            <circle cx="95" cy="346" r="2" fill="#A5D6A7"/><circle cx="95" cy="354" r="2" fill="#A5D6A7"/>
+            <circle cx="95" cy="386" r="2" fill="#A5D6A7"/><circle cx="95" cy="393" r="2" fill="#A5D6A7"/>
+          </g>
+          <g id="pill-c3" onclick="selectBed('c3')" class="bed-rect">
+            <rect x="155" y="340" width="30" height="60" rx="15" fill="#2E7D32" stroke="#1B5E20" stroke-width="1.5" filter="url(#ds)"/>
+            <text x="170" y="373" font-family="'DM Mono',monospace" font-size="7" fill="white" text-anchor="middle" font-weight="500">C3</text>
+            <circle cx="170" cy="346" r="2" fill="#A5D6A7"/><circle cx="170" cy="354" r="2" fill="#A5D6A7"/>
+            <circle cx="170" cy="386" r="2" fill="#A5D6A7"/><circle cx="170" cy="393" r="2" fill="#A5D6A7"/>
+          </g>
+          <g id="pill-e3" onclick="selectBed('e3')" class="bed-rect">
+            <rect x="230" y="340" width="30" height="60" rx="15" fill="#E53935" stroke="#B71C1C" stroke-width="1.5" filter="url(#ds)"/>
+            <text x="245" y="373" font-family="'DM Mono',monospace" font-size="7" fill="white" text-anchor="middle" font-weight="500">E3</text>
+            <circle cx="245" cy="346" r="2.5" fill="#FF8A80"/><circle cx="245" cy="356" r="2.5" fill="#FF8A80"/>
+            <circle cx="245" cy="386" r="2.5" fill="#FF8A80"/><circle cx="245" cy="394" r="2.5" fill="#FF8A80"/>
+          </g>
+
+          <!-- ROW 4 -->
+          <g id="pill-w4" onclick="selectBed('w4')" class="bed-rect">
+            <rect x="80" y="430" width="30" height="60" rx="15" fill="#2E7D32" stroke="#1B5E20" stroke-width="2" filter="url(#ds)"/>
+            <text x="95" y="463" font-family="'DM Mono',monospace" font-size="7" fill="white" text-anchor="middle" font-weight="500">W4</text>
+            <circle cx="95" cy="436" r="2" fill="#A5D6A7"/><circle cx="95" cy="444" r="2" fill="#A5D6A7"/>
+            <circle cx="95" cy="476" r="2" fill="#A5D6A7"/><circle cx="95" cy="483" r="2" fill="#A5D6A7"/>
+          </g>
+          <g id="pill-c4" onclick="selectBed('c4')" class="bed-rect">
+            <rect x="155" y="430" width="30" height="60" rx="15" fill="#2E7D32" stroke="#1B5E20" stroke-width="1.5" filter="url(#ds)"/>
+            <text x="170" y="463" font-family="'DM Mono',monospace" font-size="7" fill="white" text-anchor="middle" font-weight="500">C4</text>
+            <circle cx="170" cy="436" r="2" fill="#A5D6A7"/><circle cx="170" cy="444" r="2" fill="#A5D6A7"/>
+            <circle cx="170" cy="476" r="2" fill="#A5D6A7"/><circle cx="170" cy="483" r="2" fill="#A5D6A7"/>
+          </g>
+          <g id="pill-e4" onclick="selectBed('e4')" class="bed-rect">
+            <rect x="230" y="430" width="30" height="60" rx="15" fill="#E53935" stroke="#B71C1C" stroke-width="1.5" filter="url(#ds)"/>
+            <text x="245" y="463" font-family="'DM Mono',monospace" font-size="7" fill="white" text-anchor="middle" font-weight="500">E4</text>
+            <circle cx="245" cy="436" r="2.5" fill="#FF8A80"/><circle cx="245" cy="446" r="2.5" fill="#FF8A80"/>
+            <circle cx="245" cy="476" r="2.5" fill="#FF8A80"/><circle cx="245" cy="484" r="2.5" fill="#FF8A80"/>
+          </g>
+
+          <!-- Dimension annotations -->
+          <line x1="80" y1="540" x2="260" y2="540" stroke="#A1887F" stroke-width="1" stroke-dasharray="3,3"/>
+          <text x="170" y="553" font-family="'DM Mono',monospace" font-size="8" fill="#8D6E63" text-anchor="middle">← ~12 ft →</text>
+          <line x1="310" y1="160" x2="310" y2="490" stroke="#A1887F" stroke-width="1" stroke-dasharray="3,3"/>
+          <text x="355" y="330" font-family="'DM Mono',monospace" font-size="8" fill="#8D6E63" text-anchor="middle" transform="rotate(90,355,330)">← ~22 ft laterals →</text>
+        </svg>
+      </div>
+    </div>
+
+    <!-- RIGHT: Inspector panel -->
+    <div class="inspector-col" id="inspector-col">
+      <div id="insp-hint" class="inspector-hint">
+        <div class="hint-icon">⬆</div>
+        <p class="hint-text">Tap a bed on the diagram<br>to open its record.</p>
+      </div>
+      <div id="insp-content" style="display:none;"></div>
+    </div>
+
+  </div>
+</div>
+
+
+
+<div id="tab-plumbing" class="tab-panel">
+  <div class="layout-wide">
+    <div class="diagram-wrap">
+      <svg viewBox="0 0 500 620" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <pattern id="g2" width="10" height="10" patternUnits="userSpaceOnUse">
+            <path d="M 10 0 L 0 0 0 10" fill="none" stroke="#E0D5C8" stroke-width="0.5"/>
+          </pattern>
+          <filter id="ds2"><feDropShadow dx="0" dy="2" stdDeviation="2" flood-color="rgba(60,30,10,0.2)"/></filter>
+        </defs>
+
+        <rect width="500" height="620" fill="url(#g2)"/>
+        <rect x="15" y="15" width="470" height="590" rx="8" fill="#C8A96E" opacity="0.12"/>
+        <rect x="15" y="15" width="470" height="50" rx="8" fill="#A5D6A7" opacity="0.35"/>
+        <text x="250" y="45" font-family="'DM Sans',sans-serif" font-size="12" fill="#388E3C" text-anchor="middle">House (North)</text>
+
+        <!-- Compass -->
+        <text x="250" y="88" font-family="'DM Mono',monospace" font-size="9" fill="#8D6E63" text-anchor="middle">↑ N</text>
+        <text x="250" y="603" font-family="'DM Mono',monospace" font-size="9" fill="#8D6E63" text-anchor="middle">↓ S</text>
+        <text x="24" y="355" font-family="'DM Mono',monospace" font-size="9" fill="#8D6E63" text-anchor="middle">W</text>
+        <text x="478" y="355" font-family="'DM Mono',monospace" font-size="9" fill="#8D6E63" text-anchor="middle">E</text>
+
+        <!-- Ghost bed outlines — W col x=100, C col x=210, E col x=320 -->
+        <!-- R1 y=155, R2 y=255, R3 y=355, R4 y=455 each 30w x 65h rx=15 -->
+        <!-- W col -->
+        <rect x="85" y="155" width="30" height="65" rx="15" fill="none" stroke="#BCAAA4" stroke-width="1" stroke-dasharray="4,3" opacity="0.6"/>
+        <rect x="85" y="255" width="30" height="65" rx="15" fill="none" stroke="#BCAAA4" stroke-width="1" stroke-dasharray="4,3" opacity="0.6"/>
+        <rect x="85" y="355" width="30" height="65" rx="15" fill="none" stroke="#BCAAA4" stroke-width="1" stroke-dasharray="4,3" opacity="0.6"/>
+        <rect x="85" y="455" width="30" height="65" rx="15" fill="none" stroke="#BCAAA4" stroke-width="1" stroke-dasharray="4,3" opacity="0.6"/>
+        <!-- C col -->
+        <rect x="195" y="155" width="30" height="65" rx="15" fill="none" stroke="#BCAAA4" stroke-width="1" stroke-dasharray="4,3" opacity="0.6"/>
+        <rect x="195" y="255" width="30" height="65" rx="15" fill="none" stroke="#BCAAA4" stroke-width="1" stroke-dasharray="4,3" opacity="0.6"/>
+        <rect x="195" y="355" width="30" height="65" rx="15" fill="none" stroke="#BCAAA4" stroke-width="1" stroke-dasharray="4,3" opacity="0.6"/>
+        <rect x="195" y="455" width="30" height="65" rx="15" fill="none" stroke="#BCAAA4" stroke-width="1" stroke-dasharray="4,3" opacity="0.6"/>
+        <!-- E col -->
+        <rect x="305" y="155" width="30" height="65" rx="15" fill="none" stroke="#BCAAA4" stroke-width="1" stroke-dasharray="4,3" opacity="0.6"/>
+        <rect x="305" y="255" width="30" height="65" rx="15" fill="none" stroke="#BCAAA4" stroke-width="1" stroke-dasharray="4,3" opacity="0.6"/>
+        <rect x="305" y="355" width="30" height="65" rx="15" fill="none" stroke="#BCAAA4" stroke-width="1" stroke-dasharray="4,3" opacity="0.6"/>
+        <rect x="305" y="455" width="30" height="65" rx="15" fill="none" stroke="#BCAAA4" stroke-width="1" stroke-dasharray="4,3" opacity="0.6"/>
+
+        <!-- Bed labels (faint) -->
+        <text x="100" y="191" font-family="'DM Mono',monospace" font-size="7" fill="#BCAAA4" text-anchor="middle">W1</text>
+        <text x="100" y="291" font-family="'DM Mono',monospace" font-size="7" fill="#BCAAA4" text-anchor="middle">W2</text>
+        <text x="100" y="391" font-family="'DM Mono',monospace" font-size="7" fill="#BCAAA4" text-anchor="middle">W3</text>
+        <text x="100" y="491" font-family="'DM Mono',monospace" font-size="7" fill="#BCAAA4" text-anchor="middle">W4</text>
+        <text x="210" y="191" font-family="'DM Mono',monospace" font-size="7" fill="#BCAAA4" text-anchor="middle">C1</text>
+        <text x="210" y="291" font-family="'DM Mono',monospace" font-size="7" fill="#BCAAA4" text-anchor="middle">C2</text>
+        <text x="210" y="391" font-family="'DM Mono',monospace" font-size="7" fill="#BCAAA4" text-anchor="middle">C3</text>
+        <text x="210" y="491" font-family="'DM Mono',monospace" font-size="7" fill="#BCAAA4" text-anchor="middle">C4</text>
+        <text x="320" y="191" font-family="'DM Mono',monospace" font-size="7" fill="#BCAAA4" text-anchor="middle">E1</text>
+        <text x="320" y="291" font-family="'DM Mono',monospace" font-size="7" fill="#BCAAA4" text-anchor="middle">E2</text>
+        <text x="320" y="391" font-family="'DM Mono',monospace" font-size="7" fill="#BCAAA4" text-anchor="middle">E3</text>
+        <text x="320" y="491" font-family="'DM Mono',monospace" font-size="7" fill="#BCAAA4" text-anchor="middle">E4</text>
+
+        <!-- ========== SPIGOT ASSEMBLY ========== -->
+        <!-- Wall plate -->
+        <rect x="28" y="108" width="10" height="30" rx="2" fill="#9E9E9E" stroke="#757575" stroke-width="1"/>
+
+        <!-- BFP -->
+        <rect x="40" y="112" width="18" height="16" rx="2" fill="#546E7A" stroke="#37474F" stroke-width="1" filter="url(#ds2)"/>
+        <text x="49" y="123" font-family="'DM Mono',monospace" font-size="5.5" fill="white" text-anchor="middle">BFP</text>
+
+        <!-- Timer -->
+        <rect x="60" y="108" width="22" height="24" rx="2" fill="#37474F" stroke="#263238" stroke-width="1" filter="url(#ds2)"/>
+        <text x="71" y="119" font-family="'DM Mono',monospace" font-size="5.5" fill="#80CBC4" text-anchor="middle">TIMER</text>
+        <text x="71" y="127" font-family="'DM Mono',monospace" font-size="5" fill="#B2EBF2" text-anchor="middle">2-zone</text>
+
+        <!-- Pressure reg -->
+        <rect x="84" y="111" width="18" height="18" rx="2" fill="#6D4C41" stroke="#4E342E" stroke-width="1" filter="url(#ds2)"/>
+        <text x="93" y="119" font-family="'DM Mono',monospace" font-size="5" fill="#FFCCBC" text-anchor="middle">PRESS</text>
+        <text x="93" y="126" font-family="'DM Mono',monospace" font-size="5" fill="#FFCCBC" text-anchor="middle">REG</text>
+
+        <!-- Y-filter -->
+        <rect x="104" y="112" width="18" height="16" rx="2" fill="#795548" stroke="#4E342E" stroke-width="1" filter="url(#ds2)"/>
+        <text x="113" y="119" font-family="'DM Mono',monospace" font-size="5" fill="#FFF8E1" text-anchor="middle">Y-FLT</text>
+        <text x="113" y="126" font-family="'DM Mono',monospace" font-size="5" fill="#FFF8E1" text-anchor="middle">150m</text>
+
+        <!-- Connector pipes between components -->
+        <line x1="38" y1="120" x2="40" y2="120" stroke="#FF8F00" stroke-width="3"/>
+        <line x1="58" y1="120" x2="60" y2="120" stroke="#FF8F00" stroke-width="3"/>
+        <line x1="82" y1="120" x2="84" y2="120" stroke="#FF8F00" stroke-width="3"/>
+        <line x1="102" y1="120" x2="104" y2="120" stroke="#FF8F00" stroke-width="3"/>
+
+        <!-- Spigot circle -->
+        <circle cx="33" cy="120" r="7" fill="#FF8F00" stroke="#E65100" stroke-width="1.2" filter="url(#ds2)"/>
+        <text x="33" y="123" font-family="'DM Mono',monospace" font-size="5.5" fill="white" text-anchor="middle">BIB</text>
+
+        <!-- Assembly label -->
+        <rect x="27" y="96" width="98" height="10" rx="2" fill="#37474F" opacity="0.8"/>
+        <text x="76" y="104" font-family="'DM Mono',monospace" font-size="7" fill="#CFD8DC" text-anchor="middle">SPIGOT ASSEMBLY</text>
+
+        <!-- Numbers above assembly -->
+        <text x="49" y="109" font-family="'DM Mono',monospace" font-size="7" fill="#546E7A" text-anchor="middle">①</text>
+        <text x="71" y="107" font-family="'DM Mono',monospace" font-size="7" fill="#37474F" text-anchor="middle">②</text>
+        <text x="93" y="109" font-family="'DM Mono',monospace" font-size="7" fill="#6D4C41" text-anchor="middle">③</text>
+        <text x="113" y="109" font-family="'DM Mono',monospace" font-size="7" fill="#795548" text-anchor="middle">④</text>
+
+        <!-- ========== TRUNK ========== -->
+        <!-- Spigot run orange -->
+        <line x1="28" y1="120" x2="35" y2="120" stroke="#FF8F00" stroke-width="5" stroke-linecap="round"/>
+        <line x1="122" y1="120" x2="355" y2="120" stroke="#4E342E" stroke-width="6" stroke-linecap="round"/>
+        <line x1="122" y1="120" x2="355" y2="120" stroke="#8D6E63" stroke-width="3.5" class="pipe-flow" opacity="0.55"/>
+
+        <!-- Trunk label -->
+        <rect x="175" y="103" width="110" height="13" rx="3" fill="#4E342E" opacity="0.88"/>
+        <text x="230" y="113" font-family="'DM Mono',monospace" font-size="7.5" fill="#D7CCC8" text-anchor="middle">3/4" PVC TRUNK  ~15 ft</text>
+        <line x1="230" y1="116" x2="230" y2="120" stroke="#4E342E" stroke-width="1"/>
+
+        <!-- Trunk end cap -->
+        <rect x="354" y="114" width="10" height="12" rx="2" fill="#3E2723" stroke="#1A0000" stroke-width="1"/>
+        <text x="373" y="122" font-family="'DM Mono',monospace" font-size="7" fill="#5D4037">end cap</text>
+
+        <!-- ========== ZONE VALVES ========== -->
+        <!-- Z2 valve at x=122 (near W lateral) -->
+        <rect x="112" y="113" width="22" height="14" rx="3" fill="#1B5E20" stroke="#0a3d10" stroke-width="1.2" filter="url(#ds2)"/>
+        <text x="123" y="123" font-family="'DM Mono',monospace" font-size="7" fill="white" text-anchor="middle">Z2 valve</text>
+
+        <!-- Z1 valve at x=310 (near E lateral) -->
+        <rect x="298" y="113" width="22" height="14" rx="3" fill="#B71C1C" stroke="#7f0000" stroke-width="1.2" filter="url(#ds2)"/>
+        <text x="309" y="123" font-family="'DM Mono',monospace" font-size="7" fill="white" text-anchor="middle">Z1 valve</text>
+
+        <!-- ========== TEE FITTINGS ========== -->
+        <!-- W tee at x=100 -->
+        <circle cx="100" cy="120" r="7" fill="#388E3C" stroke="#1B5E20" stroke-width="2"/>
+        <text x="100" y="124" font-family="'DM Mono',monospace" font-size="6" fill="white" text-anchor="middle">TEE</text>
+        <text x="100" y="137" font-family="'DM Mono',monospace" font-size="6.5" fill="#2E7D32" text-anchor="middle">3/4"→1/2"</text>
+
+        <!-- C tee at x=210 -->
+        <circle cx="210" cy="120" r="7" fill="#388E3C" stroke="#1B5E20" stroke-width="2"/>
+        <text x="210" y="124" font-family="'DM Mono',monospace" font-size="6" fill="white" text-anchor="middle">TEE</text>
+        <text x="210" y="137" font-family="'DM Mono',monospace" font-size="6.5" fill="#2E7D32" text-anchor="middle">3/4"→1/2"</text>
+
+        <!-- E tee at x=320 -->
+        <circle cx="320" cy="120" r="7" fill="#C62828" stroke="#B71C1C" stroke-width="2"/>
+        <text x="320" y="124" font-family="'DM Mono',monospace" font-size="6" fill="white" text-anchor="middle">TEE</text>
+        <text x="320" y="137" font-family="'DM Mono',monospace" font-size="6.5" fill="#C62828" text-anchor="middle">3/4"→1/2"</text>
+
+        <!-- ========== LATERALS ========== -->
+        <!-- W lateral x=100 -->
+        <line x1="100" y1="127" x2="100" y2="530" stroke="#2E7D32" stroke-width="5" stroke-linecap="round"/>
+        <line x1="100" y1="127" x2="100" y2="530" stroke="#81C784" stroke-width="3" class="pipe-flow" opacity="0.65"/>
+        <rect x="94" y="529" width="12" height="8" rx="2" fill="#1B5E20"/>
+        <text x="100" y="549" font-family="'DM Mono',monospace" font-size="6.5" fill="#2E7D32" text-anchor="middle">end cap</text>
+
+        <!-- W lateral label -->
+        <rect x="42" y="143" width="72" height="12" rx="3" fill="#2E7D32" opacity="0.82"/>
+        <text x="78" y="152" font-family="'DM Mono',monospace" font-size="7" fill="white" text-anchor="middle">W col  ~22 ft</text>
+
+        <!-- C lateral x=210 -->
+        <line x1="210" y1="127" x2="210" y2="530" stroke="#2E7D32" stroke-width="5" stroke-linecap="round"/>
+        <line x1="210" y1="127" x2="210" y2="530" stroke="#81C784" stroke-width="3" class="pipe-flow" opacity="0.65"/>
+        <rect x="204" y="529" width="12" height="8" rx="2" fill="#1B5E20"/>
+        <text x="210" y="549" font-family="'DM Mono',monospace" font-size="6.5" fill="#2E7D32" text-anchor="middle">end cap</text>
+
+        <!-- C lateral label -->
+        <rect x="152" y="143" width="72" height="12" rx="3" fill="#2E7D32" opacity="0.82"/>
+        <text x="188" y="152" font-family="'DM Mono',monospace" font-size="7" fill="white" text-anchor="middle">C col  ~22 ft</text>
+
+        <!-- E lateral x=320 -->
+        <line x1="320" y1="127" x2="320" y2="530" stroke="#C62828" stroke-width="5" stroke-linecap="round"/>
+        <line x1="320" y1="127" x2="320" y2="530" stroke="#EF9A9A" stroke-width="3" class="pipe-flow" opacity="0.65"/>
+        <rect x="314" y="529" width="12" height="8" rx="2" fill="#B71C1C"/>
+        <text x="320" y="549" font-family="'DM Mono',monospace" font-size="6.5" fill="#C62828" text-anchor="middle">end cap</text>
+
+        <!-- E lateral label -->
+        <rect x="262" y="143" width="72" height="12" rx="3" fill="#C62828" opacity="0.82"/>
+        <text x="298" y="152" font-family="'DM Mono',monospace" font-size="7" fill="white" text-anchor="middle">E col  ~22 ft</text>
+
+        <!-- ========== BARBED TEE CALLOUTS ON LATERALS ========== -->
+        <!-- One callout symbol per lateral per row where a bed appears -->
+        <!-- Row centers: 187 (mid of row 1 bed), 287, 387, 487 -->
+        <!-- W col barbed tees -->
+        <rect x="94" y="183" width="12" height="8" rx="2" fill="#558B2F" opacity="0.85"/>
+        <rect x="94" y="283" width="12" height="8" rx="2" fill="#558B2F" opacity="0.85"/>
+        <rect x="94" y="383" width="12" height="8" rx="2" fill="#558B2F" opacity="0.85"/>
+        <rect x="94" y="483" width="12" height="8" rx="2" fill="#558B2F" opacity="0.85"/>
+        <!-- C col barbed tees -->
+        <rect x="204" y="183" width="12" height="8" rx="2" fill="#558B2F" opacity="0.85"/>
+        <rect x="204" y="283" width="12" height="8" rx="2" fill="#558B2F" opacity="0.85"/>
+        <rect x="204" y="383" width="12" height="8" rx="2" fill="#558B2F" opacity="0.85"/>
+        <rect x="204" y="483" width="12" height="8" rx="2" fill="#558B2F" opacity="0.85"/>
+        <!-- E col barbed tees (red for zone 1) -->
+        <rect x="314" y="183" width="12" height="8" rx="2" fill="#B71C1C" opacity="0.85"/>
+        <rect x="314" y="283" width="12" height="8" rx="2" fill="#B71C1C" opacity="0.85"/>
+        <rect x="314" y="383" width="12" height="8" rx="2" fill="#B71C1C" opacity="0.85"/>
+        <rect x="314" y="483" width="12" height="8" rx="2" fill="#B71C1C" opacity="0.85"/>
+
+        <!-- Key callout for barbed tees -->
+        <line x1="94" y1="187" x2="64" y2="174" stroke="#558B2F" stroke-width="1" stroke-dasharray="2,2"/>
+        <rect x="26" y="162" width="36" height="12" rx="2" fill="#F5EFE6" stroke="#A5D6A7" stroke-width="1"/>
+        <text x="44" y="171" font-family="'DM Mono',monospace" font-size="6.5" fill="#2E7D32" text-anchor="middle">barbed tee</text>
+        <text x="44" y="181" font-family="'DM Mono',monospace" font-size="6" fill="#8D6E63" text-anchor="middle">→ poly tubing</text>
+        <text x="44" y="189" font-family="'DM Mono',monospace" font-size="6" fill="#8D6E63" text-anchor="middle">→ into bed</text>
+
+        <!-- Poly tubing dashes going into beds (W col row 1 as example) -->
+        <line x1="85" y1="187" x2="106" y2="187" stroke="#558B2F" stroke-width="2" stroke-dasharray="3,2"/>
+        <line x1="195" y1="187" x2="216" y2="187" stroke="#558B2F" stroke-width="2" stroke-dasharray="3,2"/>
+        <line x1="305" y1="187" x2="326" y2="187" stroke="#9E1010" stroke-width="2" stroke-dasharray="3,2"/>
+
+        <!-- Emitter dots in ghost beds -->
+        <!-- W col -->
+        <circle cx="92" cy="163" r="3" fill="#2E7D32" opacity="0.7"/>
+        <circle cx="92" cy="172" r="3" fill="#2E7D32" opacity="0.7"/>
+        <circle cx="92" cy="208" r="3" fill="#2E7D32" opacity="0.7"/>
+        <circle cx="92" cy="215" r="3" fill="#2E7D32" opacity="0.7"/>
+        <circle cx="92" cy="263" r="3" fill="#2E7D32" opacity="0.7"/>
+        <circle cx="92" cy="272" r="3" fill="#2E7D32" opacity="0.7"/>
+        <circle cx="92" cy="308" r="3" fill="#2E7D32" opacity="0.7"/>
+        <circle cx="92" cy="315" r="3" fill="#2E7D32" opacity="0.7"/>
+        <circle cx="92" cy="363" r="3" fill="#2E7D32" opacity="0.7"/>
+        <circle cx="92" cy="372" r="3" fill="#2E7D32" opacity="0.7"/>
+        <circle cx="92" cy="408" r="3" fill="#2E7D32" opacity="0.7"/>
+        <circle cx="92" cy="415" r="3" fill="#2E7D32" opacity="0.7"/>
+        <circle cx="92" cy="463" r="3" fill="#2E7D32" opacity="0.7"/>
+        <circle cx="92" cy="472" r="3" fill="#2E7D32" opacity="0.7"/>
+        <circle cx="92" cy="508" r="3" fill="#2E7D32" opacity="0.7"/>
+        <circle cx="92" cy="515" r="3" fill="#2E7D32" opacity="0.7"/>
+        <!-- C col -->
+        <circle cx="202" cy="163" r="3" fill="#2E7D32" opacity="0.7"/>
+        <circle cx="202" cy="172" r="3" fill="#2E7D32" opacity="0.7"/>
+        <circle cx="202" cy="208" r="3" fill="#2E7D32" opacity="0.7"/>
+        <circle cx="202" cy="215" r="3" fill="#2E7D32" opacity="0.7"/>
+        <circle cx="202" cy="263" r="3" fill="#2E7D32" opacity="0.7"/>
+        <circle cx="202" cy="272" r="3" fill="#2E7D32" opacity="0.7"/>
+        <circle cx="202" cy="308" r="3" fill="#2E7D32" opacity="0.7"/>
+        <circle cx="202" cy="315" r="3" fill="#2E7D32" opacity="0.7"/>
+        <circle cx="202" cy="363" r="3" fill="#2E7D32" opacity="0.7"/>
+        <circle cx="202" cy="372" r="3" fill="#2E7D32" opacity="0.7"/>
+        <circle cx="202" cy="408" r="3" fill="#2E7D32" opacity="0.7"/>
+        <circle cx="202" cy="415" r="3" fill="#2E7D32" opacity="0.7"/>
+        <circle cx="202" cy="463" r="3" fill="#2E7D32" opacity="0.7"/>
+        <circle cx="202" cy="472" r="3" fill="#2E7D32" opacity="0.7"/>
+        <circle cx="202" cy="508" r="3" fill="#2E7D32" opacity="0.7"/>
+        <circle cx="202" cy="515" r="3" fill="#2E7D32" opacity="0.7"/>
+        <!-- E col (Zone 1 — red) -->
+        <circle cx="312" cy="163" r="3.5" fill="#C62828" opacity="0.7"/>
+        <circle cx="312" cy="173" r="3.5" fill="#C62828" opacity="0.7"/>
+        <circle cx="312" cy="208" r="3.5" fill="#C62828" opacity="0.7"/>
+        <circle cx="312" cy="215" r="3.5" fill="#C62828" opacity="0.7"/>
+        <circle cx="312" cy="263" r="3.5" fill="#C62828" opacity="0.7"/>
+        <circle cx="312" cy="272" r="3.5" fill="#C62828" opacity="0.7"/>
+        <circle cx="312" cy="308" r="3.5" fill="#C62828" opacity="0.7"/>
+        <circle cx="312" cy="315" r="3.5" fill="#C62828" opacity="0.7"/>
+        <circle cx="312" cy="363" r="3.5" fill="#C62828" opacity="0.7"/>
+        <circle cx="312" cy="372" r="3.5" fill="#C62828" opacity="0.7"/>
+        <circle cx="312" cy="408" r="3.5" fill="#C62828" opacity="0.7"/>
+        <circle cx="312" cy="415" r="3.5" fill="#C62828" opacity="0.7"/>
+        <circle cx="312" cy="463" r="3.5" fill="#C62828" opacity="0.7"/>
+        <circle cx="312" cy="472" r="3.5" fill="#C62828" opacity="0.7"/>
+        <circle cx="312" cy="508" r="3.5" fill="#C62828" opacity="0.7"/>
+        <circle cx="312" cy="515" r="3.5" fill="#C62828" opacity="0.7"/>
+
+        <!-- Dimension annotations -->
+        <line x1="85" y1="566" x2="340" y2="566" stroke="#A1887F" stroke-width="1" stroke-dasharray="3,3"/>
+        <text x="212" y="580" font-family="'DM Mono',monospace" font-size="8" fill="#8D6E63" text-anchor="middle">← ~12 ft bed grid →</text>
+        <line x1="410" y1="120" x2="410" y2="530" stroke="#A1887F" stroke-width="1" stroke-dasharray="3,3"/>
+        <text x="455" y="330" font-family="'DM Mono',monospace" font-size="8" fill="#8D6E63" text-anchor="middle" transform="rotate(90,455,330)">← ~22 ft laterals →</text>
+      </svg>
+    </div>
+
+    <div class="sidebar">
+      <div class="card">
+        <h3>① Backflow Preventer</h3>
+        <p style="font-size:0.8rem;line-height:1.5;color:var(--text-muted);">Screws directly onto hose bib. Prevents water in the irrigation line from ever siphoning back into your home supply. Required by most codes.</p>
+      </div>
+      <div class="card">
+        <h3>② Smart Timer (2-zone)</h3>
+        <p style="font-size:0.8rem;line-height:1.5;color:var(--text-muted);">Controls Zone 1 (tomatoes) and Zone 2 (everything else) on independent schedules. Choose one with weather-skip (Rachio 3, Orbit B-hyve, Rain Bird). Connects between BFP and pressure regulator.</p>
+      </div>
+      <div class="card">
+        <h3>③ Pressure Regulator</h3>
+        <p style="font-size:0.8rem;line-height:1.5;color:var(--text-muted);">Steps your bib pressure down to 25–30 PSI. This is not optional — without it emitters will blow out or mist instead of drip.</p>
+      </div>
+      <div class="card">
+        <h3>④ Y-Filter (150 mesh)</h3>
+        <p style="font-size:0.8rem;line-height:1.5;color:var(--text-muted);">Catches sediment that would clog emitters over time. Installed after the regulator. Clean out the screen at the start of each season.</p>
+      </div>
+      <div class="card">
+        <h3>Trunk &amp; Laterals</h3>
+        <p style="font-size:0.8rem;line-height:1.5;color:var(--text-muted);">3/4" PVC runs east-west along the house. Three 1/2" PVC laterals drop south, one per column. Each lateral ends with an end cap. A barbed tee fitting on the lateral is where water branches off into each bed via flexible poly tubing.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- ============================================================ -->
+<!--  TAB 3 — BED CONNECTION                                     -->
+<!-- ============================================================ -->
+<div id="tab-detail" class="tab-panel">
+  <div class="layout-wide">
+    <div class="diagram-wrap">
+      <!-- This is a zoomed cross-section: lateral pipe on left edge, bed on right -->
+      <svg viewBox="0 0 580 500" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <pattern id="g3" width="10" height="10" patternUnits="userSpaceOnUse">
+            <path d="M 10 0 L 0 0 0 10" fill="none" stroke="#E0D5C8" stroke-width="0.5"/>
+          </pattern>
+          <filter id="ds3"><feDropShadow dx="0" dy="2" stdDeviation="2.5" flood-color="rgba(60,30,10,0.25)"/></filter>
+          <!-- Soil hatch pattern -->
+          <pattern id="soil" width="8" height="8" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">
+            <line x1="0" y1="0" x2="0" y2="8" stroke="#A1887F" stroke-width="1" opacity="0.4"/>
+          </pattern>
+          <!-- Mulch dots -->
+          <pattern id="mulch" width="6" height="6" patternUnits="userSpaceOnUse">
+            <circle cx="3" cy="3" r="1.5" fill="#8D6E63" opacity="0.35"/>
+          </pattern>
+          <marker id="arr" markerWidth="8" markerHeight="8" refX="6" refY="4" orient="auto">
+            <path d="M0,0 L8,4 L0,8 Z" fill="#5D4037"/>
+          </marker>
+          <marker id="arr-blue" markerWidth="8" markerHeight="8" refX="6" refY="4" orient="auto">
+            <path d="M0,0 L8,4 L0,8 Z" fill="#1565C0"/>
+          </marker>
+        </defs>
+
+        <rect width="580" height="500" fill="url(#g3)"/>
+        <rect x="10" y="10" width="560" height="480" rx="8" fill="#C8A96E" opacity="0.1"/>
+
+        <!-- ====== TITLE ====== -->
+        <text x="290" y="40" font-family="'Playfair Display',serif" font-size="16" fill="#3E2723" text-anchor="middle" font-weight="700">How Water Gets Into a Bed</text>
+        <text x="290" y="56" font-family="'DM Mono',monospace" font-size="8" fill="#8D6E63" text-anchor="middle" letter-spacing="1">FROM 1/2" PVC LATERAL → THROUGH BED → TO PLANT ROOTS</text>
+
+        <!-- ====== RAISED BED (side + top view) ====== -->
+        <!-- Bed walls (side view, looking from south) -->
+        <!-- Bed frame = 300w x 160h, sitting on grade, positioned center-right -->
+        <rect x="210" y="190" width="320" height="160" rx="4" fill="#5D4037" stroke="#3E2723" stroke-width="2" filter="url(#ds3)"/>
+        <!-- Soil fill inside bed -->
+        <rect x="218" y="198" width="304" height="144" fill="url(#soil)"/>
+        <rect x="218" y="198" width="304" height="144" fill="#8D6E63" opacity="0.25"/>
+        <!-- Mulch top layer (~25px deep) -->
+        <rect x="218" y="198" width="304" height="28" fill="url(#mulch)"/>
+        <rect x="218" y="198" width="304" height="28" fill="#6D4C41" opacity="0.3"/>
+
+        <!-- Mulch label -->
+        <line x1="530" y1="211" x2="555" y2="200" stroke="#5D4037" stroke-width="1" marker-end="url(#arr)"/>
+        <text x="558" y="198" font-family="'DM Mono',monospace" font-size="8" fill="#5D4037">mulch</text>
+        <text x="558" y="208" font-family="'DM Mono',monospace" font-size="7" fill="#8D6E63">2–3"</text>
+
+        <!-- Soil label -->
+        <line x1="530" y1="290" x2="555" y2="285" stroke="#5D4037" stroke-width="1" marker-end="url(#arr)"/>
+        <text x="558" y="283" font-family="'DM Mono',monospace" font-size="8" fill="#5D4037">soil</text>
+
+        <!-- Bed wall label -->
+        <line x1="210" y1="275" x2="185" y2="290" stroke="#3E2723" stroke-width="1" marker-end="url(#arr)"/>
+        <text x="120" y="288" font-family="'DM Mono',monospace" font-size="8" fill="#3E2723">bed wall</text>
+        <text x="120" y="298" font-family="'DM Mono',monospace" font-size="7" fill="#8D6E63">2×6 or 2×8</text>
+
+        <!-- Bed dimension labels -->
+        <line x1="210" y1="360" x2="530" y2="360" stroke="#A1887F" stroke-width="1" stroke-dasharray="3,2"/>
+        <text x="370" y="375" font-family="'DM Mono',monospace" font-size="8" fill="#8D6E63" text-anchor="middle">← 4 ft →</text>
+
+        <!-- ====== 1/2" PVC LATERAL (runs top to bottom on left) ====== -->
+        <!-- The lateral is running north-south past this bed -->
+        <rect x="60" y="100" width="22" height="370" rx="6" fill="#2E7D32" stroke="#1B5E20" stroke-width="2" filter="url(#ds3)"/>
+        <!-- Flow animation overlay -->
+        <rect x="64" y="100" width="14" height="370" rx="4" fill="#81C784" opacity="0.4" style="stroke-dasharray:8 6; animation:flow 1.5s linear infinite;"/>
+        <!-- Lateral label -->
+        <rect x="25" y="110" width="28" height="42" rx="3" fill="#2E7D32" opacity="0.9"/>
+        <text x="39" y="126" font-family="'DM Mono',monospace" font-size="7" fill="white" text-anchor="middle">1/2"</text>
+        <text x="39" y="136" font-family="'DM Mono',monospace" font-size="7" fill="white" text-anchor="middle">PVC</text>
+        <text x="39" y="146" font-family="'DM Mono',monospace" font-size="7" fill="#C8E6C9" text-anchor="middle">lateral</text>
+        <line x1="53" y1="131" x2="60" y2="131" stroke="#2E7D32" stroke-width="1"/>
+
+        <!-- Flow direction arrow -->
+        <text x="71" y="98" font-family="'DM Mono',monospace" font-size="9" fill="#2E7D32" text-anchor="middle">↓</text>
+        <text x="71" y="108" font-family="'DM Mono',monospace" font-size="7" fill="#8D6E63" text-anchor="middle">flow</text>
+
+        <!-- ====== HOLE IN LATERAL ====== -->
+        <!-- The barb punches a hole at bed mid height y~250 -->
+        <circle cx="82" cy="255" r="5" fill="#FF8F00" stroke="#E65100" stroke-width="1.5"/>
+        <text x="82" y="259" font-family="'DM Mono',monospace" font-size="5.5" fill="white" text-anchor="middle">hole</text>
+        <line x1="90" y1="248" x2="110" y2="235" stroke="#E65100" stroke-width="1" stroke-dasharray="2,2" marker-end="url(#arr)"/>
+        <text x="113" y="232" font-family="'DM Mono',monospace" font-size="8" fill="#E65100">punch hole</text>
+        <text x="113" y="242" font-family="'DM Mono',monospace" font-size="7" fill="#8D6E63">with hole punch tool</text>
+
+        <!-- ====== BARBED TEE FITTING ====== -->
+        <!-- Sits at the hole, straddles lateral wall -->
+        <rect x="78" y="249" width="28" height="14" rx="3" fill="#3E2723" stroke="#1A0000" stroke-width="1.2" filter="url(#ds3)"/>
+        <!-- The barb "T" shape protruding right -->
+        <rect x="103" y="251" width="16" height="10" rx="2" fill="#4E342E" stroke="#3E2723" stroke-width="1"/>
+        <text x="91" y="258" font-family="'DM Mono',monospace" font-size="5.5" fill="#D7CCC8" text-anchor="middle">barbed tee</text>
+
+        <!-- Barbed tee label -->
+        <line x1="82" y1="263" x2="82" y2="290" stroke="#3E2723" stroke-width="1" stroke-dasharray="2,2" marker-end="url(#arr)"/>
+        <rect x="25" y="292" width="112" height="22" rx="3" fill="#F5EFE6" stroke="#D7CCC8" stroke-width="1"/>
+        <text x="81" y="304" font-family="'DM Mono',monospace" font-size="7.5" fill="#3E2723" text-anchor="middle">barbed tee fitting</text>
+        <text x="81" y="312" font-family="'DM Mono',monospace" font-size="6.5" fill="#8D6E63" text-anchor="middle">press-fit into punched hole</text>
+
+        <!-- ====== 1/2" POLY TUBING ====== -->
+        <!-- Runs from barb right into the bed entry, then snakes inside -->
+        <!-- Entry run: horizontal from barb to bed wall -->
+        <line x1="119" y1="256" x2="210" y2="256" stroke="#558B2F" stroke-width="4" stroke-linecap="round" stroke-dasharray="6,3"/>
+
+        <!-- Service loop just before bed entry -->
+        <!-- Little U shape showing slack loop -->
+        <path d="M185,256 Q178,275 185,265 Q192,255 200,265 Q208,275 210,256" fill="none" stroke="#558B2F" stroke-width="3"/>
+        <line x1="193" y1="275" x2="193" y2="296" stroke="#5D4037" stroke-width="1" stroke-dasharray="2,2" marker-end="url(#arr)"/>
+        <rect x="145" y="297" width="90" height="22" rx="3" fill="#F5EFE6" stroke="#D7CCC8" stroke-width="1"/>
+        <text x="190" y="309" font-family="'DM Mono',monospace" font-size="7.5" fill="#3E2723" text-anchor="middle">service loop</text>
+        <text x="190" y="317" font-family="'DM Mono',monospace" font-size="6.5" fill="#8D6E63" text-anchor="middle">6" slack at bed entry</text>
+
+        <!-- Poly tubing inside bed: runs along bed interior -->
+        <line x1="218" y1="222" x2="520" y2="222" stroke="#558B2F" stroke-width="3.5" stroke-linecap="round" stroke-dasharray="6,3"/>
+        <!-- Entry transition: vertical from wall entry to inside run -->
+        <line x1="218" y1="255" x2="218" y2="222" stroke="#558B2F" stroke-width="3.5" stroke-linecap="round"/>
+
+        <!-- Poly label -->
+        <line x1="370" y1="222" x2="370" y2="192" stroke="#558B2F" stroke-width="1" stroke-dasharray="2,2" marker-end="url(#arr)"/>
+        <rect x="295" y="170" width="150" height="20" rx="3" fill="#558B2F" opacity="0.9"/>
+        <text x="370" y="184" font-family="'DM Mono',monospace" font-size="8" fill="white" text-anchor="middle">1/2" poly drip tubing</text>
+        <text x="370" y="167" font-family="'DM Mono',monospace" font-size="7" fill="#8D6E63" text-anchor="middle">lays inside bed, pinned flat by stakes</text>
+
+        <!-- ====== TUBING STAKES ====== -->
+        <!-- 3 stakes pinning the poly line to soil surface -->
+        <g><!-- stake 1 at x=270 -->
+          <line x1="270" y1="222" x2="270" y2="250" stroke="#795548" stroke-width="3" stroke-linecap="round"/>
+          <path d="M265,250 L270,260 L275,250 Z" fill="#795548"/>
+        </g>
+        <g><!-- stake 2 at x=370 -->
+          <line x1="370" y1="222" x2="370" y2="250" stroke="#795548" stroke-width="3" stroke-linecap="round"/>
+          <path d="M365,250 L370,260 L375,250 Z" fill="#795548"/>
+        </g>
+        <g><!-- stake 3 at x=470 -->
+          <line x1="470" y1="222" x2="470" y2="250" stroke="#795548" stroke-width="3" stroke-linecap="round"/>
+          <path d="M465,250 L470,260 L475,250 Z" fill="#795548"/>
+        </g>
+        <!-- stake label -->
+        <line x1="270" y1="258" x2="240" y2="330" stroke="#795548" stroke-width="1" stroke-dasharray="2,2" marker-end="url(#arr)"/>
+        <rect x="175" y="332" width="74" height="20" rx="3" fill="#F5EFE6" stroke="#D7CCC8" stroke-width="1"/>
+        <text x="212" y="342" font-family="'DM Mono',monospace" font-size="7.5" fill="#3E2723" text-anchor="middle">tubing stake</text>
+        <text x="212" y="350" font-family="'DM Mono',monospace" font-size="6.5" fill="#8D6E63" text-anchor="middle">~5 per bed</text>
+
+        <!-- ====== EMITTERS ====== -->
+        <!-- 4 emitters on the poly line: x=260, 330, 410, 490 -->
+        <!-- Each emitter: small cylinder on line, drip drop below -->
+        <!-- Emitter 1 -->
+        <rect x="252" y="216" width="16" height="12" rx="3" fill="#2E7D32" stroke="#1B5E20" stroke-width="1" filter="url(#ds3)"/>
+        <text x="260" y="225" font-family="'DM Mono',monospace" font-size="5.5" fill="white" text-anchor="middle">1gph</text>
+        <!-- Emitter 2 -->
+        <rect x="322" y="216" width="16" height="12" rx="3" fill="#2E7D32" stroke="#1B5E20" stroke-width="1" filter="url(#ds3)"/>
+        <text x="330" y="225" font-family="'DM Mono',monospace" font-size="5.5" fill="white" text-anchor="middle">1gph</text>
+        <!-- Emitter 3 -->
+        <rect x="402" y="216" width="16" height="12" rx="3" fill="#2E7D32" stroke="#1B5E20" stroke-width="1" filter="url(#ds3)"/>
+        <text x="410" y="225" font-family="'DM Mono',monospace" font-size="5.5" fill="white" text-anchor="middle">1gph</text>
+        <!-- Emitter 4 -->
+        <rect x="482" y="216" width="16" height="12" rx="3" fill="#2E7D32" stroke="#1B5E20" stroke-width="1" filter="url(#ds3)"/>
+        <text x="490" y="225" font-family="'DM Mono',monospace" font-size="5.5" fill="white" text-anchor="middle">1gph</text>
+
+        <!-- Water drip paths from each emitter down into soil -->
+        <!-- Drip 1 -->
+        <line x1="260" y1="228" x2="260" y2="255" stroke="#1565C0" stroke-width="1.5" stroke-dasharray="3,2" opacity="0.75"/>
+        <ellipse cx="260" cy="258" rx="3" ry="4" fill="#1565C0" opacity="0.65"/>
+        <!-- Drip 2 -->
+        <line x1="330" y1="228" x2="330" y2="255" stroke="#1565C0" stroke-width="1.5" stroke-dasharray="3,2" opacity="0.75"/>
+        <ellipse cx="330" cy="258" rx="3" ry="4" fill="#1565C0" opacity="0.65"/>
+        <!-- Drip 3 -->
+        <line x1="410" y1="228" x2="410" y2="255" stroke="#1565C0" stroke-width="1.5" stroke-dasharray="3,2" opacity="0.75"/>
+        <ellipse cx="410" cy="258" rx="3" ry="4" fill="#1565C0" opacity="0.65"/>
+        <!-- Drip 4 -->
+        <line x1="490" y1="228" x2="490" y2="255" stroke="#1565C0" stroke-width="1.5" stroke-dasharray="3,2" opacity="0.75"/>
+        <ellipse cx="490" cy="258" rx="3" ry="4" fill="#1565C0" opacity="0.65"/>
+
+        <!-- Water spreading through soil (radius arcs under each emitter) -->
+        <ellipse cx="260" cy="268" rx="22" ry="14" fill="#1565C0" opacity="0.08" stroke="#1565C0" stroke-width="0.8" stroke-dasharray="3,2"/>
+        <ellipse cx="330" cy="268" rx="22" ry="14" fill="#1565C0" opacity="0.08" stroke="#1565C0" stroke-width="0.8" stroke-dasharray="3,2"/>
+        <ellipse cx="410" cy="268" rx="22" ry="14" fill="#1565C0" opacity="0.08" stroke="#1565C0" stroke-width="0.8" stroke-dasharray="3,2"/>
+        <ellipse cx="490" cy="268" rx="22" ry="14" fill="#1565C0" opacity="0.08" stroke="#1565C0" stroke-width="0.8" stroke-dasharray="3,2"/>
+
+        <!-- Water & emitter label -->
+        <line x1="490" y1="228" x2="545" y2="215" stroke="#1565C0" stroke-width="1" marker-end="url(#arr-blue)"/>
+        <text x="548" y="213" font-family="'DM Mono',monospace" font-size="8" fill="#1565C0">drip</text>
+        <text x="548" y="222" font-family="'DM Mono',monospace" font-size="7" fill="#1565C0">emitter</text>
+
+        <!-- Goof plug shown on end of poly -->
+        <circle cx="522" cy="222" r="6" fill="#FF8F00" stroke="#E65100" stroke-width="1.2"/>
+        <text x="522" y="225" font-family="'DM Mono',monospace" font-size="5.5" fill="white" text-anchor="middle">GP</text>
+        <line x1="522" y1="228" x2="522" y2="296" stroke="#E65100" stroke-width="1" stroke-dasharray="2,2" marker-end="url(#arr)"/>
+        <rect x="480" y="298" width="62" height="20" rx="3" fill="#F5EFE6" stroke="#D7CCC8" stroke-width="1"/>
+        <text x="511" y="308" font-family="'DM Mono',monospace" font-size="7.5" fill="#3E2723" text-anchor="middle">end / goof</text>
+        <text x="511" y="316" font-family="'DM Mono',monospace" font-size="6.5" fill="#8D6E63" text-anchor="middle">plug end cap</text>
+
+        <!-- ====== GROUND LINE ====== -->
+        <line x1="50" y1="350" x2="540" y2="350" stroke="#5D4037" stroke-width="2" stroke-dasharray="6,4" opacity="0.4"/>
+        <text x="30" y="355" font-family="'DM Mono',monospace" font-size="7" fill="#8D6E63">grade</text>
+
+        <!-- ====== WATER PATH SUMMARY ARROW ====== -->
+        <rect x="60" y="410" width="450" height="30" rx="6" fill="#E8F5E9" stroke="#A5D6A7" stroke-width="1"/>
+        <text x="285" y="425" font-family="'DM Mono',monospace" font-size="8" fill="#2E7D32" text-anchor="middle">
+          WATER PATH: PVC lateral → hole punch → barbed tee → poly tubing → emitter → soil
+        </text>
+        <text x="285" y="436" font-family="'DM Mono',monospace" font-size="7" fill="#8D6E63" text-anchor="middle">
+          everything after the barbed tee is inside or above the bed — no buried drip lines needed
+        </text>
+
+        <!-- Note about Zone 1 (tomatoes use 2 GPH) -->
+        <rect x="60" y="450" width="450" height="22" rx="6" fill="#FFEBEE" stroke="#FFCDD2" stroke-width="1"/>
+        <text x="285" y="462" font-family="'DM Mono',monospace" font-size="7.5" fill="#C62828" text-anchor="middle">
+          Zone 1 (tomatoes): same setup, just swap emitters to 2 GPH
+        </text>
+        <text x="285" y="470" font-family="'DM Mono',monospace" font-size="7" fill="#8D6E63" text-anchor="middle">
+          the barbed tee, poly tubing, and stakes are identical across all beds
+        </text>
+      </svg>
+    </div>
+
+    <div class="sidebar">
+      <div class="card">
+        <h3>What You're Looking At</h3>
+        <p style="font-size:0.8rem;line-height:1.6;color:var(--text-muted);">This is a side view of one bed. The PVC lateral runs along the <em>outside</em> of the bed. Water branches off the lateral at a barbed tee fitting, travels through flexible poly tubing into the bed, and drips from emitters directly at soil level under the mulch.</p>
+      </div>
+
+      <div class="card">
+        <h3>Step by Step</h3>
+        <div class="step-item">
+          <div class="step-num">1</div>
+          <div class="step-text"><strong>Punch a hole in the lateral</strong><p>Use a dedicated hole punch tool. Position it at the height you want the tubing to enter the bed — typically at mid-wall height.</p></div>
+        </div>
+        <div class="step-item">
+          <div class="step-num">2</div>
+          <div class="step-text"><strong>Press in the barbed tee</strong><p>The barb grabs the pipe wall. One side stays in the hole, one side faces toward the bed. No glue, no clamps — just press firmly.</p></div>
+        </div>
+        <div class="step-item">
+          <div class="step-num">3</div>
+          <div class="step-text"><strong>Run poly tubing into the bed</strong><p>Cut a length of 1/2" poly tubing. Leave a 6" service loop at the entry point — that slack lets you adjust later without stressing the barb. Route the tubing along the inside of the bed wall.</p></div>
+        </div>
+        <div class="step-item">
+          <div class="step-num">4</div>
+          <div class="step-text"><strong>Install emitters</strong><p>Punch holes in the poly tubing, press emitters in. 4 per bed, spaced evenly. 1 GPH for most crops, 2 GPH for tomatoes.</p></div>
+        </div>
+        <div class="step-item">
+          <div class="step-num">5</div>
+          <div class="step-text"><strong>Pin tubing with stakes</strong><p>Plastic tubing stakes every 8–12 inches keep the line flat against the soil. Without stakes it lifts and wanders over time.</p></div>
+        </div>
+        <div class="step-item">
+          <div class="step-num">6</div>
+          <div class="step-text"><strong>Cap the end</strong><p>Fold the end of the poly tubing and secure with an end cap, or use a goof plug on the final hole. If you mis-punch a hole anywhere, fill it with a goof plug.</p></div>
+        </div>
+      </div>
+
+      <div class="card">
+        <h3>Tips</h3>
+        <p style="font-size:0.78rem;line-height:1.6;color:var(--text-muted);">Buy twice as many goof plugs as you think you need — mis-punches happen to everyone. Warm poly tubing in the sun before routing it; cold tubing is stiff and fights you. The tubing can sit on top of the soil under the mulch — no need to bury it.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+const BEDS = {
+  w1: {
+    id:'W1', zone:2, emitters:4, gph:4,
+    slotA:{ crop:'Strawberries', variety:'Everbearing — USDA Organic (Fast Growing Trees)', source:'Fast Growing Trees', sown:null, harvest:'Late spring, early fall, possible third in late fall', status:'planned' },
+    slotB:null,
+    notes:['Delivery expected late March 2026','Perennial — stays in bed year to year, no rotation','Plant on cloudy day or late afternoon','Full sun, 6–8 hrs/day — south-facing bed is ideal','Water roots only, keep foliage dry','Do not fertilize late in season — prevents frost-vulnerable new growth','Self-pollinating; adding a second plant increases yield significantly','Birds love strawberries — consider netting']
+  },
+  w2: {
+    id:'W2', zone:2, emitters:4, gph:4,
+    slotA:{ crop:'Fallow', variety:'Empty this season', sown:null, harvest:null, status:'planned' },
+    slotB:null,
+    notes:['Resting this year']
+  },
+  w3: {
+    id:'W3', zone:2, emitters:4, gph:4,
+    slotA:{ crop:'Garlic', variety:'Elephant & Music (softneck)', sown:'Oct 27, 2025', harvest:'~Jul 15, 2026', status:'growing' },
+    slotB:{ crop:'Carrots', variety:'Kyoto Red', sown:'~Jul 20–25, 2026', notes:'Sow directly after garlic harvest; harvest Oct 2026' },
+    notes:['Reduce watering in cool months']
+  },
+  w4: {
+    id:'W4', zone:2, emitters:4, gph:4,
+    slotA:{ crop:'Garlic', variety:'Italian Red (hardneck)', sown:'Oct 27, 2025', harvest:'~Jul 15, 2026', status:'growing' },
+    slotB:{ crop:'Carrots', variety:'New Kuroda', sown:'~Jul 20–25, 2026', notes:'Sow directly after garlic harvest; harvest Oct 2026' },
+    notes:['Reduce watering in cool months']
+  },
+  c1: {
+    id:'C1', zone:2, emitters:4, gph:4,
+    slotA:{ crop:'Radish', variety:'18-Day French', sown:'Mar 8, 2026', harvest:'~Mar 26, 2026', status:'sown' },
+    slotB:{ crop:'Dry Beans', variety:'Good Mother Stallard', sown:'~May, 2026', notes:'Pole dry bean — needs trellis; sow after last frost' },
+    notes:['Trellis needed for summer slot']
+  },
+  c2: {
+    id:'C2', zone:2, emitters:4, gph:4,
+    slotA:{ crop:'Snap Peas', variety:'Sugar Bon', source:'Baker Creek', sown:'Mar 8, 2026', harvest:'~May 3, 2026', status:'sown' },
+    slotB:{ crop:'Bush Beans', variety:'Blue Lake Bush 274', sown:'~May 20, 2026', notes:'Direct sow after peas come out' },
+    notes:[]
+  },
+  c3: {
+    id:'C3', zone:2, emitters:4, gph:4,
+    slotA:{ crop:'Peas', variety:'Lincoln Garden', source:'Baker Creek', sown:'Mar 8, 2026', harvest:'~May 3, 2026', status:'sown' },
+    slotB:{ crop:'Bush Beans', variety:'Jade Bush Beans', sown:'~May 20, 2026', notes:'Direct sow after peas come out' },
+    notes:[]
+  },
+  c4: {
+    id:'C4', zone:2, emitters:4, gph:4,
+    slotA:{ crop:'Peas', variety:"Lillian's Caseload", source:'Baker Creek', sown:'Mar 8, 2026', harvest:'~May 3, 2026', status:'sown' },
+    slotB:{ crop:'Bush Beans', variety:'Red Swan Bush Beans', sown:'~May 20, 2026', notes:'Direct sow after peas come out' },
+    notes:[]
+  },
+  e1: {
+    id:'E1', zone:1, emitters:4, gph:8,
+    slotA:{ crop:'Tomato', variety:"Martino's Roma (determinate)", sown:null, harvest:'Jul 20 – Aug 10, 2026', status:'planned' },
+    slotB:null,
+    notes:['Start indoors Mar 20 – Apr 1','Transplant May 10–20','3 plants per bed','Target: ~30 lbs']
+  },
+  e2: {
+    id:'E2', zone:1, emitters:4, gph:8,
+    slotA:{ crop:'Tomato', variety:'Amish Paste (indeterminate)', sown:null, harvest:'Aug 1–10, 2026', status:'planned' },
+    slotB:null,
+    notes:['Start indoors Mar 20 – Apr 1','Transplant May 10–20','2 plants per bed','Target: ~32 lbs']
+  },
+  e3: {
+    id:'E3', zone:1, emitters:4, gph:8,
+    slotA:{ crop:'Tomato', variety:'Comstock Sauce & Slice (indeterminate)', sown:null, harvest:'Aug 5–15, 2026', status:'planned' },
+    slotB:null,
+    notes:['Start indoors Mar 20 – Apr 1','Transplant May 10–20','2 plants per bed','Target: ~30 lbs']
+  },
+  e4: {
+    id:'E4', zone:1, emitters:4, gph:8,
+    slotA:{ crop:'Tomato', variety:'Bonny Best (indeterminate)', sown:null, harvest:'Jul 30 – Aug 10, 2026', status:'planned' },
+    slotB:null,
+    notes:['Start indoors Mar 20 – Apr 1','Transplant May 10–20','2 plants per bed','Target: ~24 lbs']
+  }
+};
+
+const STATUS = {
+  planned:     { label:'Planned',          cls:'s-planned' },
+  sown:        { label:'Sown',             cls:'s-sown' },
+  germinating: { label:'Germinating',      cls:'s-germinating' },
+  growing:     { label:'Growing',          cls:'s-growing' },
+  ready:       { label:'Ready to Harvest', cls:'s-ready' },
+  harvested:   { label:'Harvested',        cls:'s-harvested' }
+};
+
+function logKey(id) { return 'gardenlog_' + id; }
+function getLogs(id) { try { return JSON.parse(localStorage.getItem(logKey(id)) || '[]'); } catch(e) { return []; } }
+function saveLog(id, text) {
+  const logs = getLogs(id);
+  const d = new Date();
+  const ds = d.toLocaleDateString('en-US',{month:'short',day:'numeric',year:'numeric'});
+  logs.unshift({ date:ds, text:text.trim() });
+  localStorage.setItem(logKey(id), JSON.stringify(logs));
+}
+
+let activeBedId = null;
+
+function renderInspector(bedId) {
+  const bed = BEDS[bedId];
+  const a = bed.slotA;
+  const b = bed.slotB;
+  const zTag = bed.zone === 1 ? 'z1-tag' : 'z2-tag';
+  const zLabel = bed.zone === 1 ? 'Zone 1 — Tomatoes' : 'Zone 2';
+  const st = STATUS[a.status] || STATUS.planned;
+  const logs = getLogs(bedId);
+
+  let h = `
+    <div class="insp-header">
+      <span class="insp-id">${bed.id}</span>
+      <span class="zone-tag ${zTag}">${zLabel}</span>
+    </div>
+    <span class="status-badge ${st.cls}"><span class="status-dot"></span>${st.label}</span>
+  `;
+
+  // Slot A
+  h += `<span class="section-label">Current Planting</span>`;
+  h += row('Crop', a.crop);
+  h += row('Variety', a.variety);
+  if (a.source) h += row('Source', a.source);
+  if (a.sown)   h += row('Sown / Planted', a.sown);
+  h += row('Harvest window', a.harvest);
+
+  // Slot B rotation
+  if (b) {
+    h += `<span class="section-label">Summer Rotation</span>`;
+    h += `<div class="rotation-card">
+      <div class="rot-slot slot-a">
+        <div class="rs-label">Now</div>
+        <div class="rs-crop">${a.variety}</div>
+        <div class="rs-detail">out by ${a.harvest}</div>
+      </div>
+      <div class="rot-divider">→</div>
+      <div class="rot-slot slot-b">
+        <div class="rs-label">Then</div>
+        <div class="rs-crop">${b.variety}</div>
+        <div class="rs-detail">sow ${b.sown}</div>
+      </div>
+    </div>`;
+    if (b.notes) h += `<div class="note-row"><span class="note-icon">↳</span><span>${b.notes}</span></div>`;
+  }
+
+  // Irrigation
+  h += `<span class="section-label">Irrigation</span>`;
+  h += row('Emitters', `${bed.emitters} × ${bed.gph/bed.emitters} GPH = ${bed.gph} GPH total`);
+  h += row('Schedule', bed.zone === 1 ? 'Daily in peak summer' : 'Every 2–3 days');
+
+  // Notes
+  if (bed.notes.length) {
+    h += `<span class="section-label">Notes</span>`;
+    bed.notes.forEach(n => { h += `<div class="note-row"><span class="note-icon">·</span><span>${n}</span></div>`; });
+  }
+
+  // Log
+  h += `<span class="section-label">Season Log</span>`;
+  h += `<div class="log-entries" id="log-entries">`;
+  if (!logs.length) {
+    h += `<p class="log-empty">No entries yet.</p>`;
+  } else {
+    logs.forEach(e => {
+      h += `<div class="log-entry"><div class="log-date">${e.date}</div><div class="log-text">${e.text}</div></div>`;
+    });
+  }
+  h += `</div>`;
+  h += `<div class="log-add-row">
+    <textarea class="log-input" id="log-ta" rows="2" placeholder="Add an observation…"></textarea>
+    <button class="log-add-btn" onclick="submitLog('${bedId}')">Add</button>
+  </div>`;
+
+  return h;
+}
+
+function row(label, val) {
+  return `<div class="data-row"><span class="dr-label">${label}</span><span class="dr-val">${val}</span></div>`;
+}
+
+function selectBed(bedId) {
+  if (activeBedId) document.getElementById('pill-'+activeBedId)?.classList.remove('selected');
+  activeBedId = bedId;
+  document.getElementById('pill-'+bedId)?.classList.add('selected');
+
+  document.getElementById('insp-hint').style.display = 'none';
+  const col = document.getElementById('insp-content');
+  col.style.display = 'block';
+  col.innerHTML = renderInspector(bedId);
+
+  // Enter to submit
+  const ta = document.getElementById('log-ta');
+  if (ta) ta.addEventListener('keydown', e => {
+    if (e.key === 'Enter' && !e.shiftKey) { e.preventDefault(); submitLog(bedId); }
+  });
+
+  // On mobile, scroll inspector into view smoothly
+  if (window.innerWidth <= 700) {
+    document.getElementById('inspector-col').scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }
+}
+
+function submitLog(bedId) {
+  const ta = document.getElementById('log-ta');
+  if (!ta || !ta.value.trim()) return;
+  saveLog(bedId, ta.value);
+  const col = document.getElementById('insp-content');
+  col.innerHTML = renderInspector(bedId);
+  const newTa = document.getElementById('log-ta');
+  if (newTa) newTa.addEventListener('keydown', e => {
+    if (e.key === 'Enter' && !e.shiftKey) { e.preventDefault(); submitLog(bedId); }
+  });
+}
+
+function switchTab(id, btn) {
+  document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
+  document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+  btn.classList.add('active');
+}
+</script>
+</body>
+</html>
