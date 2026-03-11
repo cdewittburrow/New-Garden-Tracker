@@ -913,19 +913,16 @@ async function flipToBed(bedId){
 
   activeBedId=bedId;
 
-  // Populate mini-map
+  // Populate mini-map and detail immediately (no logs yet)
   document.getElementById('mini-map').innerHTML=buildMiniMap(bedId);
+  document.getElementById('bed-detail-content').innerHTML=renderDetail(bedId,[]);
 
-  // Fetch logs then populate detail
-  const logs=await getLogs(bedId);
-  document.getElementById('bed-detail-content').innerHTML=renderDetail(bedId,logs);
-
-  // Bind log submit
-  bindLog(bedId);
-
-  // Flip
+  // Flip right away — don't wait for network
   scene.classList.add('is-flipped');
   setTimeout(syncHeight,560);
+
+  // Fetch logs in background and patch in the result
+  loadLogs(bedId);
 }
 
 function flipToMap(){
@@ -936,6 +933,19 @@ function flipToMap(){
 // Initial height sync after fonts load
 window.addEventListener('load',syncHeight);
 window.addEventListener('resize',syncHeight);
+
+async function loadLogs(bedId){
+  const logs=await getLogs(bedId);
+  // Only patch if the same bed is still visible
+  if(activeBedId!==bedId)return;
+  const el=document.getElementById('log-entries');
+  if(!el)return;
+  let h='';
+  if(!logs.length)h=`<p class="log-empty">No entries yet.</p>`;
+  else logs.forEach(e=>{h+=`<div class="log-entry"><div class="log-date">${e.date}</div><div class="log-text">${e.note}</div></div>`;});
+  el.innerHTML=h;
+  bindLog(bedId);
+}
 
 /* ── DETAIL RENDER ───────────────────────────────── */
 function renderDetail(bedId,logs=[]){
@@ -981,8 +991,7 @@ function renderDetail(bedId,logs=[]){
   }
 
   h+=`<span class="section-label">Season Log</span><div id="log-entries">`;
-  if(!logs.length)h+=`<p class="log-empty">No entries yet.</p>`;
-  else logs.forEach(e=>{h+=`<div class="log-entry"><div class="log-date">${e.date}</div><div class="log-text">${e.note}</div></div>`;});
+  h+=`<p class="log-empty">Loading…</p>`;
   h+=`</div>
   <div class="log-add-row">
     <textarea class="log-input" id="log-ta" rows="2" placeholder="Add an observation…"></textarea>
@@ -996,18 +1005,18 @@ function dr(l,v){
   return `<div class="data-row"><span class="dr-label">${l}</span><span class="dr-val">${v}</span></div>`;
 }
 
-async function navToBed(bedId){
+function navToBed(bedId){
   if(bedId===activeBedId)return;
   activeBedId=bedId;
   document.getElementById('mini-map').innerHTML=buildMiniMap(bedId);
   const content=document.getElementById('bed-detail-content');
   content.style.opacity='0';
   content.style.transition='opacity .15s';
-  const logs=await getLogs(bedId);
   setTimeout(()=>{
-    content.innerHTML=renderDetail(bedId,logs);
+    content.innerHTML=renderDetail(bedId,[]);
     bindLog(bedId);
     content.style.opacity='1';
+    loadLogs(bedId);
   },150);
 }
 
@@ -1019,10 +1028,9 @@ function bindLog(bedId){
     const submit=async()=>{
       if(!ta.value.trim())return;
       btn.disabled=true;
+      ta.disabled=true;
       await saveLog(bedId,ta.value);
-      const logs=await getLogs(bedId);
-      document.getElementById('bed-detail-content').innerHTML=renderDetail(bedId,logs);
-      bindLog(bedId);
+      await loadLogs(bedId);
     };
     btn.addEventListener('click',submit);
     ta.addEventListener('keydown',e=>{if(e.key==='Enter'&&!e.shiftKey){e.preventDefault();submit();}});
