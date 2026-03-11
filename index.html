@@ -295,6 +295,43 @@ h1 em{font-style:italic;color:var(--teal);}
   .detail-face-inner{padding:18px 16px;}
   .insp-id{font-size:2rem;}
 }
+
+/* ── TASK SYSTEM ─────────────────────────────── */
+.tab-panel#tab-tasks{max-width:540px;margin:0 auto;padding:0 4px;}
+.chip-strip{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:16px;}
+.chip{
+  font-family:'Fira Code',monospace;font-size:.6rem;letter-spacing:.4px;
+  padding:6px 14px;border:1px solid var(--border-hi);border-radius:100px;
+  background:transparent;color:var(--text-sub);cursor:pointer;transition:all .2s;white-space:nowrap;
+}
+.chip.active,.chip:hover{background:var(--emerald-mid);color:#e8f5f0;border-color:var(--emerald-mid);}
+.task-list{display:flex;flex-direction:column;}
+.task-row{
+  display:flex;align-items:flex-start;gap:14px;
+  padding:12px 0;border-bottom:1px solid var(--divider);
+}
+.task-row:last-child{border-bottom:none;}
+.task-cb{
+  width:18px;height:18px;border-radius:5px;flex-shrink:0;margin-top:3px;
+  border:1.5px solid var(--border-hi);appearance:none;-webkit-appearance:none;
+  background:var(--input-bg);cursor:pointer;transition:all .15s;position:relative;
+}
+.task-cb:checked{background:var(--emerald-mid);border-color:var(--emerald-mid);}
+.task-cb:checked::after{content:'✓';position:absolute;inset:0;display:flex;align-items:center;justify-content:center;color:#fff;font-size:11px;line-height:1;}
+.task-cb:disabled{opacity:.7;cursor:default;}
+.task-meta{flex:1;min-width:0;}
+.task-bed-label{font-family:'Fira Code',monospace;font-size:.58rem;color:var(--teal);letter-spacing:.5px;text-transform:uppercase;margin-bottom:2px;}
+.task-name{font-size:.84rem;font-weight:500;margin-bottom:2px;}
+.task-window{font-family:'Fira Code',monospace;font-size:.58rem;color:var(--text-dim);}
+.task-empty{font-size:.85rem;color:var(--text-dim);font-style:italic;padding:32px 0;text-align:center;}
+.planted-row{margin:10px 0 4px;}
+.planted-btn{
+  font-family:'Fira Code',monospace;font-size:.63rem;padding:7px 16px;
+  background:var(--emerald-mid);color:#e8f5f0;border:none;border-radius:10px;
+  cursor:pointer;transition:background .2s;letter-spacing:.3px;
+}
+.planted-btn:hover{background:#145e3c;}
+.planted-info{font-family:'Fira Code',monospace;font-size:.63rem;color:var(--teal);padding:4px 0;}
 </style>
 </head>
 <body>
@@ -313,6 +350,7 @@ h1 em{font-style:italic;color:var(--teal);}
   <button class="tab-btn active" onclick="switchTab('tab-beds',this)">Bed Layout &amp; Tracker</button>
   <button class="tab-btn" onclick="switchTab('tab-plumbing',this)">Garden Plumbing</button>
   <button class="tab-btn" onclick="switchTab('tab-detail',this)">Bed Connection</button>
+  <button class="tab-btn" onclick="switchTab('tab-tasks',this)">This Week</button>
 </div>
 
 <!-- ═══════════════════════════════════════════
@@ -783,6 +821,16 @@ h1 em{font-style:italic;color:var(--teal);}
 </div>
 </div>
 
+<!-- ═══════════════════════════════════════════
+     TAB 4 — THIS WEEK
+═══════════════════════════════════════════ -->
+<div id="tab-tasks" class="tab-panel">
+  <div style="max-width:540px;margin:0 auto;padding:0 4px;">
+    <div class="chip-strip" id="task-chips"></div>
+    <div class="task-list" id="task-list"></div>
+  </div>
+</div>
+
 <script>
 /* ── THEME ──────────────────────────────────────── */
 function toggleTheme(){
@@ -833,6 +881,163 @@ const BED_POS={
   e1:[2,0],e2:[2,1],e3:[2,2],e4:[2,3]
 };
 
+/* ── TASK DEFINITIONS ────────────────────────────── */
+// anchor: 'PLANTED'|'MAR_8'|'OCT_27'|'CALENDAR'
+// frequency: 'once'|'weekly'
+// once: {id, offset, windowWeeks}
+// weekly: {idBase, offsetStart, offsetEnd, windowWeeks}
+// CALENDAR: {id, calStart, calEnd} (YYYY-MM-DD)
+const TASK_DEFS={
+  e1:[
+    {id:'tomato-det-cage',name:'Install cage',anchor:'PLANTED',offset:1,windowWeeks:1,frequency:'once'},
+    {idBase:'tomato-det-ber',name:'Check for blossom end rot',anchor:'PLANTED',offsetStart:6,offsetEnd:14,windowWeeks:1,frequency:'weekly'},
+    {idBase:'tomato-det-harvest',name:'Harvest check',anchor:'PLANTED',offsetStart:10,offsetEnd:14,windowWeeks:1,frequency:'weekly'},
+  ],
+  e2:[
+    {id:'tomato-ind-cage',name:'Install cage or stake',anchor:'PLANTED',offset:1,windowWeeks:1,frequency:'once'},
+    {idBase:'tomato-ind-suckers',name:'Remove suckers',anchor:'PLANTED',offsetStart:2,offsetEnd:11,windowWeeks:1,frequency:'weekly'},
+    {idBase:'tomato-ind-leaves',name:'Remove lower / yellowing leaves',anchor:'PLANTED',offsetStart:4,offsetEnd:12,windowWeeks:1,frequency:'weekly'},
+    {idBase:'tomato-ind-ber',name:'Check for blossom end rot',anchor:'PLANTED',offsetStart:6,offsetEnd:14,windowWeeks:1,frequency:'weekly'},
+    {idBase:'tomato-ind-harvest',name:'Harvest check',anchor:'PLANTED',offsetStart:10,offsetEnd:16,windowWeeks:1,frequency:'weekly'},
+  ],
+  e3:[
+    {id:'tomato-ind-cage',name:'Install cage or stake',anchor:'PLANTED',offset:1,windowWeeks:1,frequency:'once'},
+    {idBase:'tomato-ind-suckers',name:'Remove suckers',anchor:'PLANTED',offsetStart:2,offsetEnd:11,windowWeeks:1,frequency:'weekly'},
+    {idBase:'tomato-ind-leaves',name:'Remove lower / yellowing leaves',anchor:'PLANTED',offsetStart:4,offsetEnd:12,windowWeeks:1,frequency:'weekly'},
+    {idBase:'tomato-ind-ber',name:'Check for blossom end rot',anchor:'PLANTED',offsetStart:6,offsetEnd:14,windowWeeks:1,frequency:'weekly'},
+    {idBase:'tomato-ind-harvest',name:'Harvest check',anchor:'PLANTED',offsetStart:10,offsetEnd:16,windowWeeks:1,frequency:'weekly'},
+  ],
+  e4:[
+    {id:'tomato-ind-cage',name:'Install cage or stake',anchor:'PLANTED',offset:1,windowWeeks:1,frequency:'once'},
+    {idBase:'tomato-ind-suckers',name:'Remove suckers',anchor:'PLANTED',offsetStart:2,offsetEnd:11,windowWeeks:1,frequency:'weekly'},
+    {idBase:'tomato-ind-leaves',name:'Remove lower / yellowing leaves',anchor:'PLANTED',offsetStart:4,offsetEnd:12,windowWeeks:1,frequency:'weekly'},
+    {idBase:'tomato-ind-ber',name:'Check for blossom end rot',anchor:'PLANTED',offsetStart:6,offsetEnd:14,windowWeeks:1,frequency:'weekly'},
+    {idBase:'tomato-ind-harvest',name:'Harvest check',anchor:'PLANTED',offsetStart:10,offsetEnd:16,windowWeeks:1,frequency:'weekly'},
+  ],
+  c1:[
+    {id:'radish-harvest',name:'Harvest radishes before bolt',anchor:'MAR_8',offset:2,windowWeeks:2,frequency:'once'},
+    {id:'gmstallard-trellis',name:'Check trellis is ready',anchor:'PLANTED',offset:0,windowWeeks:1,frequency:'once'},
+    {idBase:'gmstallard-drycheck',name:'Check pods drying on vine',anchor:'PLANTED',offsetStart:8,offsetEnd:14,windowWeeks:1,frequency:'weekly'},
+    {id:'gmstallard-pull',name:'Pull plants, finish drying indoors',anchor:'PLANTED',offset:14,windowWeeks:2,frequency:'once'},
+  ],
+  c2:[
+    {idBase:'peas-harvest',name:'Harvest check — pick regularly',anchor:'MAR_8',offsetStart:8,offsetEnd:14,windowWeeks:1,frequency:'weekly'},
+    {id:'bush-beans-firstcheck',name:'First harvest check',anchor:'PLANTED',offset:6,windowWeeks:1,frequency:'once'},
+    {idBase:'bush-beans-harvest',name:'Harvest every 2–3 days',anchor:'PLANTED',offsetStart:7,offsetEnd:10,windowWeeks:1,frequency:'weekly'},
+  ],
+  c3:[
+    {idBase:'peas-harvest',name:'Harvest check — pick regularly',anchor:'MAR_8',offsetStart:8,offsetEnd:14,windowWeeks:1,frequency:'weekly'},
+    {id:'bush-beans-firstcheck',name:'First harvest check',anchor:'PLANTED',offset:6,windowWeeks:1,frequency:'once'},
+    {idBase:'bush-beans-harvest',name:'Harvest every 2–3 days',anchor:'PLANTED',offsetStart:7,offsetEnd:10,windowWeeks:1,frequency:'weekly'},
+  ],
+  c4:[
+    {idBase:'peas-harvest',name:'Harvest check — pick regularly',anchor:'MAR_8',offsetStart:8,offsetEnd:14,windowWeeks:1,frequency:'weekly'},
+    {id:'bush-beans-firstcheck',name:'First harvest check',anchor:'PLANTED',offset:6,windowWeeks:1,frequency:'once'},
+    {idBase:'bush-beans-harvest',name:'Harvest every 2–3 days',anchor:'PLANTED',offsetStart:7,offsetEnd:10,windowWeeks:1,frequency:'weekly'},
+  ],
+  w1:[
+    {idBase:'strawberry-runners',name:'Runner check — root healthy, remove weak',anchor:'PLANTED',offsetStart:3,offsetEnd:26,windowWeeks:1,frequency:'weekly'},
+    {id:'strawberry-winterize',name:'Cut back foliage, mulch for winter',anchor:'CALENDAR',calStart:'2026-10-20',calEnd:'2026-11-05',frequency:'once'},
+  ],
+  w3:[
+    {id:'garlic-soft-stopwater',name:'Stop watering',anchor:'CALENDAR',calStart:'2026-07-01',calEnd:'2026-07-07',frequency:'once'},
+    {id:'garlic-soft-harvest',name:'Harvest garlic',anchor:'CALENDAR',calStart:'2026-07-15',calEnd:'2026-07-25',frequency:'once'},
+    {id:'carrots-thin',name:'Thin seedlings if crowded',anchor:'PLANTED',offset:3,windowWeeks:2,frequency:'once'},
+    {idBase:'carrots-harvest',name:'Test harvest check',anchor:'PLANTED',offsetStart:12,offsetEnd:16,windowWeeks:1,frequency:'weekly'},
+  ],
+  w4:[
+    {id:'garlic-hard-scapes',name:'Cut scapes when they curl',anchor:'CALENDAR',calStart:'2026-06-10',calEnd:'2026-06-20',frequency:'once'},
+    {id:'garlic-hard-stopwater',name:'Stop watering',anchor:'CALENDAR',calStart:'2026-07-01',calEnd:'2026-07-07',frequency:'once'},
+    {id:'garlic-hard-harvest',name:'Harvest garlic',anchor:'CALENDAR',calStart:'2026-07-15',calEnd:'2026-07-25',frequency:'once'},
+    {id:'carrots-thin',name:'Thin seedlings if crowded',anchor:'PLANTED',offset:3,windowWeeks:2,frequency:'once'},
+    {idBase:'carrots-harvest',name:'Test harvest check',anchor:'PLANTED',offsetStart:12,offsetEnd:16,windowWeeks:1,frequency:'weekly'},
+  ],
+};
+
+/* ── TASK DATE UTILS ─────────────────────────────── */
+const ANCHOR_DATES={
+  MAR_8: new Date(2026,2,8),
+  OCT_27: new Date(2025,9,27),
+};
+
+function getPlantedDates(){
+  try{return JSON.parse(localStorage.getItem('gardenPlantedDates')||'{}');}
+  catch(e){return {};}
+}
+function setPlantedDate(bedId,dateStr){
+  const d=getPlantedDates();
+  d[bedId]=dateStr;
+  localStorage.setItem('gardenPlantedDates',JSON.stringify(d));
+}
+
+function addDays(date,days){
+  const d=new Date(date);
+  d.setDate(d.getDate()+days);
+  d.setHours(0,0,0,0);
+  return d;
+}
+
+function fmtDateRange(start,end){
+  const mo={month:'short',day:'numeric'};
+  const s=start.toLocaleDateString('en-US',mo);
+  if(start.getMonth()===end.getMonth())
+    return `${s} – ${end.getDate()}`;
+  return `${s} – ${end.toLocaleDateString('en-US',mo)}`;
+}
+
+function isCurrentWindow(wStart,wEnd){
+  const now=new Date();
+  now.setHours(0,0,0,0);
+  return now>=wStart&&now<=wEnd;
+}
+
+// Expand TASK_DEFS for a bed into concrete task instances
+function expandTasks(bedId){
+  const defs=TASK_DEFS[bedId];
+  if(!defs)return[];
+  const planted=getPlantedDates()[bedId]?new Date(getPlantedDates()[bedId]):null;
+  const tasks=[];
+  for(const def of defs){
+    if(def.anchor==='CALENDAR'){
+      tasks.push({taskId:def.id,name:def.name,windowStart:new Date(def.calStart),windowEnd:new Date(def.calEnd),bedId});
+      continue;
+    }
+    let anchor;
+    if(def.anchor==='PLANTED'){if(!planted)continue;anchor=new Date(planted);}
+    else if(def.anchor==='MAR_8'){anchor=ANCHOR_DATES.MAR_8;}
+    else if(def.anchor==='OCT_27'){anchor=ANCHOR_DATES.OCT_27;}
+    else continue;
+
+    if(def.frequency==='once'){
+      const ws=addDays(anchor,def.offset*7);
+      const we=addDays(ws,def.windowWeeks*7-1);
+      tasks.push({taskId:def.id,name:def.name,windowStart:ws,windowEnd:we,bedId});
+    } else {
+      for(let w=def.offsetStart;w<=def.offsetEnd;w++){
+        const ws=addDays(anchor,w*7);
+        const we=addDays(ws,6);
+        tasks.push({taskId:`${def.idBase}-w${w}`,name:def.name,windowStart:ws,windowEnd:we,bedId});
+      }
+    }
+  }
+  return tasks;
+}
+
+function getThisWeekTasks(){
+  const all=[];
+  for(const bedId of Object.keys(BEDS)){
+    for(const t of expandTasks(bedId)){
+      if(isCurrentWindow(t.windowStart,t.windowEnd))all.push(t);
+    }
+  }
+  all.sort((a,b)=>a.windowStart-b.windowStart);
+  return all;
+}
+
+function getPendingCount(bedId){
+  return expandTasks(bedId).filter(t=>isCurrentWindow(t.windowStart,t.windowEnd)&&!isTaskCompleted(bedId,t.taskId)).length;
+}
+
 /* ── LOGS ────────────────────────────────────────── */
 const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbyaTASqgPBhXwWh3HaDaWvVWZFZ9krQlyNhYtdJAeOH7zs9MDaC1p8_0LQUAY0KluUT/exec';
 
@@ -855,15 +1060,152 @@ async function saveLog(bedId, text) {
   });
 }
 
+/* ── TASK STATE ──────────────────────────────────── */
+let completedTasks=[];
+
+async function fetchCompletedTasks(){
+  try{
+    const res=await fetch(`${SCRIPT_URL}?action=getTasks`);
+    completedTasks=await res.json();
+  }catch(e){
+    console.error('Failed to fetch tasks:',e);
+    completedTasks=[];
+  }
+}
+
+function isTaskCompleted(bedId,taskId){
+  return completedTasks.some(t=>t.bedId===bedId&&t.taskId===taskId);
+}
+
+async function completeTask(bedId,taskId){
+  const completedDate=new Date().toISOString().split('T')[0];
+  completedTasks.push({bedId,taskId,completedDate});
+  try{
+    await fetch(SCRIPT_URL,{
+      method:'POST',
+      body:JSON.stringify({action:'completeTask',bedId,taskId,completedDate})
+    });
+  }catch(e){
+    console.error('Failed to save task:',e);
+  }
+}
+
+/* ── TAB 4 RENDER ────────────────────────────────── */
+let activeTaskBedFilter='all';
+
+function renderTaskTab(){
+  const tasks=getThisWeekTasks();
+  const bedIds=[...new Set(tasks.map(t=>t.bedId))];
+
+  let chips=`<button class="chip${activeTaskBedFilter==='all'?' active':''}" onclick="setTaskFilter('all')">All</button>`;
+  for(const bid of bedIds){
+    chips+=`<button class="chip${activeTaskBedFilter===bid?' active':''}" onclick="setTaskFilter('${bid}')">${BEDS[bid].id}</button>`;
+  }
+  document.getElementById('task-chips').innerHTML=chips;
+
+  const filtered=activeTaskBedFilter==='all'?tasks:tasks.filter(t=>t.bedId===activeTaskBedFilter);
+  let list='';
+  if(!filtered.length){
+    list='<p class="task-empty">Nothing due this week. Go enjoy the garden.</p>';
+  } else {
+    for(const t of filtered){
+      const done=isTaskCompleted(t.bedId,t.taskId);
+      const winStr=fmtDateRange(t.windowStart,t.windowEnd);
+      const crop=BEDS[t.bedId].slotA.crop;
+      list+=`<div class="task-row">
+        <input type="checkbox" class="task-cb" ${done?'checked disabled':''} data-bed="${t.bedId}" data-task="${t.taskId}" onchange="handleTaskCheck(this)">
+        <div class="task-meta">
+          <div class="task-bed-label">${BEDS[t.bedId].id} · ${crop}</div>
+          <div class="task-name">${t.name}</div>
+          <div class="task-window">${winStr}</div>
+        </div>
+      </div>`;
+    }
+  }
+  document.getElementById('task-list').innerHTML=list;
+}
+
+function setTaskFilter(bedId){
+  activeTaskBedFilter=bedId;
+  renderTaskTab();
+}
+
+async function handleTaskCheck(cb){
+  if(!cb.checked)return;
+  cb.disabled=true;
+  const bedId=cb.dataset.bed;
+  const taskId=cb.dataset.task;
+  await completeTask(bedId,taskId);
+  renderBadges();
+  // Refresh chip counts (badge for this bed)
+}
+
+/* ── BED TILE BADGES ─────────────────────────────── */
+// Badge y centers (below crop label text), by bed key
+const BADGE_POS={
+  w1:{cx:100,cy:143},w2:{cx:100,cy:253},w3:{cx:100,cy:363},w4:{cx:100,cy:473},
+  c1:{cx:220,cy:143},c2:{cx:220,cy:253},c3:{cx:220,cy:363},c4:{cx:220,cy:473},
+  e1:{cx:340,cy:143},e2:{cx:340,cy:253},e3:{cx:340,cy:363},e4:{cx:340,cy:473},
+};
+
+function renderBadges(){
+  const svg=document.getElementById('garden-map');
+  if(!svg)return;
+  svg.querySelectorAll('.task-badge-g').forEach(el=>el.remove());
+
+  for(const bedId of Object.keys(BEDS)){
+    const count=getPendingCount(bedId);
+    if(!count)continue;
+    const{cx,cy}=BADGE_POS[bedId];
+    const label=`${count} task${count>1?'s':''}`;
+    const w=label.length*4.6+12;
+
+    const g=document.createElementNS('http://www.w3.org/2000/svg','g');
+    g.setAttribute('class','task-badge-g');
+    g.style.cursor='pointer';
+    g.setAttribute('onclick',`goToTaskTab('${bedId}')`);
+
+    const rect=document.createElementNS('http://www.w3.org/2000/svg','rect');
+    rect.setAttribute('x',cx-w/2);rect.setAttribute('y',cy-7);
+    rect.setAttribute('width',w);rect.setAttribute('height',13);
+    rect.setAttribute('rx',6.5);rect.setAttribute('fill','#1a7a50');
+
+    const txt=document.createElementNS('http://www.w3.org/2000/svg','text');
+    txt.setAttribute('x',cx);txt.setAttribute('y',cy+2.5);
+    txt.setAttribute('font-family',"'Fira Code',monospace");
+    txt.setAttribute('font-size','5.5');
+    txt.setAttribute('fill','rgba(255,255,255,.92)');
+    txt.setAttribute('text-anchor','middle');
+    txt.textContent=label;
+
+    g.appendChild(rect);g.appendChild(txt);
+    svg.appendChild(g);
+  }
+}
+
+function goToTaskTab(bedId){
+  activeTaskBedFilter=bedId;
+  document.querySelectorAll('.tab-panel').forEach(p=>p.classList.remove('active'));
+  document.querySelectorAll('.tab-btn').forEach(b=>b.classList.remove('active'));
+  document.getElementById('tab-tasks').classList.add('active');
+  document.querySelectorAll('.tab-btn').forEach(b=>{
+    if(b.getAttribute('onclick')&&b.getAttribute('onclick').includes('tab-tasks'))b.classList.add('active');
+  });
+  renderTaskTab();
+}
+
+/* ── MARK AS PLANTED ─────────────────────────────── */
+function markPlanted(bedId){
+  const today=new Date().toISOString().split('T')[0];
+  setPlantedDate(bedId,today);
+  document.getElementById('bed-detail-content').innerHTML=renderDetail(bedId,[]);
+  bindLog(bedId);
+  loadLogs(bedId);
+  renderBadges();
+}
+
 /* ── MINI MAP ────────────────────────────────────── */
 function buildMiniMap(activeBedId){
-  /*
-    Mini-map: portrait pills matching main map proportions.
-    viewBox 96 × 130
-    3 cols: x centres 18, 48, 78  → pill x = centre-9  (pill w=18)
-    4 rows: y starts 20,48,76,104 (pill h=22, rx=9)
-    Tappable — each calls navToBed(key)
-  */
   const colX=[18,48,78];
   const rowY=[20,48,76,104];
   let els='';
@@ -895,7 +1237,6 @@ let activeBedId=null;
 const scene=document.getElementById('flip-inner');
 
 function syncHeight(){
-  // After flip, match scene height to visible face
   const front=document.querySelector('.card-face--front');
   const back=document.querySelector('.card-face--back');
   const wrapper=document.getElementById('flip-scene');
@@ -907,21 +1248,13 @@ function syncHeight(){
 }
 
 async function flipToBed(bedId){
-  // Hide map hint
   const hint=document.getElementById('map-hint');
   if(hint)hint.style.display='none';
-
   activeBedId=bedId;
-
-  // Populate mini-map and detail immediately (no logs yet)
   document.getElementById('mini-map').innerHTML=buildMiniMap(bedId);
   document.getElementById('bed-detail-content').innerHTML=renderDetail(bedId,[]);
-
-  // Flip right away — don't wait for network
   scene.classList.add('is-flipped');
   setTimeout(syncHeight,560);
-
-  // Fetch logs in background and patch in the result
   loadLogs(bedId);
 }
 
@@ -930,13 +1263,10 @@ function flipToMap(){
   setTimeout(syncHeight,560);
 }
 
-// Initial height sync after fonts load
-window.addEventListener('load',syncHeight);
 window.addEventListener('resize',syncHeight);
 
 async function loadLogs(bedId){
   const logs=await getLogs(bedId);
-  // Only patch if the same bed is still visible
   if(activeBedId!==bedId)return;
   const el=document.getElementById('log-entries');
   if(!el)return;
@@ -958,9 +1288,20 @@ function renderDetail(bedId,logs=[]){
     <span class="insp-id">${bed.id}</span>
     <span class="zone-tag ${zTag}">${zLabel}</span>
   </div>
-  <span class="status-badge ${st.cls}"><span class="status-dot"></span>${st.label}</span>
-  <div class="detail-body">
-    <div>`;
+  <span class="status-badge ${st.cls}"><span class="status-dot"></span>${st.label}</span>`;
+
+  // Mark as Planted button
+  const hasPLANTEDTasks=TASK_DEFS[bedId]&&TASK_DEFS[bedId].some(d=>d.anchor==='PLANTED');
+  if(hasPLANTEDTasks){
+    const plantedDate=getPlantedDates()[bedId];
+    if(plantedDate){
+      h+=`<div class="planted-row"><span class="planted-info">Planted: ${plantedDate}</span></div>`;
+    } else {
+      h+=`<div class="planted-row"><button class="planted-btn" onclick="markPlanted('${bedId}')">Mark as Planted</button></div>`;
+    }
+  }
+
+  h+=`<div class="detail-body"><div>`;
 
   h+=`<span class="section-label">Current Planting</span>`;
   h+=dr('Crop',a.crop);
@@ -1044,7 +1385,15 @@ function switchTab(id,btn){
   document.getElementById(id).classList.add('active');
   btn.classList.add('active');
   if(id==='tab-beds')setTimeout(syncHeight,50);
+  if(id==='tab-tasks')renderTaskTab();
 }
+
+/* ── INIT ────────────────────────────────────────── */
+window.addEventListener('load',async()=>{
+  syncHeight();
+  await fetchCompletedTasks();
+  renderBadges();
+});
 </script>
 </body>
 </html>
