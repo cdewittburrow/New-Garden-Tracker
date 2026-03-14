@@ -342,6 +342,13 @@ h1 em{font-style:italic;color:var(--teal);}
 .harvest-unit-sel:focus{border-color:var(--teal);box-shadow:0 0 0 3px var(--input-foc);}
 .harvest-total-row{min-height:18px;padding:3px 0;}
 .harvest-total{font-family:'Fira Code',monospace;font-size:.65rem;color:var(--teal);letter-spacing:.3px;}
+
+/* ── PLANTING SWITCHER ───────────────────────────── */
+.planting-switcher{display:flex;gap:5px;flex-wrap:wrap;margin-bottom:14px;}
+.ps-btn{font-family:'Fira Code',monospace;font-size:.58rem;letter-spacing:.3px;padding:4px 11px;border:1px solid var(--border-hi);border-radius:100px;background:transparent;color:var(--text-sub);cursor:pointer;transition:all .2s;white-space:nowrap;}
+.ps-btn:hover{border-color:var(--teal);color:var(--text);}
+.ps-btn.ps-active{background:var(--emerald-mid);color:#e8f5f0;border-color:var(--emerald-mid);}
+.ps-live{display:inline-block;width:5px;height:5px;border-radius:50%;background:var(--teal);margin-left:5px;vertical-align:middle;box-shadow:0 0 5px var(--teal);}
 </style>
 </head>
 <body>
@@ -996,7 +1003,7 @@ function isCurrentWindow(wStart,wEnd){
 function expandTasks(bedId){
   const defs=TASK_DEFS[bedId];
   if(!defs)return[];
-  const pd=plantingCache[bedId]?.planted_date;
+  const pd=getActivePlanting(bedId)?.planted_date;
   const planted=pd?new Date(pd+'T00:00:00'):null;
   const tasks=[];
   for(const def of defs){
@@ -1046,16 +1053,38 @@ const SB_KEY = 'sb_publishable_oLwWliy_016RY0abQAcglA_6seSqdx2';
 const SB_HEADERS = { 'apikey': SB_KEY, 'Authorization': `Bearer ${SB_KEY}`, 'Content-Type': 'application/json' };
 
 /* ── PLANTINGS CACHE ─────────────────────────────── */
+// plantingCache[bedId] = array of plantings sorted newest-first
 let plantingCache={};
+// selectedPlantingId[bedId] = uuid of planting currently shown in inspector
+let selectedPlantingId={};
+
 async function fetchAllPlantings(){
   try{
-    const res=await fetch(`${SB_URL}/rest/v1/plantings?ended_date=is.null&select=id,bed_id,planted_date,crop_name`,{headers:SB_HEADERS});
+    const res=await fetch(`${SB_URL}/rest/v1/plantings?select=id,bed_id,crop_name,year,season,planted_date,ended_date&order=created_at.desc`,{headers:SB_HEADERS});
     const rows=await res.json();
     plantingCache={};
-    for(const r of rows)plantingCache[r.bed_id]={id:r.id,planted_date:r.planted_date,crop_name:r.crop_name};
+    for(const r of rows){
+      if(!plantingCache[r.bed_id])plantingCache[r.bed_id]=[];
+      plantingCache[r.bed_id].push({id:r.id,crop_name:r.crop_name,year:r.year,season:r.season,planted_date:r.planted_date,ended_date:r.ended_date});
+    }
   }catch(e){
     console.error('Failed to fetch plantings:',e);
   }
+}
+
+// The live planting (ended_date=null), used for tasks/mark-as-planted
+function getActivePlanting(bedId){
+  const list=plantingCache[bedId];
+  if(!list)return null;
+  return list.find(p=>p.ended_date===null)||list[0];
+}
+
+// The planting currently shown in the inspector (switchable by user)
+function getSelectedPlanting(bedId){
+  const list=plantingCache[bedId];
+  if(!list)return null;
+  if(selectedPlantingId[bedId])return list.find(p=>p.id===selectedPlantingId[bedId])||list[0];
+  return getActivePlanting(bedId);
 }
 
 /* ── LOGS ────────────────────────────────────────── */
@@ -1125,13 +1154,13 @@ async function fetchCompletedTasks(){
 }
 
 function isTaskCompleted(bedId,taskId){
-  const p=plantingCache[bedId];
+  const p=getActivePlanting(bedId);
   if(!p)return false;
   return completedTasks.some(t=>t.plantingId===p.id&&t.taskId===taskId);
 }
 
 async function completeTask(bedId,taskId){
-  const planting=plantingCache[bedId];
+  const planting=getActivePlanting(bedId);
   if(!planting)return;
   const completedDate=new Date().toISOString().split('T')[0];
   completedTasks.push({plantingId:planting.id,taskId,completedDate});
@@ -1252,7 +1281,7 @@ function goToTaskTab(bedId){
 
 /* ── MARK AS PLANTED ─────────────────────────────── */
 async function markPlanted(bedId){
-  const planting=plantingCache[bedId];
+  const planting=getActivePlanting(bedId);
   if(!planting)return;
   const today=new Date().toISOString().split('T')[0];
   try{
@@ -1322,11 +1351,12 @@ async function flipToBed(bedId){
   const hint=document.getElementById('map-hint');
   if(hint)hint.style.display='none';
   activeBedId=bedId;
+  delete selectedPlantingId[bedId]; // reset to active planting
   document.getElementById('mini-map').innerHTML=buildMiniMap(bedId);
   document.getElementById('bed-detail-content').innerHTML=renderDetail(bedId,[]);
   scene.classList.add('is-flipped');
   setTimeout(syncHeight,560);
-  const planting=plantingCache[bedId];
+  const planting=getSelectedPlanting(bedId);
   if(planting){
     bindLog(planting.id);
     bindHarvest(planting.id);
@@ -1343,7 +1373,7 @@ function flipToMap(){
 window.addEventListener('resize',syncHeight);
 
 async function loadLogs(bedId){
-  const planting=plantingCache[bedId];
+  const planting=getSelectedPlanting(bedId);
   if(!planting){
     const el=document.getElementById('log-entries');
     if(el)el.innerHTML='<p class="log-empty">No planting record found.</p>';
@@ -1394,10 +1424,10 @@ function renderDetail(bedId,logs=[]){
   </div>
   <span class="status-badge ${st.cls}"><span class="status-dot"></span>${st.label}</span>`;
 
-  // Mark as Planted button
+  // Mark as Planted button (always based on active planting, not selected)
   const hasPLANTEDTasks=TASK_DEFS[bedId]&&TASK_DEFS[bedId].some(d=>d.anchor==='PLANTED');
   if(hasPLANTEDTasks){
-    const plantedDate=plantingCache[bedId]?.planted_date;
+    const plantedDate=getActivePlanting(bedId)?.planted_date;
     if(plantedDate){
       h+=`<div class="planted-row"><span class="planted-info">Planted: ${plantedDate}</span></div>`;
     } else {
@@ -1433,6 +1463,21 @@ function renderDetail(bedId,logs=[]){
   if(bed.notes.length){
     h+=`<span class="section-label">Notes</span>`;
     bed.notes.forEach(n=>{h+=`<div class="note-row"><span class="note-icon">·</span><span>${n}</span></div>`;});
+  }
+
+  // Planting switcher (shown only when bed has >1 planting)
+  const allPlantings=plantingCache[bedId]||[];
+  if(allPlantings.length>1){
+    const selId=getSelectedPlanting(bedId)?.id;
+    const activId=getActivePlanting(bedId)?.id;
+    h+=`<div class="planting-switcher">`;
+    for(const p of allPlantings){
+      const isLive=p.id===activId&&p.ended_date===null;
+      const isSel=p.id===selId;
+      const label=`${p.crop_name} · ${p.season}`;
+      h+=`<button class="ps-btn${isSel?' ps-active':''}" onclick="switchPlanting('${bedId}','${p.id}')">${label}${isLive?'<span class="ps-live"></span>':''}</button>`;
+    }
+    h+=`</div>`;
   }
 
   const today=new Date().toISOString().split('T')[0];
@@ -1475,8 +1520,9 @@ function navToBed(bedId){
   content.style.opacity='0';
   content.style.transition='opacity .15s';
   setTimeout(()=>{
+    delete selectedPlantingId[bedId]; // reset to active planting
     content.innerHTML=renderDetail(bedId,[]);
-    const planting=plantingCache[bedId];
+    const planting=getSelectedPlanting(bedId);
     if(planting){
       bindLog(planting.id);
       bindHarvest(planting.id);
@@ -1485,6 +1531,18 @@ function navToBed(bedId){
     loadLogs(bedId);
     if(planting)loadHarvests(planting.id);
   },150);
+}
+
+function switchPlanting(bedId,plantingId){
+  selectedPlantingId[bedId]=plantingId;
+  // Re-render detail (updates switcher pill highlights + mark-as-planted)
+  const content=document.getElementById('bed-detail-content');
+  content.innerHTML=renderDetail(bedId,[]);
+  bindLog(plantingId);
+  bindHarvest(plantingId);
+  loadLogs(bedId);
+  loadHarvests(plantingId);
+  syncHeight();
 }
 
 function bindLog(plantingId){
