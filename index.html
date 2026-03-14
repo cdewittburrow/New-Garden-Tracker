@@ -1608,50 +1608,10 @@ function renderDetail(bedId,logs=[]){
 
   h+=`<div class="detail-body">`;
 
-  // Planting switcher (shown only when bed has >1 planting)
-  const allPlantings=plantingCache[bedId]||[];
-  if(allPlantings.length>1){
-    const selId=getSelectedPlanting(bedId)?.id;
-    const activId=getActivePlanting(bedId)?.id;
-    h+=`<div class="planting-switcher">`;
-    for(const p of allPlantings){
-      const isLive=p.id===activId&&p.ended_date===null;
-      const isSel=p.id===selId;
-      const label=`${p.crop_name} · ${p.season}`;
-      h+=`<button class="ps-btn${isSel?' ps-active':''}" onclick="switchPlanting('${bedId}','${p.id}')">${label}${isLive?'<span class="ps-live"></span>':''}</button>`;
-    }
-    h+=`</div>`;
-  }
-
   const today=new Date().toISOString().split('T')[0];
-  // Default season based on current month
-  const mo=new Date().getMonth();
-  const defSeason=mo>=2&&mo<=4?'Spring':mo>=5&&mo<=7?'Summer':mo>=8&&mo<=10?'Fall':'Winter';
-  const seasonOpts=['Spring','Summer','Fall','Winter'].map(s=>`<option value="${s}"${s===defSeason?' selected':''}>${s}</option>`).join('');
-  h+=`<button class="new-crop-toggle" onclick="showNewCropForm('${bedId}')">+ new crop</button>
-  <div id="new-crop-form" class="new-crop-form">
-    <div class="nc-row">
-      <input type="text" id="nc-crop" class="log-input" placeholder="Crop name">
-      <select id="nc-season" class="harvest-unit-sel">${seasonOpts}</select>
-    </div>
-    <div class="nc-row">
-      <input type="date" id="nc-date" class="log-input harvest-date-in" placeholder="Planted date (optional)">
-      <button class="log-add-btn" id="nc-btn" onclick="submitNewCrop('${bedId}')">Start</button>
-    </div>
-  </div>`;
 
-  h+=`<span class="section-label">Season Log</span><div id="log-entries">`;
-  h+=`<p class="log-empty">Loading…</p>`;
-  h+=`</div>
-  <div class="log-add-row">
-    <textarea class="log-input" id="log-ta" rows="2" placeholder="Add an observation…"></textarea>
-    <button class="log-add-btn" id="log-btn">Add</button>
-  </div>`;
-
-  // Crops accordion
-  h+=`<details class="accordion">
-  <summary class="accordion-summary">Crops</summary>
-  <div class="accordion-body">`;
+  // Crop info — always visible
+  h+=`<span class="section-label">Current Planting</span>`;
   h+=dr('Crop',a.crop);
   h+=dr('Variety',a.variety);
   if(a.source)h+=dr('Source',a.source);
@@ -1666,13 +1626,53 @@ function renderDetail(bedId,logs=[]){
     </div>`;
     if(b.notes)h+=`<div class="note-row"><span class="note-icon">↳</span><span>${b.notes}</span></div>`;
   }
-  h+=`<span class="section-label">Irrigation</span>`;
-  h+=dr('Emitters',`${bed.emitters} × ${bed.gph/bed.emitters} GPH = ${bed.gph} GPH`);
-  h+=dr('Schedule',bed.zone===1?'Daily in peak summer':'Every 2–3 days');
   if(bed.notes.length){
     h+=`<span class="section-label">Notes</span>`;
     bed.notes.forEach(n=>{h+=`<div class="note-row"><span class="note-icon">·</span><span>${n}</span></div>`;});
   }
+
+  h+=`<span class="section-label">Season Log</span><div id="log-entries">`;
+  h+=`<p class="log-empty">Loading…</p>`;
+  h+=`</div>
+  <div class="log-add-row">
+    <textarea class="log-input" id="log-ta" rows="2" placeholder="Add an observation…"></textarea>
+    <button class="log-add-btn" id="log-btn">Add</button>
+  </div>`;
+
+  // Crops accordion — planting switcher + new crop form
+  const allPlantings=plantingCache[bedId]||[];
+  const mo=new Date().getMonth();
+  const defSeason=mo>=2&&mo<=4?'Spring':mo>=5&&mo<=7?'Summer':mo>=8&&mo<=10?'Fall':'Winter';
+  const seasonOpts=['Spring','Summer','Fall','Winter'].map(s=>`<option value="${s}"${s===defSeason?' selected':''}>${s}</option>`).join('');
+  h+=`<details class="accordion">
+  <summary class="accordion-summary">Crops</summary>
+  <div class="accordion-body">`;
+  if(allPlantings.length>1){
+    const selId=getSelectedPlanting(bedId)?.id;
+    const activId=getActivePlanting(bedId)?.id;
+    h+=`<div class="planting-switcher">`;
+    for(const p of allPlantings){
+      const isLive=p.id===activId&&p.ended_date===null;
+      const isSel=p.id===selId;
+      const label=`${p.crop_name} · ${p.season}`;
+      h+=`<button class="ps-btn${isSel?' ps-active':''}" onclick="switchPlanting('${bedId}','${p.id}')">${label}${isLive?'<span class="ps-live"></span>':''}</button>`;
+    }
+    h+=`</div>`;
+  }
+  h+=`<button class="new-crop-toggle" onclick="showNewCropForm('${bedId}')">+ new crop</button>
+  <div id="new-crop-form" class="new-crop-form">
+    <div class="nc-row">
+      <input type="text" id="nc-crop" class="log-input" placeholder="Crop name">
+      <select id="nc-season" class="harvest-unit-sel">${seasonOpts}</select>
+    </div>
+    <div class="nc-row">
+      <input type="date" id="nc-date" class="log-input harvest-date-in" placeholder="Planted date (optional)">
+      <button class="log-add-btn" id="nc-btn" onclick="submitNewCrop('${bedId}')">Start</button>
+    </div>
+  </div>`;
+  h+=`<span class="section-label">Irrigation</span>`;
+  h+=dr('Emitters',`${bed.emitters} × ${bed.gph/bed.emitters} GPH = ${bed.gph} GPH`);
+  h+=dr('Schedule',bed.zone===1?'Daily in peak summer':'Every 2–3 days');
   h+=`</div></details>`;
 
   // Yield accordion
