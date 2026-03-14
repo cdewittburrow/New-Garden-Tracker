@@ -1043,7 +1043,7 @@ const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbyaTASqgPBhXwWh3HaDa
 
 async function getLogs(bedId) {
   try {
-    const res = await fetch(`${SCRIPT_URL}?bedId=${bedId}`);
+    const res = await fetch(`${SCRIPT_URL}?bedId=${bedId}&t=${Date.now()}`);
     return await res.json();
   } catch(e) {
     console.error('Failed to fetch logs:', e);
@@ -1055,11 +1055,8 @@ async function saveLog(bedId, text) {
   const d = new Date();
   const date = d.toLocaleDateString('en-US', {month:'short', day:'numeric', year:'numeric'});
   try {
-    await fetch(SCRIPT_URL, {
-      method: 'POST',
-      mode: 'no-cors',
-      body: JSON.stringify({ bedId, date, note: text.trim() })
-    });
+    const params = new URLSearchParams({ action: 'addLog', bedId, date, note: text.trim() });
+    await fetch(`${SCRIPT_URL}?${params}`);
   } catch(e) {
     console.error('Failed to save log:', e);
     throw e;
@@ -1381,13 +1378,28 @@ function bindLog(bedId){
       const text=ta.value;
       try{
         await saveLog(bedId,text);
-        ta.value='';
       }catch(e){
         btn.disabled=false;
         ta.disabled=false;
         return;
       }
-      await loadLogs(bedId);
+      ta.value='';
+      // optimistically prepend the new entry so it's visible immediately
+      const el=document.getElementById('log-entries');
+      if(el){
+        const d=new Date();
+        const date=d.toLocaleDateString('en-US',{month:'short',day:'numeric',year:'numeric'});
+        const entry=document.createElement('div');
+        entry.className='log-entry';
+        entry.innerHTML=`<div class="log-date">${date}</div><div class="log-text">${text.trim()}</div>`;
+        const empty=el.querySelector('.log-empty');
+        if(empty)el.innerHTML='';
+        el.prepend(entry);
+      }
+      btn.disabled=false;
+      ta.disabled=false;
+      // reload from server in background to sync
+      setTimeout(()=>loadLogs(bedId),2000);
     };
     btn.onclick=submit;
     ta.onkeydown=e=>{if(e.key==='Enter'&&!e.shiftKey){e.preventDefault();submit();}};
