@@ -332,6 +332,16 @@ h1 em{font-style:italic;color:var(--teal);}
 }
 .planted-btn:hover{background:#145e3c;}
 .planted-info{font-family:'Fira Code',monospace;font-size:.63rem;color:var(--teal);padding:4px 0;}
+
+/* ── HARVEST ─────────────────────────────────────── */
+.harvest-form-row{margin-top:12px;padding-top:12px;border-top:1px solid var(--divider);display:flex;flex-direction:column;gap:7px;}
+.harvest-inputs{display:flex;gap:7px;}
+.harvest-date-in{flex:0 0 130px;font-size:.76rem;padding:7px 9px;}
+.harvest-amt-in{flex:0 0 80px;}
+.harvest-unit-sel{flex:0 0 72px;cursor:pointer;background:var(--input-bg);color:var(--text);border:1px solid var(--input-bd);border-radius:10px;padding:7px 9px;font-family:'DM Sans',sans-serif;font-size:.83rem;outline:none;}
+.harvest-unit-sel:focus{border-color:var(--teal);box-shadow:0 0 0 3px var(--input-foc);}
+.harvest-total-row{min-height:18px;padding:3px 0;}
+.harvest-total{font-family:'Fira Code',monospace;font-size:.65rem;color:var(--teal);letter-spacing:.3px;}
 </style>
 </head>
 <body>
@@ -960,15 +970,6 @@ const ANCHOR_DATES={
   OCT_27: new Date(2025,9,27),
 };
 
-function getPlantedDates(){
-  try{return JSON.parse(localStorage.getItem('gardenPlantedDates')||'{}');}
-  catch(e){return {};}
-}
-function setPlantedDate(bedId,dateStr){
-  const d=getPlantedDates();
-  d[bedId]=dateStr;
-  localStorage.setItem('gardenPlantedDates',JSON.stringify(d));
-}
 
 function addDays(date,days){
   const d=new Date(date);
@@ -995,7 +996,8 @@ function isCurrentWindow(wStart,wEnd){
 function expandTasks(bedId){
   const defs=TASK_DEFS[bedId];
   if(!defs)return[];
-  const planted=getPlantedDates()[bedId]?new Date(getPlantedDates()[bedId]):null;
+  const pd=plantingCache[bedId]?.planted_date;
+  const planted=pd?new Date(pd+'T00:00:00'):null;
   const tasks=[];
   for(const def of defs){
     if(def.anchor==='CALENDAR'){
@@ -1043,10 +1045,23 @@ const SB_URL = 'https://ulivctyuudgepolulpvq.supabase.co';
 const SB_KEY = 'sb_publishable_oLwWliy_016RY0abQAcglA_6seSqdx2';
 const SB_HEADERS = { 'apikey': SB_KEY, 'Authorization': `Bearer ${SB_KEY}`, 'Content-Type': 'application/json' };
 
+/* ── PLANTINGS CACHE ─────────────────────────────── */
+let plantingCache={};
+async function fetchAllPlantings(){
+  try{
+    const res=await fetch(`${SB_URL}/rest/v1/plantings?ended_date=is.null&select=id,bed_id,planted_date,crop_name`,{headers:SB_HEADERS});
+    const rows=await res.json();
+    plantingCache={};
+    for(const r of rows)plantingCache[r.bed_id]={id:r.id,planted_date:r.planted_date,crop_name:r.crop_name};
+  }catch(e){
+    console.error('Failed to fetch plantings:',e);
+  }
+}
+
 /* ── LOGS ────────────────────────────────────────── */
-async function getLogs(bedId) {
+async function getLogs(plantingId) {
   try {
-    const res = await fetch(`${SB_URL}/rest/v1/logs?bed_id=eq.${encodeURIComponent(bedId)}&order=created_at.asc&select=date,note`, { headers: SB_HEADERS });
+    const res = await fetch(`${SB_URL}/rest/v1/logs?planting_id=eq.${plantingId}&order=created_at.asc&select=date,note`, { headers: SB_HEADERS });
     return await res.json();
   } catch(e) {
     console.error('Failed to fetch logs:', e);
@@ -1054,18 +1069,43 @@ async function getLogs(bedId) {
   }
 }
 
-async function saveLog(bedId, text) {
+async function saveLog(plantingId, text) {
   const d = new Date();
   const date = d.toLocaleDateString('en-US', {month:'short', day:'numeric', year:'numeric'});
   try {
     const res = await fetch(`${SB_URL}/rest/v1/logs`, {
       method: 'POST',
       headers: SB_HEADERS,
-      body: JSON.stringify({ bed_id: bedId, date, note: text.trim() })
+      body: JSON.stringify({ planting_id: plantingId, date, note: text.trim() })
     });
     if (!res.ok) throw new Error(await res.text());
   } catch(e) {
     console.error('Failed to save log:', e);
+    throw e;
+  }
+}
+
+/* ── HARVESTS ────────────────────────────────────── */
+async function getHarvests(plantingId){
+  try{
+    const res=await fetch(`${SB_URL}/rest/v1/harvests?planting_id=eq.${plantingId}&order=harvest_date.asc&select=harvest_date,amount,unit,notes`,{headers:SB_HEADERS});
+    return await res.json();
+  }catch(e){
+    console.error('Failed to fetch harvests:',e);
+    return[];
+  }
+}
+
+async function saveHarvest(plantingId,harvestDate,amount,unit,notes){
+  try{
+    const res=await fetch(`${SB_URL}/rest/v1/harvests`,{
+      method:'POST',
+      headers:SB_HEADERS,
+      body:JSON.stringify({planting_id:plantingId,harvest_date:harvestDate,amount:parseFloat(amount),unit,notes:notes||null})
+    });
+    if(!res.ok)throw new Error(await res.text());
+  }catch(e){
+    console.error('Failed to save harvest:',e);
     throw e;
   }
 }
@@ -1075,9 +1115,9 @@ let completedTasks=[];
 
 async function fetchCompletedTasks(){
   try{
-    const res=await fetch(`${SB_URL}/rest/v1/tasks?select=bed_id,task_id,completed_date`, { headers: SB_HEADERS });
+    const res=await fetch(`${SB_URL}/rest/v1/tasks?select=planting_id,task_id,completed_date`,{headers:SB_HEADERS});
     const rows=await res.json();
-    completedTasks=rows.map(r=>({ bedId:r.bed_id, taskId:r.task_id, completedDate:r.completed_date }));
+    completedTasks=rows.map(r=>({plantingId:r.planting_id,taskId:r.task_id,completedDate:r.completed_date}));
   }catch(e){
     console.error('Failed to fetch tasks:',e);
     completedTasks=[];
@@ -1085,17 +1125,21 @@ async function fetchCompletedTasks(){
 }
 
 function isTaskCompleted(bedId,taskId){
-  return completedTasks.some(t=>t.bedId===bedId&&t.taskId===taskId);
+  const p=plantingCache[bedId];
+  if(!p)return false;
+  return completedTasks.some(t=>t.plantingId===p.id&&t.taskId===taskId);
 }
 
 async function completeTask(bedId,taskId){
+  const planting=plantingCache[bedId];
+  if(!planting)return;
   const completedDate=new Date().toISOString().split('T')[0];
-  completedTasks.push({bedId,taskId,completedDate});
+  completedTasks.push({plantingId:planting.id,taskId,completedDate});
   try{
-    await fetch(`${SB_URL}/rest/v1/tasks`, {
-      method: 'POST',
-      headers: SB_HEADERS,
-      body: JSON.stringify({ bed_id: bedId, task_id: taskId, completed_date: completedDate })
+    await fetch(`${SB_URL}/rest/v1/tasks`,{
+      method:'POST',
+      headers:SB_HEADERS,
+      body:JSON.stringify({planting_id:planting.id,task_id:taskId,completed_date:completedDate})
     });
   }catch(e){
     console.error('Failed to save task:',e);
@@ -1207,12 +1251,27 @@ function goToTaskTab(bedId){
 }
 
 /* ── MARK AS PLANTED ─────────────────────────────── */
-function markPlanted(bedId){
+async function markPlanted(bedId){
+  const planting=plantingCache[bedId];
+  if(!planting)return;
   const today=new Date().toISOString().split('T')[0];
-  setPlantedDate(bedId,today);
+  try{
+    const res=await fetch(`${SB_URL}/rest/v1/plantings?id=eq.${planting.id}`,{
+      method:'PATCH',
+      headers:{...SB_HEADERS,'Prefer':'return=minimal'},
+      body:JSON.stringify({planted_date:today})
+    });
+    if(!res.ok)throw new Error(await res.text());
+    planting.planted_date=today;
+  }catch(e){
+    console.error('Failed to update planted date:',e);
+    return;
+  }
   document.getElementById('bed-detail-content').innerHTML=renderDetail(bedId,[]);
-  bindLog(bedId);
+  bindLog(planting.id);
+  bindHarvest(planting.id);
   loadLogs(bedId);
+  loadHarvests(planting.id);
   renderBadges();
 }
 
@@ -1267,7 +1326,13 @@ async function flipToBed(bedId){
   document.getElementById('bed-detail-content').innerHTML=renderDetail(bedId,[]);
   scene.classList.add('is-flipped');
   setTimeout(syncHeight,560);
-  loadLogs(bedId);
+  const planting=plantingCache[bedId];
+  if(planting){
+    bindLog(planting.id);
+    bindHarvest(planting.id);
+    loadLogs(bedId);
+    loadHarvests(planting.id);
+  }
 }
 
 function flipToMap(){
@@ -1278,7 +1343,13 @@ function flipToMap(){
 window.addEventListener('resize',syncHeight);
 
 async function loadLogs(bedId){
-  const logs=await getLogs(bedId);
+  const planting=plantingCache[bedId];
+  if(!planting){
+    const el=document.getElementById('log-entries');
+    if(el)el.innerHTML='<p class="log-empty">No planting record found.</p>';
+    return;
+  }
+  const logs=await getLogs(planting.id);
   if(activeBedId!==bedId)return;
   const el=document.getElementById('log-entries');
   if(!el)return;
@@ -1286,7 +1357,28 @@ async function loadLogs(bedId){
   if(!logs.length)h=`<p class="log-empty">No entries yet.</p>`;
   else logs.forEach(e=>{h+=`<div class="log-entry"><div class="log-date">${e.date}</div><div class="log-text">${e.note}</div></div>`;});
   el.innerHTML=h;
-  bindLog(bedId);
+  bindLog(planting.id);
+}
+
+async function loadHarvests(plantingId){
+  const harvests=await getHarvests(plantingId);
+  const el=document.getElementById('harvest-entries');
+  const totalEl=document.getElementById('harvest-total');
+  if(!el)return;
+  let h='';
+  if(!harvests.length)h='<p class="log-empty">No harvests logged yet.</p>';
+  else harvests.forEach(e=>{
+    const dateStr=new Date(e.harvest_date+'T00:00:00').toLocaleDateString('en-US',{month:'short',day:'numeric'});
+    h+=`<div class="log-entry"><div class="log-date">${dateStr}</div><div class="log-text">${e.amount} ${e.unit}${e.notes?' — '+e.notes:''}</div></div>`;
+  });
+  el.innerHTML=h;
+  if(totalEl){
+    const totals={};
+    harvests.forEach(e=>{totals[e.unit]=(totals[e.unit]||0)+parseFloat(e.amount);});
+    const parts=Object.entries(totals).map(([u,v])=>`${v%1===0?v:v.toFixed(1)} ${u}`);
+    totalEl.textContent=parts.length?'Season total: '+parts.join(', '):'';
+  }
+  bindHarvest(plantingId);
 }
 
 /* ── DETAIL RENDER ───────────────────────────────── */
@@ -1305,7 +1397,7 @@ function renderDetail(bedId,logs=[]){
   // Mark as Planted button
   const hasPLANTEDTasks=TASK_DEFS[bedId]&&TASK_DEFS[bedId].some(d=>d.anchor==='PLANTED');
   if(hasPLANTEDTasks){
-    const plantedDate=getPlantedDates()[bedId];
+    const plantedDate=plantingCache[bedId]?.planted_date;
     if(plantedDate){
       h+=`<div class="planted-row"><span class="planted-info">Planted: ${plantedDate}</span></div>`;
     } else {
@@ -1343,12 +1435,29 @@ function renderDetail(bedId,logs=[]){
     bed.notes.forEach(n=>{h+=`<div class="note-row"><span class="note-icon">·</span><span>${n}</span></div>`;});
   }
 
+  const today=new Date().toISOString().split('T')[0];
   h+=`<span class="section-label">Season Log</span><div id="log-entries">`;
   h+=`<p class="log-empty">Loading…</p>`;
   h+=`</div>
   <div class="log-add-row">
     <textarea class="log-input" id="log-ta" rows="2" placeholder="Add an observation…"></textarea>
     <button class="log-add-btn" id="log-btn">Add</button>
+  </div>`;
+
+  h+=`<span class="section-label">Log Harvest</span>
+  <div id="harvest-entries"><p class="log-empty">Loading…</p></div>
+  <div class="harvest-total-row"><span id="harvest-total" class="harvest-total"></span></div>
+  <div id="harvest-form" class="harvest-form-row">
+    <div class="harvest-inputs">
+      <input type="date" id="harvest-date" class="log-input harvest-date-in" value="${today}">
+      <input type="number" id="harvest-amount" class="log-input harvest-amt-in" placeholder="Amount" min="0" step="0.1">
+      <select id="harvest-unit" class="harvest-unit-sel">
+        <option value="lbs">lbs</option>
+        <option value="count">count</option>
+      </select>
+    </div>
+    <input type="text" id="harvest-notes" class="log-input" placeholder="Notes (optional)">
+    <button class="log-add-btn" id="harvest-btn">Log</button>
   </div></div></div>`;
 
   return h;
@@ -1367,13 +1476,18 @@ function navToBed(bedId){
   content.style.transition='opacity .15s';
   setTimeout(()=>{
     content.innerHTML=renderDetail(bedId,[]);
-    bindLog(bedId);
+    const planting=plantingCache[bedId];
+    if(planting){
+      bindLog(planting.id);
+      bindHarvest(planting.id);
+    }
     content.style.opacity='1';
     loadLogs(bedId);
+    if(planting)loadHarvests(planting.id);
   },150);
 }
 
-function bindLog(bedId){
+function bindLog(plantingId){
   setTimeout(()=>{
     const ta=document.getElementById('log-ta');
     const btn=document.getElementById('log-btn');
@@ -1386,7 +1500,7 @@ function bindLog(bedId){
       ta.disabled=true;
       const text=ta.value;
       try{
-        await saveLog(bedId,text);
+        await saveLog(plantingId,text);
       }catch(e){
         btn.disabled=false;
         ta.disabled=false;
@@ -1408,10 +1522,32 @@ function bindLog(bedId){
       btn.disabled=false;
       ta.disabled=false;
       // reload from server in background to sync
-      setTimeout(()=>loadLogs(bedId),2000);
+      setTimeout(()=>loadLogs(activeBedId),2000);
     };
     btn.onclick=submit;
     ta.onkeydown=e=>{if(e.key==='Enter'&&!e.shiftKey){e.preventDefault();submit();}};
+  },0);
+}
+
+function bindHarvest(plantingId){
+  setTimeout(()=>{
+    const amtIn=document.getElementById('harvest-amount');
+    const dateIn=document.getElementById('harvest-date');
+    const unitSel=document.getElementById('harvest-unit');
+    const notesIn=document.getElementById('harvest-notes');
+    const btn=document.getElementById('harvest-btn');
+    if(!btn)return;
+    btn.onclick=async()=>{
+      if(!amtIn.value.trim())return;
+      btn.disabled=true;
+      try{
+        await saveHarvest(plantingId,dateIn.value,amtIn.value,unitSel.value,notesIn.value.trim()||null);
+        amtIn.value='';
+        notesIn.value='';
+        await loadHarvests(plantingId);
+      }catch(e){/* already logged */}
+      btn.disabled=false;
+    };
   },0);
 }
 
@@ -1428,6 +1564,7 @@ function switchTab(id,btn){
 /* ── INIT ────────────────────────────────────────── */
 window.addEventListener('load',async()=>{
   syncHeight();
+  await fetchAllPlantings();
   await fetchCompletedTasks();
   renderBadges();
 });
