@@ -349,6 +349,12 @@ h1 em{font-style:italic;color:var(--teal);}
 .ps-btn:hover{border-color:var(--teal);color:var(--text);}
 .ps-btn.ps-active{background:var(--emerald-mid);color:#e8f5f0;border-color:var(--emerald-mid);}
 .ps-live{display:inline-block;width:5px;height:5px;border-radius:50%;background:var(--teal);margin-left:5px;vertical-align:middle;box-shadow:0 0 5px var(--teal);}
+.new-crop-toggle{font-family:'Fira Code',monospace;font-size:.58rem;color:var(--text-dim);background:none;border:none;cursor:pointer;padding:2px 0;letter-spacing:.3px;transition:color .2s;}
+.new-crop-toggle:hover{color:var(--teal);}
+.new-crop-form{flex-direction:column;gap:7px;padding:10px 12px;background:var(--bg-card);border:1px solid var(--border);border-radius:10px;margin-bottom:10px;}
+.new-crop-form.open{display:flex;}
+.nc-row{display:flex;gap:7px;flex-wrap:wrap;}
+.nc-row .log-input{flex:1;min-width:80px;}
 </style>
 </head>
 <body>
@@ -1481,6 +1487,22 @@ function renderDetail(bedId,logs=[]){
   }
 
   const today=new Date().toISOString().split('T')[0];
+  // Default season based on current month
+  const mo=new Date().getMonth();
+  const defSeason=mo>=2&&mo<=4?'Spring':mo>=5&&mo<=7?'Summer':mo>=8&&mo<=10?'Fall':'Winter';
+  const seasonOpts=['Spring','Summer','Fall','Winter'].map(s=>`<option value="${s}"${s===defSeason?' selected':''}>${s}</option>`).join('');
+  h+=`<button class="new-crop-toggle" onclick="showNewCropForm('${bedId}')">+ new crop</button>
+  <div id="new-crop-form" class="new-crop-form">
+    <div class="nc-row">
+      <input type="text" id="nc-crop" class="log-input" placeholder="Crop name">
+      <select id="nc-season" class="harvest-unit-sel">${seasonOpts}</select>
+    </div>
+    <div class="nc-row">
+      <input type="date" id="nc-date" class="log-input harvest-date-in" placeholder="Planted date (optional)">
+      <button class="log-add-btn" id="nc-btn" onclick="submitNewCrop('${bedId}')">Start</button>
+    </div>
+  </div>`;
+
   h+=`<span class="section-label">Season Log</span><div id="log-entries">`;
   h+=`<p class="log-empty">Loading…</p>`;
   h+=`</div>
@@ -1532,6 +1554,54 @@ function navToBed(bedId){
     if(planting)loadHarvests(planting.id);
   },150);
 }
+
+function showNewCropForm(bedId){
+  const form=document.getElementById('new-crop-form');
+  if(!form)return;
+  form.classList.toggle('open');
+  syncHeight();
+}
+
+async function submitNewCrop(bedId){
+  const cropIn=document.getElementById('nc-crop');
+  const seasonEl=document.getElementById('nc-season');
+  const dateEl=document.getElementById('nc-date');
+  const btn=document.getElementById('nc-btn');
+  const cropName=cropIn.value.trim();
+  if(!cropName)return;
+  btn.disabled=true;
+  try{
+    // End current active planting
+    const active=getActivePlanting(bedId);
+    if(active){
+      const res=await fetch(`${SB_URL}/rest/v1/plantings?id=eq.${active.id}`,{
+        method:'PATCH',
+        headers:{...SB_HEADERS,'Prefer':'return=minimal'},
+        body:JSON.stringify({ended_date:today()})
+      });
+      if(!res.ok)throw new Error(await res.text());
+    }
+    // Create new planting
+    const res2=await fetch(`${SB_URL}/rest/v1/plantings`,{
+      method:'POST',
+      headers:SB_HEADERS,
+      body:JSON.stringify({bed_id:bedId,crop_name:cropName,year:new Date().getFullYear(),season:seasonEl.value,planted_date:dateEl.value||null})
+    });
+    if(!res2.ok)throw new Error(await res2.text());
+    // Refresh cache and re-render
+    await fetchAllPlantings();
+    delete selectedPlantingId[bedId];
+    document.getElementById('bed-detail-content').innerHTML=renderDetail(bedId,[]);
+    const planting=getSelectedPlanting(bedId);
+    if(planting){bindLog(planting.id);bindHarvest(planting.id);loadLogs(bedId);loadHarvests(planting.id);}
+    syncHeight();
+  }catch(e){
+    console.error('Failed to start new crop:',e);
+    btn.disabled=false;
+  }
+}
+
+function today(){return new Date().toISOString().split('T')[0];}
 
 function switchPlanting(bedId,plantingId){
   selectedPlantingId[bedId]=plantingId;
