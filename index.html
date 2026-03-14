@@ -216,9 +216,20 @@ h1 em{font-style:italic;color:var(--teal);}
 .s-harvested{background:rgba(141,110,99,.1);color:#bcaaa4;border-color:rgba(141,110,99,.22);}
 .s-harvested .status-dot{background:#8d6e63;}
 
-/* Detail body two-column */
-.detail-body{display:grid;grid-template-columns:1fr 1fr;gap:0 32px;flex:1;}
-@media(max-width:520px){.detail-body{grid-template-columns:1fr;}}
+/* Detail body single-column */
+.detail-body{display:flex;flex-direction:column;flex:1;}
+
+/* Accordion (details/summary) */
+.accordion{border:none;margin:0;}
+.accordion-summary{
+  list-style:none;cursor:pointer;user-select:none;display:flex;align-items:center;justify-content:space-between;
+  font-family:'Fira Code',monospace;font-size:.57rem;letter-spacing:2.5px;text-transform:uppercase;
+  color:var(--text-dim);margin:18px 0 7px;padding-bottom:5px;border-bottom:1px solid var(--divider);
+}
+.accordion-summary::-webkit-details-marker{display:none;}
+.accordion-summary::after{content:'▸';font-size:.7rem;transition:transform .2s;margin-left:6px;}
+.accordion[open] .accordion-summary::after{transform:rotate(90deg);}
+.accordion-body{padding-top:2px;}
 
 .section-label{
   font-family:'Fira Code',monospace;font-size:.57rem;letter-spacing:2.5px;text-transform:uppercase;
@@ -1595,35 +1606,7 @@ function renderDetail(bedId,logs=[]){
     }
   }
 
-  h+=`<div class="detail-body"><div>`;
-
-  h+=`<span class="section-label">Current Planting</span>`;
-  h+=dr('Crop',a.crop);
-  h+=dr('Variety',a.variety);
-  if(a.source)h+=dr('Source',a.source);
-  if(a.sown)h+=dr('Sown',a.sown);
-  h+=dr('Harvest',a.harvest||'—');
-
-  if(b){
-    h+=`<span class="section-label">Summer Rotation</span>
-    <div class="rotation-card">
-      <div class="rot-slot slot-a"><div class="rs-label">Now</div><div class="rs-crop">${a.variety}</div><div class="rs-detail">out by ${a.harvest}</div></div>
-      <div class="rot-divider">→</div>
-      <div class="rot-slot slot-b"><div class="rs-label">Then</div><div class="rs-crop">${b.variety}</div><div class="rs-detail">sow ${b.sown}</div></div>
-    </div>`;
-    if(b.notes)h+=`<div class="note-row"><span class="note-icon">↳</span><span>${b.notes}</span></div>`;
-  }
-
-  h+=`<span class="section-label">Irrigation</span>`;
-  h+=dr('Emitters',`${bed.emitters} × ${bed.gph/bed.emitters} GPH = ${bed.gph} GPH`);
-  h+=dr('Schedule',bed.zone===1?'Daily in peak summer':'Every 2–3 days');
-
-  h+=`</div><div>`;
-
-  if(bed.notes.length){
-    h+=`<span class="section-label">Notes</span>`;
-    bed.notes.forEach(n=>{h+=`<div class="note-row"><span class="note-icon">·</span><span>${n}</span></div>`;});
-  }
+  h+=`<div class="detail-body">`;
 
   // Planting switcher (shown only when bed has >1 planting)
   const allPlantings=plantingCache[bedId]||[];
@@ -1665,7 +1648,37 @@ function renderDetail(bedId,logs=[]){
     <button class="log-add-btn" id="log-btn">Add</button>
   </div>`;
 
-  h+=`<span class="section-label">Log Harvest</span>
+  // Crops accordion
+  h+=`<details class="accordion">
+  <summary class="accordion-summary">Crops</summary>
+  <div class="accordion-body">`;
+  h+=dr('Crop',a.crop);
+  h+=dr('Variety',a.variety);
+  if(a.source)h+=dr('Source',a.source);
+  if(a.sown)h+=dr('Sown',a.sown);
+  h+=dr('Harvest',a.harvest||'—');
+  if(b){
+    h+=`<span class="section-label">Summer Rotation</span>
+    <div class="rotation-card">
+      <div class="rot-slot slot-a"><div class="rs-label">Now</div><div class="rs-crop">${a.variety}</div><div class="rs-detail">out by ${a.harvest}</div></div>
+      <div class="rot-divider">→</div>
+      <div class="rot-slot slot-b"><div class="rs-label">Then</div><div class="rs-crop">${b.variety}</div><div class="rs-detail">sow ${b.sown}</div></div>
+    </div>`;
+    if(b.notes)h+=`<div class="note-row"><span class="note-icon">↳</span><span>${b.notes}</span></div>`;
+  }
+  h+=`<span class="section-label">Irrigation</span>`;
+  h+=dr('Emitters',`${bed.emitters} × ${bed.gph/bed.emitters} GPH = ${bed.gph} GPH`);
+  h+=dr('Schedule',bed.zone===1?'Daily in peak summer':'Every 2–3 days');
+  if(bed.notes.length){
+    h+=`<span class="section-label">Notes</span>`;
+    bed.notes.forEach(n=>{h+=`<div class="note-row"><span class="note-icon">·</span><span>${n}</span></div>`;});
+  }
+  h+=`</div></details>`;
+
+  // Yield accordion
+  h+=`<details class="accordion">
+  <summary class="accordion-summary">Yield</summary>
+  <div class="accordion-body">
   <div id="harvest-entries"><p class="log-empty">Loading…</p></div>
   <div class="harvest-total-row"><span id="harvest-total" class="harvest-total"></span></div>
   <div id="harvest-form" class="harvest-form-row">
@@ -1679,7 +1692,10 @@ function renderDetail(bedId,logs=[]){
     </div>
     <input type="text" id="harvest-notes" class="log-input" placeholder="Notes (optional)">
     <button class="log-add-btn" id="harvest-btn">Log</button>
-  </div></div></div>`;
+  </div>
+  </div></details>
+
+  </div>`;
 
   return h;
 }
