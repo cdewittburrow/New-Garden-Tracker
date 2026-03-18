@@ -348,6 +348,15 @@ h1 em{font-style:italic;color:var(--teal);}
 .planted-btn:hover{background:#145e3c;}
 .planted-info{font-family:'Fira Code',monospace;font-size:.63rem;color:var(--teal);padding:4px 0;}
 
+/* ── WATERING ────────────────────────────────────── */
+.watering-row{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:8px 0 4px;}
+.watering-info{font-family:'Fira Code',monospace;font-size:.68rem;color:var(--text-sub);}
+.watering-log{display:flex;align-items:center;gap:5px;}
+.water-dur{width:52px!important;flex:none!important;text-align:center;}
+.water-dur-lbl{font-family:'Fira Code',monospace;font-size:.68rem;color:var(--text-dim);}
+.water-btn{background:linear-gradient(135deg,var(--sapphire-mid),var(--sapphire-dk));color:#fff;border:none;border-radius:10px;padding:7px 14px;font-family:'DM Sans',sans-serif;font-size:.83rem;font-weight:500;cursor:pointer;transition:opacity .2s;white-space:nowrap;}
+.water-btn:hover{opacity:.85;}.water-btn:disabled{opacity:.5;cursor:default;}
+
 /* ── HARVEST ─────────────────────────────────────── */
 .harvest-form-row{margin-top:12px;padding-top:12px;border-top:1px solid var(--divider);display:flex;flex-direction:column;gap:7px;}
 .harvest-inputs{display:flex;gap:7px;}
@@ -1317,6 +1326,66 @@ async function saveHarvest(plantingId,harvestDate,amount,unit,notes){
   }
 }
 
+/* ── WATERINGS ───────────────────────────────────── */
+async function getLastWatering(zone){
+  try{
+    const res=await fetch(`${SB_URL}/rest/v1/waterings?zone=eq.${zone}&order=watered_date.desc&limit=1&select=watered_date,duration_minutes`,{headers:SB_HEADERS});
+    const rows=await res.json();
+    return rows[0]||null;
+  }catch(e){
+    console.error('Failed to fetch watering:',e);
+    return null;
+  }
+}
+
+async function saveWatering(zone,durationMinutes){
+  try{
+    const res=await fetch(`${SB_URL}/rest/v1/waterings`,{
+      method:'POST',
+      headers:SB_HEADERS,
+      body:JSON.stringify({zone,watered_date:today(),duration_minutes:durationMinutes,source:'manual'})
+    });
+    if(!res.ok)throw new Error(await res.text());
+  }catch(e){
+    console.error('Failed to save watering:',e);
+    throw e;
+  }
+}
+
+async function loadWatering(bedId){
+  const zone=BEDS[bedId].zone;
+  const el=document.getElementById('last-watered');
+  if(!el)return;
+  const w=await getLastWatering(zone);
+  if(activeBedId!==bedId)return;
+  const el2=document.getElementById('last-watered');
+  if(!el2)return;
+  if(!w){el2.textContent='Not yet watered';return;}
+  const days=Math.floor((new Date()-new Date(w.watered_date+'T00:00:00'))/864e5);
+  const dur=`${w.duration_minutes} min`;
+  if(days===0)el2.textContent=`Watered today (${dur})`;
+  else if(days===1)el2.textContent=`Watered yesterday (${dur})`;
+  else el2.textContent=`Last watered ${days}d ago (${dur})`;
+}
+
+function bindWatering(bedId){
+  setTimeout(()=>{
+    const btn=document.getElementById('water-btn');
+    const durIn=document.getElementById('water-dur');
+    if(!btn||!durIn)return;
+    const zone=BEDS[bedId].zone;
+    btn.onclick=async()=>{
+      const dur=parseInt(durIn.value)||30;
+      btn.disabled=true;
+      try{
+        await saveWatering(zone,dur);
+        await loadWatering(bedId);
+      }catch(e){/* already logged */}
+      btn.disabled=false;
+    };
+  },0);
+}
+
 /* ── TASK STATE ──────────────────────────────────── */
 let completedTasks=[];
 
@@ -1479,6 +1548,8 @@ async function markPlanted(bedId){
   bindHarvest(planting.id);
   loadLogs(bedId);
   loadHarvests(planting.id);
+  bindWatering(bedId);
+  loadWatering(bedId);
   renderBadges();
 }
 
@@ -1541,6 +1612,8 @@ async function flipToBed(bedId){
     loadLogs(bedId);
     loadHarvests(planting.id);
   }
+  bindWatering(bedId);
+  loadWatering(bedId);
 }
 
 function flipToMap(){
@@ -1612,6 +1685,15 @@ function renderDetail(bedId,logs=[]){
       h+=`<div class="planted-row"><button class="planted-btn" onclick="markPlanted('${bedId}')">Mark as Planted</button></div>`;
     }
   }
+
+  h+=`<div class="watering-row">
+    <span class="watering-info" id="last-watered">Loading…</span>
+    <div class="watering-log">
+      <input type="number" id="water-dur" class="log-input water-dur" value="30" min="1" max="240">
+      <span class="water-dur-lbl">min</span>
+      <button class="water-btn" id="water-btn">Watered</button>
+    </div>
+  </div>`;
 
   h+=`<div class="detail-body">`;
 
@@ -1729,6 +1811,8 @@ function navToBed(bedId){
     content.style.opacity='1';
     loadLogs(bedId);
     if(planting)loadHarvests(planting.id);
+    bindWatering(bedId);
+    loadWatering(bedId);
   },150);
 }
 
@@ -1789,6 +1873,8 @@ function switchPlanting(bedId,plantingId){
   bindHarvest(plantingId);
   loadLogs(bedId);
   loadHarvests(plantingId);
+  bindWatering(bedId);
+  loadWatering(bedId);
   syncHeight();
 }
 
