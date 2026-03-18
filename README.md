@@ -52,7 +52,7 @@ Two-zone drip system fed from the front yard spigot (target 60+ PSI / 6+ GPM aft
 
 ## The App
 
-**Beds** — SVG flip-card. The front face is the garden map; tap any bed to flip to the inspector. Inspector shows the active planting, crop status, rotation card, irrigation details, season log, and harvest log. If a bed has had multiple crops in a season, a pill strip lets you switch between planting records. Bed tiles show a task badge when something is due this week.
+**Beds** — SVG flip-card. The front face is the garden map; tap any bed to flip to the inspector. Inspector shows the active planting, crop status, rotation card, irrigation details, season log, and harvest log. A "Watered" button (with duration input) logs a manual watering for that bed's zone and shows "last watered X days ago (Y min)" inline. If a bed has had multiple crops in a season, a pill strip lets you switch between planting records. Bed tiles show a task badge when something is due this week.
 
 **Water** — Full irrigation system diagram with component callouts and zone color coding.
 
@@ -93,7 +93,12 @@ logs
 
 tasks
   id, planting_id, task_id, completed_date
+
+waterings
+  id, zone (1 or 2), watered_date, duration_minutes, source (manual | rachio)
 ```
+
+`ended_date = null` means the planting is still active. Waterings are zone-scoped, not planting-scoped — a watering applies to all beds on that zone. The `source` column is the Rachio seam: manual entries write `source='manual'`, and when Rachio integration ships it writes `source='rachio'` instead. The display layer never needs to change.
 
 `ended_date = null` means the planting is still active. This is what the app queries to find the current crop in a bed, drive task logic, and show the "Mark as Planted" button.
 
@@ -138,27 +143,36 @@ For planning and architecture: Claude.ai. For implementation: Claude Code. Diffe
 | Mar 2026 | Succession crops as separate planting records | Each crop gets its own log and harvest history even if it's the same bed. Updating in place would destroy the record of what came before. | Update existing planting row |
 | Mar 2026 | No auth layer, publishable Supabase key in frontend | Single-user personal tool with no sensitive data. The anon key is designed to be public. Adding auth would add friction with zero security benefit here. | Auth.js, Supabase Auth, env vars |
 | Mar 2026 | SVG for all diagrams | No external chart library. Keeps the single-file constraint. Full control over layout and theming. SVG elements respond to CSS custom properties so dark/light mode works cleanly. | D3.js, Canvas, image files |
+| Mar 2026 | Waterings table is zone-scoped, not planting-scoped | A watering event applies to a zone, not a crop. One button on any bed in zone 2 logs a watering for all zone 2 beds. | Attach waterings to planting_id |
+| Mar 2026 | `source` column as Rachio integration seam | The manual watering button writes `source='manual'`. When Rachio ships, it writes `source='rachio'` to the same table. The display layer (last watered X days ago) reads rows regardless of source — it never needs to change. | Separate manual/rachio tables, migration later |
 
 ---
 
 ## Roadmap
 
-### Priority 1 — Custom Tasks
+### Priority 1 — Rachio Integration
+The `waterings` table and display layer are already in place. Manual watering entries write `source='manual'`. When the Rachio timer and drip system are installed (~6 weeks), the integration is:
+1. Authenticate with the Rachio API
+2. Pull zone run history on a schedule or webhook
+3. Write events to `waterings` with `source='rachio'`
+4. Remove the manual "Watered" button from the inspector
+
+The "last watered X days ago" display already reads from `waterings` regardless of source — no frontend changes needed.
+
+### Priority 2 — Custom Tasks
 The current task system is entirely crop-defined and hardcoded. There's no way to add a one-off task ("stake the E2 tomato today") or a recurring reminder that isn't already in the crop template. Custom tasks — both one-time and repeating — are the next meaningful addition to the task system.
 
 ### Task System
 - Overdue task state — when a window closes unchecked, show it rather than silently dropping it
 - Task stacking — "Remove suckers — 3 weeks behind"
-- Auto-create task schema on first run (currently manual)
 
 ### Logging & Yield
 - Photo logging — attach a photo to a log entry
 - Printable season summary — end of year export
-- Tomato start date reminder — easy to miss, easy to automate
 
 ### Irrigation
-- Rachio API integration — pull actual watering history into the bed inspector, show last watered date per zone
-- Watering schedule display — show the configured Rachio schedule on the plumbing tab
+- Rachio schedule display — show the configured zone schedule on the plumbing tab
+- Per-zone water usage over time — total minutes run by week/month
 
 ### Planning & History
 - Year-over-year comparison view — "W3 in 2025 vs W3 in 2026"
@@ -168,7 +182,6 @@ The current task system is entirely crop-defined and hardcoded. There's no way t
 
 ### Infrastructure
 - PWA support — installable on phone home screen, works offline
-- Succession planting UI — cleaner way to switch between plantings in the same bed
 
 ---
 
