@@ -73,7 +73,19 @@ Two-zone drip system fed from the front yard spigot (target 60+ PSI / 6+ GPM aft
 | Planning | Claude.ai |
 | Irrigation timer | Rachio |
 
-The Supabase anon key is intentionally baked into the frontend. It's the publishable key, designed to be public. RLS is not enabled — this is a single-user personal tool with no sensitive data.
+The Supabase anon key is intentionally baked into the frontend. It's the publishable key, designed to be public. No auth layer — this is a single-user personal tool with no sensitive data.
+
+RLS is enabled on all tables. Policies follow a consistent naming convention and grant access to the `anon` role only (the publishable key). No DELETE policies exist anywhere — the app never deletes data.
+
+| Table | SELECT | INSERT | UPDATE |
+|-------|--------|--------|--------|
+| `plantings` | ✓ | ✓ | ✓ (set `planted_date`, `ended_date`) |
+| `logs` | ✓ | ✓ | ✓ |
+| `harvests` | ✓ | ✓ | ✓ |
+| `tasks` | ✓ | ✓ | ✓ |
+| `waterings` | ✓ | ✓ | — (records are never patched) |
+
+All policies use `USING (true)` / `WITH CHECK (true)` — open to the anon key, locked to everything else. If you enable RLS on a new table and the app breaks, add the same `anon_select_<table>` + `anon_insert_<table>` policies and an `anon_update_<table>` if the app sends PATCHes to it.
 
 ---
 
@@ -141,7 +153,7 @@ For planning and architecture: Claude.ai. For implementation: Claude Code. Diffe
 | Mar 2026 | Claude Code + Supabase MCP | Claude Code can talk directly to Supabase to create tables and manage schema, which removes an entire category of manual setup steps. | Manual schema setup in Supabase UI |
 | Mar 2026 | `ended_date = null` to mark active planting | Simpler to query than a separate boolean. A planting that hasn't ended is active by definition — no extra field needed. | Separate `is_active` boolean |
 | Mar 2026 | Succession crops as separate planting records | Each crop gets its own log and harvest history even if it's the same bed. Updating in place would destroy the record of what came before. | Update existing planting row |
-| Mar 2026 | No auth layer, publishable Supabase key in frontend | Single-user personal tool with no sensitive data. The anon key is designed to be public. Adding auth would add friction with zero security benefit here. | Auth.js, Supabase Auth, env vars |
+| Mar 2026 | No auth layer, publishable Supabase key in frontend | Single-user personal tool with no sensitive data. The anon key is designed to be public. Adding auth would add friction with zero security benefit here. RLS is enabled on all tables; access is granted to the anon role only. | Auth.js, Supabase Auth, env vars |
 | Mar 2026 | SVG for all diagrams | No external chart library. Keeps the single-file constraint. Full control over layout and theming. SVG elements respond to CSS custom properties so dark/light mode works cleanly. | D3.js, Canvas, image files |
 | Mar 2026 | Waterings table is zone-scoped, not planting-scoped | A watering event applies to a zone, not a crop. One button on any bed in zone 2 logs a watering for all zone 2 beds. | Attach waterings to planting_id |
 | Mar 2026 | `source` column as Rachio integration seam | The manual watering button writes `source='manual'`. When Rachio ships, it writes `source='rachio'` to the same table. The display layer (last watered X days ago) reads rows regardless of source — it never needs to change. | Separate manual/rachio tables, migration later |
