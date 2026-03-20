@@ -1411,7 +1411,7 @@ function isTaskCompleted(bedId,taskId){
 async function completeTask(bedId,taskId){
   const planting=getActivePlanting(bedId);
   if(!planting)return;
-  const completedDate=new Date().toISOString().split('T')[0];
+  const completedDate=today();
   completedTasks.push({plantingId:planting.id,taskId,completedDate});
   try{
     await fetch(`${SB_URL}/rest/v1/tasks`,{
@@ -1532,7 +1532,7 @@ function goToTaskTab(bedId){
 async function markPlanted(bedId){
   const planting=getActivePlanting(bedId);
   if(!planting)return;
-  const today=new Date().toISOString().split('T')[0];
+  const today=(()=>{const d=new Date();return `${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,'0')}-${String(d.getDate()).padStart(2,'0')}`;})();
   try{
     const res=await fetch(`${SB_URL}/rest/v1/plantings?id=eq.${planting.id}`,{
       method:'PATCH',
@@ -1699,7 +1699,7 @@ function renderDetail(bedId,logs=[]){
 
   h+=`<div class="detail-body">`;
 
-  const today=new Date().toISOString().split('T')[0];
+  const today=(()=>{const d=new Date();return `${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,'0')}-${String(d.getDate()).padStart(2,'0')}`;})();
 
   // Crop info — always visible
   h+=`<span class="section-label">Current Planting</span>`;
@@ -1864,7 +1864,7 @@ async function submitNewCrop(bedId){
   }
 }
 
-function today(){return new Date().toISOString().split('T')[0];}
+function today(){const d=new Date();return `${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,'0')}-${String(d.getDate()).padStart(2,'0')}`;}
 
 function switchPlanting(bedId,plantingId){
   selectedPlantingId[bedId]=plantingId;
