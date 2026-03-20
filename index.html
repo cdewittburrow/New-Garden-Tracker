@@ -1279,7 +1279,7 @@ function getSelectedPlanting(bedId){
 /* ── LOGS ────────────────────────────────────────── */
 async function getLogs(plantingId) {
   try {
-    const res = await fetch(`${SB_URL}/rest/v1/logs?planting_id=eq.${plantingId}&order=created_at.asc&select=date,note`, { headers: SB_HEADERS });
+    const res = await fetch(`${SB_URL}/rest/v1/logs?planting_id=eq.${plantingId}&order=created_at.desc&select=date,note`, { headers: SB_HEADERS });
     return await res.json();
   } catch(e) {
     console.error('Failed to fetch logs:', e);
