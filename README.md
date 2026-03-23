@@ -23,7 +23,7 @@ The workflow: talk through what you want in Claude.ai, get a spec, hand it to Cl
 | Bed | Crop | Notes |
 |-----|------|-------|
 | W1 | Everbearing Strawberries | Perennial. USDA Organic, Fast Growing Trees. |
-| W2 | Fallow | Resting this season. |
+| W2 | Orange Hat Tomatoes (Determinate) | 2 plants. Transplant May 10–20. |
 | W3 | Elephant & Music Garlic → Kyoto Red Carrots | Garlic planted Oct 2025. Carrots after harvest. |
 | W4 | Italian Red Garlic → New Kuroda Carrots | Garlic planted Oct 2025. Carrots after harvest. |
 | C1 | 18-Day French Radish → Good Mother Stallard Beans | Radish sown Mar 8. Pole beans need trellis. |
@@ -155,6 +155,7 @@ For planning and architecture: Claude.ai. For implementation: Claude Code. Diffe
 | Mar 2026 | Succession crops as separate planting records | Each crop gets its own log and harvest history even if it's the same bed. Updating in place would destroy the record of what came before. | Update existing planting row |
 | Mar 2026 | No auth layer, publishable Supabase key in frontend | Single-user personal tool with no sensitive data. The anon key is designed to be public. Adding auth would add friction with zero security benefit here. RLS is enabled on all tables; access is granted to the anon role only. | Auth.js, Supabase Auth, env vars |
 | Mar 2026 | SVG for all diagrams | No external chart library. Keeps the single-file constraint. Full control over layout and theming. SVG elements respond to CSS custom properties so dark/light mode works cleanly. | D3.js, Canvas, image files |
+| Mar 2026 | Dynamic crop labels on the map SVG — read from database, not hardcoded | Hardcoded labels drifted from reality the moment the first planting changed. Labels now update from `plantingCache` on load and after any planting save. Shows `fallow` when no active planting exists. | Manually update SVG text on each crop change |
 | Mar 2026 | Waterings table is zone-scoped, not planting-scoped | A watering event applies to a zone, not a crop. One button on any bed in zone 2 logs a watering for all zone 2 beds. | Attach waterings to planting_id |
 | Mar 2026 | `source` column as Rachio integration seam | The manual watering button writes `source='manual'`. When Rachio ships, it writes `source='rachio'` to the same table. The display layer (last watered X days ago) reads rows regardless of source — it never needs to change. | Separate manual/rachio tables, migration later |
 
