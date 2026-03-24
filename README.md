@@ -140,6 +140,8 @@ For planning and architecture: Claude.ai. For implementation: Claude Code. Diffe
 
 ## Decision Log
 
+> **Convention:** Use full date stamps (`Mar 23, 2026`) in the Date column, not just month and year.
+
 | Date | Decision | Rationale | Alternatives |
 |------|----------|-----------|--------------|
 | Oct 2025 | Garlic in W3 and W4 | Overwinter, harvest early summer, succeed to carrots in same beds | Dedicated garlic section |
