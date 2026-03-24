@@ -1249,12 +1249,12 @@ let selectedPlantingId={};
 
 async function fetchAllPlantings(){
   try{
-    const res=await fetch(`${SB_URL}/rest/v1/plantings?select=id,bed_id,crop_name,year,season,planted_date,ended_date&order=created_at.desc`,{headers:SB_HEADERS});
+    const res=await fetch(`${SB_URL}/rest/v1/plantings?select=id,bed_id,crop_name,variety,expected_harvest,year,season,planted_date,ended_date&order=created_at.desc`,{headers:SB_HEADERS});
     const rows=await res.json();
     plantingCache={};
     for(const r of rows){
       if(!plantingCache[r.bed_id])plantingCache[r.bed_id]=[];
-      plantingCache[r.bed_id].push({id:r.id,crop_name:r.crop_name,year:r.year,season:r.season,planted_date:r.planted_date,ended_date:r.ended_date});
+      plantingCache[r.bed_id].push({id:r.id,crop_name:r.crop_name,variety:r.variety,expected_harvest:r.expected_harvest,year:r.year,season:r.season,planted_date:r.planted_date,ended_date:r.ended_date});
     }
   }catch(e){
     console.error('Failed to fetch plantings:',e);
@@ -1714,16 +1714,18 @@ function renderDetail(bedId,logs=[]){
 
   const today=(()=>{const d=new Date();return `${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,'0')}-${String(d.getDate()).padStart(2,'0')}`;})();
 
-  // Crop info — prefer live DB planting, fall back to BEDS static data
+  // Crop info — prefer DB planting data, fall back to BEDS static data
   const dbPlanting=getSelectedPlanting(bedId);
   const cropName=dbPlanting?dbPlanting.crop_name:a.crop;
-  const sownDate=dbPlanting?.planted_date||a.sown;
+  const variety=dbPlanting?.variety||a.variety||null;
+  const sownDate=dbPlanting?.planted_date||a.sown||null;
+  const expectedHarvest=dbPlanting?.expected_harvest||a.harvest||null;
   h+=`<span class="section-label">Current Planting</span>`;
   h+=dr('Crop',cropName);
-  h+=dr('Variety',a.variety);
+  if(variety)h+=dr('Variety',variety);
   if(a.source)h+=dr('Source',a.source);
   if(sownDate)h+=dr('Sown',sownDate);
-  h+=dr('Harvest',a.harvest||'—');
+  h+=dr('Harvest',expectedHarvest||'—');
   if(b){
     h+=`<span class="section-label">Summer Rotation</span>
     <div class="rotation-card">
@@ -1771,6 +1773,12 @@ function renderDetail(bedId,logs=[]){
     <div class="nc-row">
       <input type="text" id="nc-crop" class="log-input" placeholder="Crop name">
       <select id="nc-season" class="harvest-unit-sel">${seasonOpts}</select>
+    </div>
+    <div class="nc-row">
+      <input type="text" id="nc-variety" class="log-input" placeholder="Variety (optional)">
+    </div>
+    <div class="nc-row">
+      <input type="text" id="nc-harvest" class="log-input" placeholder="Expected harvest (optional)">
     </div>
     <div class="nc-row">
       <input type="date" id="nc-date" class="log-input harvest-date-in" placeholder="Planted date (optional)">
@@ -1843,11 +1851,15 @@ function showNewCropForm(bedId){
 
 async function submitNewCrop(bedId){
   const cropIn=document.getElementById('nc-crop');
+  const varietyIn=document.getElementById('nc-variety');
+  const harvestIn=document.getElementById('nc-harvest');
   const seasonEl=document.getElementById('nc-season');
   const dateEl=document.getElementById('nc-date');
   const btn=document.getElementById('nc-btn');
   const cropName=cropIn.value.trim();
   if(!cropName)return;
+  const variety=varietyIn.value.trim()||null;
+  const expectedHarvest=harvestIn.value.trim()||null;
   btn.disabled=true;
   try{
     // End current active planting
@@ -1864,7 +1876,7 @@ async function submitNewCrop(bedId){
     const res2=await fetch(`${SB_URL}/rest/v1/plantings`,{
       method:'POST',
       headers:SB_HEADERS,
-      body:JSON.stringify({bed_id:bedId,crop_name:cropName,year:new Date().getFullYear(),season:seasonEl.value,planted_date:dateEl.value||null})
+      body:JSON.stringify({bed_id:bedId,crop_name:cropName,variety,expected_harvest:expectedHarvest,year:new Date().getFullYear(),season:seasonEl.value,planted_date:dateEl.value||null})
     });
     if(!res2.ok)throw new Error(await res2.text());
     // Refresh cache and re-render
