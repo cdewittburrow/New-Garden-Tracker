@@ -23,7 +23,7 @@ The workflow: talk through what you want in Claude.ai, get a spec, hand it to Cl
 | Bed | Crop | Notes |
 |-----|------|-------|
 | W1 | Everbearing Strawberries | Perennial. USDA Organic, Fast Growing Trees. |
-| W2 | Orange Hat Tomatoes (Determinate) | 2 plants. Transplant May 10–20. |
+| W2 | Tomato — Orange Hat (Determinate) | 2 plants. Transplant May 10–20. |
 | W3 | Elephant & Music Garlic → Kyoto Red Carrots | Garlic planted Oct 2025. Carrots after harvest. |
 | W4 | Italian Red Garlic → New Kuroda Carrots | Garlic planted Oct 2025. Carrots after harvest. |
 | C1 | 18-Day French Radish → Good Mother Stallard Beans | Radish sown Mar 8. Pole beans need trellis. |
@@ -95,7 +95,7 @@ Everything hangs off **plantings** — a specific crop in a specific bed for a s
 
 ```
 plantings
-  id, bed_id, crop_name, year, season, planted_date, ended_date, notes
+  id, bed_id, crop_name, variety, expected_harvest, year, season, planted_date, ended_date, notes
 
 harvests
   id, planting_id, harvest_date, amount, unit (lbs/count), notes
@@ -110,9 +110,11 @@ waterings
   id, zone (1 or 2), watered_date, duration_minutes, source (manual | rachio)
 ```
 
-`ended_date = null` means the planting is still active. Waterings are zone-scoped, not planting-scoped — a watering applies to all beds on that zone. The `source` column is the Rachio seam: manual entries write `source='manual'`, and when Rachio integration ships it writes `source='rachio'` instead. The display layer never needs to change.
-
 `ended_date = null` means the planting is still active. This is what the app queries to find the current crop in a bed, drive task logic, and show the "Mark as Planted" button.
+
+`variety` is the specific cultivar name (e.g. "Sugar Bon", "Elephant & Music"). `expected_harvest` is a free-text window (e.g. "~May 3, 2026", "Jul 20–Aug 10, 2026") — kept as text because harvest windows are ranges, not single dates. Both are optional and captured in the Add Crop form.
+
+Waterings are zone-scoped, not planting-scoped — a watering applies to all beds on that zone. The `source` column is the Rachio seam: manual entries write `source='manual'`, and when Rachio integration ships it writes `source='rachio'` instead. The display layer never needs to change.
 
 Succession crops (e.g. radish → beans in C1) get separate planting records. When you start a new crop from the bed inspector, the app sets `ended_date = today` on the outgoing planting and inserts a new row for the incoming one. Both records persist independently with their own logs and harvests.
 
@@ -156,6 +158,9 @@ For planning and architecture: Claude.ai. For implementation: Claude Code. Diffe
 | Mar 2026 | No auth layer, publishable Supabase key in frontend | Single-user personal tool with no sensitive data. The anon key is designed to be public. Adding auth would add friction with zero security benefit here. RLS is enabled on all tables; access is granted to the anon role only. | Auth.js, Supabase Auth, env vars |
 | Mar 2026 | SVG for all diagrams | No external chart library. Keeps the single-file constraint. Full control over layout and theming. SVG elements respond to CSS custom properties so dark/light mode works cleanly. | D3.js, Canvas, image files |
 | Mar 2026 | Dynamic crop labels on the map SVG — read from database, not hardcoded | Hardcoded labels drifted from reality the moment the first planting changed. Labels now update from `plantingCache` on load and after any planting save. Shows `fallow` when no active planting exists. | Manually update SVG text on each crop change |
+| Mar 2026 | Bed detail panel reads crop/variety/harvest from DB, falls back to BEDS static data | The hardcoded `BEDS` constant was the source of truth for the inspector panel, so new plantings saved to Supabase never appeared correctly. DB is now authoritative; BEDS serves only as fallback for fields not yet in the DB. | Keep BEDS as sole source of truth |
+| Mar 2026 | `variety` and `expected_harvest` as explicit columns on `plantings`, not derived from crop name | Variety is meaningful data — "Tomato" and "Orange Hat (determinate)" are different things. Storing only `crop_name` meant variety was lost the moment a new crop was saved. `expected_harvest` kept as free text because harvest windows are ranges, not single dates. | Embed variety in crop_name, or add a separate varieties table |
+| Mar 2026 | `crop_name` stores the crop type, `variety` stores the cultivar | Consistent with how gardeners talk: "I'm growing tomatoes — specifically Orange Hat." Keeps `crop_name` groupable and `variety` searchable independently. | Store the full name ("Orange Hat Tomato") in crop_name |
 | Mar 2026 | Waterings table is zone-scoped, not planting-scoped | A watering event applies to a zone, not a crop. One button on any bed in zone 2 logs a watering for all zone 2 beds. | Attach waterings to planting_id |
 | Mar 2026 | `source` column as Rachio integration seam | The manual watering button writes `source='manual'`. When Rachio ships, it writes `source='rachio'` to the same table. The display layer (last watered X days ago) reads rows regardless of source — it never needs to change. | Separate manual/rachio tables, migration later |
 
