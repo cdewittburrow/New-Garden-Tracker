@@ -1677,7 +1677,10 @@ async function loadHarvests(plantingId){
 /* ── DETAIL RENDER ───────────────────────────────── */
 function renderDetail(bedId,logs=[]){
   const bed=BEDS[bedId],a=bed.slotA,b=bed.slotB;
-  const st=STATUS[a.status]||STATUS.planned;
+  // Derive status from live DB planting if one exists
+  const livePlanting=getActivePlanting(bedId);
+  const derivedStatus=livePlanting?(livePlanting.planted_date?'growing':'planned'):a.status;
+  const st=STATUS[derivedStatus]||STATUS.planned;
   const zTag=bed.zone===1?'z1-tag':'z2-tag';
   const zLabel=bed.zone===1?'Zone 1 — Tomatoes':'Zone 2';
 
@@ -1711,12 +1714,15 @@ function renderDetail(bedId,logs=[]){
 
   const today=(()=>{const d=new Date();return `${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,'0')}-${String(d.getDate()).padStart(2,'0')}`;})();
 
-  // Crop info — always visible
+  // Crop info — prefer live DB planting, fall back to BEDS static data
+  const dbPlanting=getSelectedPlanting(bedId);
+  const cropName=dbPlanting?dbPlanting.crop_name:a.crop;
+  const sownDate=dbPlanting?.planted_date||a.sown;
   h+=`<span class="section-label">Current Planting</span>`;
-  h+=dr('Crop',a.crop);
+  h+=dr('Crop',cropName);
   h+=dr('Variety',a.variety);
   if(a.source)h+=dr('Source',a.source);
-  if(a.sown)h+=dr('Sown',a.sown);
+  if(sownDate)h+=dr('Sown',sownDate);
   h+=dr('Harvest',a.harvest||'—');
   if(b){
     h+=`<span class="section-label">Summer Rotation</span>
