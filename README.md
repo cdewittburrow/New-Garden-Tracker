@@ -95,7 +95,7 @@ Everything hangs off **plantings** — a specific crop in a specific bed for a s
 
 ```
 plantings
-  id, bed_id, crop_name, variety, expected_harvest, year, season, planted_date, ended_date, notes
+  id, bed_id, crop_name, variety, expected_harvest, year, season, planted_date, ended_date
 
 harvests
   id, planting_id, harvest_date, amount, unit (lbs/count), notes
