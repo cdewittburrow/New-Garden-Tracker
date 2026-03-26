@@ -182,6 +182,11 @@ The "last watered X days ago" display already reads from `waterings` regardless 
 ### Priority 2 — Custom Tasks
 The current task system is entirely crop-defined and hardcoded. There's no way to add a one-off task ("stake the E2 tomato today") or a recurring reminder that isn't already in the crop template. Custom tasks — both one-time and repeating — are the next meaningful addition to the task system.
 
+### Priority 3 — Season Turnover
+Strip planting fallback data (`slotA`/`slotB`) out of the hardcoded `BEDS` constant — infrastructure facts only (zone, emitters, GPH). The database is already authoritative; the fallback just goes stale.
+
+Add a "start new season" flow in the app: pick a bed, pick a crop, write a new planting to Supabase. Replaces manual DB inserts and eliminates the need for any hardcoded crop data in the frontend.
+
 ### Task System
 - Overdue task state — when a window closes unchecked, show it rather than silently dropping it
 - Task stacking — "Remove suckers — 3 weeks behind"
