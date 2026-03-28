@@ -52,13 +52,13 @@ Two-zone drip system fed from the front yard spigot (target 60+ PSI / 6+ GPM aft
 
 ## The App
 
-**Beds** — SVG garden map with 12 stadium-pill bed tiles filling the full screen. Tap any bed to open a bottom sheet inspector. Inspector shows the active planting, crop status, rotation card, irrigation details, season log, and harvest log. A "Watered" button (with duration input) logs a manual watering for that bed's zone and shows "last watered X days ago (Y min)" inline. If a bed has had multiple crops in a season, a pill strip lets you switch between planting records. Bed tiles show a task badge when something is due this week.
+**Beds** — SVG garden map with 12 stadium-pill bed tiles filling the full screen. Each pill shows a glowing ring in its current status color: jade (sown), lime (germinating), teal (growing), amber pulsing (ready to harvest), muted brown (harvested), no ring (planned). Tap any bed to open a bottom sheet inspector. Inspector shows a crop-led header — crop name as the primary heading with the bed ID as a small trailing chip, variety as an italic subtitle below. The zone pill and tappable status badge sit on the same row beneath the crop identity. Tapping the status badge opens an inline picker to update the stage; changes persist to the database immediately. A "Log watering" button with duration input records a manual watering for the bed's zone and shows "last watered X days ago (Y min)" with a zone context line clarifying it applies to all beds on that zone. Dates throughout the inspector display in natural format (Mar 8, 2026) with a relative time line below sown/planted dates ("3 weeks ago"). If a bed has had multiple crops in a season, a pill strip in the Crops accordion lets you switch between planting records. The harvest log is hidden by default behind a "+ Log harvest" toggle; logging auto-collapses it. All write actions (log, harvest, watering) flash a brief confirmation on the button. Bed tiles show a task badge when something is due this week. A minimap in the sheet header shows all 12 beds with status-colored dots in the corner of each cell; tap any cell to navigate directly to that bed.
 
 **Water** — Full irrigation system diagram with component callouts and zone color coding.
 
 **Drip** — Cross-section showing how water gets from the lateral line into a raised bed (punched tee → poly tubing → emitters).
 
-**Tasks** — All crop care tasks due this week across all beds, in chronological order. Filter by bed. Check off tasks and they persist to the database.
+**Tasks** — All crop care tasks due this week across all beds, in chronological order. Filter by bed. Check off tasks and they persist to the database. Crop names in the task list read from the live database, not hardcoded fallback data.
 
 ---
 
@@ -79,7 +79,7 @@ RLS is enabled on all tables. Policies follow a consistent naming convention and
 
 | Table | SELECT | INSERT | UPDATE |
 |-------|--------|--------|--------|
-| `plantings` | ✓ | ✓ | ✓ (set `planted_date`, `ended_date`) |
+| `plantings` | ✓ | ✓ | ✓ (set `planted_date`, `ended_date`, `status`) |
 | `logs` | ✓ | ✓ | ✓ |
 | `harvests` | ✓ | ✓ | ✓ |
 | `tasks` | ✓ | ✓ | ✓ |
@@ -95,7 +95,8 @@ Everything hangs off **plantings** — a specific crop in a specific bed for a s
 
 ```
 plantings
-  id, bed_id, crop_name, variety, expected_harvest, year, season, planted_date, ended_date
+  id, bed_id, crop_name, variety, expected_harvest, year, season,
+  planted_date, ended_date, status
 
 harvests
   id, planting_id, harvest_date, amount, unit (lbs/count), notes
@@ -111,6 +112,8 @@ waterings
 ```
 
 `ended_date = null` means the planting is still active. This is what the app queries to find the current crop in a bed, drive task logic, and show the "Mark as Planted" button.
+
+`status` is a user-settable stage for the planting: `planned`, `sown`, `germinating`, `growing`, `ready`, or `harvested`. Stored explicitly in the database so it persists and can be updated from the inspector. The app falls back to deriving status from `planted_date` for any row where `status` is null (legacy rows before the column was added).
 
 `variety` is the specific cultivar name (e.g. "Sugar Bon", "Elephant & Music"). `expected_harvest` is a free-text window (e.g. "~May 3, 2026", "Jul 20–Aug 10, 2026") — kept as text because harvest windows are ranges, not single dates. Both are optional and captured in the Add Crop form.
 
@@ -168,6 +171,12 @@ For planning and architecture: Claude.ai. For implementation: Claude Code. Diffe
 | Mar 27, 2026 | Replace flip-card inspector with a fixed bottom sheet | The 3D flip card required a card wrapper with a background, making the map feel framed and visually heavy. A bottom sheet slides up over the full-screen map, leaving the garden visible behind the backdrop — more native-feeling on mobile. | Side drawer, modal dialog |
 | Mar 27, 2026 | Strip all SVG chrome from the garden map — pills only, no house band, zone labels, compass, or grid | Each extra element shrank the usable bed area. Removing decorative chrome let the beds scale to 76×140 px with equal 53 px spacing, filling the full iPhone viewport. | Keep chrome, reduce pill size |
 | Mar 27, 2026 | Dark mode uses deep forest green (`#0d2016`) instead of near-black | Pure dark backgrounds read as generic and cold on the garden map. A saturated dark green grounds the UI in the context of the garden without washing out bed colors. | Standard #111 dark background |
+| Mar 27, 2026 | `status` stored as an explicit DB column, not derived from `planted_date` | Deriving status from `planted_date` only distinguished planned vs growing — no way to express sown, germinating, ready, or harvested. Storing it explicitly in the DB makes the full 6-stage lifecycle writable from the inspector and persistent across sessions. | Derive more states from dates; keep status frontend-only |
+| Mar 27, 2026 | Glowing bed-ring as status indicator instead of an overlay dot | Each pill already has a ring element with a glow filter attached — it sits at opacity 0 by default. Lighting it up with a status color (jade, lime, teal, amber, brown) is cheaper than adding new SVG elements and produces a more organic, bloom-like effect. "Ready" beds pulse amber on a CSS animation. | Small dot inside pill, colored gradient overlay, border color change |
+| Mar 27, 2026 | Crop name as primary heading in the inspector, bed ID demoted to a chip | When you tap a bed, you know which bed you tapped — the map is right behind the sheet. What you want confirmed is what's growing there. Crop name at 1.65rem Playfair is the answer; "W3" as a small monospace chip is the address. | Keep bed ID as large heading, add crop as subtitle |
+| Mar 27, 2026 | Inspector dates in natural format with relative time | ISO dates (2026-03-08) require mental math. "Mar 8, 2026" is readable at a glance. "3 weeks ago" under the sown date answers the most common follow-up question without opening a calendar. | ISO dates only; relative time in a tooltip |
+| Mar 27, 2026 | Harvest form hidden behind a toggle by default | The harvest entry form (date, amount, unit, notes) was always expanded in the Yield accordion, including for crops that haven't been planted yet. Collapsing it behind "+ Log harvest" reduces noise and auto-collapses again after each successful entry. | Always visible; collapse only on mobile |
+| Mar 27, 2026 | Section labels in sentence case, not ALL-CAPS | ALL-CAPS with 2.5px letter-spacing reads as shouting. Sentence case at 0.5px spacing reads as a structured header — same visual weight, less aggressive. | Title Case; keep ALL-CAPS |
 
 ---
 
@@ -178,7 +187,7 @@ The `waterings` table and display layer are already in place. Manual watering en
 1. Authenticate with the Rachio API
 2. Pull zone run history on a schedule or webhook
 3. Write events to `waterings` with `source='rachio'`
-4. Remove the manual "Watered" button from the inspector
+4. Remove the manual "Log watering" button from the inspector
 
 The "last watered X days ago" display already reads from `waterings` regardless of source — no frontend changes needed.
 
