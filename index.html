@@ -179,7 +179,7 @@ h1 em{font-style:italic;color:var(--teal);}
 .insp-header-meta{display:flex;align-items:center;gap:7px;flex-wrap:wrap;}
 .insp-header-meta .status-badge{margin-bottom:0;}
 .insp-bed-chip{font-family:'Fira Code',monospace;font-size:.69rem;color:var(--text-dim);background:var(--bg-card);border:1px solid var(--border);border-radius:100px;padding:2px 9px;letter-spacing:.5px;flex-shrink:0;}
-.insp-crop-name{font-family:'Playfair Display',serif;font-size:1.45rem;font-weight:700;line-height:1.2;color:var(--text);}
+.insp-crop-name{font-family:'Playfair Display',serif;font-size:1.65rem;font-weight:700;line-height:1.2;color:var(--text);}
 .insp-variety{font-size:.88rem;color:var(--jade);font-style:italic;opacity:.9;padding-left:1px;}
 .rel-time{display:block;font-family:'Fira Code',monospace;font-size:.63rem;color:var(--text-dim);font-weight:400;margin-top:1px;}
 .zone-tag{
@@ -1672,8 +1672,8 @@ function renderDetail(bedId,logs=[]){
 
   let h=`<div class="insp-header">
     <div class="insp-header-top">
-      <span class="insp-bed-chip">${bed.id}</span>
       <div class="insp-crop-name">${cropName}</div>
+      <span class="insp-bed-chip">${bed.id}</span>
     </div>
     ${variety?`<div class="insp-variety">${variety}</div>`:''}
     <div class="insp-header-meta">
