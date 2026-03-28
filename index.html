@@ -283,6 +283,7 @@ h1 em{font-style:italic;color:var(--teal);}
 .step-text p{font-size:.74rem;color:var(--text-sub);line-height:1.55;}
 .pipe-flow{stroke-dasharray:7 5;animation:flow 1.4s linear infinite;}
 @keyframes flow{to{stroke-dashoffset:-24;}}
+@keyframes statusPulse{0%,100%{opacity:.85;}50%{opacity:.2;}}
 
 /* ── RESPONSIVE ──────────────────────────────── */
 @media(max-width:600px){
@@ -1894,47 +1895,29 @@ async function selectStatus(bedId,newStatus){
 }
 
 /* ── STATUS INDICATORS ON MAP ────────────────────── */
-const STATUS_IND={
-  sown:        {fill:'rgba(61,191,130,.8)'},
-  germinating: {fill:'rgba(139,195,74,.9)'},
-  growing:     {fill:'#14c4ab',glow:true},
-  ready:       {fill:'#e08c30',ring:true},
-  harvested:   {fill:'rgba(141,110,99,.65)'},
+// Uses the existing bed-ring element (opacity 0 by default) — light it up per status.
+// The ring already has a glow filter attached, so colored strokes bloom naturally.
+const RING_STYLE={
+  planned:     {opacity:0},
+  sown:        {opacity:.4, stroke:'#3dbf82'},
+  germinating: {opacity:.5, stroke:'#8bc34a'},
+  growing:     {opacity:.65,stroke:'#14c4ab'},
+  ready:       {opacity:.85,stroke:'#e08c30',pulse:true},
+  harvested:   {opacity:.2, stroke:'#8d6e63'},
 };
-// pill center x per column, dot cy = pillTop + 110
-const PILL_CX={w:91,c:220,e:349};
-const PILL_TOP={1:10,2:170,3:330,4:490};
 
 function renderStatusIndicators(){
   const svg=document.getElementById('garden-map');
   if(!svg)return;
-  svg.querySelectorAll('.status-ind-g').forEach(el=>el.remove());
   for(const bedId of Object.keys(BEDS)){
+    const ring=svg.querySelector(`#pill-${bedId} .bed-ring`);
+    if(!ring)continue;
     const planting=getActivePlanting(bedId);
     const status=planting?.status||(planting?.planted_date?'growing':'planned');
-    const ind=STATUS_IND[status];
-    if(!ind)continue; // 'planned' — no dot
-    const col=bedId[0]; // 'w','c','e'
-    const row=parseInt(bedId[1]); // 1-4
-    const cx=PILL_CX[col];
-    const cy=PILL_TOP[row]+110;
-    const g=document.createElementNS('http://www.w3.org/2000/svg','g');
-    g.setAttribute('class','status-ind-g');
-    g.style.pointerEvents='none';
-    if(ind.ring){
-      const ring=document.createElementNS('http://www.w3.org/2000/svg','circle');
-      ring.setAttribute('cx',cx);ring.setAttribute('cy',cy);
-      ring.setAttribute('r',8);ring.setAttribute('fill','none');
-      ring.setAttribute('stroke','#e08c30');ring.setAttribute('stroke-width','1.5');
-      ring.setAttribute('opacity','.4');
-      g.appendChild(ring);
-    }
-    const dot=document.createElementNS('http://www.w3.org/2000/svg','circle');
-    dot.setAttribute('cx',cx);dot.setAttribute('cy',cy);
-    dot.setAttribute('r',4);dot.setAttribute('fill',ind.fill);
-    if(ind.glow){dot.setAttribute('filter','url(#glow-t)');}
-    g.appendChild(dot);
-    svg.appendChild(g);
+    const s=RING_STYLE[status]||RING_STYLE.planned;
+    ring.setAttribute('opacity',s.opacity);
+    if(s.stroke)ring.setAttribute('stroke',s.stroke);
+    ring.style.animation=s.pulse?'statusPulse 2.2s ease-in-out infinite':'';
   }
 }
 
