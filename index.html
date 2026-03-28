@@ -174,11 +174,13 @@ h1 em{font-style:italic;color:var(--teal);}
 }
 
 /* Detail header — crop-led */
-.insp-header{display:flex;flex-direction:column;gap:3px;margin-bottom:8px;}
-.insp-header-meta{display:flex;align-items:center;gap:8px;}
-.insp-bed-chip{font-family:'Fira Code',monospace;font-size:.69rem;color:var(--text-dim);background:var(--bg-card);border:1px solid var(--border);border-radius:100px;padding:2px 9px;letter-spacing:.5px;}
+.insp-header{display:flex;flex-direction:column;gap:4px;margin-bottom:14px;}
+.insp-header-top{display:flex;align-items:center;gap:9px;}
+.insp-header-meta{display:flex;align-items:center;gap:7px;flex-wrap:wrap;}
+.insp-header-meta .status-badge{margin-bottom:0;}
+.insp-bed-chip{font-family:'Fira Code',monospace;font-size:.69rem;color:var(--text-dim);background:var(--bg-card);border:1px solid var(--border);border-radius:100px;padding:2px 9px;letter-spacing:.5px;flex-shrink:0;}
 .insp-crop-name{font-family:'Playfair Display',serif;font-size:1.45rem;font-weight:700;line-height:1.2;color:var(--text);}
-.insp-variety{font-size:.88rem;color:var(--jade);font-style:italic;opacity:.9;}
+.insp-variety{font-size:.88rem;color:var(--jade);font-style:italic;opacity:.9;padding-left:1px;}
 .rel-time{display:block;font-family:'Fira Code',monospace;font-size:.63rem;color:var(--text-dim);font-weight:400;margin-top:1px;}
 .zone-tag{
   font-family:'Fira Code',monospace;font-size:.61rem;padding:4px 12px;border-radius:100px;
@@ -1669,14 +1671,16 @@ function renderDetail(bedId,logs=[]){
   const zLabel=bed.zone===1?'Zone 1 — Tomatoes':'Zone 2';
 
   let h=`<div class="insp-header">
-    <div class="insp-header-meta">
+    <div class="insp-header-top">
       <span class="insp-bed-chip">${bed.id}</span>
-      <span class="zone-tag ${zTag}">${zLabel}</span>
+      <div class="insp-crop-name">${cropName}</div>
     </div>
-    <div class="insp-crop-name">${cropName}</div>
     ${variety?`<div class="insp-variety">${variety}</div>`:''}
-  </div>
-  <span id="status-badge" class="status-badge ${st.cls}" onclick="openStatusPicker('${bedId}')"><span class="status-dot"></span>${st.label}</span>`;
+    <div class="insp-header-meta">
+      <span class="zone-tag ${zTag}">${zLabel}</span>
+      <span id="status-badge" class="status-badge ${st.cls}" onclick="openStatusPicker('${bedId}')"><span class="status-dot"></span>${st.label}</span>
+    </div>
+  </div>`;
 
   // Mark as Planted button (always based on active planting, not selected)
   const hasPLANTEDTasks=TASK_DEFS[bedId]&&TASK_DEFS[bedId].some(d=>d.anchor==='PLANTED');
