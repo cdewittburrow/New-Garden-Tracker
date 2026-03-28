@@ -174,7 +174,7 @@ h1 em{font-style:italic;color:var(--teal);}
 }
 
 /* Detail header — crop-led */
-.insp-header{display:flex;flex-direction:column;gap:4px;margin-bottom:14px;}
+.insp-header{display:flex;flex-direction:column;gap:4px;margin-bottom:18px;padding-bottom:16px;border-bottom:1px solid var(--divider);}
 .insp-header-top{display:flex;align-items:center;gap:9px;}
 .insp-header-meta{display:flex;align-items:center;gap:7px;flex-wrap:wrap;}
 .insp-header-meta .status-badge{margin-bottom:0;}
@@ -216,7 +216,7 @@ h1 em{font-style:italic;color:var(--teal);}
 .accordion-summary{
   list-style:none;cursor:pointer;user-select:none;display:flex;align-items:center;justify-content:space-between;
   font-family:'Fira Code',monospace;font-size:.57rem;letter-spacing:.5px;
-  color:var(--text-dim);margin:18px 0 7px;padding-bottom:5px;border-bottom:1px solid var(--divider);
+  color:var(--text-dim);margin:16px 0 6px;padding-bottom:5px;border-bottom:1px solid var(--divider);
 }
 .accordion-summary::-webkit-details-marker{display:none;}
 .accordion-summary::after{content:'▸';font-size:.7rem;transition:transform .2s;margin-left:6px;}
@@ -225,7 +225,7 @@ h1 em{font-style:italic;color:var(--teal);}
 
 .section-label{
   font-family:'Fira Code',monospace;font-size:.57rem;letter-spacing:.5px;
-  color:var(--text-dim);margin:18px 0 7px;display:block;padding-bottom:5px;border-bottom:1px solid var(--divider);
+  color:var(--text-dim);margin:16px 0 6px;display:block;padding-bottom:5px;border-bottom:1px solid var(--divider);
 }
 .section-label:first-child{margin-top:0;}
 .data-row{
@@ -235,22 +235,9 @@ h1 em{font-style:italic;color:var(--teal);}
 .dr-label{color:var(--text-sub);flex-shrink:0;font-size:.78rem;}
 .dr-val{font-weight:500;text-align:right;font-size:.83rem;}
 
-.rotation-card{
-  display:flex;align-items:stretch;
-  background:var(--bg-card);border:1px solid var(--border);border-radius:10px;
-  margin:8px 0 4px;overflow:hidden;
-}
-.rot-slot{flex:1;padding:10px 12px;}
-.rot-slot.slot-b{opacity:.75;border-left:1px solid var(--border);}
-.rs-label{font-family:'Fira Code',monospace;font-size:.55rem;text-transform:uppercase;letter-spacing:1.5px;color:var(--text-dim);margin-bottom:3px;}
-.rs-crop{font-weight:600;font-size:.83rem;margin-bottom:2px;}
-.rs-detail{font-size:.72rem;color:var(--text-sub);}
-.rot-divider{display:flex;align-items:center;padding:0 6px;color:var(--teal);font-size:.9rem;opacity:.5;}
 
-.note-row{display:flex;gap:8px;font-size:.8rem;padding:5px 0;color:var(--text-sub);line-height:1.5;border-bottom:1px solid var(--divider);}
-.note-icon{flex-shrink:0;color:var(--teal);opacity:.55;}
 
-.log-entry{padding:7px 0;border-bottom:1px solid var(--divider);}
+.log-entry{padding:10px 0;border-bottom:1px solid var(--divider);}
 .log-date{font-family:'Fira Code',monospace;font-size:.59rem;color:var(--text-dim);margin-bottom:2px;letter-spacing:.4px;}
 .log-text{font-size:.82rem;line-height:1.5;}
 .log-empty{font-size:.82rem;color:var(--text-dim);font-style:italic;padding:4px 0;}
@@ -327,7 +314,7 @@ h1 em{font-style:italic;color:var(--teal);}
 .task-name{font-size:.84rem;font-weight:500;margin-bottom:2px;}
 .task-window{font-family:'Fira Code',monospace;font-size:.58rem;color:var(--text-dim);}
 .task-empty{font-size:.85rem;color:var(--text-dim);font-style:italic;padding:32px 0;text-align:center;}
-.planted-row{margin:10px 0 4px;}
+.planted-row{margin:0 0 12px;}
 .planted-btn{
   font-family:'Fira Code',monospace;font-size:.63rem;padding:7px 16px;
   background:var(--emerald-mid);color:#e8f5f0;border:none;border-radius:10px;
@@ -337,7 +324,7 @@ h1 em{font-style:italic;color:var(--teal);}
 .planted-info{font-family:'Fira Code',monospace;font-size:.63rem;color:var(--teal);padding:4px 0;}
 
 /* ── WATERING ────────────────────────────────────── */
-.watering-row{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:8px 0 4px;}
+.watering-row{display:flex;align-items:center;justify-content:space-between;gap:10px;background:var(--bg-card);border:1px solid var(--border);border-radius:12px;padding:12px 14px;margin-bottom:4px;}
 .watering-info{font-family:'Fira Code',monospace;font-size:.68rem;color:var(--text-sub);}
 .watering-log{display:flex;align-items:center;gap:5px;}
 .water-dur{width:52px!important;flex:none!important;text-align:center;}
@@ -989,18 +976,18 @@ function toggleTheme(){
 
 /* ── BED DATA ───────────────────────────────────── */
 const BEDS={
-  w1:{id:'W1',zone:2,emitters:4,gph:4,slotA:{crop:'Strawberries',variety:'Everbearing — USDA Organic (Fast Growing Trees)',source:'Fast Growing Trees',sown:null,harvest:'Late spring, early fall, possible third in late fall',status:'planned'},slotB:null,notes:['Delivery expected late March 2026','Perennial — stays in bed year to year, no rotation','Plant on cloudy day or late afternoon','Full sun, 6–8 hrs/day — south-facing bed is ideal','Water roots only, keep foliage dry','Do not fertilize late in season — prevents frost-vulnerable new growth','Self-pollinating; adding a second plant increases yield','Birds love strawberries — consider netting']},
-  w2:{id:'W2',zone:2,emitters:4,gph:4,slotA:{crop:'Tomato',variety:'Orange Hat (determinate)',sown:null,harvest:'Jul–Aug, 2026',status:'planned'},slotB:null,notes:['Start indoors Mar 20 – Apr 1','Transplant May 10–20','2 plants per bed']},
-  w3:{id:'W3',zone:2,emitters:4,gph:4,slotA:{crop:'Garlic',variety:'Elephant & Music (softneck)',sown:'Oct 27, 2025',harvest:'~Jul 15, 2026',status:'growing'},slotB:{crop:'Carrots',variety:'Kyoto Red',sown:'~Jul 20–25, 2026',notes:'Sow directly after garlic harvest; harvest Oct 2026'},notes:['Reduce watering in cool months']},
-  w4:{id:'W4',zone:2,emitters:4,gph:4,slotA:{crop:'Garlic',variety:'Italian Red (hardneck)',sown:'Oct 27, 2025',harvest:'~Jul 15, 2026',status:'growing'},slotB:{crop:'Carrots',variety:'New Kuroda',sown:'~Jul 20–25, 2026',notes:'Sow directly after garlic harvest; harvest Oct 2026'},notes:['Reduce watering in cool months']},
-  c1:{id:'C1',zone:2,emitters:4,gph:4,slotA:{crop:'Radish',variety:'18-Day French',sown:'Mar 8, 2026',harvest:'~Mar 26, 2026',status:'sown'},slotB:{crop:'Dry Beans',variety:'Good Mother Stallard',sown:'~May, 2026',notes:'Pole dry bean — needs trellis; sow after last frost'},notes:['Trellis needed for summer slot']},
-  c2:{id:'C2',zone:2,emitters:4,gph:4,slotA:{crop:'Snap Peas',variety:'Sugar Bon',source:'Baker Creek',sown:'Mar 8, 2026',harvest:'~May 3, 2026',status:'sown'},slotB:{crop:'Bush Beans',variety:'Blue Lake Bush 274',sown:'~May 20, 2026',notes:'Direct sow after peas come out'},notes:[]},
-  c3:{id:'C3',zone:2,emitters:4,gph:4,slotA:{crop:'Peas',variety:'Lincoln Garden',source:'Baker Creek',sown:'Mar 8, 2026',harvest:'~May 3, 2026',status:'sown'},slotB:{crop:'Bush Beans',variety:'Jade Bush Beans',sown:'~May 20, 2026',notes:'Direct sow after peas come out'},notes:[]},
-  c4:{id:'C4',zone:2,emitters:4,gph:4,slotA:{crop:'Peas',variety:"Lillian's Caseload",source:'Baker Creek',sown:'Mar 8, 2026',harvest:'~May 3, 2026',status:'sown'},slotB:{crop:'Bush Beans',variety:'Red Swan Bush Beans',sown:'~May 20, 2026',notes:'Direct sow after peas come out'},notes:[]},
-  e1:{id:'E1',zone:1,emitters:4,gph:8,slotA:{crop:'Tomato',variety:"Martino's Roma (determinate)",sown:null,harvest:'Jul 20 – Aug 10, 2026',status:'planned'},slotB:null,notes:['Start indoors Mar 20 – Apr 1','Transplant May 10–20','3 plants per bed','Target: ~30 lbs']},
-  e2:{id:'E2',zone:1,emitters:4,gph:8,slotA:{crop:'Tomato',variety:'Amish Paste (indeterminate)',sown:null,harvest:'Aug 1–10, 2026',status:'planned'},slotB:null,notes:['Start indoors Mar 20 – Apr 1','Transplant May 10–20','2 plants per bed','Target: ~32 lbs']},
-  e3:{id:'E3',zone:1,emitters:4,gph:8,slotA:{crop:'Tomato',variety:'Comstock Sauce & Slice (indeterminate)',sown:null,harvest:'Aug 5–15, 2026',status:'planned'},slotB:null,notes:['Start indoors Mar 20 – Apr 1','Transplant May 10–20','2 plants per bed','Target: ~30 lbs']},
-  e4:{id:'E4',zone:1,emitters:4,gph:8,slotA:{crop:'Tomato',variety:'Bonny Best (indeterminate)',sown:null,harvest:'Jul 30 – Aug 10, 2026',status:'planned'},slotB:null,notes:['Start indoors Mar 20 – Apr 1','Transplant May 10–20','2 plants per bed','Target: ~24 lbs']}
+  w1:{id:'W1',zone:2,emitters:4,gph:4,slotA:{crop:'Strawberries',variety:'Everbearing — USDA Organic (Fast Growing Trees)',source:'Fast Growing Trees',sown:null,harvest:'Late spring, early fall, possible third in late fall',status:'planned'}},
+  w2:{id:'W2',zone:2,emitters:4,gph:4,slotA:{crop:'Tomato',variety:'Orange Hat (determinate)',sown:null,harvest:'Jul–Aug, 2026',status:'planned'}},
+  w3:{id:'W3',zone:2,emitters:4,gph:4,slotA:{crop:'Garlic',variety:'Elephant & Music (softneck)',sown:'Oct 27, 2025',harvest:'~Jul 15, 2026',status:'growing'}},
+  w4:{id:'W4',zone:2,emitters:4,gph:4,slotA:{crop:'Garlic',variety:'Italian Red (hardneck)',sown:'Oct 27, 2025',harvest:'~Jul 15, 2026',status:'growing'}},
+  c1:{id:'C1',zone:2,emitters:4,gph:4,slotA:{crop:'Radish',variety:'18-Day French',sown:'Mar 8, 2026',harvest:'~Mar 26, 2026',status:'sown'}},
+  c2:{id:'C2',zone:2,emitters:4,gph:4,slotA:{crop:'Snap Peas',variety:'Sugar Bon',source:'Baker Creek',sown:'Mar 8, 2026',harvest:'~May 3, 2026',status:'sown'}},
+  c3:{id:'C3',zone:2,emitters:4,gph:4,slotA:{crop:'Peas',variety:'Lincoln Garden',source:'Baker Creek',sown:'Mar 8, 2026',harvest:'~May 3, 2026',status:'sown'}},
+  c4:{id:'C4',zone:2,emitters:4,gph:4,slotA:{crop:'Peas',variety:"Lillian's Caseload",source:'Baker Creek',sown:'Mar 8, 2026',harvest:'~May 3, 2026',status:'sown'}},
+  e1:{id:'E1',zone:1,emitters:4,gph:8,slotA:{crop:'Tomato',variety:"Martino's Roma (determinate)",sown:null,harvest:'Jul 20 – Aug 10, 2026',status:'planned'}},
+  e2:{id:'E2',zone:1,emitters:4,gph:8,slotA:{crop:'Tomato',variety:'Amish Paste (indeterminate)',sown:null,harvest:'Aug 1–10, 2026',status:'planned'}},
+  e3:{id:'E3',zone:1,emitters:4,gph:8,slotA:{crop:'Tomato',variety:'Comstock Sauce & Slice (indeterminate)',sown:null,harvest:'Aug 5–15, 2026',status:'planned'}},
+  e4:{id:'E4',zone:1,emitters:4,gph:8,slotA:{crop:'Tomato',variety:'Bonny Best (indeterminate)',sown:null,harvest:'Jul 30 – Aug 10, 2026',status:'planned'}}
 };
 const STATUS={
   planned:{label:'Planned',cls:'s-planned'},
@@ -1654,7 +1641,7 @@ async function loadHarvests(plantingId){
 
 /* ── DETAIL RENDER ───────────────────────────────── */
 function renderDetail(bedId,logs=[]){
-  const bed=BEDS[bedId],a=bed.slotA,b=bed.slotB;
+  const bed=BEDS[bedId],a=bed.slotA;
 
   // Crop info — prefer DB planting data, fall back to BEDS static data
   const dbPlanting=getSelectedPlanting(bedId);
@@ -1710,32 +1697,18 @@ function renderDetail(bedId,logs=[]){
 
   const today=(()=>{const d=new Date();return `${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,'0')}-${String(d.getDate()).padStart(2,'0')}`;})();
 
-  h+=`<span class="section-label">Current planting</span>`;
   if(a.source)h+=dr('Source',a.source);
   if(sownDate){
     const rel=relativeWeeks(sownDate);
     h+=dr('Sown',`${fmtDate(sownDate)}${rel?`<span class="rel-time">${rel}</span>`:''}`);
   }
   h+=dr('Harvest',expectedHarvest||'—');
-  if(b){
-    h+=`<span class="section-label">Summer rotation</span>
-    <div class="rotation-card">
-      <div class="rot-slot slot-a"><div class="rs-label">Now</div><div class="rs-crop">${a.variety}</div><div class="rs-detail">out by ${a.harvest}</div></div>
-      <div class="rot-divider">→</div>
-      <div class="rot-slot slot-b"><div class="rs-label">Then</div><div class="rs-crop">${b.variety}</div><div class="rs-detail">sow ${b.sown}</div></div>
-    </div>`;
-    if(b.notes)h+=`<div class="note-row"><span class="note-icon">↳</span><span>${b.notes}</span></div>`;
-  }
-  if(bed.notes.length){
-    h+=`<span class="section-label">Notes</span>`;
-    bed.notes.forEach(n=>{h+=`<div class="note-row"><span class="note-icon">·</span><span>${n}</span></div>`;});
-  }
 
   h+=`<span class="section-label">Season log</span><div id="log-entries">`;
   h+=`<p class="log-empty">Loading…</p>`;
   h+=`</div>
   <div class="log-add-row">
-    <textarea class="log-input" id="log-ta" rows="2" placeholder="Add an observation…"></textarea>
+    <textarea class="log-input" id="log-ta" rows="3" placeholder="Add an observation…"></textarea>
     <button class="log-add-btn" id="log-btn">Add</button>
   </div>`;
 

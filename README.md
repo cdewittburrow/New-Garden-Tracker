@@ -211,6 +211,9 @@ Add a "start new season" flow in the app: pick a bed, pick a crop, write a new p
 - Rachio schedule display — show the configured zone schedule on the plumbing tab
 - Per-zone water usage over time — total minutes run by week/month
 
+### Growing Season Planner
+A dedicated planning mode where you can map out the full season before it starts — assign crops to beds, set intended sow and harvest windows, and plan succession rotations. Replaces the hardcoded `slotB` rotation cards that lived in the inspector. Planned crops would exist as `planned` planting records in the DB and convert to active records when the season begins.
+
 ### Planning & History
 - Year-over-year comparison view — "W3 in 2025 vs W3 in 2026"
 - Multi-year crop rotation suggestions — "tomatoes were in E1 last year, consider moving"
