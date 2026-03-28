@@ -142,7 +142,7 @@ h1 em{font-style:italic;color:var(--teal);}
   width:36px;height:4px;border-radius:2px;
   background:var(--border-hi);margin:12px auto 4px;
 }
-.sheet-inner{padding:12px 20px 52px;}
+.sheet-inner{padding:6px 20px 52px;}
 
 /* Bed groups */
 .bed-g{cursor:pointer;transition:opacity .15s;}
@@ -152,7 +152,7 @@ h1 em{font-style:italic;color:var(--teal);}
 /* Back bar */
 .back-bar{
   display:flex;align-items:center;justify-content:space-between;
-  margin-bottom:20px;
+  margin-bottom:10px;
 }
 .back-btn{
   display:flex;align-items:center;gap:7px;
@@ -173,9 +173,13 @@ h1 em{font-style:italic;color:var(--teal);}
   overflow:hidden;
 }
 
-/* Detail header */
-.insp-header{display:flex;align-items:baseline;gap:12px;margin-bottom:6px;flex-wrap:wrap;}
-.insp-id{font-family:'Playfair Display',serif;font-size:2.4rem;font-weight:700;line-height:1;}
+/* Detail header — crop-led */
+.insp-header{display:flex;flex-direction:column;gap:3px;margin-bottom:8px;}
+.insp-header-meta{display:flex;align-items:center;gap:8px;}
+.insp-bed-chip{font-family:'Fira Code',monospace;font-size:.69rem;color:var(--text-dim);background:var(--bg-card);border:1px solid var(--border);border-radius:100px;padding:2px 9px;letter-spacing:.5px;}
+.insp-crop-name{font-family:'Playfair Display',serif;font-size:1.45rem;font-weight:700;line-height:1.2;color:var(--text);}
+.insp-variety{font-size:.88rem;color:var(--jade);font-style:italic;opacity:.9;}
+.rel-time{display:block;font-family:'Fira Code',monospace;font-size:.63rem;color:var(--text-dim);font-weight:400;margin-top:1px;}
 .zone-tag{
   font-family:'Fira Code',monospace;font-size:.61rem;padding:4px 12px;border-radius:100px;
   text-transform:uppercase;letter-spacing:.5px;font-weight:500;
@@ -209,7 +213,7 @@ h1 em{font-style:italic;color:var(--teal);}
 .accordion{border:none;margin:0;}
 .accordion-summary{
   list-style:none;cursor:pointer;user-select:none;display:flex;align-items:center;justify-content:space-between;
-  font-family:'Fira Code',monospace;font-size:.57rem;letter-spacing:2.5px;text-transform:uppercase;
+  font-family:'Fira Code',monospace;font-size:.57rem;letter-spacing:.5px;
   color:var(--text-dim);margin:18px 0 7px;padding-bottom:5px;border-bottom:1px solid var(--divider);
 }
 .accordion-summary::-webkit-details-marker{display:none;}
@@ -218,7 +222,7 @@ h1 em{font-style:italic;color:var(--teal);}
 .accordion-body{padding-top:2px;}
 
 .section-label{
-  font-family:'Fira Code',monospace;font-size:.57rem;letter-spacing:2.5px;text-transform:uppercase;
+  font-family:'Fira Code',monospace;font-size:.57rem;letter-spacing:.5px;
   color:var(--text-dim);margin:18px 0 7px;display:block;padding-bottom:5px;border-bottom:1px solid var(--divider);
 }
 .section-label:first-child{margin-top:0;}
@@ -291,7 +295,6 @@ h1 em{font-style:italic;color:var(--teal);}
   h1{font-size:1.5rem;}
   .tab-bar{width:100%;}
   .map-face-inner{padding:12px 12px 10px;}
-  .insp-id{font-size:2rem;}
 }
 
 /* ── TASK SYSTEM ─────────────────────────────── */
@@ -1103,6 +1106,26 @@ function addDays(date,days){
   return d;
 }
 
+function fmtDate(str){
+  if(!str)return null;
+  if(/^\d{4}-\d{2}-\d{2}$/.test(str)){
+    const d=new Date(str+'T00:00:00');
+    return d.toLocaleDateString('en-US',{month:'short',day:'numeric',year:'numeric'});
+  }
+  return str; // already natural format
+}
+
+function relativeWeeks(str){
+  if(!str||!/^\d{4}-\d{2}-\d{2}$/.test(str))return null;
+  const d=new Date(str+'T00:00:00');
+  const now=new Date();now.setHours(0,0,0,0);
+  const days=Math.round((now-d)/86400000);
+  if(days<0)return null;
+  if(days<7)return`${days} day${days===1?'':'s'} ago`;
+  const w=Math.round(days/7);
+  return`${w} week${w===1?'':'s'} ago`;
+}
+
 function fmtDateRange(start,end){
   const mo={month:'short',day:'numeric'};
   const s=start.toLocaleDateString('en-US',mo);
@@ -1501,6 +1524,7 @@ function buildMiniMap(activeBedId){
   const colX=[18,48,78];
   const rowY=[20,48,76,104];
   let els='';
+  const MINIMAP_STATUS_COLORS={sown:'#3dbf82',germinating:'#8bc34a',growing:'#14c4ab',ready:'#e08c30',harvested:'#8d6e63'};
   for(const [key,[ci,ri]] of Object.entries(BED_POS)){
     const isZ1=(ci===2);
     const isActive=(key===activeBedId);
@@ -1510,9 +1534,14 @@ function buildMiniMap(activeBedId){
     const sw=isActive?1.8:.7;
     const cursor='cursor:pointer';
     const label=BEDS[key].id;
+    const p=getActivePlanting(key);
+    const pStatus=p?.status||(p?.planted_date?'growing':'planned');
+    const dotColor=MINIMAP_STATUS_COLORS[pStatus];
+    const dotEl=dotColor?`<circle cx="${x+15}" cy="${y+4}" r="2.5" fill="${dotColor}"/>`:'';
     els+=`<g onclick="navToBed('${key}')" style="${cursor}">
       <rect x="${x}" y="${y}" width="18" height="22" rx="9" fill="${fill}" stroke="${stroke}" stroke-width="${sw}"/>
       <text x="${colX[ci]}" y="${y+14}" font-family="'Fira Code',monospace" font-size="5.5" fill="rgba(255,255,255,${isActive?.9:.35})" text-anchor="middle">${label}</text>
+      ${dotEl}
     </g>`;
   }
   return `<svg viewBox="0 0 96 132" xmlns="http://www.w3.org/2000/svg" style="border-radius:8px;overflow:hidden;display:block">
@@ -1624,6 +1653,14 @@ async function loadHarvests(plantingId){
 /* ── DETAIL RENDER ───────────────────────────────── */
 function renderDetail(bedId,logs=[]){
   const bed=BEDS[bedId],a=bed.slotA,b=bed.slotB;
+
+  // Crop info — prefer DB planting data, fall back to BEDS static data
+  const dbPlanting=getSelectedPlanting(bedId);
+  const cropName=dbPlanting?dbPlanting.crop_name:a.crop;
+  const variety=dbPlanting?.variety||a.variety||null;
+  const sownDate=dbPlanting?.planted_date||a.sown||null;
+  const expectedHarvest=dbPlanting?.expected_harvest||a.harvest||null;
+
   // Derive status from live DB planting if one exists
   const livePlanting=getActivePlanting(bedId);
   const derivedStatus=livePlanting?(livePlanting.status||(livePlanting.planted_date?'growing':'planned')):a.status;
@@ -1632,8 +1669,12 @@ function renderDetail(bedId,logs=[]){
   const zLabel=bed.zone===1?'Zone 1 — Tomatoes':'Zone 2';
 
   let h=`<div class="insp-header">
-    <span class="insp-id">${bed.id}</span>
-    <span class="zone-tag ${zTag}">${zLabel}</span>
+    <div class="insp-header-meta">
+      <span class="insp-bed-chip">${bed.id}</span>
+      <span class="zone-tag ${zTag}">${zLabel}</span>
+    </div>
+    <div class="insp-crop-name">${cropName}</div>
+    ${variety?`<div class="insp-variety">${variety}</div>`:''}
   </div>
   <span id="status-badge" class="status-badge ${st.cls}" onclick="openStatusPicker('${bedId}')"><span class="status-dot"></span>${st.label}</span>`;
 
@@ -1642,7 +1683,8 @@ function renderDetail(bedId,logs=[]){
   if(hasPLANTEDTasks){
     const plantedDate=getActivePlanting(bedId)?.planted_date;
     if(plantedDate){
-      h+=`<div class="planted-row"><span class="planted-info">Planted: ${plantedDate}</span></div>`;
+      const rel=relativeWeeks(plantedDate);
+      h+=`<div class="planted-row"><span class="planted-info">Planted: ${fmtDate(plantedDate)}</span>${rel?`<span class="rel-time">${rel}</span>`:''}</div>`;
     } else {
       h+=`<div class="planted-row"><button class="planted-btn" onclick="markPlanted('${bedId}')">Mark as Planted</button></div>`;
     }
@@ -1656,7 +1698,7 @@ function renderDetail(bedId,logs=[]){
     <div class="watering-log">
       <input type="number" id="water-dur" class="log-input water-dur" value="5" min="1" max="240">
       <span class="water-dur-lbl">min</span>
-      <button class="water-btn" id="water-btn">Watered</button>
+      <button class="water-btn" id="water-btn">Log watering</button>
     </div>
   </div>`;
 
@@ -1664,20 +1706,15 @@ function renderDetail(bedId,logs=[]){
 
   const today=(()=>{const d=new Date();return `${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,'0')}-${String(d.getDate()).padStart(2,'0')}`;})();
 
-  // Crop info — prefer DB planting data, fall back to BEDS static data
-  const dbPlanting=getSelectedPlanting(bedId);
-  const cropName=dbPlanting?dbPlanting.crop_name:a.crop;
-  const variety=dbPlanting?.variety||a.variety||null;
-  const sownDate=dbPlanting?.planted_date||a.sown||null;
-  const expectedHarvest=dbPlanting?.expected_harvest||a.harvest||null;
-  h+=`<span class="section-label">Current Planting</span>`;
-  h+=dr('Crop',cropName);
-  if(variety)h+=dr('Variety',variety);
+  h+=`<span class="section-label">Current planting</span>`;
   if(a.source)h+=dr('Source',a.source);
-  if(sownDate)h+=dr('Sown',sownDate);
+  if(sownDate){
+    const rel=relativeWeeks(sownDate);
+    h+=dr('Sown',`${fmtDate(sownDate)}${rel?`<span class="rel-time">${rel}</span>`:''}`);
+  }
   h+=dr('Harvest',expectedHarvest||'—');
   if(b){
-    h+=`<span class="section-label">Summer Rotation</span>
+    h+=`<span class="section-label">Summer rotation</span>
     <div class="rotation-card">
       <div class="rot-slot slot-a"><div class="rs-label">Now</div><div class="rs-crop">${a.variety}</div><div class="rs-detail">out by ${a.harvest}</div></div>
       <div class="rot-divider">→</div>
@@ -1690,7 +1727,7 @@ function renderDetail(bedId,logs=[]){
     bed.notes.forEach(n=>{h+=`<div class="note-row"><span class="note-icon">·</span><span>${n}</span></div>`;});
   }
 
-  h+=`<span class="section-label">Season Log</span><div id="log-entries">`;
+  h+=`<span class="section-label">Season log</span><div id="log-entries">`;
   h+=`<p class="log-empty">Loading…</p>`;
   h+=`</div>
   <div class="log-add-row">
@@ -1735,7 +1772,7 @@ function renderDetail(bedId,logs=[]){
       <button class="log-add-btn" id="nc-btn" onclick="submitNewCrop('${bedId}')">Start</button>
     </div>
   </div>`;
-  h+=`<span class="section-label">Irrigation</span>`;
+  h+=`<span class="section-label">Irrigation</span>`; // already sentence case
   h+=dr('Emitters',`${bed.emitters} × ${bed.gph/bed.emitters} GPH = ${bed.gph} GPH`);
   h+=dr('Schedule',bed.zone===1?'Daily in peak summer':'Every 2–3 days');
   h+=`</div></details>`;
