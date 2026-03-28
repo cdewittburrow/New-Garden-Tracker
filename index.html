@@ -338,6 +338,18 @@ h1 em{font-style:italic;color:var(--teal);}
 .water-dur-lbl{font-family:'Fira Code',monospace;font-size:.68rem;color:var(--text-dim);}
 .water-btn{background:linear-gradient(135deg,var(--sapphire-mid),var(--sapphire-dk));color:#fff;border:none;border-radius:10px;padding:7px 14px;font-family:'DM Sans',sans-serif;font-size:.83rem;font-weight:500;cursor:pointer;transition:opacity .2s;white-space:nowrap;}
 .water-btn:hover{opacity:.85;}.water-btn:disabled{opacity:.5;cursor:default;}
+.zone-sub{display:block;font-family:'Fira Code',monospace;font-size:.58rem;color:var(--text-dim);margin-top:3px;letter-spacing:.2px;}
+.status-badge{cursor:pointer;}
+.status-badge:hover{opacity:.8;}
+.status-picker{display:flex;gap:5px;flex-wrap:wrap;margin-bottom:22px;}
+.sp-btn{font-family:'Fira Code',monospace;font-size:.58rem;letter-spacing:.3px;padding:5px 11px;border-radius:100px;border:1px solid var(--border-hi);background:transparent;color:var(--text-sub);cursor:pointer;transition:all .15s;white-space:nowrap;}
+.sp-btn:hover,.sp-btn.sp-active{color:#e8f5f0;border-color:transparent;}
+.sp-planned.sp-active,.sp-planned:hover{background:#607d8b;}
+.sp-sown.sp-active,.sp-sown:hover{background:#1a7a50;}
+.sp-germinating.sp-active,.sp-germinating:hover{background:#558b2f;}
+.sp-growing.sp-active,.sp-growing:hover{background:var(--teal-mid);}
+.sp-ready.sp-active,.sp-ready:hover{background:var(--amber-dk);}
+.sp-harvested.sp-active,.sp-harvested:hover{background:#6d4c41;}
 
 /* ── HARVEST ─────────────────────────────────────── */
 .harvest-form-row{margin-top:12px;padding-top:12px;border-top:1px solid var(--divider);display:flex;flex-direction:column;gap:7px;}
@@ -436,19 +448,19 @@ h1 em{font-style:italic;color:var(--teal);}
               <rect class="bed-ring" x="47" y="4" width="88" height="152" rx="44" fill="none" stroke="#14c4ab" stroke-width="2.5" opacity="0" filter="url(#glow-t)"/>
               <rect class="bed-pill" x="53" y="10" width="76" height="140" rx="38" fill="url(#z2g)" stroke="rgba(20,196,171,.3)" stroke-width="1.5" filter="url(#dsm)"/>
               <text x="91" y="84" font-family="'Fira Code',monospace" font-size="10" fill="rgba(255,255,255,.92)" text-anchor="middle" font-weight="500">W1</text>
-              <text id="crop-label-w1" x="91" y="100" font-family="'Fira Code',monospace" font-size="7" fill="rgba(255,255,255,.42)" text-anchor="middle"></text>
+              <text id="crop-label-w1" x="91" y="100" font-family="'Fira Code',monospace" font-size="9" fill="rgba(255,255,255,.62)" text-anchor="middle"></text>
             </g>
             <g id="pill-c1" class="bed-g" onclick="openSheet('c1')">
               <rect class="bed-ring" x="176" y="4" width="88" height="152" rx="44" fill="none" stroke="#14c4ab" stroke-width="2.5" opacity="0" filter="url(#glow-t)"/>
               <rect class="bed-pill" x="182" y="10" width="76" height="140" rx="38" fill="url(#z2g)" stroke="rgba(20,196,171,.3)" stroke-width="1.5" filter="url(#dsm)"/>
               <text x="220" y="84" font-family="'Fira Code',monospace" font-size="10" fill="rgba(255,255,255,.92)" text-anchor="middle" font-weight="500">C1</text>
-              <text id="crop-label-c1" x="220" y="100" font-family="'Fira Code',monospace" font-size="7" fill="rgba(255,255,255,.42)" text-anchor="middle"></text>
+              <text id="crop-label-c1" x="220" y="100" font-family="'Fira Code',monospace" font-size="9" fill="rgba(255,255,255,.62)" text-anchor="middle"></text>
             </g>
             <g id="pill-e1" class="bed-g" onclick="openSheet('e1')">
               <rect class="bed-ring" x="305" y="4" width="88" height="152" rx="44" fill="none" stroke="#5b9cf0" stroke-width="2.5" opacity="0" filter="url(#glow-s)"/>
               <rect class="bed-pill" x="311" y="10" width="76" height="140" rx="38" fill="url(#z1g)" stroke="rgba(91,156,240,.3)" stroke-width="1.5" filter="url(#dsm)"/>
               <text x="349" y="84" font-family="'Fira Code',monospace" font-size="10" fill="rgba(255,255,255,.92)" text-anchor="middle" font-weight="500">E1</text>
-              <text id="crop-label-e1" x="349" y="100" font-family="'Fira Code',monospace" font-size="7" fill="rgba(255,255,255,.42)" text-anchor="middle"></text>
+              <text id="crop-label-e1" x="349" y="100" font-family="'Fira Code',monospace" font-size="9" fill="rgba(255,255,255,.62)" text-anchor="middle"></text>
             </g>
 
             <!-- ROW 2 y=170 -->
@@ -456,19 +468,19 @@ h1 em{font-style:italic;color:var(--teal);}
               <rect class="bed-ring" x="47" y="164" width="88" height="152" rx="44" fill="none" stroke="#14c4ab" stroke-width="2.5" opacity="0" filter="url(#glow-t)"/>
               <rect class="bed-pill" x="53" y="170" width="76" height="140" rx="38" fill="url(#z2g)" stroke="rgba(20,196,171,.3)" stroke-width="1.5" filter="url(#dsm)"/>
               <text x="91" y="244" font-family="'Fira Code',monospace" font-size="10" fill="rgba(255,255,255,.92)" text-anchor="middle" font-weight="500">W2</text>
-              <text id="crop-label-w2" x="91" y="260" font-family="'Fira Code',monospace" font-size="7" fill="rgba(255,255,255,.42)" text-anchor="middle"></text>
+              <text id="crop-label-w2" x="91" y="260" font-family="'Fira Code',monospace" font-size="9" fill="rgba(255,255,255,.62)" text-anchor="middle"></text>
             </g>
             <g id="pill-c2" class="bed-g" onclick="openSheet('c2')">
               <rect class="bed-ring" x="176" y="164" width="88" height="152" rx="44" fill="none" stroke="#14c4ab" stroke-width="2.5" opacity="0" filter="url(#glow-t)"/>
               <rect class="bed-pill" x="182" y="170" width="76" height="140" rx="38" fill="url(#z2g)" stroke="rgba(20,196,171,.3)" stroke-width="1.5" filter="url(#dsm)"/>
               <text x="220" y="244" font-family="'Fira Code',monospace" font-size="10" fill="rgba(255,255,255,.92)" text-anchor="middle" font-weight="500">C2</text>
-              <text id="crop-label-c2" x="220" y="260" font-family="'Fira Code',monospace" font-size="7" fill="rgba(255,255,255,.42)" text-anchor="middle"></text>
+              <text id="crop-label-c2" x="220" y="260" font-family="'Fira Code',monospace" font-size="9" fill="rgba(255,255,255,.62)" text-anchor="middle"></text>
             </g>
             <g id="pill-e2" class="bed-g" onclick="openSheet('e2')">
               <rect class="bed-ring" x="305" y="164" width="88" height="152" rx="44" fill="none" stroke="#5b9cf0" stroke-width="2.5" opacity="0" filter="url(#glow-s)"/>
               <rect class="bed-pill" x="311" y="170" width="76" height="140" rx="38" fill="url(#z1g)" stroke="rgba(91,156,240,.3)" stroke-width="1.5" filter="url(#dsm)"/>
               <text x="349" y="244" font-family="'Fira Code',monospace" font-size="10" fill="rgba(255,255,255,.92)" text-anchor="middle" font-weight="500">E2</text>
-              <text id="crop-label-e2" x="349" y="260" font-family="'Fira Code',monospace" font-size="7" fill="rgba(255,255,255,.42)" text-anchor="middle"></text>
+              <text id="crop-label-e2" x="349" y="260" font-family="'Fira Code',monospace" font-size="9" fill="rgba(255,255,255,.62)" text-anchor="middle"></text>
             </g>
 
             <!-- ROW 3 y=330 -->
@@ -476,19 +488,19 @@ h1 em{font-style:italic;color:var(--teal);}
               <rect class="bed-ring" x="47" y="324" width="88" height="152" rx="44" fill="none" stroke="#14c4ab" stroke-width="2.5" opacity="0" filter="url(#glow-t)"/>
               <rect class="bed-pill" x="53" y="330" width="76" height="140" rx="38" fill="url(#z2g)" stroke="rgba(20,196,171,.3)" stroke-width="1.5" filter="url(#dsm)"/>
               <text x="91" y="404" font-family="'Fira Code',monospace" font-size="10" fill="rgba(255,255,255,.92)" text-anchor="middle" font-weight="500">W3</text>
-              <text id="crop-label-w3" x="91" y="420" font-family="'Fira Code',monospace" font-size="7" fill="rgba(255,255,255,.42)" text-anchor="middle"></text>
+              <text id="crop-label-w3" x="91" y="420" font-family="'Fira Code',monospace" font-size="9" fill="rgba(255,255,255,.62)" text-anchor="middle"></text>
             </g>
             <g id="pill-c3" class="bed-g" onclick="openSheet('c3')">
               <rect class="bed-ring" x="176" y="324" width="88" height="152" rx="44" fill="none" stroke="#14c4ab" stroke-width="2.5" opacity="0" filter="url(#glow-t)"/>
               <rect class="bed-pill" x="182" y="330" width="76" height="140" rx="38" fill="url(#z2g)" stroke="rgba(20,196,171,.3)" stroke-width="1.5" filter="url(#dsm)"/>
               <text x="220" y="404" font-family="'Fira Code',monospace" font-size="10" fill="rgba(255,255,255,.92)" text-anchor="middle" font-weight="500">C3</text>
-              <text id="crop-label-c3" x="220" y="420" font-family="'Fira Code',monospace" font-size="7" fill="rgba(255,255,255,.42)" text-anchor="middle"></text>
+              <text id="crop-label-c3" x="220" y="420" font-family="'Fira Code',monospace" font-size="9" fill="rgba(255,255,255,.62)" text-anchor="middle"></text>
             </g>
             <g id="pill-e3" class="bed-g" onclick="openSheet('e3')">
               <rect class="bed-ring" x="305" y="324" width="88" height="152" rx="44" fill="none" stroke="#5b9cf0" stroke-width="2.5" opacity="0" filter="url(#glow-s)"/>
               <rect class="bed-pill" x="311" y="330" width="76" height="140" rx="38" fill="url(#z1g)" stroke="rgba(91,156,240,.3)" stroke-width="1.5" filter="url(#dsm)"/>
               <text x="349" y="404" font-family="'Fira Code',monospace" font-size="10" fill="rgba(255,255,255,.92)" text-anchor="middle" font-weight="500">E3</text>
-              <text id="crop-label-e3" x="349" y="420" font-family="'Fira Code',monospace" font-size="7" fill="rgba(255,255,255,.42)" text-anchor="middle"></text>
+              <text id="crop-label-e3" x="349" y="420" font-family="'Fira Code',monospace" font-size="9" fill="rgba(255,255,255,.62)" text-anchor="middle"></text>
             </g>
 
             <!-- ROW 4 y=490 -->
@@ -496,19 +508,19 @@ h1 em{font-style:italic;color:var(--teal);}
               <rect class="bed-ring" x="47" y="484" width="88" height="152" rx="44" fill="none" stroke="#14c4ab" stroke-width="2.5" opacity="0" filter="url(#glow-t)"/>
               <rect class="bed-pill" x="53" y="490" width="76" height="140" rx="38" fill="url(#z2g)" stroke="rgba(20,196,171,.3)" stroke-width="1.5" filter="url(#dsm)"/>
               <text x="91" y="564" font-family="'Fira Code',monospace" font-size="10" fill="rgba(255,255,255,.92)" text-anchor="middle" font-weight="500">W4</text>
-              <text id="crop-label-w4" x="91" y="580" font-family="'Fira Code',monospace" font-size="7" fill="rgba(255,255,255,.42)" text-anchor="middle"></text>
+              <text id="crop-label-w4" x="91" y="580" font-family="'Fira Code',monospace" font-size="9" fill="rgba(255,255,255,.62)" text-anchor="middle"></text>
             </g>
             <g id="pill-c4" class="bed-g" onclick="openSheet('c4')">
               <rect class="bed-ring" x="176" y="484" width="88" height="152" rx="44" fill="none" stroke="#14c4ab" stroke-width="2.5" opacity="0" filter="url(#glow-t)"/>
               <rect class="bed-pill" x="182" y="490" width="76" height="140" rx="38" fill="url(#z2g)" stroke="rgba(20,196,171,.3)" stroke-width="1.5" filter="url(#dsm)"/>
               <text x="220" y="564" font-family="'Fira Code',monospace" font-size="10" fill="rgba(255,255,255,.92)" text-anchor="middle" font-weight="500">C4</text>
-              <text id="crop-label-c4" x="220" y="580" font-family="'Fira Code',monospace" font-size="7" fill="rgba(255,255,255,.42)" text-anchor="middle"></text>
+              <text id="crop-label-c4" x="220" y="580" font-family="'Fira Code',monospace" font-size="9" fill="rgba(255,255,255,.62)" text-anchor="middle"></text>
             </g>
             <g id="pill-e4" class="bed-g" onclick="openSheet('e4')">
               <rect class="bed-ring" x="305" y="484" width="88" height="152" rx="44" fill="none" stroke="#5b9cf0" stroke-width="2.5" opacity="0" filter="url(#glow-s)"/>
               <rect class="bed-pill" x="311" y="490" width="76" height="140" rx="38" fill="url(#z1g)" stroke="rgba(91,156,240,.3)" stroke-width="1.5" filter="url(#dsm)"/>
               <text x="349" y="564" font-family="'Fira Code',monospace" font-size="10" fill="rgba(255,255,255,.92)" text-anchor="middle" font-weight="500">E4</text>
-              <text id="crop-label-e4" x="349" y="580" font-family="'Fira Code',monospace" font-size="7" fill="rgba(255,255,255,.42)" text-anchor="middle"></text>
+              <text id="crop-label-e4" x="349" y="580" font-family="'Fira Code',monospace" font-size="9" fill="rgba(255,255,255,.62)" text-anchor="middle"></text>
             </g>
           </svg>
   </div><!-- /map-wrap -->
@@ -1165,12 +1177,12 @@ let selectedPlantingId={};
 
 async function fetchAllPlantings(){
   try{
-    const res=await fetch(`${SB_URL}/rest/v1/plantings?select=id,bed_id,crop_name,variety,expected_harvest,year,season,planted_date,ended_date&order=created_at.desc`,{headers:SB_HEADERS});
+    const res=await fetch(`${SB_URL}/rest/v1/plantings?select=id,bed_id,crop_name,variety,expected_harvest,year,season,planted_date,ended_date,status&order=created_at.desc`,{headers:SB_HEADERS});
     const rows=await res.json();
     plantingCache={};
     for(const r of rows){
       if(!plantingCache[r.bed_id])plantingCache[r.bed_id]=[];
-      plantingCache[r.bed_id].push({id:r.id,crop_name:r.crop_name,variety:r.variety,expected_harvest:r.expected_harvest,year:r.year,season:r.season,planted_date:r.planted_date,ended_date:r.ended_date});
+      plantingCache[r.bed_id].push({id:r.id,crop_name:r.crop_name,variety:r.variety,expected_harvest:r.expected_harvest,year:r.year,season:r.season,planted_date:r.planted_date,ended_date:r.ended_date,status:r.status});
     }
   }catch(e){
     console.error('Failed to fetch plantings:',e);
@@ -1307,6 +1319,7 @@ function bindWatering(bedId){
       btn.disabled=true;
       try{
         await saveWatering(zone,dur);
+        flashBtn(btn,'Done ✓');
         await loadWatering(bedId);
       }catch(e){/* already logged */}
       btn.disabled=false;
@@ -1371,7 +1384,7 @@ function renderTaskTab(){
     for(const t of filtered){
       const done=isTaskCompleted(t.bedId,t.taskId);
       const winStr=fmtDateRange(t.windowStart,t.windowEnd);
-      const crop=BEDS[t.bedId].slotA.crop;
+      const crop=getActivePlanting(t.bedId)?.crop_name||BEDS[t.bedId].slotA.crop;
       list+=`<div class="task-row">
         <input type="checkbox" class="task-cb" ${done?'checked disabled':''} data-bed="${t.bedId}" data-task="${t.taskId}" onchange="handleTaskCheck(this)">
         <div class="task-meta">
@@ -1479,6 +1492,7 @@ async function markPlanted(bedId){
   bindWatering(bedId);
   loadWatering(bedId);
   renderBadges();
+  renderStatusIndicators();
 }
 
 /* ── MINI MAP ────────────────────────────────────── */
@@ -1611,7 +1625,7 @@ function renderDetail(bedId,logs=[]){
   const bed=BEDS[bedId],a=bed.slotA,b=bed.slotB;
   // Derive status from live DB planting if one exists
   const livePlanting=getActivePlanting(bedId);
-  const derivedStatus=livePlanting?(livePlanting.planted_date?'growing':'planned'):a.status;
+  const derivedStatus=livePlanting?(livePlanting.status||(livePlanting.planted_date?'growing':'planned')):a.status;
   const st=STATUS[derivedStatus]||STATUS.planned;
   const zTag=bed.zone===1?'z1-tag':'z2-tag';
   const zLabel=bed.zone===1?'Zone 1 — Tomatoes':'Zone 2';
@@ -1620,7 +1634,7 @@ function renderDetail(bedId,logs=[]){
     <span class="insp-id">${bed.id}</span>
     <span class="zone-tag ${zTag}">${zLabel}</span>
   </div>
-  <span class="status-badge ${st.cls}"><span class="status-dot"></span>${st.label}</span>`;
+  <span id="status-badge" class="status-badge ${st.cls}" onclick="openStatusPicker('${bedId}')"><span class="status-dot"></span>${st.label}</span>`;
 
   // Mark as Planted button (always based on active planting, not selected)
   const hasPLANTEDTasks=TASK_DEFS[bedId]&&TASK_DEFS[bedId].some(d=>d.anchor==='PLANTED');
@@ -1634,7 +1648,10 @@ function renderDetail(bedId,logs=[]){
   }
 
   h+=`<div class="watering-row">
-    <span class="watering-info" id="last-watered">Loading…</span>
+    <div>
+      <span class="watering-info" id="last-watered">Loading…</span>
+      <span class="zone-sub">Zone ${bed.zone} · logs for all zone ${bed.zone} beds</span>
+    </div>
     <div class="watering-log">
       <input type="number" id="water-dur" class="log-input water-dur" value="5" min="1" max="240">
       <span class="water-dur-lbl">min</span>
@@ -1728,7 +1745,8 @@ function renderDetail(bedId,logs=[]){
   <div class="accordion-body">
   <div id="harvest-entries"><p class="log-empty">Loading…</p></div>
   <div class="harvest-total-row"><span id="harvest-total" class="harvest-total"></span></div>
-  <div id="harvest-form" class="harvest-form-row">
+  <button class="new-crop-toggle" id="harvest-toggle" onclick="toggleHarvestForm()">+ Log harvest</button>
+  <div id="harvest-form" class="harvest-form-row" style="display:none">
     <div class="harvest-inputs">
       <input type="date" id="harvest-date" class="log-input harvest-date-in" value="${today}">
       <input type="number" id="harvest-amount" class="log-input harvest-amt-in" placeholder="Amount" min="0" step="0.1">
@@ -1813,6 +1831,7 @@ async function submitNewCrop(bedId){
     // Refresh cache and re-render
     await fetchAllPlantings();
     updateMapLabels();
+    renderStatusIndicators();
     delete selectedPlantingId[bedId];
     document.getElementById('bed-detail-content').innerHTML=renderDetail(bedId,[]);
     const planting=getSelectedPlanting(bedId);
@@ -1838,6 +1857,102 @@ function switchPlanting(bedId,plantingId){
   loadWatering(bedId);
 }
 
+/* ── STATUS PICKER ───────────────────────────────── */
+function openStatusPicker(bedId){
+  const el=document.getElementById('status-badge');
+  if(!el)return;
+  const current=getActivePlanting(bedId)?.status||'planned';
+  let html='<div class="status-picker">';
+  for(const [key,val] of Object.entries(STATUS)){
+    const active=key===current?' sp-active':'';
+    html+=`<button class="sp-btn sp-${key}${active}" onclick="selectStatus('${bedId}','${key}')">${val.label}</button>`;
+  }
+  html+='</div>';
+  el.outerHTML=html;
+}
+
+async function selectStatus(bedId,newStatus){
+  const planting=getActivePlanting(bedId);
+  if(!planting)return;
+  // Optimistically update cache
+  planting.status=newStatus;
+  // Restore badge immediately
+  const picker=document.querySelector('.status-picker');
+  if(picker){
+    const st=STATUS[newStatus]||STATUS.planned;
+    picker.outerHTML=`<span id="status-badge" class="status-badge ${st.cls}" onclick="openStatusPicker('${bedId}')"><span class="status-dot"></span>${st.label}</span>`;
+  }
+  renderStatusIndicators();
+  // Persist to DB
+  try{
+    await fetch(`${SB_URL}/rest/v1/plantings?id=eq.${planting.id}`,{
+      method:'PATCH',
+      headers:{...SB_HEADERS,'Prefer':'return=minimal'},
+      body:JSON.stringify({status:newStatus})
+    });
+  }catch(e){console.error('Failed to save status:',e);}
+}
+
+/* ── STATUS INDICATORS ON MAP ────────────────────── */
+const STATUS_IND={
+  sown:        {fill:'rgba(61,191,130,.8)'},
+  germinating: {fill:'rgba(139,195,74,.9)'},
+  growing:     {fill:'#14c4ab',glow:true},
+  ready:       {fill:'#e08c30',ring:true},
+  harvested:   {fill:'rgba(141,110,99,.65)'},
+};
+// pill center x per column, dot cy = pillTop + 110
+const PILL_CX={w:91,c:220,e:349};
+const PILL_TOP={1:10,2:170,3:330,4:490};
+
+function renderStatusIndicators(){
+  const svg=document.getElementById('garden-map');
+  if(!svg)return;
+  svg.querySelectorAll('.status-ind-g').forEach(el=>el.remove());
+  for(const bedId of Object.keys(BEDS)){
+    const planting=getActivePlanting(bedId);
+    const status=planting?.status||(planting?.planted_date?'growing':'planned');
+    const ind=STATUS_IND[status];
+    if(!ind)continue; // 'planned' — no dot
+    const col=bedId[0]; // 'w','c','e'
+    const row=parseInt(bedId[1]); // 1-4
+    const cx=PILL_CX[col];
+    const cy=PILL_TOP[row]+110;
+    const g=document.createElementNS('http://www.w3.org/2000/svg','g');
+    g.setAttribute('class','status-ind-g');
+    g.style.pointerEvents='none';
+    if(ind.ring){
+      const ring=document.createElementNS('http://www.w3.org/2000/svg','circle');
+      ring.setAttribute('cx',cx);ring.setAttribute('cy',cy);
+      ring.setAttribute('r',8);ring.setAttribute('fill','none');
+      ring.setAttribute('stroke','#e08c30');ring.setAttribute('stroke-width','1.5');
+      ring.setAttribute('opacity','.4');
+      g.appendChild(ring);
+    }
+    const dot=document.createElementNS('http://www.w3.org/2000/svg','circle');
+    dot.setAttribute('cx',cx);dot.setAttribute('cy',cy);
+    dot.setAttribute('r',4);dot.setAttribute('fill',ind.fill);
+    if(ind.glow){dot.setAttribute('filter','url(#glow-t)');}
+    g.appendChild(dot);
+    svg.appendChild(g);
+  }
+}
+
+function flashBtn(btn,msg,ms=1500){
+  const orig=btn.textContent;
+  btn.textContent=msg;
+  setTimeout(()=>{btn.textContent=orig;},ms);
+}
+
+function toggleHarvestForm(){
+  const form=document.getElementById('harvest-form');
+  const toggle=document.getElementById('harvest-toggle');
+  if(!form||!toggle)return;
+  const open=form.style.display!=='none';
+  form.style.display=open?'none':'flex';
+  toggle.textContent=open?'+ Log harvest':'– Cancel';
+}
+
 function bindLog(plantingId){
   setTimeout(()=>{
     const ta=document.getElementById('log-ta');
@@ -1858,6 +1973,7 @@ function bindLog(plantingId){
         return;
       }
       ta.value='';
+      flashBtn(btn,'Saved ✓');
       // optimistically prepend the new entry so it's visible immediately
       const el=document.getElementById('log-entries');
       if(el){
@@ -1895,6 +2011,11 @@ function bindHarvest(plantingId){
         await saveHarvest(plantingId,dateIn.value,amtIn.value,unitSel.value,notesIn.value.trim()||null);
         amtIn.value='';
         notesIn.value='';
+        flashBtn(btn,'Logged ✓');
+        const form=document.getElementById('harvest-form');
+        const toggle=document.getElementById('harvest-toggle');
+        if(form){form.style.display='none';}
+        if(toggle){toggle.textContent='+ Log harvest';}
         await loadHarvests(plantingId);
       }catch(e){/* already logged */}
       btn.disabled=false;
@@ -1915,6 +2036,7 @@ function switchTab(id,btn){
 window.addEventListener('load',async()=>{
   await fetchAllPlantings();
   updateMapLabels();
+  renderStatusIndicators();
   await fetchCompletedTasks();
   renderBadges();
 });
