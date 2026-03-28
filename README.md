@@ -52,7 +52,7 @@ Two-zone drip system fed from the front yard spigot (target 60+ PSI / 6+ GPM aft
 
 ## The App
 
-**Beds** — SVG flip-card. The front face is the garden map; tap any bed to flip to the inspector. Inspector shows the active planting, crop status, rotation card, irrigation details, season log, and harvest log. A "Watered" button (with duration input) logs a manual watering for that bed's zone and shows "last watered X days ago (Y min)" inline. If a bed has had multiple crops in a season, a pill strip lets you switch between planting records. Bed tiles show a task badge when something is due this week.
+**Beds** — SVG garden map with 12 stadium-pill bed tiles filling the full screen. Tap any bed to open a bottom sheet inspector. Inspector shows the active planting, crop status, rotation card, irrigation details, season log, and harvest log. A "Watered" button (with duration input) logs a manual watering for that bed's zone and shows "last watered X days ago (Y min)" inline. If a bed has had multiple crops in a season, a pill strip lets you switch between planting records. Bed tiles show a task badge when something is due this week.
 
 **Water** — Full irrigation system diagram with component callouts and zone color coding.
 
@@ -165,6 +165,9 @@ For planning and architecture: Claude.ai. For implementation: Claude Code. Diffe
 | Mar 2026 | Bed detail panel reads crop/variety/harvest from DB, falls back to BEDS static data | The hardcoded `BEDS` constant was the source of truth for the inspector panel, so new plantings saved to Supabase never appeared correctly. DB is now authoritative; BEDS serves only as fallback for fields not yet in the DB. | Keep BEDS as sole source of truth |
 | Mar 2026 | `variety` and `expected_harvest` as explicit columns on `plantings`, not derived from crop name | Variety is meaningful data — "Tomato" and "Orange Hat" are different things. Storing only `crop_name` meant variety was lost the moment a new crop was saved. `expected_harvest` kept as free text because harvest windows are ranges, not single dates. | Embed variety in crop_name, or add a separate varieties table |
 | Mar 2026 | `crop_name` stores the crop type, `variety` stores the cultivar | Consistent with how gardeners talk: "I'm growing tomatoes — specifically Orange Hat." Keeps `crop_name` groupable and `variety` searchable independently. | Store the full name ("Orange Hat Tomato") in crop_name |
+| Mar 27, 2026 | Replace flip-card inspector with a fixed bottom sheet | The 3D flip card required a card wrapper with a background, making the map feel framed and visually heavy. A bottom sheet slides up over the full-screen map, leaving the garden visible behind the backdrop — more native-feeling on mobile. | Side drawer, modal dialog |
+| Mar 27, 2026 | Strip all SVG chrome from the garden map — pills only, no house band, zone labels, compass, or grid | Each extra element shrank the usable bed area. Removing decorative chrome let the beds scale to 76×140 px with equal 53 px spacing, filling the full iPhone viewport. | Keep chrome, reduce pill size |
+| Mar 27, 2026 | Dark mode uses deep forest green (`#0d2016`) instead of near-black | Pure dark backgrounds read as generic and cold on the garden map. A saturated dark green grounds the UI in the context of the garden without washing out bed colors. | Standard #111 dark background |
 
 ---
 
