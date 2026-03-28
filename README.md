@@ -208,9 +208,6 @@ Add a "start new season" flow in the app: pick a bed, pick a crop, write a new p
 - Seed inventory tracking — what's on hand, what needs reordering
 - End of season bed prep checklist — triggered by first frost
 
-### Infrastructure
-- PWA support — installable on phone home screen, works offline
-
 ---
 
 *Built conversationally with Claude.ai and Claude Code. Zone 7a, Utah.*
