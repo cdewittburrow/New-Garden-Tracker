@@ -1539,6 +1539,34 @@ function closeSheet(){
   document.body.style.overflow='';
 }
 
+(function initSheetSwipe(){
+  const sheet=document.getElementById('bed-sheet');
+  let startY=0,startScrollTop=0,dragging=false;
+  sheet.addEventListener('touchstart',e=>{
+    startY=e.touches[0].clientY;
+    startScrollTop=sheet.scrollTop;
+    dragging=true;
+  },{passive:true});
+  sheet.addEventListener('touchmove',e=>{
+    if(!dragging)return;
+    const dy=e.touches[0].clientY-startY;
+    // only intercept downward swipe when sheet is scrolled to top
+    if(dy>0&&sheet.scrollTop<=0){
+      e.preventDefault();
+      sheet.style.transition='none';
+      sheet.style.transform=`translateY(${dy}px)`;
+    }
+  },{passive:false});
+  sheet.addEventListener('touchend',e=>{
+    if(!dragging)return;
+    dragging=false;
+    const dy=e.changedTouches[0].clientY-startY;
+    sheet.style.transition='';
+    sheet.style.transform='';
+    if(dy>80)closeSheet();
+  },{passive:true});
+})();
+
 async function loadLogs(bedId){
   const planting=getSelectedPlanting(bedId);
   if(!planting){
