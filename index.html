@@ -1484,9 +1484,10 @@ function getPendingTasksThisWeek(bedId){
 
 async function completeV2Task(taskId){
   const completedDate=today();
-  // Optimistic update
+  const numId=Number(taskId);
+  // Optimistic update — id comes back from JSON as a number, coerce for comparison
   for(const pid of Object.keys(taskCache)){
-    const t=taskCache[pid].find(r=>r.id===taskId);
+    const t=taskCache[pid].find(r=>r.id===numId);
     if(t){t.completed_date=completedDate;break;}
   }
   try{
@@ -1646,6 +1647,11 @@ async function handleInspTaskCheck(cb,taskRowId,bedId){
   cb.disabled=true;
   await completeV2Task(taskRowId);
   renderBadges();
+  // Fade out the completed task row; if all done, hide the whole section
+  const row=cb.closest('.insp-task-row');
+  if(row)row.style.opacity='0.35';
+  const section=document.querySelector('.insp-tasks');
+  if(section&&!section.querySelector('.task-cb:not(:checked)'))section.style.display='none';
 }
 
 /* ── BED TILE BADGES ─────────────────────────────── */
