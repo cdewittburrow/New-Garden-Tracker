@@ -215,6 +215,14 @@ h1 em{font-style:normal;color:var(--teal);}
 .stat-label{font-family:'Inter',sans-serif;font-size:.58rem;color:var(--text-dim);letter-spacing:.04em;margin-bottom:3px;}
 .stat-value{font-family:'Inter',sans-serif;font-size:.82rem;font-weight:500;color:var(--text);line-height:1.3;}
 .stat-sub{font-family:'Inter',sans-serif;font-size:.57rem;color:var(--text-dim);margin-top:2px;}
+
+/* Inspector task section */
+.insp-tasks{margin-bottom:16px;padding-bottom:14px;border-bottom:1px solid var(--divider);}
+.insp-task-row{display:flex;align-items:flex-start;gap:10px;padding:8px 0;border-bottom:1px solid var(--divider);}
+.insp-task-row:last-child{border-bottom:none;}
+.insp-task-body{flex:1;min-width:0;}
+.insp-task-title{font-size:.83rem;font-weight:500;color:var(--text);line-height:1.3;}
+.insp-task-due{font-family:'Inter',sans-serif;font-size:.6rem;color:var(--text-dim);margin-top:2px;}
 .insp-bed-chip{font-family:'Inter',sans-serif;font-size:.69rem;color:var(--text-dim);background:var(--bg-card);border:1px solid var(--border);border-radius:100px;padding:2px 9px;letter-spacing:.5px;flex-shrink:0;}
 .insp-crop-name{font-family:'Inter',sans-serif;font-size:1.65rem;font-weight:700;line-height:1.2;color:var(--text);}
 .insp-variety{font-size:.88rem;color:var(--jade);font-style:italic;opacity:.9;padding-left:1px;}
@@ -1262,7 +1270,7 @@ function getThisWeekTasks(){
 }
 
 function getPendingCount(bedId){
-  return expandTasks(bedId).filter(t=>isCurrentWindow(t.windowStart,t.windowEnd)&&!isTaskCompleted(bedId,t.taskId)).length;
+  return getPendingTasksThisWeek(bedId).length;
 }
 
 /* ── SUPABASE ─────────────────────────────────────── */
@@ -1278,12 +1286,12 @@ let selectedPlantingId={};
 
 async function fetchAllPlantings(){
   try{
-    const res=await fetch(`${SB_URL}/rest/v1/plantings?select=id,bed_id,crop_name,variety,expected_harvest,year,season,planted_date,ended_date,status&order=created_at.desc`,{headers:SB_HEADERS});
+    const res=await fetch(`${SB_URL}/rest/v1/plantings?select=id,bed_id,crop_name,variety,expected_harvest,year,season,planted_date,ended_date,status,planting_state&order=created_at.desc`,{headers:SB_HEADERS});
     const rows=await res.json();
     plantingCache={};
     for(const r of rows){
       if(!plantingCache[r.bed_id])plantingCache[r.bed_id]=[];
-      plantingCache[r.bed_id].push({id:r.id,crop_name:r.crop_name,variety:r.variety,expected_harvest:r.expected_harvest,year:r.year,season:r.season,planted_date:r.planted_date,ended_date:r.ended_date,status:r.status});
+      plantingCache[r.bed_id].push({id:r.id,crop_name:r.crop_name,variety:r.variety,expected_harvest:r.expected_harvest,year:r.year,season:r.season,planted_date:r.planted_date,ended_date:r.ended_date,status:r.status,planting_state:r.planting_state});
     }
   }catch(e){
     console.error('Failed to fetch plantings:',e);
@@ -1435,41 +1443,154 @@ function bindWatering(bedId){
   },0);
 }
 
-/* ── TASK STATE ──────────────────────────────────── */
-let completedTasks=[];
+/* ── TASK STATE (v2 — DB-driven) ─────────────────── */
+// taskCache[plantingId] = array of task rows with due_date set
+let taskCache={};
 
-async function fetchCompletedTasks(){
+async function fetchV2Tasks(){
+  // Fetch all tasks with due_date set across all known active plantings
   try{
-    const res=await fetch(`${SB_URL}/rest/v1/tasks?select=planting_id,task_id,completed_date`,{headers:SB_HEADERS});
+    const res=await fetch(
+      `${SB_URL}/rest/v1/tasks?due_date=not.is.null&select=id,planting_id,crop_task_id,title,description,due_date,completed_date,is_custom&order=due_date.asc`,
+      {headers:SB_HEADERS}
+    );
     const rows=await res.json();
-    completedTasks=rows.map(r=>({plantingId:r.planting_id,taskId:r.task_id,completedDate:r.completed_date}));
+    taskCache={};
+    for(const r of rows){
+      if(!taskCache[r.planting_id])taskCache[r.planting_id]=[];
+      taskCache[r.planting_id].push(r);
+    }
   }catch(e){
-    console.error('Failed to fetch tasks:',e);
-    completedTasks=[];
+    console.error('Failed to fetch v2 tasks:',e);
   }
 }
 
-function isTaskCompleted(bedId,taskId){
-  const p=getActivePlanting(bedId);
-  if(!p)return false;
-  return completedTasks.some(t=>t.plantingId===p.id&&t.taskId===taskId);
+function getTasksForBed(bedId){
+  const planting=getActivePlanting(bedId);
+  if(!planting)return[];
+  return taskCache[planting.id]||[];
 }
 
-async function completeTask(bedId,taskId){
-  const planting=getActivePlanting(bedId);
-  if(!planting)return;
+function getPendingTasksThisWeek(bedId){
+  const tasks=getTasksForBed(bedId);
+  const now=new Date();
+  const weekOut=new Date(now.getTime()+7*864e5);
+  return tasks.filter(t=>{
+    if(t.completed_date)return false;
+    const due=new Date(t.due_date+'T00:00:00');
+    return due<=weekOut;
+  });
+}
+
+async function completeV2Task(taskId){
   const completedDate=today();
-  completedTasks.push({plantingId:planting.id,taskId,completedDate});
+  // Optimistic update
+  for(const pid of Object.keys(taskCache)){
+    const t=taskCache[pid].find(r=>r.id===taskId);
+    if(t){t.completed_date=completedDate;break;}
+  }
   try{
-    await fetch(`${SB_URL}/rest/v1/tasks`,{
-      method:'POST',
-      headers:SB_HEADERS,
-      body:JSON.stringify({planting_id:planting.id,task_id:taskId,completed_date:completedDate})
+    await fetch(`${SB_URL}/rest/v1/tasks?id=eq.${taskId}`,{
+      method:'PATCH',
+      headers:{...SB_HEADERS,'Prefer':'return=minimal'},
+      body:JSON.stringify({completed_date:completedDate})
     });
   }catch(e){
-    console.error('Failed to save task:',e);
+    console.error('Failed to complete task:',e);
   }
 }
+
+/* ── TASK ACTIVATION ─────────────────────────────── */
+async function activatePlanting(plantingId,plantedDate,cropName){
+  // 1. Update planting state
+  await fetch(`${SB_URL}/rest/v1/plantings?id=eq.${plantingId}`,{
+    method:'PATCH',
+    headers:{...SB_HEADERS,'Prefer':'return=minimal'},
+    body:JSON.stringify({planting_state:'active',planted_date:plantedDate})
+  });
+
+  // 2. Find matching crop
+  const cropRes=await fetch(
+    `${SB_URL}/rest/v1/crops?name=ilike.${encodeURIComponent(cropName)}&select=id&limit=1`,
+    {headers:SB_HEADERS}
+  );
+  const crops=await cropRes.json();
+  if(!crops||!crops.length)return;
+  const cropId=crops[0].id;
+
+  // 3. Fetch task templates
+  const tplRes=await fetch(
+    `${SB_URL}/rest/v1/crop_tasks?crop_id=eq.${cropId}&select=*`,
+    {headers:SB_HEADERS}
+  );
+  const templates=await tplRes.json();
+  if(!templates||!templates.length)return;
+
+  // 4. Generate task instances
+  const tasks=[];
+  const planted=new Date(plantedDate+'T00:00:00');
+  const activationYear=planted.getFullYear();
+
+  for(const tpl of templates){
+    if(tpl.trigger_type==='days_after_planted'){
+      const due=new Date(planted);
+      due.setDate(due.getDate()+(tpl.trigger_days||0));
+      tasks.push({planting_id:plantingId,crop_task_id:tpl.id,title:tpl.title,description:tpl.description,due_date:due.toISOString().split('T')[0],is_custom:false});
+    }
+    if(tpl.trigger_type==='recurring'){
+      let offset=tpl.trigger_days||0;
+      while(offset<=(tpl.recurrence_end_days||0)){
+        const due=new Date(planted);
+        due.setDate(due.getDate()+offset);
+        tasks.push({planting_id:plantingId,crop_task_id:tpl.id,title:tpl.title,description:tpl.description,due_date:due.toISOString().split('T')[0],is_custom:false});
+        offset+=tpl.recurrence_days;
+      }
+    }
+    if(tpl.trigger_type==='calendar_annual'){
+      const triggerDate=new Date(activationYear,tpl.trigger_month-1,tpl.trigger_day);
+      if(!tpl.recurrence_days){
+        tasks.push({planting_id:plantingId,crop_task_id:tpl.id,title:tpl.title,description:tpl.description,due_date:triggerDate.toISOString().split('T')[0],is_custom:false});
+      } else {
+        let offset=0;
+        while(offset<=(tpl.recurrence_end_days||0)){
+          const due=new Date(triggerDate);
+          due.setDate(due.getDate()+offset);
+          tasks.push({planting_id:plantingId,crop_task_id:tpl.id,title:tpl.title,description:tpl.description,due_date:due.toISOString().split('T')[0],is_custom:false});
+          offset+=tpl.recurrence_days;
+        }
+      }
+    }
+  }
+
+  // 5. Insert all task instances
+  if(tasks.length>0){
+    await fetch(`${SB_URL}/rest/v1/tasks`,{
+      method:'POST',
+      headers:{...SB_HEADERS,'Prefer':'return=minimal'},
+      body:JSON.stringify(tasks)
+    });
+  }
+}
+
+/* ── BOOTSTRAP UTILITY ───────────────────────────── */
+// Run from browser console to generate tasks for all existing active plantings:
+// bootstrapTasksForActivePlantings()
+window.bootstrapTasksForActivePlantings=async function(){
+  console.log('Bootstrapping tasks for active plantings…');
+  let count=0;
+  for(const bedId of Object.keys(BEDS)){
+    const p=getActivePlanting(bedId);
+    if(!p||!p.planted_date)continue;
+    const existing=taskCache[p.id]||[];
+    if(existing.length>0){console.log(`${bedId}: already has ${existing.length} tasks, skipping`);continue;}
+    console.log(`${bedId}: activating ${p.crop_name} planted ${p.planted_date}`);
+    await activatePlanting(p.id,p.planted_date,p.crop_name);
+    count++;
+  }
+  console.log(`Done. Activated tasks for ${count} plantings.`);
+  await fetchV2Tasks();
+  renderBadges();
+};
 
 /* ── TAB 4 RENDER ────────────────────────────────── */
 let activeTaskBedFilter='all';
@@ -1518,7 +1639,13 @@ async function handleTaskCheck(cb){
   const taskId=cb.dataset.task;
   await completeTask(bedId,taskId);
   renderBadges();
-  // Refresh chip counts (badge for this bed)
+}
+
+async function handleInspTaskCheck(cb,taskRowId,bedId){
+  if(!cb.checked)return;
+  cb.disabled=true;
+  await completeV2Task(taskRowId);
+  renderBadges();
 }
 
 /* ── BED TILE BADGES ─────────────────────────────── */
@@ -1571,17 +1698,14 @@ function goToTaskTab(bedId){
 async function markPlanted(bedId){
   const planting=getActivePlanting(bedId);
   if(!planting)return;
-  const today=(()=>{const d=new Date();return `${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,'0')}-${String(d.getDate()).padStart(2,'0')}`;})();
+  const plantedDate=today();
   try{
-    const res=await fetch(`${SB_URL}/rest/v1/plantings?id=eq.${planting.id}`,{
-      method:'PATCH',
-      headers:{...SB_HEADERS,'Prefer':'return=minimal'},
-      body:JSON.stringify({planted_date:today})
-    });
-    if(!res.ok)throw new Error(await res.text());
-    planting.planted_date=today;
+    await activatePlanting(planting.id,plantedDate,planting.crop_name);
+    planting.planted_date=plantedDate;
+    planting.planting_state='active';
+    await fetchV2Tasks();
   }catch(e){
-    console.error('Failed to update planted date:',e);
+    console.error('Failed to activate planting:',e);
     return;
   }
   document.getElementById('bed-detail-content').innerHTML=renderDetail(bedId,[]);
@@ -1792,6 +1916,24 @@ function renderDetail(bedId,logs=[]){
       <div class="stat-value">${expectedHarvest||'—'}</div>
     </div>
   </div>`;
+
+  // Tasks this week — only shown when tasks exist
+  const pendingTasks=getPendingTasksThisWeek(bedId);
+  if(pendingTasks.length){
+    h+=`<div class="insp-tasks">
+      <div class="section-label" style="margin-top:0">Tasks this week</div>`;
+    for(const t of pendingTasks){
+      const dueStr=fmtDate(t.due_date);
+      h+=`<div class="insp-task-row">
+        <input type="checkbox" class="task-cb" ${t.completed_date?'checked disabled':''} onchange="handleInspTaskCheck(this,'${t.id}','${bedId}')">
+        <div class="insp-task-body">
+          <div class="insp-task-title">${t.title}</div>
+          <div class="insp-task-due">Due ${dueStr}</div>
+        </div>
+      </div>`;
+    }
+    h+=`</div>`;
+  }
 
   h+=`<div class="detail-body">`;
 
@@ -2134,7 +2276,7 @@ window.addEventListener('load',async()=>{
   await fetchAllPlantings();
   updateMapLabels();
   renderStatusIndicators();
-  await fetchCompletedTasks();
+  await fetchV2Tasks();
   renderBadges();
 });
 </script>
