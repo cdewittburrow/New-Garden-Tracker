@@ -11,8 +11,7 @@
 <meta http-equiv="Expires" content="0">
 <title>Front Yard Garden — 2026</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Fira+Code:wght@300;400;500&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
 /* ── TOKENS ─────────────────────────────────── */
 :root {
@@ -72,7 +71,7 @@
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
 html{scroll-behavior:smooth;}
 body{
-  background:var(--bg);font-family:'DM Sans',sans-serif;
+  background:var(--bg);font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
   color:var(--text);min-height:100vh;
   padding:24px 20px 64px;
   transition:background .3s,color .3s;
@@ -85,14 +84,14 @@ body{
   justify-content:space-between;gap:12px;
 }
 .header-title{display:flex;flex-direction:column;gap:3px;}
-h1{font-family:'Playfair Display',serif;font-size:1.9rem;font-weight:700;letter-spacing:-.4px;line-height:1.1;}
-h1 em{font-style:italic;color:var(--teal);}
-.subtitle{font-family:'Fira Code',monospace;font-size:.62rem;letter-spacing:2px;color:var(--text-sub);text-transform:uppercase;}
+h1{font-family:'Inter',sans-serif;font-size:1.9rem;font-weight:700;letter-spacing:-.5px;line-height:1.1;}
+h1 em{font-style:normal;color:var(--teal);}
+.subtitle{font-family:'Inter',sans-serif;font-size:.62rem;letter-spacing:2px;color:var(--text-sub);text-transform:uppercase;}
 .theme-toggle{
   display:flex;align-items:center;gap:6px;flex-shrink:0;
   background:var(--bg-card);border:1px solid var(--border-hi);border-radius:100px;
   padding:6px 12px 6px 10px;cursor:pointer;
-  font-family:'Fira Code',monospace;font-size:.63rem;color:var(--text-sub);
+  font-family:'Inter',sans-serif;font-size:.63rem;color:var(--text-sub);
   transition:all .2s;white-space:nowrap;
 }
 .theme-toggle:hover{border-color:var(--teal);color:var(--teal);}
@@ -106,7 +105,7 @@ h1 em{font-style:italic;color:var(--teal);}
 }
 .tab-btn{
   flex:1;display:flex;align-items:center;justify-content:center;gap:5px;
-  font-family:'Fira Code',monospace;font-size:.6rem;letter-spacing:.3px;text-transform:uppercase;
+  font-family:'Inter',sans-serif;font-size:.6rem;letter-spacing:.3px;text-transform:uppercase;
   padding:8px 6px;border:none;background:transparent;color:var(--text-sub);
   cursor:pointer;border-radius:8px;transition:all .2s;white-space:nowrap;
 }
@@ -120,6 +119,33 @@ h1 em{font-style:italic;color:var(--teal);}
 /* ── MAP WRAP ────────────────────────────────── */
 .map-wrap{display:block;}
 .map-wrap svg{width:100%;height:auto;display:block;}
+
+/* ── COLUMN HEADERS & ZONE LEGEND ───────────── */
+.map-col-headers{
+  display:grid;grid-template-columns:1fr 1fr 1fr auto;
+  max-width:440px;margin:0 auto 4px;
+  padding:0 4px;position:relative;
+}
+.map-col-headers span{
+  font-family:'Inter',sans-serif;font-size:.65rem;font-weight:500;
+  color:var(--text-dim);letter-spacing:.04em;text-align:center;
+}
+.map-compass{
+  position:absolute;right:4px;top:0;
+  font-family:'Inter',sans-serif;font-size:.6rem;color:var(--text-dim);
+  white-space:nowrap;
+}
+.zone-legend{
+  display:flex;align-items:center;gap:12px;
+  max-width:440px;margin:6px auto 0;
+  padding:0 6px;
+  font-family:'Inter',sans-serif;font-size:.62rem;color:var(--text-sub);
+}
+.zone-dot{
+  width:8px;height:8px;border-radius:50%;flex-shrink:0;
+}
+.zdot-1{background:var(--sapphire);}
+.zdot-2{background:var(--jade);}
 
 /* ── BOTTOM SHEET ────────────────────────────── */
 .sheet-backdrop{
@@ -149,41 +175,52 @@ h1 em{font-style:italic;color:var(--teal);}
 .bed-g:hover .bed-pill{filter:brightness(1.25) saturate(1.15);}
 .bed-g .bed-pill{transition:filter .15s;}
 
-/* Back bar */
-.back-bar{
-  display:flex;align-items:center;justify-content:space-between;
-  margin-bottom:10px;
-}
-.back-btn{
-  display:flex;align-items:center;gap:7px;
-  background:none;border:1px solid var(--border-hi);border-radius:100px;
-  padding:6px 14px 6px 10px;cursor:pointer;
-  font-family:'Fira Code',monospace;font-size:.63rem;color:var(--text-sub);
-  transition:all .2s;
-}
-.back-btn:hover{border-color:var(--teal);color:var(--teal);}
-.back-btn svg{width:14px;height:14px;stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;}
-
-/* Mini map (top-right of back face) */
-.mini-map{cursor:default;}
+/* Mini map — integrated into inspector header */
+.mini-map{cursor:default;flex-shrink:0;}
 .mini-map svg{
-  width:96px;height:auto;
+  width:80px;height:auto;
   display:block;
   border-radius:8px;
   overflow:hidden;
 }
 
 /* Detail header — crop-led */
-.insp-header{display:flex;flex-direction:column;gap:4px;margin-bottom:18px;padding-bottom:16px;border-bottom:1px solid var(--divider);}
-.insp-header-top{display:flex;align-items:center;gap:9px;}
-.insp-header-meta{display:flex;align-items:center;gap:7px;flex-wrap:wrap;}
+.insp-header{margin-bottom:16px;padding-bottom:14px;border-bottom:1px solid var(--divider);}
+.insp-header-row{display:flex;align-items:flex-start;justify-content:space-between;gap:12px;}
+.insp-header-left{flex:1;min-width:0;display:flex;flex-direction:column;gap:4px;}
+.insp-header-meta{display:flex;align-items:center;gap:6px;flex-wrap:wrap;margin-top:4px;}
 .insp-header-meta .status-badge{margin-bottom:0;}
-.insp-bed-chip{font-family:'Fira Code',monospace;font-size:.69rem;color:var(--text-dim);background:var(--bg-card);border:1px solid var(--border);border-radius:100px;padding:2px 9px;letter-spacing:.5px;flex-shrink:0;}
-.insp-crop-name{font-family:'Playfair Display',serif;font-size:1.65rem;font-weight:700;line-height:1.2;color:var(--text);}
+
+/* Action strip */
+.action-strip{display:flex;gap:8px;margin-bottom:10px;align-items:center;}
+.action-water-wrap{display:flex;align-items:center;gap:5px;flex:1;}
+.action-btn{
+  font-family:'Inter',sans-serif;font-size:.7rem;font-weight:500;
+  padding:10px 14px;border:1px solid var(--border-hi);border-radius:12px;
+  background:var(--bg-card);color:var(--text-sub);cursor:pointer;
+  transition:all .15s;white-space:nowrap;flex:1;text-align:center;
+}
+.action-btn:hover{border-color:var(--teal);color:var(--text);}
+.action-btn.action-primary{
+  background:linear-gradient(135deg,var(--sapphire-mid),var(--sapphire-dk));
+  color:#fff;border-color:transparent;flex:none;
+}
+.action-btn.action-primary:hover{opacity:.88;}
+.action-btn.action-primary:disabled{opacity:.5;cursor:default;}
+.water-inline{display:flex;align-items:center;gap:4px;}
+
+/* Stat strip */
+.stat-strip{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:16px;}
+.stat-card{background:var(--bg-card);border:1px solid var(--border);border-radius:10px;padding:10px 12px;}
+.stat-label{font-family:'Inter',sans-serif;font-size:.58rem;color:var(--text-dim);letter-spacing:.04em;margin-bottom:3px;}
+.stat-value{font-family:'Inter',sans-serif;font-size:.82rem;font-weight:500;color:var(--text);line-height:1.3;}
+.stat-sub{font-family:'Inter',sans-serif;font-size:.57rem;color:var(--text-dim);margin-top:2px;}
+.insp-bed-chip{font-family:'Inter',sans-serif;font-size:.69rem;color:var(--text-dim);background:var(--bg-card);border:1px solid var(--border);border-radius:100px;padding:2px 9px;letter-spacing:.5px;flex-shrink:0;}
+.insp-crop-name{font-family:'Inter',sans-serif;font-size:1.65rem;font-weight:700;line-height:1.2;color:var(--text);}
 .insp-variety{font-size:.88rem;color:var(--jade);font-style:italic;opacity:.9;padding-left:1px;}
-.rel-time{display:block;font-family:'Fira Code',monospace;font-size:.63rem;color:var(--text-dim);font-weight:400;margin-top:1px;}
+.rel-time{display:block;font-family:'Inter',sans-serif;font-size:.63rem;color:var(--text-dim);font-weight:400;margin-top:1px;}
 .zone-tag{
-  font-family:'Fira Code',monospace;font-size:.61rem;padding:4px 12px;border-radius:100px;
+  font-family:'Inter',sans-serif;font-size:.61rem;padding:4px 12px;border-radius:100px;
   text-transform:uppercase;letter-spacing:.5px;font-weight:500;
 }
 .z1-tag{background:rgba(26,79,173,.18);color:var(--sapphire);border:1px solid rgba(26,79,173,.3);}
@@ -191,7 +228,7 @@ h1 em{font-style:italic;color:var(--teal);}
 
 .status-badge{
   display:inline-flex;align-items:center;gap:7px;
-  font-family:'Fira Code',monospace;font-size:.62rem;text-transform:uppercase;letter-spacing:.8px;
+  font-family:'Inter',sans-serif;font-size:.62rem;text-transform:uppercase;letter-spacing:.8px;
   padding:4px 13px;border-radius:100px;margin-bottom:22px;border:1px solid transparent;
 }
 .status-dot{width:7px;height:7px;border-radius:50%;flex-shrink:0;}
@@ -215,7 +252,7 @@ h1 em{font-style:italic;color:var(--teal);}
 .accordion{border:none;margin:0;}
 .accordion-summary{
   list-style:none;cursor:pointer;user-select:none;display:flex;align-items:center;justify-content:space-between;
-  font-family:'Fira Code',monospace;font-size:.57rem;letter-spacing:.5px;
+  font-family:'Inter',sans-serif;font-size:.57rem;letter-spacing:.5px;
   color:var(--text-dim);margin:16px 0 6px;padding-bottom:5px;border-bottom:1px solid var(--divider);
 }
 .accordion-summary::-webkit-details-marker{display:none;}
@@ -224,7 +261,7 @@ h1 em{font-style:italic;color:var(--teal);}
 .accordion-body{padding-top:2px;}
 
 .section-label{
-  font-family:'Fira Code',monospace;font-size:.57rem;letter-spacing:.5px;
+  font-family:'Inter',sans-serif;font-size:.57rem;letter-spacing:.5px;
   color:var(--text-dim);margin:16px 0 6px;display:block;padding-bottom:5px;border-bottom:1px solid var(--divider);
 }
 .section-label:first-child{margin-top:0;}
@@ -238,19 +275,19 @@ h1 em{font-style:italic;color:var(--teal);}
 
 
 .log-entry{padding:10px 0;border-bottom:1px solid var(--divider);}
-.log-date{font-family:'Fira Code',monospace;font-size:.59rem;color:var(--text-dim);margin-bottom:2px;letter-spacing:.4px;}
+.log-date{font-family:'Inter',sans-serif;font-size:.59rem;color:var(--text-dim);margin-bottom:2px;letter-spacing:.4px;}
 .log-text{font-size:.82rem;line-height:1.5;}
 .log-empty{font-size:.82rem;color:var(--text-dim);font-style:italic;padding:4px 0;}
 .log-add-row{display:flex;gap:9px;margin-top:12px;padding-top:12px;border-top:1px solid var(--divider);}
 .log-input{
-  flex:1;font-family:'DM Sans',sans-serif;font-size:.83rem;padding:8px 12px;
+  flex:1;font-family:'Inter',sans-serif;font-size:.83rem;padding:8px 12px;
   border:1px solid var(--input-bd);border-radius:10px;background:var(--input-bg);color:var(--text);
   resize:none;outline:none;line-height:1.4;transition:border-color .2s,box-shadow .2s;
 }
 .log-input:focus{border-color:var(--teal);box-shadow:0 0 0 3px var(--input-foc);}
 .log-input::placeholder{color:var(--text-dim);}
 .log-add-btn{
-  font-family:'Fira Code',monospace;font-size:.65rem;padding:8px 14px;
+  font-family:'Inter',sans-serif;font-size:.65rem;padding:8px 14px;
   background:var(--emerald-mid);color:#e8f5f0;border:none;border-radius:10px;cursor:pointer;
   transition:background .2s,transform .1s;white-space:nowrap;align-self:flex-end;letter-spacing:.4px;
 }
@@ -267,11 +304,11 @@ h1 em{font-style:italic;color:var(--teal);}
 .map-card svg{width:100%;height:auto;display:block;}
 .side-card{background:var(--bg-card);border:1px solid var(--border);border-radius:12px;padding:18px 20px;}
 .side-card:hover{border-color:var(--border-hi);}
-.side-card h3{font-family:'Playfair Display',serif;font-size:.95rem;font-weight:700;margin-bottom:7px;}
+.side-card h3{font-family:'Inter',sans-serif;font-size:.95rem;font-weight:700;margin-bottom:7px;}
 .sidebar{display:flex;flex-direction:column;gap:12px;}
 .step-item{display:flex;gap:12px;padding:9px 0;border-bottom:1px solid var(--divider);}
 .step-item:last-child{border-bottom:none;}
-.step-num{font-family:'Playfair Display',serif;font-size:1rem;font-weight:700;color:var(--teal);min-width:16px;line-height:1;padding-top:2px;opacity:.8;}
+.step-num{font-family:'Inter',sans-serif;font-size:1rem;font-weight:700;color:var(--teal);min-width:16px;line-height:1;padding-top:2px;opacity:.8;}
 .step-text strong{display:block;font-size:.81rem;margin-bottom:2px;}
 .step-text p{font-size:.74rem;color:var(--text-sub);line-height:1.55;}
 .pipe-flow{stroke-dasharray:7 5;animation:flow 1.4s linear infinite;}
@@ -287,10 +324,9 @@ h1 em{font-style:italic;color:var(--teal);}
 }
 
 /* ── TASK SYSTEM ─────────────────────────────── */
-.tab-panel#tab-tasks{max-width:540px;margin:0 auto;padding:0 4px;}
 .chip-strip{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:16px;}
 .chip{
-  font-family:'Fira Code',monospace;font-size:.6rem;letter-spacing:.4px;
+  font-family:'Inter',sans-serif;font-size:.6rem;letter-spacing:.4px;
   padding:6px 14px;border:1px solid var(--border-hi);border-radius:100px;
   background:transparent;color:var(--text-sub);cursor:pointer;transition:all .2s;white-space:nowrap;
 }
@@ -310,32 +346,26 @@ h1 em{font-style:italic;color:var(--teal);}
 .task-cb:checked::after{content:'✓';position:absolute;inset:0;display:flex;align-items:center;justify-content:center;color:#fff;font-size:11px;line-height:1;}
 .task-cb:disabled{opacity:.7;cursor:default;}
 .task-meta{flex:1;min-width:0;}
-.task-bed-label{font-family:'Fira Code',monospace;font-size:.58rem;color:var(--teal);letter-spacing:.5px;text-transform:uppercase;margin-bottom:2px;}
+.task-bed-label{font-family:'Inter',sans-serif;font-size:.58rem;color:var(--teal);letter-spacing:.5px;text-transform:uppercase;margin-bottom:2px;}
 .task-name{font-size:.84rem;font-weight:500;margin-bottom:2px;}
-.task-window{font-family:'Fira Code',monospace;font-size:.58rem;color:var(--text-dim);}
+.task-window{font-family:'Inter',sans-serif;font-size:.58rem;color:var(--text-dim);}
 .task-empty{font-size:.85rem;color:var(--text-dim);font-style:italic;padding:32px 0;text-align:center;}
 .planted-row{margin:0 0 12px;}
 .planted-btn{
-  font-family:'Fira Code',monospace;font-size:.63rem;padding:7px 16px;
+  font-family:'Inter',sans-serif;font-size:.63rem;padding:7px 16px;
   background:var(--emerald-mid);color:#e8f5f0;border:none;border-radius:10px;
   cursor:pointer;transition:background .2s;letter-spacing:.3px;
 }
 .planted-btn:hover{background:#145e3c;}
-.planted-info{font-family:'Fira Code',monospace;font-size:.63rem;color:var(--teal);padding:4px 0;}
+.planted-info{font-family:'Inter',sans-serif;font-size:.63rem;color:var(--teal);padding:4px 0;}
 
 /* ── WATERING ────────────────────────────────────── */
-.watering-row{display:flex;align-items:center;justify-content:space-between;gap:10px;background:var(--bg-card);border:1px solid var(--border);border-radius:12px;padding:12px 14px;margin-bottom:4px;}
-.watering-info{font-family:'Fira Code',monospace;font-size:.68rem;color:var(--text-sub);}
-.watering-log{display:flex;align-items:center;gap:5px;}
 .water-dur{width:52px!important;flex:none!important;text-align:center;}
-.water-dur-lbl{font-family:'Fira Code',monospace;font-size:.68rem;color:var(--text-dim);}
-.water-btn{background:linear-gradient(135deg,var(--sapphire-mid),var(--sapphire-dk));color:#fff;border:none;border-radius:10px;padding:7px 14px;font-family:'DM Sans',sans-serif;font-size:.83rem;font-weight:500;cursor:pointer;transition:opacity .2s;white-space:nowrap;}
-.water-btn:hover{opacity:.85;}.water-btn:disabled{opacity:.5;cursor:default;}
-.zone-sub{display:block;font-family:'Fira Code',monospace;font-size:.58rem;color:var(--text-dim);margin-top:3px;letter-spacing:.2px;}
+.water-dur-lbl{font-family:'Inter',sans-serif;font-size:.68rem;color:var(--text-dim);}
 .status-badge{cursor:pointer;}
 .status-badge:hover{opacity:.8;}
 .status-picker{display:flex;gap:5px;flex-wrap:wrap;margin-bottom:22px;}
-.sp-btn{font-family:'Fira Code',monospace;font-size:.58rem;letter-spacing:.3px;padding:5px 11px;border-radius:100px;border:1px solid var(--border-hi);background:transparent;color:var(--text-sub);cursor:pointer;transition:all .15s;white-space:nowrap;}
+.sp-btn{font-family:'Inter',sans-serif;font-size:.58rem;letter-spacing:.3px;padding:5px 11px;border-radius:100px;border:1px solid var(--border-hi);background:transparent;color:var(--text-sub);cursor:pointer;transition:all .15s;white-space:nowrap;}
 .sp-btn:hover,.sp-btn.sp-active{color:#e8f5f0;border-color:transparent;}
 .sp-planned.sp-active,.sp-planned:hover{background:#607d8b;}
 .sp-sown.sp-active,.sp-sown:hover{background:#1a7a50;}
@@ -349,14 +379,14 @@ h1 em{font-style:italic;color:var(--teal);}
 .harvest-inputs{display:flex;gap:7px;}
 .harvest-date-in{flex:0 0 130px;font-size:.76rem;padding:7px 9px;}
 .harvest-amt-in{flex:0 0 80px;}
-.harvest-unit-sel{flex:0 0 72px;cursor:pointer;background:var(--input-bg);color:var(--text);border:1px solid var(--input-bd);border-radius:10px;padding:7px 9px;font-family:'DM Sans',sans-serif;font-size:.83rem;outline:none;}
+.harvest-unit-sel{flex:0 0 72px;cursor:pointer;background:var(--input-bg);color:var(--text);border:1px solid var(--input-bd);border-radius:10px;padding:7px 9px;font-family:'Inter',sans-serif;font-size:.83rem;outline:none;}
 .harvest-unit-sel:focus{border-color:var(--teal);box-shadow:0 0 0 3px var(--input-foc);}
 .harvest-total-row{min-height:18px;padding:3px 0;}
-.harvest-total{font-family:'Fira Code',monospace;font-size:.65rem;color:var(--teal);letter-spacing:.3px;}
+.harvest-total{font-family:'Inter',sans-serif;font-size:.65rem;color:var(--teal);letter-spacing:.3px;}
 
 /* ── PLANTING SWITCHER ───────────────────────────── */
 .planting-switcher{display:flex;gap:5px;flex-wrap:wrap;margin-bottom:14px;}
-.ps-btn{font-family:'Fira Code',monospace;font-size:.58rem;letter-spacing:.3px;padding:4px 11px;border:1px solid var(--border-hi);border-radius:100px;background:transparent;color:var(--text-sub);cursor:pointer;transition:all .2s;white-space:nowrap;}
+.ps-btn{font-family:'Inter',sans-serif;font-size:.58rem;letter-spacing:.3px;padding:4px 11px;border:1px solid var(--border-hi);border-radius:100px;background:transparent;color:var(--text-sub);cursor:pointer;transition:all .2s;white-space:nowrap;}
 .ps-btn:hover{border-color:var(--teal);color:var(--text);}
 .ps-btn.ps-active{background:var(--emerald-mid);color:#e8f5f0;border-color:var(--emerald-mid);}
 .ps-live{display:inline-block;width:5px;height:5px;border-radius:50%;background:var(--teal);margin-left:5px;vertical-align:middle;box-shadow:0 0 5px var(--teal);}
@@ -365,12 +395,47 @@ h1 em{font-style:italic;color:var(--teal);}
 .map-bg{fill:var(--map-bg);}
 .map-house{fill:var(--house-bg);}
 .map-txt{fill:var(--text);}
-.new-crop-toggle{font-family:'Fira Code',monospace;font-size:.58rem;color:var(--text-dim);background:none;border:none;cursor:pointer;padding:2px 0;letter-spacing:.3px;transition:color .2s;}
+.new-crop-toggle{font-family:'Inter',sans-serif;font-size:.58rem;color:var(--text-dim);background:none;border:none;cursor:pointer;padding:2px 0;letter-spacing:.3px;transition:color .2s;}
 .new-crop-toggle:hover{color:var(--teal);}
 .new-crop-form{flex-direction:column;gap:7px;padding:10px 12px;background:var(--bg-card);border:1px solid var(--border);border-radius:10px;margin-bottom:10px;}
 .new-crop-form.open{display:flex;}
 .nc-row{display:flex;gap:7px;flex-wrap:wrap;}
 .nc-row .log-input{flex:1;min-width:80px;}
+
+/* ── REFERENCE ACCORDIONS (Planning tab) ─────────── */
+.plan-ref-wrap{max-width:780px;margin:0 auto;}
+.plan-ref-label{
+  font-size:.65rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;
+  color:var(--text-dim);display:block;padding:0 4px;margin-bottom:10px;
+}
+.ref-accordion{
+  border:1px solid var(--border);border-radius:12px;
+  margin-bottom:12px;overflow:hidden;
+}
+.ref-summary{
+  list-style:none;cursor:pointer;user-select:none;
+  padding:14px 18px;display:flex;align-items:center;justify-content:space-between;
+  font-size:.78rem;font-weight:600;color:var(--text-sub);
+  background:var(--bg-card);letter-spacing:.02em;
+}
+.ref-summary::-webkit-details-marker{display:none;}
+.ref-summary::after{content:'▸';font-size:.7rem;transition:transform .2s;margin-left:6px;}
+.ref-accordion[open] .ref-summary::after{transform:rotate(90deg);}
+.ref-accordion .layout-wide{padding:16px;}
+
+/* ── PLAN STUB ───────────────────────────────────── */
+.plan-stub{
+  max-width:540px;margin:40px auto 28px;text-align:center;
+  padding:32px 20px;border:1px dashed var(--border-hi);border-radius:16px;
+}
+.plan-stub-title{font-size:1.05rem;font-weight:600;color:var(--text);margin-bottom:8px;}
+.plan-stub-body{font-size:.84rem;color:var(--text-dim);line-height:1.55;}
+
+/* ── OVERVIEW STUB ───────────────────────────────── */
+.overview-stub{
+  max-width:540px;margin:40px auto;text-align:center;
+  padding:32px 20px;border:1px dashed var(--border-hi);border-radius:16px;
+}
 </style>
 </head>
 <body>
@@ -388,28 +453,28 @@ h1 em{font-style:italic;color:var(--teal);}
 
 <!-- TABS -->
 <div class="tab-bar">
-  <button class="tab-btn active" onclick="switchTab('tab-beds',this)">
+  <button class="tab-btn active" onclick="switchTab('tab-field',this)">
     <svg viewBox="0 0 12 12" width="12" height="12" aria-hidden="true"><rect x=".5" y=".5" width="4.5" height="4.5" rx="1" fill="currentColor" opacity=".85"/><rect x="7" y=".5" width="4.5" height="4.5" rx="1" fill="currentColor" opacity=".85"/><rect x=".5" y="7" width="4.5" height="4.5" rx="1" fill="currentColor" opacity=".85"/><rect x="7" y="7" width="4.5" height="4.5" rx="1" fill="currentColor" opacity=".85"/></svg>
-    Beds
+    Field
   </button>
-  <button class="tab-btn" onclick="switchTab('tab-plumbing',this)">
-    <svg viewBox="0 0 12 12" width="12" height="12" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><line x1="1" y1="5" x2="11" y2="5"/><line x1="3.5" y1="5" x2="3.5" y2="10"/><line x1="8.5" y1="5" x2="8.5" y2="10"/></svg>
-    Water
+  <button class="tab-btn" onclick="switchTab('tab-planning',this)">
+    <svg viewBox="0 0 12 12" width="12" height="12" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="1.5" y="2" width="9" height="9" rx="1.5"/><line x1="1.5" y1="4.5" x2="10.5" y2="4.5"/><line x1="4" y1="1" x2="4" y2="3"/><line x1="8" y1="1" x2="8" y2="3"/></svg>
+    Planning
   </button>
-  <button class="tab-btn" onclick="switchTab('tab-detail',this)">
-    <svg viewBox="0 0 12 12" width="12" height="12" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 1.5 C4.5 3.5 2.5 5.5 2.5 7.5 a3.5 3.5 0 0 0 7 0 C9.5 5.5 7.5 3.5 6 1.5Z"/></svg>
-    Drip
-  </button>
-  <button class="tab-btn" onclick="switchTab('tab-tasks',this)">
-    <svg viewBox="0 0 12 12" width="12" height="12" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="1.5 6.5 4.5 9.5 10.5 3"/></svg>
-    Tasks
+  <button class="tab-btn" onclick="switchTab('tab-overview',this)">
+    <svg viewBox="0 0 12 12" width="12" height="12" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="1 9 4 5.5 6.5 7.5 11 2"/><line x1="1" y1="11" x2="11" y2="11"/></svg>
+    Overview
   </button>
 </div>
 
 <!-- ═══════════════════════════════════════════
      TAB 1 — FLIP CARD
 ═══════════════════════════════════════════ -->
-<div id="tab-beds" class="tab-panel active">
+<div id="tab-field" class="tab-panel active">
+  <div class="map-col-headers">
+    <span>West</span><span>Center</span><span>East</span>
+    <span class="map-compass">N ↑</span>
+  </div>
   <div class="map-wrap">
           <!--
             viewBox: 440 × 640
@@ -434,111 +499,131 @@ h1 em{font-style:italic;color:var(--teal);}
             </defs>
 
             <!-- Tap hint -->
-            <text id="map-hint" x="220" y="320" font-family="'Fira Code',monospace" font-size="10" fill="rgba(20,196,171,.18)" text-anchor="middle" pointer-events="none">tap a bed</text>
+            <text id="map-hint" x="220" y="320" font-family="'Inter',sans-serif" font-size="10" fill="rgba(20,196,171,.18)" text-anchor="middle" pointer-events="none">tap a bed</text>
 
             <!-- ROW 1 y=10 -->
             <g id="pill-w1" class="bed-g" onclick="openSheet('w1')">
               <rect class="bed-ring" x="47" y="4" width="88" height="152" rx="44" fill="none" stroke="#14c4ab" stroke-width="2.5" opacity="0" filter="url(#glow-t)"/>
               <rect class="bed-pill" x="53" y="10" width="76" height="140" rx="38" fill="url(#z2g)" stroke="rgba(20,196,171,.3)" stroke-width="1.5" filter="url(#dsm)"/>
-              <text x="91" y="84" font-family="'Fira Code',monospace" font-size="10" fill="rgba(255,255,255,.92)" text-anchor="middle" font-weight="500">W1</text>
-              <text id="crop-label-w1" x="91" y="100" font-family="'Fira Code',monospace" font-size="9" fill="rgba(255,255,255,.62)" text-anchor="middle"></text>
+              <text x="91" y="30" font-family="'Inter',sans-serif" font-size="8" fill="rgba(255,255,255,.28)" text-anchor="middle" font-weight="500" letter-spacing=".5">W1</text>
+              <text id="crop-label-w1" x="91" y="80" font-family="'Inter',sans-serif" font-size="13" fill="rgba(255,255,255,.92)" text-anchor="middle" font-weight="500"></text>
+              <text id="variety-label-w1" x="91" y="95" font-family="'Inter',sans-serif" font-size="9" fill="rgba(255,255,255,.42)" text-anchor="middle"></text>
             </g>
             <g id="pill-c1" class="bed-g" onclick="openSheet('c1')">
               <rect class="bed-ring" x="176" y="4" width="88" height="152" rx="44" fill="none" stroke="#14c4ab" stroke-width="2.5" opacity="0" filter="url(#glow-t)"/>
               <rect class="bed-pill" x="182" y="10" width="76" height="140" rx="38" fill="url(#z2g)" stroke="rgba(20,196,171,.3)" stroke-width="1.5" filter="url(#dsm)"/>
-              <text x="220" y="84" font-family="'Fira Code',monospace" font-size="10" fill="rgba(255,255,255,.92)" text-anchor="middle" font-weight="500">C1</text>
-              <text id="crop-label-c1" x="220" y="100" font-family="'Fira Code',monospace" font-size="9" fill="rgba(255,255,255,.62)" text-anchor="middle"></text>
+              <text x="220" y="30" font-family="'Inter',sans-serif" font-size="8" fill="rgba(255,255,255,.28)" text-anchor="middle" font-weight="500" letter-spacing=".5">C1</text>
+              <text id="crop-label-c1" x="220" y="80" font-family="'Inter',sans-serif" font-size="13" fill="rgba(255,255,255,.92)" text-anchor="middle" font-weight="500"></text>
+              <text id="variety-label-c1" x="220" y="95" font-family="'Inter',sans-serif" font-size="9" fill="rgba(255,255,255,.42)" text-anchor="middle"></text>
             </g>
             <g id="pill-e1" class="bed-g" onclick="openSheet('e1')">
               <rect class="bed-ring" x="305" y="4" width="88" height="152" rx="44" fill="none" stroke="#5b9cf0" stroke-width="2.5" opacity="0" filter="url(#glow-s)"/>
               <rect class="bed-pill" x="311" y="10" width="76" height="140" rx="38" fill="url(#z1g)" stroke="rgba(91,156,240,.3)" stroke-width="1.5" filter="url(#dsm)"/>
-              <text x="349" y="84" font-family="'Fira Code',monospace" font-size="10" fill="rgba(255,255,255,.92)" text-anchor="middle" font-weight="500">E1</text>
-              <text id="crop-label-e1" x="349" y="100" font-family="'Fira Code',monospace" font-size="9" fill="rgba(255,255,255,.62)" text-anchor="middle"></text>
+              <text x="349" y="30" font-family="'Inter',sans-serif" font-size="8" fill="rgba(255,255,255,.28)" text-anchor="middle" font-weight="500" letter-spacing=".5">E1</text>
+              <text id="crop-label-e1" x="349" y="80" font-family="'Inter',sans-serif" font-size="13" fill="rgba(255,255,255,.92)" text-anchor="middle" font-weight="500"></text>
+              <text id="variety-label-e1" x="349" y="95" font-family="'Inter',sans-serif" font-size="9" fill="rgba(255,255,255,.42)" text-anchor="middle"></text>
             </g>
 
             <!-- ROW 2 y=170 -->
             <g id="pill-w2" class="bed-g" onclick="openSheet('w2')">
               <rect class="bed-ring" x="47" y="164" width="88" height="152" rx="44" fill="none" stroke="#14c4ab" stroke-width="2.5" opacity="0" filter="url(#glow-t)"/>
               <rect class="bed-pill" x="53" y="170" width="76" height="140" rx="38" fill="url(#z2g)" stroke="rgba(20,196,171,.3)" stroke-width="1.5" filter="url(#dsm)"/>
-              <text x="91" y="244" font-family="'Fira Code',monospace" font-size="10" fill="rgba(255,255,255,.92)" text-anchor="middle" font-weight="500">W2</text>
-              <text id="crop-label-w2" x="91" y="260" font-family="'Fira Code',monospace" font-size="9" fill="rgba(255,255,255,.62)" text-anchor="middle"></text>
+              <text x="91" y="190" font-family="'Inter',sans-serif" font-size="8" fill="rgba(255,255,255,.28)" text-anchor="middle" font-weight="500" letter-spacing=".5">W2</text>
+              <text id="crop-label-w2" x="91" y="240" font-family="'Inter',sans-serif" font-size="13" fill="rgba(255,255,255,.92)" text-anchor="middle" font-weight="500"></text>
+              <text id="variety-label-w2" x="91" y="255" font-family="'Inter',sans-serif" font-size="9" fill="rgba(255,255,255,.42)" text-anchor="middle"></text>
             </g>
             <g id="pill-c2" class="bed-g" onclick="openSheet('c2')">
               <rect class="bed-ring" x="176" y="164" width="88" height="152" rx="44" fill="none" stroke="#14c4ab" stroke-width="2.5" opacity="0" filter="url(#glow-t)"/>
               <rect class="bed-pill" x="182" y="170" width="76" height="140" rx="38" fill="url(#z2g)" stroke="rgba(20,196,171,.3)" stroke-width="1.5" filter="url(#dsm)"/>
-              <text x="220" y="244" font-family="'Fira Code',monospace" font-size="10" fill="rgba(255,255,255,.92)" text-anchor="middle" font-weight="500">C2</text>
-              <text id="crop-label-c2" x="220" y="260" font-family="'Fira Code',monospace" font-size="9" fill="rgba(255,255,255,.62)" text-anchor="middle"></text>
+              <text x="220" y="190" font-family="'Inter',sans-serif" font-size="8" fill="rgba(255,255,255,.28)" text-anchor="middle" font-weight="500" letter-spacing=".5">C2</text>
+              <text id="crop-label-c2" x="220" y="240" font-family="'Inter',sans-serif" font-size="13" fill="rgba(255,255,255,.92)" text-anchor="middle" font-weight="500"></text>
+              <text id="variety-label-c2" x="220" y="255" font-family="'Inter',sans-serif" font-size="9" fill="rgba(255,255,255,.42)" text-anchor="middle"></text>
             </g>
             <g id="pill-e2" class="bed-g" onclick="openSheet('e2')">
               <rect class="bed-ring" x="305" y="164" width="88" height="152" rx="44" fill="none" stroke="#5b9cf0" stroke-width="2.5" opacity="0" filter="url(#glow-s)"/>
               <rect class="bed-pill" x="311" y="170" width="76" height="140" rx="38" fill="url(#z1g)" stroke="rgba(91,156,240,.3)" stroke-width="1.5" filter="url(#dsm)"/>
-              <text x="349" y="244" font-family="'Fira Code',monospace" font-size="10" fill="rgba(255,255,255,.92)" text-anchor="middle" font-weight="500">E2</text>
-              <text id="crop-label-e2" x="349" y="260" font-family="'Fira Code',monospace" font-size="9" fill="rgba(255,255,255,.62)" text-anchor="middle"></text>
+              <text x="349" y="190" font-family="'Inter',sans-serif" font-size="8" fill="rgba(255,255,255,.28)" text-anchor="middle" font-weight="500" letter-spacing=".5">E2</text>
+              <text id="crop-label-e2" x="349" y="240" font-family="'Inter',sans-serif" font-size="13" fill="rgba(255,255,255,.92)" text-anchor="middle" font-weight="500"></text>
+              <text id="variety-label-e2" x="349" y="255" font-family="'Inter',sans-serif" font-size="9" fill="rgba(255,255,255,.42)" text-anchor="middle"></text>
             </g>
 
             <!-- ROW 3 y=330 -->
             <g id="pill-w3" class="bed-g" onclick="openSheet('w3')">
               <rect class="bed-ring" x="47" y="324" width="88" height="152" rx="44" fill="none" stroke="#14c4ab" stroke-width="2.5" opacity="0" filter="url(#glow-t)"/>
               <rect class="bed-pill" x="53" y="330" width="76" height="140" rx="38" fill="url(#z2g)" stroke="rgba(20,196,171,.3)" stroke-width="1.5" filter="url(#dsm)"/>
-              <text x="91" y="404" font-family="'Fira Code',monospace" font-size="10" fill="rgba(255,255,255,.92)" text-anchor="middle" font-weight="500">W3</text>
-              <text id="crop-label-w3" x="91" y="420" font-family="'Fira Code',monospace" font-size="9" fill="rgba(255,255,255,.62)" text-anchor="middle"></text>
+              <text x="91" y="350" font-family="'Inter',sans-serif" font-size="8" fill="rgba(255,255,255,.28)" text-anchor="middle" font-weight="500" letter-spacing=".5">W3</text>
+              <text id="crop-label-w3" x="91" y="400" font-family="'Inter',sans-serif" font-size="13" fill="rgba(255,255,255,.92)" text-anchor="middle" font-weight="500"></text>
+              <text id="variety-label-w3" x="91" y="415" font-family="'Inter',sans-serif" font-size="9" fill="rgba(255,255,255,.42)" text-anchor="middle"></text>
             </g>
             <g id="pill-c3" class="bed-g" onclick="openSheet('c3')">
               <rect class="bed-ring" x="176" y="324" width="88" height="152" rx="44" fill="none" stroke="#14c4ab" stroke-width="2.5" opacity="0" filter="url(#glow-t)"/>
               <rect class="bed-pill" x="182" y="330" width="76" height="140" rx="38" fill="url(#z2g)" stroke="rgba(20,196,171,.3)" stroke-width="1.5" filter="url(#dsm)"/>
-              <text x="220" y="404" font-family="'Fira Code',monospace" font-size="10" fill="rgba(255,255,255,.92)" text-anchor="middle" font-weight="500">C3</text>
-              <text id="crop-label-c3" x="220" y="420" font-family="'Fira Code',monospace" font-size="9" fill="rgba(255,255,255,.62)" text-anchor="middle"></text>
+              <text x="220" y="350" font-family="'Inter',sans-serif" font-size="8" fill="rgba(255,255,255,.28)" text-anchor="middle" font-weight="500" letter-spacing=".5">C3</text>
+              <text id="crop-label-c3" x="220" y="400" font-family="'Inter',sans-serif" font-size="13" fill="rgba(255,255,255,.92)" text-anchor="middle" font-weight="500"></text>
+              <text id="variety-label-c3" x="220" y="415" font-family="'Inter',sans-serif" font-size="9" fill="rgba(255,255,255,.42)" text-anchor="middle"></text>
             </g>
             <g id="pill-e3" class="bed-g" onclick="openSheet('e3')">
               <rect class="bed-ring" x="305" y="324" width="88" height="152" rx="44" fill="none" stroke="#5b9cf0" stroke-width="2.5" opacity="0" filter="url(#glow-s)"/>
               <rect class="bed-pill" x="311" y="330" width="76" height="140" rx="38" fill="url(#z1g)" stroke="rgba(91,156,240,.3)" stroke-width="1.5" filter="url(#dsm)"/>
-              <text x="349" y="404" font-family="'Fira Code',monospace" font-size="10" fill="rgba(255,255,255,.92)" text-anchor="middle" font-weight="500">E3</text>
-              <text id="crop-label-e3" x="349" y="420" font-family="'Fira Code',monospace" font-size="9" fill="rgba(255,255,255,.62)" text-anchor="middle"></text>
+              <text x="349" y="350" font-family="'Inter',sans-serif" font-size="8" fill="rgba(255,255,255,.28)" text-anchor="middle" font-weight="500" letter-spacing=".5">E3</text>
+              <text id="crop-label-e3" x="349" y="400" font-family="'Inter',sans-serif" font-size="13" fill="rgba(255,255,255,.92)" text-anchor="middle" font-weight="500"></text>
+              <text id="variety-label-e3" x="349" y="415" font-family="'Inter',sans-serif" font-size="9" fill="rgba(255,255,255,.42)" text-anchor="middle"></text>
             </g>
 
             <!-- ROW 4 y=490 -->
             <g id="pill-w4" class="bed-g" onclick="openSheet('w4')">
               <rect class="bed-ring" x="47" y="484" width="88" height="152" rx="44" fill="none" stroke="#14c4ab" stroke-width="2.5" opacity="0" filter="url(#glow-t)"/>
               <rect class="bed-pill" x="53" y="490" width="76" height="140" rx="38" fill="url(#z2g)" stroke="rgba(20,196,171,.3)" stroke-width="1.5" filter="url(#dsm)"/>
-              <text x="91" y="564" font-family="'Fira Code',monospace" font-size="10" fill="rgba(255,255,255,.92)" text-anchor="middle" font-weight="500">W4</text>
-              <text id="crop-label-w4" x="91" y="580" font-family="'Fira Code',monospace" font-size="9" fill="rgba(255,255,255,.62)" text-anchor="middle"></text>
+              <text x="91" y="510" font-family="'Inter',sans-serif" font-size="8" fill="rgba(255,255,255,.28)" text-anchor="middle" font-weight="500" letter-spacing=".5">W4</text>
+              <text id="crop-label-w4" x="91" y="560" font-family="'Inter',sans-serif" font-size="13" fill="rgba(255,255,255,.92)" text-anchor="middle" font-weight="500"></text>
+              <text id="variety-label-w4" x="91" y="575" font-family="'Inter',sans-serif" font-size="9" fill="rgba(255,255,255,.42)" text-anchor="middle"></text>
             </g>
             <g id="pill-c4" class="bed-g" onclick="openSheet('c4')">
               <rect class="bed-ring" x="176" y="484" width="88" height="152" rx="44" fill="none" stroke="#14c4ab" stroke-width="2.5" opacity="0" filter="url(#glow-t)"/>
               <rect class="bed-pill" x="182" y="490" width="76" height="140" rx="38" fill="url(#z2g)" stroke="rgba(20,196,171,.3)" stroke-width="1.5" filter="url(#dsm)"/>
-              <text x="220" y="564" font-family="'Fira Code',monospace" font-size="10" fill="rgba(255,255,255,.92)" text-anchor="middle" font-weight="500">C4</text>
-              <text id="crop-label-c4" x="220" y="580" font-family="'Fira Code',monospace" font-size="9" fill="rgba(255,255,255,.62)" text-anchor="middle"></text>
+              <text x="220" y="510" font-family="'Inter',sans-serif" font-size="8" fill="rgba(255,255,255,.28)" text-anchor="middle" font-weight="500" letter-spacing=".5">C4</text>
+              <text id="crop-label-c4" x="220" y="560" font-family="'Inter',sans-serif" font-size="13" fill="rgba(255,255,255,.92)" text-anchor="middle" font-weight="500"></text>
+              <text id="variety-label-c4" x="220" y="575" font-family="'Inter',sans-serif" font-size="9" fill="rgba(255,255,255,.42)" text-anchor="middle"></text>
             </g>
             <g id="pill-e4" class="bed-g" onclick="openSheet('e4')">
               <rect class="bed-ring" x="305" y="484" width="88" height="152" rx="44" fill="none" stroke="#5b9cf0" stroke-width="2.5" opacity="0" filter="url(#glow-s)"/>
               <rect class="bed-pill" x="311" y="490" width="76" height="140" rx="38" fill="url(#z1g)" stroke="rgba(91,156,240,.3)" stroke-width="1.5" filter="url(#dsm)"/>
-              <text x="349" y="564" font-family="'Fira Code',monospace" font-size="10" fill="rgba(255,255,255,.92)" text-anchor="middle" font-weight="500">E4</text>
-              <text id="crop-label-e4" x="349" y="580" font-family="'Fira Code',monospace" font-size="9" fill="rgba(255,255,255,.62)" text-anchor="middle"></text>
+              <text x="349" y="510" font-family="'Inter',sans-serif" font-size="8" fill="rgba(255,255,255,.28)" text-anchor="middle" font-weight="500" letter-spacing=".5">E4</text>
+              <text id="crop-label-e4" x="349" y="560" font-family="'Inter',sans-serif" font-size="13" fill="rgba(255,255,255,.92)" text-anchor="middle" font-weight="500"></text>
+              <text id="variety-label-e4" x="349" y="575" font-family="'Inter',sans-serif" font-size="9" fill="rgba(255,255,255,.42)" text-anchor="middle"></text>
             </g>
           </svg>
   </div><!-- /map-wrap -->
-</div><!-- /tab-beds -->
+  <div class="zone-legend">
+    <span class="zone-dot zdot-1"></span><span>Zone 1 · 2 GPH</span>
+    <span class="zone-dot zdot-2"></span><span>Zone 2 · 1 GPH</span>
+  </div>
+</div><!-- /tab-field -->
 
 <!-- BOTTOM SHEET -->
 <div class="sheet-backdrop" id="sheet-backdrop" onclick="closeSheet()"></div>
 <div class="sheet" id="bed-sheet">
   <div class="sheet-handle"></div>
   <div class="sheet-inner">
-    <div class="back-bar">
-      <button class="back-btn" onclick="closeSheet()">
-        <svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></svg>
-        Close
-      </button>
-      <div class="mini-map" id="mini-map"></div>
-    </div>
     <div id="bed-detail-content"></div>
   </div>
 </div>
 
 <!-- ═══════════════════════════════════════════
-     TAB 2 — PLUMBING (UNCHANGED)
+     PLANNING TAB
 ═══════════════════════════════════════════ -->
-<div id="tab-plumbing" class="tab-panel">
+<div id="tab-planning" class="tab-panel">
+
+<div class="plan-stub">
+  <div class="plan-stub-title">Planning</div>
+  <div class="plan-stub-body">Season grid and bed planner coming soon. Reference diagrams below.</div>
+</div>
+
+<div class="plan-ref-wrap">
+<span class="plan-ref-label">Reference</span>
+
+<details class="ref-accordion">
+<summary class="ref-summary">Irrigation diagram</summary>
 <div class="layout-wide">
   <div class="map-card">
     <svg viewBox="0 0 500 620" xmlns="http://www.w3.org/2000/svg">
@@ -552,11 +637,11 @@ h1 em{font-style:italic;color:var(--teal);}
       <rect width="500" height="620" fill="url(#g2)"/>
       <rect x="14" y="14" width="472" height="592" rx="10" fill="none" stroke="rgba(20,196,171,.08)" stroke-width="1"/>
       <rect x="14" y="14" width="472" height="50" rx="10" class="map-house"/>
-      <text x="250" y="44" font-family="'Fira Code',monospace" font-size="11" fill="#3dbf82" text-anchor="middle" letter-spacing="1">House (North)</text>
-      <text x="250" y="86" font-family="'Fira Code',monospace" font-size="9" fill="rgba(20,196,171,.35)" text-anchor="middle">↑ N</text>
-      <text x="250" y="603" font-family="'Fira Code',monospace" font-size="9" fill="rgba(20,196,171,.35)" text-anchor="middle">↓ S</text>
-      <text x="24" y="355" font-family="'Fira Code',monospace" font-size="9" fill="rgba(20,196,171,.35)">W</text>
-      <text x="478" y="355" font-family="'Fira Code',monospace" font-size="9" fill="rgba(20,196,171,.35)">E</text>
+      <text x="250" y="44" font-family="'Inter',sans-serif" font-size="11" fill="#3dbf82" text-anchor="middle" letter-spacing="1">House (North)</text>
+      <text x="250" y="86" font-family="'Inter',sans-serif" font-size="9" fill="rgba(20,196,171,.35)" text-anchor="middle">↑ N</text>
+      <text x="250" y="603" font-family="'Inter',sans-serif" font-size="9" fill="rgba(20,196,171,.35)" text-anchor="middle">↓ S</text>
+      <text x="24" y="355" font-family="'Inter',sans-serif" font-size="9" fill="rgba(20,196,171,.35)">W</text>
+      <text x="478" y="355" font-family="'Inter',sans-serif" font-size="9" fill="rgba(20,196,171,.35)">E</text>
       <rect x="85" y="155" width="30" height="65" rx="15" fill="none" stroke="rgba(20,196,171,.2)" stroke-width="1" stroke-dasharray="4,3"/>
       <rect x="85" y="255" width="30" height="65" rx="15" fill="none" stroke="rgba(20,196,171,.2)" stroke-width="1" stroke-dasharray="4,3"/>
       <rect x="85" y="355" width="30" height="65" rx="15" fill="none" stroke="rgba(20,196,171,.2)" stroke-width="1" stroke-dasharray="4,3"/>
@@ -569,77 +654,77 @@ h1 em{font-style:italic;color:var(--teal);}
       <rect x="305" y="255" width="30" height="65" rx="15" fill="none" stroke="rgba(91,156,240,.25)" stroke-width="1" stroke-dasharray="4,3"/>
       <rect x="305" y="355" width="30" height="65" rx="15" fill="none" stroke="rgba(91,156,240,.25)" stroke-width="1" stroke-dasharray="4,3"/>
       <rect x="305" y="455" width="30" height="65" rx="15" fill="none" stroke="rgba(91,156,240,.25)" stroke-width="1" stroke-dasharray="4,3"/>
-      <text x="100" y="191" font-family="'Fira Code',monospace" font-size="7" fill="rgba(20,196,171,.3)" text-anchor="middle">W1</text>
-      <text x="100" y="291" font-family="'Fira Code',monospace" font-size="7" fill="rgba(20,196,171,.3)" text-anchor="middle">W2</text>
-      <text x="100" y="391" font-family="'Fira Code',monospace" font-size="7" fill="rgba(20,196,171,.3)" text-anchor="middle">W3</text>
-      <text x="100" y="491" font-family="'Fira Code',monospace" font-size="7" fill="rgba(20,196,171,.3)" text-anchor="middle">W4</text>
-      <text x="210" y="191" font-family="'Fira Code',monospace" font-size="7" fill="rgba(20,196,171,.3)" text-anchor="middle">C1</text>
-      <text x="210" y="291" font-family="'Fira Code',monospace" font-size="7" fill="rgba(20,196,171,.3)" text-anchor="middle">C2</text>
-      <text x="210" y="391" font-family="'Fira Code',monospace" font-size="7" fill="rgba(20,196,171,.3)" text-anchor="middle">C3</text>
-      <text x="210" y="491" font-family="'Fira Code',monospace" font-size="7" fill="rgba(20,196,171,.3)" text-anchor="middle">C4</text>
-      <text x="320" y="191" font-family="'Fira Code',monospace" font-size="7" fill="rgba(91,156,240,.4)" text-anchor="middle">E1</text>
-      <text x="320" y="291" font-family="'Fira Code',monospace" font-size="7" fill="rgba(91,156,240,.4)" text-anchor="middle">E2</text>
-      <text x="320" y="391" font-family="'Fira Code',monospace" font-size="7" fill="rgba(91,156,240,.4)" text-anchor="middle">E3</text>
-      <text x="320" y="491" font-family="'Fira Code',monospace" font-size="7" fill="rgba(91,156,240,.4)" text-anchor="middle">E4</text>
+      <text x="100" y="191" font-family="'Inter',sans-serif" font-size="7" fill="rgba(20,196,171,.3)" text-anchor="middle">W1</text>
+      <text x="100" y="291" font-family="'Inter',sans-serif" font-size="7" fill="rgba(20,196,171,.3)" text-anchor="middle">W2</text>
+      <text x="100" y="391" font-family="'Inter',sans-serif" font-size="7" fill="rgba(20,196,171,.3)" text-anchor="middle">W3</text>
+      <text x="100" y="491" font-family="'Inter',sans-serif" font-size="7" fill="rgba(20,196,171,.3)" text-anchor="middle">W4</text>
+      <text x="210" y="191" font-family="'Inter',sans-serif" font-size="7" fill="rgba(20,196,171,.3)" text-anchor="middle">C1</text>
+      <text x="210" y="291" font-family="'Inter',sans-serif" font-size="7" fill="rgba(20,196,171,.3)" text-anchor="middle">C2</text>
+      <text x="210" y="391" font-family="'Inter',sans-serif" font-size="7" fill="rgba(20,196,171,.3)" text-anchor="middle">C3</text>
+      <text x="210" y="491" font-family="'Inter',sans-serif" font-size="7" fill="rgba(20,196,171,.3)" text-anchor="middle">C4</text>
+      <text x="320" y="191" font-family="'Inter',sans-serif" font-size="7" fill="rgba(91,156,240,.4)" text-anchor="middle">E1</text>
+      <text x="320" y="291" font-family="'Inter',sans-serif" font-size="7" fill="rgba(91,156,240,.4)" text-anchor="middle">E2</text>
+      <text x="320" y="391" font-family="'Inter',sans-serif" font-size="7" fill="rgba(91,156,240,.4)" text-anchor="middle">E3</text>
+      <text x="320" y="491" font-family="'Inter',sans-serif" font-size="7" fill="rgba(91,156,240,.4)" text-anchor="middle">E4</text>
       <rect x="27" y="108" width="10" height="30" rx="2" fill="#4a5568" stroke="#2d3748" stroke-width="1"/>
       <rect x="40" y="112" width="18" height="16" rx="2" fill="#2d4a56" stroke="#1a3040" stroke-width="1" filter="url(#ds2)"/>
-      <text x="49" y="123" font-family="'Fira Code',monospace" font-size="5.5" fill="#90cdf4" text-anchor="middle">BFP</text>
+      <text x="49" y="123" font-family="'Inter',sans-serif" font-size="5.5" fill="#90cdf4" text-anchor="middle">BFP</text>
       <rect x="60" y="108" width="22" height="24" rx="2" fill="#1a2a3a" stroke="#0f1e2e" stroke-width="1" filter="url(#ds2)"/>
-      <text x="71" y="119" font-family="'Fira Code',monospace" font-size="5.5" fill="#14c4ab" text-anchor="middle">TIMER</text>
-      <text x="71" y="127" font-family="'Fira Code',monospace" font-size="5" fill="#5b9cf0" text-anchor="middle">2-zone</text>
+      <text x="71" y="119" font-family="'Inter',sans-serif" font-size="5.5" fill="#14c4ab" text-anchor="middle">TIMER</text>
+      <text x="71" y="127" font-family="'Inter',sans-serif" font-size="5" fill="#5b9cf0" text-anchor="middle">2-zone</text>
       <rect x="84" y="111" width="18" height="18" rx="2" fill="#2a1e0f" stroke="#1a1208" stroke-width="1" filter="url(#ds2)"/>
-      <text x="93" y="119" font-family="'Fira Code',monospace" font-size="5" fill="#f6ad55" text-anchor="middle">PRESS</text>
-      <text x="93" y="126" font-family="'Fira Code',monospace" font-size="5" fill="#f6ad55" text-anchor="middle">REG</text>
+      <text x="93" y="119" font-family="'Inter',sans-serif" font-size="5" fill="#f6ad55" text-anchor="middle">PRESS</text>
+      <text x="93" y="126" font-family="'Inter',sans-serif" font-size="5" fill="#f6ad55" text-anchor="middle">REG</text>
       <rect x="104" y="112" width="18" height="16" rx="2" fill="#2a1a0a" stroke="#1a0f04" stroke-width="1" filter="url(#ds2)"/>
-      <text x="113" y="119" font-family="'Fira Code',monospace" font-size="5" fill="#fbd38d" text-anchor="middle">Y-FLT</text>
-      <text x="113" y="126" font-family="'Fira Code',monospace" font-size="5" fill="#fbd38d" text-anchor="middle">150m</text>
+      <text x="113" y="119" font-family="'Inter',sans-serif" font-size="5" fill="#fbd38d" text-anchor="middle">Y-FLT</text>
+      <text x="113" y="126" font-family="'Inter',sans-serif" font-size="5" fill="#fbd38d" text-anchor="middle">150m</text>
       <line x1="38" y1="120" x2="40" y2="120" stroke="#e08c30" stroke-width="3"/>
       <line x1="58" y1="120" x2="60" y2="120" stroke="#e08c30" stroke-width="3"/>
       <line x1="82" y1="120" x2="84" y2="120" stroke="#e08c30" stroke-width="3"/>
       <line x1="102" y1="120" x2="104" y2="120" stroke="#e08c30" stroke-width="3"/>
       <circle cx="33" cy="120" r="7" fill="#b86d15" stroke="#7a4810" stroke-width="1.2" filter="url(#ds2)"/>
-      <text x="33" y="123" font-family="'Fira Code',monospace" font-size="5.5" fill="white" text-anchor="middle">BIB</text>
+      <text x="33" y="123" font-family="'Inter',sans-serif" font-size="5.5" fill="white" text-anchor="middle">BIB</text>
       <rect x="27" y="96" width="98" height="10" rx="2" fill="#0f1e2e" opacity=".9"/>
-      <text x="76" y="104" font-family="'Fira Code',monospace" font-size="7" fill="rgba(20,196,171,.7)" text-anchor="middle">SPIGOT ASSEMBLY</text>
-      <text x="49" y="109" font-family="'Fira Code',monospace" font-size="7" fill="#2d4a56" text-anchor="middle">①</text>
-      <text x="71" y="107" font-family="'Fira Code',monospace" font-size="7" fill="#14c4ab" text-anchor="middle">②</text>
-      <text x="93" y="109" font-family="'Fira Code',monospace" font-size="7" fill="#b86d15" text-anchor="middle">③</text>
-      <text x="113" y="109" font-family="'Fira Code',monospace" font-size="7" fill="#b86d15" text-anchor="middle">④</text>
+      <text x="76" y="104" font-family="'Inter',sans-serif" font-size="7" fill="rgba(20,196,171,.7)" text-anchor="middle">SPIGOT ASSEMBLY</text>
+      <text x="49" y="109" font-family="'Inter',sans-serif" font-size="7" fill="#2d4a56" text-anchor="middle">①</text>
+      <text x="71" y="107" font-family="'Inter',sans-serif" font-size="7" fill="#14c4ab" text-anchor="middle">②</text>
+      <text x="93" y="109" font-family="'Inter',sans-serif" font-size="7" fill="#b86d15" text-anchor="middle">③</text>
+      <text x="113" y="109" font-family="'Inter',sans-serif" font-size="7" fill="#b86d15" text-anchor="middle">④</text>
       <line x1="28" y1="120" x2="35" y2="120" stroke="#e08c30" stroke-width="5" stroke-linecap="round"/>
       <line x1="122" y1="120" x2="355" y2="120" stroke="#3d2810" stroke-width="6" stroke-linecap="round"/>
       <line x1="122" y1="120" x2="355" y2="120" stroke="#c47a1e" stroke-width="3" class="pipe-flow" opacity=".45"/>
       <rect x="354" y="114" width="10" height="12" rx="2" fill="#2a1800"/>
-      <text x="374" y="122" font-family="'Fira Code',monospace" font-size="7" fill="rgba(20,196,171,.4)">end cap</text>
+      <text x="374" y="122" font-family="'Inter',sans-serif" font-size="7" fill="rgba(20,196,171,.4)">end cap</text>
       <rect x="175" y="103" width="110" height="13" rx="3" fill="#1a0f04" opacity=".9"/>
-      <text x="230" y="113" font-family="'Fira Code',monospace" font-size="7.5" fill="rgba(200,160,100,.8)" text-anchor="middle">3/4" PVC TRUNK ~15 ft</text>
+      <text x="230" y="113" font-family="'Inter',sans-serif" font-size="7.5" fill="rgba(200,160,100,.8)" text-anchor="middle">3/4" PVC TRUNK ~15 ft</text>
       <rect x="112" y="113" width="22" height="14" rx="3" fill="#0b5e52" stroke="#065040" stroke-width="1.2" filter="url(#ds2)"/>
-      <text x="123" y="123" font-family="'Fira Code',monospace" font-size="7" fill="#14c4ab" text-anchor="middle">Z2 valve</text>
+      <text x="123" y="123" font-family="'Inter',sans-serif" font-size="7" fill="#14c4ab" text-anchor="middle">Z2 valve</text>
       <rect x="298" y="113" width="22" height="14" rx="3" fill="#1a3a8f" stroke="#0d2870" stroke-width="1.2" filter="url(#ds2)"/>
-      <text x="309" y="123" font-family="'Fira Code',monospace" font-size="7" fill="#5b9cf0" text-anchor="middle">Z1 valve</text>
+      <text x="309" y="123" font-family="'Inter',sans-serif" font-size="7" fill="#5b9cf0" text-anchor="middle">Z1 valve</text>
       <circle cx="100" cy="120" r="7" fill="#14c4ab" stroke="#0b8f7c" stroke-width="2"/>
-      <text x="100" y="124" font-family="'Fira Code',monospace" font-size="6" fill="white" text-anchor="middle">TEE</text>
+      <text x="100" y="124" font-family="'Inter',sans-serif" font-size="6" fill="white" text-anchor="middle">TEE</text>
       <circle cx="210" cy="120" r="7" fill="#14c4ab" stroke="#0b8f7c" stroke-width="2"/>
-      <text x="210" y="124" font-family="'Fira Code',monospace" font-size="6" fill="white" text-anchor="middle">TEE</text>
+      <text x="210" y="124" font-family="'Inter',sans-serif" font-size="6" fill="white" text-anchor="middle">TEE</text>
       <circle cx="320" cy="120" r="7" fill="#2563c4" stroke="#1a4fad" stroke-width="2"/>
-      <text x="320" y="124" font-family="'Fira Code',monospace" font-size="6" fill="white" text-anchor="middle">TEE</text>
+      <text x="320" y="124" font-family="'Inter',sans-serif" font-size="6" fill="white" text-anchor="middle">TEE</text>
       <line x1="100" y1="127" x2="100" y2="530" stroke="#0b8f7c" stroke-width="5" stroke-linecap="round"/>
       <line x1="100" y1="127" x2="100" y2="530" stroke="#14c4ab" stroke-width="3" class="pipe-flow" opacity=".55"/>
       <rect x="94" y="529" width="12" height="8" rx="2" fill="#065e52"/>
-      <text x="100" y="549" font-family="'Fira Code',monospace" font-size="6.5" fill="rgba(20,196,171,.4)" text-anchor="middle">end cap</text>
+      <text x="100" y="549" font-family="'Inter',sans-serif" font-size="6.5" fill="rgba(20,196,171,.4)" text-anchor="middle">end cap</text>
       <rect x="42" y="143" width="72" height="12" rx="3" fill="#0b5e52" opacity=".85"/>
-      <text x="78" y="152" font-family="'Fira Code',monospace" font-size="7" fill="#14c4ab" text-anchor="middle">W col ~22 ft</text>
+      <text x="78" y="152" font-family="'Inter',sans-serif" font-size="7" fill="#14c4ab" text-anchor="middle">W col ~22 ft</text>
       <line x1="210" y1="127" x2="210" y2="530" stroke="#0b8f7c" stroke-width="5" stroke-linecap="round"/>
       <line x1="210" y1="127" x2="210" y2="530" stroke="#14c4ab" stroke-width="3" class="pipe-flow" opacity=".55"/>
       <rect x="204" y="529" width="12" height="8" rx="2" fill="#065e52"/>
-      <text x="210" y="549" font-family="'Fira Code',monospace" font-size="6.5" fill="rgba(20,196,171,.4)" text-anchor="middle">end cap</text>
+      <text x="210" y="549" font-family="'Inter',sans-serif" font-size="6.5" fill="rgba(20,196,171,.4)" text-anchor="middle">end cap</text>
       <rect x="152" y="143" width="72" height="12" rx="3" fill="#0b5e52" opacity=".85"/>
-      <text x="188" y="152" font-family="'Fira Code',monospace" font-size="7" fill="#14c4ab" text-anchor="middle">C col ~22 ft</text>
+      <text x="188" y="152" font-family="'Inter',sans-serif" font-size="7" fill="#14c4ab" text-anchor="middle">C col ~22 ft</text>
       <line x1="320" y1="127" x2="320" y2="530" stroke="#1a4fad" stroke-width="5" stroke-linecap="round"/>
       <line x1="320" y1="127" x2="320" y2="530" stroke="#5b9cf0" stroke-width="3" class="pipe-flow" opacity=".55"/>
       <rect x="314" y="529" width="12" height="8" rx="2" fill="#0d3080"/>
-      <text x="320" y="549" font-family="'Fira Code',monospace" font-size="6.5" fill="rgba(91,156,240,.4)" text-anchor="middle">end cap</text>
+      <text x="320" y="549" font-family="'Inter',sans-serif" font-size="6.5" fill="rgba(91,156,240,.4)" text-anchor="middle">end cap</text>
       <rect x="262" y="143" width="72" height="12" rx="3" fill="#1a3a8f" opacity=".85"/>
-      <text x="298" y="152" font-family="'Fira Code',monospace" font-size="7" fill="#5b9cf0" text-anchor="middle">E col ~22 ft</text>
+      <text x="298" y="152" font-family="'Inter',sans-serif" font-size="7" fill="#5b9cf0" text-anchor="middle">E col ~22 ft</text>
       <rect x="94" y="183" width="12" height="8" rx="2" fill="#1a7a50" opacity=".9"/>
       <rect x="94" y="283" width="12" height="8" rx="2" fill="#1a7a50" opacity=".9"/>
       <rect x="94" y="383" width="12" height="8" rx="2" fill="#1a7a50" opacity=".9"/>
@@ -656,9 +741,9 @@ h1 em{font-style:italic;color:var(--teal);}
       <line x1="195" y1="187" x2="216" y2="187" stroke="#1a7a50" stroke-width="2" stroke-dasharray="3,2"/>
       <line x1="305" y1="187" x2="326" y2="187" stroke="#1a4fad" stroke-width="2" stroke-dasharray="3,2"/>
       <line x1="85" y1="566" x2="340" y2="566" stroke="rgba(20,196,171,.2)" stroke-width="1" stroke-dasharray="3,3"/>
-      <text x="212" y="580" font-family="'Fira Code',monospace" font-size="8" fill="rgba(20,196,171,.35)" text-anchor="middle">← ~12 ft bed grid →</text>
+      <text x="212" y="580" font-family="'Inter',sans-serif" font-size="8" fill="rgba(20,196,171,.35)" text-anchor="middle">← ~12 ft bed grid →</text>
       <line x1="410" y1="120" x2="410" y2="530" stroke="rgba(20,196,171,.2)" stroke-width="1" stroke-dasharray="3,3"/>
-      <text x="455" y="330" font-family="'Fira Code',monospace" font-size="8" fill="rgba(20,196,171,.35)" text-anchor="middle" transform="rotate(90,455,330)">← ~22 ft laterals →</text>
+      <text x="455" y="330" font-family="'Inter',sans-serif" font-size="8" fill="rgba(20,196,171,.35)" text-anchor="middle" transform="rotate(90,455,330)">← ~22 ft laterals →</text>
     </svg>
   </div>
   <div class="sidebar">
@@ -670,11 +755,10 @@ h1 em{font-style:italic;color:var(--teal);}
   </div>
 </div>
 </div>
+</details>
 
-<!-- ═══════════════════════════════════════════
-     TAB 3 — BED CONNECTION (UNCHANGED)
-═══════════════════════════════════════════ -->
-<div id="tab-detail" class="tab-panel">
+<details class="ref-accordion">
+<summary class="ref-summary">Drip system</summary>
 <div class="layout-wide">
   <div class="map-card">
     <svg viewBox="0 0 580 500" xmlns="http://www.w3.org/2000/svg">
@@ -695,56 +779,56 @@ h1 em{font-style:italic;color:var(--teal);}
       <rect width="580" height="500" class="map-bg"/>
       <rect width="580" height="500" fill="url(#g3)"/>
       <rect x="10" y="10" width="560" height="480" rx="8" fill="none" stroke="rgba(20,196,171,.08)" stroke-width="1"/>
-      <text x="290" y="40" font-family="'Playfair Display',serif" font-size="16" class="map-txt" text-anchor="middle" font-weight="700">How Water Gets Into a Bed</text>
-      <text x="290" y="56" font-family="'Fira Code',monospace" font-size="7.5" fill="rgba(20,196,171,.4)" text-anchor="middle" letter-spacing="1">FROM 1/2" PVC LATERAL → THROUGH BED → TO PLANT ROOTS</text>
+      <text x="290" y="40" font-family="'Inter',sans-serif" font-size="16" class="map-txt" text-anchor="middle" font-weight="700">How Water Gets Into a Bed</text>
+      <text x="290" y="56" font-family="'Inter',sans-serif" font-size="7.5" fill="rgba(20,196,171,.4)" text-anchor="middle" letter-spacing="1">FROM 1/2" PVC LATERAL → THROUGH BED → TO PLANT ROOTS</text>
       <rect x="210" y="190" width="320" height="160" rx="4" fill="#2a1a0a" stroke="#3d2810" stroke-width="2" filter="url(#ds3)"/>
       <rect x="218" y="198" width="304" height="144" fill="url(#soil)"/>
       <rect x="218" y="198" width="304" height="144" fill="#5c3d1e" opacity=".15"/>
       <rect x="218" y="198" width="304" height="28" fill="url(#mulch)"/>
       <rect x="218" y="198" width="304" height="28" fill="#2a1800" opacity=".4"/>
       <line x1="530" y1="211" x2="550" y2="200" stroke="rgba(20,196,171,.3)" stroke-width="1" marker-end="url(#arr)"/>
-      <text x="553" y="198" font-family="'Fira Code',monospace" font-size="8" fill="rgba(20,196,171,.6)">mulch</text>
-      <text x="553" y="208" font-family="'Fira Code',monospace" font-size="7" fill="rgba(20,196,171,.35)">2–3"</text>
+      <text x="553" y="198" font-family="'Inter',sans-serif" font-size="8" fill="rgba(20,196,171,.6)">mulch</text>
+      <text x="553" y="208" font-family="'Inter',sans-serif" font-size="7" fill="rgba(20,196,171,.35)">2–3"</text>
       <line x1="530" y1="290" x2="550" y2="285" stroke="rgba(20,196,171,.3)" stroke-width="1" marker-end="url(#arr)"/>
-      <text x="553" y="283" font-family="'Fira Code',monospace" font-size="8" fill="rgba(20,196,171,.6)">soil</text>
+      <text x="553" y="283" font-family="'Inter',sans-serif" font-size="8" fill="rgba(20,196,171,.6)">soil</text>
       <line x1="210" y1="275" x2="190" y2="290" stroke="rgba(20,196,171,.3)" stroke-width="1" marker-end="url(#arr)"/>
-      <text x="120" y="288" font-family="'Fira Code',monospace" font-size="8" fill="rgba(20,196,171,.6)">bed wall</text>
-      <text x="120" y="298" font-family="'Fira Code',monospace" font-size="7" fill="rgba(20,196,171,.35)">2×6 or 2×8</text>
+      <text x="120" y="288" font-family="'Inter',sans-serif" font-size="8" fill="rgba(20,196,171,.6)">bed wall</text>
+      <text x="120" y="298" font-family="'Inter',sans-serif" font-size="7" fill="rgba(20,196,171,.35)">2×6 or 2×8</text>
       <line x1="210" y1="360" x2="530" y2="360" stroke="rgba(20,196,171,.15)" stroke-width="1" stroke-dasharray="3,2"/>
-      <text x="370" y="375" font-family="'Fira Code',monospace" font-size="8" fill="rgba(20,196,171,.35)" text-anchor="middle">← 4 ft →</text>
+      <text x="370" y="375" font-family="'Inter',sans-serif" font-size="8" fill="rgba(20,196,171,.35)" text-anchor="middle">← 4 ft →</text>
       <rect x="60" y="100" width="22" height="370" rx="6" fill="#0b8f7c" stroke="#065e52" stroke-width="2" filter="url(#ds3)"/>
       <rect x="64" y="100" width="14" height="370" rx="4" fill="#14c4ab" opacity=".3"/>
       <rect x="25" y="110" width="28" height="42" rx="3" fill="#065e52" opacity=".9"/>
-      <text x="39" y="126" font-family="'Fira Code',monospace" font-size="7" fill="#14c4ab" text-anchor="middle">1/2"</text>
-      <text x="39" y="136" font-family="'Fira Code',monospace" font-size="7" fill="#14c4ab" text-anchor="middle">PVC</text>
-      <text x="39" y="146" font-family="'Fira Code',monospace" font-size="7" fill="rgba(20,196,171,.5)" text-anchor="middle">lateral</text>
+      <text x="39" y="126" font-family="'Inter',sans-serif" font-size="7" fill="#14c4ab" text-anchor="middle">1/2"</text>
+      <text x="39" y="136" font-family="'Inter',sans-serif" font-size="7" fill="#14c4ab" text-anchor="middle">PVC</text>
+      <text x="39" y="146" font-family="'Inter',sans-serif" font-size="7" fill="rgba(20,196,171,.5)" text-anchor="middle">lateral</text>
       <line x1="53" y1="131" x2="60" y2="131" stroke="rgba(20,196,171,.3)" stroke-width="1"/>
-      <text x="71" y="98" font-family="'Fira Code',monospace" font-size="9" fill="#14c4ab" text-anchor="middle">↓</text>
-      <text x="71" y="108" font-family="'Fira Code',monospace" font-size="7" fill="rgba(20,196,171,.4)" text-anchor="middle">flow</text>
+      <text x="71" y="98" font-family="'Inter',sans-serif" font-size="9" fill="#14c4ab" text-anchor="middle">↓</text>
+      <text x="71" y="108" font-family="'Inter',sans-serif" font-size="7" fill="rgba(20,196,171,.4)" text-anchor="middle">flow</text>
       <circle cx="82" cy="255" r="5" fill="#b86d15" stroke="#7a4810" stroke-width="1.5"/>
-      <text x="82" y="259" font-family="'Fira Code',monospace" font-size="5.5" fill="white" text-anchor="middle">hole</text>
+      <text x="82" y="259" font-family="'Inter',sans-serif" font-size="5.5" fill="white" text-anchor="middle">hole</text>
       <line x1="90" y1="248" x2="110" y2="235" stroke="rgba(20,196,171,.3)" stroke-width="1" stroke-dasharray="2,2" marker-end="url(#arr)"/>
-      <text x="113" y="232" font-family="'Fira Code',monospace" font-size="8" fill="rgba(20,196,171,.6)">punch hole</text>
-      <text x="113" y="242" font-family="'Fira Code',monospace" font-size="7" fill="rgba(20,196,171,.35)">with hole punch tool</text>
+      <text x="113" y="232" font-family="'Inter',sans-serif" font-size="8" fill="rgba(20,196,171,.6)">punch hole</text>
+      <text x="113" y="242" font-family="'Inter',sans-serif" font-size="7" fill="rgba(20,196,171,.35)">with hole punch tool</text>
       <rect x="78" y="249" width="28" height="14" rx="3" fill="#1a0f04" stroke="#3d2810" stroke-width="1.2" filter="url(#ds3)"/>
       <rect x="103" y="251" width="16" height="10" rx="2" fill="#2a1800" stroke="#3d2810" stroke-width="1"/>
-      <text x="91" y="258" font-family="'Fira Code',monospace" font-size="5.5" fill="rgba(20,196,171,.7)" text-anchor="middle">barbed tee</text>
+      <text x="91" y="258" font-family="'Inter',sans-serif" font-size="5.5" fill="rgba(20,196,171,.7)" text-anchor="middle">barbed tee</text>
       <line x1="82" y1="263" x2="82" y2="290" stroke="rgba(20,196,171,.25)" stroke-width="1" stroke-dasharray="2,2" marker-end="url(#arr)"/>
       <rect x="25" y="292" width="112" height="22" rx="3" fill="#111f18" stroke="rgba(20,196,171,.15)" stroke-width="1"/>
-      <text x="81" y="304" font-family="'Fira Code',monospace" font-size="7.5" fill="rgba(20,196,171,.7)" text-anchor="middle">barbed tee fitting</text>
-      <text x="81" y="312" font-family="'Fira Code',monospace" font-size="6.5" fill="rgba(20,196,171,.4)" text-anchor="middle">press-fit into punched hole</text>
+      <text x="81" y="304" font-family="'Inter',sans-serif" font-size="7.5" fill="rgba(20,196,171,.7)" text-anchor="middle">barbed tee fitting</text>
+      <text x="81" y="312" font-family="'Inter',sans-serif" font-size="6.5" fill="rgba(20,196,171,.4)" text-anchor="middle">press-fit into punched hole</text>
       <line x1="119" y1="256" x2="210" y2="256" stroke="#1a7a50" stroke-width="4" stroke-linecap="round" stroke-dasharray="6,3"/>
       <path d="M185,256 Q178,275 185,265 Q192,255 200,265 Q208,275 210,256" fill="none" stroke="#1a7a50" stroke-width="3"/>
       <line x1="193" y1="275" x2="193" y2="296" stroke="rgba(20,196,171,.25)" stroke-width="1" stroke-dasharray="2,2" marker-end="url(#arr)"/>
       <rect x="145" y="297" width="90" height="22" rx="3" fill="#111f18" stroke="rgba(20,196,171,.15)" stroke-width="1"/>
-      <text x="190" y="309" font-family="'Fira Code',monospace" font-size="7.5" fill="rgba(20,196,171,.7)" text-anchor="middle">service loop</text>
-      <text x="190" y="317" font-family="'Fira Code',monospace" font-size="6.5" fill="rgba(20,196,171,.4)" text-anchor="middle">6" slack at bed entry</text>
+      <text x="190" y="309" font-family="'Inter',sans-serif" font-size="7.5" fill="rgba(20,196,171,.7)" text-anchor="middle">service loop</text>
+      <text x="190" y="317" font-family="'Inter',sans-serif" font-size="6.5" fill="rgba(20,196,171,.4)" text-anchor="middle">6" slack at bed entry</text>
       <line x1="218" y1="222" x2="520" y2="222" stroke="#1a7a50" stroke-width="3.5" stroke-linecap="round" stroke-dasharray="6,3"/>
       <line x1="218" y1="255" x2="218" y2="222" stroke="#1a7a50" stroke-width="3.5" stroke-linecap="round"/>
       <line x1="370" y1="222" x2="370" y2="192" stroke="rgba(20,196,171,.25)" stroke-width="1" stroke-dasharray="2,2" marker-end="url(#arr)"/>
       <rect x="295" y="170" width="150" height="20" rx="3" fill="#0b5e52" opacity=".9"/>
-      <text x="370" y="184" font-family="'Fira Code',monospace" font-size="8" fill="#14c4ab" text-anchor="middle">1/2" poly drip tubing</text>
-      <text x="370" y="167" font-family="'Fira Code',monospace" font-size="7" fill="rgba(20,196,171,.4)" text-anchor="middle">lays inside bed, pinned flat by stakes</text>
+      <text x="370" y="184" font-family="'Inter',sans-serif" font-size="8" fill="#14c4ab" text-anchor="middle">1/2" poly drip tubing</text>
+      <text x="370" y="167" font-family="'Inter',sans-serif" font-size="7" fill="rgba(20,196,171,.4)" text-anchor="middle">lays inside bed, pinned flat by stakes</text>
       <line x1="270" y1="222" x2="270" y2="250" stroke="#5c3d1e" stroke-width="3" stroke-linecap="round"/>
       <path d="M265,250 L270,260 L275,250 Z" fill="#5c3d1e"/>
       <line x1="370" y1="222" x2="370" y2="250" stroke="#5c3d1e" stroke-width="3" stroke-linecap="round"/>
@@ -753,16 +837,16 @@ h1 em{font-style:italic;color:var(--teal);}
       <path d="M465,250 L470,260 L475,250 Z" fill="#5c3d1e"/>
       <line x1="270" y1="258" x2="240" y2="330" stroke="rgba(20,196,171,.25)" stroke-width="1" stroke-dasharray="2,2" marker-end="url(#arr)"/>
       <rect x="175" y="332" width="74" height="20" rx="3" fill="#111f18" stroke="rgba(20,196,171,.15)" stroke-width="1"/>
-      <text x="212" y="342" font-family="'Fira Code',monospace" font-size="7.5" fill="rgba(20,196,171,.7)" text-anchor="middle">tubing stake</text>
-      <text x="212" y="350" font-family="'Fira Code',monospace" font-size="6.5" fill="rgba(20,196,171,.4)" text-anchor="middle">~5 per bed</text>
+      <text x="212" y="342" font-family="'Inter',sans-serif" font-size="7.5" fill="rgba(20,196,171,.7)" text-anchor="middle">tubing stake</text>
+      <text x="212" y="350" font-family="'Inter',sans-serif" font-size="6.5" fill="rgba(20,196,171,.4)" text-anchor="middle">~5 per bed</text>
       <rect x="252" y="216" width="16" height="12" rx="3" fill="#0b8f7c" stroke="#065e52" stroke-width="1" filter="url(#ds3)"/>
-      <text x="260" y="225" font-family="'Fira Code',monospace" font-size="5.5" fill="white" text-anchor="middle">1gph</text>
+      <text x="260" y="225" font-family="'Inter',sans-serif" font-size="5.5" fill="white" text-anchor="middle">1gph</text>
       <rect x="322" y="216" width="16" height="12" rx="3" fill="#0b8f7c" stroke="#065e52" stroke-width="1" filter="url(#ds3)"/>
-      <text x="330" y="225" font-family="'Fira Code',monospace" font-size="5.5" fill="white" text-anchor="middle">1gph</text>
+      <text x="330" y="225" font-family="'Inter',sans-serif" font-size="5.5" fill="white" text-anchor="middle">1gph</text>
       <rect x="402" y="216" width="16" height="12" rx="3" fill="#0b8f7c" stroke="#065e52" stroke-width="1" filter="url(#ds3)"/>
-      <text x="410" y="225" font-family="'Fira Code',monospace" font-size="5.5" fill="white" text-anchor="middle">1gph</text>
+      <text x="410" y="225" font-family="'Inter',sans-serif" font-size="5.5" fill="white" text-anchor="middle">1gph</text>
       <rect x="482" y="216" width="16" height="12" rx="3" fill="#0b8f7c" stroke="#065e52" stroke-width="1" filter="url(#ds3)"/>
-      <text x="490" y="225" font-family="'Fira Code',monospace" font-size="5.5" fill="white" text-anchor="middle">1gph</text>
+      <text x="490" y="225" font-family="'Inter',sans-serif" font-size="5.5" fill="white" text-anchor="middle">1gph</text>
       <line x1="260" y1="228" x2="260" y2="255" stroke="#5b9cf0" stroke-width="1.5" stroke-dasharray="3,2" opacity=".7"/>
       <ellipse cx="260" cy="258" rx="3" ry="4" fill="#5b9cf0" opacity=".6"/>
       <line x1="330" y1="228" x2="330" y2="255" stroke="#5b9cf0" stroke-width="1.5" stroke-dasharray="3,2" opacity=".7"/>
@@ -776,22 +860,22 @@ h1 em{font-style:italic;color:var(--teal);}
       <ellipse cx="410" cy="268" rx="22" ry="14" fill="#5b9cf0" opacity=".05" stroke="#5b9cf0" stroke-width=".8" stroke-dasharray="3,2"/>
       <ellipse cx="490" cy="268" rx="22" ry="14" fill="#5b9cf0" opacity=".05" stroke="#5b9cf0" stroke-width=".8" stroke-dasharray="3,2"/>
       <line x1="490" y1="228" x2="545" y2="215" stroke="#5b9cf0" stroke-width="1" marker-end="url(#arr-blue)"/>
-      <text x="548" y="213" font-family="'Fira Code',monospace" font-size="8" fill="#5b9cf0">drip</text>
-      <text x="548" y="222" font-family="'Fira Code',monospace" font-size="7" fill="rgba(91,156,240,.6)">emitter</text>
+      <text x="548" y="213" font-family="'Inter',sans-serif" font-size="8" fill="#5b9cf0">drip</text>
+      <text x="548" y="222" font-family="'Inter',sans-serif" font-size="7" fill="rgba(91,156,240,.6)">emitter</text>
       <circle cx="522" cy="222" r="6" fill="#b86d15" stroke="#7a4810" stroke-width="1.2"/>
-      <text x="522" y="225" font-family="'Fira Code',monospace" font-size="5.5" fill="white" text-anchor="middle">GP</text>
+      <text x="522" y="225" font-family="'Inter',sans-serif" font-size="5.5" fill="white" text-anchor="middle">GP</text>
       <line x1="522" y1="228" x2="522" y2="296" stroke="rgba(20,196,171,.25)" stroke-width="1" stroke-dasharray="2,2" marker-end="url(#arr)"/>
       <rect x="480" y="298" width="62" height="20" rx="3" fill="#111f18" stroke="rgba(20,196,171,.15)" stroke-width="1"/>
-      <text x="511" y="308" font-family="'Fira Code',monospace" font-size="7.5" fill="rgba(20,196,171,.7)" text-anchor="middle">end / goof</text>
-      <text x="511" y="316" font-family="'Fira Code',monospace" font-size="6.5" fill="rgba(20,196,171,.4)" text-anchor="middle">plug end cap</text>
+      <text x="511" y="308" font-family="'Inter',sans-serif" font-size="7.5" fill="rgba(20,196,171,.7)" text-anchor="middle">end / goof</text>
+      <text x="511" y="316" font-family="'Inter',sans-serif" font-size="6.5" fill="rgba(20,196,171,.4)" text-anchor="middle">plug end cap</text>
       <line x1="50" y1="350" x2="540" y2="350" stroke="rgba(20,196,171,.15)" stroke-width="1.5" stroke-dasharray="6,4"/>
-      <text x="30" y="355" font-family="'Fira Code',monospace" font-size="7" fill="rgba(20,196,171,.3)">grade</text>
+      <text x="30" y="355" font-family="'Inter',sans-serif" font-size="7" fill="rgba(20,196,171,.3)">grade</text>
       <rect x="60" y="410" width="450" height="30" rx="6" fill="rgba(20,196,171,.06)" stroke="rgba(20,196,171,.15)" stroke-width="1"/>
-      <text x="285" y="425" font-family="'Fira Code',monospace" font-size="8" fill="rgba(20,196,171,.7)" text-anchor="middle">WATER PATH: PVC lateral → hole punch → barbed tee → poly tubing → emitter → soil</text>
-      <text x="285" y="436" font-family="'Fira Code',monospace" font-size="7" fill="rgba(20,196,171,.35)" text-anchor="middle">everything after the barbed tee is inside or above the bed — no buried drip lines needed</text>
+      <text x="285" y="425" font-family="'Inter',sans-serif" font-size="8" fill="rgba(20,196,171,.7)" text-anchor="middle">WATER PATH: PVC lateral → hole punch → barbed tee → poly tubing → emitter → soil</text>
+      <text x="285" y="436" font-family="'Inter',sans-serif" font-size="7" fill="rgba(20,196,171,.35)" text-anchor="middle">everything after the barbed tee is inside or above the bed — no buried drip lines needed</text>
       <rect x="60" y="450" width="450" height="22" rx="6" fill="rgba(26,79,173,.1)" stroke="rgba(91,156,240,.2)" stroke-width="1"/>
-      <text x="285" y="462" font-family="'Fira Code',monospace" font-size="7.5" fill="rgba(91,156,240,.7)" text-anchor="middle">Zone 1 (tomatoes): same setup, just swap emitters to 2 GPH</text>
-      <text x="285" y="470" font-family="'Fira Code',monospace" font-size="7" fill="rgba(91,156,240,.35)" text-anchor="middle">the barbed tee, poly tubing, and stakes are identical across all beds</text>
+      <text x="285" y="462" font-family="'Inter',sans-serif" font-size="7.5" fill="rgba(91,156,240,.7)" text-anchor="middle">Zone 1 (tomatoes): same setup, just swap emitters to 2 GPH</text>
+      <text x="285" y="470" font-family="'Inter',sans-serif" font-size="7" fill="rgba(91,156,240,.35)" text-anchor="middle">the barbed tee, poly tubing, and stakes are identical across all beds</text>
     </svg>
   </div>
   <div class="sidebar">
@@ -820,8 +904,8 @@ h1 em{font-style:italic;color:var(--teal);}
       </defs>
       <rect width="620" height="420" class="map-bg"/>
       <rect width="620" height="420" fill="url(#g4)"/>
-      <text x="310" y="30" font-family="'Playfair Display',serif" font-size="15" fill="#c8b87a" text-anchor="middle" font-style="italic">Pea Bed — Side Profile</text>
-      <text x="310" y="46" font-family="'Fira Code',monospace" font-size="7.5" fill="rgba(20,196,171,.4)" text-anchor="middle" letter-spacing="1">SPRING CONFIG · 2×4 RAISED BED · CATTLE PANEL ARCH</text>
+      <text x="310" y="30" font-family="'Inter',sans-serif" font-size="15" fill="#c8b87a" text-anchor="middle" font-style="italic">Pea Bed — Side Profile</text>
+      <text x="310" y="46" font-family="'Inter',sans-serif" font-size="7.5" fill="rgba(20,196,171,.4)" text-anchor="middle" letter-spacing="1">SPRING CONFIG · 2×4 RAISED BED · CATTLE PANEL ARCH</text>
 
       <!-- Ground -->
       <rect x="0" y="340" width="620" height="80" fill="#2a2010" opacity=".8"/>
@@ -902,32 +986,32 @@ h1 em{font-style:italic;color:var(--teal);}
       <line x1="545" y1="92" x2="545" y2="302" stroke="#4a5a3a" stroke-width="1"/>
       <polygon points="545,88 542,98 548,98" fill="#4a5a3a"/>
       <polygon points="545,306 542,296 548,296" fill="#4a5a3a"/>
-      <text x="558" y="197" font-family="'Fira Code',monospace" font-size="9" fill="#7a8c5a">~30–32"</text>
-      <text x="558" y="209" font-family="'Fira Code',monospace" font-size="9" fill="#7a8c5a">headroom</text>
+      <text x="558" y="197" font-family="'Inter',sans-serif" font-size="9" fill="#7a8c5a">~30–32"</text>
+      <text x="558" y="209" font-family="'Inter',sans-serif" font-size="9" fill="#7a8c5a">headroom</text>
 
       <!-- Dimension: bed width -->
       <line x1="116" y1="368" x2="504" y2="368" stroke="#4a5a3a" stroke-width="1"/>
       <polygon points="112,368 122,365 122,371" fill="#4a5a3a"/>
       <polygon points="508,368 498,365 498,371" fill="#4a5a3a"/>
-      <text x="310" y="382" font-family="'Fira Code',monospace" font-size="9" fill="#7a8c5a" text-anchor="middle">24" wide bed</text>
+      <text x="310" y="382" font-family="'Inter',sans-serif" font-size="9" fill="#7a8c5a" text-anchor="middle">24" wide bed</text>
 
       <!-- Dimension: bed height -->
       <line x1="78" y1="280" x2="78" y2="340" stroke="#4a5a3a" stroke-width="1"/>
       <polygon points="78,276 75,286 81,286" fill="#4a5a3a"/>
       <polygon points="78,344 75,334 81,334" fill="#4a5a3a"/>
-      <text x="58" y="314" font-family="'Fira Code',monospace" font-size="9" fill="#7a8c5a" text-anchor="middle" transform="rotate(-90, 58, 314)">12" tall</text>
+      <text x="58" y="314" font-family="'Inter',sans-serif" font-size="9" fill="#7a8c5a" text-anchor="middle" transform="rotate(-90, 58, 314)">12" tall</text>
 
       <!-- Labels -->
-      <text x="310" y="78" font-family="'Fira Code',monospace" font-size="9" fill="#c8b87a" text-anchor="middle">cattle panel arch</text>
+      <text x="310" y="78" font-family="'Inter',sans-serif" font-size="9" fill="#c8b87a" text-anchor="middle">cattle panel arch</text>
       <line x1="310" y1="82" x2="310" y2="92" stroke="#c8b87a" stroke-width="0.8" opacity="0.5"/>
 
-      <text x="58" y="178" font-family="'Fira Code',monospace" font-size="9" fill="#c8b87a" text-anchor="middle">frost cloth</text>
-      <text x="58" y="190" font-family="'Fira Code',monospace" font-size="9" fill="#c8b87a" text-anchor="middle">(optional)</text>
+      <text x="58" y="178" font-family="'Inter',sans-serif" font-size="9" fill="#c8b87a" text-anchor="middle">frost cloth</text>
+      <text x="58" y="190" font-family="'Inter',sans-serif" font-size="9" fill="#c8b87a" text-anchor="middle">(optional)</text>
       <line x1="86" y1="185" x2="124" y2="205" stroke="#c8b87a" stroke-width="0.8" opacity="0.4"/>
 
-      <text x="310" y="264" font-family="'Fira Code',monospace" font-size="9" fill="rgba(20,196,171,.6)" text-anchor="middle">pea vines climbing wire mesh</text>
-      <text x="310" y="318" font-family="'Fira Code',monospace" font-size="9" fill="rgba(20,196,171,.5)" text-anchor="middle">raised bed · soil</text>
-      <text x="310" y="358" font-family="'Fira Code',monospace" font-size="8" fill="rgba(20,196,171,.3)" text-anchor="middle">rebar stakes anchoring arch</text>
+      <text x="310" y="264" font-family="'Inter',sans-serif" font-size="9" fill="rgba(20,196,171,.6)" text-anchor="middle">pea vines climbing wire mesh</text>
+      <text x="310" y="318" font-family="'Inter',sans-serif" font-size="9" fill="rgba(20,196,171,.5)" text-anchor="middle">raised bed · soil</text>
+      <text x="310" y="358" font-family="'Inter',sans-serif" font-size="8" fill="rgba(20,196,171,.3)" text-anchor="middle">rebar stakes anchoring arch</text>
     </svg>
   </div>
   <div class="sidebar">
@@ -944,15 +1028,19 @@ h1 em{font-style:italic;color:var(--teal);}
 </div>
 
 </div>
+</details>
+
+</div><!-- end plan-ref-wrap -->
+</div><!-- end tab-planning -->
 
 <!-- ═══════════════════════════════════════════
-     TAB 4 — THIS WEEK
+     OVERVIEW TAB
 ═══════════════════════════════════════════ -->
-<div id="tab-tasks" class="tab-panel">
-  <div style="max-width:540px;margin:0 auto;padding:0 4px;">
-    <div class="chip-strip" id="task-chips"></div>
-    <div class="task-list" id="task-list"></div>
-  </div>
+<div id="tab-overview" class="tab-panel">
+<div class="overview-stub">
+  <div class="plan-stub-title">Overview</div>
+  <div class="plan-stub-body">Yield stats and activity feed coming soon.</div>
+</div>
 </div>
 
 <script>
@@ -1205,10 +1293,17 @@ async function fetchAllPlantings(){
 function updateMapLabels(){
   const ALL_BEDS=['w1','w2','w3','w4','c1','c2','c3','c4','e1','e2','e3','e4'];
   for(const bedId of ALL_BEDS){
-    const el=document.getElementById('crop-label-'+bedId);
-    if(!el)continue;
+    const cropEl=document.getElementById('crop-label-'+bedId);
+    const varEl=document.getElementById('variety-label-'+bedId);
+    if(!cropEl)continue;
     const active=getActivePlanting(bedId);
-    el.textContent=active?active.crop_name.toLowerCase():'fallow';
+    if(active){
+      cropEl.textContent=active.crop_name;
+      if(varEl)varEl.textContent=active.variety||'';
+    } else {
+      cropEl.textContent='fallow';
+      if(varEl)varEl.textContent='';
+    }
   }
 }
 
@@ -1427,11 +1522,12 @@ async function handleTaskCheck(cb){
 }
 
 /* ── BED TILE BADGES ─────────────────────────────── */
-// Badge y centers (below crop label text), by bed key
+// Badge at top-right corner of each pill (overlapping pill edge)
+// Pill right edges: W=129, C=258, E=387; row top y: 10,170,330,490
 const BADGE_POS={
-  w1:{cx:100,cy:143},w2:{cx:100,cy:253},w3:{cx:100,cy:363},w4:{cx:100,cy:473},
-  c1:{cx:220,cy:143},c2:{cx:220,cy:253},c3:{cx:220,cy:363},c4:{cx:220,cy:473},
-  e1:{cx:340,cy:143},e2:{cx:340,cy:253},e3:{cx:340,cy:363},e4:{cx:340,cy:473},
+  w1:{cx:129,cy:10},w2:{cx:129,cy:170},w3:{cx:129,cy:330},w4:{cx:129,cy:490},
+  c1:{cx:258,cy:10},c2:{cx:258,cy:170},c3:{cx:258,cy:330},c4:{cx:258,cy:490},
+  e1:{cx:387,cy:10},e2:{cx:387,cy:170},e3:{cx:387,cy:330},e4:{cx:387,cy:490},
 };
 
 function renderBadges(){
@@ -1443,41 +1539,32 @@ function renderBadges(){
     const count=getPendingCount(bedId);
     if(!count)continue;
     const{cx,cy}=BADGE_POS[bedId];
-    const label=`${count} task${count>1?'s':''}`;
-    const w=label.length*4.6+12;
+    const r=9;
 
     const g=document.createElementNS('http://www.w3.org/2000/svg','g');
     g.setAttribute('class','task-badge-g');
     g.style.cursor='pointer';
-    g.setAttribute('onclick',`goToTaskTab('${bedId}')`);
 
-    const rect=document.createElementNS('http://www.w3.org/2000/svg','rect');
-    rect.setAttribute('x',cx-w/2);rect.setAttribute('y',cy-7);
-    rect.setAttribute('width',w);rect.setAttribute('height',13);
-    rect.setAttribute('rx',6.5);rect.setAttribute('fill','#1a7a50');
+    const circle=document.createElementNS('http://www.w3.org/2000/svg','circle');
+    circle.setAttribute('cx',cx);circle.setAttribute('cy',cy);
+    circle.setAttribute('r',r);circle.setAttribute('fill','#e08c30');
 
     const txt=document.createElementNS('http://www.w3.org/2000/svg','text');
-    txt.setAttribute('x',cx);txt.setAttribute('y',cy+2.5);
-    txt.setAttribute('font-family',"'Fira Code',monospace");
-    txt.setAttribute('font-size','5.5');
-    txt.setAttribute('fill','rgba(255,255,255,.92)');
+    txt.setAttribute('x',cx);txt.setAttribute('y',cy+4);
+    txt.setAttribute('font-family',"'Inter',sans-serif");
+    txt.setAttribute('font-size','9');
+    txt.setAttribute('font-weight','600');
+    txt.setAttribute('fill','#fff');
     txt.setAttribute('text-anchor','middle');
-    txt.textContent=label;
+    txt.textContent=String(count);
 
-    g.appendChild(rect);g.appendChild(txt);
+    g.appendChild(circle);g.appendChild(txt);
     svg.appendChild(g);
   }
 }
 
 function goToTaskTab(bedId){
   activeTaskBedFilter=bedId;
-  document.querySelectorAll('.tab-panel').forEach(p=>p.classList.remove('active'));
-  document.querySelectorAll('.tab-btn').forEach(b=>b.classList.remove('active'));
-  document.getElementById('tab-tasks').classList.add('active');
-  document.querySelectorAll('.tab-btn').forEach(b=>{
-    if(b.getAttribute('onclick')&&b.getAttribute('onclick').includes('tab-tasks'))b.classList.add('active');
-  });
-  renderTaskTab();
 }
 
 /* ── MARK AS PLANTED ─────────────────────────────── */
@@ -1498,6 +1585,7 @@ async function markPlanted(bedId){
     return;
   }
   document.getElementById('bed-detail-content').innerHTML=renderDetail(bedId,[]);
+  document.getElementById('mini-map').innerHTML=buildMiniMap(bedId);
   bindLog(planting.id);
   bindHarvest(planting.id);
   loadLogs(bedId);
@@ -1529,16 +1617,16 @@ function buildMiniMap(activeBedId){
     const dotEl=dotColor?`<circle cx="${x+15}" cy="${y+4}" r="2.5" fill="${dotColor}"/>`:'';
     els+=`<g onclick="navToBed('${key}')" style="${cursor}">
       <rect x="${x}" y="${y}" width="18" height="22" rx="9" fill="${fill}" stroke="${stroke}" stroke-width="${sw}"/>
-      <text x="${colX[ci]}" y="${y+14}" font-family="'Fira Code',monospace" font-size="5.5" fill="rgba(255,255,255,${isActive?.9:.35})" text-anchor="middle">${label}</text>
+      <text x="${colX[ci]}" y="${y+14}" font-family="'Inter',sans-serif" font-size="5.5" fill="rgba(255,255,255,${isActive?.9:.35})" text-anchor="middle">${label}</text>
       ${dotEl}
     </g>`;
   }
   return `<svg viewBox="0 0 96 132" xmlns="http://www.w3.org/2000/svg" style="border-radius:8px;overflow:hidden;display:block">
     <rect width="96" height="132" rx="8" style="fill:var(--map-bg)"/>
     <rect x="0" y="0" width="96" height="16" fill="rgba(20,196,171,.05)"/>
-    <text x="48" y="11" font-family="'Fira Code',monospace" font-size="5" fill="rgba(61,191,130,.45)" text-anchor="middle" letter-spacing="1">N</text>
+    <text x="48" y="11" font-family="'Inter',sans-serif" font-size="5" fill="rgba(61,191,130,.45)" text-anchor="middle" letter-spacing="1">N</text>
     ${els}
-    <text x="48" y="129" font-family="'Fira Code',monospace" font-size="5" fill="rgba(20,196,171,.22)" text-anchor="middle" letter-spacing="1">S</text>
+    <text x="48" y="129" font-family="'Inter',sans-serif" font-size="5" fill="rgba(20,196,171,.22)" text-anchor="middle" letter-spacing="1">S</text>
   </svg>`;
 }
 
@@ -1550,8 +1638,8 @@ async function openSheet(bedId){
   if(hint)hint.style.display='none';
   activeBedId=bedId;
   delete selectedPlantingId[bedId];
-  document.getElementById('mini-map').innerHTML=buildMiniMap(bedId);
   document.getElementById('bed-detail-content').innerHTML=renderDetail(bedId,[]);
+  document.getElementById('mini-map').innerHTML=buildMiniMap(bedId);
   document.getElementById('bed-sheet').classList.add('is-open');
   document.getElementById('sheet-backdrop').classList.add('is-open');
   document.body.style.overflow='hidden';
@@ -1655,41 +1743,53 @@ function renderDetail(bedId,logs=[]){
   const derivedStatus=livePlanting?(livePlanting.status||(livePlanting.planted_date?'growing':'planned')):a.status;
   const st=STATUS[derivedStatus]||STATUS.planned;
   const zTag=bed.zone===1?'z1-tag':'z2-tag';
-  const zLabel=bed.zone===1?'Zone 1 — Tomatoes':'Zone 2';
+  const zLabel=bed.zone===1?'Zone 1':'Zone 2';
 
+  // Inspector header: crop info left, minimap right
   let h=`<div class="insp-header">
-    <div class="insp-header-top">
-      <div class="insp-crop-name">${cropName}</div>
-      <span class="insp-bed-chip">${bed.id}</span>
-    </div>
-    ${variety?`<div class="insp-variety">${variety}</div>`:''}
-    <div class="insp-header-meta">
-      <span class="zone-tag ${zTag}">${zLabel}</span>
-      <span id="status-badge" class="status-badge ${st.cls}" onclick="openStatusPicker('${bedId}')"><span class="status-dot"></span>${st.label}</span>
+    <div class="insp-header-row">
+      <div class="insp-header-left">
+        <div class="insp-crop-name">${cropName}</div>
+        ${variety?`<div class="insp-variety">${variety}</div>`:''}
+        <div class="insp-header-meta">
+          <span class="insp-bed-chip">${bed.id}</span>
+          <span class="zone-tag ${zTag}">${zLabel}</span>
+          <span id="status-badge" class="status-badge ${st.cls}" onclick="openStatusPicker('${bedId}')"><span class="status-dot"></span>${st.label}</span>
+        </div>
+      </div>
+      <div class="mini-map" id="mini-map"></div>
     </div>
   </div>`;
 
-  // Mark as Planted button (always based on active planting, not selected)
-  const hasPLANTEDTasks=TASK_DEFS[bedId]&&TASK_DEFS[bedId].some(d=>d.anchor==='PLANTED');
-  if(hasPLANTEDTasks){
-    const plantedDate=getActivePlanting(bedId)?.planted_date;
-    if(plantedDate){
-      const rel=relativeWeeks(plantedDate);
-      h+=`<div class="planted-row"><span class="planted-info">Planted: ${fmtDate(plantedDate)}</span>${rel?`<span class="rel-time">${rel}</span>`:''}</div>`;
-    } else {
-      h+=`<div class="planted-row"><button class="planted-btn" onclick="markPlanted('${bedId}')">Mark as Planted</button></div>`;
-    }
+  // Mark as planted (show if no planted_date on active planting)
+  const plantedDate=getActivePlanting(bedId)?.planted_date;
+  if(!plantedDate){
+    h+=`<div class="planted-row"><button class="planted-btn" onclick="markPlanted('${bedId}')">Mark as planted today</button></div>`;
   }
 
-  h+=`<div class="watering-row">
-    <div>
-      <span class="watering-info" id="last-watered">Loading…</span>
-      <span class="zone-sub">Zone ${bed.zone} · logs for all zone ${bed.zone} beds</span>
+  // Action strip — 3 tappable buttons
+  h+=`<div class="action-strip">
+    <div class="action-water-wrap">
+      <button class="action-btn action-primary" id="water-btn">Log watering</button>
+      <div class="water-inline">
+        <input type="number" id="water-dur" class="log-input water-dur" value="5" min="1" max="240">
+        <span class="water-dur-lbl">min</span>
+      </div>
     </div>
-    <div class="watering-log">
-      <input type="number" id="water-dur" class="log-input water-dur" value="5" min="1" max="240">
-      <span class="water-dur-lbl">min</span>
-      <button class="water-btn" id="water-btn">Log watering</button>
+    <button class="action-btn" onclick="document.getElementById('log-ta')?.focus();document.getElementById('log-ta')?.scrollIntoView({behavior:'smooth',block:'center'})">Add note</button>
+    <button class="action-btn" onclick="toggleHarvestForm()">Log harvest</button>
+  </div>`;
+
+  // Status strip — last watered + harvest estimate
+  h+=`<div class="stat-strip">
+    <div class="stat-card">
+      <div class="stat-label">Last watered</div>
+      <div class="stat-value" id="last-watered">Loading…</div>
+      <div class="stat-sub">Zone ${bed.zone}</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-label">Harvest estimate</div>
+      <div class="stat-value">${expectedHarvest||'—'}</div>
     </div>
   </div>`;
 
@@ -1697,19 +1797,38 @@ function renderDetail(bedId,logs=[]){
 
   const today=(()=>{const d=new Date();return `${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,'0')}-${String(d.getDate()).padStart(2,'0')}`;})();
 
-  if(a.source)h+=dr('Source',a.source);
+  // Planting details
   if(sownDate){
     const rel=relativeWeeks(sownDate);
+    h+=`<span class="section-label">Planting details</span>`;
     h+=dr('Sown',`${fmtDate(sownDate)}${rel?`<span class="rel-time">${rel}</span>`:''}`);
+    if(a.source)h+=dr('Source',a.source);
   }
-  h+=dr('Harvest',expectedHarvest||'—');
 
-  h+=`<span class="section-label">Season log</span><div id="log-entries">`;
+  // Notes section
+  h+=`<span class="section-label">Notes</span><div id="log-entries">`;
   h+=`<p class="log-empty">Loading…</p>`;
   h+=`</div>
   <div class="log-add-row">
     <textarea class="log-input" id="log-ta" rows="3" placeholder="Add an observation…"></textarea>
     <button class="log-add-btn" id="log-btn">Add</button>
+  </div>`;
+
+  // Yield section
+  h+=`<span class="section-label">Yield</span>
+  <div id="harvest-entries"><p class="log-empty">Loading…</p></div>
+  <div class="harvest-total-row"><span id="harvest-total" class="harvest-total"></span></div>
+  <div id="harvest-form" class="harvest-form-row" style="display:none">
+    <div class="harvest-inputs">
+      <input type="date" id="harvest-date" class="log-input harvest-date-in" value="${today}">
+      <input type="number" id="harvest-amount" class="log-input harvest-amt-in" placeholder="Amount" min="0" step="0.1">
+      <select id="harvest-unit" class="harvest-unit-sel">
+        <option value="lbs">lbs</option>
+        <option value="count">count</option>
+      </select>
+    </div>
+    <input type="text" id="harvest-notes" class="log-input" placeholder="Notes (optional)">
+    <button class="log-add-btn" id="harvest-btn">Log</button>
   </div>`;
 
   // Crops accordion — planting switcher + new crop form
@@ -1749,33 +1868,12 @@ function renderDetail(bedId,logs=[]){
       <button class="log-add-btn" id="nc-btn" onclick="submitNewCrop('${bedId}')">Start</button>
     </div>
   </div>`;
-  h+=`<span class="section-label">Irrigation</span>`; // already sentence case
+  h+=`<span class="section-label">Irrigation</span>`;
   h+=dr('Emitters',`${bed.emitters} × ${bed.gph/bed.emitters} GPH = ${bed.gph} GPH`);
   h+=dr('Schedule',bed.zone===1?'Daily in peak summer':'Every 2–3 days');
   h+=`</div></details>`;
 
-  // Yield accordion
-  h+=`<details class="accordion">
-  <summary class="accordion-summary">Yield</summary>
-  <div class="accordion-body">
-  <div id="harvest-entries"><p class="log-empty">Loading…</p></div>
-  <div class="harvest-total-row"><span id="harvest-total" class="harvest-total"></span></div>
-  <button class="new-crop-toggle" id="harvest-toggle" onclick="toggleHarvestForm()">+ Log harvest</button>
-  <div id="harvest-form" class="harvest-form-row" style="display:none">
-    <div class="harvest-inputs">
-      <input type="date" id="harvest-date" class="log-input harvest-date-in" value="${today}">
-      <input type="number" id="harvest-amount" class="log-input harvest-amt-in" placeholder="Amount" min="0" step="0.1">
-      <select id="harvest-unit" class="harvest-unit-sel">
-        <option value="lbs">lbs</option>
-        <option value="count">count</option>
-      </select>
-    </div>
-    <input type="text" id="harvest-notes" class="log-input" placeholder="Notes (optional)">
-    <button class="log-add-btn" id="harvest-btn">Log</button>
-  </div>
-  </div></details>
-
-  </div>`;
+  h+=`</div>`;
 
   return h;
 }
@@ -1787,13 +1885,13 @@ function dr(l,v){
 function navToBed(bedId){
   if(bedId===activeBedId)return;
   activeBedId=bedId;
-  document.getElementById('mini-map').innerHTML=buildMiniMap(bedId);
   const content=document.getElementById('bed-detail-content');
   content.style.opacity='0';
   content.style.transition='opacity .15s';
   setTimeout(()=>{
     delete selectedPlantingId[bedId]; // reset to active planting
     content.innerHTML=renderDetail(bedId,[]);
+    document.getElementById('mini-map').innerHTML=buildMiniMap(bedId);
     const planting=getSelectedPlanting(bedId);
     if(planting){
       bindLog(planting.id);
@@ -1849,6 +1947,7 @@ async function submitNewCrop(bedId){
     renderStatusIndicators();
     delete selectedPlantingId[bedId];
     document.getElementById('bed-detail-content').innerHTML=renderDetail(bedId,[]);
+    document.getElementById('mini-map').innerHTML=buildMiniMap(bedId);
     const planting=getSelectedPlanting(bedId);
     if(planting){bindLog(planting.id);bindHarvest(planting.id);loadLogs(bedId);loadHarvests(planting.id);}
   }catch(e){
@@ -1864,6 +1963,7 @@ function switchPlanting(bedId,plantingId){
   // Re-render detail (updates switcher pill highlights + mark-as-planted)
   const content=document.getElementById('bed-detail-content');
   content.innerHTML=renderDetail(bedId,[]);
+  document.getElementById('mini-map').innerHTML=buildMiniMap(bedId);
   bindLog(plantingId);
   bindHarvest(plantingId);
   loadLogs(bedId);
@@ -1909,16 +2009,11 @@ async function selectStatus(bedId,newStatus){
 }
 
 /* ── STATUS INDICATORS ON MAP ────────────────────── */
-// Uses the existing bed-ring element (opacity 0 by default) — light it up per status.
-// The ring already has a glow filter attached, so colored strokes bloom naturally.
-const RING_STYLE={
-  planned:     {opacity:0},
-  sown:        {opacity:.4, stroke:'#3dbf82'},
-  germinating: {opacity:.5, stroke:'#8bc34a'},
-  growing:     {opacity:.65,stroke:'#14c4ab'},
-  ready:       {opacity:.85,stroke:'#e08c30',pulse:true},
-  harvested:   {opacity:.2, stroke:'#8d6e63'},
-};
+function getGlowColor(status){
+  if(['sown','germinating','growing'].includes(status))return 'teal';
+  if(status==='ready')return 'amber';
+  return 'none';
+}
 
 function renderStatusIndicators(){
   const svg=document.getElementById('garden-map');
@@ -1928,10 +2023,19 @@ function renderStatusIndicators(){
     if(!ring)continue;
     const planting=getActivePlanting(bedId);
     const status=planting?.status||(planting?.planted_date?'growing':'planned');
-    const s=RING_STYLE[status]||RING_STYLE.planned;
-    ring.setAttribute('opacity',s.opacity);
-    if(s.stroke)ring.setAttribute('stroke',s.stroke);
-    ring.style.animation=s.pulse?'statusPulse 2.2s ease-in-out infinite':'';
+    const glow=getGlowColor(status);
+    if(glow==='teal'){
+      ring.setAttribute('opacity','.65');
+      ring.setAttribute('stroke','#14c4ab');
+      ring.style.animation='';
+    } else if(glow==='amber'){
+      ring.setAttribute('opacity','.85');
+      ring.setAttribute('stroke','#e08c30');
+      ring.style.animation='statusPulse 2.2s ease-in-out infinite';
+    } else {
+      ring.setAttribute('opacity','0');
+      ring.style.animation='';
+    }
   }
 }
 
@@ -1943,11 +2047,10 @@ function flashBtn(btn,msg,ms=1500){
 
 function toggleHarvestForm(){
   const form=document.getElementById('harvest-form');
-  const toggle=document.getElementById('harvest-toggle');
-  if(!form||!toggle)return;
+  if(!form)return;
   const open=form.style.display!=='none';
   form.style.display=open?'none':'flex';
-  toggle.textContent=open?'+ Log harvest':'– Cancel';
+  if(!open)form.scrollIntoView({behavior:'smooth',block:'nearest'});
 }
 
 function bindLog(plantingId){
@@ -2010,9 +2113,7 @@ function bindHarvest(plantingId){
         notesIn.value='';
         flashBtn(btn,'Logged ✓');
         const form=document.getElementById('harvest-form');
-        const toggle=document.getElementById('harvest-toggle');
         if(form){form.style.display='none';}
-        if(toggle){toggle.textContent='+ Log harvest';}
         await loadHarvests(plantingId);
       }catch(e){/* already logged */}
       btn.disabled=false;
@@ -2026,7 +2127,6 @@ function switchTab(id,btn){
   document.querySelectorAll('.tab-btn').forEach(b=>b.classList.remove('active'));
   document.getElementById(id).classList.add('active');
   btn.classList.add('active');
-  if(id==='tab-tasks')renderTaskTab();
 }
 
 /* ── INIT ────────────────────────────────────────── */
