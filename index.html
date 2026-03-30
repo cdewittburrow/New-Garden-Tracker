@@ -548,6 +548,25 @@ h1 em{font-style:normal;color:var(--teal);}
 .end-confirm-cancel{flex:1;padding:8px;font-family:'Inter',sans-serif;font-size:.72rem;background:var(--bg-card);border:1px solid var(--border);border-radius:8px;cursor:pointer;color:var(--text-sub);}
 .end-confirm-ok{flex:1;padding:8px;font-family:'Inter',sans-serif;font-size:.72rem;background:#c62828;border:none;border-radius:8px;cursor:pointer;color:#fff;font-weight:500;}
 
+/* Succession inspector card */
+.succession-card{
+  display:flex;align-items:center;gap:10px;
+  padding:12px;border-radius:10px;margin:8px 0 14px;
+  background:rgba(224,140,48,.07);border:1px solid rgba(224,140,48,.2);
+}
+.succ-now,.succ-then{flex:1;}
+.succ-label{font-size:.62rem;color:var(--amber);text-transform:uppercase;letter-spacing:.06em;margin-bottom:3px;}
+.succ-crop{font-size:.85rem;font-weight:600;color:var(--text);}
+.succ-variety{font-size:.72rem;color:var(--text-sub);margin-top:1px;}
+.succ-date{font-size:.68rem;color:var(--text-dim);margin-top:3px;}
+.succ-arrow{font-size:1.1rem;color:var(--amber);padding:0 2px;flex-shrink:0;}
+
+/* Plan card succession indicator */
+.plan-card-succ{
+  font-size:.6rem;color:var(--amber);margin-top:5px;
+  display:flex;align-items:center;gap:3px;
+}
+
 /* Plan form active banner */
 .plan-active-banner{
   display:flex;align-items:center;gap:7px;
@@ -1455,12 +1474,12 @@ let selectedPlantingId={};
 
 async function fetchAllPlantings(){
   try{
-    const res=await fetch(`${SB_URL}/rest/v1/plantings?select=id,bed_id,crop_name,variety,expected_harvest,year,season,planted_date,ended_date,status,planting_state,planned_date,planting_method,start_indoors_date,seed_source,spacing_notes,season_notes&order=created_at.desc`,{headers:SB_HEADERS});
+    const res=await fetch(`${SB_URL}/rest/v1/plantings?select=id,bed_id,crop_name,variety,expected_harvest,year,season,planted_date,ended_date,status,planting_state,planned_date,planting_method,start_indoors_date,seed_source,spacing_notes,season_notes,succession_planting_id&order=created_at.desc`,{headers:SB_HEADERS});
     const rows=await res.json();
     plantingCache={};
     for(const r of rows){
       if(!plantingCache[r.bed_id])plantingCache[r.bed_id]=[];
-      plantingCache[r.bed_id].push({id:r.id,crop_name:r.crop_name,variety:r.variety,expected_harvest:r.expected_harvest,year:r.year,season:r.season,planted_date:r.planted_date,ended_date:r.ended_date,status:r.status,planting_state:r.planting_state,planned_date:r.planned_date,planting_method:r.planting_method||'direct_sow',start_indoors_date:r.start_indoors_date,seed_source:r.seed_source,spacing_notes:r.spacing_notes,season_notes:r.season_notes});
+      plantingCache[r.bed_id].push({id:r.id,crop_name:r.crop_name,variety:r.variety,expected_harvest:r.expected_harvest,year:r.year,season:r.season,planted_date:r.planted_date,ended_date:r.ended_date,status:r.status,planting_state:r.planting_state,planned_date:r.planned_date,planting_method:r.planting_method||'direct_sow',start_indoors_date:r.start_indoors_date,seed_source:r.seed_source,spacing_notes:r.spacing_notes,season_notes:r.season_notes,succession_planting_id:r.succession_planting_id||null});
     }
   }catch(e){
     console.error('Failed to fetch plantings:',e);
@@ -1490,6 +1509,15 @@ function getSelectedPlanting(bedId){
   if(!list)return null;
   if(selectedPlantingId[bedId])return list.find(p=>p.id===selectedPlantingId[bedId])||list[0];
   return getActivePlanting(bedId);
+}
+
+// Find any planting by its DB id across all beds
+function getPlantingById(id){
+  for(const list of Object.values(plantingCache)){
+    const found=list.find(p=>p.id===id);
+    if(found)return found;
+  }
+  return null;
 }
 
 /* ── LOGS ────────────────────────────────────────── */
@@ -2122,6 +2150,26 @@ function renderDetail(bedId,logs=[]){
     if(a.source)h+=dr('Source',a.source);
   }
 
+  // Succession card
+  const succPlanting=dbPlanting?.succession_planting_id?getPlantingById(dbPlanting.succession_planting_id):null;
+  if(succPlanting){
+    h+=`<span class="section-label">Succession</span>
+    <div class="succession-card">
+      <div class="succ-now">
+        <div class="succ-label">Now</div>
+        <div class="succ-crop">${cropName}</div>
+        ${variety?`<div class="succ-variety">${variety}</div>`:''}
+      </div>
+      <div class="succ-arrow">→</div>
+      <div class="succ-then">
+        <div class="succ-label">Then</div>
+        <div class="succ-crop">${succPlanting.crop_name}</div>
+        ${succPlanting.variety?`<div class="succ-variety">${succPlanting.variety}</div>`:''}
+        ${succPlanting.planned_date?`<div class="succ-date">Planned ${fmtDate(succPlanting.planned_date)}</div>`:''}
+      </div>
+    </div>`;
+  }
+
   // Notes section
   h+=`<span class="section-label">Notes</span><div id="log-entries">`;
   h+=`<p class="log-empty">Loading…</p>`;
@@ -2205,11 +2253,15 @@ function confirmEndPlanting(bedId){
   if(!p)return;
   const btn=document.querySelector('.close-planting-btn');
   if(!btn)return;
+  const succ=p.succession_planting_id?getPlantingById(p.succession_planting_id):null;
+  const confirmMsg=succ
+    ?`End ${p.crop_name} and activate ${succ.crop_name}?`
+    :`Mark ${p.crop_name} as ended? This bed will show as fallow.`;
   btn.outerHTML=`<div class="end-confirm-row" id="end-confirm">
-    <div class="end-confirm-text">Mark ${p.crop_name} as ended? This bed will show as fallow.</div>
+    <div class="end-confirm-text">${confirmMsg}</div>
     <div class="end-confirm-btns">
       <button class="end-confirm-cancel" onclick="document.getElementById('end-confirm').outerHTML='<button class=\\'close-planting-btn\\' onclick=\\'confirmEndPlanting(\\'${bedId}\\')\\'>Close this planting</button>'">Cancel</button>
-      <button class="end-confirm-ok" onclick="endPlanting('${bedId}')">End planting</button>
+      <button class="end-confirm-ok" onclick="endPlanting('${bedId}')">Confirm</button>
     </div>
   </div>`;
 }
@@ -2226,6 +2278,15 @@ async function endPlanting(bedId){
   });
   p.ended_date=today();
   p.planting_state='ended';
+  // Activate succession if set
+  const succ=p.succession_planting_id?getPlantingById(p.succession_planting_id):null;
+  if(succ){
+    const plantedOn=today();
+    await activatePlanting(succ.id,plantedOn,succ.crop_name);
+    succ.planted_date=plantedOn;
+    succ.planting_state='active';
+    await fetchAllPlantings();
+  }
   closeSheet();
   updateMapLabels();
   renderStatusIndicators();
@@ -2645,11 +2706,14 @@ function buildPlanCard(bedId,p){
   if(p.planted_date)timing=`Planted ${fmtDate(p.planted_date)}`;
   else if(p.start_indoors_date)timing=`Indoors ${fmtDate(p.start_indoors_date)}`;
   else if(p.planned_date)timing=`Planned ${fmtDate(p.planned_date)}`;
+  const succPlanning=p.succession_planting_id?getPlantingById(p.succession_planting_id):null;
+  const succCardHtml=succPlanning?`<div class="plan-card-succ">→ ${succPlanning.crop_name}</div>`:'';
   return `<div class="plan-card ${stateClass}" onclick="openPlanSheet('${bedId}')">
     <div class="plan-card-top"><span class="plan-card-bed">${bedId.toUpperCase()}</span>${dotHtml}</div>
     <div class="plan-card-crop">${p.crop_name}</div>
     ${p.variety?`<div class="plan-card-variety">${p.variety}</div>`:''}
     ${timing?`<div class="plan-card-timing">${timing}</div>`:''}
+    ${succCardHtml}
   </div>`;
 }
 
@@ -2735,6 +2799,7 @@ function renderPlanForm(bedId,p){
   const bed=BEDS[bedId];
   const isActive=p&&p.planting_state==='active'&&p.planted_date;
   const zoneGph=bed.zone===1?'Zone 1 · 2 GPH':'Zone 2 · 1 GPH';
+  const succPlanting=p?.succession_planting_id?getPlantingById(p.succession_planting_id):null;
   return `<div class="plan-form-header">
     <span class="insp-bed-chip">${bedId.toUpperCase()}</span>
     <span class="plan-form-title">${p?'Edit planting':'Plan this bed'}</span>
@@ -2774,7 +2839,25 @@ function renderPlanForm(bedId,p){
     <label class="plan-field-label">Season notes</label>
     <textarea class="log-input" id="pf-notes" rows="3" placeholder="Planning observations, goals...">${p?.season_notes||''}</textarea>
   </div>
-  <button class="log-add-btn" style="width:100%;margin-top:8px;font-size:.8rem;padding:12px" onclick="savePlanSheet('${bedId}')">Save</button>
+  <details class="accordion" style="margin-top:16px">
+    <summary class="accordion-summary" style="font-size:.78rem">Succession crop</summary>
+    <div class="accordion-body" style="padding:12px 0 0">
+      <p style="font-size:.72rem;color:var(--text-sub);margin:0 0 12px;line-height:1.5">What follows this crop in the same bed? Saved as a linked draft planting.</p>
+      <div class="plan-form-field">
+        <label class="plan-field-label">Successor crop</label>
+        <input class="log-input" id="pf-succ-crop" value="${succPlanting?.crop_name||''}" placeholder="e.g. Brassica mix">
+      </div>
+      <div class="plan-form-field">
+        <label class="plan-field-label">Variety</label>
+        <input class="log-input" id="pf-succ-variety" value="${succPlanting?.variety||''}" placeholder="optional">
+      </div>
+      <div class="plan-form-field">
+        <label class="plan-field-label">Planned date</label>
+        <input class="log-input" type="date" id="pf-succ-date" value="${succPlanting?.planned_date||''}">
+      </div>
+    </div>
+  </details>
+  <button class="log-add-btn" style="width:100%;margin-top:16px;font-size:.8rem;padding:12px" onclick="savePlanSheet('${bedId}')">Save</button>
   <button class="plan-cancel-btn" onclick="closePlanSheet()">Cancel</button>`;
 }
 
@@ -2824,6 +2907,7 @@ async function savePlanSheet(bedId){
   const btn=document.querySelector('#plan-sheet-content .log-add-btn');
   if(btn){btn.disabled=true;btn.textContent='Saving…';}
   try{
+    let mainId=p?.id;
     if(p){
       await fetch(`${SB_URL}/rest/v1/plantings?id=eq.${p.id}`,{
         method:'PATCH',headers:{...SB_HEADERS,'Prefer':'return=minimal'},
@@ -2832,10 +2916,49 @@ async function savePlanSheet(bedId){
       Object.assign(p,payload);
     }else{
       const newP={...payload,bed_id:bedId,year:planYear,season:'Spring',planting_state:'draft',planned_date:today()};
-      await fetch(`${SB_URL}/rest/v1/plantings`,{
-        method:'POST',headers:{...SB_HEADERS,'Prefer':'return=minimal'},
+      const postRes=await fetch(`${SB_URL}/rest/v1/plantings`,{
+        method:'POST',headers:{...SB_HEADERS,'Prefer':'return=representation','Content-Type':'application/json'},
         body:JSON.stringify(newP)
       });
+      const created=await postRes.json();
+      mainId=created[0]?.id;
+      await fetchAllPlantings();
+    }
+    // Handle succession crop
+    const succCrop=document.getElementById('pf-succ-crop')?.value.trim();
+    if(succCrop&&mainId){
+      const currentP=getPlantingById(mainId)||getPlanningPlanting(bedId,planYear);
+      const existingSuccId=currentP?.succession_planting_id;
+      if(existingSuccId){
+        // Update existing succession planting
+        await fetch(`${SB_URL}/rest/v1/plantings?id=eq.${existingSuccId}`,{
+          method:'PATCH',headers:{...SB_HEADERS,'Prefer':'return=minimal'},
+          body:JSON.stringify({
+            crop_name:succCrop,
+            variety:document.getElementById('pf-succ-variety')?.value.trim()||null,
+            planned_date:document.getElementById('pf-succ-date')?.value||null,
+          })
+        });
+      }else{
+        // Create new succession draft planting
+        const succRes=await fetch(`${SB_URL}/rest/v1/plantings`,{
+          method:'POST',headers:{...SB_HEADERS,'Prefer':'return=representation','Content-Type':'application/json'},
+          body:JSON.stringify({
+            bed_id:bedId,year:planYear,season:'Spring',planting_state:'draft',
+            crop_name:succCrop,
+            variety:document.getElementById('pf-succ-variety')?.value.trim()||null,
+            planned_date:document.getElementById('pf-succ-date')?.value||null,
+          })
+        });
+        const succCreated=await succRes.json();
+        const succId=succCreated[0]?.id;
+        if(succId){
+          await fetch(`${SB_URL}/rest/v1/plantings?id=eq.${mainId}`,{
+            method:'PATCH',headers:{...SB_HEADERS,'Prefer':'return=minimal'},
+            body:JSON.stringify({succession_planting_id:succId})
+          });
+        }
+      }
       await fetchAllPlantings();
     }
     closePlanSheet();
