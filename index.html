@@ -469,6 +469,8 @@ h1 em{font-style:normal;color:var(--teal);}
 .plan-card-draft{border-color:rgba(91,156,240,.3);background:rgba(91,156,240,.05);}
 .plan-card-active{border-color:rgba(20,196,171,.25);}
 .plan-card-fallow{opacity:.55;}
+.plan-card-unassigned{border-style:dashed;background:transparent;opacity:.7;}
+.plan-dot-green{background:var(--jade);}
 .plan-card-top{display:flex;align-items:center;justify-content:space-between;margin-bottom:2px;}
 .plan-card-bed{font-family:'Inter',sans-serif;font-size:.58rem;font-weight:600;letter-spacing:.8px;color:var(--text-dim);text-transform:uppercase;}
 .plan-dot{width:7px;height:7px;border-radius:50%;flex-shrink:0;}
@@ -528,6 +530,35 @@ h1 em{font-style:normal;color:var(--teal);}
   background:none;border:none;cursor:pointer;text-align:center;
 }
 .plan-cancel-btn:hover{color:var(--text);}
+
+/* Close planting flow */
+.close-planting-btn{
+  display:block;width:100%;margin-top:24px;padding:10px;
+  font-family:'Inter',sans-serif;font-size:.72rem;color:var(--text-dim);
+  background:none;border:1px solid var(--border);border-radius:10px;cursor:pointer;
+  transition:all .15s;
+}
+.close-planting-btn:hover{color:#ef5350;border-color:rgba(239,83,80,.4);}
+.end-confirm-row{
+  margin-top:24px;padding:14px;border-radius:10px;
+  background:rgba(239,83,80,.07);border:1px solid rgba(239,83,80,.2);
+}
+.end-confirm-text{font-family:'Inter',sans-serif;font-size:.8rem;color:var(--text);margin-bottom:12px;line-height:1.4;}
+.end-confirm-btns{display:flex;gap:8px;}
+.end-confirm-cancel{flex:1;padding:8px;font-family:'Inter',sans-serif;font-size:.72rem;background:var(--bg-card);border:1px solid var(--border);border-radius:8px;cursor:pointer;color:var(--text-sub);}
+.end-confirm-ok{flex:1;padding:8px;font-family:'Inter',sans-serif;font-size:.72rem;background:#c62828;border:none;border-radius:8px;cursor:pointer;color:#fff;font-weight:500;}
+
+/* Plan form active banner */
+.plan-active-banner{
+  display:flex;align-items:center;gap:7px;
+  padding:8px 12px;border-radius:8px;margin-bottom:14px;
+  background:rgba(20,196,171,.1);border:1px solid rgba(20,196,171,.22);
+  font-family:'Inter',sans-serif;font-size:.72rem;color:var(--teal);
+}
+.plan-zone-info{
+  font-family:'Inter',sans-serif;font-size:.75rem;color:var(--text-sub);
+  padding:8px 0 4px;
+}
 
 /* ── PLAN STUB ───────────────────────────────────── */
 .plan-stub{
@@ -1178,12 +1209,14 @@ h1 em{font-style:normal;color:var(--teal);}
   <div class="ov-glance" id="ov-glance">
     <div class="ov-glance-card"><div class="ov-glance-val" id="ov-active">—</div><div class="ov-glance-label">Active beds</div></div>
     <div class="ov-glance-card"><div class="ov-glance-val" id="ov-tasks">—</div><div class="ov-glance-label">Tasks this week</div></div>
-    <div class="ov-glance-card"><div class="ov-glance-val" id="ov-harvests-ct">—</div><div class="ov-glance-label">Harvests logged</div></div>
+    <div class="ov-glance-card"><div class="ov-glance-val" id="ov-last-harvest" style="font-size:.75rem;line-height:1.3">—</div><div class="ov-glance-label">Last harvest</div></div>
   </div>
   <span class="ov-section-label">Yield by bed</span>
   <div class="ov-yield-grid" id="ov-yield-grid"><p class="ov-empty">Loading…</p></div>
   <span class="ov-section-label">Recent activity</span>
   <div class="ov-feed" id="ov-feed"><p class="ov-empty">Loading…</p></div>
+  <span class="ov-section-label">Season notes</span>
+  <div class="ov-feed" id="ov-notes-feed"><p class="ov-empty">Loading…</p></div>
 </div>
 </div>
 
@@ -2020,10 +2053,17 @@ function renderDetail(bedId,logs=[]){
     </div>
   </div>`;
 
-  // Mark as planted (show if no planted_date on active planting)
+  // Draft state — simplified inspector
   const plantedDate=getActivePlanting(bedId)?.planted_date;
-  if(!plantedDate){
+  const isDraftPlanting=dbPlanting&&(dbPlanting.planting_state==='draft'||!plantedDate);
+  if(isDraftPlanting){
     h+=`<div class="planted-row"><button class="planted-btn" onclick="markPlanted('${bedId}')">Mark as planted today</button></div>`;
+    h+=`<div class="detail-body">`;
+    if(dbPlanting.planned_date)h+=dr('Planned',fmtDate(dbPlanting.planned_date));
+    if(dbPlanting.seed_source)h+=dr('Source',dbPlanting.seed_source);
+    if(dbPlanting.season_notes)h+=`<span class="section-label">Season notes</span><p style="font-size:.82rem;line-height:1.5;color:var(--text-sub)">${dbPlanting.season_notes}</p>`;
+    h+=`</div>`;
+    return h;
   }
 
   // Action strip — 3 tappable buttons
@@ -2150,9 +2190,46 @@ function renderDetail(bedId,logs=[]){
   h+=dr('Schedule',bed.zone===1?'Daily in peak summer':'Every 2–3 days');
   h+=`</div></details>`;
 
+  // Close this planting
+  if(plantedDate){
+    h+=`<button class="close-planting-btn" onclick="confirmEndPlanting('${bedId}')">Close this planting</button>`;
+  }
+
   h+=`</div>`;
 
   return h;
+}
+
+function confirmEndPlanting(bedId){
+  const p=getActivePlanting(bedId);
+  if(!p)return;
+  const btn=document.querySelector('.close-planting-btn');
+  if(!btn)return;
+  btn.outerHTML=`<div class="end-confirm-row" id="end-confirm">
+    <div class="end-confirm-text">Mark ${p.crop_name} as ended? This bed will show as fallow.</div>
+    <div class="end-confirm-btns">
+      <button class="end-confirm-cancel" onclick="document.getElementById('end-confirm').outerHTML='<button class=\\'close-planting-btn\\' onclick=\\'confirmEndPlanting(\\'${bedId}\\')\\'>Close this planting</button>'">Cancel</button>
+      <button class="end-confirm-ok" onclick="endPlanting('${bedId}')">End planting</button>
+    </div>
+  </div>`;
+}
+
+async function endPlanting(bedId){
+  const p=getActivePlanting(bedId);
+  if(!p)return;
+  const okBtn=document.querySelector('.end-confirm-ok');
+  if(okBtn){okBtn.disabled=true;okBtn.textContent='Ending…';}
+  await fetch(`${SB_URL}/rest/v1/plantings?id=eq.${p.id}`,{
+    method:'PATCH',
+    headers:{...SB_HEADERS,'Prefer':'return=minimal'},
+    body:JSON.stringify({ended_date:today(),planting_state:'ended'})
+  });
+  p.ended_date=today();
+  p.planting_state='ended';
+  closeSheet();
+  updateMapLabels();
+  renderStatusIndicators();
+  renderBadges();
 }
 
 function dr(l,v){
@@ -2314,6 +2391,32 @@ function renderStatusIndicators(){
       ring.style.animation='';
     }
   }
+  updateDraftPills();
+}
+
+function updateDraftPills(){
+  const svg=document.getElementById('garden-map');
+  if(!svg)return;
+  for(const bedId of Object.keys(BEDS)){
+    const pill=svg.querySelector(`#pill-${bedId} .bed-pill`);
+    const label=svg.querySelector(`#crop-label-${bedId}`);
+    if(!pill)continue;
+    const planting=getActivePlanting(bedId);
+    const isDraft=planting&&(planting.planting_state==='draft'||!planting.planted_date);
+    if(isDraft){
+      pill.setAttribute('fill','rgba(91,156,240,.1)');
+      pill.setAttribute('stroke','rgba(91,156,240,.5)');
+      pill.setAttribute('stroke-dasharray','5,3');
+      if(label)label.setAttribute('fill','rgba(255,255,255,.45)');
+    } else {
+      // restore zone-appropriate defaults
+      const zone=BEDS[bedId].zone;
+      pill.setAttribute('fill',zone===1?'url(#z1g)':'url(#z2g)');
+      pill.setAttribute('stroke',zone===1?'rgba(91,156,240,.3)':'rgba(20,196,171,.3)');
+      pill.removeAttribute('stroke-dasharray');
+      if(label)label.setAttribute('fill','rgba(255,255,255,.92)');
+    }
+  }
 }
 
 function flashBtn(btn,msg,ms=1500){
@@ -2415,7 +2518,14 @@ async function renderOverviewTab(){
     fetch(`${SB_URL}/rest/v1/logs?select=planting_id,date,note,created_at&order=created_at.desc&limit=100`,{headers:SB_HEADERS}).then(r=>r.json()).catch(()=>[]),
     fetch(`${SB_URL}/rest/v1/tasks?completed_date=not.is.null&due_date=not.is.null&select=planting_id,title,completed_date&order=completed_date.desc&limit=50`,{headers:SB_HEADERS}).then(r=>r.json()).catch(()=>[]),
   ]);
-  document.getElementById('ov-harvests-ct').textContent=allHarvests.length;
+  // Most recent harvest stat
+  const lastHarvestEl=document.getElementById('ov-last-harvest');
+  if(allHarvests.length){
+    const h0=allHarvests[0];
+    const meta0=pidMeta[h0.planting_id];
+    const amt0=`${parseFloat(h0.amount)%1===0?parseFloat(h0.amount):parseFloat(h0.amount).toFixed(1)} ${h0.unit}`;
+    lastHarvestEl.innerHTML=`${meta0?.crop_name||'—'}<br><span style="font-size:.65rem;color:var(--text-dim)">${amt0} · ${fmtDate(h0.harvest_date)}</span>`;
+  }
   // Yield by planting
   const yieldByPid={};
   for(const h of allHarvests){
@@ -2455,6 +2565,26 @@ async function renderOverviewTab(){
     <div class="ov-feed-body"><div class="ov-feed-text">${e.text}</div><div class="ov-feed-date">${e.crop} · ${e.dateDisplay}</div></div>
     <span class="ov-feed-type ${tClass[e.type]}">${tLabel[e.type]}</span>
   </div>`).join('');
+
+  // Season notes — all logs with bed filter
+  const notesEl=document.getElementById('ov-notes-feed');
+  const notesWithBed=allLogs.map(l=>{const meta=pidMeta[l.planting_id];return meta?{...l,bedId:meta.bedId,crop:meta.crop_name}:null;}).filter(Boolean);
+  if(!notesWithBed.length){notesEl.innerHTML='<p class="ov-empty">No notes yet.</p>';return;}
+  let ovNotesFilter='all';
+  const notesBeds=[...new Set(notesWithBed.map(n=>n.bedId))].sort();
+  const renderNoteFeed=()=>{
+    const filtered=ovNotesFilter==='all'?notesWithBed:notesWithBed.filter(n=>n.bedId===ovNotesFilter);
+    notesEl.innerHTML=`<div class="chip-strip" style="margin-bottom:10px">
+      <button class="chip${ovNotesFilter==='all'?' active':''}" onclick="ovNotesFilter='all';renderNoteFeed()">All</button>
+      ${notesBeds.map(b=>`<button class="chip${ovNotesFilter===b?' active':''}" onclick="ovNotesFilter='${b}';renderNoteFeed()">${b.toUpperCase()}</button>`).join('')}
+    </div>`+filtered.map(n=>`<div class="ov-feed-row">
+      <span class="insp-bed-chip">${n.bedId.toUpperCase()}</span>
+      <div class="ov-feed-body"><div class="ov-feed-text">${n.note}</div><div class="ov-feed-date">${n.crop} · ${n.date}</div></div>
+    </div>`).join('');
+  };
+  window.renderNoteFeed=renderNoteFeed;
+  window.ovNotesFilter=ovNotesFilter;
+  renderNoteFeed();
 }
 
 /* ── PLANNING TAB ────────────────────────────────── */
@@ -2498,17 +2628,19 @@ function renderPlanGrid(){
   if(fp)fp.innerHTML=`<span>${total} of 12 beds planned · ${activeCt} active</span>`;
 }
 
+const PERENNIAL_CROPS=['Strawberries'];
 function buildPlanCard(bedId,p){
   if(!p){
-    return `<div class="plan-card plan-card-fallow" onclick="openPlanSheet('${bedId}')">
+    return `<div class="plan-card plan-card-unassigned" onclick="openPlanSheet('${bedId}')">
       <div class="plan-card-top"><span class="plan-card-bed">${bedId.toUpperCase()}</span></div>
       <div class="plan-card-empty">Unassigned</div>
     </div>`;
   }
   const isDraft=p.planting_state==='draft'||!p.planted_date;
   const isActive=p.planting_state==='active'&&!!p.planted_date;
+  const isPerennial=PERENNIAL_CROPS.includes(p.crop_name);
   const stateClass=isDraft?'plan-card-draft':isActive?'plan-card-active':'';
-  const dotHtml=isActive?'<span class="plan-dot plan-dot-teal"></span>':isDraft?'<span class="plan-dot plan-dot-blue"></span>':'';
+  const dotHtml=isPerennial?'<span class="plan-dot plan-dot-green"></span>':isActive?'<span class="plan-dot plan-dot-teal"></span>':isDraft?'<span class="plan-dot plan-dot-blue"></span>':'';
   let timing='';
   if(p.planted_date)timing=`Planted ${fmtDate(p.planted_date)}`;
   else if(p.start_indoors_date)timing=`Indoors ${fmtDate(p.start_indoors_date)}`;
@@ -2521,9 +2653,9 @@ function buildPlanCard(bedId,p){
   </div>`;
 }
 
+let planCalBedFilter='all';
 function renderPlanTaskCal(){
   const allTasks=[];
-  // Build a reverse map: planting_id → bedId
   const pidToBed={};
   for(const [bid,list] of Object.entries(plantingCache)){
     for(const p of list)pidToBed[p.id]={bedId:bid,crop_name:p.crop_name,year:p.year};
@@ -2537,10 +2669,16 @@ function renderPlanTaskCal(){
     }
   }
   allTasks.sort((a,b)=>a.due_date.localeCompare(b.due_date));
+  const taskBeds=[...new Set(allTasks.map(t=>t.bedId))].sort();
+  const filtered=planCalBedFilter==='all'?allTasks:allTasks.filter(t=>t.bedId===planCalBedFilter);
+  const filterHtml=taskBeds.length?`<div class="chip-strip" style="margin-bottom:12px">
+    <button class="chip${planCalBedFilter==='all'?' active':''}" onclick="planCalBedFilter='all';renderPlanTaskCal()">All</button>
+    ${taskBeds.map(b=>`<button class="chip${planCalBedFilter===b?' active':''}" onclick="planCalBedFilter='${b}';renderPlanTaskCal()">${b.toUpperCase()}</button>`).join('')}
+  </div>`:'';
 
-  // Group by week (Monday)
+  // Group filtered tasks by week (Monday)
   const weeks=new Map();
-  for(const t of allTasks){
+  for(const t of filtered){
     const d=new Date(t.due_date+'T00:00:00');
     const day=d.getDay();
     const diff=d.getDate()-day+(day===0?-6:1);
@@ -2551,10 +2689,10 @@ function renderPlanTaskCal(){
   }
 
   if(!weeks.size){
-    document.getElementById('plan-task-cal').innerHTML='<p class="task-empty">No upcoming tasks for this season.</p>';
+    document.getElementById('plan-task-cal').innerHTML=filterHtml+'<p class="task-empty">No upcoming tasks.</p>';
     return;
   }
-  let html='';
+  let html=filterHtml;
   for(const[,week]of weeks){
     const busy=week.tasks.length>=5;
     html+=`<div class="plan-week-group">
@@ -2562,7 +2700,7 @@ function renderPlanTaskCal(){
     for(const t of week.tasks){
       html+=`<div class="plan-cal-row">
         <span class="insp-bed-chip">${t.bedId.toUpperCase()}</span>
-        <span class="plan-cal-task">${t.title}</span>
+        <div class="plan-cal-task">${t.title}<div style="font-size:.6rem;color:var(--text-dim);margin-top:1px">${t.crop_name}</div></div>
         <span class="plan-cal-date">${fmtDate(t.due_date)}</span>
       </div>`;
     }
@@ -2594,10 +2732,15 @@ function closeAnySheet(){
 
 function renderPlanForm(bedId,p){
   const m=planMethod;
+  const bed=BEDS[bedId];
+  const isActive=p&&p.planting_state==='active'&&p.planted_date;
+  const zoneGph=bed.zone===1?'Zone 1 · 2 GPH':'Zone 2 · 1 GPH';
   return `<div class="plan-form-header">
     <span class="insp-bed-chip">${bedId.toUpperCase()}</span>
     <span class="plan-form-title">${p?'Edit planting':'Plan this bed'}</span>
   </div>
+  ${isActive?`<div class="plan-active-banner">Active planting · Planted ${fmtDate(p.planted_date)}</div>`:''}
+  <p class="plan-zone-info">${zoneGph}</p>
   <div class="plan-form-field">
     <label class="plan-field-label">Crop</label>
     <input class="log-input" id="pf-crop" value="${p?.crop_name||''}" placeholder="e.g. Tomato">
