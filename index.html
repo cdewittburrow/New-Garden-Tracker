@@ -708,6 +708,13 @@ h1 em{font-style:normal;color:var(--teal);}
   font-size:.6rem;color:var(--amber);margin-top:5px;
   display:flex;align-items:center;gap:3px;
 }
+.plan-card-succ-link{cursor:pointer;}
+.plan-card-succ-link:active{opacity:.7;}
+.plan-card-add-succ{
+  font-size:.6rem;color:rgba(255,255,255,.25);margin-top:5px;
+  cursor:pointer;letter-spacing:.02em;
+}
+.plan-card-add-succ:active{color:rgba(255,255,255,.5);}
 
 /* Plan form active banner */
 .plan-active-banner{
@@ -2698,6 +2705,7 @@ async function renderOverviewTab(){
 /* ── PLANNING TAB ────────────────────────────────── */
 let planYear=2026;
 let planBedId=null;
+let planEditId=null;
 let planMethod='direct_sow';
 
 function shiftPlanYear(dir){
@@ -2766,7 +2774,12 @@ function buildPlanCard(bedId,p){
   else if(p.start_indoors_date)timing=`Indoors ${fmtDate(p.start_indoors_date)}`;
   else if(p.planned_date)timing=`Planned ${fmtDate(p.planned_date)}`;
   const nextDraft=isActive?getNextDraft(bedId):null;
-  const succHtml=nextDraft?`<div class="plan-card-succ">→ ${nextDraft.crop_name}</div>`:'';
+  let succHtml='';
+  if(nextDraft){
+    succHtml=`<div class="plan-card-succ plan-card-succ-link" onclick="event.stopPropagation();openPlanSheetById('${nextDraft.id}','${bedId}')">→ ${nextDraft.crop_name}</div>`;
+  }else if(isActive){
+    succHtml=`<div class="plan-card-add-succ" onclick="event.stopPropagation();openPlanSheetNew('${bedId}')">+ succession</div>`;
+  }
   return `<div class="plan-card ${stateClass}" onclick="openPlanSheet('${bedId}')">
     <div class="plan-card-top"><span class="plan-card-bed">${bedId.toUpperCase()}</span>${dotHtml}</div>
     <div class="plan-card-crop">${p.crop_name}</div>
@@ -2835,6 +2848,27 @@ function renderPlanTaskCal(){
 function openPlanSheet(bedId){
   planBedId=bedId;
   const p=getPlanningPlanting(bedId,planYear);
+  planEditId=p?.id||null;
+  planMethod=p?.planting_method||'direct_sow';
+  document.getElementById('plan-sheet-content').innerHTML=renderPlanForm(bedId,p);
+  document.getElementById('plan-sheet').classList.add('is-open');
+  document.getElementById('sheet-backdrop').classList.add('is-open');
+  document.body.style.overflow='hidden';
+}
+function openPlanSheetNew(bedId){
+  planBedId=bedId;
+  planEditId=null;
+  planMethod='direct_sow';
+  document.getElementById('plan-sheet-content').innerHTML=renderPlanForm(bedId,null);
+  document.getElementById('plan-sheet').classList.add('is-open');
+  document.getElementById('sheet-backdrop').classList.add('is-open');
+  document.body.style.overflow='hidden';
+}
+function openPlanSheetById(plantingId,bedId){
+  planBedId=bedId;
+  planEditId=plantingId;
+  const list=plantingCache[bedId]||[];
+  const p=list.find(x=>x.id===plantingId);
   planMethod=p?.planting_method||'direct_sow';
   document.getElementById('plan-sheet-content').innerHTML=renderPlanForm(bedId,p);
   document.getElementById('plan-sheet').classList.add('is-open');
@@ -3016,7 +3050,8 @@ function setPlanMethod(method){
 }
 
 async function savePlanSheet(bedId){
-  const p=getPlanningPlanting(bedId,planYear);
+  const list=plantingCache[bedId]||[];
+  const p=planEditId?list.find(x=>x.id===planEditId):null;
   const crop=(document.getElementById('pf-crop')?.value||document.getElementById('pf-crop-search')?.value||'').trim();
   if(!crop)return;
   const payload={
