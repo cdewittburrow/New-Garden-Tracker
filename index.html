@@ -531,6 +531,40 @@ h1 em{font-style:normal;color:var(--teal);}
 }
 .plan-cancel-btn:hover{color:var(--text);}
 
+/* Crop picker */
+.crop-picker{position:relative;}
+.cp-dropdown{
+  background:var(--bg-panel);border:1px solid var(--border-hi);
+  border-radius:0 0 10px 10px;overflow:hidden;
+  box-shadow:0 8px 24px var(--shadow);margin-top:-1px;
+  max-height:220px;overflow-y:auto;
+}
+.cp-option{
+  display:block;width:100%;padding:11px 14px;text-align:left;
+  font-family:'Inter',sans-serif;font-size:.8rem;color:var(--text);
+  background:none;border:none;border-bottom:1px solid var(--divider);
+  cursor:pointer;transition:background .1s;
+}
+.cp-option:last-child{border-bottom:none;}
+.cp-option:hover,.cp-option:active{background:var(--bg-card2);}
+.cp-option-new{color:var(--teal);}
+.cp-selected-display{
+  display:flex;align-items:center;gap:8px;
+  padding:9px 12px;background:var(--bg-card);
+  border:1px solid var(--border-hi);border-radius:10px;
+}
+.cp-selected-name{font-family:'Inter',sans-serif;font-size:.84rem;font-weight:500;color:var(--text);flex:1;}
+.cp-new-badge{font-size:.6rem;color:var(--text-dim);padding:2px 6px;border:1px solid var(--border);border-radius:100px;}
+.cp-change-btn{font-family:'Inter',sans-serif;font-size:.65rem;color:var(--teal);background:none;border:none;cursor:pointer;flex-shrink:0;}
+.cp-meta{
+  display:flex;gap:10px;flex-wrap:wrap;
+  padding:7px 10px;margin-top:5px;
+  background:rgba(20,196,171,.05);border:1px solid rgba(20,196,171,.12);
+  border-radius:8px;
+}
+.cp-meta-item{font-family:'Inter',sans-serif;font-size:.62rem;color:var(--text-sub);}
+.cp-meta-label{color:var(--text-dim);margin-right:3px;}
+
 /* ── INSPECTOR v2.1 ──────────────────────────────── */
 /* Action pills row */
 .insp-action-row{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:14px 0 10px;}
@@ -2814,6 +2848,92 @@ function closeAnySheet(){
   closePlanSheet();
 }
 
+/* ── CROP PICKER ─────────────────────────────────── */
+let cropsCache=[];
+let planCropId=null; // id of selected crop from DB, null = new crop
+
+async function fetchCrops(){
+  try{
+    const res=await fetch(`${SB_URL}/rest/v1/crops?select=id,name,water_needs,sun_needs,spacing_inches,frost_hardy&order=name.asc`,{headers:SB_HEADERS});
+    cropsCache=await res.json();
+  }catch(e){cropsCache=[];}
+}
+
+function buildCropDropdown(query){
+  const q=query.toLowerCase();
+  const filtered=q?cropsCache.filter(c=>c.name.toLowerCase().includes(q)):cropsCache;
+  const exactMatch=cropsCache.some(c=>c.name.toLowerCase()===q);
+  const newOpt=query&&!exactMatch
+    ?`<button class="cp-option cp-option-new" type="button" onclick="cpSelectNew('${query.replace(/'/g,"\\'")}')">+ Use "${query}" as new crop</button>`
+    :'';
+  const empty=!filtered.length&&!newOpt?'<div class="cp-option" style="color:var(--text-dim);cursor:default;font-style:italic">No matches</div>':'';
+  return filtered.map(c=>`<button class="cp-option" type="button" onclick="cpSelect('${c.id}')">${c.name}</button>`).join('')+newOpt+empty;
+}
+
+function cpRenderSearch(query=''){
+  return `<div class="crop-picker" id="crop-picker">
+    <input class="log-input" id="pf-crop-search" type="text" placeholder="Search crops…"
+      value="${query}" oninput="cpUpdateDropdown(this.value)" autocomplete="off">
+    <div class="cp-dropdown" id="cp-dropdown">${buildCropDropdown(query)}</div>
+  </div>`;
+}
+
+function cpRenderSelected(name,cropObj,isNew){
+  const metaParts=[];
+  if(cropObj){
+    if(cropObj.sun_needs)metaParts.push(`<span class="cp-meta-item"><span class="cp-meta-label">Sun</span>${cropObj.sun_needs}</span>`);
+    if(cropObj.water_needs)metaParts.push(`<span class="cp-meta-item"><span class="cp-meta-label">Water</span>${cropObj.water_needs}</span>`);
+    if(cropObj.spacing_inches)metaParts.push(`<span class="cp-meta-item"><span class="cp-meta-label">Spacing</span>${cropObj.spacing_inches}"</span>`);
+    if(cropObj.frost_hardy!==null)metaParts.push(`<span class="cp-meta-item">${cropObj.frost_hardy?'❄️ Frost hardy':'🌡️ Frost sensitive'}</span>`);
+  }
+  return `<div class="crop-picker" id="crop-picker">
+    <input type="hidden" id="pf-crop" value="${name}">
+    <div class="cp-selected-display">
+      <span class="cp-selected-name">${name}</span>
+      ${isNew?'<span class="cp-new-badge">new</span>':''}
+      <button class="cp-change-btn" type="button" onclick="cpClear()">change</button>
+    </div>
+    ${metaParts.length?`<div class="cp-meta">${metaParts.join('')}</div>`:''}
+  </div>`;
+}
+
+function cpSelect(cropId){
+  const crop=cropsCache.find(c=>c.id===cropId);
+  if(!crop)return;
+  planCropId=cropId;
+  const picker=document.getElementById('crop-picker');
+  if(picker)picker.outerHTML=cpRenderSelected(crop.name,crop,false);
+  // Auto-fill spacing notes if blank and crop has spacing data
+  const spacingIn=document.getElementById('pf-spacing');
+  if(spacingIn&&!spacingIn.value&&crop.spacing_inches)spacingIn.value=`${crop.spacing_inches}" spacing`;
+}
+
+function cpSelectNew(name){
+  planCropId=null;
+  const picker=document.getElementById('crop-picker');
+  if(picker)picker.outerHTML=cpRenderSelected(name,null,true);
+}
+
+function cpClear(){
+  planCropId=null;
+  const picker=document.getElementById('crop-picker');
+  if(picker)picker.outerHTML=cpRenderSearch('');
+  setTimeout(()=>document.getElementById('pf-crop-search')?.focus(),50);
+}
+
+function cpUpdateDropdown(query){
+  const dd=document.getElementById('cp-dropdown');
+  if(dd)dd.innerHTML=buildCropDropdown(query);
+}
+
+function cpInit(currentName){
+  // Find matching crop in cache for pre-selection
+  const matched=currentName?cropsCache.find(c=>c.name.toLowerCase()===currentName.toLowerCase()):null;
+  if(matched){planCropId=matched.id;return cpRenderSelected(matched.name,matched,false);}
+  planCropId=null;
+  return cpRenderSearch(currentName||'');
+}
+
 function renderPlanForm(bedId,p){
   const m=planMethod;
   const bed=BEDS[bedId];
@@ -2827,7 +2947,7 @@ function renderPlanForm(bedId,p){
   <p class="plan-zone-info">${zoneGph}</p>
   <div class="plan-form-field">
     <label class="plan-field-label">Crop</label>
-    <input class="log-input" id="pf-crop" value="${p?.crop_name||''}" placeholder="e.g. Tomato">
+    ${cpInit(p?.crop_name||'')}
   </div>
   <div class="plan-form-field">
     <label class="plan-field-label">Variety</label>
@@ -2892,7 +3012,7 @@ function setPlanMethod(method){
 
 async function savePlanSheet(bedId){
   const p=getPlanningPlanting(bedId,planYear);
-  const crop=document.getElementById('pf-crop').value.trim();
+  const crop=(document.getElementById('pf-crop')?.value||document.getElementById('pf-crop-search')?.value||'').trim();
   if(!crop)return;
   const payload={
     crop_name:crop,
@@ -3133,7 +3253,7 @@ function switchTab(id,btn){
 
 /* ── INIT ────────────────────────────────────────── */
 window.addEventListener('load',async()=>{
-  await fetchAllPlantings();
+  await Promise.all([fetchAllPlantings(),fetchCrops()]);
   updateMapLabels();
   renderStatusIndicators();
   await fetchV2Tasks();
