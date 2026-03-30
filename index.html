@@ -716,6 +716,25 @@ h1 em{font-style:normal;color:var(--teal);}
 }
 .plan-card-add-succ:active{color:rgba(255,255,255,.5);}
 
+/* Copy-to-next-year controls */
+.plan-copy-yr-btn{
+  display:block;width:100%;margin-top:8px;padding:8px;
+  background:none;border:1px solid rgba(255,255,255,.08);border-radius:8px;
+  font-size:.7rem;color:rgba(255,255,255,.3);cursor:pointer;text-align:center;
+}
+.plan-copy-yr-btn:active{color:rgba(255,255,255,.55);}
+.plan-copy-season-row{margin-top:8px;}
+.plan-copy-season-btn{
+  background:none;border:1px solid rgba(255,255,255,.08);border-radius:8px;
+  padding:7px 12px;font-size:.7rem;color:rgba(255,255,255,.3);cursor:pointer;
+  display:flex;align-items:center;gap:8px;
+}
+.plan-copy-season-btn:active{color:rgba(255,255,255,.5);}
+.plan-copy-ct{
+  font-size:.6rem;color:rgba(255,255,255,.2);
+  background:rgba(255,255,255,.06);border-radius:4px;padding:1px 5px;
+}
+
 /* Plan form active banner */
 .plan-active-banner{
   display:flex;align-items:center;gap:7px;
@@ -1650,6 +1669,9 @@ function getActivePlanting(bedId){
   const list=plantingCache[bedId];
   if(!list)return null;
   return list.find(p=>p.ended_date===null)||list[0];
+}
+function hasPlantingForYear(bedId,year){
+  return (plantingCache[bedId]||[]).some(p=>p.year===year);
 }
 
 // The planting currently shown in the inspector (switchable by user)
@@ -2753,7 +2775,15 @@ function renderPlanGrid(){
   document.getElementById('plan-grid').innerHTML=html;
   const total=activeCt+draftCt;
   const fp=document.getElementById('plan-footer');
-  if(fp)fp.innerHTML=`<span>${total} of 12 beds planned · ${activeCt} active</span>`;
+  if(fp){
+    fp.innerHTML=`<span>${total} of 12 beds planned · ${activeCt} active</span>`;
+    const targetYear=planYear+1;
+    const ALL_BEDS=['w1','c1','e1','w2','c2','e2','w3','c3','e3','w4','c4','e4'];
+    const copiable=ALL_BEDS.filter(b=>getPlanningPlanting(b,planYear)&&!hasPlantingForYear(b,targetYear));
+    if(copiable.length>0){
+      fp.innerHTML+=`<div class="plan-copy-season-row"><button class="plan-copy-season-btn" onclick="copySeasonToNextYear()">Use ${planYear} as template for ${targetYear}<span class="plan-copy-ct">${copiable.length} bed${copiable.length!==1?'s':''}</span></button></div>`;
+    }
+  }
 }
 
 const PERENNIAL_CROPS=['Strawberries'];
@@ -3018,7 +3048,9 @@ function renderPlanForm(bedId,p){
     <textarea class="log-input" id="pf-notes" rows="3" placeholder="Planning observations, goals...">${p?.season_notes||''}</textarea>
   </div>
   <button class="log-add-btn" style="width:100%;margin-top:16px;font-size:.8rem;padding:12px" onclick="savePlanSheet('${bedId}')">Save</button>
-  <button class="plan-cancel-btn" onclick="closePlanSheet()">Cancel</button>`;
+  <button class="plan-cancel-btn" onclick="closePlanSheet()">Cancel</button>
+  ${p&&!hasPlantingForYear(bedId,planYear+1)?`<button class="plan-copy-yr-btn" onclick="copyBedPlanToNextYear('${bedId}')">Copy to ${planYear+1} →</button>`:''}`;
+
 }
 
 function renderPlanDateFields(method,p){
@@ -3047,6 +3079,61 @@ function setPlanMethod(method){
   event.currentTarget.classList.add('pmethod-active');
   const p=getPlanningPlanting(planBedId,planYear);
   document.getElementById('pf-dates').innerHTML=renderPlanDateFields(method,p);
+}
+
+async function copyPlantingToYear(p,bedId,targetYear){
+  const payload={
+    bed_id:bedId,year:targetYear,season:'Spring',
+    planting_state:'draft',planned_date:today(),
+    crop_name:p.crop_name,variety:p.variety||null,
+    planting_method:p.planting_method||'direct_sow',
+    seed_source:p.seed_source||null,
+    spacing_notes:p.spacing_notes||null,
+  };
+  const res=await fetch(`${SB_URL}/rest/v1/plantings`,{
+    method:'POST',
+    headers:{...SB_HEADERS,'Prefer':'return=representation','Content-Type':'application/json'},
+    body:JSON.stringify(payload)
+  });
+  return (await res.json())[0];
+}
+async function copyBedPlanToNextYear(bedId){
+  const list=plantingCache[bedId]||[];
+  const p=planEditId?list.find(x=>x.id===planEditId):null;
+  if(!p)return;
+  const targetYear=planYear+1;
+  if(hasPlantingForYear(bedId,targetYear))return;
+  const btn=document.querySelector('.plan-copy-yr-btn');
+  if(btn){btn.disabled=true;btn.textContent='Copying…';}
+  try{
+    await copyPlantingToYear(p,bedId,targetYear);
+    await fetchAllPlantings();
+    closePlanSheet();
+    planYear=targetYear;
+    document.getElementById('plan-yr-label').textContent=planYear;
+    renderPlanningTab();
+  }catch(e){
+    console.error('copyBedPlanToNextYear failed:',e);
+    if(btn){btn.disabled=false;btn.textContent=`Copy to ${targetYear} →`;}
+  }
+}
+async function copySeasonToNextYear(){
+  const targetYear=planYear+1;
+  const ALL_BEDS=['w1','c1','e1','w2','c2','e2','w3','c3','e3','w4','c4','e4'];
+  const copiable=ALL_BEDS.filter(b=>getPlanningPlanting(b,planYear)&&!hasPlantingForYear(b,targetYear));
+  if(!copiable.length)return;
+  const btn=document.querySelector('.plan-copy-season-btn');
+  if(btn){btn.disabled=true;btn.textContent='Copying…';}
+  try{
+    await Promise.all(copiable.map(bedId=>copyPlantingToYear(getPlanningPlanting(bedId,planYear),bedId,targetYear)));
+    await fetchAllPlantings();
+    planYear=targetYear;
+    document.getElementById('plan-yr-label').textContent=planYear;
+    renderPlanningTab();
+  }catch(e){
+    console.error('copySeasonToNextYear failed:',e);
+    if(btn){btn.disabled=false;}
+  }
 }
 
 async function savePlanSheet(bedId){
