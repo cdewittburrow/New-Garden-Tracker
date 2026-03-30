@@ -2708,12 +2708,17 @@ function shiftPlanYear(dir){
 
 function getPlanningPlanting(bedId,year){
   const list=plantingCache[bedId]||[];
+  const currentYear=new Date().getFullYear();
   // Active planting started this year
   const activeThisYear=list.find(p=>p.year===year&&p.ended_date===null);
   if(activeThisYear)return activeThisYear;
-  // Active planting started in a prior year, still in ground (garlic fall 2025 → still showing in 2026)
-  const activeCarryover=list.find(p=>p.year<year&&p.ended_date===null);
-  if(activeCarryover)return activeCarryover;
+  // Carryover: only when viewing the current year — show active from a prior year still in ground
+  // (e.g. garlic planted fall 2025 still growing in spring 2026)
+  // Future years are a clean slate for planning purposes.
+  if(year===currentYear){
+    const activeCarryover=list.find(p=>p.year<year&&p.ended_date===null);
+    if(activeCarryover)return activeCarryover;
+  }
   // Historical: ended planting from that exact year
   return list.find(p=>p.year===year)||null;
 }
