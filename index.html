@@ -533,17 +533,18 @@ h1 em{font-style:normal;color:var(--teal);}
 
 /* ── INSPECTOR v2.1 ──────────────────────────────── */
 /* Action pills row */
-.insp-action-row{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin:14px 0 10px;}
+.insp-action-row{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:14px 0 10px;}
 .insp-pill{
-  display:flex;align-items:center;gap:9px;padding:10px 12px;
-  border-radius:9px;border:1px solid;cursor:pointer;text-align:left;background:none;
-  transition:opacity .15s;
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+  gap:5px;padding:16px 12px;
+  border-radius:12px;border:1px solid;cursor:pointer;text-align:center;background:none;
+  transition:opacity .15s;min-height:72px;
 }
 .insp-pill:active{opacity:.7;}
-.pill-icon{font-size:15px;line-height:1;flex-shrink:0;}
-.pill-text{display:flex;flex-direction:column;gap:2px;min-width:0;}
-.pill-label{font-family:'Inter',sans-serif;font-size:.69rem;font-weight:600;line-height:1;white-space:nowrap;}
-.pill-sub{font-family:'Inter',sans-serif;font-size:.6rem;line-height:1;white-space:nowrap;}
+.pill-icon{font-size:22px;line-height:1;}
+.pill-text{display:flex;flex-direction:column;gap:3px;}
+.pill-label{font-family:'Inter',sans-serif;font-size:.75rem;font-weight:600;line-height:1;white-space:nowrap;}
+.pill-sub{font-family:'Inter',sans-serif;font-size:.62rem;line-height:1;white-space:nowrap;}
 /* Water pill — blue */
 .insp-pill-water{background:rgba(37,99,235,.18);border-color:rgba(37,99,235,.4);}
 .insp-pill-water .pill-label{color:#7ab3f0;}
@@ -2023,6 +2024,7 @@ async function markPlanted(bedId){
     return;
   }
   document.getElementById('bed-detail-content').innerHTML=renderDetail(bedId);
+  document.getElementById('mini-map').innerHTML=buildMiniMap(bedId);
   loadInspectorData(bedId);
   renderBadges();
   renderStatusIndicators();
@@ -2071,6 +2073,7 @@ async function openSheet(bedId){
   activeBedId=bedId;
   delete selectedPlantingId[bedId];
   document.getElementById('bed-detail-content').innerHTML=renderDetail(bedId);
+  document.getElementById('mini-map').innerHTML=buildMiniMap(bedId);
   document.getElementById('bed-sheet').classList.add('is-open');
   document.getElementById('sheet-backdrop').classList.add('is-open');
   document.body.style.overflow='hidden';
@@ -2162,13 +2165,18 @@ function renderDetail(bedId){
   const derivedStatus=livePlanting?(livePlanting.status||(livePlanting.planted_date?'growing':'planned')):a.status;
   const st=STATUS[derivedStatus]||STATUS.planned;
 
-  // Header — crop name, variety, bed chip + status badge (no minimap, no zone badge)
+  // Header — crop name + variety left, minimap right
   let h=`<div class="insp-header">
-    <div class="insp-crop-name">${cropName}</div>
-    ${variety?`<div class="insp-variety">${variety}</div>`:''}
-    <div class="insp-header-meta" style="margin-top:6px">
-      <span class="insp-bed-chip">${bed.id}</span>
-      <span id="status-badge" class="status-badge ${st.cls}" onclick="openStatusPicker('${bedId}')"><span class="status-dot"></span>${st.label}</span>
+    <div class="insp-header-row">
+      <div class="insp-header-left">
+        <div class="insp-crop-name">${cropName}</div>
+        ${variety?`<div class="insp-variety">${variety}</div>`:''}
+        <div class="insp-header-meta" style="margin-top:6px">
+          <span class="insp-bed-chip">${bed.id}</span>
+          <span id="status-badge" class="status-badge ${st.cls}" onclick="openStatusPicker('${bedId}')"><span class="status-dot"></span>${st.label}</span>
+        </div>
+      </div>
+      <div class="mini-map" id="mini-map"></div>
     </div>
   </div>`;
 
@@ -2311,6 +2319,7 @@ function navToBed(bedId){
   setTimeout(()=>{
     delete selectedPlantingId[bedId];
     content.innerHTML=renderDetail(bedId);
+    document.getElementById('mini-map').innerHTML=buildMiniMap(bedId);
     content.style.opacity='1';
     loadInspectorData(bedId);
   },150);
@@ -2358,6 +2367,7 @@ async function submitNewCrop(bedId){
     renderStatusIndicators();
     delete selectedPlantingId[bedId];
     document.getElementById('bed-detail-content').innerHTML=renderDetail(bedId);
+    document.getElementById('mini-map').innerHTML=buildMiniMap(bedId);
     loadInspectorData(bedId);
   }catch(e){
     console.error('Failed to start new crop:',e);
@@ -2371,6 +2381,7 @@ function switchPlanting(bedId,plantingId){
   selectedPlantingId[bedId]=plantingId;
   const content=document.getElementById('bed-detail-content');
   content.innerHTML=renderDetail(bedId);
+  document.getElementById('mini-map').innerHTML=buildMiniMap(bedId);
   loadInspectorData(bedId);
 }
 
