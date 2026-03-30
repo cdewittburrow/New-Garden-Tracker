@@ -531,14 +531,121 @@ h1 em{font-style:normal;color:var(--teal);}
 }
 .plan-cancel-btn:hover{color:var(--text);}
 
-/* Close planting flow */
-.close-planting-btn{
-  display:block;width:100%;margin-top:24px;padding:10px;
-  font-family:'Inter',sans-serif;font-size:.72rem;color:var(--text-dim);
-  background:none;border:1px solid var(--border);border-radius:10px;cursor:pointer;
-  transition:all .15s;
+/* ── INSPECTOR v2.1 ──────────────────────────────── */
+/* Action pills row */
+.insp-action-row{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin:14px 0 10px;}
+.insp-pill{
+  display:flex;align-items:center;gap:9px;padding:10px 12px;
+  border-radius:9px;border:1px solid;cursor:pointer;text-align:left;background:none;
+  transition:opacity .15s;
 }
-.close-planting-btn:hover{color:#ef5350;border-color:rgba(239,83,80,.4);}
+.insp-pill:active{opacity:.7;}
+.pill-icon{font-size:15px;line-height:1;flex-shrink:0;}
+.pill-text{display:flex;flex-direction:column;gap:2px;min-width:0;}
+.pill-label{font-family:'Inter',sans-serif;font-size:.69rem;font-weight:600;line-height:1;white-space:nowrap;}
+.pill-sub{font-family:'Inter',sans-serif;font-size:.6rem;line-height:1;white-space:nowrap;}
+/* Water pill — blue */
+.insp-pill-water{background:rgba(37,99,235,.18);border-color:rgba(37,99,235,.4);}
+.insp-pill-water .pill-label{color:#7ab3f0;}
+.insp-pill-water .pill-sub{color:rgba(100,160,255,.45);}
+/* Water pill — amber state (4+ days) */
+.insp-pill-water.amber{background:rgba(186,117,23,.15);border-color:rgba(186,117,23,.35);}
+.insp-pill-water.amber .pill-label{color:#f5c542;}
+.insp-pill-water.amber .pill-sub{color:rgba(245,197,66,.4);}
+/* Note pill — muted */
+.insp-pill-note{background:rgba(255,255,255,.06);border-color:rgba(255,255,255,.1);}
+.insp-pill-note .pill-label{color:rgba(255,255,255,.45);}
+.insp-pill-note .pill-sub{color:rgba(255,255,255,.22);}
+
+/* Last note strip */
+.note-strip{
+  background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.06);
+  border-radius:8px;padding:10px 12px;cursor:pointer;
+  margin-bottom:8px;transition:border-color .15s;user-select:none;
+}
+.note-strip.expanded{border-color:rgba(255,255,255,.1);}
+.note-strip-hdr{display:flex;justify-content:space-between;align-items:center;margin-bottom:5px;}
+.note-strip-label{font-family:'Inter',sans-serif;font-size:.58rem;color:rgba(255,255,255,.22);letter-spacing:.06em;text-transform:uppercase;}
+.note-strip-date{font-family:'Inter',sans-serif;font-size:.58rem;color:rgba(255,255,255,.22);}
+.note-strip-text{font-family:'Inter',sans-serif;font-size:.69rem;color:rgba(255,255,255,.4);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+.note-strip-text.empty{font-style:italic;}
+.note-strip-entries{display:flex;flex-direction:column;}
+.note-entry{padding:7px 0;border-top:1px solid rgba(255,255,255,.05);}
+.note-entry:first-child{border-top:none;padding-top:0;}
+.note-entry-date{font-family:'Inter',sans-serif;font-size:.6rem;color:rgba(255,255,255,.3);margin-bottom:3px;}
+.note-entry-text{font-family:'Inter',sans-serif;font-size:.69rem;line-height:1.45;}
+.note-entry-text.recent{color:rgba(255,255,255,.7);}
+.note-entry-text.older{color:rgba(255,255,255,.5);}
+.note-add-btn{
+  display:block;width:100%;text-align:right;padding:8px 0 0;margin-top:8px;
+  font-family:'Inter',sans-serif;font-size:.65rem;color:rgba(100,160,255,.5);
+  background:none;border:none;cursor:pointer;
+}
+.note-add-btn:hover{color:rgba(100,160,255,.8);}
+
+/* Harvest quiet button */
+.harvest-quiet-btn{
+  display:flex;align-items:center;justify-content:center;gap:6px;
+  width:100%;padding:8px;margin-bottom:4px;
+  background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.07);
+  border-radius:8px;cursor:pointer;
+  font-family:'Inter',sans-serif;font-size:.65rem;font-weight:500;
+  color:rgba(255,255,255,.25);transition:opacity .15s;
+}
+.harvest-quiet-btn:hover{opacity:.75;}
+
+/* Close planting — plain text link */
+.close-planting-link{
+  text-align:center;padding:8px 0 4px;
+  font-family:'Inter',sans-serif;font-size:.62rem;
+  color:rgba(255,255,255,.15);cursor:pointer;transition:color .15s;
+}
+.close-planting-link:hover{color:rgba(239,83,80,.5);}
+
+/* Draft bed CTA */
+.draft-cta{display:flex;flex-direction:column;align-items:center;gap:10px;padding:28px 0 20px;text-align:center;}
+.draft-planned-date{font-family:'Inter',sans-serif;font-size:.7rem;color:var(--text-sub);}
+
+/* Task section */
+.insp-task-section-label{
+  font-family:'Inter',sans-serif;font-size:.6rem;letter-spacing:.06em;
+  color:rgba(255,255,255,.25);text-transform:uppercase;margin-bottom:8px;
+}
+.insp-no-tasks{
+  font-family:'Inter',sans-serif;font-size:.72rem;font-style:italic;
+  color:rgba(255,255,255,.25);padding:6px 0 14px;
+}
+.insp-task-hint{font-family:'Inter',sans-serif;font-size:.6rem;color:var(--text-dim);margin-top:1px;}
+.insp-task-desc{
+  font-family:'Inter',sans-serif;font-size:.72rem;color:var(--text-sub);
+  line-height:1.45;padding:6px 0 2px;margin-top:4px;border-top:1px solid var(--divider);
+}
+.task-title-done{text-decoration:line-through;opacity:.45;}
+.insp-task-row{cursor:pointer;}
+.insp-task-row.task-done{cursor:default;}
+
+/* Inspector modal overlay */
+.insp-modal-overlay{
+  position:fixed;inset:0;z-index:200;
+  background:rgba(0,0,0,.65);backdrop-filter:blur(4px);
+  display:flex;align-items:flex-end;justify-content:center;
+}
+.insp-modal{width:100%;max-width:560px;background:var(--bg-panel);border-radius:20px 20px 0 0;padding:24px 20px 36px;}
+.insp-modal-title{font-family:'Inter',sans-serif;font-size:.88rem;font-weight:600;color:var(--text);margin-bottom:16px;}
+.insp-modal-actions{display:flex;gap:8px;margin-top:14px;}
+.insp-modal-cancel{
+  flex:1;padding:10px;font-family:'Inter',sans-serif;font-size:.75rem;
+  background:var(--bg-card);border:1px solid var(--border);border-radius:10px;
+  cursor:pointer;color:var(--text-sub);
+}
+.insp-modal-confirm{
+  flex:2;padding:10px;font-family:'Inter',sans-serif;font-size:.75rem;font-weight:600;
+  background:linear-gradient(135deg,var(--sapphire-mid),var(--sapphire-dk));
+  border:none;border-radius:10px;cursor:pointer;color:#fff;
+}
+.insp-modal-confirm:disabled{opacity:.5;cursor:default;}
+
+/* Close planting flow */
 .end-confirm-row{
   margin-top:24px;padding:14px;border-radius:10px;
   background:rgba(239,83,80,.07);border:1px solid rgba(239,83,80,.2);
@@ -1672,6 +1779,17 @@ function getPendingTasksThisWeek(bedId){
   });
 }
 
+// Returns all tasks (completed + pending) due within this week — for inspector display
+function getAllTasksThisWeek(bedId){
+  const tasks=getTasksForBed(bedId);
+  const now=new Date();
+  const weekOut=new Date(now.getTime()+7*864e5);
+  return tasks.filter(t=>{
+    const due=new Date(t.due_date+'T00:00:00');
+    return due<=weekOut;
+  });
+}
+
 async function completeV2Task(taskId){
   const completedDate=today();
   const numId=Number(taskId);
@@ -1904,14 +2022,8 @@ async function markPlanted(bedId){
     console.error('Failed to activate planting:',e);
     return;
   }
-  document.getElementById('bed-detail-content').innerHTML=renderDetail(bedId,[]);
-  document.getElementById('mini-map').innerHTML=buildMiniMap(bedId);
-  bindLog(planting.id);
-  bindHarvest(planting.id);
-  loadLogs(bedId);
-  loadHarvests(planting.id);
-  bindWatering(bedId);
-  loadWatering(bedId);
+  document.getElementById('bed-detail-content').innerHTML=renderDetail(bedId);
+  loadInspectorData(bedId);
   renderBadges();
   renderStatusIndicators();
 }
@@ -1958,20 +2070,11 @@ async function openSheet(bedId){
   if(hint)hint.style.display='none';
   activeBedId=bedId;
   delete selectedPlantingId[bedId];
-  document.getElementById('bed-detail-content').innerHTML=renderDetail(bedId,[]);
-  document.getElementById('mini-map').innerHTML=buildMiniMap(bedId);
+  document.getElementById('bed-detail-content').innerHTML=renderDetail(bedId);
   document.getElementById('bed-sheet').classList.add('is-open');
   document.getElementById('sheet-backdrop').classList.add('is-open');
   document.body.style.overflow='hidden';
-  const planting=getSelectedPlanting(bedId);
-  if(planting){
-    bindLog(planting.id);
-    bindHarvest(planting.id);
-    loadLogs(bedId);
-    loadHarvests(planting.id);
-  }
-  bindWatering(bedId);
-  loadWatering(bedId);
+  loadInspectorData(bedId);
 }
 
 function closeSheet(){
@@ -2048,219 +2151,121 @@ async function loadHarvests(plantingId){
 }
 
 /* ── DETAIL RENDER ───────────────────────────────── */
-function renderDetail(bedId,logs=[]){
+function renderDetail(bedId){
   const bed=BEDS[bedId],a=bed.slotA;
-
-  // Crop info — prefer DB planting data, fall back to BEDS static data
   const dbPlanting=getSelectedPlanting(bedId);
   const cropName=dbPlanting?dbPlanting.crop_name:a.crop;
   const variety=dbPlanting?.variety||a.variety||null;
-  const sownDate=dbPlanting?.planted_date||a.sown||null;
-  const expectedHarvest=dbPlanting?.expected_harvest||a.harvest||null;
 
-  // Derive status from live DB planting if one exists
+  // Derive status
   const livePlanting=getActivePlanting(bedId);
   const derivedStatus=livePlanting?(livePlanting.status||(livePlanting.planted_date?'growing':'planned')):a.status;
   const st=STATUS[derivedStatus]||STATUS.planned;
-  const zTag=bed.zone===1?'z1-tag':'z2-tag';
-  const zLabel=bed.zone===1?'Zone 1':'Zone 2';
 
-  // Inspector header: crop info left, minimap right
+  // Header — crop name, variety, bed chip + status badge (no minimap, no zone badge)
   let h=`<div class="insp-header">
-    <div class="insp-header-row">
-      <div class="insp-header-left">
-        <div class="insp-crop-name">${cropName}</div>
-        ${variety?`<div class="insp-variety">${variety}</div>`:''}
-        <div class="insp-header-meta">
-          <span class="insp-bed-chip">${bed.id}</span>
-          <span class="zone-tag ${zTag}">${zLabel}</span>
-          <span id="status-badge" class="status-badge ${st.cls}" onclick="openStatusPicker('${bedId}')"><span class="status-dot"></span>${st.label}</span>
-        </div>
-      </div>
-      <div class="mini-map" id="mini-map"></div>
+    <div class="insp-crop-name">${cropName}</div>
+    ${variety?`<div class="insp-variety">${variety}</div>`:''}
+    <div class="insp-header-meta" style="margin-top:6px">
+      <span class="insp-bed-chip">${bed.id}</span>
+      <span id="status-badge" class="status-badge ${st.cls}" onclick="openStatusPicker('${bedId}')"><span class="status-dot"></span>${st.label}</span>
     </div>
   </div>`;
 
-  // Draft state — simplified inspector
+  // Draft state — single CTA, no action row, no note strip
   const plantedDate=getActivePlanting(bedId)?.planted_date;
   const isDraftPlanting=dbPlanting&&(dbPlanting.planting_state==='draft'||!plantedDate);
   if(isDraftPlanting){
-    h+=`<div class="planted-row"><button class="planted-btn" onclick="markPlanted('${bedId}')">Mark as planted today</button></div>`;
-    h+=`<div class="detail-body">`;
-    if(dbPlanting.planned_date)h+=dr('Planned',fmtDate(dbPlanting.planned_date));
-    if(dbPlanting.seed_source)h+=dr('Source',dbPlanting.seed_source);
-    if(dbPlanting.season_notes)h+=`<span class="section-label">Season notes</span><p style="font-size:.82rem;line-height:1.5;color:var(--text-sub)">${dbPlanting.season_notes}</p>`;
-    h+=`</div>`;
+    h+=`<div class="draft-cta">
+      <button class="planted-btn" onclick="markPlanted('${bedId}')">Mark as planted today</button>
+      ${dbPlanting?.planned_date?`<div class="draft-planned-date">Planned sow: ${fmtDate(dbPlanting.planned_date)}</div>`:''}
+      ${dbPlanting?.seed_source?`<div class="draft-planned-date">${dbPlanting.seed_source}</div>`:''}
+    </div>`;
     return h;
   }
 
-  // Action strip — 3 tappable buttons
-  h+=`<div class="action-strip">
-    <div class="action-water-wrap">
-      <button class="action-btn action-primary" id="water-btn">Log watering</button>
-      <div class="water-inline">
-        <input type="number" id="water-dur" class="log-input water-dur" value="5" min="1" max="240">
-        <span class="water-dur-lbl">min</span>
-      </div>
-    </div>
-    <button class="action-btn" onclick="document.getElementById('log-ta')?.focus();document.getElementById('log-ta')?.scrollIntoView({behavior:'smooth',block:'center'})">Add note</button>
-    <button class="action-btn" onclick="toggleHarvestForm()">Log harvest</button>
-  </div>`;
-
-  // Status strip — last watered + harvest estimate
-  h+=`<div class="stat-strip">
-    <div class="stat-card">
-      <div class="stat-label">Last watered</div>
-      <div class="stat-value" id="last-watered">Loading…</div>
-      <div class="stat-sub">Zone ${bed.zone}</div>
-    </div>
-    <div class="stat-card">
-      <div class="stat-label">Harvest estimate</div>
-      <div class="stat-value">${expectedHarvest||'—'}</div>
-    </div>
-  </div>`;
-
-  // Tasks this week — only shown when tasks exist
-  const pendingTasks=getPendingTasksThisWeek(bedId);
-  if(pendingTasks.length){
+  // Tasks this week — all (completed + pending) due in 7 days
+  const weekTasks=getAllTasksThisWeek(bedId);
+  if(weekTasks.length){
     h+=`<div class="insp-tasks">
-      <div class="section-label" style="margin-top:0">Tasks this week</div>`;
-    for(const t of pendingTasks){
-      const dueStr=fmtDate(t.due_date);
-      h+=`<div class="insp-task-row">
-        <input type="checkbox" class="task-cb" ${t.completed_date?'checked disabled':''} onchange="handleInspTaskCheck(this,'${t.id}','${bedId}')">
+      <div class="insp-task-section-label">Tasks this week</div>`;
+    for(const t of weekTasks){
+      const done=!!t.completed_date;
+      h+=`<div class="insp-task-row${done?' task-done':''}" ${!done?`onclick="toggleTaskExpand(this)"`:''}">
+        <input type="checkbox" class="task-cb" ${done?'checked disabled':''} onclick="event.stopPropagation()" onchange="handleInspTaskCheck(this,'${t.id}','${bedId}')">
         <div class="insp-task-body">
-          <div class="insp-task-title">${t.title}</div>
-          <div class="insp-task-due">Due ${dueStr}</div>
+          <div class="insp-task-title${done?' task-title-done':''}">${t.title}</div>
+          ${!done?`<div class="insp-task-hint">tap for details</div>`:''}
+          ${t.description&&!done?`<div class="insp-task-desc" style="display:none">${t.description}</div>`:''}
         </div>
       </div>`;
     }
     h+=`</div>`;
+  } else {
+    h+=`<div class="insp-no-tasks">No tasks due this week</div>`;
   }
 
-  h+=`<div class="detail-body">`;
-
-  const today=(()=>{const d=new Date();return `${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,'0')}-${String(d.getDate()).padStart(2,'0')}`;})();
-
-  // Planting details
-  if(sownDate){
-    const rel=relativeWeeks(sownDate);
-    h+=`<span class="section-label">Planting details</span>`;
-    h+=dr('Sown',`${fmtDate(sownDate)}${rel?`<span class="rel-time">${rel}</span>`:''}`);
-    if(a.source)h+=dr('Source',a.source);
-  }
-
-  // Succession card
-  const succPlanting=dbPlanting?.succession_planting_id?getPlantingById(dbPlanting.succession_planting_id):null;
-  if(succPlanting){
-    h+=`<span class="section-label">Succession</span>
-    <div class="succession-card">
-      <div class="succ-now">
-        <div class="succ-label">Now</div>
-        <div class="succ-crop">${cropName}</div>
-        ${variety?`<div class="succ-variety">${variety}</div>`:''}
+  // Two-pill action row
+  const plantingId=dbPlanting?.id;
+  h+=`<div class="insp-action-row">
+    <button class="insp-pill insp-pill-water" id="water-pill" onclick="openWaterModal('${bedId}')">
+      <span class="pill-icon">💧</span>
+      <div class="pill-text">
+        <div class="pill-label">Log water</div>
+        <div class="pill-sub" id="water-sub">—</div>
       </div>
-      <div class="succ-arrow">→</div>
-      <div class="succ-then">
-        <div class="succ-label">Then</div>
-        <div class="succ-crop">${succPlanting.crop_name}</div>
-        ${succPlanting.variety?`<div class="succ-variety">${succPlanting.variety}</div>`:''}
-        ${succPlanting.planned_date?`<div class="succ-date">Planned ${fmtDate(succPlanting.planned_date)}</div>`:''}
+    </button>
+    <button class="insp-pill insp-pill-note" onclick="openNoteModal('${plantingId}')">
+      <span class="pill-icon">📝</span>
+      <div class="pill-text">
+        <div class="pill-label">Add note</div>
+        <div class="pill-sub" id="note-pill-sub">—</div>
       </div>
-    </div>`;
-  }
-
-  // Notes section
-  h+=`<span class="section-label">Notes</span><div id="log-entries">`;
-  h+=`<p class="log-empty">Loading…</p>`;
-  h+=`</div>
-  <div class="log-add-row">
-    <textarea class="log-input" id="log-ta" rows="3" placeholder="Add an observation…"></textarea>
-    <button class="log-add-btn" id="log-btn">Add</button>
+    </button>
   </div>`;
 
-  // Yield section
-  h+=`<span class="section-label">Yield</span>
-  <div id="harvest-entries"><p class="log-empty">Loading…</p></div>
-  <div class="harvest-total-row"><span id="harvest-total" class="harvest-total"></span></div>
-  <div id="harvest-form" class="harvest-form-row" style="display:none">
-    <div class="harvest-inputs">
-      <input type="date" id="harvest-date" class="log-input harvest-date-in" value="${today}">
-      <input type="number" id="harvest-amount" class="log-input harvest-amt-in" placeholder="Amount" min="0" step="0.1">
-      <select id="harvest-unit" class="harvest-unit-sel">
-        <option value="lbs">lbs</option>
-        <option value="count">count</option>
-      </select>
+  // Last note strip — collapsed by default, tap to expand
+  h+=`<div class="note-strip" id="note-strip" onclick="toggleNoteStrip('${bedId}','${plantingId}')">
+    <div class="note-strip-hdr">
+      <span class="note-strip-label">Last note</span>
+      <span class="note-strip-date" id="note-strip-date">—</span>
     </div>
-    <input type="text" id="harvest-notes" class="log-input" placeholder="Notes (optional)">
-    <button class="log-add-btn" id="harvest-btn">Log</button>
+    <div class="note-strip-text empty" id="note-strip-text">Loading…</div>
   </div>`;
 
-  // Crops accordion — planting switcher + new crop form
-  const allPlantings=plantingCache[bedId]||[];
-  const mo=new Date().getMonth();
-  const defSeason=mo>=2&&mo<=4?'Spring':mo>=5&&mo<=7?'Summer':mo>=8&&mo<=10?'Fall':'Winter';
-  const seasonOpts=['Spring','Summer','Fall','Winter'].map(s=>`<option value="${s}"${s===defSeason?' selected':''}>${s}</option>`).join('');
-  h+=`<details class="accordion">
-  <summary class="accordion-summary">Crops</summary>
-  <div class="accordion-body">`;
-  if(allPlantings.length>1){
-    const selId=getSelectedPlanting(bedId)?.id;
-    const activId=getActivePlanting(bedId)?.id;
-    h+=`<div class="planting-switcher">`;
-    for(const p of allPlantings){
-      const isLive=p.id===activId&&p.ended_date===null;
-      const isSel=p.id===selId;
-      const label=`${p.crop_name} · ${p.season}`;
-      h+=`<button class="ps-btn${isSel?' ps-active':''}" onclick="switchPlanting('${bedId}','${p.id}')">${label}${isLive?'<span class="ps-live"></span>':''}</button>`;
-    }
-    h+=`</div>`;
-  }
-  h+=`<button class="new-crop-toggle" onclick="showNewCropForm('${bedId}')">+ new crop</button>
-  <div id="new-crop-form" class="new-crop-form">
-    <div class="nc-row">
-      <input type="text" id="nc-crop" class="log-input" placeholder="Crop name">
-      <select id="nc-season" class="harvest-unit-sel">${seasonOpts}</select>
-    </div>
-    <div class="nc-row">
-      <input type="text" id="nc-variety" class="log-input" placeholder="Variety (optional)">
-    </div>
-    <div class="nc-row">
-      <input type="text" id="nc-harvest" class="log-input" placeholder="Expected harvest (optional)">
-    </div>
-    <div class="nc-row">
-      <input type="date" id="nc-date" class="log-input harvest-date-in" placeholder="Planted date (optional)">
-      <button class="log-add-btn" id="nc-btn" onclick="submitNewCrop('${bedId}')">Start</button>
-    </div>
-  </div>`;
-  h+=`<span class="section-label">Irrigation</span>`;
-  h+=dr('Emitters',`${bed.emitters} × ${bed.gph/bed.emitters} GPH = ${bed.gph} GPH`);
-  h+=dr('Schedule',bed.zone===1?'Daily in peak summer':'Every 2–3 days');
-  h+=`</div></details>`;
+  // Harvest quiet button
+  h+=`<button class="harvest-quiet-btn" onclick="openHarvestModal('${plantingId}')">🌿 Log harvest</button>`;
 
-  // Close this planting
+  // Close this planting — plain text link
   if(plantedDate){
-    h+=`<button class="close-planting-btn" onclick="confirmEndPlanting('${bedId}')">Close this planting</button>`;
+    h+=`<div class="close-planting-link" id="close-planting-link" onclick="confirmEndPlanting('${bedId}')">Close this planting</div>`;
   }
-
-  h+=`</div>`;
 
   return h;
+}
+
+function toggleTaskExpand(row){
+  const desc=row.querySelector('.insp-task-desc');
+  const hint=row.querySelector('.insp-task-hint');
+  if(!desc)return;
+  const open=desc.style.display!=='none';
+  desc.style.display=open?'none':'block';
+  if(hint)hint.textContent=open?'tap for details':'tap to collapse';
 }
 
 function confirmEndPlanting(bedId){
   const p=getActivePlanting(bedId);
   if(!p)return;
-  const btn=document.querySelector('.close-planting-btn');
-  if(!btn)return;
+  const link=document.getElementById('close-planting-link');
+  if(!link)return;
   const succ=p.succession_planting_id?getPlantingById(p.succession_planting_id):null;
   const confirmMsg=succ
     ?`End ${p.crop_name} and activate ${succ.crop_name}?`
     :`Mark ${p.crop_name} as ended? This bed will show as fallow.`;
-  btn.outerHTML=`<div class="end-confirm-row" id="end-confirm">
+  link.outerHTML=`<div class="end-confirm-row" id="end-confirm">
     <div class="end-confirm-text">${confirmMsg}</div>
     <div class="end-confirm-btns">
-      <button class="end-confirm-cancel" onclick="document.getElementById('end-confirm').outerHTML='<button class=\\'close-planting-btn\\' onclick=\\'confirmEndPlanting(\\'${bedId}\\')\\'>Close this planting</button>'">Cancel</button>
+      <button class="end-confirm-cancel" onclick="document.getElementById('end-confirm').outerHTML='<div class=\\'close-planting-link\\' id=\\'close-planting-link\\' onclick=\\'confirmEndPlanting(\\'${bedId}\\')\\'>Close this planting</div>'">Cancel</button>
       <button class="end-confirm-ok" onclick="endPlanting('${bedId}')">Confirm</button>
     </div>
   </div>`;
@@ -2304,19 +2309,10 @@ function navToBed(bedId){
   content.style.opacity='0';
   content.style.transition='opacity .15s';
   setTimeout(()=>{
-    delete selectedPlantingId[bedId]; // reset to active planting
-    content.innerHTML=renderDetail(bedId,[]);
-    document.getElementById('mini-map').innerHTML=buildMiniMap(bedId);
-    const planting=getSelectedPlanting(bedId);
-    if(planting){
-      bindLog(planting.id);
-      bindHarvest(planting.id);
-    }
+    delete selectedPlantingId[bedId];
+    content.innerHTML=renderDetail(bedId);
     content.style.opacity='1';
-    loadLogs(bedId);
-    if(planting)loadHarvests(planting.id);
-    bindWatering(bedId);
-    loadWatering(bedId);
+    loadInspectorData(bedId);
   },150);
 }
 
@@ -2361,10 +2357,8 @@ async function submitNewCrop(bedId){
     updateMapLabels();
     renderStatusIndicators();
     delete selectedPlantingId[bedId];
-    document.getElementById('bed-detail-content').innerHTML=renderDetail(bedId,[]);
-    document.getElementById('mini-map').innerHTML=buildMiniMap(bedId);
-    const planting=getSelectedPlanting(bedId);
-    if(planting){bindLog(planting.id);bindHarvest(planting.id);loadLogs(bedId);loadHarvests(planting.id);}
+    document.getElementById('bed-detail-content').innerHTML=renderDetail(bedId);
+    loadInspectorData(bedId);
   }catch(e){
     console.error('Failed to start new crop:',e);
     btn.disabled=false;
@@ -2375,16 +2369,9 @@ function today(){const d=new Date();return `${d.getFullYear()}-${String(d.getMon
 
 function switchPlanting(bedId,plantingId){
   selectedPlantingId[bedId]=plantingId;
-  // Re-render detail (updates switcher pill highlights + mark-as-planted)
   const content=document.getElementById('bed-detail-content');
-  content.innerHTML=renderDetail(bedId,[]);
-  document.getElementById('mini-map').innerHTML=buildMiniMap(bedId);
-  bindLog(plantingId);
-  bindHarvest(plantingId);
-  loadLogs(bedId);
-  loadHarvests(plantingId);
-  bindWatering(bedId);
-  loadWatering(bedId);
+  content.innerHTML=renderDetail(bedId);
+  loadInspectorData(bedId);
 }
 
 /* ── STATUS PICKER ───────────────────────────────── */
@@ -2969,6 +2956,193 @@ async function savePlanSheet(bedId){
     console.error('savePlanSheet failed:',e);
     if(btn){btn.disabled=false;btn.textContent='Save';}
   }
+}
+
+/* ── INSPECTOR DATA LOADER ───────────────────────── */
+async function loadInspectorData(bedId){
+  const planting=getSelectedPlanting(bedId);
+  if(!planting||!planting.planted_date)return;
+  const zone=BEDS[bedId].zone;
+  const [watering,notes]=await Promise.all([
+    getLastWatering(zone),
+    fetch(`${SB_URL}/rest/v1/logs?planting_id=eq.${planting.id}&order=created_at.desc&limit=3&select=date,note`,{headers:SB_HEADERS}).then(r=>r.json()).catch(()=>[])
+  ]);
+  if(activeBedId!==bedId)return;
+
+  // Water pill — amber if 4+ days
+  const waterPill=document.getElementById('water-pill');
+  const waterSub=document.getElementById('water-sub');
+  if(waterPill&&waterSub){
+    if(!watering){
+      waterSub.textContent='not yet watered';
+    } else {
+      const days=Math.floor((new Date()-new Date(watering.watered_date+'T00:00:00'))/864e5);
+      waterSub.textContent=days===0?'today':days===1?'yesterday':`${days} days ago`;
+      if(days>=4)waterPill.classList.add('amber');
+      else waterPill.classList.remove('amber');
+    }
+  }
+
+  // Note pill sub-label — date of most recent note
+  const notePillSub=document.getElementById('note-pill-sub');
+  if(notePillSub)notePillSub.textContent=notes.length?fmtDate(notes[0].date):'—';
+
+  // Note strip — collapsed state
+  const strip=document.getElementById('note-strip');
+  const stripDate=document.getElementById('note-strip-date');
+  const stripText=document.getElementById('note-strip-text');
+  if(strip&&stripDate&&stripText){
+    strip._notes=notes;
+    if(!notes.length){
+      stripDate.textContent='';
+      stripText.textContent='No notes yet';
+      stripText.classList.add('empty');
+    } else {
+      const last=notes[0];
+      stripDate.textContent=fmtDate(last.date);
+      stripText.textContent=last.note;
+      stripText.classList.remove('empty');
+    }
+  }
+}
+
+function toggleNoteStrip(bedId,plantingId){
+  const strip=document.getElementById('note-strip');
+  if(!strip)return;
+  const notes=strip._notes||[];
+  const isExpanded=strip.classList.contains('expanded');
+  if(!isExpanded){
+    strip.classList.add('expanded');
+    let html=`<div class="note-strip-hdr"><span class="note-strip-label">Last note</span></div><div class="note-strip-entries">`;
+    if(!notes.length){
+      html+=`<div style="font-size:.72rem;font-style:italic;color:rgba(255,255,255,.25);padding:4px 0">No notes yet</div>`;
+    } else {
+      notes.forEach((n,i)=>{
+        html+=`<div class="note-entry"><div class="note-entry-date">${fmtDate(n.date)}</div><div class="note-entry-text ${i===0?'recent':'older'}">${n.note}</div></div>`;
+      });
+    }
+    html+=`</div><button class="note-add-btn" onclick="event.stopPropagation();openNoteModal('${plantingId}')">+ add note</button>`;
+    strip.innerHTML=html;
+  } else {
+    strip.classList.remove('expanded');
+    strip.innerHTML=`<div class="note-strip-hdr">
+      <span class="note-strip-label">Last note</span>
+      <span class="note-strip-date">${notes.length?fmtDate(notes[0].date):''}</span>
+    </div>
+    <div class="note-strip-text${!notes.length?' empty':''}">${notes.length?notes[0].note:'No notes yet'}</div>`;
+  }
+  strip._notes=notes;
+}
+
+/* ── INSPECTOR MODALS ────────────────────────────── */
+function openWaterModal(bedId){
+  const zone=BEDS[bedId].zone;
+  const overlay=document.createElement('div');
+  overlay.className='insp-modal-overlay';
+  overlay.id='insp-modal';
+  overlay.innerHTML=`<div class="insp-modal">
+    <div class="insp-modal-title">Log watering — Zone ${zone}</div>
+    <div class="plan-form-field">
+      <label class="plan-field-label">Duration (minutes)</label>
+      <input class="log-input" type="number" id="modal-water-dur" value="10" min="1" max="240">
+    </div>
+    <div class="insp-modal-actions">
+      <button class="insp-modal-cancel" onclick="closeInspModal()">Cancel</button>
+      <button class="insp-modal-confirm" id="modal-confirm-btn" onclick="submitWaterModal('${bedId}')">Log water</button>
+    </div>
+  </div>`;
+  overlay.addEventListener('click',e=>{if(e.target===overlay)closeInspModal();});
+  document.body.appendChild(overlay);
+  setTimeout(()=>document.getElementById('modal-water-dur')?.select(),50);
+}
+
+function openNoteModal(plantingId){
+  const overlay=document.createElement('div');
+  overlay.className='insp-modal-overlay';
+  overlay.id='insp-modal';
+  overlay.innerHTML=`<div class="insp-modal">
+    <div class="insp-modal-title">Add note</div>
+    <div class="plan-form-field">
+      <textarea class="log-input" id="modal-note-ta" rows="4" placeholder="What did you observe?"></textarea>
+    </div>
+    <div class="insp-modal-actions">
+      <button class="insp-modal-cancel" onclick="closeInspModal()">Cancel</button>
+      <button class="insp-modal-confirm" id="modal-confirm-btn" onclick="submitNoteModal('${plantingId}')">Save note</button>
+    </div>
+  </div>`;
+  overlay.addEventListener('click',e=>{if(e.target===overlay)closeInspModal();});
+  document.body.appendChild(overlay);
+  setTimeout(()=>document.getElementById('modal-note-ta')?.focus(),50);
+}
+
+function openHarvestModal(plantingId){
+  const overlay=document.createElement('div');
+  overlay.className='insp-modal-overlay';
+  overlay.id='insp-modal';
+  overlay.innerHTML=`<div class="insp-modal">
+    <div class="insp-modal-title">Log harvest</div>
+    <div class="plan-form-field">
+      <label class="plan-field-label">Amount</label>
+      <div style="display:flex;gap:7px">
+        <input class="log-input" type="number" id="modal-harvest-amt" placeholder="0.0" min="0" step="0.1" style="flex:1">
+        <select id="modal-harvest-unit" class="harvest-unit-sel">
+          <option value="lbs">lbs</option>
+          <option value="oz">oz</option>
+          <option value="count">count</option>
+        </select>
+      </div>
+    </div>
+    <div class="plan-form-field">
+      <label class="plan-field-label">Notes (optional)</label>
+      <input class="log-input" id="modal-harvest-notes" placeholder="e.g. great flavor">
+    </div>
+    <div class="insp-modal-actions">
+      <button class="insp-modal-cancel" onclick="closeInspModal()">Cancel</button>
+      <button class="insp-modal-confirm" id="modal-confirm-btn" onclick="submitHarvestModal('${plantingId}')">Log harvest</button>
+    </div>
+  </div>`;
+  overlay.addEventListener('click',e=>{if(e.target===overlay)closeInspModal();});
+  document.body.appendChild(overlay);
+  setTimeout(()=>document.getElementById('modal-harvest-amt')?.focus(),50);
+}
+
+function closeInspModal(){document.getElementById('insp-modal')?.remove();}
+
+async function submitWaterModal(bedId){
+  const dur=parseInt(document.getElementById('modal-water-dur')?.value)||10;
+  const btn=document.getElementById('modal-confirm-btn');
+  if(btn){btn.disabled=true;btn.textContent='Logging…';}
+  try{
+    await saveWatering(BEDS[bedId].zone,dur);
+    closeInspModal();
+    await loadInspectorData(bedId);
+  }catch(e){if(btn){btn.disabled=false;btn.textContent='Log water';}}
+}
+
+async function submitNoteModal(plantingId){
+  const ta=document.getElementById('modal-note-ta');
+  const text=ta?.value.trim();
+  if(!text)return;
+  const btn=document.getElementById('modal-confirm-btn');
+  if(btn){btn.disabled=true;btn.textContent='Saving…';}
+  try{
+    await saveLog(plantingId,text);
+    closeInspModal();
+    if(activeBedId)await loadInspectorData(activeBedId);
+  }catch(e){if(btn){btn.disabled=false;btn.textContent='Save note';}}
+}
+
+async function submitHarvestModal(plantingId){
+  const amt=document.getElementById('modal-harvest-amt')?.value;
+  if(!amt)return;
+  const unit=document.getElementById('modal-harvest-unit')?.value||'lbs';
+  const notes=document.getElementById('modal-harvest-notes')?.value.trim()||null;
+  const btn=document.getElementById('modal-confirm-btn');
+  if(btn){btn.disabled=true;btn.textContent='Logging…';}
+  try{
+    await saveHarvest(plantingId,today(),amt,unit,notes);
+    closeInspModal();
+  }catch(e){if(btn){btn.disabled=false;btn.textContent='Log harvest';}}
 }
 
 function switchTab(id,btn){
