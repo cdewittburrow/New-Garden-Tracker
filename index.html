@@ -538,10 +538,48 @@ h1 em{font-style:normal;color:var(--teal);}
 .plan-stub-body{font-size:.84rem;color:var(--text-dim);line-height:1.55;}
 
 /* ── OVERVIEW STUB ───────────────────────────────── */
-.overview-stub{
-  max-width:540px;margin:40px auto;text-align:center;
-  padding:32px 20px;border:1px dashed var(--border-hi);border-radius:16px;
+/* ── OVERVIEW TAB ────────────────────────────────── */
+.ov-wrap{max-width:540px;margin:0 auto;}
+.ov-glance{display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;margin-bottom:22px;}
+.ov-glance-card{
+  background:var(--bg-card);border:1px solid var(--border);border-radius:12px;
+  padding:12px 10px;display:flex;flex-direction:column;gap:3px;
 }
+.ov-glance-val{font-family:'Inter',sans-serif;font-size:1.5rem;font-weight:700;color:var(--text);line-height:1;}
+.ov-glance-label{font-family:'Inter',sans-serif;font-size:.58rem;color:var(--text-dim);letter-spacing:.04em;}
+.ov-glance-sub{font-family:'Inter',sans-serif;font-size:.62rem;color:var(--text-sub);margin-top:2px;line-height:1.3;}
+
+.ov-section-label{
+  font-family:'Inter',sans-serif;font-size:.57rem;letter-spacing:.5px;color:var(--text-dim);
+  display:block;padding-bottom:5px;margin-bottom:10px;border-bottom:1px solid var(--divider);
+}
+.ov-yield-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:22px;}
+.ov-yield-card{
+  background:var(--bg-card);border:1px solid var(--border);border-radius:12px;
+  padding:12px;display:flex;flex-direction:column;gap:4px;
+}
+.ov-yield-top{display:flex;align-items:center;gap:7px;}
+.ov-yield-crop{font-family:'Inter',sans-serif;font-size:.83rem;font-weight:600;color:var(--text);}
+.ov-yield-total{font-family:'Inter',sans-serif;font-size:1.1rem;font-weight:700;color:var(--teal);}
+.ov-yield-date{font-family:'Inter',sans-serif;font-size:.6rem;color:var(--text-dim);margin-top:1px;}
+
+.ov-feed{display:flex;flex-direction:column;margin-bottom:22px;}
+.ov-feed-row{
+  display:flex;align-items:flex-start;gap:9px;
+  padding:9px 0;border-bottom:1px solid var(--divider);
+}
+.ov-feed-row:last-child{border-bottom:none;}
+.ov-feed-body{flex:1;min-width:0;}
+.ov-feed-text{font-family:'Inter',sans-serif;font-size:.78rem;color:var(--text);line-height:1.4;}
+.ov-feed-date{font-family:'Inter',sans-serif;font-size:.59rem;color:var(--text-dim);margin-top:2px;}
+.ov-feed-type{
+  font-family:'Inter',sans-serif;font-size:.52rem;letter-spacing:.4px;
+  padding:2px 6px;border-radius:100px;flex-shrink:0;margin-top:2px;
+}
+.ov-type-log{background:rgba(20,196,171,.1);color:var(--teal);}
+.ov-type-harvest{background:rgba(224,140,48,.1);color:var(--amber);}
+.ov-type-task{background:rgba(91,156,240,.1);color:var(--sapphire);}
+.ov-empty{font-family:'Inter',sans-serif;font-size:.82rem;color:var(--text-dim);font-style:italic;padding:16px 0;}
 </style>
 </head>
 <body>
@@ -1136,9 +1174,16 @@ h1 em{font-style:normal;color:var(--teal);}
      OVERVIEW TAB
 ═══════════════════════════════════════════ -->
 <div id="tab-overview" class="tab-panel">
-<div class="overview-stub">
-  <div class="plan-stub-title">Overview</div>
-  <div class="plan-stub-body">Yield stats and activity feed coming soon.</div>
+<div class="ov-wrap">
+  <div class="ov-glance" id="ov-glance">
+    <div class="ov-glance-card"><div class="ov-glance-val" id="ov-active">—</div><div class="ov-glance-label">Active beds</div></div>
+    <div class="ov-glance-card"><div class="ov-glance-val" id="ov-tasks">—</div><div class="ov-glance-label">Tasks this week</div></div>
+    <div class="ov-glance-card"><div class="ov-glance-val" id="ov-harvests-ct">—</div><div class="ov-glance-label">Harvests logged</div></div>
+  </div>
+  <span class="ov-section-label">Yield by bed</span>
+  <div class="ov-yield-grid" id="ov-yield-grid"><p class="ov-empty">Loading…</p></div>
+  <span class="ov-section-label">Recent activity</span>
+  <div class="ov-feed" id="ov-feed"><p class="ov-empty">Loading…</p></div>
 </div>
 </div>
 
@@ -2354,6 +2399,64 @@ function bindHarvest(plantingId){
 }
 
 /* ── TABS ────────────────────────────────────────── */
+/* ── OVERVIEW TAB ────────────────────────────────── */
+async function renderOverviewTab(){
+  const pidMeta={};
+  for(const[bid,list]of Object.entries(plantingCache)){
+    for(const p of list)pidMeta[p.id]={bedId:bid,crop_name:p.crop_name};
+  }
+  const ALL_BEDS=Object.keys(BEDS);
+  const activeCt=ALL_BEDS.filter(b=>{const p=getActivePlanting(b);return p&&p.planted_date;}).length;
+  const tasksCt=ALL_BEDS.reduce((s,b)=>s+getPendingCount(b),0);
+  document.getElementById('ov-active').textContent=`${activeCt}/12`;
+  document.getElementById('ov-tasks').textContent=tasksCt;
+  const[allHarvests,allLogs,completedTasks]=await Promise.all([
+    fetch(`${SB_URL}/rest/v1/harvests?select=planting_id,harvest_date,amount,unit,notes&order=harvest_date.desc&limit=200`,{headers:SB_HEADERS}).then(r=>r.json()).catch(()=>[]),
+    fetch(`${SB_URL}/rest/v1/logs?select=planting_id,date,note,created_at&order=created_at.desc&limit=100`,{headers:SB_HEADERS}).then(r=>r.json()).catch(()=>[]),
+    fetch(`${SB_URL}/rest/v1/tasks?completed_date=not.is.null&due_date=not.is.null&select=planting_id,title,completed_date&order=completed_date.desc&limit=50`,{headers:SB_HEADERS}).then(r=>r.json()).catch(()=>[]),
+  ]);
+  document.getElementById('ov-harvests-ct').textContent=allHarvests.length;
+  // Yield by planting
+  const yieldByPid={};
+  for(const h of allHarvests){
+    if(!yieldByPid[h.planting_id])yieldByPid[h.planting_id]={totals:{},lastDate:h.harvest_date};
+    yieldByPid[h.planting_id].totals[h.unit]=(yieldByPid[h.planting_id].totals[h.unit]||0)+parseFloat(h.amount||0);
+    if(h.harvest_date>yieldByPid[h.planting_id].lastDate)yieldByPid[h.planting_id].lastDate=h.harvest_date;
+  }
+  const yieldEl=document.getElementById('ov-yield-grid');
+  const sorted=Object.entries(yieldByPid).sort((a,b)=>b[1].lastDate.localeCompare(a[1].lastDate));
+  if(!sorted.length){
+    yieldEl.innerHTML='<p class="ov-empty">No harvests logged yet.</p>';
+  }else{
+    let yh='';
+    for(const[pid,data]of sorted){
+      const meta=pidMeta[pid];if(!meta)continue;
+      const parts=Object.entries(data.totals).map(([u,v])=>`${v%1===0?v:v.toFixed(1)} ${u}`).join(', ');
+      yh+=`<div class="ov-yield-card">
+        <div class="ov-yield-top"><span class="insp-bed-chip">${meta.bedId.toUpperCase()}</span><span class="ov-yield-crop">${meta.crop_name}</span></div>
+        <div class="ov-yield-total">${parts}</div>
+        <div class="ov-yield-date">Last: ${fmtDate(data.lastDate)}</div>
+      </div>`;
+    }
+    yieldEl.innerHTML=yh||'<p class="ov-empty">No harvests logged yet.</p>';
+  }
+  // Activity feed
+  const feed=[];
+  for(const l of allLogs){const meta=pidMeta[l.planting_id];if(!meta)continue;feed.push({type:'log',bedId:meta.bedId,crop:meta.crop_name,text:l.note,dateSort:l.created_at,dateDisplay:l.date});}
+  for(const h of allHarvests){const meta=pidMeta[h.planting_id];if(!meta)continue;const amt=`${parseFloat(h.amount)%1===0?parseFloat(h.amount):parseFloat(h.amount).toFixed(1)} ${h.unit}`;feed.push({type:'harvest',bedId:meta.bedId,crop:meta.crop_name,text:`Harvested ${amt}${h.notes?' — '+h.notes:''}`,dateSort:h.harvest_date,dateDisplay:fmtDate(h.harvest_date)});}
+  for(const t of completedTasks){const meta=pidMeta[t.planting_id];if(!meta)continue;feed.push({type:'task',bedId:meta.bedId,crop:meta.crop_name,text:t.title,dateSort:t.completed_date,dateDisplay:fmtDate(t.completed_date)});}
+  feed.sort((a,b)=>b.dateSort.localeCompare(a.dateSort));
+  const feedEl=document.getElementById('ov-feed');
+  if(!feed.length){feedEl.innerHTML='<p class="ov-empty">No activity yet.</p>';return;}
+  const tLabel={log:'Note',harvest:'Harvest',task:'Task'};
+  const tClass={log:'ov-type-log',harvest:'ov-type-harvest',task:'ov-type-task'};
+  feedEl.innerHTML=feed.slice(0,30).map(e=>`<div class="ov-feed-row">
+    <span class="insp-bed-chip">${e.bedId.toUpperCase()}</span>
+    <div class="ov-feed-body"><div class="ov-feed-text">${e.text}</div><div class="ov-feed-date">${e.crop} · ${e.dateDisplay}</div></div>
+    <span class="ov-feed-type ${tClass[e.type]}">${tLabel[e.type]}</span>
+  </div>`).join('');
+}
+
 /* ── PLANNING TAB ────────────────────────────────── */
 let planYear=2026;
 let planBedId=null;
@@ -2608,6 +2711,7 @@ function switchTab(id,btn){
   document.getElementById(id).classList.add('active');
   btn.classList.add('active');
   if(id==='tab-planning')renderPlanningTab();
+  if(id==='tab-overview')renderOverviewTab();
 }
 
 /* ── INIT ────────────────────────────────────────── */
