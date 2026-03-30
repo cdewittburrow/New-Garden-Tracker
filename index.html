@@ -533,6 +533,8 @@ h1 em{font-style:normal;color:var(--teal);}
 
 /* Crop picker */
 .crop-picker{position:relative;}
+.variety-picker{position:relative;}
+.vp-dropdown{position:absolute;z-index:10;width:100%;}
 .cp-dropdown{
   background:var(--bg-panel);border:1px solid var(--border-hi);
   border-radius:0 0 10px 10px;overflow:hidden;
@@ -2920,6 +2922,7 @@ function closeAnySheet(){
 /* ── CROP PICKER ─────────────────────────────────── */
 let cropsCache=[];
 let planCropId=null; // id of selected crop from DB, null = new crop
+let varietiesCache={}; // { cropName: ['var1','var2'] } from planting history
 
 async function fetchCrops(){
   try{
@@ -2975,12 +2978,14 @@ function cpSelect(cropId){
   // Auto-fill spacing notes if blank and crop has spacing data
   const spacingIn=document.getElementById('pf-spacing');
   if(spacingIn&&!spacingIn.value&&crop.spacing_inches)spacingIn.value=`${crop.spacing_inches}" spacing`;
+  vpRefresh(crop.name);
 }
 
 function cpSelectNew(name){
   planCropId=null;
   const picker=document.getElementById('crop-picker');
   if(picker)picker.outerHTML=cpRenderSelected(name,null,true);
+  vpRefresh(name);
 }
 
 function cpClear(){
@@ -3003,6 +3008,69 @@ function cpInit(currentName){
   return cpRenderSearch(currentName||'');
 }
 
+/* ── VARIETY PICKER ──────────────────────────────── */
+async function fetchVarieties(){
+  try{
+    const res=await fetch(`${SB_URL}/rest/v1/plantings?select=crop_name,variety&variety=not.is.null`,{headers:SB_HEADERS});
+    const rows=await res.json();
+    varietiesCache={};
+    for(const r of rows){
+      if(!r.variety)continue;
+      if(!varietiesCache[r.crop_name])varietiesCache[r.crop_name]=[];
+      if(!varietiesCache[r.crop_name].includes(r.variety))varietiesCache[r.crop_name].push(r.variety);
+    }
+    for(const k of Object.keys(varietiesCache))varietiesCache[k].sort();
+  }catch(e){varietiesCache={};}
+}
+function vpBuildDropdown(query,cropName){
+  const suggestions=varietiesCache[cropName]||[];
+  const q=query.toLowerCase();
+  const filtered=q?suggestions.filter(v=>v.toLowerCase().includes(q)):suggestions;
+  if(!filtered.length)return'';
+  return filtered.map(v=>`<button class="cp-option" type="button" onmousedown="event.preventDefault()" onclick="vpSelect('${v.replace(/'/g,"\\'")}')">${v}</button>`).join('');
+}
+function vpRender(currentVariety='',cropName=''){
+  const ddHtml=vpBuildDropdown('',cropName);
+  const hasOptions=!!(varietiesCache[cropName]||[]).length;
+  return`<div class="variety-picker" id="variety-picker">
+    <input class="log-input" id="pf-variety" type="text"
+      value="${currentVariety}" placeholder="e.g. Amish Paste" autocomplete="off"
+      oninput="vpUpdateDropdown(this.value)"
+      onfocus="vpShowDropdown(this.value)"
+      onblur="vpHideDropdown()">
+    ${hasOptions?`<div class="cp-dropdown vp-dropdown" id="vp-dropdown" style="display:none">${ddHtml}</div>`:''}
+  </div>`;
+}
+function vpUpdateDropdown(query){
+  const dd=document.getElementById('vp-dropdown');
+  if(!dd)return;
+  const cropName=document.getElementById('pf-crop')?.value||'';
+  dd.innerHTML=vpBuildDropdown(query,cropName);
+  dd.style.display=dd.innerHTML?'block':'none';
+}
+function vpShowDropdown(query){
+  const dd=document.getElementById('vp-dropdown');
+  if(!dd)return;
+  const cropName=document.getElementById('pf-crop')?.value||'';
+  dd.innerHTML=vpBuildDropdown(query,cropName);
+  if(dd.innerHTML)dd.style.display='block';
+}
+function vpHideDropdown(){
+  const dd=document.getElementById('vp-dropdown');
+  if(dd)dd.style.display='none';
+}
+function vpSelect(name){
+  const input=document.getElementById('pf-variety');
+  if(input)input.value=name;
+  vpHideDropdown();
+}
+function vpRefresh(cropName){
+  const vp=document.getElementById('variety-picker');
+  if(!vp)return;
+  const current=document.getElementById('pf-variety')?.value||'';
+  vp.outerHTML=vpRender(current,cropName);
+}
+
 function renderPlanForm(bedId,p){
   const m=planMethod;
   const bed=BEDS[bedId];
@@ -3020,7 +3088,7 @@ function renderPlanForm(bedId,p){
   </div>
   <div class="plan-form-field">
     <label class="plan-field-label">Variety</label>
-    <input class="log-input" id="pf-variety" value="${p?.variety||''}" placeholder="e.g. Amish Paste">
+    ${vpRender(p?.variety||'',p?.crop_name||'')}
   </div>
   <div class="plan-form-field">
     <label class="plan-field-label">Planting method</label>
@@ -3171,6 +3239,13 @@ async function savePlanSheet(bedId){
       const created=await postRes.json();
       mainId=created[0]?.id;
       await fetchAllPlantings();
+    }
+    if(payload.variety&&payload.crop_name){
+      if(!varietiesCache[payload.crop_name])varietiesCache[payload.crop_name]=[];
+      if(!varietiesCache[payload.crop_name].includes(payload.variety)){
+        varietiesCache[payload.crop_name].push(payload.variety);
+        varietiesCache[payload.crop_name].sort();
+      }
     }
     closePlanSheet();
     renderPlanningTab();
@@ -3380,7 +3455,7 @@ function switchTab(id,btn){
 
 /* ── INIT ────────────────────────────────────────── */
 window.addEventListener('load',async()=>{
-  await Promise.all([fetchAllPlantings(),fetchCrops()]);
+  await Promise.all([fetchAllPlantings(),fetchCrops(),fetchVarieties()]);
   updateMapLabels();
   renderStatusIndicators();
   await fetchV2Tasks();
