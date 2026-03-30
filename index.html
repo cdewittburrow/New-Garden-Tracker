@@ -2659,7 +2659,14 @@ function shiftPlanYear(dir){
 
 function getPlanningPlanting(bedId,year){
   const list=plantingCache[bedId]||[];
-  return list.find(p=>p.year===year&&p.ended_date===null)||list.find(p=>p.year===year)||null;
+  // Active planting in the requested year
+  const activeThisYear=list.find(p=>p.year===year&&p.ended_date===null);
+  if(activeThisYear)return activeThisYear;
+  // Any active planting regardless of year (garlic planted fall 2025, still in ground 2026)
+  const activeAnyYear=list.find(p=>p.ended_date===null);
+  if(activeAnyYear)return activeAnyYear;
+  // Fall back to any ended planting from that year (for historical view)
+  return list.find(p=>p.year===year)||null;
 }
 
 function renderPlanningTab(){
