@@ -2560,33 +2560,46 @@ async function selectStatus(bedId,newStatus){
 }
 
 /* ── STATUS INDICATORS ON MAP ────────────────────── */
-function getGlowColor(status){
-  if(['sown','germinating','growing'].includes(status))return 'teal';
-  if(status==='ready')return 'amber';
-  return 'none';
+// Pill geometry: width=88, rx=44 (=width/2), height=152
+// Perimeter = π*88 (two semicircles = one circle) + 2*(152-88) straight sides
+const RING_PERIMETER = Math.PI * 88 + 128; // ≈ 404.5
+
+function getCropDtm(cropName){
+  const c=cropsCache.find(c=>c.name.toLowerCase()===cropName.toLowerCase());
+  return (c&&c.days_to_maturity_min&&c.days_to_maturity_max)?c:null;
+}
+
+function computeArcProgress(plantedDate,dtmMin,dtmMax){
+  const planted=new Date(plantedDate+'T00:00:00');
+  const elapsed=(Date.now()-planted.getTime())/86400000;
+  return Math.min(1,Math.max(0,elapsed/((dtmMin+dtmMax)/2)));
 }
 
 function renderStatusIndicators(){
   const svg=document.getElementById('garden-map');
   if(!svg)return;
+  const P=RING_PERIMETER;
   for(const bedId of Object.keys(BEDS)){
     const ring=svg.querySelector(`#pill-${bedId} .bed-ring`);
     if(!ring)continue;
     const planting=getActivePlanting(bedId);
-    const status=planting?.status||(planting?.planted_date?'growing':'planned');
-    const glow=getGlowColor(status);
-    if(glow==='teal'){
-      ring.setAttribute('opacity','.65');
-      ring.setAttribute('stroke','#14c4ab');
-      ring.style.animation='';
-    } else if(glow==='amber'){
-      ring.setAttribute('opacity','.85');
-      ring.setAttribute('stroke','#e08c30');
-      ring.style.animation='statusPulse 2.2s ease-in-out infinite';
-    } else {
+
+    if(!planting||!planting.planted_date){
       ring.setAttribute('opacity','0');
       ring.style.animation='';
+      ring.removeAttribute('stroke-dasharray');
+      continue;
     }
+
+    const status=planting.status||'growing';
+    const dtm=getCropDtm(planting.crop_name);
+    const progress=dtm?computeArcProgress(planting.planted_date,dtm.days_to_maturity_min,dtm.days_to_maturity_max):1;
+    const nearHarvest=progress>=0.85||status==='ready';
+
+    ring.setAttribute('stroke',nearHarvest?'#e08c30':'#14c4ab');
+    ring.setAttribute('opacity',nearHarvest?'.9':'.7');
+    ring.setAttribute('stroke-dasharray',`${progress*P} ${P}`);
+    ring.style.animation=nearHarvest?'statusPulse 2.2s ease-in-out infinite':'';
   }
   updateDraftPills();
 }
@@ -2987,7 +3000,7 @@ let varietiesCache={}; // { cropName: ['var1','var2'] } from planting history
 
 async function fetchCrops(){
   try{
-    const res=await fetch(`${SB_URL}/rest/v1/crops?select=id,name,water_needs,sun_needs,spacing_inches,frost_hardy&order=name.asc`,{headers:SB_HEADERS});
+    const res=await fetch(`${SB_URL}/rest/v1/crops?select=id,name,water_needs,sun_needs,spacing_inches,frost_hardy,days_to_maturity_min,days_to_maturity_max&order=name.asc`,{headers:SB_HEADERS});
     cropsCache=await res.json();
   }catch(e){cropsCache=[];}
 }
