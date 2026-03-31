@@ -2457,24 +2457,27 @@ function renderDetail(bedId){
     return h;
   }
 
-  // Tasks — all pending (overdue / this week / upcoming) + completed this week
+  // Tasks — overdue + due within 14 days, plus a "X more later" count for anything beyond
   const plantingId=dbPlanting?.id;
   const pendingTasks=getAllPendingTasks(bedId);
   const completedThisWeek=getAllTasksThisWeek(bedId).filter(t=>t.completed_date);
   const todayStr=todayPlus(0);
   const weekOutStr=todayPlus(7);
+  const twoWeeksOutStr=todayPlus(14);
+  const visibleTasks=pendingTasks.filter(t=>t.due_date<=twoWeeksOutStr);
+  const laterCount=pendingTasks.filter(t=>t.due_date>twoWeeksOutStr).length;
   h+=`<div class="insp-tasks">
     <div class="insp-task-section-label"><span>Tasks</span><button class="insp-task-add-btn" onclick="openCustomTaskModal('${plantingId}','${bedId}');event.stopPropagation()">+</button></div>`;
-  if(!pendingTasks.length&&!completedThisWeek.length){
-    h+=`<div class="insp-no-tasks">No tasks — tap + to add one</div>`;
+  if(!visibleTasks.length&&!completedThisWeek.length){
+    h+=`<div class="insp-no-tasks">No tasks due soon — tap + to add one</div>`;
   }
-  for(const t of pendingTasks){
+  for(const t of visibleTasks){
     const overdue=t.due_date<todayStr;
     const upcoming=t.due_date>weekOutStr;
     const dueLabel=overdue
       ?`<div class="insp-task-due-overdue">Overdue · ${fmtDate(t.due_date)}</div>`
       :`<div class="insp-task-due">${fmtDate(t.due_date)}</div>`;
-    h+=`<div class="insp-task-row${upcoming?' ':''}" style="${upcoming?'opacity:.65':''}" onclick="toggleTaskExpand(this)">
+    h+=`<div class="insp-task-row" style="${upcoming?'opacity:.7':''}" onclick="toggleTaskExpand(this)">
       <input type="checkbox" class="task-cb" onclick="event.stopPropagation()" onchange="handleInspTaskCheck(this,'${t.id}','${bedId}')">
       <div class="insp-task-body">
         <div class="insp-task-title">${t.title}</div>
@@ -2484,6 +2487,9 @@ function renderDetail(bedId){
       </div>
       ${t.is_custom?`<button class="insp-task-del" onclick="deleteCustomTask('${t.id}','${plantingId}','${bedId}');event.stopPropagation()">×</button>`:''}
     </div>`;
+  }
+  if(laterCount>0){
+    h+=`<div class="insp-no-tasks" style="padding:6px 0;font-style:normal">${laterCount} more due later</div>`;
   }
   for(const t of completedThisWeek){
     h+=`<div class="insp-task-row task-done">
