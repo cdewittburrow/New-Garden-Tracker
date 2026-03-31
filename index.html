@@ -3880,13 +3880,13 @@ function switchTab(id,btn){
 }
 
 /* ── WEEKLY BRIEFING ─────────────────────────────── */
-const BRIEFING_URL='https://ulivctyuudgepolulpvq.supabase.co/functions/v1/generate-briefing';
 let briefingCache=null;
 
 async function fetchLatestBriefing(){
   try{
-    const res=await fetch(BRIEFING_URL,{headers:{'Content-Type':'application/json'}});
-    if(res.ok)briefingCache=await res.json();
+    const res=await fetch(`${SB_URL}/rest/v1/briefings?order=generated_at.desc&limit=1`,{headers:SB_HEADERS});
+    const rows=await res.json();
+    if(rows?.[0])briefingCache=rows[0];
   }catch(e){console.error('Briefing fetch failed:',e);}
 }
 
@@ -3894,7 +3894,7 @@ function renderBriefingCard(briefing){
   const el=document.getElementById('ov-briefing');
   if(!el)return;
   if(!briefing){
-    el.innerHTML=`<div class="ov-briefing"><div class="ov-briefing-loading">No briefing yet — generates daily at 6am.<br><button class="ov-briefing-refresh" style="margin-top:8px;font-size:.7rem" onclick="triggerBriefingRefresh()">Generate now →</button></div></div>`;
+    el.innerHTML=`<div class="ov-briefing"><div class="ov-briefing-loading">No briefing yet — generates daily at 6am MDT.<br><code style="font-size:.7rem;color:var(--teal);margin-top:8px;display:block">! claude schedule run garden-briefing</code></div></div>`;
     return;
   }
   if(briefing.error){
@@ -3963,12 +3963,11 @@ function toggleBriefingNarrative(){
 
 async function triggerBriefingRefresh(){
   const el=document.getElementById('ov-briefing');
-  if(el)el.innerHTML=`<div class="ov-briefing"><div class="ov-briefing-loading">Generating briefing — this takes ~10 seconds…</div></div>`;
-  try{
-    const res=await fetch(BRIEFING_URL,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({force:true})});
-    if(res.ok){briefingCache=await res.json();renderBriefingCard(briefingCache);}
-    else{if(el)el.innerHTML=`<div class="ov-briefing"><div class="ov-briefing-loading">Generation failed. Check that ANTHROPIC_API_KEY is set in Supabase secrets.</div></div>`;}
-  }catch(e){if(el)el.innerHTML=`<div class="ov-briefing"><div class="ov-briefing-loading">Network error — try again.</div></div>`;}
+  if(el)el.innerHTML=`<div class="ov-briefing"><div class="ov-briefing-loading">Checking for latest briefing…</div></div>`;
+  briefingCache=null;
+  await fetchLatestBriefing();
+  if(briefingCache){renderBriefingCard(briefingCache);}
+  else if(el){el.innerHTML=`<div class="ov-briefing"><div class="ov-briefing-loading">No briefing yet. To generate one now, run in Claude Code:<br><code style="font-size:.7rem;color:var(--teal);margin-top:8px;display:block">! claude schedule run garden-briefing</code></div></div>`;}
 }
 
 async function acceptSuggestedTask(btn,idx){
