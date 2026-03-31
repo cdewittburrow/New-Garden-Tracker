@@ -3810,7 +3810,7 @@ async function submitCustomTaskModal(plantingId,bedId){
     const res=await fetch(`${SB_URL}/rest/v1/tasks`,{
       method:'POST',
       headers:{...SB_HEADERS,'Prefer':'return=representation'},
-      body:JSON.stringify({planting_id:plantingId,title,description:desc||null,due_date:dueDate,is_custom:true,crop_task_id:null})
+      body:JSON.stringify({task_id:crypto.randomUUID(),planting_id:plantingId,title,description:desc||null,due_date:dueDate,is_custom:true,crop_task_id:null})
     });
     const rows=await res.json();
     if(rows&&rows[0]){
@@ -3992,7 +3992,7 @@ async function acceptSuggestedTask(btn,idx){
   try{
     const res=await fetch(`${SB_URL}/rest/v1/tasks`,{
       method:'POST',headers:{...SB_HEADERS,'Prefer':'return=representation'},
-      body:JSON.stringify({planting_id:planting.id,title:t.title,description:t.description||null,due_date:t.due_date,is_custom:true,crop_task_id:null})
+      body:JSON.stringify({task_id:crypto.randomUUID(),planting_id:planting.id,title:t.title,description:t.description||null,due_date:t.due_date,is_custom:true,crop_task_id:null})
     });
     const rows=await res.json();
     if(rows?.[0]){
