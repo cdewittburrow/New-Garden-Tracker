@@ -190,6 +190,15 @@ h1 em{font-style:normal;color:var(--teal);}
 .insp-header-left{flex:1;min-width:0;display:flex;flex-direction:column;gap:4px;}
 .insp-header-meta{display:flex;align-items:center;gap:6px;flex-wrap:wrap;margin-top:4px;}
 .insp-header-meta .status-badge{margin-bottom:0;}
+.insp-timeline{margin-top:10px;padding-bottom:2px;}
+.insp-tl-bar{position:relative;height:4px;border-radius:2px;background:rgba(255,255,255,.08);overflow:hidden;margin-bottom:5px;}
+.insp-tl-fill{position:absolute;top:0;left:0;bottom:0;border-radius:2px;background:var(--teal);}
+.insp-tl-fill.tl-amber{background:var(--amber);}
+.insp-tl-labels{display:flex;justify-content:space-between;align-items:flex-start;gap:8px;}
+.insp-tl-start{font-family:'Inter',sans-serif;font-size:.6rem;color:var(--text-dim);line-height:1.35;flex-shrink:0;}
+.insp-tl-end{font-family:'Inter',sans-serif;font-size:.6rem;color:var(--text-dim);text-align:right;line-height:1.35;flex-shrink:0;max-width:55%;}
+.insp-tl-end.tl-amber{color:var(--amber);}
+.insp-tl-since{font-family:'Inter',sans-serif;font-size:.65rem;color:var(--text-dim);font-style:italic;padding:6px 0 2px;}
 
 /* Action strip */
 .action-strip{display:flex;gap:8px;margin-bottom:10px;align-items:center;}
@@ -2286,6 +2295,43 @@ async function loadHarvests(plantingId){
   bindHarvest(plantingId);
 }
 
+/* ── INSPECTOR TIMELINE STRIP ────────────────────── */
+function buildTimelineHtml(planting,cropData){
+  if(!planting||!planting.planted_date)return '';
+  const isPerennial=cropData?.is_perennial||false;
+  if(isPerennial){
+    return `<div class="insp-tl-since">In ground since ${fmtDate(planting.planted_date)}</div>`;
+  }
+  const hasDtm=cropData&&cropData.days_to_maturity_min&&cropData.days_to_maturity_max;
+  const plantedFmt=fmtDate(planting.planted_date);
+  const rel=relativeWeeks(planting.planted_date);
+  const startLabel=rel?`${plantedFmt} · ${rel}`:plantedFmt;
+  let endLabel='';
+  if(planting.expected_harvest){
+    endLabel=planting.expected_harvest;
+  } else if(hasDtm){
+    const avg=Math.round((cropData.days_to_maturity_min+cropData.days_to_maturity_max)/2);
+    const d=new Date(planting.planted_date+'T00:00:00');
+    d.setDate(d.getDate()+avg);
+    endLabel='~'+d.toLocaleDateString('en-US',{month:'short',day:'numeric'});
+  }
+  if(!hasDtm){
+    const harvestPart=endLabel?` · Harvest ${endLabel}`:'';
+    return `<div class="insp-tl-since">Planted ${plantedFmt}${harvestPart}</div>`;
+  }
+  const progress=computeArcProgress(planting.planted_date,cropData.days_to_maturity_min,cropData.days_to_maturity_max);
+  const pct=Math.min(100,Math.round(progress*100));
+  const nearHarvest=progress>=0.85||(planting.status||'')==='ready';
+  const amberCls=nearHarvest?' tl-amber':'';
+  return `<div class="insp-timeline">
+    <div class="insp-tl-bar"><div class="insp-tl-fill${amberCls}" style="width:${pct}%"></div></div>
+    <div class="insp-tl-labels">
+      <span class="insp-tl-start">${startLabel}</span>
+      ${endLabel?`<span class="insp-tl-end${amberCls}">${endLabel}</span>`:''}
+    </div>
+  </div>`;
+}
+
 /* ── DETAIL RENDER ───────────────────────────────── */
 function renderDetail(bedId){
   const bed=BEDS[bedId],a=bed.slotA;
@@ -2297,6 +2343,8 @@ function renderDetail(bedId){
   const livePlanting=getActivePlanting(bedId);
   const derivedStatus=livePlanting?(livePlanting.status||(livePlanting.planted_date?'growing':'planned')):a.status;
   const st=STATUS[derivedStatus]||STATUS.planned;
+  const tlCropData=cropsCache.find(c=>c.name.toLowerCase()===(cropName||'').toLowerCase())||null;
+  const timelineHtml=buildTimelineHtml(livePlanting,tlCropData);
 
   // Planting navigation dots (shown when bed has multiple plantings)
   const inspList=getInspPlantingList(bedId);
@@ -2318,6 +2366,7 @@ function renderDetail(bedId){
       </div>
       <div class="mini-map" id="mini-map"></div>
     </div>
+    ${timelineHtml}
   </div>`;
 
   // Draft state — single CTA, no action row, no note strip
