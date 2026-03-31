@@ -705,18 +705,25 @@ h1 em{font-style:normal;color:var(--teal);}
 .succ-date{font-size:.68rem;color:var(--text-dim);margin-top:3px;}
 .succ-arrow{font-size:1.1rem;color:var(--amber);padding:0 2px;flex-shrink:0;}
 
-/* Plan card succession indicator */
-.plan-card-succ{
-  font-size:.6rem;color:var(--amber);margin-top:5px;
-  display:flex;align-items:center;gap:3px;
+/* Plan card stack + peek */
+.plan-card-stack{display:flex;flex-direction:column;}
+.plan-card-has-succ{border-radius:10px 10px 0 0!important;}
+.plan-card-peek{
+  background:rgba(91,156,240,.06);border:1px solid rgba(91,156,240,.15);
+  border-top:none;border-radius:0 0 10px 10px;
+  padding:5px 10px 6px;display:flex;align-items:center;gap:5px;
+  cursor:pointer;transition:background .12s;
 }
-.plan-card-succ-link{cursor:pointer;}
-.plan-card-succ-link:active{opacity:.7;}
-.plan-card-add-succ{
-  font-size:.6rem;color:rgba(255,255,255,.25);margin-top:5px;
-  cursor:pointer;letter-spacing:.02em;
-}
-.plan-card-add-succ:active{color:rgba(255,255,255,.5);}
+.plan-card-peek:active{background:rgba(91,156,240,.14);}
+.plan-card-peek-empty{background:rgba(255,255,255,.02);border-color:rgba(255,255,255,.06);}
+.plan-card-peek-dot{width:5px;height:5px;border-radius:50%;background:rgba(91,156,240,.5);display:inline-block;flex-shrink:0;}
+.plan-card-peek-label{font-family:'Inter',sans-serif;font-size:.58rem;color:rgba(91,156,240,.6);letter-spacing:.02em;}
+.plan-card-peek-label-dim{color:rgba(255,255,255,.18);}
+
+/* Inspector planting dots */
+.insp-dots{display:flex;gap:5px;justify-content:center;margin:2px 0 10px;}
+.insp-dot{width:5px;height:5px;border-radius:50%;background:rgba(255,255,255,.2);transition:background .15s;}
+.insp-dot-active{background:rgba(255,255,255,.7);}
 
 /* Copy-to-next-year controls */
 .plan-copy-yr-btn{
@@ -1711,6 +1718,33 @@ function getNextDraft(bedId){
   return drafts[0];
 }
 
+// Ordered planting list for inspector swipe: [active, ...drafts by planned_date]
+function getInspPlantingList(bedId){
+  const list=plantingCache[bedId]||[];
+  const active=list.find(p=>p.planting_state==='active'&&p.ended_date===null);
+  const drafts=list.filter(p=>p.planting_state==='draft'&&p.ended_date===null);
+  drafts.sort((a,b)=>{
+    if(!a.planned_date&&!b.planned_date)return 0;
+    if(!a.planned_date)return 1;
+    if(!b.planned_date)return -1;
+    return a.planned_date.localeCompare(b.planned_date);
+  });
+  return active?[active,...drafts]:drafts;
+}
+
+function navigateInspPlanting(bedId,dir){
+  const list=getInspPlantingList(bedId);
+  if(list.length<=1)return;
+  const current=getSelectedPlanting(bedId);
+  const idx=list.findIndex(p=>p.id===current?.id);
+  const next=list[idx+dir];
+  if(!next)return;
+  selectedPlantingId[bedId]=next.id;
+  document.getElementById('bed-detail-content').innerHTML=renderDetail(bedId);
+  document.getElementById('mini-map').innerHTML=buildMiniMap(bedId);
+  loadInspectorData(bedId);
+}
+
 /* ── LOGS ────────────────────────────────────────── */
 async function getLogs(plantingId) {
   try {
@@ -2197,6 +2231,20 @@ function closeSheet(){
   },{passive:true});
 })();
 
+// Horizontal swipe to navigate between plantings on same bed
+(function initInspHSwipe(){
+  const sheet=document.getElementById('bed-sheet');
+  let sx=0,sy=0;
+  sheet.addEventListener('touchstart',e=>{sx=e.touches[0].clientX;sy=e.touches[0].clientY;},{passive:true});
+  sheet.addEventListener('touchend',e=>{
+    const dx=e.changedTouches[0].clientX-sx;
+    const dy=e.changedTouches[0].clientY-sy;
+    if(Math.abs(dx)>Math.abs(dy)*1.5&&Math.abs(dx)>44&&activeBedId){
+      navigateInspPlanting(activeBedId,dx<0?1:-1);
+    }
+  },{passive:true});
+})();
+
 async function loadLogs(bedId){
   const planting=getSelectedPlanting(bedId);
   if(!planting){
@@ -2248,8 +2296,15 @@ function renderDetail(bedId){
   const derivedStatus=livePlanting?(livePlanting.status||(livePlanting.planted_date?'growing':'planned')):a.status;
   const st=STATUS[derivedStatus]||STATUS.planned;
 
+  // Planting navigation dots (shown when bed has multiple plantings)
+  const inspList=getInspPlantingList(bedId);
+  const inspIdx=Math.max(0,inspList.findIndex(p=>p.id===dbPlanting?.id));
+  const dotsHtml=inspList.length>1
+    ?`<div class="insp-dots">${inspList.map((_,i)=>`<span class="insp-dot${i===inspIdx?' insp-dot-active':''}"></span>`).join('')}</div>`
+    :'';
+
   // Header — crop name + variety left, minimap right
-  let h=`<div class="insp-header">
+  let h=dotsHtml+`<div class="insp-header">
     <div class="insp-header-row">
       <div class="insp-header-left">
         <div class="insp-crop-name">${cropName}</div>
@@ -2810,19 +2865,21 @@ function buildPlanCard(bedId,p){
   else if(p.start_indoors_date)timing=`Indoors ${fmtDate(p.start_indoors_date)}`;
   else if(p.planned_date)timing=`Planned ${fmtDate(p.planned_date)}`;
   const nextDraft=isActive?getNextDraft(bedId):null;
-  let succHtml='';
-  if(nextDraft){
-    succHtml=`<div class="plan-card-succ plan-card-succ-link" onclick="event.stopPropagation();openPlanSheetById('${nextDraft.id}','${bedId}')">→ ${nextDraft.crop_name}</div>`;
-  }else if(isActive){
-    succHtml=`<div class="plan-card-add-succ" onclick="event.stopPropagation();openPlanSheetNew('${bedId}')">+ succession</div>`;
-  }
-  return `<div class="plan-card ${stateClass}" onclick="openPlanSheet('${bedId}')">
+  const mainCard=`<div class="plan-card ${stateClass}${isActive?' plan-card-has-succ':''}" onclick="openPlanSheet('${bedId}')">
     <div class="plan-card-top"><span class="plan-card-bed">${bedId.toUpperCase()}</span>${dotHtml}</div>
     <div class="plan-card-crop">${p.crop_name}</div>
     ${p.variety?`<div class="plan-card-variety">${p.variety}</div>`:''}
     ${timing?`<div class="plan-card-timing">${timing}</div>`:''}
-    ${succHtml}
   </div>`;
+  if(isActive){
+    const peekOnclick=nextDraft?`openPlanSheetById('${nextDraft.id}','${bedId}')`:`openPlanSheetNew('${bedId}')`;
+    const peekContent=nextDraft
+      ?`<span class="plan-card-peek-dot"></span><span class="plan-card-peek-label">${nextDraft.crop_name}</span>`
+      :`<span class="plan-card-peek-label plan-card-peek-label-dim">+ plan next</span>`;
+    const peek=`<div class="plan-card-peek${nextDraft?'':' plan-card-peek-empty'}" onclick="event.stopPropagation();${peekOnclick}">${peekContent}</div>`;
+    return`<div class="plan-card-stack">${mainCard}${peek}</div>`;
+  }
+  return mainCard;
 }
 
 let planCalBedFilter='all';
