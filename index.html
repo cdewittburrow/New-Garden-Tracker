@@ -2092,12 +2092,12 @@ async function handleInspTaskCheck(cb,taskRowId,bedId){
 }
 
 /* ── BED TILE BADGES ─────────────────────────────── */
-// Tick marks inside pill bottom arc — pill centers x: W=91, C=220, E=349
-// Bottom arc center y = pill_bottom - 22: rows at 128, 288, 448, 608
+// Marks arc along pill bottom. arc_cy = pill bottom arc center y (pill_top+102).
+// Pill centers x: W=91, C=220, E=349
 const BADGE_POS={
-  w1:{cx:91,cy:128},w2:{cx:91,cy:288},w3:{cx:91,cy:448},w4:{cx:91,cy:608},
-  c1:{cx:220,cy:128},c2:{cx:220,cy:288},c3:{cx:220,cy:448},c4:{cx:220,cy:608},
-  e1:{cx:349,cy:128},e2:{cx:349,cy:288},e3:{cx:349,cy:448},e4:{cx:349,cy:608},
+  w1:{cx:91,arc_cy:112},w2:{cx:91,arc_cy:272},w3:{cx:91,arc_cy:432},w4:{cx:91,arc_cy:592},
+  c1:{cx:220,arc_cy:112},c2:{cx:220,arc_cy:272},c3:{cx:220,arc_cy:432},c4:{cx:220,arc_cy:592},
+  e1:{cx:349,arc_cy:112},e2:{cx:349,arc_cy:272},e3:{cx:349,arc_cy:432},e4:{cx:349,arc_cy:592},
 };
 
 function renderBadges(){
@@ -2108,32 +2108,34 @@ function renderBadges(){
   for(const bedId of Object.keys(BEDS)){
     const count=getPendingCount(bedId);
     if(!count)continue;
-    const{cx,cy}=BADGE_POS[bedId];
+    const{cx,arc_cy}=BADGE_POS[bedId];
 
     const g=document.createElementNS('http://www.w3.org/2000/svg','g');
     g.setAttribute('class','task-badge-g');
     g.style.cursor='pointer';
 
     if(count<=4){
-      // Tick marks: small amber squares, 11px center-to-center
-      const mw=5,mh=5,gap=11;
+      // Marks follow pill bottom arc: y = arc_cy + sqrt(innerR²-dx²)
+      const mw=5,mh=5,gap=11,innerR=24;
       const startX=cx-((count-1)*gap)/2;
       for(let i=0;i<count;i++){
+        const dx=startX+i*gap-cx;
+        const markY=arc_cy+Math.sqrt(Math.max(0,innerR*innerR-dx*dx));
         const r=document.createElementNS('http://www.w3.org/2000/svg','rect');
         r.setAttribute('x',startX+i*gap-mw/2);
-        r.setAttribute('y',cy-mh/2);
+        r.setAttribute('y',markY-mh/2);
         r.setAttribute('width',mw);r.setAttribute('height',mh);
         r.setAttribute('rx','1');
         r.setAttribute('fill','rgba(224,140,48,.88)');
         g.appendChild(r);
       }
     } else {
-      // 5+ tasks: fall back to count number
+      // 5+ tasks: count number at arc lowest point
       const txt=document.createElementNS('http://www.w3.org/2000/svg','text');
-      txt.setAttribute('x',cx);txt.setAttribute('y',cy+3.5);
+      txt.setAttribute('x',cx);txt.setAttribute('y',arc_cy+24+4);
       txt.setAttribute('font-family',"'Inter',sans-serif");
       txt.setAttribute('font-size','9');txt.setAttribute('font-weight','600');
-      txt.setAttribute('fill','rgba(224,140,48,.75)');txt.setAttribute('text-anchor','middle');
+      txt.setAttribute('fill','rgba(224,140,48,.88)');txt.setAttribute('text-anchor','middle');
       txt.textContent=String(count);
       g.appendChild(txt);
     }
