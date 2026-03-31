@@ -2594,14 +2594,24 @@ function renderStatusIndicators(){
     }
 
     const status=planting.status||'growing';
+    const cropData=cropsCache.find(c=>c.name.toLowerCase()===planting.crop_name.toLowerCase());
+    const isPerennial=cropData?.is_perennial||false;
     const dtm=getCropDtm(planting.crop_name);
-    const progress=dtm?computeArcProgress(planting.planted_date,dtm.days_to_maturity_min,dtm.days_to_maturity_max):1;
-    const nearHarvest=progress>=0.85||status==='ready';
 
-    ring.setAttribute('stroke',nearHarvest?'#e08c30':'#14c4ab');
-    ring.setAttribute('opacity',nearHarvest?'.9':'.7');
-    ring.setAttribute('stroke-dasharray',`${progress*P} ${P}`);
-    ring.style.animation=nearHarvest?'statusPulse 2.2s ease-in-out infinite':'';
+    if(isPerennial||!dtm){
+      // Perennials and crops without DTM data: steady full teal ring, no countdown
+      ring.setAttribute('stroke','#14c4ab');
+      ring.setAttribute('opacity','.7');
+      ring.setAttribute('stroke-dasharray',`${P} ${P}`);
+      ring.style.animation='';
+    } else {
+      const progress=computeArcProgress(planting.planted_date,dtm.days_to_maturity_min,dtm.days_to_maturity_max);
+      const nearHarvest=progress>=0.85||status==='ready';
+      ring.setAttribute('stroke',nearHarvest?'#e08c30':'#14c4ab');
+      ring.setAttribute('opacity',nearHarvest?'.9':'.7');
+      ring.setAttribute('stroke-dasharray',`${progress*P} ${P}`);
+      ring.style.animation=nearHarvest?'statusPulse 2.2s ease-in-out infinite':'';
+    }
   }
   updateDraftPills();
 }
@@ -3002,7 +3012,7 @@ let varietiesCache={}; // { cropName: ['var1','var2'] } from planting history
 
 async function fetchCrops(){
   try{
-    const res=await fetch(`${SB_URL}/rest/v1/crops?select=id,name,water_needs,sun_needs,spacing_inches,frost_hardy,days_to_maturity_min,days_to_maturity_max&order=name.asc`,{headers:SB_HEADERS});
+    const res=await fetch(`${SB_URL}/rest/v1/crops?select=id,name,water_needs,sun_needs,spacing_inches,frost_hardy,days_to_maturity_min,days_to_maturity_max,is_perennial&order=name.asc`,{headers:SB_HEADERS});
     cropsCache=await res.json();
   }catch(e){cropsCache=[];}
 }
