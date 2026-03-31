@@ -818,6 +818,17 @@ h1 em{font-style:normal;color:var(--teal);}
 .ov-type-harvest{background:rgba(224,140,48,.1);color:var(--amber);}
 .ov-type-task{background:rgba(91,156,240,.1);color:var(--sapphire);}
 .ov-empty{font-family:'Inter',sans-serif;font-size:.82rem;color:var(--text-dim);font-style:italic;padding:16px 0;}
+.ov-badge{font-family:'Inter',sans-serif;font-size:.52rem;letter-spacing:.4px;padding:2px 6px;border-radius:100px;flex-shrink:0;margin-top:2px;}
+.ov-badge-overdue{background:rgba(224,80,80,.15);color:#e06c75;}
+.ov-badge-due{background:rgba(91,156,240,.1);color:var(--sapphire);}
+.ov-badge-inactive{background:rgba(224,140,48,.12);color:var(--amber);}
+.ov-beds-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:22px;}
+.ov-bed-card{background:var(--bg-card);border:1px solid var(--border);border-radius:12px;padding:12px;display:flex;flex-direction:column;gap:5px;}
+.ov-bed-top{display:flex;align-items:center;gap:7px;}
+.ov-bed-crop{font-family:'Inter',sans-serif;font-size:.83rem;font-weight:600;color:var(--text);flex:1;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
+.ov-bed-tasks{font-family:'Inter',sans-serif;font-size:.58rem;font-weight:700;background:rgba(91,156,240,.15);color:var(--sapphire);border-radius:100px;padding:2px 6px;flex-shrink:0;}
+.ov-bed-meta{font-family:'Inter',sans-serif;font-size:.65rem;color:var(--text-sub);}
+.ov-bed-log{display:flex;align-items:center;gap:5px;font-family:'Inter',sans-serif;font-size:.63rem;color:var(--text-dim);}
 </style>
 </head>
 <body>
@@ -1415,15 +1426,17 @@ h1 em{font-style:normal;color:var(--teal);}
 <div class="ov-wrap">
   <div class="ov-glance" id="ov-glance">
     <div class="ov-glance-card"><div class="ov-glance-val" id="ov-active">—</div><div class="ov-glance-label">Active beds</div></div>
-    <div class="ov-glance-card"><div class="ov-glance-val" id="ov-tasks">—</div><div class="ov-glance-label">Tasks this week</div></div>
+    <div class="ov-glance-card"><div class="ov-glance-val" id="ov-harvest-ct">—</div><div class="ov-glance-label">Harvests</div></div>
     <div class="ov-glance-card"><div class="ov-glance-val" id="ov-last-harvest" style="font-size:.75rem;line-height:1.3">—</div><div class="ov-glance-label">Last harvest</div></div>
   </div>
+  <span class="ov-section-label">This week</span>
+  <div class="ov-feed" id="ov-this-week"><p class="ov-empty">Loading…</p></div>
+  <span class="ov-section-label">Needs attention</span>
+  <div class="ov-feed" id="ov-attention"><p class="ov-empty">Loading…</p></div>
+  <span class="ov-section-label">Active beds</span>
+  <div class="ov-beds-grid" id="ov-beds-grid"><p class="ov-empty">Loading…</p></div>
   <span class="ov-section-label">Yield by bed</span>
   <div class="ov-yield-grid" id="ov-yield-grid"><p class="ov-empty">Loading…</p></div>
-  <span class="ov-section-label">Recent activity</span>
-  <div class="ov-feed" id="ov-feed"><p class="ov-empty">Loading…</p></div>
-  <span class="ov-section-label">Season notes</span>
-  <div class="ov-feed" id="ov-notes-feed"><p class="ov-empty">Loading…</p></div>
 </div>
 </div>
 
@@ -2818,19 +2831,21 @@ function bindHarvest(plantingId){
 async function renderOverviewTab(){
   const pidMeta={};
   for(const[bid,list]of Object.entries(plantingCache)){
-    for(const p of list)pidMeta[p.id]={bedId:bid,crop_name:p.crop_name};
+    for(const p of list)pidMeta[p.id]={bedId:bid,crop_name:p.crop_name,planted_date:p.planted_date};
   }
   const ALL_BEDS=Object.keys(BEDS);
-  const activeCt=ALL_BEDS.filter(b=>{const p=getActivePlanting(b);return p&&p.planted_date;}).length;
-  const tasksCt=ALL_BEDS.reduce((s,b)=>s+getPendingCount(b),0);
-  document.getElementById('ov-active').textContent=`${activeCt}/12`;
-  document.getElementById('ov-tasks').textContent=tasksCt;
-  const[allHarvests,allLogs,completedTasks]=await Promise.all([
-    fetch(`${SB_URL}/rest/v1/harvests?select=planting_id,harvest_date,amount,unit,notes&order=harvest_date.desc&limit=200`,{headers:SB_HEADERS}).then(r=>r.json()).catch(()=>[]),
-    fetch(`${SB_URL}/rest/v1/logs?select=planting_id,date,note,created_at&order=created_at.desc&limit=100`,{headers:SB_HEADERS}).then(r=>r.json()).catch(()=>[]),
-    fetch(`${SB_URL}/rest/v1/tasks?completed_date=not.is.null&due_date=not.is.null&select=planting_id,title,completed_date&order=completed_date.desc&limit=50`,{headers:SB_HEADERS}).then(r=>r.json()).catch(()=>[]),
+  const activeBeds=ALL_BEDS.filter(b=>{const p=getActivePlanting(b);return p&&p.planted_date;});
+  document.getElementById('ov-active').textContent=`${activeBeds.length}/12`;
+
+  const[allHarvests,allLogs]=await Promise.all([
+    fetch(`${SB_URL}/rest/v1/harvests?select=planting_id,harvest_date,amount,unit,notes&order=harvest_date.desc&limit=300`,{headers:SB_HEADERS}).then(r=>r.json()).catch(()=>[]),
+    fetch(`${SB_URL}/rest/v1/logs?select=planting_id,date,note,created_at&order=created_at.desc&limit=200`,{headers:SB_HEADERS}).then(r=>r.json()).catch(()=>[]),
   ]);
-  // Most recent harvest stat
+
+  // --- At-a-glance: harvest count ---
+  document.getElementById('ov-harvest-ct').textContent=allHarvests.length||'0';
+
+  // --- At-a-glance: last harvest ---
   const lastHarvestEl=document.getElementById('ov-last-harvest');
   if(allHarvests.length){
     const h0=allHarvests[0];
@@ -2838,7 +2853,116 @@ async function renderOverviewTab(){
     const amt0=`${parseFloat(h0.amount)%1===0?parseFloat(h0.amount):parseFloat(h0.amount).toFixed(1)} ${h0.unit}`;
     lastHarvestEl.innerHTML=`${meta0?.crop_name||'—'}<br><span style="font-size:.65rem;color:var(--text-dim)">${amt0} · ${fmtDate(h0.harvest_date)}</span>`;
   }
-  // Yield by planting
+
+  // --- Build last-log-per-planting map ---
+  const lastLogByPid={};
+  for(const l of allLogs){if(!lastLogByPid[l.planting_id])lastLogByPid[l.planting_id]=l.date;}
+
+  // --- Date helpers ---
+  const today=new Date();today.setHours(0,0,0,0);
+  const weekOut=new Date(today.getTime()+7*864e5);
+  const sevenDaysAgo=new Date(today.getTime()-7*864e5);
+
+  // --- This Week: pending tasks due today through next 7 days ---
+  const thisWeekTasks=[];
+  for(const[pid,tasks]of Object.entries(taskCache)){
+    const meta=pidMeta[pid];if(!meta)continue;
+    for(const t of tasks){
+      if(t.completed_date)continue;
+      const due=new Date(t.due_date+'T00:00:00');
+      if(due>=today&&due<=weekOut)thisWeekTasks.push({...t,bedId:meta.bedId,crop_name:meta.crop_name,dueObj:due});
+    }
+  }
+  thisWeekTasks.sort((a,b)=>a.dueObj-b.dueObj);
+  const weekEl=document.getElementById('ov-this-week');
+  if(!thisWeekTasks.length){
+    weekEl.innerHTML='<p class="ov-empty">Nothing due this week.</p>';
+  }else{
+    weekEl.innerHTML=thisWeekTasks.map(t=>{
+      const isToday=t.dueObj.getTime()===today.getTime();
+      const badge=isToday
+        ?`<span class="ov-badge ov-badge-overdue">Today</span>`
+        :`<span class="ov-badge ov-badge-due">${fmtDate(t.due_date)}</span>`;
+      return `<div class="ov-feed-row">
+        <span class="insp-bed-chip">${t.bedId.toUpperCase()}</span>
+        <div class="ov-feed-body"><div class="ov-feed-text">${t.title}</div><div class="ov-feed-date">${t.crop_name}</div></div>
+        ${badge}
+      </div>`;
+    }).join('');
+  }
+
+  // --- Needs Attention: overdue tasks + beds silent >7 days ---
+  const attnItems=[];
+  for(const[pid,tasks]of Object.entries(taskCache)){
+    const meta=pidMeta[pid];if(!meta)continue;
+    for(const t of tasks){
+      if(t.completed_date)continue;
+      const due=new Date(t.due_date+'T00:00:00');
+      if(due<today){
+        const daysOver=Math.round((today-due)/864e5);
+        attnItems.push({kind:'overdue',bedId:meta.bedId,crop_name:meta.crop_name,text:t.title,sub:`${daysOver}d overdue`,sortKey:t.due_date});
+      }
+    }
+  }
+  for(const bedId of activeBeds){
+    const p=getActivePlanting(bedId);if(!p)continue;
+    const lastDate=lastLogByPid[p.id];
+    if(!lastDate){
+      attnItems.push({kind:'inactive',bedId,crop_name:p.crop_name,text:'No logs recorded yet',sub:'',sortKey:'9999'});
+    }else{
+      const d=new Date(lastDate+'T00:00:00');
+      if(d<sevenDaysAgo){
+        const days=Math.round((today-d)/864e5);
+        attnItems.push({kind:'inactive',bedId,crop_name:p.crop_name,text:`No activity for ${days} days`,sub:`Last: ${fmtDate(lastDate)}`,sortKey:lastDate});
+      }
+    }
+  }
+  attnItems.sort((a,b)=>{
+    if(a.kind!==b.kind)return a.kind==='overdue'?-1:1;
+    return a.sortKey.localeCompare(b.sortKey);
+  });
+  const attnEl=document.getElementById('ov-attention');
+  if(!attnItems.length){
+    attnEl.innerHTML='<p class="ov-empty">Everything looks good.</p>';
+  }else{
+    attnEl.innerHTML=attnItems.map(item=>{
+      const badge=item.kind==='overdue'
+        ?`<span class="ov-badge ov-badge-overdue">${item.sub}</span>`
+        :`<span class="ov-badge ov-badge-inactive">Inactive</span>`;
+      return `<div class="ov-feed-row">
+        <span class="insp-bed-chip">${item.bedId.toUpperCase()}</span>
+        <div class="ov-feed-body"><div class="ov-feed-text">${item.text}</div><div class="ov-feed-date">${item.crop_name}${item.kind==='inactive'&&item.sub?' · '+item.sub:''}</div></div>
+        ${badge}
+      </div>`;
+    }).join('');
+  }
+
+  // --- Active Beds grid ---
+  const bedsEl=document.getElementById('ov-beds-grid');
+  if(!activeBeds.length){
+    bedsEl.innerHTML='<p class="ov-empty">No active plantings.</p>';
+  }else{
+    bedsEl.innerHTML=activeBeds.map(bedId=>{
+      const p=getActivePlanting(bedId);
+      const plantedDays=p.planted_date?Math.round((today-new Date(p.planted_date+'T00:00:00'))/864e5):null;
+      const lastDate=lastLogByPid[p.id];
+      const logDays=lastDate?Math.round((today-new Date(lastDate+'T00:00:00'))/864e5):null;
+      const pendingCt=getPendingCount(bedId);
+      let dotColor=logDays===null||logDays>7?'#e06c75':logDays>3?'var(--amber)':'var(--teal)';
+      const logLabel=logDays===null?'Never logged':logDays===0?'Logged today':logDays===1?'Logged yesterday':`${logDays}d since log`;
+      return `<div class="ov-bed-card">
+        <div class="ov-bed-top">
+          <span class="insp-bed-chip">${bedId.toUpperCase()}</span>
+          <span class="ov-bed-crop">${p.crop_name}</span>
+          ${pendingCt>0?`<span class="ov-bed-tasks">${pendingCt}</span>`:''}
+        </div>
+        <div class="ov-bed-meta">${plantedDays!==null?`Day ${plantedDays}`:'Not yet planted'}</div>
+        <div class="ov-bed-log"><div style="width:7px;height:7px;border-radius:50%;background:${dotColor};flex-shrink:0"></div><span>${logLabel}</span></div>
+      </div>`;
+    }).join('');
+  }
+
+  // --- Yield by bed ---
   const yieldByPid={};
   for(const h of allHarvests){
     if(!yieldByPid[h.planting_id])yieldByPid[h.planting_id]={totals:{},lastDate:h.harvest_date};
@@ -2850,53 +2974,16 @@ async function renderOverviewTab(){
   if(!sorted.length){
     yieldEl.innerHTML='<p class="ov-empty">No harvests logged yet.</p>';
   }else{
-    let yh='';
-    for(const[pid,data]of sorted){
-      const meta=pidMeta[pid];if(!meta)continue;
+    yieldEl.innerHTML=sorted.map(([pid,data])=>{
+      const meta=pidMeta[pid];if(!meta)return'';
       const parts=Object.entries(data.totals).map(([u,v])=>`${v%1===0?v:v.toFixed(1)} ${u}`).join(', ');
-      yh+=`<div class="ov-yield-card">
+      return `<div class="ov-yield-card">
         <div class="ov-yield-top"><span class="insp-bed-chip">${meta.bedId.toUpperCase()}</span><span class="ov-yield-crop">${meta.crop_name}</span></div>
         <div class="ov-yield-total">${parts}</div>
         <div class="ov-yield-date">Last: ${fmtDate(data.lastDate)}</div>
       </div>`;
-    }
-    yieldEl.innerHTML=yh||'<p class="ov-empty">No harvests logged yet.</p>';
+    }).filter(Boolean).join('')||'<p class="ov-empty">No harvests logged yet.</p>';
   }
-  // Activity feed
-  const feed=[];
-  for(const l of allLogs){const meta=pidMeta[l.planting_id];if(!meta)continue;feed.push({type:'log',bedId:meta.bedId,crop:meta.crop_name,text:l.note,dateSort:l.created_at,dateDisplay:l.date});}
-  for(const h of allHarvests){const meta=pidMeta[h.planting_id];if(!meta)continue;const amt=`${parseFloat(h.amount)%1===0?parseFloat(h.amount):parseFloat(h.amount).toFixed(1)} ${h.unit}`;feed.push({type:'harvest',bedId:meta.bedId,crop:meta.crop_name,text:`Harvested ${amt}${h.notes?' — '+h.notes:''}`,dateSort:h.harvest_date,dateDisplay:fmtDate(h.harvest_date)});}
-  for(const t of completedTasks){const meta=pidMeta[t.planting_id];if(!meta)continue;feed.push({type:'task',bedId:meta.bedId,crop:meta.crop_name,text:t.title,dateSort:t.completed_date,dateDisplay:fmtDate(t.completed_date)});}
-  feed.sort((a,b)=>b.dateSort.localeCompare(a.dateSort));
-  const feedEl=document.getElementById('ov-feed');
-  if(!feed.length){feedEl.innerHTML='<p class="ov-empty">No activity yet.</p>';return;}
-  const tLabel={log:'Note',harvest:'Harvest',task:'Task'};
-  const tClass={log:'ov-type-log',harvest:'ov-type-harvest',task:'ov-type-task'};
-  feedEl.innerHTML=feed.slice(0,30).map(e=>`<div class="ov-feed-row">
-    <span class="insp-bed-chip">${e.bedId.toUpperCase()}</span>
-    <div class="ov-feed-body"><div class="ov-feed-text">${e.text}</div><div class="ov-feed-date">${e.crop} · ${e.dateDisplay}</div></div>
-    <span class="ov-feed-type ${tClass[e.type]}">${tLabel[e.type]}</span>
-  </div>`).join('');
-
-  // Season notes — all logs with bed filter
-  const notesEl=document.getElementById('ov-notes-feed');
-  const notesWithBed=allLogs.map(l=>{const meta=pidMeta[l.planting_id];return meta?{...l,bedId:meta.bedId,crop:meta.crop_name}:null;}).filter(Boolean);
-  if(!notesWithBed.length){notesEl.innerHTML='<p class="ov-empty">No notes yet.</p>';return;}
-  let ovNotesFilter='all';
-  const notesBeds=[...new Set(notesWithBed.map(n=>n.bedId))].sort();
-  const renderNoteFeed=()=>{
-    const filtered=ovNotesFilter==='all'?notesWithBed:notesWithBed.filter(n=>n.bedId===ovNotesFilter);
-    notesEl.innerHTML=`<div class="chip-strip" style="margin-bottom:10px">
-      <button class="chip${ovNotesFilter==='all'?' active':''}" onclick="ovNotesFilter='all';renderNoteFeed()">All</button>
-      ${notesBeds.map(b=>`<button class="chip${ovNotesFilter===b?' active':''}" onclick="ovNotesFilter='${b}';renderNoteFeed()">${b.toUpperCase()}</button>`).join('')}
-    </div>`+filtered.map(n=>`<div class="ov-feed-row">
-      <span class="insp-bed-chip">${n.bedId.toUpperCase()}</span>
-      <div class="ov-feed-body"><div class="ov-feed-text">${n.note}</div><div class="ov-feed-date">${n.crop} · ${n.date}</div></div>
-    </div>`).join('');
-  };
-  window.renderNoteFeed=renderNoteFeed;
-  window.ovNotesFilter=ovNotesFilter;
-  renderNoteFeed();
 }
 
 /* ── PLANNING TAB ────────────────────────────────── */
