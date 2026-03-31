@@ -2319,7 +2319,8 @@ function buildTimelineHtml(planting,cropData){
     const harvestPart=endLabel?` · Harvest ${endLabel}`:'';
     return `<div class="insp-tl-since">Planted ${plantedFmt}${harvestPart}</div>`;
   }
-  const progress=computeArcProgress(planting.planted_date,cropData.days_to_maturity_min,cropData.days_to_maturity_max);
+  const progress=getArcProgress(planting,cropData);
+  if(progress===null)return `<div class="insp-tl-since">Planted ${plantedFmt}${endLabel?' · Harvest '+endLabel:''}</div>`;
   const pct=Math.min(100,Math.round(progress*100));
   const nearHarvest=progress>=0.85||(planting.status||'')==='ready';
   const amberCls=nearHarvest?' tl-amber':'';
@@ -2626,6 +2627,30 @@ function computeArcProgress(plantedDate,dtmMin,dtmMax){
   return Math.min(1,Math.max(0,elapsed/((dtmMin+dtmMax)/2)));
 }
 
+function parseHarvestDate(str){
+  if(!str)return null;
+  // Strip leading ~, take first part of a range (en-dash, em-dash, or hyphen)
+  let s=str.replace(/^~/,'').split(/[–—]/)[0].trim();
+  let d=new Date(s);
+  if(isNaN(d.getTime()))d=new Date(s+', '+new Date().getFullYear());
+  return isNaN(d.getTime())?null:d;
+}
+
+// Prefer expected_harvest date over DTM when parseable
+function getArcProgress(planting,cropData){
+  if(!planting?.planted_date)return null;
+  const planted=new Date(planting.planted_date+'T00:00:00');
+  const harvestDate=parseHarvestDate(planting.expected_harvest);
+  if(harvestDate){
+    const total=harvestDate-planted;
+    if(total>0)return Math.min(1,Math.max(0,(Date.now()-planted)/total));
+  }
+  if(cropData?.days_to_maturity_min&&cropData?.days_to_maturity_max){
+    return computeArcProgress(planting.planted_date,cropData.days_to_maturity_min,cropData.days_to_maturity_max);
+  }
+  return null;
+}
+
 function renderStatusIndicators(){
   const svg=document.getElementById('garden-map');
   if(!svg)return;
@@ -2647,19 +2672,25 @@ function renderStatusIndicators(){
     const isPerennial=cropData?.is_perennial||false;
     const dtm=getCropDtm(planting.crop_name);
 
-    if(isPerennial||!dtm){
-      // Perennials and crops without DTM data: steady full teal ring, no countdown
+    if(isPerennial){
+      // Perennials: steady full teal ring, no countdown
       ring.setAttribute('stroke','#14c4ab');
       ring.setAttribute('opacity','.7');
       ring.setAttribute('stroke-dasharray',`${P} ${P}`);
       ring.style.animation='';
     } else {
-      const progress=computeArcProgress(planting.planted_date,dtm.days_to_maturity_min,dtm.days_to_maturity_max);
-      const nearHarvest=progress>=0.85||status==='ready';
-      ring.setAttribute('stroke',nearHarvest?'#e08c30':'#14c4ab');
-      ring.setAttribute('opacity',nearHarvest?'.9':'.7');
-      ring.setAttribute('stroke-dasharray',`${progress*P} ${P}`);
-      ring.style.animation=nearHarvest?'statusPulse 2.2s ease-in-out infinite':'';
+      const progress=getArcProgress(planting,cropData);
+      if(progress===null){
+        ring.setAttribute('opacity','0');
+        ring.style.animation='';
+        ring.removeAttribute('stroke-dasharray');
+      } else {
+        const nearHarvest=progress>=0.85||status==='ready';
+        ring.setAttribute('stroke',nearHarvest?'#e08c30':'#14c4ab');
+        ring.setAttribute('opacity',nearHarvest?'.9':'.7');
+        ring.setAttribute('stroke-dasharray',`${progress*P} ${P}`);
+        ring.style.animation=nearHarvest?'statusPulse 2.2s ease-in-out infinite':'';
+      }
     }
   }
   updateDraftPills();
