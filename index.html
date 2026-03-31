@@ -845,6 +845,28 @@ h1 em{font-style:normal;color:var(--teal);}
 .ov-bed-tasks{font-family:'Inter',sans-serif;font-size:.58rem;font-weight:700;background:rgba(91,156,240,.15);color:var(--sapphire);border-radius:100px;padding:2px 6px;flex-shrink:0;}
 .ov-bed-meta{font-family:'Inter',sans-serif;font-size:.65rem;color:var(--text-sub);}
 .ov-bed-log{display:flex;align-items:center;gap:5px;font-family:'Inter',sans-serif;font-size:.63rem;color:var(--text-dim);}
+
+/* ── WEEKLY BRIEFING ─────────────────────────────── */
+.ov-briefing{background:var(--bg-card);border:1px solid var(--border-hi);border-radius:14px;padding:16px;margin-bottom:20px;}
+.ov-briefing-headline{font-family:'Inter',sans-serif;font-size:.95rem;font-weight:700;color:var(--text);line-height:1.35;margin-bottom:10px;}
+.ov-briefing-narrative{font-family:'Inter',sans-serif;font-size:.76rem;color:var(--text-sub);line-height:1.65;overflow:hidden;display:-webkit-box;-webkit-line-clamp:4;-webkit-box-orient:vertical;}
+.ov-briefing-narrative.expanded{-webkit-line-clamp:unset;display:block;}
+.ov-briefing-expand{background:none;border:none;font-family:'Inter',sans-serif;font-size:.63rem;color:var(--teal);cursor:pointer;padding:5px 0 2px;display:block;}
+.ov-briefing-section{font-family:'Inter',sans-serif;font-size:.54rem;letter-spacing:.5px;color:var(--text-dim);text-transform:uppercase;margin:12px 0 5px;display:block;border-bottom:1px solid var(--divider);padding-bottom:4px;}
+.ov-briefing-note{font-family:'Inter',sans-serif;font-size:.73rem;color:var(--text-sub);line-height:1.5;padding:3px 0 3px 10px;position:relative;}
+.ov-briefing-note::before{content:'·';position:absolute;left:2px;color:var(--teal);}
+.ov-suggestion-row{display:flex;align-items:flex-start;gap:8px;padding:7px 0;border-bottom:1px solid var(--divider);}
+.ov-suggestion-row:last-child{border-bottom:none;}
+.ov-suggestion-body{flex:1;min-width:0;}
+.ov-suggestion-title{font-family:'Inter',sans-serif;font-size:.78rem;font-weight:500;color:var(--text);line-height:1.3;}
+.ov-suggestion-meta{font-family:'Inter',sans-serif;font-size:.6rem;color:var(--text-dim);margin-top:2px;line-height:1.4;}
+.ov-suggestion-accept{background:none;border:1px solid var(--border-hi);border-radius:100px;color:var(--teal);font-size:.75rem;cursor:pointer;padding:3px 10px;flex-shrink:0;font-family:'Inter',sans-serif;transition:all .15s;}
+.ov-suggestion-accept:hover{background:rgba(20,196,171,.08);}
+.ov-suggestion-accept:disabled{opacity:.55;cursor:default;}
+.ov-briefing-footer{font-family:'Inter',sans-serif;font-size:.57rem;color:var(--text-dim);margin-top:12px;padding-top:10px;border-top:1px solid var(--divider);display:flex;align-items:center;justify-content:space-between;}
+.ov-briefing-refresh{background:none;border:none;color:var(--teal);font-size:.62rem;cursor:pointer;font-family:'Inter',sans-serif;padding:0;letter-spacing:.02em;}
+.ov-urgency-high{background:rgba(224,140,48,.12);color:var(--amber);font-family:'Inter',sans-serif;font-size:.5rem;padding:1px 5px;border-radius:100px;vertical-align:middle;margin-left:4px;}
+.ov-briefing-loading{font-family:'Inter',sans-serif;font-size:.78rem;color:var(--text-dim);font-style:italic;padding:14px 0;text-align:center;}
 </style>
 </head>
 <body>
@@ -1440,6 +1462,7 @@ h1 em{font-style:normal;color:var(--teal);}
 ═══════════════════════════════════════════ -->
 <div id="tab-overview" class="tab-panel">
 <div class="ov-wrap">
+  <div id="ov-briefing"><p class="ov-briefing-loading">Loading briefing…</p></div>
   <div class="ov-glance" id="ov-glance">
     <div class="ov-glance-card"><div class="ov-glance-val" id="ov-active">—</div><div class="ov-glance-label">Active beds</div></div>
     <div class="ov-glance-card"><div class="ov-glance-val" id="ov-harvest-ct">—</div><div class="ov-glance-label">Harvests</div></div>
@@ -2874,6 +2897,7 @@ function bindHarvest(plantingId){
 /* ── TABS ────────────────────────────────────────── */
 /* ── OVERVIEW TAB ────────────────────────────────── */
 async function renderOverviewTab(){
+  renderBriefingCard(briefingCache);
   const pidMeta={};
   for(const[bid,list]of Object.entries(plantingCache)){
     for(const p of list)pidMeta[p.id]={bedId:bid,crop_name:p.crop_name,planted_date:p.planted_date};
@@ -3849,6 +3873,119 @@ function switchTab(id,btn){
   if(id==='tab-overview')renderOverviewTab();
 }
 
+/* ── WEEKLY BRIEFING ─────────────────────────────── */
+const BRIEFING_URL='https://ulivctyuudgepolulpvq.supabase.co/functions/v1/generate-briefing';
+let briefingCache=null;
+
+async function fetchLatestBriefing(){
+  try{
+    const res=await fetch(BRIEFING_URL,{headers:{'Content-Type':'application/json'}});
+    if(res.ok)briefingCache=await res.json();
+  }catch(e){console.error('Briefing fetch failed:',e);}
+}
+
+function renderBriefingCard(briefing){
+  const el=document.getElementById('ov-briefing');
+  if(!el)return;
+  if(!briefing){
+    el.innerHTML=`<div class="ov-briefing"><div class="ov-briefing-loading">No briefing yet — generates daily at 6am.<br><button class="ov-briefing-refresh" style="margin-top:8px;font-size:.7rem" onclick="triggerBriefingRefresh()">Generate now →</button></div></div>`;
+    return;
+  }
+  if(briefing.error){
+    el.innerHTML=`<div class="ov-briefing"><div class="ov-briefing-loading">Briefing error: ${briefing.error}</div></div>`;
+    return;
+  }
+  const p=briefing.payload||{};
+  window.briefingSuggestions=p.suggested_tasks||[];
+  const genDate=new Date(briefing.generated_at);
+  const todayMid=new Date();todayMid.setHours(0,0,0,0);
+  const isToday=genDate>=todayMid;
+  const timeStr=genDate.toLocaleTimeString('en-US',{hour:'numeric',minute:'2-digit',hour12:true});
+  const dateLabel=isToday?`today at ${timeStr}`:`${genDate.toLocaleDateString('en-US',{month:'short',day:'numeric'})} at ${timeStr}`;
+  const notes=(p.weather_notes||[]).slice(0,4);
+  const timing=(p.task_timing||[]).slice(0,3);
+  const suggestions=(p.suggested_tasks||[]).slice(0,5);
+  const insights=(p.insights||[]).slice(0,4);
+  let h=`<div class="ov-briefing">`;
+  h+=`<div class="ov-briefing-headline">${p.headline||'Weekly Garden Briefing'}</div>`;
+  if(p.narrative){
+    h+=`<div class="ov-briefing-narrative" id="brf-narrative">${p.narrative.replace(/\n\n/g,'<br><br>').replace(/\n/g,' ')}</div>
+    <button class="ov-briefing-expand" onclick="toggleBriefingNarrative()">Read more ▾</button>`;
+  }
+  if(notes.length){
+    h+=`<span class="ov-briefing-section">Weather</span>`;
+    h+=notes.map(n=>`<div class="ov-briefing-note">${n}</div>`).join('');
+  }
+  if(suggestions.length){
+    h+=`<span class="ov-briefing-section">Suggested tasks</span><div>`;
+    h+=suggestions.map((t,i)=>{
+      const urgBadge=t.urgency==='high'?`<span class="ov-urgency-high">urgent</span>`:'';
+      const meta=[t.bed_id?t.bed_id.toUpperCase():null,t.due_date?fmtDate(t.due_date):null,t.description].filter(Boolean).join(' · ');
+      return `<div class="ov-suggestion-row">
+        <div class="ov-suggestion-body">
+          <div class="ov-suggestion-title">${t.title}${urgBadge}</div>
+          <div class="ov-suggestion-meta">${meta}</div>
+        </div>
+        <button class="ov-suggestion-accept" id="sug-${i}" onclick="acceptSuggestedTask(this,${i})">+</button>
+      </div>`;
+    }).join('');
+    h+=`</div>`;
+  }
+  if(timing.length){
+    h+=`<span class="ov-briefing-section">Timing</span>`;
+    h+=timing.map(t=>`<div class="ov-briefing-note" style="${t.urgency==='high'?'color:var(--amber)':''}">${t.observation}</div>`).join('');
+  }
+  if(insights.length){
+    h+=`<span class="ov-briefing-section">Insights</span>`;
+    h+=insights.map(i=>`<div class="ov-briefing-note">${i}</div>`).join('');
+  }
+  h+=`<div class="ov-briefing-footer">
+    <span>Generated ${dateLabel}${!isToday?' · <span style="color:var(--amber)">stale</span>':''}</span>
+    <button class="ov-briefing-refresh" onclick="triggerBriefingRefresh()">↻ Refresh</button>
+  </div>`;
+  h+=`</div>`;
+  el.innerHTML=h;
+}
+
+function toggleBriefingNarrative(){
+  const el=document.getElementById('brf-narrative');
+  const btn=el?.nextElementSibling;
+  if(!el)return;
+  el.classList.toggle('expanded');
+  if(btn)btn.textContent=el.classList.contains('expanded')?'Show less ▴':'Read more ▾';
+}
+
+async function triggerBriefingRefresh(){
+  const el=document.getElementById('ov-briefing');
+  if(el)el.innerHTML=`<div class="ov-briefing"><div class="ov-briefing-loading">Generating briefing — this takes ~10 seconds…</div></div>`;
+  try{
+    const res=await fetch(BRIEFING_URL,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({force:true})});
+    if(res.ok){briefingCache=await res.json();renderBriefingCard(briefingCache);}
+    else{if(el)el.innerHTML=`<div class="ov-briefing"><div class="ov-briefing-loading">Generation failed. Check that ANTHROPIC_API_KEY is set in Supabase secrets.</div></div>`;}
+  }catch(e){if(el)el.innerHTML=`<div class="ov-briefing"><div class="ov-briefing-loading">Network error — try again.</div></div>`;}
+}
+
+async function acceptSuggestedTask(btn,idx){
+  const t=window.briefingSuggestions?.[idx];
+  if(!t)return;
+  btn.disabled=true;btn.textContent='…';
+  const bedId=(t.bed_id||'').toLowerCase();
+  const planting=bedId?getActivePlanting(bedId):null;
+  if(!planting){btn.textContent='?';btn.title='Bed not found or not active';return;}
+  try{
+    const res=await fetch(`${SB_URL}/rest/v1/tasks`,{
+      method:'POST',headers:{...SB_HEADERS,'Prefer':'return=representation'},
+      body:JSON.stringify({planting_id:planting.id,title:t.title,description:t.description||null,due_date:t.due_date,is_custom:true,crop_task_id:null})
+    });
+    const rows=await res.json();
+    if(rows?.[0]){
+      if(!taskCache[planting.id])taskCache[planting.id]=[];
+      taskCache[planting.id].push(rows[0]);
+    }
+    btn.textContent='✓';btn.style.color='var(--teal)';btn.style.borderColor='var(--teal)';
+  }catch(e){btn.disabled=false;btn.textContent='+';}
+}
+
 /* ── INIT ────────────────────────────────────────── */
 window.addEventListener('load',async()=>{
   await Promise.all([fetchAllPlantings(),fetchCrops(),fetchVarieties()]);
@@ -3857,6 +3994,7 @@ window.addEventListener('load',async()=>{
   await fetchV2Tasks();
   renderBadges();
   renderPlanningTab();
+  fetchLatestBriefing(); // non-blocking — ready by the time user opens Overview
 });
 </script>
 </body>
