@@ -52,13 +52,27 @@ Two-zone drip system fed from the front yard spigot (target 60+ PSI / 6+ GPM aft
 
 ## The App
 
-**Beds** — SVG garden map with 12 stadium-pill bed tiles filling the full screen. Each pill shows a glowing ring in its current status color: jade (sown), lime (germinating), teal (growing), amber pulsing (ready to harvest), muted brown (harvested), no ring (planned). Tap any bed to open a bottom sheet inspector. Inspector shows a crop-led header — crop name as the primary heading with the bed ID as a small trailing chip, variety as an italic subtitle below. The zone pill and tappable status badge sit on the same row beneath the crop identity. Tapping the status badge opens an inline picker to update the stage; changes persist to the database immediately. A "Log watering" button with duration input records a manual watering for the bed's zone and shows "last watered X days ago (Y min)" with a zone context line clarifying it applies to all beds on that zone. Dates throughout the inspector display in natural format (Mar 8, 2026) with a relative time line below sown/planted dates ("3 weeks ago"). If a bed has had multiple crops in a season, a pill strip in the Crops accordion lets you switch between planting records. The harvest log is hidden by default behind a "+ Log harvest" toggle; logging auto-collapses it. All write actions (log, harvest, watering) flash a brief confirmation on the button. Bed tiles show a task badge when something is due this week. A minimap in the sheet header shows all 12 beds with status-colored dots in the corner of each cell; tap any cell to navigate directly to that bed.
+Three tabs: **Field**, **Planning**, and **Overview**.
+
+**Field tab** — SVG garden map with 12 stadium-pill bed tiles filling the full screen. Each pill shows a glowing ring in its current status color: jade (sown), lime (germinating), teal (growing), amber pulsing (ready to harvest), muted brown (harvested), no ring (planned). Draft/planned beds show a dashed blue outline. Tap any bed to open a bottom sheet inspector.
+
+The inspector is organized around two jobs: *what needs doing* (tasks due this week) and *let me record something* (log water, add note, log harvest). Header shows crop name, variety, bed chip, and status badge — tapping the status badge opens an inline picker. A minimap in the header shows all 12 beds. Tasks render as a checklist; tap to expand description, check to complete. The two-pill action row has a water pill (goes amber when 4+ days since last watering) and a note pill. A collapsible last-note strip shows the most recent note; tap to expand to last 3. Harvest logging is a quiet full-width button. "Close this planting" is a plain text link at the bottom.
+
+When a bed has an active planting plus a queued draft, swipe left/right in the inspector to navigate between them. Dot indicators below the drag handle show current position.
+
+Draft beds (not yet planted) show a simplified inspector with only a "Mark as planted today" CTA.
+
+**Planning tab** — 3×4 grid of plan cards, one per bed, with a year selector. Active beds show a connected peek strip below the card: the queued draft crop name (tap to edit) or `+ plan next` if none yet. Clicking the main card edits the active planting; clicking the peek opens the draft or creates a new one. Draft beds show as dashed blue cards. The plan form has a searchable crop picker backed by the `crops` DB table (shows sun, water, spacing, frost-hardy metadata), a variety field with autocomplete from past planting history filtered to the selected crop, planting method selector, dates, seed source, spacing notes, and season notes.
+
+To carry a season forward: open any plan card and use "Copy to [year+1] →" at the bottom of the form, or use "Use [year] as template for [year+1]" in the footer to bulk-copy all planned beds. Both jump the view to the target year and skip beds already planned.
+
+A task calendar below the grid shows all tasks this season by bed, filterable by bed chip.
+
+**Overview tab** — Season summary: beds active, yield to date, most recent harvest. Activity feed of recent waterings and notes. Season notes section with bed filter chips.
 
 **Water** — Full irrigation system diagram with component callouts and zone color coding.
 
 **Drip** — Cross-section showing how water gets from the lateral line into a raised bed (punched tee → poly tubing → emitters).
-
-**Tasks** — All crop care tasks due this week across all beds, in chronological order. Filter by bed. Check off tasks and they persist to the database. Crop names in the task list read from the live database, not hardcoded fallback data.
 
 ---
 
@@ -96,7 +110,12 @@ Everything hangs off **plantings** — a specific crop in a specific bed for a s
 ```
 plantings
   id, bed_id, crop_name, variety, expected_harvest, year, season,
-  planted_date, ended_date, status
+  planted_date, ended_date, status, planting_state,
+  planned_date, planting_method, start_indoors_date,
+  seed_source, spacing_notes, season_notes
+
+crops
+  id, name, water_needs, sun_needs, spacing_inches, frost_hardy, companion_plants
 
 harvests
   id, planting_id, harvest_date, amount, unit (lbs/count), notes
@@ -111,15 +130,17 @@ waterings
   id, zone (1 or 2), watered_date, duration_minutes, source (manual | rachio)
 ```
 
-`ended_date = null` means the planting is still active. This is what the app queries to find the current crop in a bed, drive task logic, and show the "Mark as Planted" button.
+`ended_date = null` means the planting is still active. `planting_state` is `draft` (planned, not yet planted), `active` (in ground), or `ended` (closed). When both exist for the same bed, active takes priority over draft in all display logic.
 
-`status` is a user-settable stage for the planting: `planned`, `sown`, `germinating`, `growing`, `ready`, or `harvested`. Stored explicitly in the database so it persists and can be updated from the inspector. The app falls back to deriving status from `planted_date` for any row where `status` is null (legacy rows before the column was added).
+`status` is a user-settable growth stage: `planned`, `sown`, `germinating`, `growing`, `ready`, or `harvested`. Stored in the DB and updated from the inspector status badge.
 
-`variety` is the specific cultivar name (e.g. "Sugar Bon", "Elephant & Music"). `expected_harvest` is a free-text window (e.g. "~May 3, 2026", "Jul 20–Aug 10, 2026") — kept as text because harvest windows are ranges, not single dates. Both are optional and captured in the Add Crop form.
+`variety` is the specific cultivar name. The planning form autocompletes from past planting history filtered to the selected crop — no separate varieties table needed. `expected_harvest` is free text because harvest windows are ranges.
 
-Waterings are zone-scoped, not planting-scoped — a watering applies to all beds on that zone. The `source` column is the Rachio seam: manual entries write `source='manual'`, and when Rachio integration ships it writes `source='rachio'` instead. The display layer never needs to change.
+**Succession** is modeled as multiple planting records for the same bed — no foreign-key linking needed. The first draft planting for a bed (sorted by `planned_date`) is implicitly the next crop. When you "close" a planting, it gets `ended_date = today`. The draft becomes the next thing to plant.
 
-Succession crops (e.g. radish → beans in C1) get separate planting records. When you start a new crop from the bed inspector, the app sets `ended_date = today` on the outgoing planting and inserts a new row for the incoming one. Both records persist independently with their own logs and harvests.
+Waterings are zone-scoped, not planting-scoped. The `source` column is the Rachio integration seam.
+
+`crops` is a reference table of known crop types with agronomic metadata. The planning form uses it as a searchable picker and auto-fills spacing notes when a crop is selected.
 
 ---
 
@@ -177,6 +198,15 @@ For planning and architecture: Claude.ai. For implementation: Claude Code. Diffe
 | Mar 27, 2026 | Inspector dates in natural format with relative time | ISO dates (2026-03-08) require mental math. "Mar 8, 2026" is readable at a glance. "3 weeks ago" under the sown date answers the most common follow-up question without opening a calendar. | ISO dates only; relative time in a tooltip |
 | Mar 27, 2026 | Harvest form hidden behind a toggle by default | The harvest entry form (date, amount, unit, notes) was always expanded in the Yield accordion, including for crops that haven't been planted yet. Collapsing it behind "+ Log harvest" reduces noise and auto-collapses again after each successful entry. | Always visible; collapse only on mobile |
 | Mar 27, 2026 | Section labels in sentence case, not ALL-CAPS | ALL-CAPS with 2.5px letter-spacing reads as shouting. Sentence case at 0.5px spacing reads as a structured header — same visual weight, less aggressive. | Title Case; keep ALL-CAPS |
+| Mar 30, 2026 | Field inspector redesigned around two jobs: tasks + quick actions | With Overview absorbing ambient status (yield history, harvest countdowns, notes history), the field inspector no longer needs to carry that weight. Stripped to: tasks checklist, water/note pill row, collapsible note strip, quiet harvest button. All writes go through modal overlays. | Keep full-detail inspector |
+| Mar 30, 2026 | Succession = any draft planting for the same bed, no FK linking | An explicit `succession_planting_id` FK required pre-linking before the current crop was even done. Dropping it means any draft planting for a bed is implicitly the successor — naturally ordered by `planned_date`. Simpler to create, simpler to query. | FK-based succession_planting_id |
+| Mar 30, 2026 | Active planting takes priority over draft when both exist for same bed | `getPlanningPlanting` and `getActivePlanting` check active before draft. Without this, a newly created draft would hide the in-ground crop in both field and plan views. | First-created or most-recent wins |
+| Mar 30, 2026 | Cross-year carryover scoped to current year only | Active plantings from prior years (garlic planted fall 2025) appear in the 2026 planning view but NOT in 2027+. Future years are a clean slate — showing active 2026 plantings in 2027 pre-pollutes the planning canvas. | Show carryover in all future years |
+| Mar 30, 2026 | Copy-to-next-year uses `planYear + 1`, never a hardcoded year | Any button or footer label showing a target year computes it from the current `planYear` variable. Prevents the app from reading "Copy to 2027" after 2027 has passed. | Hardcode target year, update annually |
+| Mar 30, 2026 | Variety autocomplete from planting history, no separate varieties table | `varieties` for a crop are whatever you've actually grown — queried as `DISTINCT variety WHERE crop_name = X` from `plantings`. Grows richer over time automatically. A managed vocabulary table would require seeding and maintenance for marginal gain in a single-user app. | Separate varieties table with FK to crops |
+| Mar 30, 2026 | Plan card peek strip replaces inline succession text | The old `→ Beans` amber text inside the active card mentally linked the succession crop to the current planting. A connected peek strip below the card reads as "something queued here" without implying relationship to the active crop. Active beds always show a peek — draft queued or `+ plan next` if empty. | Inline text; separate succession section |
+| Mar 30, 2026 | Inspector swipe for multi-planting navigation | When a bed has active + draft plantings, swipe left/right in the inspector to move between them. Dot indicator shows position. Horizontal swipe uses a 1.5× axis ratio to avoid conflicting with the existing swipe-down-to-close gesture. No tap-to-pick intermediary — common case (active planting) is always index 0. | Tap-to-pick planting selector; separate sheet |
+| Mar 30, 2026 | `crops` table integrated into plan form as searchable picker | Crop name was a free-text field with no connection to the crops reference table. The picker surfaces agronomic metadata (sun, water, spacing, frost hardiness) inline and auto-fills spacing notes on selection. Typed names that don't match are saved as "new" crops with no metadata. | Keep free-text crop name field |
 
 ---
 
@@ -194,14 +224,15 @@ The "last watered X days ago" display already reads from `waterings` regardless 
 ### Priority 2 — Custom Tasks
 The current task system is entirely crop-defined and hardcoded. There's no way to add a one-off task ("stake the E2 tomato today") or a recurring reminder that isn't already in the crop template. Custom tasks — both one-time and repeating — are the next meaningful addition to the task system.
 
-### Priority 3 — Season Turnover
-Strip planting fallback data (`slotA`/`slotB`) out of the hardcoded `BEDS` constant — infrastructure facts only (zone, emitters, GPH). The database is already authoritative; the fallback just goes stale.
-
-Add a "start new season" flow in the app: pick a bed, pick a crop, write a new planting to Supabase. Replaces manual DB inserts and eliminates the need for any hardcoded crop data in the frontend.
+### Priority 3 — Strip BEDS fallback data
+The hardcoded `BEDS` constant still carries `slotA` planting fallbacks. Strip it to infrastructure facts only (zone, emitters, GPH). The database is now fully authoritative for crop data; the fallback just drifts stale.
 
 ### Task System
 - Overdue task state — when a window closes unchecked, show it rather than silently dropping it
 - Task stacking — "Remove suckers — 3 weeks behind"
+
+### Variety vocabulary
+Currently variety suggestions come from planting history. Once there's meaningful history, consider whether a managed `varieties` table (keyed to `crops`) would be worth the maintenance cost for autocomplete quality. Not urgent for a single-user app.
 
 ### Logging & Yield
 - Photo logging — attach a photo to a log entry
@@ -210,9 +241,6 @@ Add a "start new season" flow in the app: pick a bed, pick a crop, write a new p
 ### Irrigation
 - Rachio schedule display — show the configured zone schedule on the plumbing tab
 - Per-zone water usage over time — total minutes run by week/month
-
-### Growing Season Planner
-A dedicated planning mode where you can map out the full season before it starts — assign crops to beds, set intended sow and harvest windows, and plan succession rotations. Replaces the hardcoded `slotB` rotation cards that lived in the inspector. Planned crops would exist as `planned` planting records in the DB and convert to active records when the season begins.
 
 ### Planning & History
 - Year-over-year comparison view — "W3 in 2025 vs W3 in 2026"
