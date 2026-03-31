@@ -657,6 +657,7 @@ h1 em{font-style:normal;color:var(--teal);}
 .insp-task-section-label{
   font-family:'Inter',sans-serif;font-size:.6rem;letter-spacing:.06em;
   color:rgba(255,255,255,.25);text-transform:uppercase;margin-bottom:8px;
+  display:flex;align-items:center;justify-content:space-between;
 }
 .insp-no-tasks{
   font-family:'Inter',sans-serif;font-size:.72rem;font-style:italic;
@@ -670,6 +671,21 @@ h1 em{font-style:normal;color:var(--teal);}
 .task-title-done{text-decoration:line-through;opacity:.45;}
 .insp-task-row{cursor:pointer;}
 .insp-task-row.task-done{cursor:default;}
+.insp-task-add-btn{background:none;border:none;color:var(--teal);font-size:1.1rem;cursor:pointer;padding:0 2px;line-height:1;opacity:.8;}
+.insp-task-add-btn:hover{opacity:1;}
+.insp-task-due-overdue{color:#e06c75;font-family:'Inter',sans-serif;font-size:.6rem;margin-top:2px;}
+.insp-task-del{background:none;border:none;color:var(--text-dim);font-size:.9rem;cursor:pointer;padding:0 2px;flex-shrink:0;line-height:1;}
+.insp-task-del:hover{color:#e06c75;}
+.plan-add-task-btn{
+  background:none;border:1px dashed var(--border-hi);border-radius:10px;
+  color:var(--teal);font-family:'Inter',sans-serif;font-size:.75rem;
+  padding:7px 12px;cursor:pointer;width:100%;margin-top:6px;
+}
+.pf-task-row{display:flex;align-items:center;gap:8px;padding:6px 0;border-bottom:1px solid var(--divider);font-family:'Inter',sans-serif;font-size:.78rem;color:var(--text);}
+.pf-task-row:last-child{border-bottom:none;}
+.pf-task-meta{font-size:.6rem;color:var(--text-dim);margin-left:4px;}
+.pf-task-del{background:none;border:none;color:var(--text-dim);cursor:pointer;font-size:.9rem;margin-left:auto;padding:0 2px;}
+.pf-task-del:hover{color:#e06c75;}
 
 /* Inspector modal overlay */
 .insp-modal-overlay{
@@ -1932,6 +1948,19 @@ function getAllTasksThisWeek(bedId){
   });
 }
 
+// Returns all pending tasks for a bed, sorted by due date ascending
+function getAllPendingTasks(bedId){
+  return getTasksForBed(bedId)
+    .filter(t=>!t.completed_date)
+    .sort((a,b)=>a.due_date.localeCompare(b.due_date));
+}
+
+// Returns YYYY-MM-DD string for today + n days
+function todayPlus(n){
+  const d=new Date();d.setDate(d.getDate()+n);
+  return d.toISOString().split('T')[0];
+}
+
 async function completeV2Task(taskId){
   const completedDate=today();
   const numId=Number(taskId);
@@ -2405,29 +2434,45 @@ function renderDetail(bedId){
     return h;
   }
 
-  // Tasks this week — all (completed + pending) due in 7 days
-  const weekTasks=getAllTasksThisWeek(bedId);
-  if(weekTasks.length){
-    h+=`<div class="insp-tasks">
-      <div class="insp-task-section-label">Tasks this week</div>`;
-    for(const t of weekTasks){
-      const done=!!t.completed_date;
-      h+=`<div class="insp-task-row${done?' task-done':''}" ${!done?`onclick="toggleTaskExpand(this)"`:''}">
-        <input type="checkbox" class="task-cb" ${done?'checked disabled':''} onclick="event.stopPropagation()" onchange="handleInspTaskCheck(this,'${t.id}','${bedId}')">
-        <div class="insp-task-body">
-          <div class="insp-task-title${done?' task-title-done':''}">${t.title}</div>
-          ${!done?`<div class="insp-task-hint">tap for details</div>`:''}
-          ${t.description&&!done?`<div class="insp-task-desc" style="display:none">${t.description}</div>`:''}
-        </div>
-      </div>`;
-    }
-    h+=`</div>`;
-  } else {
-    h+=`<div class="insp-no-tasks">No tasks due this week</div>`;
+  // Tasks — all pending (overdue / this week / upcoming) + completed this week
+  const plantingId=dbPlanting?.id;
+  const pendingTasks=getAllPendingTasks(bedId);
+  const completedThisWeek=getAllTasksThisWeek(bedId).filter(t=>t.completed_date);
+  const todayStr=todayPlus(0);
+  const weekOutStr=todayPlus(7);
+  h+=`<div class="insp-tasks">
+    <div class="insp-task-section-label"><span>Tasks</span><button class="insp-task-add-btn" onclick="openCustomTaskModal('${plantingId}','${bedId}');event.stopPropagation()">+</button></div>`;
+  if(!pendingTasks.length&&!completedThisWeek.length){
+    h+=`<div class="insp-no-tasks">No tasks — tap + to add one</div>`;
   }
+  for(const t of pendingTasks){
+    const overdue=t.due_date<todayStr;
+    const upcoming=t.due_date>weekOutStr;
+    const dueLabel=overdue
+      ?`<div class="insp-task-due-overdue">Overdue · ${fmtDate(t.due_date)}</div>`
+      :`<div class="insp-task-due">${fmtDate(t.due_date)}</div>`;
+    h+=`<div class="insp-task-row${upcoming?' ':''}" style="${upcoming?'opacity:.65':''}" onclick="toggleTaskExpand(this)">
+      <input type="checkbox" class="task-cb" onclick="event.stopPropagation()" onchange="handleInspTaskCheck(this,'${t.id}','${bedId}')">
+      <div class="insp-task-body">
+        <div class="insp-task-title">${t.title}</div>
+        ${dueLabel}
+        <div class="insp-task-hint">tap for details</div>
+        ${t.description?`<div class="insp-task-desc" style="display:none">${t.description}</div>`:''}
+      </div>
+      ${t.is_custom?`<button class="insp-task-del" onclick="deleteCustomTask('${t.id}','${plantingId}','${bedId}');event.stopPropagation()">×</button>`:''}
+    </div>`;
+  }
+  for(const t of completedThisWeek){
+    h+=`<div class="insp-task-row task-done">
+      <input type="checkbox" class="task-cb" checked disabled onclick="event.stopPropagation()">
+      <div class="insp-task-body">
+        <div class="insp-task-title task-title-done">${t.title}</div>
+      </div>
+    </div>`;
+  }
+  h+=`</div>`;
 
   // Two-pill action row
-  const plantingId=dbPlanting?.id;
   h+=`<div class="insp-action-row">
     <button class="insp-pill insp-pill-water" id="water-pill" onclick="openWaterModal('${bedId}')">
       <span class="pill-icon">💧</span>
@@ -3140,6 +3185,22 @@ function renderPlanTaskCal(){
   document.getElementById('plan-task-cal').innerHTML=html;
 }
 
+async function loadPlanCustomTasks(plantingId){
+  const el=document.getElementById('pf-custom-tasks');
+  if(!el)return;
+  try{
+    const rows=await fetch(`${SB_URL}/rest/v1/tasks?planting_id=eq.${plantingId}&is_custom=eq.true&completed_date=is.null&order=due_date.asc&select=id,title,due_date`,{headers:SB_HEADERS}).then(r=>r.json());
+    if(!rows||!rows.length){
+      el.innerHTML='<p style="font-size:.72rem;color:var(--text-dim);font-style:italic;padding:4px 0">None yet</p>';
+    }else{
+      el.innerHTML=rows.map(t=>`<div class="pf-task-row">
+        <span>${t.title}</span><span class="pf-task-meta">${fmtDate(t.due_date)}</span>
+        <button class="pf-task-del" onclick="deleteCustomTask('${t.id}','${plantingId}','__plan__')">×</button>
+      </div>`).join('');
+    }
+  }catch(e){el.innerHTML='<p style="font-size:.72rem;color:var(--text-dim);font-style:italic;padding:4px 0">Failed to load</p>';}
+}
+
 function openPlanSheet(bedId){
   planBedId=bedId;
   const p=getPlanningPlanting(bedId,planYear);
@@ -3149,6 +3210,7 @@ function openPlanSheet(bedId){
   document.getElementById('plan-sheet').classList.add('is-open');
   document.getElementById('sheet-backdrop').classList.add('is-open');
   document.body.style.overflow='hidden';
+  if(planEditId)loadPlanCustomTasks(planEditId);
 }
 function openPlanSheetNew(bedId){
   planBedId=bedId;
@@ -3169,6 +3231,7 @@ function openPlanSheetById(plantingId,bedId){
   document.getElementById('plan-sheet').classList.add('is-open');
   document.getElementById('sheet-backdrop').classList.add('is-open');
   document.body.style.overflow='hidden';
+  if(plantingId)loadPlanCustomTasks(plantingId);
 }
 
 function closePlanSheet(){
@@ -3378,6 +3441,11 @@ function renderPlanForm(bedId,p){
     <label class="plan-field-label">Season notes</label>
     <textarea class="log-input" id="pf-notes" rows="3" placeholder="Planning observations, goals...">${p?.season_notes||''}</textarea>
   </div>
+  ${p?.id?`<div class="plan-form-field" style="margin-top:4px">
+    <label class="plan-field-label">Custom tasks</label>
+    <div id="pf-custom-tasks"><p style="font-size:.72rem;color:var(--text-dim);font-style:italic;padding:4px 0">Loading…</p></div>
+    <button class="plan-add-task-btn" onclick="openCustomTaskModal('${p.id}','__plan__')">+ Add task</button>
+  </div>`:''}
   <button class="log-add-btn" style="width:100%;margin-top:16px;font-size:.8rem;padding:12px" onclick="savePlanSheet('${bedId}')">Save</button>
   <button class="plan-cancel-btn" onclick="closePlanSheet()">Cancel</button>
   ${p&&!hasPlantingForYear(bedId,planYear+1)?`<button class="plan-copy-yr-btn" onclick="copyBedPlanToNextYear('${bedId}')">Copy to ${planYear+1} →</button>`:''}`;
@@ -3669,6 +3737,71 @@ function openHarvestModal(plantingId){
 }
 
 function closeInspModal(){document.getElementById('insp-modal')?.remove();}
+
+function openCustomTaskModal(plantingId,bedId){
+  const overlay=document.createElement('div');
+  overlay.className='insp-modal-overlay';
+  overlay.id='insp-modal';
+  overlay.innerHTML=`<div class="insp-modal">
+    <div class="insp-modal-title">Add task</div>
+    <div class="plan-form-field">
+      <label class="plan-field-label">Title</label>
+      <input class="log-input" id="modal-task-title" placeholder="e.g. Check for aphids">
+    </div>
+    <div class="plan-form-field">
+      <label class="plan-field-label">Due date</label>
+      <input class="log-input" type="date" id="modal-task-due" value="${todayPlus(14)}">
+    </div>
+    <div class="plan-form-field">
+      <label class="plan-field-label">Notes (optional)</label>
+      <input class="log-input" id="modal-task-desc" placeholder="Details…">
+    </div>
+    <div class="insp-modal-actions">
+      <button class="insp-modal-cancel" onclick="closeInspModal()">Cancel</button>
+      <button class="insp-modal-confirm" id="modal-confirm-btn" onclick="submitCustomTaskModal('${plantingId}','${bedId}')">Add task</button>
+    </div>
+  </div>`;
+  overlay.addEventListener('click',e=>{if(e.target===overlay)closeInspModal();});
+  document.body.appendChild(overlay);
+  setTimeout(()=>document.getElementById('modal-task-title')?.focus(),50);
+}
+
+async function submitCustomTaskModal(plantingId,bedId){
+  const title=document.getElementById('modal-task-title')?.value.trim();
+  const dueDate=document.getElementById('modal-task-due')?.value;
+  const desc=document.getElementById('modal-task-desc')?.value.trim();
+  if(!title||!dueDate)return;
+  const btn=document.getElementById('modal-confirm-btn');
+  if(btn){btn.disabled=true;btn.textContent='Saving…';}
+  try{
+    const res=await fetch(`${SB_URL}/rest/v1/tasks`,{
+      method:'POST',
+      headers:{...SB_HEADERS,'Prefer':'return=representation'},
+      body:JSON.stringify({planting_id:plantingId,title,description:desc||null,due_date:dueDate,is_custom:true,crop_task_id:null})
+    });
+    const rows=await res.json();
+    if(rows&&rows[0]){
+      if(!taskCache[plantingId])taskCache[plantingId]=[];
+      taskCache[plantingId].push(rows[0]);
+    }
+    closeInspModal();
+    if(bedId==='__plan__'){
+      await loadPlanCustomTasks(plantingId);
+    }else{
+      renderDetail(bedId);
+    }
+  }catch(e){if(btn){btn.disabled=false;btn.textContent='Add task';}}
+}
+
+async function deleteCustomTask(taskId,plantingId,bedId){
+  await fetch(`${SB_URL}/rest/v1/tasks?id=eq.${taskId}`,{method:'DELETE',headers:SB_HEADERS});
+  if(taskCache[plantingId])taskCache[plantingId]=taskCache[plantingId].filter(t=>String(t.id)!==String(taskId));
+  if(bedId==='__plan__'){
+    await loadPlanCustomTasks(plantingId);
+  }else{
+    renderDetail(bedId);
+  }
+}
 
 async function submitWaterModal(bedId){
   const dur=parseInt(document.getElementById('modal-water-dur')?.value)||10;
