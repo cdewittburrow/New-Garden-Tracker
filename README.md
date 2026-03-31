@@ -99,6 +99,7 @@ RLS is enabled on all tables. Policies follow a consistent naming convention and
 
 | Table | SELECT | INSERT | UPDATE |
 |-------|--------|--------|--------|
+| `locations` | ✓ | ✓ | ✓ |
 | `plantings` | ✓ | ✓ | ✓ (set `planted_date`, `ended_date`, `status`) |
 | `logs` | ✓ | ✓ | ✓ |
 | `harvests` | ✓ | ✓ | ✓ |
@@ -114,8 +115,14 @@ All policies use `USING (true)` / `WITH CHECK (true)` — open to the anon key, 
 Everything hangs off **plantings** — a specific crop in a specific bed for a specific year and season. A bed is a place. A planting is an event.
 
 ```
+locations
+  id, label (e.g. "w1"), location_type (raised_bed|tree|shrub|vine|container|ground),
+  zone, emitter_gph, grid_col, grid_row (null for non-bed types),
+  is_in_ground, is_active, notes
+
 plantings
-  id, bed_id, crop_name, variety, expected_harvest, year, season,
+  id, bed_id, location_id → locations.id,
+  crop_name, variety, expected_harvest, year, season,
   planted_date, ended_date, status, planting_state,
   planned_date, planting_method, start_indoors_date,
   seed_source, spacing_notes, season_notes
@@ -218,10 +225,26 @@ For planning and architecture: Claude.ai. For implementation: Claude Code. Diffe
 | Mar 30, 2026 | Perennials get a steady full teal ring, not a harvest countdown | Perennials don't have a harvest window to count down to — their `days_to_maturity` is null and they just keep going. The `is_perennial` flag on the `crops` table gates the arc logic so perennials never trigger the amber state. | Check for null DTM only (works but loses semantic clarity as more perennials are added) |
 | Mar 30, 2026 | Inspector timeline strip mirrors the arc in text form | The arc ring answers "how far along?" visually but doesn't give the actual dates. A slim 4px progress bar below the header status row, labeled with planted date and expected harvest, surfaces both dates without adding a new section or disrupting the inspector layout. | Add a separate dates section; show dates in the header directly |
 | Mar 30, 2026 | Task badges moved inside the pill as arced tick marks | An external circle badge overlapping the pill edge felt like a wart — it broke the pill's clean boundary. Small amber squares arced along the inside of the pill's bottom curve (y = arc_center_y + sqrt(innerR²-dx²)) sit within the pill shape and follow its curvature. 1–4 marks are readable at a glance; 5+ falls back to a count number. | Keep external badge; move to pill interior as flat row |
+| Mar 30, 2026 | Split v2.2 into schema-first (v2.2a) and frontend-refactor (v2.2b) | Schema migration is purely additive and zero-risk; frontend refactor touches 9 functions and 4 hardcoded arrays and deserves its own ship cycle | Ship together; keep BEDS constant forever |
+| Mar 30, 2026 | `locations.label` matches existing `bed_id` strings — no cache key changes | `plantingCache` is keyed by `bed_id` string. Using `label` as the canonical identifier means the cache key, Supabase queries, and SVG element IDs (`pill-w1` etc.) all stay unchanged through v2.2 | Use UUID as primary key throughout; rename everything |
+| Mar 30, 2026 | Non-bed locations get DB records in v2.2a, map/planning UI deferred to v3 | Map and planning redesigns require real design work. The peach tree and blackberry need to be plantable and loggable now, not mappable yet. | Wait for v3 before inserting any non-bed locations |
 
 ---
 
 ## Roadmap
+
+### v2.2 — Dynamic Locations
+
+**v2.2a — Schema** ✓ Done
+`locations` table created and seeded with all 12 raised beds. `location_id` FK added to `plantings` and backfilled from `bed_id`. RLS policies in place. Zero user-visible change — the schema now exists for v2.2b to wire into.
+
+**v2.2b — Frontend refactor** (next)
+Replace the hardcoded `BEDS` constant with a `fetchLocations()` call that loads location data from the DB at startup. Derive `ALL_BEDS` arrays and the planning grid `ROWS` layout from `grid_col/grid_row` on the fetched records. Strip `slotA` fallback planting data from `BEDS` — the database is now authoritative.
+
+**v2.2c — Non-bed locations in Overview**
+Add a section to the Overview tab listing non-raised-bed locations (peach tree, blackberry) with their most recent planting or log. Non-bed locations are already plantable and loggable after v2.2a — this just surfaces them in the UI.
+
+---
 
 ### Priority 1 — Rachio Integration
 The `waterings` table and display layer are already in place. Manual watering entries write `source='manual'`. When the Rachio timer and drip system are installed (~6 weeks), the integration is:
