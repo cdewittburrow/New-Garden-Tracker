@@ -2379,11 +2379,11 @@ function closeSheet(){
       const w=c.offsetWidth;
       // finish sliding current content off screen
       c.style.transition='transform 160ms ease-in';
-      c.style.transform=`translateX(${dir<0?-w:w}px)`;
+      c.style.transform=`translateX(${dir>0?-w:w}px)`;
       setTimeout(()=>{
         selectedPlantingId[activeBedId]=next.id;
         c.style.transition='none';
-        c.style.transform=`translateX(${dir<0?w:-w}px)`;
+        c.style.transform=`translateX(${dir>0?w:-w}px)`;
         c.innerHTML=renderDetail(activeBedId);
         document.getElementById('mini-map').innerHTML=buildMiniMap(activeBedId);
         loadInspectorData(activeBedId);
