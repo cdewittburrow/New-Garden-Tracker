@@ -2115,8 +2115,8 @@ function renderBadges(){
     g.style.cursor='pointer';
 
     if(count<=4){
-      // Tick marks: small amber squares, 9px center-to-center
-      const mw=4,mh=4,gap=9;
+      // Tick marks: small amber squares, 11px center-to-center
+      const mw=5,mh=5,gap=11;
       const startX=cx-((count-1)*gap)/2;
       for(let i=0;i<count;i++){
         const r=document.createElementNS('http://www.w3.org/2000/svg','rect');
@@ -2124,7 +2124,7 @@ function renderBadges(){
         r.setAttribute('y',cy-mh/2);
         r.setAttribute('width',mw);r.setAttribute('height',mh);
         r.setAttribute('rx','1');
-        r.setAttribute('fill','rgba(224,140,48,.65)');
+        r.setAttribute('fill','rgba(224,140,48,.88)');
         g.appendChild(r);
       }
     } else {
