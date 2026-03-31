@@ -2092,12 +2092,12 @@ async function handleInspTaskCheck(cb,taskRowId,bedId){
 }
 
 /* ── BED TILE BADGES ─────────────────────────────── */
-// Badge at top-right corner of each pill (overlapping pill edge)
-// Pill right edges: W=129, C=258, E=387; row top y: 10,170,330,490
+// Tick marks inside pill bottom arc — pill centers x: W=91, C=220, E=349
+// Bottom arc center y = pill_bottom - 22: rows at 128, 288, 448, 608
 const BADGE_POS={
-  w1:{cx:129,cy:10},w2:{cx:129,cy:170},w3:{cx:129,cy:330},w4:{cx:129,cy:490},
-  c1:{cx:258,cy:10},c2:{cx:258,cy:170},c3:{cx:258,cy:330},c4:{cx:258,cy:490},
-  e1:{cx:387,cy:10},e2:{cx:387,cy:170},e3:{cx:387,cy:330},e4:{cx:387,cy:490},
+  w1:{cx:91,cy:128},w2:{cx:91,cy:288},w3:{cx:91,cy:448},w4:{cx:91,cy:608},
+  c1:{cx:220,cy:128},c2:{cx:220,cy:288},c3:{cx:220,cy:448},c4:{cx:220,cy:608},
+  e1:{cx:349,cy:128},e2:{cx:349,cy:288},e3:{cx:349,cy:448},e4:{cx:349,cy:608},
 };
 
 function renderBadges(){
@@ -2109,26 +2109,34 @@ function renderBadges(){
     const count=getPendingCount(bedId);
     if(!count)continue;
     const{cx,cy}=BADGE_POS[bedId];
-    const r=9;
 
     const g=document.createElementNS('http://www.w3.org/2000/svg','g');
     g.setAttribute('class','task-badge-g');
     g.style.cursor='pointer';
 
-    const circle=document.createElementNS('http://www.w3.org/2000/svg','circle');
-    circle.setAttribute('cx',cx);circle.setAttribute('cy',cy);
-    circle.setAttribute('r',r);circle.setAttribute('fill','#e08c30');
-
-    const txt=document.createElementNS('http://www.w3.org/2000/svg','text');
-    txt.setAttribute('x',cx);txt.setAttribute('y',cy+4);
-    txt.setAttribute('font-family',"'Inter',sans-serif");
-    txt.setAttribute('font-size','9');
-    txt.setAttribute('font-weight','600');
-    txt.setAttribute('fill','#fff');
-    txt.setAttribute('text-anchor','middle');
-    txt.textContent=String(count);
-
-    g.appendChild(circle);g.appendChild(txt);
+    if(count<=4){
+      // Tick marks: small amber squares, 9px center-to-center
+      const mw=4,mh=4,gap=9;
+      const startX=cx-((count-1)*gap)/2;
+      for(let i=0;i<count;i++){
+        const r=document.createElementNS('http://www.w3.org/2000/svg','rect');
+        r.setAttribute('x',startX+i*gap-mw/2);
+        r.setAttribute('y',cy-mh/2);
+        r.setAttribute('width',mw);r.setAttribute('height',mh);
+        r.setAttribute('rx','1');
+        r.setAttribute('fill','rgba(224,140,48,.65)');
+        g.appendChild(r);
+      }
+    } else {
+      // 5+ tasks: fall back to count number
+      const txt=document.createElementNS('http://www.w3.org/2000/svg','text');
+      txt.setAttribute('x',cx);txt.setAttribute('y',cy+3.5);
+      txt.setAttribute('font-family',"'Inter',sans-serif");
+      txt.setAttribute('font-size','9');txt.setAttribute('font-weight','600');
+      txt.setAttribute('fill','rgba(224,140,48,.75)');txt.setAttribute('text-anchor','middle');
+      txt.textContent=String(count);
+      g.appendChild(txt);
+    }
     svg.appendChild(g);
   }
 }
