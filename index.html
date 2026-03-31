@@ -1667,10 +1667,13 @@ function updateMapLabels(){
 }
 
 // The live planting (ended_date=null), used for tasks/mark-as-planted
+// Prefer active over draft when both exist for the same bed
 function getActivePlanting(bedId){
   const list=plantingCache[bedId];
   if(!list)return null;
-  return list.find(p=>p.ended_date===null)||list[0];
+  return list.find(p=>p.ended_date===null&&p.planting_state==='active')
+    ||list.find(p=>p.ended_date===null)
+    ||list[0];
 }
 function hasPlantingForYear(bedId,year){
   return (plantingCache[bedId]||[]).some(p=>p.year===year);
@@ -2741,14 +2744,15 @@ function shiftPlanYear(dir){
 function getPlanningPlanting(bedId,year){
   const list=plantingCache[bedId]||[];
   const currentYear=new Date().getFullYear();
-  // Active planting started this year
-  const activeThisYear=list.find(p=>p.year===year&&p.ended_date===null);
+  // Prefer active over draft when both exist for same bed/year
+  const activeThisYear=list.find(p=>p.year===year&&p.ended_date===null&&p.planting_state==='active');
   if(activeThisYear)return activeThisYear;
+  const draftThisYear=list.find(p=>p.year===year&&p.ended_date===null&&p.planting_state==='draft');
+  if(draftThisYear)return draftThisYear;
   // Carryover: only when viewing the current year — show active from a prior year still in ground
   // (e.g. garlic planted fall 2025 still growing in spring 2026)
-  // Future years are a clean slate for planning purposes.
   if(year===currentYear){
-    const activeCarryover=list.find(p=>p.year<year&&p.ended_date===null);
+    const activeCarryover=list.find(p=>p.year<year&&p.ended_date===null&&p.planting_state==='active');
     if(activeCarryover)return activeCarryover;
   }
   // Historical: ended planting from that exact year
