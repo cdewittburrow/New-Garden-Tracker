@@ -168,7 +168,7 @@ h1 em{font-style:normal;color:var(--teal);}
   width:36px;height:4px;border-radius:2px;
   background:var(--border-hi);margin:12px auto 4px;
 }
-.sheet-inner{padding:6px 20px 52px;}
+.sheet-inner{padding:6px 20px 52px;overflow-x:hidden;}
 
 /* Bed groups */
 .bed-g{cursor:pointer;transition:opacity .15s;}
@@ -1805,10 +1805,30 @@ function navigateInspPlanting(bedId,dir){
   const idx=list.findIndex(p=>p.id===current?.id);
   const next=list[idx+dir];
   if(!next)return;
-  selectedPlantingId[bedId]=next.id;
-  document.getElementById('bed-detail-content').innerHTML=renderDetail(bedId);
-  document.getElementById('mini-map').innerHTML=buildMiniMap(bedId);
-  loadInspectorData(bedId);
+  const c=document.getElementById('bed-detail-content');
+  const w=c?c.offsetWidth:0;
+  if(c&&w){
+    c.style.transition='transform 160ms ease-in';
+    c.style.transform=`translateX(${dir>0?-w:w}px)`;
+    setTimeout(()=>{
+      selectedPlantingId[bedId]=next.id;
+      c.style.transition='none';
+      c.style.transform=`translateX(${dir>0?w:-w}px)`;
+      c.innerHTML=renderDetail(bedId);
+      document.getElementById('mini-map').innerHTML=buildMiniMap(bedId);
+      loadInspectorData(bedId);
+      requestAnimationFrame(()=>requestAnimationFrame(()=>{
+        c.style.transition='transform 220ms ease-out';
+        c.style.transform='translateX(0)';
+        setTimeout(()=>c.style.transition='',220);
+      }));
+    },160);
+  }else{
+    selectedPlantingId[bedId]=next.id;
+    if(c)c.innerHTML=renderDetail(bedId);
+    document.getElementById('mini-map').innerHTML=buildMiniMap(bedId);
+    loadInspectorData(bedId);
+  }
 }
 
 /* ── LOGS ────────────────────────────────────────── */
@@ -2323,14 +2343,63 @@ function closeSheet(){
 // Horizontal swipe to navigate between plantings on same bed
 (function initInspHSwipe(){
   const sheet=document.getElementById('bed-sheet');
-  let sx=0,sy=0;
-  sheet.addEventListener('touchstart',e=>{sx=e.touches[0].clientX;sy=e.touches[0].clientY;},{passive:true});
+  let sx=0,sy=0,dragging=false;
+  sheet.addEventListener('touchstart',e=>{
+    sx=e.touches[0].clientX;sy=e.touches[0].clientY;dragging=false;
+  },{passive:true});
+  sheet.addEventListener('touchmove',e=>{
+    if(!activeBedId)return;
+    const dx=e.touches[0].clientX-sx;
+    const dy=e.touches[0].clientY-sy;
+    if(!dragging&&Math.abs(dx)>Math.abs(dy)*1.5&&Math.abs(dx)>8)dragging=true;
+    if(dragging){
+      const c=document.getElementById('bed-detail-content');
+      if(c)c.style.transform=`translateX(${dx}px)`;
+    }
+  },{passive:true});
   sheet.addEventListener('touchend',e=>{
+    if(!activeBedId)return;
     const dx=e.changedTouches[0].clientX-sx;
     const dy=e.changedTouches[0].clientY-sy;
-    if(Math.abs(dx)>Math.abs(dy)*1.5&&Math.abs(dx)>44&&activeBedId){
-      navigateInspPlanting(activeBedId,dx<0?1:-1);
+    const c=document.getElementById('bed-detail-content');
+    if(!c){dragging=false;return;}
+    if(dragging&&Math.abs(dx)>Math.abs(dy)*1.5&&Math.abs(dx)>44){
+      const dir=dx<0?1:-1;
+      const list=getInspPlantingList(activeBedId);
+      const cur=getSelectedPlanting(activeBedId);
+      const idx=list.findIndex(p=>p.id===cur?.id);
+      const next=list[idx+dir];
+      if(!next){
+        // no planting that direction — snap back
+        c.style.transition='transform 220ms ease-out';
+        c.style.transform='translateX(0)';
+        setTimeout(()=>c.style.transition='',220);
+        dragging=false;return;
+      }
+      const w=c.offsetWidth;
+      // finish sliding current content off screen
+      c.style.transition='transform 160ms ease-in';
+      c.style.transform=`translateX(${dir<0?-w:w}px)`;
+      setTimeout(()=>{
+        selectedPlantingId[activeBedId]=next.id;
+        c.style.transition='none';
+        c.style.transform=`translateX(${dir<0?w:-w}px)`;
+        c.innerHTML=renderDetail(activeBedId);
+        document.getElementById('mini-map').innerHTML=buildMiniMap(activeBedId);
+        loadInspectorData(activeBedId);
+        requestAnimationFrame(()=>requestAnimationFrame(()=>{
+          c.style.transition='transform 220ms ease-out';
+          c.style.transform='translateX(0)';
+          setTimeout(()=>c.style.transition='',220);
+        }));
+      },160);
+    }else if(dragging){
+      // insufficient swipe — snap back
+      c.style.transition='transform 220ms ease-out';
+      c.style.transform='translateX(0)';
+      setTimeout(()=>c.style.transition='',220);
     }
+    dragging=false;
   },{passive:true});
 })();
 
