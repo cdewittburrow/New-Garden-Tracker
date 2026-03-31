@@ -458,8 +458,9 @@ h1 em{font-style:normal;color:var(--teal);}
 
 .plan-grid{
   display:grid;grid-template-columns:1fr 1fr 1fr;gap:7px;
-  max-width:440px;margin:0 auto;align-items:start;
+  max-width:440px;margin:0 auto;align-items:stretch;
 }
+.plan-grid>.plan-card{align-self:start;}
 .plan-card{
   background:var(--bg-card);border:1px solid var(--border);border-radius:12px;
   padding:10px 10px 9px;cursor:pointer;transition:all .15s;min-height:88px;
@@ -706,7 +707,8 @@ h1 em{font-style:normal;color:var(--teal);}
 .succ-arrow{font-size:1.1rem;color:var(--amber);padding:0 2px;flex-shrink:0;}
 
 /* Plan card stack + peek */
-.plan-card-stack{display:flex;flex-direction:column;}
+.plan-card-stack{display:flex;flex-direction:column;height:100%;}
+.plan-card-stack>.plan-card{flex:1;}
 .plan-card-has-succ{border-radius:10px 10px 0 0!important;}
 .plan-card-peek{
   background:rgba(91,156,240,.06);border:1px solid rgba(91,156,240,.15);
