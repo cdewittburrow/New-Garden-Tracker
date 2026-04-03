@@ -76,6 +76,8 @@ A task calendar below the grid shows all tasks this season by bed, filterable by
 
 **Overview tab** — Season summary: beds active, yield to date, most recent harvest. Activity feed of recent waterings and notes. Season notes section with bed filter chips.
 
+A **daily briefing card** sits at the top of the Overview tab. Each morning at 6am MDT a Supabase Edge Function reads active plantings, open tasks, recent logs, harvests, and waterings from the database, fetches the 7-day NWS forecast and active weather alerts, and calls the Gemini API to synthesize a briefing. The briefing includes a headline, narrative, weather notes, task timing advice, suggested tasks (each accept/rejectable from the card), and garden insights. Tapping "Read more" expands the full narrative. Accepted suggestions are added to the task system for the relevant bed.
+
 **Water** — Full irrigation system diagram with component callouts and zone color coding.
 
 **Drip** — Cross-section showing how water gets from the lateral line into a raised bed (punched tee → poly tubing → emitters).
@@ -89,6 +91,8 @@ A task calendar below the grid shows all tasks this season by bed, filterable by
 | Frontend | Single `index.html` — embedded CSS and JS, no build step |
 | Hosting | GitHub Pages, auto-deploys from `main` |
 | Database | Supabase (Postgres) |
+| Daily briefing | Supabase Edge Function (`generate-briefing`) + Gemini 2.5 Flash API |
+| Briefing schedule | pg_cron + pg_net — fires at 12:00 UTC (6am MDT) daily |
 | Dev tools | VS Code + Live Server, Claude Code via terminal |
 | Planning | Claude.ai |
 | Irrigation timer | Rachio |
@@ -138,6 +142,9 @@ logs
 
 tasks
   id, planting_id, task_id, completed_date
+
+briefings
+  id, headline, payload (json), generated_at, suggestions_state (json)
 
 waterings
   id, zone (1 or 2), watered_date, duration_minutes, source (manual | rachio)
@@ -228,6 +235,9 @@ For planning and architecture: Claude.ai. For implementation: Claude Code. Diffe
 | Mar 30, 2026 | Split v2.2 into schema-first (v2.2a) and frontend-refactor (v2.2b) | Schema migration is purely additive and zero-risk; frontend refactor touches 9 functions and 4 hardcoded arrays and deserves its own ship cycle | Ship together; keep BEDS constant forever |
 | Mar 30, 2026 | `locations.label` matches existing `bed_id` strings — no cache key changes | `plantingCache` is keyed by `bed_id` string. Using `label` as the canonical identifier means the cache key, Supabase queries, and SVG element IDs (`pill-w1` etc.) all stay unchanged through v2.2 | Use UUID as primary key throughout; rename everything |
 | Mar 30, 2026 | Non-bed locations get DB records in v2.2a, map/planning UI deferred to v3 | Map and planning redesigns require real design work. The peach tree and blackberry need to be plantable and loggable now, not mappable yet. | Wait for v3 before inserting any non-bed locations |
+| Apr 2, 2026 | Daily briefing via Supabase Edge Function, not a Claude CCR remote trigger | CCR remote trigger has no outbound network access — the sandbox blocks all external HTTP (Supabase, weather APIs). A Supabase Edge Function runs on Supabase's own infrastructure, reads the DB directly without HTTP auth, and has full outbound network access. pg_cron + pg_net schedule it daily at 12:00 UTC. | CCR remote trigger (abandoned), local Mac cron (machine must be on), GitHub Actions |
+| Apr 2, 2026 | Gemini 2.5 Flash for AI synthesis in the edge function | Free tier with billing attached. As of April 2026, `gemini-2.0-flash` and `gemini-2.0-flash-lite` have `limit: 0` on the free tier for new projects — only `gemini-2.5-flash` carries actual free quota (20 RPD). Sufficient for 1 call/day with headroom. | Anthropic Claude Haiku (~$2/season), Gemini 2.0 Flash (quota blocked) |
+| Apr 2, 2026 | Google Cloud project must have "Generative Language API" enabled AND billing attached to unlock free tier | New Google Cloud projects created from AI Studio have the API enabled but free tier quotas default to 0. Attaching a billing account unlocks the quotas without charging for usage within the free limits. Not obvious from Google's documentation. | — |
 
 ---
 
@@ -255,8 +265,8 @@ The `waterings` table and display layer are already in place. Manual watering en
 
 The "last watered X days ago" display already reads from `waterings` regardless of source — no frontend changes needed.
 
-### Priority 2 — Custom Tasks
-The current task system is entirely crop-defined and hardcoded. There's no way to add a one-off task ("stake the E2 tomato today") or a recurring reminder that isn't already in the crop template. Custom tasks — both one-time and repeating — are the next meaningful addition to the task system.
+### ~~Priority 2 — Custom Tasks~~ ✓ Done
+Custom task creation is implemented. The inspector task list includes an "Add task" entry that opens a modal for free-text title, optional description, and due date. Custom tasks are stored in the `tasks` table with `is_custom = true`.
 
 ### Priority 3 — Strip BEDS fallback data
 The hardcoded `BEDS` constant still carries `slotA` planting fallbacks. Strip it to infrastructure facts only (zone, emitters, GPH). The database is now fully authoritative for crop data; the fallback just drifts stale.
