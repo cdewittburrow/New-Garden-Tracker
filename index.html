@@ -3956,13 +3956,9 @@ let briefingCache=null;
 
 async function fetchLatestBriefing(){
   try{
-    const res=await fetch(`https://raw.githubusercontent.com/cdewittburrow/New-Garden-Tracker/main/briefing.json?_=${Date.now()}`,{cache:'no-cache'});
-    if(!res.ok)return;
-    const data=await res.json();
-    const stateKey='briefing_state_'+(data.generated_at||'').split('T')[0];
-    const localState=JSON.parse(localStorage.getItem(stateKey)||'null');
-    if(localState)data.suggestions_state=localState;
-    briefingCache=data;
+    const res=await fetch(`${SB_URL}/rest/v1/briefings?order=generated_at.desc&limit=1`,{headers:SB_HEADERS});
+    const rows=await res.json();
+    if(rows?.[0])briefingCache=rows[0];
   }catch(e){console.error('Briefing fetch failed:',e);}
 }
 
@@ -4097,11 +4093,15 @@ async function rejectSuggestedTask(idx){
   }
 }
 
-function patchSuggestionsState(state){
-  if(!briefingCache?.generated_at)return;
-  const stateKey='briefing_state_'+briefingCache.generated_at.split('T')[0];
-  try{localStorage.setItem(stateKey,JSON.stringify(state));}
-  catch(e){console.error('Suggestions state save failed:',e);}
+async function patchSuggestionsState(state){
+  if(!briefingCache?.id)return;
+  try{
+    await fetch(`${SB_URL}/rest/v1/briefings?id=eq.${briefingCache.id}`,{
+      method:'PATCH',
+      headers:{...SB_HEADERS,'Prefer':'return=minimal'},
+      body:JSON.stringify({suggestions_state:state})
+    });
+  }catch(e){console.error('Suggestions state patch failed:',e);}
 }
 
 /* ── INIT ────────────────────────────────────────── */
