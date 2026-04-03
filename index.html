@@ -3959,7 +3959,10 @@ async function fetchLatestBriefing(){
   try{
     const res=await fetch(`${SB_URL}/rest/v1/briefings?order=generated_at.desc&limit=1`,{headers:SB_HEADERS});
     const rows=await res.json();
-    if(rows?.[0])briefingCache=rows[0];
+    if(rows?.[0]){
+      briefingCache=rows[0];
+      if(document.getElementById('ov-briefing'))renderBriefingCard(briefingCache);
+    }
   }catch(e){console.error('Briefing fetch failed:',e);}
 }
 
