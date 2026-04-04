@@ -2,7 +2,7 @@
 
 A personal garden management web app for a 12-bed south-facing front yard in zone 7a. Tracks crops, season logs, recurring care tasks, and harvest yields across a drip-irrigated raised bed system.
 
-**Live app:** https://cdewittburrow.github.io/New-Garden-Tracker/
+**Live app:** https://new-garden-tracker.vercel.app
 
 ---
 
@@ -10,7 +10,7 @@ A personal garden management web app for a 12-bed south-facing front yard in zon
 
 This started as a question about what an irrigation system might look like. It ended up as a full-stack web app with a real database, a crop task system, and harvest yield tracking. The whole thing was built conversationally — no prior coding experience required — using Claude.ai for planning and Claude Code in the VS Code terminal for implementation.
 
-The workflow: talk through what you want in Claude.ai, get a spec, hand it to Claude Code, review the diffs, approve, push. GitHub Pages handles the rest.
+The workflow: talk through what you want in Claude.ai, get a spec, hand it to Claude Code, review the diffs, approve, push. Vercel handles the rest.
 
 ---
 
@@ -89,7 +89,7 @@ A **daily briefing card** sits at the top of the Overview tab. Each morning at 6
 | Thing | What |
 |-------|------|
 | Frontend | Single `index.html` — embedded CSS and JS, no build step |
-| Hosting | GitHub Pages, auto-deploys from `main` |
+| Hosting | Vercel, auto-deploys from `main` |
 | Database | Supabase (Postgres) |
 | Daily briefing | Supabase Edge Function (`generate-briefing`) + Gemini 2.5 Flash API |
 | Briefing schedule | pg_cron + pg_net — fires at 12:00 UTC (6am MDT) daily |
@@ -175,7 +175,7 @@ Claude Code reads the files, makes changes, shows diffs for approval, then:
 
 ```bash
 git add index.html && git commit -m "..." && git push
-# GitHub Pages picks it up in ~1 minute
+# Vercel picks it up in ~30 seconds
 ```
 
 For planning and architecture: Claude.ai. For implementation: Claude Code. Different tools, different jobs.
