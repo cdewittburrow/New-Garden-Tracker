@@ -2,7 +2,7 @@ const CACHE = 'garden-v1';
 
 self.addEventListener('install', e => {
   e.waitUntil(
-    caches.open(CACHE).then(c => c.add('/New-Garden-Tracker/'))
+    caches.open(CACHE).then(c => c.add('/'))
   );
   self.skipWaiting();
 });
