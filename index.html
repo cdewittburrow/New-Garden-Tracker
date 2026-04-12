@@ -3984,24 +3984,18 @@ function renderBriefingCard(briefing){
   const isToday=genDate>=todayMid;
   const timeStr=genDate.toLocaleTimeString('en-US',{hour:'numeric',minute:'2-digit',hour12:true});
   const dateLabel=isToday?`today at ${timeStr}`:`${genDate.toLocaleDateString('en-US',{month:'short',day:'numeric'})} at ${timeStr}`;
-  const notes=(p.weather_notes||[]).slice(0,4);
-  const timing=(p.task_timing||[]).slice(0,3);
+  const notes=(p.weather_notes||[]).slice(0,5);
   const state=briefing.suggestions_state||{accepted:[],rejected:[]};
   const actedOn=new Set([...(state.accepted||[]),...(state.rejected||[])]);
   const suggestions=(p.suggested_tasks||[]).map((t,i)=>({t,i})).filter(({i})=>!actedOn.has(i)).slice(0,5);
-  const insights=(p.insights||[]).slice(0,4);
   let h=`<div class="ov-briefing">`;
-  h+=`<div class="ov-briefing-headline">${p.headline||'Weekly Garden Briefing'}</div>`;
-  if(p.narrative){
-    h+=`<div class="ov-briefing-narrative" id="brf-narrative">${p.narrative.replace(/\n\n/g,'<br><br>').replace(/\n/g,' ')}</div>
-    <button class="ov-briefing-expand" onclick="toggleBriefingNarrative()">Read more ▾</button>`;
-  }
+  h+=`<div class="ov-briefing-headline">${p.headline||'Daily Garden Briefing'}</div>`;
   if(notes.length){
-    h+=`<span class="ov-briefing-section">Weather</span>`;
+    h+=`<span class="ov-briefing-section">This week</span>`;
     h+=notes.map(n=>`<div class="ov-briefing-note">${n}</div>`).join('');
   }
   if((p.suggested_tasks||[]).length){
-    h+=`<span class="ov-briefing-section">Suggested tasks</span><div id="brf-suggestions">`;
+    h+=`<span class="ov-briefing-section">Actions</span><div id="brf-suggestions">`;
     if(suggestions.length){
       h+=suggestions.map(({t,i})=>{
         const urgBadge=t.urgency==='high'?`<span class="ov-urgency-high">urgent</span>`:'';
@@ -4018,17 +4012,9 @@ function renderBriefingCard(briefing){
         </div>`;
       }).join('');
     }else{
-      h+=`<div class="ov-briefing-note" style="color:var(--text-dim)">All suggestions reviewed.</div>`;
+      h+=`<div class="ov-briefing-note" style="color:var(--text-dim)">All actions reviewed.</div>`;
     }
     h+=`</div>`;
-  }
-  if(timing.length){
-    h+=`<span class="ov-briefing-section">Timing</span>`;
-    h+=timing.map(t=>`<div class="ov-briefing-note" style="${t.urgency==='high'?'color:var(--amber)':''}">${t.observation}</div>`).join('');
-  }
-  if(insights.length){
-    h+=`<span class="ov-briefing-section">Insights</span>`;
-    h+=insights.map(i=>`<div class="ov-briefing-note">${i}</div>`).join('');
   }
   h+=`<div class="ov-briefing-footer">
     <span>Generated ${dateLabel}${!isToday?' · <span style="color:var(--amber)">stale</span>':''}</span>
