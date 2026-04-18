@@ -1,0 +1,36 @@
+name: Write Briefing to Supabase
+
+on:
+  push:
+    paths:
+      - 'briefing-data/output.json'
+  workflow_dispatch:
+
+jobs:
+  write:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Insert briefing into Supabase
+        run: |
+          SB_URL="https://ulivctyuudgepolulpvq.supabase.co"
+          SB_KEY="sb_publishable_oLwWliy_016RY0abQAcglA_6seSqdx2"
+          GENERATED_AT=$(date -u +%Y-%m-%dT%H:%M:%SZ)
+          HEADLINE=$(jq -r '.headline' briefing-data/output.json)
+
+          BODY=$(jq -n \
+            --arg headline "$HEADLINE" \
+            --arg generated_at "$GENERATED_AT" \
+            --slurpfile payload briefing-data/output.json \
+            '{headline: $headline, payload: $payload[0], generated_at: $generated_at}')
+
+          curl -sf \
+            -H "apikey: $SB_KEY" \
+            -H "Authorization: Bearer $SB_KEY" \
+            -H "Content-Type: application/json" \
+            -H "Prefer: return=minimal" \
+            -d "$BODY" \
+            "$SB_URL/rest/v1/briefings"
+
+          echo "Briefing written: $HEADLINE"

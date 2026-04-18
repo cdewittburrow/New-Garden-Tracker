@@ -1,0 +1,81 @@
+name: Gather Briefing Data
+
+on:
+  schedule:
+    - cron: '50 11 * * *'  # 11:50 UTC = 5:50am MDT
+  workflow_dispatch:
+
+jobs:
+  gather:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Fetch garden data and weather
+        run: |
+          SB_URL="https://ulivctyuudgepolulpvq.supabase.co"
+          SB_KEY="sb_publishable_oLwWliy_016RY0abQAcglA_6seSqdx2"
+          TODAY=$(date -u +%Y-%m-%d)
+          SEVEN_AGO=$(date -u -d "7 days ago" +%Y-%m-%d)
+          FOURTEEN_AGO=$(date -u -d "14 days ago" +%Y-%m-%d)
+
+          curl -sf -H "apikey: $SB_KEY" -H "Authorization: Bearer $SB_KEY" \
+            "$SB_URL/rest/v1/plantings?planting_state=eq.active&select=id,bed_id,crop_name,variety,planted_date,status,expected_harvest,season_notes" \
+            > /tmp/plantings.json &
+
+          curl -sf -H "apikey: $SB_KEY" -H "Authorization: Bearer $SB_KEY" \
+            "$SB_URL/rest/v1/tasks?completed_date=is.null&due_date=not.is.null&order=due_date&select=id,planting_id,title,due_date" \
+            > /tmp/tasks.json &
+
+          curl -sf -H "apikey: $SB_KEY" -H "Authorization: Bearer $SB_KEY" \
+            "$SB_URL/rest/v1/logs?date=gte.$SEVEN_AGO&order=date.desc&select=planting_id,date,note" \
+            > /tmp/logs.json &
+
+          curl -sf -H "apikey: $SB_KEY" -H "Authorization: Bearer $SB_KEY" \
+            "$SB_URL/rest/v1/harvests?harvest_date=gte.$FOURTEEN_AGO&select=planting_id,harvest_date,amount,unit" \
+            > /tmp/harvests.json &
+
+          curl -sf -H "apikey: $SB_KEY" -H "Authorization: Bearer $SB_KEY" \
+            "$SB_URL/rest/v1/waterings?order=watered_date.desc&limit=10&select=zone,watered_date,duration_minutes" \
+            > /tmp/waterings.json &
+
+          wait
+
+          FORECAST_URL=$(curl -sf -H "User-Agent: GardenTracker/1.0" \
+            "https://api.weather.gov/points/40.6916,-111.9391" | jq -r '.properties.forecast')
+
+          curl -sf -H "User-Agent: GardenTracker/1.0" "$FORECAST_URL" > /tmp/forecast.json &
+          curl -sf -H "User-Agent: GardenTracker/1.0" \
+            "https://api.weather.gov/alerts/active?point=40.6916,-111.9391" > /tmp/alerts.json &
+
+          wait
+
+          jq -n \
+            --arg today "$TODAY" \
+            --slurpfile plantings /tmp/plantings.json \
+            --slurpfile tasks /tmp/tasks.json \
+            --slurpfile logs /tmp/logs.json \
+            --slurpfile harvests /tmp/harvests.json \
+            --slurpfile waterings /tmp/waterings.json \
+            --slurpfile forecast /tmp/forecast.json \
+            --slurpfile alerts /tmp/alerts.json \
+            '{
+              today: $today,
+              plantings: $plantings[0],
+              tasks: $tasks[0],
+              logs: $logs[0],
+              harvests: $harvests[0],
+              waterings: $waterings[0],
+              weather: {
+                forecast: ($forecast[0].properties.periods // [] | .[0:7]),
+                alerts: [$alerts[0].features // [] | .[0:3][] | .properties.headline]
+              }
+            }' > briefing-data/input.json
+
+      - name: Commit and push
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add briefing-data/input.json
+          git diff --staged --quiet || git commit -m "chore: gather briefing data $(date -u +%Y-%m-%d)"
+          git push
