@@ -1,0 +1,38 @@
+{
+  "headline": "Freeze lifts; harvest radishes before Monday heat",
+  "weather_notes": [
+    "Freeze Warning active until noon today — confirm frost cloth is covering peas and strawberries.",
+    "39°F low tonight — borderline for frost-sensitive plants, keep row covers in place overnight.",
+    "Sunny 75–82°F stretch Sun–Tue after 4 days without watering — plan to irrigate this weekend."
+  ],
+  "suggested_tasks": [
+    {
+      "title": "Harvest radishes before heat triggers bolting",
+      "due_date": "2026-04-20",
+      "description": "18-Day French radishes hit expected harvest Apr 20; Monday's 81°F will trigger bolting if left in ground.",
+      "bed_id": "c1",
+      "urgency": "high"
+    },
+    {
+      "title": "Inspect snap peas for aphids",
+      "due_date": "2026-04-18",
+      "description": "Aphid inspection was due yesterday and is overdue; warming temps this week accelerate pest pressure.",
+      "bed_id": "c2",
+      "urgency": "high"
+    },
+    {
+      "title": "Inspect peas for aphids",
+      "due_date": "2026-04-18",
+      "description": "Aphid inspection was due yesterday and is overdue; warming temps this week accelerate pest pressure.",
+      "bed_id": "c3",
+      "urgency": "high"
+    },
+    {
+      "title": "Inspect peas for aphids",
+      "due_date": "2026-04-18",
+      "description": "Aphid inspection was due yesterday and is overdue; warming temps this week accelerate pest pressure.",
+      "bed_id": "c4",
+      "urgency": "high"
+    }
+  ]
+}
