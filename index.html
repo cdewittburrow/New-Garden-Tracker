@@ -867,6 +867,8 @@ h1 em{font-style:normal;color:var(--teal);}
 .ov-suggestion-accept:disabled{opacity:.55;cursor:default;}
 .ov-suggestion-reject{background:none;border:1px solid var(--border);border-radius:100px;color:var(--text-dim);font-size:.75rem;cursor:pointer;padding:3px 8px;flex-shrink:0;font-family:'Inter',sans-serif;transition:all .15s;}
 .ov-suggestion-reject:hover{border-color:#e05555;color:#e05555;}
+.ov-suggestion-nav{background:none;border:1px solid rgba(91,156,240,.3);border-radius:100px;color:var(--sapphire);font-size:.7rem;cursor:pointer;padding:3px 9px;flex-shrink:0;font-family:'Inter',sans-serif;transition:all .15s;}
+.ov-suggestion-nav:hover{background:rgba(91,156,240,.08);}
 .ov-briefing-footer{font-family:'Inter',sans-serif;font-size:.57rem;color:var(--text-dim);margin-top:12px;padding-top:10px;border-top:1px solid var(--divider);display:flex;align-items:center;justify-content:space-between;}
 .ov-briefing-refresh{background:none;border:none;color:var(--teal);font-size:.62rem;cursor:pointer;font-family:'Inter',sans-serif;padding:0;letter-spacing:.02em;}
 .ov-urgency-high{background:rgba(224,140,48,.12);color:var(--amber);font-family:'Inter',sans-serif;font-size:.5rem;padding:1px 5px;border-radius:100px;vertical-align:middle;margin-left:4px;}
@@ -3979,20 +3981,40 @@ function renderBriefingCard(briefing){
   }
   const p=briefing.payload||{};
   window.briefingSuggestions=p.suggested_tasks||[];
+  window.briefingSurfacedTasks=p.surfaced_tasks||[];
   const genDate=new Date(briefing.generated_at);
   const todayMid=new Date();todayMid.setHours(0,0,0,0);
   const isToday=genDate>=todayMid;
   const timeStr=genDate.toLocaleTimeString('en-US',{hour:'numeric',minute:'2-digit',hour12:true});
   const dateLabel=isToday?`today at ${timeStr}`:`${genDate.toLocaleDateString('en-US',{month:'short',day:'numeric'})} at ${timeStr}`;
   const notes=(p.weather_notes||[]).slice(0,5);
-  const state=briefing.suggestions_state||{accepted:[],rejected:[]};
+  const state=briefing.suggestions_state||{accepted:[],rejected:[],surfaced_dismissed:[]};
   const actedOn=new Set([...(state.accepted||[]),...(state.rejected||[])]);
+  const dismissedSurfaced=new Set(state.surfaced_dismissed||[]);
   const suggestions=(p.suggested_tasks||[]).map((t,i)=>({t,i})).filter(({i})=>!actedOn.has(i)).slice(0,5);
+  const surfaced=(p.surfaced_tasks||[]).filter(t=>!dismissedSurfaced.has(t.task_id));
   let h=`<div class="ov-briefing">`;
   h+=`<div class="ov-briefing-headline">${p.headline||'Daily Garden Briefing'}</div>`;
   if(notes.length){
     h+=`<span class="ov-briefing-section">This week</span>`;
     h+=notes.map(n=>`<div class="ov-briefing-note">${n}</div>`).join('');
+  }
+  if(surfaced.length){
+    h+=`<span class="ov-briefing-section">On deck</span><div id="brf-surfaced-section"><div id="brf-surfaced">`;
+    h+=surfaced.map(t=>{
+      const meta=[t.bed_id?t.bed_id.toUpperCase():null,t.reason].filter(Boolean).join(' · ');
+      return `<div class="ov-suggestion-row" id="surf-row-${t.task_id}">
+        <div class="ov-suggestion-body">
+          <div class="ov-suggestion-title">${t.title}</div>
+          <div class="ov-suggestion-meta">${meta}</div>
+        </div>
+        <div class="ov-suggestion-actions">
+          <button class="ov-suggestion-reject" onclick="dismissSurfacedTask('${t.task_id}')">×</button>
+          <button class="ov-suggestion-nav" onclick="navigateToSurfaced('${t.bed_id}','${t.task_id}')">→ ${(t.bed_id||'').toUpperCase()}</button>
+        </div>
+      </div>`;
+    }).join('');
+    h+=`</div></div>`;
   }
   if((p.suggested_tasks||[]).length){
     h+=`<span class="ov-briefing-section">Actions</span><div id="brf-suggestions">`;
@@ -4081,6 +4103,25 @@ async function rejectSuggestedTask(idx){
   if(box&&!box.querySelector('.ov-suggestion-row')){
     box.innerHTML=`<div class="ov-briefing-note" style="color:var(--text-dim)">All suggestions reviewed.</div>`;
   }
+}
+
+async function dismissSurfacedTask(taskId){
+  document.getElementById('surf-row-'+taskId)?.remove();
+  const state=briefingCache.suggestions_state||{accepted:[],rejected:[],surfaced_dismissed:[]};
+  state.surfaced_dismissed=[...(state.surfaced_dismissed||[]),taskId];
+  briefingCache.suggestions_state=state;
+  await patchSuggestionsState(state);
+  const box=document.getElementById('brf-surfaced');
+  if(box&&!box.querySelector('.ov-suggestion-row')){
+    document.getElementById('brf-surfaced-section')?.remove();
+  }
+}
+
+function navigateToSurfaced(bedId,taskId){
+  dismissSurfacedTask(taskId);
+  const fieldBtn=document.querySelector('.tab-btn');
+  switchTab('tab-field',fieldBtn);
+  openSheet(bedId);
 }
 
 async function patchSuggestionsState(state){

@@ -25,8 +25,9 @@ jobs:
             "$SB_URL/rest/v1/plantings?planting_state=eq.active&select=id,bed_id,crop_name,variety,planted_date,status,expected_harvest,season_notes" \
             > /tmp/plantings.json &
 
+          # All open tasks including description — used for surfacing timely existing tasks
           curl -sf -H "apikey: $SB_KEY" -H "Authorization: Bearer $SB_KEY" \
-            "$SB_URL/rest/v1/tasks?completed_date=is.null&due_date=not.is.null&order=due_date&select=id,planting_id,title,due_date" \
+            "$SB_URL/rest/v1/tasks?completed_date=is.null&order=due_date&select=id,planting_id,title,description,due_date" \
             > /tmp/tasks.json &
 
           curl -sf -H "apikey: $SB_KEY" -H "Authorization: Bearer $SB_KEY" \
@@ -40,6 +41,11 @@ jobs:
           curl -sf -H "apikey: $SB_KEY" -H "Authorization: Bearer $SB_KEY" \
             "$SB_URL/rest/v1/waterings?order=watered_date.desc&limit=10&select=zone,watered_date,duration_minutes" \
             > /tmp/waterings.json &
+
+          # Last 14 days of briefings with accept/reject feedback
+          curl -sf -H "apikey: $SB_KEY" -H "Authorization: Bearer $SB_KEY" \
+            "$SB_URL/rest/v1/briefings?order=generated_at.desc&limit=14&select=payload,suggestions_state,generated_at" \
+            > /tmp/briefing_history.json &
 
           wait
 
@@ -61,6 +67,7 @@ jobs:
             --slurpfile waterings /tmp/waterings.json \
             --slurpfile forecast /tmp/forecast.json \
             --slurpfile alerts /tmp/alerts.json \
+            --slurpfile briefing_history /tmp/briefing_history.json \
             '{
               today: $today,
               plantings: $plantings[0],
@@ -71,7 +78,8 @@ jobs:
               weather: {
                 forecast: ($forecast[0].properties.periods // [] | .[0:7]),
                 alerts: [$alerts[0].features // [] | .[0:3][] | .properties.headline]
-              }
+              },
+              recent_briefings: $briefing_history[0]
             }' > briefing-data/input.json
 
       - name: Commit and push
