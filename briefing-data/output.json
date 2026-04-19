@@ -1,37 +1,43 @@
 {
-  "headline": "Freeze lifts; harvest radishes before Monday heat",
+  "headline": "Freeze clears; heat wave hits Monday — act now",
   "weather_notes": [
-    "Freeze Warning active until noon today — confirm frost cloth is covering peas and strawberries.",
-    "39°F low tonight — borderline for frost-sensitive plants, keep row covers in place overnight.",
-    "Sunny 75–82°F stretch Sun–Tue after 4 days without watering — plan to irrigate this weekend."
+    "Freeze Warning expires today at noon — keep frost protection on tender seedlings through midday.",
+    "Temps spike from 39°F tonight to 81°F Monday and 82°F Tuesday, accelerating aphid pressure on peas.",
+    "No rain through Tuesday; four consecutive dry days of heat mean beds will need water sooner than usual.",
+    "Warm dry air arriving Monday is peak powdery mildew weather for peas — check leaves by midweek."
+  ],
+  "surfaced_tasks": [
+    {
+      "task_id": "37",
+      "bed_id": "c4",
+      "title": "Inspect for aphids — apply Bt if caterpillars present",
+      "reason": "Overdue since Apr 17, and the incoming heat wave will accelerate aphid population growth."
+    },
+    {
+      "task_id": "42",
+      "bed_id": "c2",
+      "title": "Inspect for aphids — apply Bt if caterpillars present",
+      "reason": "Overdue since Apr 17, and the incoming heat wave will accelerate aphid population growth."
+    },
+    {
+      "task_id": "47",
+      "bed_id": "c3",
+      "title": "Inspect for aphids — apply Bt if caterpillars present",
+      "reason": "Overdue since Apr 17, and the incoming heat wave will accelerate aphid population growth."
+    },
+    {
+      "task_id": "62",
+      "bed_id": "w2",
+      "title": "Check for suckers",
+      "reason": "Due tomorrow Apr 19 — address before the heat-driven growth surge this week."
+    }
   ],
   "suggested_tasks": [
     {
-      "title": "Harvest radishes before heat triggers bolting",
+      "title": "Check radish for harvest readiness",
       "due_date": "2026-04-20",
-      "description": "18-Day French radishes hit expected harvest Apr 20; Monday's 81°F will trigger bolting if left in ground.",
+      "description": "Expected harvest arrives ~Apr 20 and Monday's 81°F heat will bolt them fast if left unpicked.",
       "bed_id": "c1",
-      "urgency": "high"
-    },
-    {
-      "title": "Inspect snap peas for aphids",
-      "due_date": "2026-04-18",
-      "description": "Aphid inspection was due yesterday and is overdue; warming temps this week accelerate pest pressure.",
-      "bed_id": "c2",
-      "urgency": "high"
-    },
-    {
-      "title": "Inspect peas for aphids",
-      "due_date": "2026-04-18",
-      "description": "Aphid inspection was due yesterday and is overdue; warming temps this week accelerate pest pressure.",
-      "bed_id": "c3",
-      "urgency": "high"
-    },
-    {
-      "title": "Inspect peas for aphids",
-      "due_date": "2026-04-18",
-      "description": "Aphid inspection was due yesterday and is overdue; warming temps this week accelerate pest pressure.",
-      "bed_id": "c4",
       "urgency": "high"
     }
   ]
