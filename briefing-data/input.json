@@ -1,5 +1,5 @@
 {
-  "today": "2026-04-18",
+  "today": "2026-04-19",
   "plantings": [
     {
       "id": "e93f2f5c-dcb8-47e9-9933-31e7e813b7e4",
@@ -87,282 +87,336 @@
       "id": 42,
       "planting_id": "e0280648-bd37-43b0-b99a-5b1ceed52faa",
       "title": "Inspect for aphids — apply Bt if caterpillars present",
-      "due_date": "2026-04-17"
-    },
-    {
-      "id": 37,
-      "planting_id": "5ed2b328-d443-49f2-966e-547a79002f31",
-      "title": "Inspect for aphids — apply Bt if caterpillars present",
+      "description": "Check growing tips and undersides of upper leaves. For aphids: blast with hose or diluted dish soap. If caterpillar pests present: apply Bt per label. Avoid strong insecticides near flowering plants.",
       "due_date": "2026-04-17"
     },
     {
       "id": 47,
       "planting_id": "fcae49c2-9609-43da-ae75-fcebeca30243",
       "title": "Inspect for aphids — apply Bt if caterpillars present",
+      "description": "Check growing tips and undersides of upper leaves for aphid colonies or caterpillars. For aphids: blast off with hose or spray diluted dish soap solution. If caterpillar pests present: apply Bt per label. Avoid strong insecticides — pollinators are working these flowers.",
+      "due_date": "2026-04-17"
+    },
+    {
+      "id": 37,
+      "planting_id": "5ed2b328-d443-49f2-966e-547a79002f31",
+      "title": "Inspect for aphids — apply Bt if caterpillars present",
+      "description": "Check growing tips and undersides of upper leaves for aphid colonies or caterpillars. For aphids: blast off with hose or spray diluted dish soap solution. If caterpillar pests present: apply Bt per label. Avoid strong insecticides — pollinators are working these flowers.",
       "due_date": "2026-04-17"
     },
     {
       "id": 62,
       "planting_id": "54c2c338-5c4d-4924-b91b-4ffc22ebb4b3",
       "title": "Check for suckers",
+      "description": "Remove suckers forming in the crotch between main stem and lateral branches. Indeterminate varieties only (Amish Paste, Comstock, Bonny Best) — leave determinates (Roma, Orange Hat) unpruned. Pinch suckers when small (under 2 inches) for a cleaner break.",
       "due_date": "2026-04-19"
+    },
+    {
+      "id": 87,
+      "planting_id": "14a35329-35a2-42ef-b59c-9b35fc2a2c7e",
+      "title": "Harvest radishes before heat triggers bolting",
+      "description": "18-Day French radishes hit expected harvest Apr 20; Monday's 81°F will trigger bolting if left in ground.",
+      "due_date": "2026-04-20"
     },
     {
       "id": 54,
       "planting_id": "54c2c338-5c4d-4924-b91b-4ffc22ebb4b3",
       "title": "Inspect for hornworms — apply Bt if found",
+      "description": "Check undersides of leaves on lower third of plant. Look for dark frass (droppings) as first sign. If hornworms found: spray Bacillus thuringiensis (Bt) on affected foliage per label. Hand-pick any large worms already present. Reapply Bt after rain.",
       "due_date": "2026-04-21"
+    },
+    {
+      "id": 18,
+      "planting_id": "fcae49c2-9609-43da-ae75-fcebeca30243",
+      "title": "Watch for powdery mildew",
+      "description": "White powdery coating on leaves — common as temperatures rise in May. Peas are cool-season and will decline naturally in heat. If mildew appears early, harvest aggressively and pull the planting. Not worth treating in a small bed once temperatures are consistently above 75F.",
+      "due_date": "2026-04-22"
     },
     {
       "id": 6,
       "planting_id": "5ed2b328-d443-49f2-966e-547a79002f31",
       "title": "Watch for powdery mildew",
+      "description": "White powdery coating on leaves — common as temperatures rise in May. Peas are cool-season and will decline naturally in heat. If mildew appears early, harvest aggressively and pull the planting. Not worth treating in a small bed once temperatures are consistently above 75F.",
       "due_date": "2026-04-22"
     },
     {
       "id": 14,
       "planting_id": "e0280648-bd37-43b0-b99a-5b1ceed52faa",
       "title": "Watch for powdery mildew",
-      "due_date": "2026-04-22"
-    },
-    {
-      "id": 18,
-      "planting_id": "fcae49c2-9609-43da-ae75-fcebeca30243",
-      "title": "Watch for powdery mildew",
+      "description": "White powdery coating on leaves — common as temperatures climb in May. Harvest aggressively and pull the planting if mildew appears with heat already building.",
       "due_date": "2026-04-22"
     },
     {
       "id": 63,
       "planting_id": "54c2c338-5c4d-4924-b91b-4ffc22ebb4b3",
       "title": "Check for suckers",
+      "description": "Remove suckers forming in the crotch between main stem and lateral branches. Indeterminate varieties only (Amish Paste, Comstock, Bonny Best) — leave determinates (Roma, Orange Hat) unpruned. Pinch suckers when small (under 2 inches) for a cleaner break.",
       "due_date": "2026-04-26"
-    },
-    {
-      "id": 43,
-      "planting_id": "e0280648-bd37-43b0-b99a-5b1ceed52faa",
-      "title": "Inspect for aphids — apply Bt if caterpillars present",
-      "due_date": "2026-04-27"
     },
     {
       "id": 48,
       "planting_id": "fcae49c2-9609-43da-ae75-fcebeca30243",
       "title": "Inspect for aphids — apply Bt if caterpillars present",
+      "description": "Check growing tips and undersides of upper leaves for aphid colonies or caterpillars. For aphids: blast off with hose or spray diluted dish soap solution. If caterpillar pests present: apply Bt per label. Avoid strong insecticides — pollinators are working these flowers.",
       "due_date": "2026-04-27"
     },
     {
       "id": 38,
       "planting_id": "5ed2b328-d443-49f2-966e-547a79002f31",
       "title": "Inspect for aphids — apply Bt if caterpillars present",
+      "description": "Check growing tips and undersides of upper leaves for aphid colonies or caterpillars. For aphids: blast off with hose or spray diluted dish soap solution. If caterpillar pests present: apply Bt per label. Avoid strong insecticides — pollinators are working these flowers.",
       "due_date": "2026-04-27"
+    },
+    {
+      "id": 43,
+      "planting_id": "e0280648-bd37-43b0-b99a-5b1ceed52faa",
+      "title": "Inspect for aphids — apply Bt if caterpillars present",
+      "description": "Check growing tips and undersides of upper leaves. For aphids: blast with hose or diluted dish soap. If caterpillar pests present: apply Bt per label. Avoid strong insecticides near flowering plants.",
+      "due_date": "2026-04-27"
+    },
+    {
+      "id": 30,
+      "planting_id": "79526620-7d75-4886-b31d-7c9bf731edc9",
+      "title": "Inspect for slugs",
+      "description": "Slugs eat into ripening berries overnight — look for ragged holes in fruit and slime trails on soil surface. Pick berries slightly underripe if slug pressure is high. Diatomaceous earth scattered around bed perimeter helps as a barrier.",
+      "due_date": "2026-05-01"
     },
     {
       "id": 31,
       "planting_id": "79526620-7d75-4886-b31d-7c9bf731edc9",
       "title": "Runner management",
+      "description": "Everbearing strawberries produce runners that root nearby. In a 2x4 raised bed, remove most runners to keep plant energy directed toward fruit production. Keep 1-2 runners per plant maximum if you want to propagate new plants.",
       "due_date": "2026-05-01"
     },
     {
       "id": 55,
       "planting_id": "54c2c338-5c4d-4924-b91b-4ffc22ebb4b3",
       "title": "Inspect for hornworms — apply Bt if found",
+      "description": "Check undersides of leaves on lower third of plant. Look for dark frass (droppings) as first sign. If hornworms found: spray Bacillus thuringiensis (Bt) on affected foliage per label. Hand-pick any large worms already present. Reapply Bt after rain.",
       "due_date": "2026-05-01"
-    },
-    {
-      "id": 30,
-      "planting_id": "79526620-7d75-4886-b31d-7c9bf731edc9",
-      "title": "Inspect for slugs",
-      "due_date": "2026-05-01"
-    },
-    {
-      "id": 17,
-      "planting_id": "fcae49c2-9609-43da-ae75-fcebeca30243",
-      "title": "First harvest check",
-      "due_date": "2026-05-02"
     },
     {
       "id": 5,
       "planting_id": "5ed2b328-d443-49f2-966e-547a79002f31",
       "title": "First harvest check",
+      "description": "Shelling peas: pods should feel full and firm with peas visible through the pod wall. Check every 2 days once pods start forming.",
       "due_date": "2026-05-02"
     },
     {
       "id": 13,
       "planting_id": "e0280648-bd37-43b0-b99a-5b1ceed52faa",
       "title": "First harvest check",
+      "description": "Harvest when pod is plump but before interior peas bulge too large — sweetness peaks here and drops off fast. Check every 2 days once pods are sizing up.",
+      "due_date": "2026-05-02"
+    },
+    {
+      "id": 17,
+      "planting_id": "fcae49c2-9609-43da-ae75-fcebeca30243",
+      "title": "First harvest check",
+      "description": "Shelling peas: pods should feel full and firm with peas visible through the pod wall. Check every 2 days once pods start forming.",
       "due_date": "2026-05-02"
     },
     {
       "id": 64,
       "planting_id": "54c2c338-5c4d-4924-b91b-4ffc22ebb4b3",
       "title": "Check for suckers",
+      "description": "Remove suckers forming in the crotch between main stem and lateral branches. Indeterminate varieties only (Amish Paste, Comstock, Bonny Best) — leave determinates (Roma, Orange Hat) unpruned. Pinch suckers when small (under 2 inches) for a cleaner break.",
       "due_date": "2026-05-03"
     },
     {
       "id": 50,
       "planting_id": "54c2c338-5c4d-4924-b91b-4ffc22ebb4b3",
       "title": "Inspect for early blight",
+      "description": "Look for brown spots with yellow halos on lower leaves. Remove affected leaves immediately and dispose (do not compost). Increase airflow by pruning dense interior foliage if severe.",
       "due_date": "2026-05-06"
     },
     {
       "id": 23,
       "planting_id": "54c2c338-5c4d-4924-b91b-4ffc22ebb4b3",
       "title": "Pre-fruit feed — bone meal",
+      "description": "Side-dress 1 tbsp bone meal per plant once first flowers appear. Supports fruit set and meets phosphorus demand during flowering.",
       "due_date": "2026-05-06"
-    },
-    {
-      "id": 44,
-      "planting_id": "e0280648-bd37-43b0-b99a-5b1ceed52faa",
-      "title": "Inspect for aphids — apply Bt if caterpillars present",
-      "due_date": "2026-05-07"
     },
     {
       "id": 39,
       "planting_id": "5ed2b328-d443-49f2-966e-547a79002f31",
       "title": "Inspect for aphids — apply Bt if caterpillars present",
+      "description": "Check growing tips and undersides of upper leaves for aphid colonies or caterpillars. For aphids: blast off with hose or spray diluted dish soap solution. If caterpillar pests present: apply Bt per label. Avoid strong insecticides — pollinators are working these flowers.",
+      "due_date": "2026-05-07"
+    },
+    {
+      "id": 44,
+      "planting_id": "e0280648-bd37-43b0-b99a-5b1ceed52faa",
+      "title": "Inspect for aphids — apply Bt if caterpillars present",
+      "description": "Check growing tips and undersides of upper leaves. For aphids: blast with hose or diluted dish soap. If caterpillar pests present: apply Bt per label. Avoid strong insecticides near flowering plants.",
       "due_date": "2026-05-07"
     },
     {
       "id": 49,
       "planting_id": "fcae49c2-9609-43da-ae75-fcebeca30243",
       "title": "Inspect for aphids — apply Bt if caterpillars present",
+      "description": "Check growing tips and undersides of upper leaves for aphid colonies or caterpillars. For aphids: blast off with hose or spray diluted dish soap solution. If caterpillar pests present: apply Bt per label. Avoid strong insecticides — pollinators are working these flowers.",
       "due_date": "2026-05-07"
     },
     {
       "id": 65,
       "planting_id": "54c2c338-5c4d-4924-b91b-4ffc22ebb4b3",
       "title": "Check for suckers",
+      "description": "Remove suckers forming in the crotch between main stem and lateral branches. Indeterminate varieties only (Amish Paste, Comstock, Bonny Best) — leave determinates (Roma, Orange Hat) unpruned. Pinch suckers when small (under 2 inches) for a cleaner break.",
       "due_date": "2026-05-10"
     },
     {
       "id": 56,
       "planting_id": "54c2c338-5c4d-4924-b91b-4ffc22ebb4b3",
       "title": "Inspect for hornworms — apply Bt if found",
+      "description": "Check undersides of leaves on lower third of plant. Look for dark frass (droppings) as first sign. If hornworms found: spray Bacillus thuringiensis (Bt) on affected foliage per label. Hand-pick any large worms already present. Reapply Bt after rain.",
       "due_date": "2026-05-11"
     },
     {
       "id": 66,
       "planting_id": "54c2c338-5c4d-4924-b91b-4ffc22ebb4b3",
       "title": "Check for suckers",
+      "description": "Remove suckers forming in the crotch between main stem and lateral branches. Indeterminate varieties only (Amish Paste, Comstock, Bonny Best) — leave determinates (Roma, Orange Hat) unpruned. Pinch suckers when small (under 2 inches) for a cleaner break.",
       "due_date": "2026-05-17"
     },
     {
       "id": 51,
       "planting_id": "54c2c338-5c4d-4924-b91b-4ffc22ebb4b3",
       "title": "Inspect for early blight",
+      "description": "Look for brown spots with yellow halos on lower leaves. Remove affected leaves immediately and dispose (do not compost). Increase airflow by pruning dense interior foliage if severe.",
       "due_date": "2026-05-20"
-    },
-    {
-      "id": 57,
-      "planting_id": "54c2c338-5c4d-4924-b91b-4ffc22ebb4b3",
-      "title": "Inspect for hornworms — apply Bt if found",
-      "due_date": "2026-05-21"
     },
     {
       "id": 22,
       "planting_id": "54c2c338-5c4d-4924-b91b-4ffc22ebb4b3",
       "title": "Mid-season feed — blood meal",
+      "description": "Work 1 tbsp blood meal per plant into top inch of soil. Apply once heavy fruiting begins to compensate for nitrogen demand. Skip if foliage is already very dark green — excess nitrogen pushes leaf growth at expense of fruit.",
+      "due_date": "2026-05-21"
+    },
+    {
+      "id": 57,
+      "planting_id": "54c2c338-5c4d-4924-b91b-4ffc22ebb4b3",
+      "title": "Inspect for hornworms — apply Bt if found",
+      "description": "Check undersides of leaves on lower third of plant. Look for dark frass (droppings) as first sign. If hornworms found: spray Bacillus thuringiensis (Bt) on affected foliage per label. Hand-pick any large worms already present. Reapply Bt after rain.",
       "due_date": "2026-05-21"
     },
     {
       "id": 67,
       "planting_id": "54c2c338-5c4d-4924-b91b-4ffc22ebb4b3",
       "title": "Check for suckers",
+      "description": "Remove suckers forming in the crotch between main stem and lateral branches. Indeterminate varieties only (Amish Paste, Comstock, Bonny Best) — leave determinates (Roma, Orange Hat) unpruned. Pinch suckers when small (under 2 inches) for a cleaner break.",
       "due_date": "2026-05-24"
     },
     {
       "id": 68,
       "planting_id": "54c2c338-5c4d-4924-b91b-4ffc22ebb4b3",
       "title": "Check for suckers",
+      "description": "Remove suckers forming in the crotch between main stem and lateral branches. Indeterminate varieties only (Amish Paste, Comstock, Bonny Best) — leave determinates (Roma, Orange Hat) unpruned. Pinch suckers when small (under 2 inches) for a cleaner break.",
       "due_date": "2026-05-31"
     },
     {
       "id": 58,
       "planting_id": "54c2c338-5c4d-4924-b91b-4ffc22ebb4b3",
       "title": "Inspect for hornworms — apply Bt if found",
+      "description": "Check undersides of leaves on lower third of plant. Look for dark frass (droppings) as first sign. If hornworms found: spray Bacillus thuringiensis (Bt) on affected foliage per label. Hand-pick any large worms already present. Reapply Bt after rain.",
       "due_date": "2026-05-31"
     },
     {
       "id": 33,
       "planting_id": "79526620-7d75-4886-b31d-7c9bf731edc9",
       "title": "Mid-season feed — fish emulsion",
+      "description": "Half-strength fish emulsion (1 tbsp per gallon) once in early June to support continuous fruiting through summer. Do not overfeed — excess nitrogen pushes foliage at the expense of berry production.",
       "due_date": "2026-06-01"
     },
     {
       "id": 52,
       "planting_id": "54c2c338-5c4d-4924-b91b-4ffc22ebb4b3",
       "title": "Inspect for early blight",
+      "description": "Look for brown spots with yellow halos on lower leaves. Remove affected leaves immediately and dispose (do not compost). Increase airflow by pruning dense interior foliage if severe.",
       "due_date": "2026-06-03"
     },
     {
       "id": 21,
       "planting_id": "54c2c338-5c4d-4924-b91b-4ffc22ebb4b3",
       "title": "First harvest check",
+      "description": "Roma and paste types: firm and fully colored. Slicers: slight give when squeezed. Do not wait for perfect color in heat — fully vine-ripened tomatoes go soft fast in summer temperatures.",
       "due_date": "2026-06-05"
     },
     {
       "id": 69,
       "planting_id": "54c2c338-5c4d-4924-b91b-4ffc22ebb4b3",
       "title": "Check for suckers",
+      "description": "Remove suckers forming in the crotch between main stem and lateral branches. Indeterminate varieties only (Amish Paste, Comstock, Bonny Best) — leave determinates (Roma, Orange Hat) unpruned. Pinch suckers when small (under 2 inches) for a cleaner break.",
       "due_date": "2026-06-07"
     },
     {
       "id": 59,
       "planting_id": "54c2c338-5c4d-4924-b91b-4ffc22ebb4b3",
       "title": "Inspect for hornworms — apply Bt if found",
+      "description": "Check undersides of leaves on lower third of plant. Look for dark frass (droppings) as first sign. If hornworms found: spray Bacillus thuringiensis (Bt) on affected foliage per label. Hand-pick any large worms already present. Reapply Bt after rain.",
       "due_date": "2026-06-10"
     },
     {
       "id": 70,
       "planting_id": "54c2c338-5c4d-4924-b91b-4ffc22ebb4b3",
       "title": "Check for suckers",
+      "description": "Remove suckers forming in the crotch between main stem and lateral branches. Indeterminate varieties only (Amish Paste, Comstock, Bonny Best) — leave determinates (Roma, Orange Hat) unpruned. Pinch suckers when small (under 2 inches) for a cleaner break.",
       "due_date": "2026-06-14"
     },
     {
       "id": 53,
       "planting_id": "54c2c338-5c4d-4924-b91b-4ffc22ebb4b3",
       "title": "Inspect for early blight",
+      "description": "Look for brown spots with yellow halos on lower leaves. Remove affected leaves immediately and dispose (do not compost). Increase airflow by pruning dense interior foliage if severe.",
       "due_date": "2026-06-17"
     },
     {
       "id": 60,
       "planting_id": "54c2c338-5c4d-4924-b91b-4ffc22ebb4b3",
       "title": "Inspect for hornworms — apply Bt if found",
+      "description": "Check undersides of leaves on lower third of plant. Look for dark frass (droppings) as first sign. If hornworms found: spray Bacillus thuringiensis (Bt) on affected foliage per label. Hand-pick any large worms already present. Reapply Bt after rain.",
       "due_date": "2026-06-20"
     },
     {
       "id": 10,
       "planting_id": "e93f2f5c-dcb8-47e9-9933-31e7e813b7e4",
       "title": "Stop watering",
+      "description": "Stop all irrigation 2 weeks before expected harvest. Dry conditions cure the outer wrapper and improve storage life significantly. Italian Red (softneck, W4) may be ready a week or two before Elephant & Music (hardneck, W3).",
       "due_date": "2026-06-21"
     },
     {
       "id": 27,
       "planting_id": "abebbe9f-e355-4c78-a77f-79d4c88d17f7",
       "title": "Stop watering",
+      "description": "Stop all irrigation 2 weeks before expected harvest. Dry conditions cure the outer wrapper and improve storage life significantly. Italian Red (softneck, W4) may be ready a week or two before Elephant & Music (hardneck, W3).",
       "due_date": "2026-06-21"
-    },
-    {
-      "id": 26,
-      "planting_id": "abebbe9f-e355-4c78-a77f-79d4c88d17f7",
-      "title": "Harvest check",
-      "due_date": "2026-07-05"
     },
     {
       "id": 9,
       "planting_id": "e93f2f5c-dcb8-47e9-9933-31e7e813b7e4",
       "title": "Harvest check",
+      "description": "Harvest when lower 3-4 leaves have browned but upper 5-6 are still green. Do not wait until all leaves are brown — the wrapper will deteriorate. Dig carefully with a fork, do not pull by the stem.",
+      "due_date": "2026-07-05"
+    },
+    {
+      "id": 26,
+      "planting_id": "abebbe9f-e355-4c78-a77f-79d4c88d17f7",
+      "title": "Harvest check",
+      "description": "Harvest when lower 3-4 leaves have browned but upper 5-6 are still green. Do not wait until all leaves are brown — the wrapper will deteriorate. Dig carefully with a fork, do not pull by the stem.",
       "due_date": "2026-07-05"
     },
     {
       "id": 32,
       "planting_id": "79526620-7d75-4886-b31d-7c9bf731edc9",
       "title": "Fall renovation",
+      "description": "After last harvest in fall, cut all foliage back to 1 inch above crown. Remove old mulch and debris. Add 1 inch of fresh compost to the bed. Apply fall Berry-Tone feeding at label rate. This resets the plant for next year.",
       "due_date": "2026-10-01"
     },
     {
       "id": 34,
       "planting_id": "79526620-7d75-4886-b31d-7c9bf731edc9",
       "title": "Early spring feed — Berry-Tone",
+      "description": "Apply True Organic Berry-Tone at label rate (approximately 1/2 cup per 5 sq ft of bed) as soon as new growth appears in early spring. Work lightly into top inch of soil and water in well.",
       "due_date": "2027-03-15"
     }
   ],
@@ -561,44 +615,6 @@
       {
         "number": 1,
         "name": "Today",
-        "startTime": "2026-04-18T09:00:00-06:00",
-        "endTime": "2026-04-18T18:00:00-06:00",
-        "isDaytime": true,
-        "temperature": 61,
-        "temperatureUnit": "F",
-        "temperatureTrend": null,
-        "probabilityOfPrecipitation": {
-          "unitCode": "wmoUnit:percent",
-          "value": 0
-        },
-        "windSpeed": "5 mph",
-        "windDirection": "W",
-        "icon": "https://api.weather.gov/icons/land/day/sct?size=medium",
-        "shortForecast": "Mostly Sunny",
-        "detailedForecast": "Mostly sunny, with a high near 61. West wind around 5 mph."
-      },
-      {
-        "number": 2,
-        "name": "Tonight",
-        "startTime": "2026-04-18T18:00:00-06:00",
-        "endTime": "2026-04-19T06:00:00-06:00",
-        "isDaytime": false,
-        "temperature": 39,
-        "temperatureUnit": "F",
-        "temperatureTrend": null,
-        "probabilityOfPrecipitation": {
-          "unitCode": "wmoUnit:percent",
-          "value": 0
-        },
-        "windSpeed": "6 mph",
-        "windDirection": "SSE",
-        "icon": "https://api.weather.gov/icons/land/night/few?size=medium",
-        "shortForecast": "Mostly Clear",
-        "detailedForecast": "Mostly clear. Low around 39, with temperatures rising to around 41 overnight. South southeast wind around 6 mph."
-      },
-      {
-        "number": 3,
-        "name": "Sunday",
         "startTime": "2026-04-19T06:00:00-06:00",
         "endTime": "2026-04-19T18:00:00-06:00",
         "isDaytime": true,
@@ -610,18 +626,18 @@
           "value": 0
         },
         "windSpeed": "7 mph",
-        "windDirection": "SSE",
+        "windDirection": "S",
         "icon": "https://api.weather.gov/icons/land/day/few?size=medium",
         "shortForecast": "Sunny",
-        "detailedForecast": "Sunny, with a high near 75. South southeast wind around 7 mph."
+        "detailedForecast": "Sunny. High near 75, with temperatures falling to around 73 in the afternoon. South wind around 7 mph."
       },
       {
-        "number": 4,
-        "name": "Sunday Night",
+        "number": 2,
+        "name": "Tonight",
         "startTime": "2026-04-19T18:00:00-06:00",
         "endTime": "2026-04-20T06:00:00-06:00",
         "isDaytime": false,
-        "temperature": 50,
+        "temperature": 49,
         "temperatureUnit": "F",
         "temperatureTrend": null,
         "probabilityOfPrecipitation": {
@@ -629,32 +645,32 @@
           "value": 0
         },
         "windSpeed": "7 mph",
-        "windDirection": "SSE",
+        "windDirection": "SSW",
         "icon": "https://api.weather.gov/icons/land/night/bkn?size=medium",
         "shortForecast": "Mostly Cloudy",
-        "detailedForecast": "Mostly cloudy, with a low around 50. South southeast wind around 7 mph."
+        "detailedForecast": "Mostly cloudy. Low around 49, with temperatures rising to around 51 overnight. South southwest wind around 7 mph."
       },
       {
-        "number": 5,
+        "number": 3,
         "name": "Monday",
         "startTime": "2026-04-20T06:00:00-06:00",
         "endTime": "2026-04-20T18:00:00-06:00",
         "isDaytime": true,
-        "temperature": 81,
+        "temperature": 80,
         "temperatureUnit": "F",
         "temperatureTrend": null,
         "probabilityOfPrecipitation": {
           "unitCode": "wmoUnit:percent",
-          "value": 5
+          "value": 8
         },
-        "windSpeed": "7 to 10 mph",
+        "windSpeed": "9 mph",
         "windDirection": "S",
         "icon": "https://api.weather.gov/icons/land/day/few?size=medium",
         "shortForecast": "Sunny",
-        "detailedForecast": "Sunny, with a high near 81. South wind 7 to 10 mph."
+        "detailedForecast": "Sunny, with a high near 80. South wind around 9 mph."
       },
       {
-        "number": 6,
+        "number": 4,
         "name": "Monday Night",
         "startTime": "2026-04-20T18:00:00-06:00",
         "endTime": "2026-04-21T06:00:00-06:00",
@@ -667,33 +683,807 @@
           "value": 1
         },
         "windSpeed": "8 mph",
-        "windDirection": "SSE",
-        "icon": "https://api.weather.gov/icons/land/night/sct?size=medium",
-        "shortForecast": "Partly Cloudy",
-        "detailedForecast": "Partly cloudy, with a low around 53."
+        "windDirection": "S",
+        "icon": "https://api.weather.gov/icons/land/night/few?size=medium",
+        "shortForecast": "Mostly Clear",
+        "detailedForecast": "Mostly clear, with a low around 53. South wind around 8 mph."
       },
       {
-        "number": 7,
+        "number": 5,
         "name": "Tuesday",
         "startTime": "2026-04-21T06:00:00-06:00",
         "endTime": "2026-04-21T18:00:00-06:00",
         "isDaytime": true,
-        "temperature": 82,
+        "temperature": 81,
         "temperatureUnit": "F",
         "temperatureTrend": null,
         "probabilityOfPrecipitation": {
           "unitCode": "wmoUnit:percent",
-          "value": 6
+          "value": 8
         },
-        "windSpeed": "7 to 14 mph",
+        "windSpeed": "7 to 13 mph",
         "windDirection": "SSE",
         "icon": "https://api.weather.gov/icons/land/day/sct?size=medium",
         "shortForecast": "Mostly Sunny",
-        "detailedForecast": "Mostly sunny, with a high near 82."
+        "detailedForecast": "Mostly sunny, with a high near 81. South southeast wind 7 to 13 mph."
+      },
+      {
+        "number": 6,
+        "name": "Tuesday Night",
+        "startTime": "2026-04-21T18:00:00-06:00",
+        "endTime": "2026-04-22T06:00:00-06:00",
+        "isDaytime": false,
+        "temperature": 48,
+        "temperatureUnit": "F",
+        "temperatureTrend": null,
+        "probabilityOfPrecipitation": {
+          "unitCode": "wmoUnit:percent",
+          "value": 12
+        },
+        "windSpeed": "12 mph",
+        "windDirection": "S",
+        "icon": "https://api.weather.gov/icons/land/night/sct?size=medium",
+        "shortForecast": "Partly Cloudy",
+        "detailedForecast": "Partly cloudy, with a low around 48."
+      },
+      {
+        "number": 7,
+        "name": "Wednesday",
+        "startTime": "2026-04-22T06:00:00-06:00",
+        "endTime": "2026-04-22T18:00:00-06:00",
+        "isDaytime": true,
+        "temperature": 60,
+        "temperatureUnit": "F",
+        "temperatureTrend": null,
+        "probabilityOfPrecipitation": {
+          "unitCode": "wmoUnit:percent",
+          "value": 72
+        },
+        "windSpeed": "10 to 16 mph",
+        "windDirection": "SSW",
+        "icon": "https://api.weather.gov/icons/land/day/rain_showers,50/tsra,70?size=medium",
+        "shortForecast": "Showers And Thunderstorms Likely",
+        "detailedForecast": "A chance of rain showers before noon, then showers and thunderstorms likely. Mostly cloudy, with a high near 60."
       }
     ],
-    "alerts": [
-      "Freeze Warning issued April 17 at 10:15PM MDT until April 18 at 12:00PM MDT by NWS Salt Lake City UT"
-    ]
-  }
+    "alerts": []
+  },
+  "recent_briefings": [
+    {
+      "payload": {
+        "headline": "Freeze clears; heat wave hits Monday — act now",
+        "weather_notes": [
+          "Freeze Warning expires today at noon — keep frost protection on tender seedlings through midday.",
+          "Temps spike from 39°F tonight to 81°F Monday and 82°F Tuesday, accelerating aphid pressure on peas.",
+          "No rain through Tuesday; four consecutive dry days of heat mean beds will need water sooner than usual.",
+          "Warm dry air arriving Monday is peak powdery mildew weather for peas — check leaves by midweek."
+        ],
+        "surfaced_tasks": [
+          {
+            "title": "Inspect for aphids — apply Bt if caterpillars present",
+            "bed_id": "c4",
+            "reason": "Overdue since Apr 17, and the incoming heat wave will accelerate aphid population growth.",
+            "task_id": "37"
+          },
+          {
+            "title": "Inspect for aphids — apply Bt if caterpillars present",
+            "bed_id": "c2",
+            "reason": "Overdue since Apr 17, and the incoming heat wave will accelerate aphid population growth.",
+            "task_id": "42"
+          },
+          {
+            "title": "Inspect for aphids — apply Bt if caterpillars present",
+            "bed_id": "c3",
+            "reason": "Overdue since Apr 17, and the incoming heat wave will accelerate aphid population growth.",
+            "task_id": "47"
+          },
+          {
+            "title": "Check for suckers",
+            "bed_id": "w2",
+            "reason": "Due tomorrow Apr 19 — address before the heat-driven growth surge this week.",
+            "task_id": "62"
+          }
+        ],
+        "suggested_tasks": [
+          {
+            "title": "Check radish for harvest readiness",
+            "bed_id": "c1",
+            "urgency": "high",
+            "due_date": "2026-04-20",
+            "description": "Expected harvest arrives ~Apr 20 and Monday's 81°F heat will bolt them fast if left unpicked."
+          }
+        ]
+      },
+      "suggestions_state": {
+        "accepted": [],
+        "rejected": []
+      },
+      "generated_at": "2026-04-19T12:04:05+00:00"
+    },
+    {
+      "payload": {
+        "headline": "Freeze lifts; harvest radishes before Monday heat",
+        "weather_notes": [
+          "Freeze Warning active until noon today — confirm frost cloth is covering peas and strawberries.",
+          "39°F low tonight — borderline for frost-sensitive plants, keep row covers in place overnight.",
+          "Sunny 75–82°F stretch Sun–Tue after 4 days without watering — plan to irrigate this weekend."
+        ],
+        "suggested_tasks": [
+          {
+            "title": "Harvest radishes before heat triggers bolting",
+            "bed_id": "c1",
+            "urgency": "high",
+            "due_date": "2026-04-20",
+            "description": "18-Day French radishes hit expected harvest Apr 20; Monday's 81°F will trigger bolting if left in ground."
+          },
+          {
+            "title": "Inspect snap peas for aphids",
+            "bed_id": "c2",
+            "urgency": "high",
+            "due_date": "2026-04-18",
+            "description": "Aphid inspection was due yesterday and is overdue; warming temps this week accelerate pest pressure."
+          },
+          {
+            "title": "Inspect peas for aphids",
+            "bed_id": "c3",
+            "urgency": "high",
+            "due_date": "2026-04-18",
+            "description": "Aphid inspection was due yesterday and is overdue; warming temps this week accelerate pest pressure."
+          },
+          {
+            "title": "Inspect peas for aphids",
+            "bed_id": "c4",
+            "urgency": "high",
+            "due_date": "2026-04-18",
+            "description": "Aphid inspection was due yesterday and is overdue; warming temps this week accelerate pest pressure."
+          }
+        ]
+      },
+      "suggestions_state": {
+        "accepted": [
+          0
+        ],
+        "rejected": [
+          1,
+          2,
+          3
+        ]
+      },
+      "generated_at": "2026-04-18T15:08:50+00:00"
+    },
+    {
+      "payload": {
+        "headline": "Radish harvest day; prepare for multi-day rain event.",
+        "insights": [
+          "The '18-Day French' radishes have reached their expected harvest date, indicating successful early season growth.",
+          "Pea plants across three varieties are showing healthy tendril development, suggesting vigorous establishment.",
+          "Newly planted strawberries and tomatoes, though still in 'sown' status, are facing their first significant weather challenge with high winds.",
+          "Garlic plantings continue to thrive, benefiting from consistent moisture and recent fish emulsion application.",
+          "The garden has received consistent early spring care, including recent worm castings and fish emulsion applications to various beds."
+        ],
+        "narrative": "The garden is actively growing this spring! Your garlic plantings are robustly establishing, while pea varieties are thriving, showing their characteristic 'tentacles'. Newly sown strawberries and tomatoes are also settling into their beds, marking the start of a busy growing season. Critically, your '18-Day French' radishes are now ready for their first harvest today, and your 'Orange Hat' tomato needs a sucker check.\n\nLooking ahead, you'll need to inspect all your pea plants for aphids around April 17th. This week's weather will significantly impact outdoor activities. Strong winds are expected today, which could stress your younger plants, so temporary protection might be beneficial.\n\nExpect a good soaking from the sky over the next few days. Showers and thunderstorms are forecast from today through Tuesday. This means you can hold off on any manual watering, but it also necessitates careful planning for other tasks. Temperatures will be mild today before cooling down for Monday and Tuesday, with overnight lows hovering in the upper 30s. Tasks like pest inspection on peas should likely be scheduled after the rain subsides.",
+        "task_timing": [
+          {
+            "urgency": "high",
+            "observation": "Prioritize harvesting '18-Day French' radishes today, ideally before heavy rain starts later this afternoon."
+          },
+          {
+            "urgency": "high",
+            "observation": "Complete the scheduled 'Orange Hat' tomato sucker check today, being mindful of the strong winds."
+          },
+          {
+            "urgency": "normal",
+            "observation": "Delay all manual watering until after Tuesday due to the significant precipitation expected."
+          },
+          {
+            "urgency": "normal",
+            "observation": "Consider rescheduling pea aphid inspections (due Apr 17) to after the rainy period, around Wednesday or Thursday, for better efficacy."
+          }
+        ],
+        "weather_notes": [
+          "Significant rain and thunderstorms are expected today through Tuesday, providing natural irrigation.",
+          "Strong winds with gusts up to 38 mph are forecast for today, potentially stressing young plants.",
+          "Temperatures will drop after today, with highs in the upper 50s on Monday and Tuesday, and overnight lows near 38-39°F.",
+          "Wednesday offers a clearer, warmer window for garden activities after the rain."
+        ],
+        "suggested_tasks": [
+          {
+            "title": "Harvest 18-Day French Radish",
+            "bed_id": "c1",
+            "urgency": "high",
+            "due_date": "2026-04-12",
+            "description": "Your '18-Day French' radishes are ready for harvest! Pull them today for peak flavor and tenderness before they become woody. Check the size and taste test a few."
+          },
+          {
+            "title": "Protect Strawberries from wind",
+            "bed_id": "w1",
+            "urgency": "high",
+            "due_date": "2026-04-12",
+            "description": "High winds today could stress your newly sown 'Everbearing' strawberry plants. Consider temporary windbreaks or row covers."
+          },
+          {
+            "title": "Protect Tomato from wind",
+            "bed_id": "w2",
+            "urgency": "high",
+            "due_date": "2026-04-12",
+            "description": "Strong winds today could stress your recently planted 'Orange Hat' tomato. Consider temporary windbreaks or support."
+          }
+        ]
+      },
+      "suggestions_state": {
+        "accepted": [],
+        "rejected": [
+          2,
+          1,
+          0
+        ]
+      },
+      "generated_at": "2026-04-12T12:00:01.745+00:00"
+    },
+    {
+      "payload": {
+        "headline": "Warm weather boosts growth; radishes nearing harvest, peas thriving.",
+        "insights": [
+          "Radishes are on track for harvest very soon, benefiting from recent warmth and feeding.",
+          "All pea varieties ('Lillian's Caseload', 'Lincoln Garden', 'Sugar Bon') are showing strong initial growth and benefiting from the recent fish emulsion application.",
+          "Recently planted 'Everbearing' strawberries and 'Orange Hat' tomato will be establishing roots and foliage during this warm period.",
+          "Garlic crops are well-established and growing steadily, having received a fish emulsion application recently.",
+          "The garden is progressing nicely into the spring season with most plantings active and showing good signs of development."
+        ],
+        "narrative": "The garden is experiencing a rapid growth spurt with unseasonably warm temperatures. Your recently planted peas are showing good progress with their characteristic 'tentacles,' and the '18-Day French' radish crop is quickly nearing its first harvest. Established garlic plants are also benefiting from the warmer conditions, setting the stage for a productive spring.\n\nThis week, your top priority is the '18-Day French' radish, which is expected to be ready for harvest around April 12th. Keep a close eye on your young tomato plant for suckers, with the first check due Sunday. Ensure all newly planted crops, especially the strawberries and tomato, receive adequate moisture during this warm stretch before the weekend rain.\n\nThe forecast promises two very warm days in the mid-70s, which will accelerate plant growth, especially for your spring crops. This warmth will be followed by a significant chance of rain and thunderstorms on Saturday, bringing cooler temperatures. This natural watering will be beneficial, but be mindful of any potential strong winds during the storms.",
+        "task_timing": [
+          {
+            "urgency": "high",
+            "observation": "Given the warm temperatures today and tomorrow, it's advisable to complete any necessary watering of new plantings (Strawberries, Tomato) before Saturday's forecasted heavy rain to ensure they are well-hydrated."
+          },
+          {
+            "urgency": "high",
+            "observation": "Begin daily checks for your '18-Day French' radish, as the warm weather will likely accelerate their readiness for harvest by the expected date of April 12."
+          },
+          {
+            "urgency": "normal",
+            "observation": "The first 'Check for suckers' task for the 'Orange Hat' Tomato is due on April 12. This can be performed any time between now and then, potentially on Friday before the rain."
+          }
+        ],
+        "weather_notes": [
+          "Unseasonably warm temperatures (mid-70s) expected for Thursday and Friday.",
+          "A 70% chance of rain and thunderstorms is forecasted for Saturday.",
+          "Temperatures will drop significantly after Saturday's rain to the low 40s at night.",
+          "Light to moderate winds (up to 15 mph) expected Friday and Saturday."
+        ],
+        "suggested_tasks": [
+          {
+            "title": "Deep water new strawberries",
+            "bed_id": "w1",
+            "urgency": "high",
+            "due_date": "2026-04-10",
+            "description": "Ensure your newly planted 'Everbearing' strawberries are thoroughly watered to help them establish roots and cope with the upcoming warm spell."
+          },
+          {
+            "title": "Deep water young tomato",
+            "bed_id": "w2",
+            "urgency": "high",
+            "due_date": "2026-04-10",
+            "description": "The young 'Orange Hat' tomato plant will benefit from deep watering to prevent stress from high temperatures and encourage strong root development."
+          },
+          {
+            "title": "Check radish for harvest",
+            "bed_id": "c1",
+            "urgency": "high",
+            "due_date": "2026-04-11",
+            "description": "Your '18-Day French' radishes are nearing their expected harvest date. Begin checking daily for root swelling and harvest when they reach desired size to prevent woodiness."
+          }
+        ]
+      },
+      "suggestions_state": {
+        "accepted": [],
+        "rejected": []
+      },
+      "generated_at": "2026-04-09T00:23:20.283+00:00"
+    },
+    {
+      "payload": {
+        "headline": "Warm, sunny days ahead; prioritize watering and new plantings.",
+        "insights": [
+          "Garlic (Elephant, Music, Italian Red) is well-established and growing vigorously from its fall planting.",
+          "Peas (Lillian's Caseload, Lincoln Garden, Sugar Bon) are actively growing, with tendrils observed indicating healthy development.",
+          "'18-Day French' Radishes are maturing rapidly and are expected to be ready for harvest within the next week.",
+          "Newly planted Everbearing Strawberries and Orange Hat Tomato seedlings require consistent moisture and monitoring for establishment.",
+          "Most garden beds received a beneficial fish emulsion feed on April 4th, supporting current vegetative growth."
+        ],
+        "narrative": "The garden is off to a strong start this spring, with established garlic thriving and new pea and radish plantings showing vigorous growth. Recent fish emulsion applications across most beds (Garlic, Peas, Radish) should provide a good nutrient boost. The newly planted Strawberries and Tomato are settling in, requiring careful observation as they establish.\n\nThis week, the '18-Day French' Radishes are rapidly approaching their expected harvest around April 12th, so keep a close eye on their development. The 'Orange Hat' Tomato, though recently sown, will soon require attention for sucker removal starting around April 12th. Pea plantings also have upcoming pest inspections scheduled.\n\nThe forecast promises consistently warm, sunny days in the low 70s, ideal for rapid plant growth. However, with very little precipitation expected until Thursday, and overnight lows still in the mid-40s, consistent watering will be crucial to support the active growth of all plants, especially the young strawberries and tomatoes, and to help the recently fertilized beds absorb nutrients.",
+        "task_timing": [
+          {
+            "urgency": "high",
+            "observation": "The '18-Day French' Radishes are expected for harvest around April 12th; begin daily checks for maturity now."
+          },
+          {
+            "urgency": "normal",
+            "observation": "The first 'Check for suckers' task for the 'Orange Hat' Tomato is due April 12th. Prepare for this inspection."
+          },
+          {
+            "urgency": "normal",
+            "observation": "Initial 'Inspect for aphids' tasks for Peas are due April 17th; warm weather can accelerate pest activity, so an early glance is prudent."
+          },
+          {
+            "urgency": "high",
+            "observation": "With warm, dry weather expected for the week, regular and deep watering will be essential for all beds."
+          }
+        ],
+        "weather_notes": [
+          "Consistent daytime temperatures in the low 70s F through Tuesday.",
+          "Overnight lows remain cool, in the mid-40s F.",
+          "Minimal chance of precipitation until Thursday, which brings a slight chance of showers/thunderstorms.",
+          "Light winds throughout the week (3 to 8 mph)."
+        ],
+        "suggested_tasks": [
+          {
+            "title": "Deep water garden beds",
+            "bed_id": "w1",
+            "urgency": "high",
+            "due_date": "2026-04-07",
+            "description": "With consistently warm temperatures and no significant rain, ensure all plants receive adequate moisture. Focus on new plantings and recently fertilized areas (all active beds: w1, w2, c1, c2, c3, c4, w3, w4)."
+          },
+          {
+            "title": "Monitor Strawberries for establishment",
+            "bed_id": "w1",
+            "urgency": "normal",
+            "due_date": "2026-04-08",
+            "description": "Inspect newly planted 'Everbearing' strawberries for healthy growth and signs of stress. Ensure consistent soil moisture."
+          },
+          {
+            "title": "Check Tomato seedling vigor",
+            "bed_id": "w2",
+            "urgency": "normal",
+            "due_date": "2026-04-08",
+            "description": "Verify that the 'Orange Hat' tomato seedling is thriving post-sowing and showing healthy leaf development."
+          },
+          {
+            "title": "Perform light weeding",
+            "bed_id": "c1",
+            "urgency": "normal",
+            "due_date": "2026-04-09",
+            "description": "Warm weather encourages weed growth. Early removal reduces competition for resources across all active beds."
+          }
+        ]
+      },
+      "suggestions_state": {
+        "accepted": [],
+        "rejected": [
+          0,
+          1,
+          2,
+          3
+        ]
+      },
+      "generated_at": "2026-04-06T12:00:01.01+00:00"
+    },
+    {
+      "payload": {
+        "headline": "Warm, dry week: check new sprouts and boost watering.",
+        "insights": [
+          "The garden is experiencing optimal early spring growth conditions with warm, sunny weather and recent nutrient applications.",
+          "Radishes and peas are progressing rapidly towards maturity, indicating a successful start to the spring season.",
+          "New plantings of strawberries and tomatoes require vigilant monitoring for germination and consistent moisture management.",
+          "Garlic has successfully overwintered and is showing strong, active vegetative growth, benefiting from recent weeding and feeding.",
+          "The sustained warm and dry forecast necessitates a proactive approach to watering to support all plant stages and prevent drought stress."
+        ],
+        "narrative": "The garden is off to a strong start this spring. Peas in beds c2, c3, and c4 are growing vigorously, showing their characteristic 'tendrils,' while radishes in c1 have been thinned and are sizing up quickly. Garlic, planted last fall, is well-established and received a recent weeding, indicating strong overwintering success. Recent fish emulsion applications across many beds underscore a focus on early season nutrition, which should encourage robust growth in all active plantings. Newly sown strawberries in w1 and tomatoes in w2 are the latest additions, and attention should now turn to encouraging their germination.\n\nKey areas needing attention this week include the rapidly maturing radishes, which are nearing their expected harvest date. Regular checks will ensure they are picked at their prime. The newly sown strawberry and tomato beds will require consistent moisture to aid germination in the upcoming warm conditions. Furthermore, scheduled pest inspections for peas will become increasingly important as the weather warms.\n\nThe 7-day forecast predicts consistently warm, sunny, and dry conditions with daytime highs in the low 70s and overnight lows comfortably above freezing. This extended period of clear, warm weather is ideal for vigorous plant growth but also means a significant increase in water demand. With no precipitation expected, diligent and deep watering will be crucial across the entire garden to prevent stress, especially for young and actively growing plants.",
+        "task_timing": [
+          {
+            "urgency": "high",
+            "observation": "Radishes are nearing harvest; with warm weather, growth may accelerate. Consider checking a day or two early."
+          },
+          {
+            "urgency": "high",
+            "observation": "Warm weather will increase soil evaporation and plant water needs significantly. Review and likely increase watering frequency immediately."
+          },
+          {
+            "urgency": "normal",
+            "observation": "Pea pest inspections are due mid-month. Warm conditions can lead to earlier pest activity; stay on schedule."
+          },
+          {
+            "urgency": "normal",
+            "observation": "Tomato suckers should be checked on schedule. Warm conditions may promote faster sucker growth."
+          }
+        ],
+        "weather_notes": [
+          "Consistently warm daytime temperatures, reaching low 70s by Monday and Tuesday.",
+          "Overnight lows are well above freezing, ranging from 42F to 46F.",
+          "No precipitation is expected for the entire 7-day forecast period.",
+          "Light winds (2-8 mph) expected throughout the week."
+        ],
+        "suggested_tasks": [
+          {
+            "title": "Check new plantings for sprouts",
+            "bed_id": "w1, w2",
+            "urgency": "normal",
+            "due_date": "2026-04-07",
+            "description": "The warm, sunny weather should encourage germination. Check the Tomato (Orange Hat in w2) and Strawberries (Everbearing in w1) beds for first signs of growth. Ensure soil remains consistently moist, not waterlogged."
+          },
+          {
+            "title": "Increase watering for all beds",
+            "bed_id": "w3, w4, c4, c3, c2, w1, w2, c1",
+            "urgency": "high",
+            "due_date": "2026-04-06",
+            "description": "With 7 days of warm, sunny, and dry weather, ensure all beds receive adequate water. Prioritize newly sown areas (w1, w2) and rapidly growing peas (c2, c3, c4) and radishes (c1). Check soil moisture daily and water deeply as needed."
+          },
+          {
+            "title": "Pre-harvest radish check",
+            "bed_id": "c1",
+            "urgency": "high",
+            "due_date": "2026-04-10",
+            "description": "Radishes are growing quickly and are nearing their expected harvest date. Perform an early check to ensure they are sizing up well before they become woody or bolt in the warm weather."
+          }
+        ]
+      },
+      "suggestions_state": {
+        "accepted": [],
+        "rejected": [
+          0,
+          1,
+          2
+        ]
+      },
+      "generated_at": "2026-04-05T12:00:00.785+00:00"
+    },
+    {
+      "payload": {
+        "headline": "Frost clears, warmth arrives; feed peas, check radishes.",
+        "insights": [
+          "All garlic plantings are showing healthy growth, well-established from their fall planting.",
+          "Pea plants are developing tendrils, indicating active growth and readiness for trellising.",
+          "Radishes are on track for their first harvest, with sprouts noted less than a month ago.",
+          "Newly planted strawberries and the 'Orange Hat' tomato require vigilant watering and early feeding due to recent planting and warming weather.",
+          "The garden is transitioning to warmer spring conditions, which will accelerate growth across all active plantings."
+        ],
+        "narrative": "The garden is awakening with robust growth, though this morning brought a lingering patchy frost, which should now be clearing. Your garlic is well-established from last fall, and the pea plantings are showing their characteristic \"tentacles.\" The radishes are rapidly approaching their expected harvest window, indicating the season is truly underway. \n\nThis week, attention should focus on overdue pea feedings. With temperatures rising significantly over the weekend and into next week, it's an ideal time to nourish these actively growing plants. Your newly planted tomato also requires its first feed. Additionally, keep a close eye on the radishes, as they are due for their first harvest check.\n\nThe upcoming warm, sunny days with no precipitation mean consistent watering will be crucial, especially for the recently planted strawberries and tomato. The absence of further frost threats after this morning allows for more routine garden activities without the immediate concern of cold damage.",
+        "task_timing": [
+          {
+            "urgency": "high",
+            "observation": "Overdue pea feedings (Mar 29) are high priority with rising temperatures."
+          },
+          {
+            "urgency": "normal",
+            "observation": "Tomato 'First feed' (Apr 5) aligns well with warming weather for nutrient uptake."
+          },
+          {
+            "urgency": "normal",
+            "observation": "Radish 'Harvest check' (Apr 6) is timely with the expected rapid growth from warm days."
+          }
+        ],
+        "weather_notes": [
+          "Patchy frost cleared this morning (April 4th).",
+          "Temperatures will warm significantly, reaching the low 70s by Monday and Tuesday.",
+          "Nighttime lows will remain above freezing for the next seven days (35F tonight, then 41F and 45F).",
+          "No precipitation is expected in the 7-day forecast, indicating dry conditions."
+        ],
+        "suggested_tasks": [
+          {
+            "title": "Light feed peas",
+            "bed_id": "c4, c3, c2",
+            "urgency": "high",
+            "due_date": "2026-04-05",
+            "description": "Provide overdue fish emulsion feed to all pea varieties as temperatures rise, promoting vigorous growth."
+          },
+          {
+            "title": "First feed tomato",
+            "bed_id": "w2",
+            "urgency": "normal",
+            "due_date": "2026-04-05",
+            "description": "Apply fish emulsion to the newly planted 'Orange Hat' tomato to support initial establishment and growth."
+          },
+          {
+            "title": "Check radishes for harvest",
+            "bed_id": "c1",
+            "urgency": "normal",
+            "due_date": "2026-04-06",
+            "description": "Inspect '18-Day French' radish bulbs for readiness to harvest, as they are nearing their expected maturity."
+          },
+          {
+            "title": "Water newly planted strawberries",
+            "bed_id": "w1",
+            "urgency": "normal",
+            "due_date": "2026-04-05",
+            "description": "Ensure consistent moisture for the newly planted 'Everbearing' strawberries, especially with dry, warming conditions."
+          }
+        ]
+      },
+      "suggestions_state": {
+        "accepted": [
+          2
+        ],
+        "rejected": [
+          0,
+          1,
+          3
+        ]
+      },
+      "generated_at": "2026-04-04T12:00:00.942+00:00"
+    },
+    {
+      "payload": {
+        "headline": "Frost persists; protect tender plants, feed peas and check radishes.",
+        "insights": [
+          "A cold spell with patchy frost is impacting the garden through Sunday morning, despite warming daytime temperatures.",
+          "The newly planted tomato and strawberries require close attention for frost protection this weekend.",
+          "Pea plants are showing good growth and will soon require pest monitoring and a missed nutrient feed.",
+          "Radishes are on track for their first harvest check early next week, indicating a quick turnaround crop.",
+          "Garlic continues its slow and steady growth, well-established from last fall and unaffected by current cold."
+        ],
+        "narrative": "Peas and radishes are showing strong growth, with peas developing their signature tendrils and radishes already past sprouting. The garlic continues to establish itself over winter. Recently planted strawberries and a young tomato plant are settling into their new beds, marking the start of their season.\n\nThis week, immediate attention is required to protect the recently planted tomato from ongoing frost. Several pea feedings are overdue and should be prioritized. The first harvest check for radishes is also scheduled for early next week, and pest inspections for peas will begin.\n\nThe weather forecast indicates a warming trend in daytime temperatures, reaching the low 70s by Monday. However, a Freeze Warning is in effect for this morning and Saturday morning, with patchy frost expected through Sunday morning. These cold nights are a significant concern for new and tender plantings, especially the tomato. Consistent watering will also be important with the rising temperatures and lack of precipitation.",
+        "task_timing": [
+          {
+            "urgency": "high",
+            "observation": "The 'Cover tomato before Thursday night frost' task (ID 83) for the 'Orange Hat' tomato is overdue and still highly relevant, as frost is expected tonight and into Saturday and Sunday mornings."
+          },
+          {
+            "urgency": "high",
+            "observation": "The overdue 'Light feed — fish emulsion' tasks (IDs 19, 7, 15) for all pea varieties should be completed Saturday morning after the patchy frost clears, taking advantage of warming daytime temperatures."
+          },
+          {
+            "urgency": "normal",
+            "observation": "The 'First feed — fish emulsion' task (ID 24) for the 'Orange Hat' tomato on Sunday is well-timed with the warming trend after the primary frost risk has passed."
+          }
+        ],
+        "weather_notes": [
+          "A Freeze Warning is in effect until 9 AM Saturday.",
+          "Patchy frost is expected each morning through Sunday.",
+          "Daytime temperatures will steadily rise, reaching near 72°F by Monday.",
+          "There is a very low chance of precipitation throughout the 7-day forecast."
+        ],
+        "suggested_tasks": [
+          {
+            "title": "Protect \"Orange Hat\" tomato",
+            "bed_id": "w2",
+            "urgency": "high",
+            "due_date": "2026-04-03",
+            "description": "Re-cover the tomato plant in bed w2 tonight and for subsequent frosty mornings to protect against freezing temperatures."
+          },
+          {
+            "title": "Feed all pea plantings (overdue)",
+            "bed_id": "c2",
+            "urgency": "high",
+            "due_date": "2026-04-04",
+            "description": "Apply fish emulsion to the pea plants in beds c2 ('Sugar Bon'), c3 ('Lincoln Garden'), and c4 ('Lillian's Caseload') Saturday morning after the frost clears."
+          },
+          {
+            "title": "Water new/active beds",
+            "bed_id": "w1",
+            "urgency": "normal",
+            "due_date": "2026-04-04",
+            "description": "Provide deep watering to beds w1 (Strawberries), w2 (Tomato), c1 (Radish), c2 (Snap Peas), c3 (Peas), and c4 (Peas) on Saturday morning, given the rising temperatures and no forecasted rain."
+          },
+          {
+            "title": "Check radishes for harvest",
+            "bed_id": "c1",
+            "urgency": "normal",
+            "due_date": "2026-04-06",
+            "description": "Begin checking '18-Day French' radishes in bed c1 for maturity (approx. 1 inch diameter) on Monday."
+          }
+        ]
+      },
+      "suggestions_state": {
+        "accepted": [
+          3
+        ],
+        "rejected": [
+          0,
+          1,
+          2
+        ]
+      },
+      "generated_at": "2026-04-03T12:00:01.577+00:00"
+    },
+    {
+      "payload": {
+        "headline": "Frost warnings persist, protect tender plants, prepare for warmth.",
+        "insights": [
+          "Garlic crops are well-established and progressing steadily towards summer harvest.",
+          "Pea plants are vigorously growing, showing tendrils, indicating good health and readiness for support.",
+          "Radishes are nearing maturity, with their first harvest check scheduled in a few days.",
+          "New plantings of Tomato and Strawberries require ongoing frost protection despite warmer days ahead.",
+          "A warming trend from Saturday onwards will boost growth but also necessitate increased attention to watering and pest monitoring."
+        ],
+        "narrative": "Spring is in full swing for your West Valley City garden! Your garlic is thriving after a long winter, and the pea plants are showing vigorous growth with their distinctive tendrils. Radishes are also progressing well and are just days away from their first harvest check. However, caution is advised for your newer, more tender plantings.\n\nBoth the young tomato and strawberry plants are at risk from the lingering cold. A Freeze Warning is in effect until this morning, April 3rd, and another extends until Saturday morning, April 4th. These intermittent cold snaps are common this time of year, making diligent protection crucial for recently planted crops.\n\nLooking ahead, a significant warming trend is on the horizon, with temperatures reaching the high 60s by Sunday. This shift will accelerate growth for all plants but also means increased vigilance for watering and pest management will be necessary. Pay close attention to the needs of your growing garden as we transition fully into warmer spring weather.",
+        "task_timing": [
+          {
+            "urgency": "high",
+            "observation": "Given the continuing frost warnings until Saturday morning, ensure all tender plantings like tomatoes and strawberries are adequately protected, or keep covers on."
+          },
+          {
+            "urgency": "high",
+            "observation": "The overdue pea feeding task (due March 29th) should be completed immediately to support vigorous growth ahead of the warming trend."
+          },
+          {
+            "urgency": "normal",
+            "observation": "The first tomato feed scheduled for April 5th is well-timed as temperatures rise; ensure the soil is adequately moist before applying."
+          },
+          {
+            "urgency": "normal",
+            "observation": "The first radish harvest check on April 6th is approaching; prepare to inspect plants thoroughly."
+          }
+        ],
+        "weather_notes": [
+          "Freeze Warning in effect until Friday, April 3rd, 9 AM MDT.",
+          "Another Freeze Warning extends until Saturday, April 4th, 9 AM MDT, with patchy frost expected.",
+          "Today, Friday, will reach 50°F, becoming mostly sunny after morning frost.",
+          "Significant warming trend starts Saturday (60°F) and continues into Sunday (68°F), with clear skies.",
+          "No precipitation expected through Sunday."
+        ],
+        "suggested_tasks": [
+          {
+            "title": "Ensure tomato frost protection",
+            "bed_id": "w2",
+            "urgency": "high",
+            "due_date": "2026-04-03",
+            "description": "Verify the Orange Hat tomato in W2 is covered and protected from patchy frost this morning and tonight. Uncover during warm daylight hours."
+          },
+          {
+            "title": "Protect new strawberries from frost",
+            "bed_id": "w1",
+            "urgency": "high",
+            "due_date": "2026-04-03",
+            "description": "Cover newly planted Everbearing strawberries in bed W1 tonight to protect against patchy frost extending into Saturday morning."
+          },
+          {
+            "title": "Light feed all pea plants",
+            "bed_id": "c2, c3, c4",
+            "urgency": "high",
+            "due_date": "2026-04-03",
+            "description": "Apply a light feeding of fish emulsion to Lillian's Caseload (C4), Lincoln Garden (C3), and Sugar Bon (C2) peas. This task was overdue from March 29."
+          },
+          {
+            "title": "Check moisture for new plantings",
+            "bed_id": "w1, w2",
+            "urgency": "normal",
+            "due_date": "2026-04-03",
+            "description": "Monitor soil moisture for newly planted Strawberries (W1) and Tomato (W2), ensuring they remain consistently damp but not waterlogged as temperatures rise."
+          }
+        ]
+      },
+      "suggestions_state": {
+        "accepted": [],
+        "rejected": [
+          0,
+          1,
+          2,
+          3
+        ]
+      },
+      "generated_at": "2026-04-03T00:00:17.811+00:00"
+    },
+    {
+      "payload": {
+        "headline": "Rain through Thursday, frost risk nights — watch the tomato",
+        "insights": [
+          "Peas in c2, c3, c4 are 23 days in with active tendrils — on track for May 3 harvest",
+          "Radish in c1 opens its harvest window in 6 days — the fastest turnaround crop in the garden right now",
+          "Strawberries in w1 are 7 days established — sturdy enough for light frost but avoid hard freezes below 28°F",
+          "Garlic in w3/w4 is month 5 overwintering — approaching bulbing phase, stop-water reminder set for June 21",
+          "Tomato in w2 is the only frost-tender plant at risk this week — everything else is cold-hardy"
+        ],
+        "narrative": "Storms roll through all week with thunder expected today, Wednesday, and Thursday before clearing Friday. That's three solid days of moisture for your peas and garlic — no watering needed. All three pea beds (c2, c3, c4) have been actively growing since tendrils appeared March 27 and are on pace for a May 3 harvest. The fish emulsion feeding that came due March 29 is a few days overdue, but hold it until Friday when the rain clears so nutrients aren't washed straight through.\n\nThe cold behind these storms is the real concern. Thursday night and Friday night both dip to 31°F — Thursday brings rain and snow mix, Friday brings patchy frost through Saturday morning. Peas, radish, and garlic handle this without issue. The Orange Hat tomato in w2 is 9 days from sowing though, and if seedlings have broken the surface they'll need protection. Check Wednesday and have a row cover or old sheet ready before Thursday evening.\n\nYour 18-Day French radishes in c1 were planted March 8 and hit their harvest window around April 6 — this Saturday. After the frost clears Friday, get in there and check shoulder sizing. Pull at nickel-to-quarter diameter before warm weather sets in and turns them pithy. Sunday looks ideal for harvest at 65°F and sunny.",
+        "task_timing": [
+          {
+            "urgency": "normal",
+            "observation": "Hold fish emulsion for peas (c2, c3, c4) until Friday or Saturday — applying now means runoff before roots absorb it"
+          },
+          {
+            "urgency": "high",
+            "observation": "Check w2 tomato Wednesday and cover before Thursday night 31°F — first true leaves are frost-tender"
+          },
+          {
+            "urgency": "normal",
+            "observation": "Radish harvest (c1) window opens Apr 6 — check sizing Saturday after frost passes, not before"
+          }
+        ],
+        "weather_notes": [
+          "Thunderstorms today through Thursday — deep moisture for peas and garlic, no irrigation needed",
+          "Thursday night: 31°F with rain/snow mix — frost-tender seedlings need cover before dark",
+          "Friday night: patchy frost at 31°F again — cover stays on through Saturday morning",
+          "Weekend clears nicely — Saturday 50°F, Sunday sunny and 65°F, ideal for harvest and catch-up tasks"
+        ],
+        "suggested_tasks": [
+          {
+            "title": "Cover tomato before Thursday night frost",
+            "bed_id": "w2",
+            "urgency": "high",
+            "due_date": "2026-04-02",
+            "description": "Orange Hat sown March 22 — if seedlings have emerged, drape a row cover or old sheet over w2 before Thursday evening. Remove Saturday morning."
+          },
+          {
+            "title": "Apply fish emulsion to pea beds",
+            "bed_id": "c2",
+            "urgency": "normal",
+            "due_date": "2026-04-03",
+            "description": "Overdue since March 29. Dilute fish emulsion and water into c2, c3, and c4 once rain clears Friday. Feeds active vine growth."
+          },
+          {
+            "title": "First radish harvest check",
+            "bed_id": "c1",
+            "urgency": "normal",
+            "due_date": "2026-04-06",
+            "description": "18-Day French in c1 hits its window Saturday. Check shoulder diameter — pull when nickel to quarter size. Don't wait for warm weather or they go pithy."
+          }
+        ]
+      },
+      "suggestions_state": {
+        "accepted": [
+          0,
+          2
+        ],
+        "rejected": [
+          1
+        ]
+      },
+      "generated_at": "2026-03-31T20:28:21.197774+00:00"
+    },
+    {
+      "payload": {
+        "headline": "Frost threat Thursday night — cover tomatoes, harvest radish soon",
+        "insights": [
+          "All three pea beds (c2, c3, c4) showed active tendrils March 27 — on track for May 3 harvest",
+          "Fish emulsion feeding is 2 days overdue for pea beds — rain makes this a good week to wait and do it right on Friday",
+          "Radish in c1 is 23 days since planting with harvest window opening in ~6 days — watch carefully",
+          "Strawberries in w1 are 7 days established — sturdy enough for light frost but avoid hard freezes",
+          "Garlic in w3/w4 is month 5 of overwintering — bulbing phase approaching, stop-watering date set for June 21"
+        ],
+        "narrative": "Three days of thunderstorms sweep through today into Thursday, which is actually great news for your pea beds — they'll get a solid drink without you touching the hose. The peas across c2, c3, and c4 have their tendrils out and are climbing fast; the fish emulsion feeding that came due March 29 is a couple days overdue, but hold off until the rain clears on Friday to avoid nutrients washing away before uptake.\n\nThe real story this week is the cold behind the storms. Thursday night and Friday night both dip to 31°F with patchy frost forecast through Saturday morning. Your cool-season crops — peas, radish, garlic — handle this without a problem. The concern is the Orange Hat tomato in w2, sown March 22 and now nine days in the ground. If it has germinated and is pushing its first leaves up, those are frost-tender. Check Wednesday and throw a row cover or old sheet over the bed before Thursday evening.\n\nYour 18-Day French radishes in c1 have a harvest window opening around April 6 — just six days away. After the frost clears this weekend, start checking for shoulder size. Pull when they reach nickel-to-quarter diameter or you'll get pithy, hollow centers fast as spring warms. Sunday at 65°F and Monday at 71°F look ideal for getting into the garden.",
+        "task_timing": [
+          {
+            "urgency": "normal",
+            "observation": "Delay fish emulsion feeding for peas (c2, c3, c4) until Friday or Saturday — rain through Thursday would wash it before roots absorb it"
+          },
+          {
+            "urgency": "high",
+            "observation": "Check tomato seedling in w2 Wednesday; cover before Thursday night 31°F frost if any leaves have emerged"
+          },
+          {
+            "urgency": "normal",
+            "observation": "Radish harvest window opens ~Apr 6 — check sizing Saturday after frost risk passes, not before"
+          }
+        ],
+        "weather_notes": [
+          "Thunderstorms today through Thursday — no need to water, strong deep moisture for pea roots",
+          "Thursday and Friday nights hit 31°F with patchy frost possible — frost-tender seedlings need cover",
+          "Saturday morning: patchy frost lingers before clearing to sun and 58°F",
+          "Weekend and early next week clear and warm — Sunday 65°F, Monday 71°F ideal for garden work"
+        ],
+        "suggested_tasks": [
+          {
+            "title": "Cover tomato seedling before Thursday frost",
+            "bed_id": "w2",
+            "urgency": "high",
+            "due_date": "2026-04-02",
+            "description": "Orange Hat was sown March 22. If seedlings have emerged, lay a row cover or old sheet over w2 before Thursday evening — 31°F will damage new cotyledons."
+          },
+          {
+            "title": "Feed peas fish emulsion (overdue 2 days)",
+            "bed_id": "c2",
+            "urgency": "normal",
+            "due_date": "2026-04-03",
+            "description": "Fish emulsion due March 29 for c2, c3, c4 peas. Wait for rain to clear, then dilute and water in on Friday or Saturday."
+          },
+          {
+            "title": "Check radish sizing for first harvest",
+            "bed_id": "c1",
+            "urgency": "normal",
+            "due_date": "2026-04-05",
+            "description": "18-Day French radish in c1 hits window ~Apr 6. Check shoulder diameter Sunday or Monday — pull at nickel-to-quarter size to avoid pithiness in warming temps."
+          }
+        ]
+      },
+      "suggestions_state": {
+        "accepted": [
+          0,
+          2
+        ],
+        "rejected": [
+          1
+        ]
+      },
+      "generated_at": "2026-03-31T15:08:37.783205+00:00"
+    }
+  ]
 }
