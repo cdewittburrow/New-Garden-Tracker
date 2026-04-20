@@ -1,44 +1,36 @@
 {
-  "headline": "Freeze clears; heat wave hits Monday — act now",
+  "headline": "Radishes bolt in Monday heat — harvest and inspect peas",
   "weather_notes": [
-    "Freeze Warning expires today at noon — keep frost protection on tender seedlings through midday.",
-    "Temps spike from 39°F tonight to 81°F Monday and 82°F Tuesday, accelerating aphid pressure on peas.",
-    "No rain through Tuesday; four consecutive dry days of heat mean beds will need water sooner than usual.",
-    "Warm dry air arriving Monday is peak powdery mildew weather for peas — check leaves by midweek."
+    "Monday 80°F / Tuesday 81°F will trigger radish bolting within hours if still in ground — harvest window closes fast.",
+    "Heat spike Mon–Tue accelerates aphid reproduction on peas; overdue inspections need to happen today or tomorrow.",
+    "Wednesday brings 72% chance of showers and thunderstorms — any Bt applied after Tuesday will wash off before it works.",
+    "Warm-dry Mon–Tue into wet-cool Wednesday is the classic trigger pattern for powdery mildew on peas nearing harvest."
   ],
   "surfaced_tasks": [
     {
-      "task_id": "37",
-      "bed_id": "c4",
-      "title": "Inspect for aphids — apply Bt if caterpillars present",
-      "reason": "Overdue since Apr 17, and the incoming heat wave will accelerate aphid population growth."
+      "task_id": "87",
+      "bed_id": "c1",
+      "title": "Harvest radishes before heat triggers bolting",
+      "reason": "Expected harvest is Apr 20 and Monday's 80°F will bolt them if left in the ground even one more day."
     },
     {
       "task_id": "42",
       "bed_id": "c2",
       "title": "Inspect for aphids — apply Bt if caterpillars present",
-      "reason": "Overdue since Apr 17, and the incoming heat wave will accelerate aphid population growth."
+      "reason": "Two days overdue and Monday's heat spike accelerates aphid populations — apply Bt by tomorrow before Wednesday rain washes it off."
     },
     {
       "task_id": "47",
       "bed_id": "c3",
       "title": "Inspect for aphids — apply Bt if caterpillars present",
-      "reason": "Overdue since Apr 17, and the incoming heat wave will accelerate aphid population growth."
+      "reason": "Two days overdue and Monday's heat spike accelerates aphid populations — apply Bt by tomorrow before Wednesday rain washes it off."
     },
     {
-      "task_id": "62",
-      "bed_id": "w2",
-      "title": "Check for suckers",
-      "reason": "Due tomorrow Apr 19 — address before the heat-driven growth surge this week."
+      "task_id": "37",
+      "bed_id": "c4",
+      "title": "Inspect for aphids — apply Bt if caterpillars present",
+      "reason": "Two days overdue and Monday's heat spike accelerates aphid populations — apply Bt by tomorrow before Wednesday rain washes it off."
     }
   ],
-  "suggested_tasks": [
-    {
-      "title": "Check radish for harvest readiness",
-      "due_date": "2026-04-20",
-      "description": "Expected harvest arrives ~Apr 20 and Monday's 81°F heat will bolt them fast if left unpicked.",
-      "bed_id": "c1",
-      "urgency": "high"
-    }
-  ]
+  "suggested_tasks": []
 }
