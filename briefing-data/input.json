@@ -1,5 +1,5 @@
 {
-  "today": "2026-04-19",
+  "today": "2026-04-20",
   "plantings": [
     {
       "id": "e93f2f5c-dcb8-47e9-9933-31e7e813b7e4",
@@ -615,44 +615,6 @@
       {
         "number": 1,
         "name": "Today",
-        "startTime": "2026-04-19T06:00:00-06:00",
-        "endTime": "2026-04-19T18:00:00-06:00",
-        "isDaytime": true,
-        "temperature": 75,
-        "temperatureUnit": "F",
-        "temperatureTrend": null,
-        "probabilityOfPrecipitation": {
-          "unitCode": "wmoUnit:percent",
-          "value": 0
-        },
-        "windSpeed": "7 mph",
-        "windDirection": "S",
-        "icon": "https://api.weather.gov/icons/land/day/few?size=medium",
-        "shortForecast": "Sunny",
-        "detailedForecast": "Sunny. High near 75, with temperatures falling to around 73 in the afternoon. South wind around 7 mph."
-      },
-      {
-        "number": 2,
-        "name": "Tonight",
-        "startTime": "2026-04-19T18:00:00-06:00",
-        "endTime": "2026-04-20T06:00:00-06:00",
-        "isDaytime": false,
-        "temperature": 49,
-        "temperatureUnit": "F",
-        "temperatureTrend": null,
-        "probabilityOfPrecipitation": {
-          "unitCode": "wmoUnit:percent",
-          "value": 0
-        },
-        "windSpeed": "7 mph",
-        "windDirection": "SSW",
-        "icon": "https://api.weather.gov/icons/land/night/bkn?size=medium",
-        "shortForecast": "Mostly Cloudy",
-        "detailedForecast": "Mostly cloudy. Low around 49, with temperatures rising to around 51 overnight. South southwest wind around 7 mph."
-      },
-      {
-        "number": 3,
-        "name": "Monday",
         "startTime": "2026-04-20T06:00:00-06:00",
         "endTime": "2026-04-20T18:00:00-06:00",
         "isDaytime": true,
@@ -661,17 +623,17 @@
         "temperatureTrend": null,
         "probabilityOfPrecipitation": {
           "unitCode": "wmoUnit:percent",
-          "value": 8
+          "value": 2
         },
-        "windSpeed": "9 mph",
+        "windSpeed": "10 mph",
         "windDirection": "S",
         "icon": "https://api.weather.gov/icons/land/day/few?size=medium",
         "shortForecast": "Sunny",
-        "detailedForecast": "Sunny, with a high near 80. South wind around 9 mph."
+        "detailedForecast": "Sunny, with a high near 80. South wind around 10 mph."
       },
       {
-        "number": 4,
-        "name": "Monday Night",
+        "number": 2,
+        "name": "Tonight",
         "startTime": "2026-04-20T18:00:00-06:00",
         "endTime": "2026-04-21T06:00:00-06:00",
         "isDaytime": false,
@@ -684,12 +646,12 @@
         },
         "windSpeed": "8 mph",
         "windDirection": "S",
-        "icon": "https://api.weather.gov/icons/land/night/few?size=medium",
-        "shortForecast": "Mostly Clear",
-        "detailedForecast": "Mostly clear, with a low around 53. South wind around 8 mph."
+        "icon": "https://api.weather.gov/icons/land/night/sct?size=medium",
+        "shortForecast": "Partly Cloudy",
+        "detailedForecast": "Partly cloudy. Low around 53, with temperatures rising to around 55 overnight. South wind around 8 mph."
       },
       {
-        "number": 5,
+        "number": 3,
         "name": "Tuesday",
         "startTime": "2026-04-21T06:00:00-06:00",
         "endTime": "2026-04-21T18:00:00-06:00",
@@ -699,21 +661,21 @@
         "temperatureTrend": null,
         "probabilityOfPrecipitation": {
           "unitCode": "wmoUnit:percent",
-          "value": 8
+          "value": 5
         },
-        "windSpeed": "7 to 13 mph",
-        "windDirection": "SSE",
+        "windSpeed": "8 to 13 mph",
+        "windDirection": "S",
         "icon": "https://api.weather.gov/icons/land/day/sct?size=medium",
         "shortForecast": "Mostly Sunny",
-        "detailedForecast": "Mostly sunny, with a high near 81. South southeast wind 7 to 13 mph."
+        "detailedForecast": "Mostly sunny, with a high near 81. South wind 8 to 13 mph."
       },
       {
-        "number": 6,
+        "number": 4,
         "name": "Tuesday Night",
         "startTime": "2026-04-21T18:00:00-06:00",
         "endTime": "2026-04-22T06:00:00-06:00",
         "isDaytime": false,
-        "temperature": 48,
+        "temperature": 50,
         "temperatureUnit": "F",
         "temperatureTrend": null,
         "probabilityOfPrecipitation": {
@@ -724,31 +686,112 @@
         "windDirection": "S",
         "icon": "https://api.weather.gov/icons/land/night/sct?size=medium",
         "shortForecast": "Partly Cloudy",
-        "detailedForecast": "Partly cloudy, with a low around 48."
+        "detailedForecast": "Partly cloudy, with a low around 50. South wind around 12 mph."
       },
       {
-        "number": 7,
+        "number": 5,
         "name": "Wednesday",
         "startTime": "2026-04-22T06:00:00-06:00",
         "endTime": "2026-04-22T18:00:00-06:00",
         "isDaytime": true,
-        "temperature": 60,
+        "temperature": 59,
         "temperatureUnit": "F",
         "temperatureTrend": null,
         "probabilityOfPrecipitation": {
           "unitCode": "wmoUnit:percent",
-          "value": 72
+          "value": 82
         },
-        "windSpeed": "10 to 16 mph",
-        "windDirection": "SSW",
-        "icon": "https://api.weather.gov/icons/land/day/rain_showers,50/tsra,70?size=medium",
-        "shortForecast": "Showers And Thunderstorms Likely",
-        "detailedForecast": "A chance of rain showers before noon, then showers and thunderstorms likely. Mostly cloudy, with a high near 60."
+        "windSpeed": "13 mph",
+        "windDirection": "SW",
+        "icon": "https://api.weather.gov/icons/land/day/tsra,70/tsra,80?size=medium",
+        "shortForecast": "Showers And Thunderstorms",
+        "detailedForecast": "Rain showers likely before 9am, then showers and thunderstorms. Mostly cloudy, with a high near 59. Southwest wind around 13 mph. Chance of precipitation is 80%. New rainfall amounts between a tenth and quarter of an inch possible."
+      },
+      {
+        "number": 6,
+        "name": "Wednesday Night",
+        "startTime": "2026-04-22T18:00:00-06:00",
+        "endTime": "2026-04-23T06:00:00-06:00",
+        "isDaytime": false,
+        "temperature": 39,
+        "temperatureUnit": "F",
+        "temperatureTrend": null,
+        "probabilityOfPrecipitation": {
+          "unitCode": "wmoUnit:percent",
+          "value": 53
+        },
+        "windSpeed": "5 to 9 mph",
+        "windDirection": "W",
+        "icon": "https://api.weather.gov/icons/land/night/tsra_sct,50/tsra_sct,40?size=medium",
+        "shortForecast": "Chance Showers And Thunderstorms",
+        "detailedForecast": "A chance of showers and thunderstorms. Mostly cloudy, with a low around 39. Chance of precipitation is 50%."
+      },
+      {
+        "number": 7,
+        "name": "Thursday",
+        "startTime": "2026-04-23T06:00:00-06:00",
+        "endTime": "2026-04-23T18:00:00-06:00",
+        "isDaytime": true,
+        "temperature": 58,
+        "temperatureUnit": "F",
+        "temperatureTrend": null,
+        "probabilityOfPrecipitation": {
+          "unitCode": "wmoUnit:percent",
+          "value": 52
+        },
+        "windSpeed": "3 to 8 mph",
+        "windDirection": "WNW",
+        "icon": "https://api.weather.gov/icons/land/day/rain_showers,50/tsra_sct,40?size=medium",
+        "shortForecast": "Chance Rain Showers",
+        "detailedForecast": "A chance of rain showers before noon, then a chance of showers and thunderstorms. Mostly cloudy, with a high near 58."
       }
     ],
     "alerts": []
   },
   "recent_briefings": [
+    {
+      "payload": {
+        "headline": "Radishes bolt in Monday heat — harvest and inspect peas",
+        "weather_notes": [
+          "Monday 80°F / Tuesday 81°F will trigger radish bolting within hours if still in ground — harvest window closes fast.",
+          "Heat spike Mon–Tue accelerates aphid reproduction on peas; overdue inspections need to happen today or tomorrow.",
+          "Wednesday brings 72% chance of showers and thunderstorms — any Bt applied after Tuesday will wash off before it works.",
+          "Warm-dry Mon–Tue into wet-cool Wednesday is the classic trigger pattern for powdery mildew on peas nearing harvest."
+        ],
+        "surfaced_tasks": [
+          {
+            "title": "Harvest radishes before heat triggers bolting",
+            "bed_id": "c1",
+            "reason": "Expected harvest is Apr 20 and Monday's 80°F will bolt them if left in the ground even one more day.",
+            "task_id": "87"
+          },
+          {
+            "title": "Inspect for aphids — apply Bt if caterpillars present",
+            "bed_id": "c2",
+            "reason": "Two days overdue and Monday's heat spike accelerates aphid populations — apply Bt by tomorrow before Wednesday rain washes it off.",
+            "task_id": "42"
+          },
+          {
+            "title": "Inspect for aphids — apply Bt if caterpillars present",
+            "bed_id": "c3",
+            "reason": "Two days overdue and Monday's heat spike accelerates aphid populations — apply Bt by tomorrow before Wednesday rain washes it off.",
+            "task_id": "47"
+          },
+          {
+            "title": "Inspect for aphids — apply Bt if caterpillars present",
+            "bed_id": "c4",
+            "reason": "Two days overdue and Monday's heat spike accelerates aphid populations — apply Bt by tomorrow before Wednesday rain washes it off.",
+            "task_id": "37"
+          }
+        ],
+        "suggested_tasks": []
+      },
+      "suggestions_state": {
+        "accepted": [],
+        "rejected": []
+      },
+      "generated_at": "2026-04-20T12:30:38+00:00"
+    },
     {
       "payload": {
         "headline": "Freeze clears; heat wave hits Monday — act now",
