@@ -1,5 +1,5 @@
 {
-  "today": "2026-04-20",
+  "today": "2026-04-21",
   "plantings": [
     {
       "id": "e93f2f5c-dcb8-47e9-9933-31e7e813b7e4",
@@ -70,19 +70,16 @@
       "status": "sown",
       "expected_harvest": null,
       "season_notes": null
-    },
-    {
-      "id": "14a35329-35a2-42ef-b59c-9b35fc2a2c7e",
-      "bed_id": "c1",
-      "crop_name": "Radish",
-      "variety": "18-Day French",
-      "planted_date": "2026-03-08",
-      "status": "growing",
-      "expected_harvest": "~Apr 20, 2026",
-      "season_notes": null
     }
   ],
   "tasks": [
+    {
+      "id": 37,
+      "planting_id": "5ed2b328-d443-49f2-966e-547a79002f31",
+      "title": "Inspect for aphids — apply Bt if caterpillars present",
+      "description": "Check growing tips and undersides of upper leaves for aphid colonies or caterpillars. For aphids: blast off with hose or spray diluted dish soap solution. If caterpillar pests present: apply Bt per label. Avoid strong insecticides — pollinators are working these flowers.",
+      "due_date": "2026-04-17"
+    },
     {
       "id": 42,
       "planting_id": "e0280648-bd37-43b0-b99a-5b1ceed52faa",
@@ -98,27 +95,6 @@
       "due_date": "2026-04-17"
     },
     {
-      "id": 37,
-      "planting_id": "5ed2b328-d443-49f2-966e-547a79002f31",
-      "title": "Inspect for aphids — apply Bt if caterpillars present",
-      "description": "Check growing tips and undersides of upper leaves for aphid colonies or caterpillars. For aphids: blast off with hose or spray diluted dish soap solution. If caterpillar pests present: apply Bt per label. Avoid strong insecticides — pollinators are working these flowers.",
-      "due_date": "2026-04-17"
-    },
-    {
-      "id": 62,
-      "planting_id": "54c2c338-5c4d-4924-b91b-4ffc22ebb4b3",
-      "title": "Check for suckers",
-      "description": "Remove suckers forming in the crotch between main stem and lateral branches. Indeterminate varieties only (Amish Paste, Comstock, Bonny Best) — leave determinates (Roma, Orange Hat) unpruned. Pinch suckers when small (under 2 inches) for a cleaner break.",
-      "due_date": "2026-04-19"
-    },
-    {
-      "id": 87,
-      "planting_id": "14a35329-35a2-42ef-b59c-9b35fc2a2c7e",
-      "title": "Harvest radishes before heat triggers bolting",
-      "description": "18-Day French radishes hit expected harvest Apr 20; Monday's 81°F will trigger bolting if left in ground.",
-      "due_date": "2026-04-20"
-    },
-    {
       "id": 54,
       "planting_id": "54c2c338-5c4d-4924-b91b-4ffc22ebb4b3",
       "title": "Inspect for hornworms — apply Bt if found",
@@ -126,10 +102,10 @@
       "due_date": "2026-04-21"
     },
     {
-      "id": 18,
-      "planting_id": "fcae49c2-9609-43da-ae75-fcebeca30243",
+      "id": 14,
+      "planting_id": "e0280648-bd37-43b0-b99a-5b1ceed52faa",
       "title": "Watch for powdery mildew",
-      "description": "White powdery coating on leaves — common as temperatures rise in May. Peas are cool-season and will decline naturally in heat. If mildew appears early, harvest aggressively and pull the planting. Not worth treating in a small bed once temperatures are consistently above 75F.",
+      "description": "White powdery coating on leaves — common as temperatures climb in May. Harvest aggressively and pull the planting if mildew appears with heat already building.",
       "due_date": "2026-04-22"
     },
     {
@@ -140,10 +116,10 @@
       "due_date": "2026-04-22"
     },
     {
-      "id": 14,
-      "planting_id": "e0280648-bd37-43b0-b99a-5b1ceed52faa",
+      "id": 18,
+      "planting_id": "fcae49c2-9609-43da-ae75-fcebeca30243",
       "title": "Watch for powdery mildew",
-      "description": "White powdery coating on leaves — common as temperatures climb in May. Harvest aggressively and pull the planting if mildew appears with heat already building.",
+      "description": "White powdery coating on leaves — common as temperatures rise in May. Peas are cool-season and will decline naturally in heat. If mildew appears early, harvest aggressively and pull the planting. Not worth treating in a small bed once temperatures are consistently above 75F.",
       "due_date": "2026-04-22"
     },
     {
@@ -154,15 +130,15 @@
       "due_date": "2026-04-26"
     },
     {
-      "id": 48,
-      "planting_id": "fcae49c2-9609-43da-ae75-fcebeca30243",
+      "id": 38,
+      "planting_id": "5ed2b328-d443-49f2-966e-547a79002f31",
       "title": "Inspect for aphids — apply Bt if caterpillars present",
       "description": "Check growing tips and undersides of upper leaves for aphid colonies or caterpillars. For aphids: blast off with hose or spray diluted dish soap solution. If caterpillar pests present: apply Bt per label. Avoid strong insecticides — pollinators are working these flowers.",
       "due_date": "2026-04-27"
     },
     {
-      "id": 38,
-      "planting_id": "5ed2b328-d443-49f2-966e-547a79002f31",
+      "id": 48,
+      "planting_id": "fcae49c2-9609-43da-ae75-fcebeca30243",
       "title": "Inspect for aphids — apply Bt if caterpillars present",
       "description": "Check growing tips and undersides of upper leaves for aphid colonies or caterpillars. For aphids: blast off with hose or spray diluted dish soap solution. If caterpillar pests present: apply Bt per label. Avoid strong insecticides — pollinators are working these flowers.",
       "due_date": "2026-04-27"
@@ -175,17 +151,17 @@
       "due_date": "2026-04-27"
     },
     {
-      "id": 30,
-      "planting_id": "79526620-7d75-4886-b31d-7c9bf731edc9",
-      "title": "Inspect for slugs",
-      "description": "Slugs eat into ripening berries overnight — look for ragged holes in fruit and slime trails on soil surface. Pick berries slightly underripe if slug pressure is high. Diatomaceous earth scattered around bed perimeter helps as a barrier.",
-      "due_date": "2026-05-01"
-    },
-    {
       "id": 31,
       "planting_id": "79526620-7d75-4886-b31d-7c9bf731edc9",
       "title": "Runner management",
       "description": "Everbearing strawberries produce runners that root nearby. In a 2x4 raised bed, remove most runners to keep plant energy directed toward fruit production. Keep 1-2 runners per plant maximum if you want to propagate new plants.",
+      "due_date": "2026-05-01"
+    },
+    {
+      "id": 30,
+      "planting_id": "79526620-7d75-4886-b31d-7c9bf731edc9",
+      "title": "Inspect for slugs",
+      "description": "Slugs eat into ripening berries overnight — look for ragged holes in fruit and slime trails on soil surface. Pick berries slightly underripe if slug pressure is high. Diatomaceous earth scattered around bed perimeter helps as a barrier.",
       "due_date": "2026-05-01"
     },
     {
@@ -196,8 +172,8 @@
       "due_date": "2026-05-01"
     },
     {
-      "id": 5,
-      "planting_id": "5ed2b328-d443-49f2-966e-547a79002f31",
+      "id": 17,
+      "planting_id": "fcae49c2-9609-43da-ae75-fcebeca30243",
       "title": "First harvest check",
       "description": "Shelling peas: pods should feel full and firm with peas visible through the pod wall. Check every 2 days once pods start forming.",
       "due_date": "2026-05-02"
@@ -210,8 +186,8 @@
       "due_date": "2026-05-02"
     },
     {
-      "id": 17,
-      "planting_id": "fcae49c2-9609-43da-ae75-fcebeca30243",
+      "id": 5,
+      "planting_id": "5ed2b328-d443-49f2-966e-547a79002f31",
       "title": "First harvest check",
       "description": "Shelling peas: pods should feel full and firm with peas visible through the pod wall. Check every 2 days once pods start forming.",
       "due_date": "2026-05-02"
@@ -224,13 +200,6 @@
       "due_date": "2026-05-03"
     },
     {
-      "id": 50,
-      "planting_id": "54c2c338-5c4d-4924-b91b-4ffc22ebb4b3",
-      "title": "Inspect for early blight",
-      "description": "Look for brown spots with yellow halos on lower leaves. Remove affected leaves immediately and dispose (do not compost). Increase airflow by pruning dense interior foliage if severe.",
-      "due_date": "2026-05-06"
-    },
-    {
       "id": 23,
       "planting_id": "54c2c338-5c4d-4924-b91b-4ffc22ebb4b3",
       "title": "Pre-fruit feed — bone meal",
@@ -238,17 +207,24 @@
       "due_date": "2026-05-06"
     },
     {
-      "id": 39,
-      "planting_id": "5ed2b328-d443-49f2-966e-547a79002f31",
-      "title": "Inspect for aphids — apply Bt if caterpillars present",
-      "description": "Check growing tips and undersides of upper leaves for aphid colonies or caterpillars. For aphids: blast off with hose or spray diluted dish soap solution. If caterpillar pests present: apply Bt per label. Avoid strong insecticides — pollinators are working these flowers.",
-      "due_date": "2026-05-07"
+      "id": 50,
+      "planting_id": "54c2c338-5c4d-4924-b91b-4ffc22ebb4b3",
+      "title": "Inspect for early blight",
+      "description": "Look for brown spots with yellow halos on lower leaves. Remove affected leaves immediately and dispose (do not compost). Increase airflow by pruning dense interior foliage if severe.",
+      "due_date": "2026-05-06"
     },
     {
       "id": 44,
       "planting_id": "e0280648-bd37-43b0-b99a-5b1ceed52faa",
       "title": "Inspect for aphids — apply Bt if caterpillars present",
       "description": "Check growing tips and undersides of upper leaves. For aphids: blast with hose or diluted dish soap. If caterpillar pests present: apply Bt per label. Avoid strong insecticides near flowering plants.",
+      "due_date": "2026-05-07"
+    },
+    {
+      "id": 39,
+      "planting_id": "5ed2b328-d443-49f2-966e-547a79002f31",
+      "title": "Inspect for aphids — apply Bt if caterpillars present",
+      "description": "Check growing tips and undersides of upper leaves for aphid colonies or caterpillars. For aphids: blast off with hose or spray diluted dish soap solution. If caterpillar pests present: apply Bt per label. Avoid strong insecticides — pollinators are working these flowers.",
       "due_date": "2026-05-07"
     },
     {
@@ -287,17 +263,17 @@
       "due_date": "2026-05-20"
     },
     {
-      "id": 22,
-      "planting_id": "54c2c338-5c4d-4924-b91b-4ffc22ebb4b3",
-      "title": "Mid-season feed — blood meal",
-      "description": "Work 1 tbsp blood meal per plant into top inch of soil. Apply once heavy fruiting begins to compensate for nitrogen demand. Skip if foliage is already very dark green — excess nitrogen pushes leaf growth at expense of fruit.",
-      "due_date": "2026-05-21"
-    },
-    {
       "id": 57,
       "planting_id": "54c2c338-5c4d-4924-b91b-4ffc22ebb4b3",
       "title": "Inspect for hornworms — apply Bt if found",
       "description": "Check undersides of leaves on lower third of plant. Look for dark frass (droppings) as first sign. If hornworms found: spray Bacillus thuringiensis (Bt) on affected foliage per label. Hand-pick any large worms already present. Reapply Bt after rain.",
+      "due_date": "2026-05-21"
+    },
+    {
+      "id": 22,
+      "planting_id": "54c2c338-5c4d-4924-b91b-4ffc22ebb4b3",
+      "title": "Mid-season feed — blood meal",
+      "description": "Work 1 tbsp blood meal per plant into top inch of soil. Apply once heavy fruiting begins to compensate for nitrogen demand. Skip if foliage is already very dark green — excess nitrogen pushes leaf growth at expense of fruit.",
       "due_date": "2026-05-21"
     },
     {
@@ -555,10 +531,27 @@
       "planting_id": "14a35329-35a2-42ef-b59c-9b35fc2a2c7e",
       "date": "Apr 4, 2026",
       "note": "Fish emulsion applied"
+    },
+    {
+      "planting_id": "14a35329-35a2-42ef-b59c-9b35fc2a2c7e",
+      "date": "Apr 20, 2026",
+      "note": "About 12 oz of radish is all. After tops cut."
     }
   ],
-  "harvests": [],
+  "harvests": [
+    {
+      "planting_id": "14a35329-35a2-42ef-b59c-9b35fc2a2c7e",
+      "harvest_date": "2026-04-20",
+      "amount": 12,
+      "unit": "oz"
+    }
+  ],
   "waterings": [
+    {
+      "zone": 2,
+      "watered_date": "2026-04-20",
+      "duration_minutes": 10
+    },
     {
       "zone": 2,
       "watered_date": "2026-04-14",
@@ -603,11 +596,6 @@
       "zone": 2,
       "watered_date": "2026-03-19",
       "duration_minutes": 5
-    },
-    {
-      "zone": 2,
-      "watered_date": "2026-03-19",
-      "duration_minutes": 5
     }
   ],
   "weather": {
@@ -615,44 +603,6 @@
       {
         "number": 1,
         "name": "Today",
-        "startTime": "2026-04-20T06:00:00-06:00",
-        "endTime": "2026-04-20T18:00:00-06:00",
-        "isDaytime": true,
-        "temperature": 80,
-        "temperatureUnit": "F",
-        "temperatureTrend": null,
-        "probabilityOfPrecipitation": {
-          "unitCode": "wmoUnit:percent",
-          "value": 2
-        },
-        "windSpeed": "10 mph",
-        "windDirection": "S",
-        "icon": "https://api.weather.gov/icons/land/day/few?size=medium",
-        "shortForecast": "Sunny",
-        "detailedForecast": "Sunny, with a high near 80. South wind around 10 mph."
-      },
-      {
-        "number": 2,
-        "name": "Tonight",
-        "startTime": "2026-04-20T18:00:00-06:00",
-        "endTime": "2026-04-21T06:00:00-06:00",
-        "isDaytime": false,
-        "temperature": 53,
-        "temperatureUnit": "F",
-        "temperatureTrend": null,
-        "probabilityOfPrecipitation": {
-          "unitCode": "wmoUnit:percent",
-          "value": 1
-        },
-        "windSpeed": "8 mph",
-        "windDirection": "S",
-        "icon": "https://api.weather.gov/icons/land/night/sct?size=medium",
-        "shortForecast": "Partly Cloudy",
-        "detailedForecast": "Partly cloudy. Low around 53, with temperatures rising to around 55 overnight. South wind around 8 mph."
-      },
-      {
-        "number": 3,
-        "name": "Tuesday",
         "startTime": "2026-04-21T06:00:00-06:00",
         "endTime": "2026-04-21T18:00:00-06:00",
         "isDaytime": true,
@@ -661,35 +611,35 @@
         "temperatureTrend": null,
         "probabilityOfPrecipitation": {
           "unitCode": "wmoUnit:percent",
-          "value": 5
+          "value": 2
         },
         "windSpeed": "8 to 13 mph",
         "windDirection": "S",
         "icon": "https://api.weather.gov/icons/land/day/sct?size=medium",
         "shortForecast": "Mostly Sunny",
-        "detailedForecast": "Mostly sunny, with a high near 81. South wind 8 to 13 mph."
+        "detailedForecast": "Mostly sunny. High near 81, with temperatures falling to around 79 in the afternoon. South wind 8 to 13 mph."
       },
       {
-        "number": 4,
-        "name": "Tuesday Night",
+        "number": 2,
+        "name": "Tonight",
         "startTime": "2026-04-21T18:00:00-06:00",
         "endTime": "2026-04-22T06:00:00-06:00",
         "isDaytime": false,
-        "temperature": 50,
+        "temperature": 49,
         "temperatureUnit": "F",
         "temperatureTrend": null,
         "probabilityOfPrecipitation": {
           "unitCode": "wmoUnit:percent",
-          "value": 12
+          "value": 13
         },
         "windSpeed": "12 mph",
         "windDirection": "S",
-        "icon": "https://api.weather.gov/icons/land/night/sct?size=medium",
-        "shortForecast": "Partly Cloudy",
-        "detailedForecast": "Partly cloudy, with a low around 50. South wind around 12 mph."
+        "icon": "https://api.weather.gov/icons/land/night/few?size=medium",
+        "shortForecast": "Mostly Clear",
+        "detailedForecast": "Mostly clear. Low around 49, with temperatures rising to around 54 overnight. South wind around 12 mph."
       },
       {
-        "number": 5,
+        "number": 3,
         "name": "Wednesday",
         "startTime": "2026-04-22T06:00:00-06:00",
         "endTime": "2026-04-22T18:00:00-06:00",
@@ -701,33 +651,33 @@
           "unitCode": "wmoUnit:percent",
           "value": 82
         },
-        "windSpeed": "13 mph",
-        "windDirection": "SW",
+        "windSpeed": "12 mph",
+        "windDirection": "WSW",
         "icon": "https://api.weather.gov/icons/land/day/tsra,70/tsra,80?size=medium",
         "shortForecast": "Showers And Thunderstorms",
-        "detailedForecast": "Rain showers likely before 9am, then showers and thunderstorms. Mostly cloudy, with a high near 59. Southwest wind around 13 mph. Chance of precipitation is 80%. New rainfall amounts between a tenth and quarter of an inch possible."
+        "detailedForecast": "Rain showers likely before 9am, then showers and thunderstorms. Mostly cloudy. High near 59, with temperatures falling to around 55 in the afternoon. West southwest wind around 12 mph. Chance of precipitation is 80%."
       },
       {
-        "number": 6,
+        "number": 4,
         "name": "Wednesday Night",
         "startTime": "2026-04-22T18:00:00-06:00",
         "endTime": "2026-04-23T06:00:00-06:00",
         "isDaytime": false,
-        "temperature": 39,
+        "temperature": 41,
         "temperatureUnit": "F",
         "temperatureTrend": null,
         "probabilityOfPrecipitation": {
           "unitCode": "wmoUnit:percent",
-          "value": 53
+          "value": 61
         },
-        "windSpeed": "5 to 9 mph",
+        "windSpeed": "6 to 9 mph",
         "windDirection": "W",
-        "icon": "https://api.weather.gov/icons/land/night/tsra_sct,50/tsra_sct,40?size=medium",
-        "shortForecast": "Chance Showers And Thunderstorms",
-        "detailedForecast": "A chance of showers and thunderstorms. Mostly cloudy, with a low around 39. Chance of precipitation is 50%."
+        "icon": "https://api.weather.gov/icons/land/night/tsra_sct,60?size=medium",
+        "shortForecast": "Showers And Thunderstorms Likely",
+        "detailedForecast": "Showers and thunderstorms likely. Mostly cloudy, with a low around 41. West wind 6 to 9 mph. Chance of precipitation is 60%."
       },
       {
-        "number": 7,
+        "number": 5,
         "name": "Thursday",
         "startTime": "2026-04-23T06:00:00-06:00",
         "endTime": "2026-04-23T18:00:00-06:00",
@@ -737,13 +687,51 @@
         "temperatureTrend": null,
         "probabilityOfPrecipitation": {
           "unitCode": "wmoUnit:percent",
-          "value": 52
+          "value": 53
         },
-        "windSpeed": "3 to 8 mph",
+        "windSpeed": "5 to 8 mph",
         "windDirection": "WNW",
-        "icon": "https://api.weather.gov/icons/land/day/rain_showers,50/tsra_sct,40?size=medium",
-        "shortForecast": "Chance Rain Showers",
-        "detailedForecast": "A chance of rain showers before noon, then a chance of showers and thunderstorms. Mostly cloudy, with a high near 58."
+        "icon": "https://api.weather.gov/icons/land/day/rain_showers,50/tsra_sct,20?size=medium",
+        "shortForecast": "Chance Rain Showers then Slight Chance Showers And Thunderstorms",
+        "detailedForecast": "A chance of rain showers before noon, then a slight chance of showers and thunderstorms. Mostly cloudy, with a high near 58. West northwest wind 5 to 8 mph. Chance of precipitation is 50%."
+      },
+      {
+        "number": 6,
+        "name": "Thursday Night",
+        "startTime": "2026-04-23T18:00:00-06:00",
+        "endTime": "2026-04-24T06:00:00-06:00",
+        "isDaytime": false,
+        "temperature": 36,
+        "temperatureUnit": "F",
+        "temperatureTrend": null,
+        "probabilityOfPrecipitation": {
+          "unitCode": "wmoUnit:percent",
+          "value": 18
+        },
+        "windSpeed": "7 mph",
+        "windDirection": "NW",
+        "icon": "https://api.weather.gov/icons/land/night/sct/rain_showers,20?size=medium",
+        "shortForecast": "Partly Cloudy then Slight Chance Rain Showers",
+        "detailedForecast": "A slight chance of rain showers after midnight. Partly cloudy, with a low around 36. Chance of precipitation is 20%."
+      },
+      {
+        "number": 7,
+        "name": "Friday",
+        "startTime": "2026-04-24T06:00:00-06:00",
+        "endTime": "2026-04-24T18:00:00-06:00",
+        "isDaytime": true,
+        "temperature": 57,
+        "temperatureUnit": "F",
+        "temperatureTrend": null,
+        "probabilityOfPrecipitation": {
+          "unitCode": "wmoUnit:percent",
+          "value": 19
+        },
+        "windSpeed": "5 to 9 mph",
+        "windDirection": "NW",
+        "icon": "https://api.weather.gov/icons/land/day/rain_showers,20?size=medium",
+        "shortForecast": "Slight Chance Rain Showers",
+        "detailedForecast": "A slight chance of rain showers. Mostly sunny, with a high near 57."
       }
     ],
     "alerts": []
@@ -788,7 +776,10 @@
       },
       "suggestions_state": {
         "accepted": [],
-        "rejected": []
+        "rejected": [],
+        "surfaced_dismissed": [
+          "87"
+        ]
       },
       "generated_at": "2026-04-20T12:30:38+00:00"
     },
