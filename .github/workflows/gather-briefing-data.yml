@@ -2,7 +2,7 @@ name: Gather Briefing Data
 
 on:
   schedule:
-    - cron: '50 11 * * *'  # 11:50 UTC = 5:50am MDT
+    - cron: '13 6 * * *'  # 6:13 UTC = 12:13am MDT
   workflow_dispatch:
 
 jobs:
