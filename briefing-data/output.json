@@ -1,32 +1,36 @@
 {
-  "headline": "Storms clear Friday; check mildew and aphids this week",
+  "headline": "Friday window: inspect peas and snap garlic scapes",
   "weather_notes": [
-    "Today's 82% thunderstorm chance washes off any Bt applied now — hold pest treatments until Friday's dry window.",
-    "Wet-cool conditions (lows 37–39°F) following last week's warmth put all pea beds in peak powdery mildew risk territory.",
-    "Thursday night dips to 37°F — borderline stress for the tomato seedling in w2; check it Wednesday evening.",
-    "Rain through Thursday waters beds naturally; 63°F and sunny Friday is the window for outdoor tasks."
+    "Today's 60% storm chance washes off any Bt immediately — hold pest treatments until Friday.",
+    "Friday clears to 65°F and sunny — best garden work window before Saturday night's 73% storm.",
+    "Overnight lows of 38–40°F through Friday pose no frost risk to peas or garlic.",
+    "Saturday night's 73% precip chance means any Bt applied Friday has just one day to work — don't wait."
   ],
   "surfaced_tasks": [
     {
-      "task_id": "14",
-      "bed_id": "c2",
-      "title": "Watch for powdery mildew",
-      "reason": "Due today and the wet-cool week following warm dry days is the exact trigger pattern — all pea beds are 11 days from expected harvest and most vulnerable now."
+      "task_id": "88",
+      "bed_id": "w4",
+      "title": "Check hardneck garlic for scapes",
+      "reason": "Due Saturday and late April is the prime emergence window in Zone 7b — snap before they curl fully or bulb size is lost."
     },
     {
-      "task_id": "37",
+      "task_id": "38",
       "bed_id": "c4",
       "title": "Inspect for aphids — apply Bt if caterpillars present",
-      "reason": "Five days overdue across all three pea beds; inspect Friday after rain clears since today's storms would wash off any Bt immediately."
+      "reason": "Peas are 10 days from expected harvest; Friday's dry window is the last chance to apply Bt before Saturday night's heavy rain."
+    },
+    {
+      "task_id": "43",
+      "bed_id": "c2",
+      "title": "Inspect for aphids — apply Bt if caterpillars present",
+      "reason": "Peas are 10 days from expected harvest; Friday's dry window is the last chance to apply Bt before Saturday night's heavy rain."
+    },
+    {
+      "task_id": "48",
+      "bed_id": "c3",
+      "title": "Inspect for aphids — apply Bt if caterpillars present",
+      "reason": "Peas are 10 days from expected harvest; Friday's dry window is the last chance to apply Bt before Saturday night's heavy rain."
     }
   ],
-  "suggested_tasks": [
-    {
-      "title": "Check hardneck garlic for scapes",
-      "due_date": "2026-04-26",
-      "description": "Late April is the emergence window in Zone 7b — snap scapes now to redirect energy to bulb development before they curl fully.",
-      "bed_id": "w4",
-      "urgency": "normal"
-    }
-  ]
+  "suggested_tasks": []
 }
