@@ -1,35 +1,35 @@
 {
-  "headline": "Last dry window today — act before Sunday storms",
+  "headline": "Last dry window — act on scapes and aphids today",
   "weather_notes": [
-    "Today's 64°F sunny window is the last clear opportunity before Saturday night's 70% thunderstorms begin.",
-    "Sunday brings 100% rain (0.25–0.5 in.) — any Bt applied after today won't survive through the storm.",
-    "Friday night low 37°F poses no frost risk to peas or garlic.",
-    "Skip watering today; Sunday's heavy rain will saturate beds through the weekend."
+    "Storms arrive tonight (86%) and continue Sunday (99%) and Monday (90%) — any Bt applied after today washes off before it works.",
+    "Sunday expected to drop 0.25–0.5 in. of rain; skip irrigation through at least Tuesday.",
+    "Overnight lows hold 36–40°F all week — well above frost threshold, no covers needed.",
+    "Heavy rain through Monday will spike slug pressure; check w1 after storms clear."
   ],
   "surfaced_tasks": [
     {
       "task_id": "88",
       "bed_id": "w4",
       "title": "Check hardneck garlic for scapes",
-      "reason": "Due Saturday and storms hit Saturday night — check and snap scapes today before rain begins."
+      "reason": "Due tomorrow and today is the last dry window before multi-day storms start tonight."
     },
     {
       "task_id": "38",
       "bed_id": "c4",
       "title": "Inspect for aphids — apply Bt if caterpillars present",
-      "reason": "Peas are 9 days from expected harvest and Sunday's 100% rain will wash off any Bt — today is the last effective treatment window."
+      "reason": "Due Monday but storms arrive tonight — today is the only remaining effective Bt window, 8 days before harvest."
     },
     {
       "task_id": "43",
       "bed_id": "c2",
       "title": "Inspect for aphids — apply Bt if caterpillars present",
-      "reason": "Peas are 9 days from expected harvest and Sunday's 100% rain will wash off any Bt — today is the last effective treatment window."
+      "reason": "Due Monday but storms arrive tonight — today is the only remaining effective Bt window, 8 days before harvest."
     },
     {
       "task_id": "48",
       "bed_id": "c3",
       "title": "Inspect for aphids — apply Bt if caterpillars present",
-      "reason": "Peas are 9 days from expected harvest and Sunday's 100% rain will wash off any Bt — today is the last effective treatment window."
+      "reason": "Due Monday but storms arrive tonight — today is the only remaining effective Bt window, 8 days before harvest."
     }
   ],
   "suggested_tasks": []
