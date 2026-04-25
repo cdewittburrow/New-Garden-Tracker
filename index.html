@@ -1747,9 +1747,17 @@ function updateMapLabels(){
 function getActivePlanting(bedId){
   const list=plantingCache[bedId];
   if(!list)return null;
-  return list.find(p=>p.ended_date===null&&p.planting_state==='active')
-    ||list.find(p=>p.ended_date===null)
-    ||list[0];
+  const active=list.find(p=>p.ended_date===null&&p.planting_state==='active');
+  if(active)return active;
+  const open=list.filter(p=>p.ended_date===null);
+  if(!open.length)return list[0];
+  open.sort((a,b)=>{
+    if(!a.planned_date&&!b.planned_date)return 0;
+    if(!a.planned_date)return 1;
+    if(!b.planned_date)return -1;
+    return a.planned_date.localeCompare(b.planned_date);
+  });
+  return open[0];
 }
 function hasPlantingForYear(bedId,year){
   return (plantingCache[bedId]||[]).some(p=>p.year===year);
@@ -3831,6 +3839,7 @@ function openHarvestModal(plantingId){
       <label class="plan-field-label">Notes (optional)</label>
       <input class="log-input" id="modal-harvest-notes" placeholder="e.g. great flavor">
     </div>
+    <div id="harvest-modal-err" style="color:#e57373;font-size:.72rem;min-height:1em"></div>
     <div class="insp-modal-actions">
       <button class="insp-modal-cancel" onclick="closeInspModal()">Cancel</button>
       <button class="insp-modal-confirm" id="modal-confirm-btn" onclick="submitHarvestModal('${plantingId}')">Log harvest</button>
@@ -3942,7 +3951,12 @@ async function submitHarvestModal(plantingId){
   try{
     await saveHarvest(plantingId,today(),amt,unit,notes);
     closeInspModal();
-  }catch(e){if(btn){btn.disabled=false;btn.textContent='Log harvest';}}
+    if(activeBedId)await loadInspectorData(activeBedId);
+  }catch(e){
+    if(btn){btn.disabled=false;btn.textContent='Log harvest';}
+    const errEl=document.getElementById('harvest-modal-err');
+    if(errEl)errEl.textContent='Save failed — try again.';
+  }
 }
 
 function switchTab(id,btn){
