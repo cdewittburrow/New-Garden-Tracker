@@ -14,35 +14,12 @@ The workflow: talk through what you want in Claude.ai, get a spec, hand it to Cl
 
 ---
 
-## The Garden
-
-12 raised beds, 2×4×1 ft each, in a 3-column grid (West, Center, East) running north to south. Beds are referenced by position label — W1 through W4, C1 through C4, E1 through E4.
-
-**2026 season:**
-
-| Bed | Crop | Notes |
-|-----|------|-------|
-| W1 | Everbearing Strawberries | Perennial. USDA Organic, Fast Growing Trees. |
-| W2 | Tomato — Orange Hat (Determinate) | 2 plants. Transplant May 10–20. |
-| W3 | Elephant & Music Garlic → Kyoto Red Carrots | Garlic planted Oct 2025. Carrots after harvest. |
-| W4 | Italian Red Garlic → New Kuroda Carrots | Garlic planted Oct 2025. Carrots after harvest. |
-| C1 | 18-Day French Radish → Good Mother Stallard Beans | Radish sown Mar 8. Pole beans need trellis. |
-| C2 | Sugar Bon Snap Peas → Blue Lake Bush 274 | Peas sown Mar 8. Beans sow May 20. |
-| C3 | Lincoln Garden Peas → Jade Bush Beans | Peas sown Mar 8. Beans sow May 20. |
-| C4 | Lillian's Caseload Peas → Red Swan Bush Beans | Peas sown Mar 8. Beans sow May 20. |
-| E1 | Martino's Roma Tomato (Determinate) | 3 plants. Transplant May 10–20. |
-| E2 | Amish Paste Tomato (Indeterminate) | 2 plants. Transplant May 10–20. |
-| E3 | Comstock Sauce & Slice Tomato (Indeterminate) | 2 plants. Transplant May 10–20. |
-| E4 | Bonny Best Tomato (Indeterminate) | 2 plants. Transplant May 10–20. |
-
----
-
 ## The Irrigation System
 
 Two-zone drip system fed from the front yard spigot (target 60+ PSI / 6+ GPM after fixing a PEX run).
 
-- **Zone 1** — Tomatoes (E column): 2 GPH emitters
-- **Zone 2** — Everything else (W + C columns): 1 GPH emitters
+- **Zone 1** — 2 GPH emitters
+- **Zone 2** — 1 GPH emitters
 - **Timer:** Rachio smart controller
 - **Trunk:** 3/4" PVC east–west along north edge (~30 ft)
 - **Laterals:** 1/2" PVC south down each column (~22 ft each)
@@ -188,10 +165,9 @@ For planning and architecture: Claude.ai. For implementation: Claude Code. Diffe
 
 | Date | Decision | Rationale | Alternatives |
 |------|----------|-----------|--------------|
-| Oct 2025 | Garlic in W3 and W4 | Overwinter, harvest early summer, succeed to carrots in same beds | Dedicated garlic section |
 | Mar 2026 | Single HTML file, no build step | Maximum simplicity. Edit, push, done. | React, Vue, Next.js |
 | Mar 2026 | Supabase over Google Apps Script + Sheets | Apps Script was flaky and had no error visibility. Supabase is a real database with a real API. | Firebase, PlanetScale, keep Sheets |
-| Mar 2026 | Two-zone irrigation | Tomatoes need 2 GPH, everything else needs 1 GPH. Two zones = independent scheduling. | Single zone, four zones |
+| Mar 2026 | Two-zone irrigation | Different crop types need different emitter rates. Two zones = independent scheduling. | Single zone, four zones |
 | Mar 2026 | Bed IDs as position labels (W1–E4) | Self-documenting. W3 tells you where the bed is. 3 does not. | Numeric IDs |
 | Mar 2026 | Static crop-defined tasks, not user-managed | Experience building another app ("Oh Grow Up") showed that user-managed task systems get complicated fast. Pre-baked schedules per crop require zero management. | Full task manager |
 | Mar 2026 | Calendar date windows for tasks, not week numbers | "Jun 3–9" is more useful at a glance than "week 13". | Display week offsets directly |
