@@ -1,35 +1,35 @@
 {
-  "headline": "Last dry window — act on scapes and aphids today",
+  "headline": "Storms through Monday — act on scapes and aphids Tuesday",
   "weather_notes": [
-    "Storms arrive tonight (86%) and continue Sunday (99%) and Monday (90%) — any Bt applied after today washes off before it works.",
-    "Sunday expected to drop 0.25–0.5 in. of rain; skip irrigation through at least Tuesday.",
-    "Overnight lows hold 36–40°F all week — well above frost threshold, no covers needed.",
-    "Heavy rain through Monday will spike slug pressure; check w1 after storms clear."
+    "100% rain today and 94% Monday make Bt applications useless — hold all pest treatments until Tuesday.",
+    "Tuesday clears to 60°F with only 40% chance: first viable window to inspect peas with 7 days to expected harvest.",
+    "Weekend rains totaling 0.35–0.75 inches will spike slug pressure in newly planted w1 — inspect after storms clear.",
+    "Monday night low 36°F poses no frost risk to peas or garlic — no covers needed."
   ],
   "surfaced_tasks": [
     {
       "task_id": "88",
-      "bed_id": "w4",
+      "bed_id": "w3",
       "title": "Check hardneck garlic for scapes",
-      "reason": "Due tomorrow and today is the last dry window before multi-day storms start tonight."
+      "reason": "Due today — late April is the emergence window in Zone 7b and scapes must be snapped before they curl fully or bulb size is lost."
     },
     {
       "task_id": "38",
       "bed_id": "c4",
       "title": "Inspect for aphids — apply Bt if caterpillars present",
-      "reason": "Due Monday but storms arrive tonight — today is the only remaining effective Bt window, 8 days before harvest."
+      "reason": "Due tomorrow but storms today and Monday make Bt ineffective; Tuesday's clearing is the last usable window before the May 3 harvest."
     },
     {
       "task_id": "43",
       "bed_id": "c2",
       "title": "Inspect for aphids — apply Bt if caterpillars present",
-      "reason": "Due Monday but storms arrive tonight — today is the only remaining effective Bt window, 8 days before harvest."
+      "reason": "Due tomorrow but storms today and Monday make Bt ineffective; Tuesday's clearing is the last usable window before the May 3 harvest."
     },
     {
       "task_id": "48",
       "bed_id": "c3",
       "title": "Inspect for aphids — apply Bt if caterpillars present",
-      "reason": "Due Monday but storms arrive tonight — today is the only remaining effective Bt window, 8 days before harvest."
+      "reason": "Due tomorrow but storms today and Monday make Bt ineffective; Tuesday's clearing is the last usable window before the May 3 harvest."
     }
   ],
   "suggested_tasks": []
