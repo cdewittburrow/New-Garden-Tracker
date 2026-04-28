@@ -1,5 +1,5 @@
 {
-  "today": "2026-04-27",
+  "today": "2026-04-28",
   "plantings": [
     {
       "id": "79526620-7d75-4886-b31d-7c9bf731edc9",
@@ -540,45 +540,7 @@
       {
         "number": 1,
         "name": "Overnight",
-        "startTime": "2026-04-27T02:00:00-06:00",
-        "endTime": "2026-04-27T06:00:00-06:00",
-        "isDaytime": false,
-        "temperature": 39,
-        "temperatureUnit": "F",
-        "temperatureTrend": null,
-        "probabilityOfPrecipitation": {
-          "unitCode": "wmoUnit:percent",
-          "value": 59
-        },
-        "windSpeed": "2 mph",
-        "windDirection": "SSE",
-        "icon": "https://api.weather.gov/icons/land/night/tsra_sct,60?size=medium",
-        "shortForecast": "Slight Chance Showers And Thunderstorms",
-        "detailedForecast": "A slight chance of showers and thunderstorms before 3am, then showers and thunderstorms likely. Mostly cloudy, with a low around 39. South southeast wind around 2 mph. Chance of precipitation is 60%."
-      },
-      {
-        "number": 2,
-        "name": "Monday",
-        "startTime": "2026-04-27T06:00:00-06:00",
-        "endTime": "2026-04-27T18:00:00-06:00",
-        "isDaytime": true,
-        "temperature": 52,
-        "temperatureUnit": "F",
-        "temperatureTrend": null,
-        "probabilityOfPrecipitation": {
-          "unitCode": "wmoUnit:percent",
-          "value": 87
-        },
-        "windSpeed": "2 to 6 mph",
-        "windDirection": "NW",
-        "icon": "https://api.weather.gov/icons/land/day/rain_showers,80/tsra,90?size=medium",
-        "shortForecast": "Rain Showers",
-        "detailedForecast": "Rain showers before noon, then showers and thunderstorms. Mostly cloudy. High near 52, with temperatures falling to around 50 in the afternoon. Northwest wind 2 to 6 mph. Chance of precipitation is 90%. New rainfall amounts between a tenth and quarter of an inch possible."
-      },
-      {
-        "number": 3,
-        "name": "Monday Night",
-        "startTime": "2026-04-27T18:00:00-06:00",
+        "startTime": "2026-04-28T02:00:00-06:00",
         "endTime": "2026-04-28T06:00:00-06:00",
         "isDaytime": false,
         "temperature": 36,
@@ -586,35 +548,35 @@
         "temperatureTrend": null,
         "probabilityOfPrecipitation": {
           "unitCode": "wmoUnit:percent",
-          "value": 55
+          "value": 17
         },
-        "windSpeed": "5 mph",
-        "windDirection": "S",
-        "icon": "https://api.weather.gov/icons/land/night/tsra_sct,60/tsra_sct,40?size=medium",
-        "shortForecast": "Showers And Thunderstorms Likely",
-        "detailedForecast": "Showers and thunderstorms likely. Mostly cloudy. Low around 36, with temperatures rising to around 38 overnight. South wind around 5 mph. Chance of precipitation is 60%."
+        "windSpeed": "2 mph",
+        "windDirection": "SSE",
+        "icon": "https://api.weather.gov/icons/land/night/rain_showers,20?size=medium",
+        "shortForecast": "Slight Chance Rain Showers",
+        "detailedForecast": "A slight chance of rain showers. Partly cloudy, with a low around 36. South southeast wind around 2 mph. Chance of precipitation is 20%."
       },
       {
-        "number": 4,
+        "number": 2,
         "name": "Tuesday",
         "startTime": "2026-04-28T06:00:00-06:00",
         "endTime": "2026-04-28T18:00:00-06:00",
         "isDaytime": true,
-        "temperature": 59,
+        "temperature": 60,
         "temperatureUnit": "F",
         "temperatureTrend": null,
         "probabilityOfPrecipitation": {
           "unitCode": "wmoUnit:percent",
-          "value": 30
+          "value": 10
         },
-        "windSpeed": "2 to 6 mph",
-        "windDirection": "SW",
-        "icon": "https://api.weather.gov/icons/land/day/tsra_hi,30/tsra_hi,20?size=medium",
-        "shortForecast": "Chance Showers And Thunderstorms then Slight Chance Showers And Thunderstorms",
-        "detailedForecast": "A chance of rain showers before 9am, then a chance of showers and thunderstorms between 9am and noon, then a slight chance of showers and thunderstorms. Mostly sunny, with a high near 59. Southwest wind 2 to 6 mph. Chance of precipitation is 30%."
+        "windSpeed": "2 to 7 mph",
+        "windDirection": "NW",
+        "icon": "https://api.weather.gov/icons/land/day/few?size=medium",
+        "shortForecast": "Patchy Frost then Sunny",
+        "detailedForecast": "Patchy frost before 9am. Sunny. High near 60, with temperatures falling to around 58 in the afternoon. Northwest wind 2 to 7 mph."
       },
       {
-        "number": 5,
+        "number": 3,
         "name": "Tuesday Night",
         "startTime": "2026-04-28T18:00:00-06:00",
         "endTime": "2026-04-29T06:00:00-06:00",
@@ -627,53 +589,122 @@
           "value": 2
         },
         "windSpeed": "6 mph",
-        "windDirection": "E",
+        "windDirection": "ESE",
         "icon": "https://api.weather.gov/icons/land/night/few?size=medium",
         "shortForecast": "Mostly Clear",
-        "detailedForecast": "Mostly clear, with a low around 38. East wind around 6 mph."
+        "detailedForecast": "Mostly clear, with a low around 38. East southeast wind around 6 mph."
       },
       {
-        "number": 6,
+        "number": 4,
         "name": "Wednesday",
         "startTime": "2026-04-29T06:00:00-06:00",
         "endTime": "2026-04-29T18:00:00-06:00",
         "isDaytime": true,
-        "temperature": 66,
+        "temperature": 65,
         "temperatureUnit": "F",
         "temperatureTrend": null,
         "probabilityOfPrecipitation": {
           "unitCode": "wmoUnit:percent",
           "value": 6
         },
-        "windSpeed": "3 to 7 mph",
-        "windDirection": "SSW",
+        "windSpeed": "2 to 7 mph",
+        "windDirection": "WNW",
         "icon": "https://api.weather.gov/icons/land/day/sct?size=medium",
         "shortForecast": "Mostly Sunny",
-        "detailedForecast": "Mostly sunny, with a high near 66."
+        "detailedForecast": "Mostly sunny, with a high near 65. West northwest wind 2 to 7 mph."
       },
       {
-        "number": 7,
+        "number": 5,
         "name": "Wednesday Night",
         "startTime": "2026-04-29T18:00:00-06:00",
         "endTime": "2026-04-30T06:00:00-06:00",
+        "isDaytime": false,
+        "temperature": 40,
+        "temperatureUnit": "F",
+        "temperatureTrend": null,
+        "probabilityOfPrecipitation": {
+          "unitCode": "wmoUnit:percent",
+          "value": 3
+        },
+        "windSpeed": "2 to 8 mph",
+        "windDirection": "NNE",
+        "icon": "https://api.weather.gov/icons/land/night/sct?size=medium",
+        "shortForecast": "Partly Cloudy",
+        "detailedForecast": "Partly cloudy, with a low around 40. North northeast wind 2 to 8 mph."
+      },
+      {
+        "number": 6,
+        "name": "Thursday",
+        "startTime": "2026-04-30T06:00:00-06:00",
+        "endTime": "2026-04-30T18:00:00-06:00",
+        "isDaytime": true,
+        "temperature": 67,
+        "temperatureUnit": "F",
+        "temperatureTrend": null,
+        "probabilityOfPrecipitation": {
+          "unitCode": "wmoUnit:percent",
+          "value": 23
+        },
+        "windSpeed": "3 to 10 mph",
+        "windDirection": "NNE",
+        "icon": "https://api.weather.gov/icons/land/day/sct/tsra_hi,20?size=medium",
+        "shortForecast": "Mostly Sunny then Slight Chance Showers And Thunderstorms",
+        "detailedForecast": "A slight chance of showers and thunderstorms after noon. Mostly sunny, with a high near 67. Chance of precipitation is 20%."
+      },
+      {
+        "number": 7,
+        "name": "Thursday Night",
+        "startTime": "2026-04-30T18:00:00-06:00",
+        "endTime": "2026-05-01T06:00:00-06:00",
         "isDaytime": false,
         "temperature": 41,
         "temperatureUnit": "F",
         "temperatureTrend": null,
         "probabilityOfPrecipitation": {
           "unitCode": "wmoUnit:percent",
-          "value": 5
+          "value": 9
         },
-        "windSpeed": "3 to 7 mph",
+        "windSpeed": "3 to 9 mph",
         "windDirection": "NNE",
-        "icon": "https://api.weather.gov/icons/land/night/sct?size=medium",
-        "shortForecast": "Partly Cloudy",
-        "detailedForecast": "Partly cloudy, with a low around 41."
+        "icon": "https://api.weather.gov/icons/land/night/few?size=medium",
+        "shortForecast": "Mostly Clear",
+        "detailedForecast": "Mostly clear, with a low around 41."
       }
     ],
     "alerts": []
   },
   "recent_briefings": [
+    {
+      "payload": {
+        "headline": "Storms clear Wednesday — act on scapes and slugs",
+        "weather_notes": [
+          "90% rain today through Monday evening makes outdoor work impossible — hold all tasks until Tuesday at earliest.",
+          "Wednesday opens to 66°F and mostly sunny (6% precip) — best window this week for any garden task.",
+          "Monday night low 36°F and Tuesday night 38°F are well above frost — no covers needed for peas, onions, or strawberries.",
+          "Heavy rain tonight will spike slug activity in newly planted w1 — inspect after soil drains Wednesday."
+        ],
+        "surfaced_tasks": [
+          {
+            "title": "Check hardneck garlic for scapes",
+            "bed_id": "w3",
+            "reason": "One day overdue; Wednesday's clear window is the first opportunity after multi-day storms, and the Zone 7b scape window closes fast.",
+            "task_id": "88"
+          },
+          {
+            "title": "Inspect for slugs",
+            "bed_id": "w1",
+            "reason": "Due May 1 and 90% rain today followed by overnight storms sharply raises slug pressure in a 2-day-old strawberry bed.",
+            "task_id": "30"
+          }
+        ],
+        "suggested_tasks": []
+      },
+      "suggestions_state": {
+        "accepted": [],
+        "rejected": []
+      },
+      "generated_at": "2026-04-27T12:20:28+00:00"
+    },
     {
       "payload": {
         "headline": "Storms through Monday — act on scapes and aphids Tuesday",
@@ -1388,80 +1419,6 @@
         ]
       },
       "generated_at": "2026-04-04T12:00:00.942+00:00"
-    },
-    {
-      "payload": {
-        "headline": "Frost persists; protect tender plants, feed peas and check radishes.",
-        "insights": [
-          "A cold spell with patchy frost is impacting the garden through Sunday morning, despite warming daytime temperatures.",
-          "The newly planted tomato and strawberries require close attention for frost protection this weekend.",
-          "Pea plants are showing good growth and will soon require pest monitoring and a missed nutrient feed.",
-          "Radishes are on track for their first harvest check early next week, indicating a quick turnaround crop.",
-          "Garlic continues its slow and steady growth, well-established from last fall and unaffected by current cold."
-        ],
-        "narrative": "Peas and radishes are showing strong growth, with peas developing their signature tendrils and radishes already past sprouting. The garlic continues to establish itself over winter. Recently planted strawberries and a young tomato plant are settling into their new beds, marking the start of their season.\n\nThis week, immediate attention is required to protect the recently planted tomato from ongoing frost. Several pea feedings are overdue and should be prioritized. The first harvest check for radishes is also scheduled for early next week, and pest inspections for peas will begin.\n\nThe weather forecast indicates a warming trend in daytime temperatures, reaching the low 70s by Monday. However, a Freeze Warning is in effect for this morning and Saturday morning, with patchy frost expected through Sunday morning. These cold nights are a significant concern for new and tender plantings, especially the tomato. Consistent watering will also be important with the rising temperatures and lack of precipitation.",
-        "task_timing": [
-          {
-            "urgency": "high",
-            "observation": "The 'Cover tomato before Thursday night frost' task (ID 83) for the 'Orange Hat' tomato is overdue and still highly relevant, as frost is expected tonight and into Saturday and Sunday mornings."
-          },
-          {
-            "urgency": "high",
-            "observation": "The overdue 'Light feed — fish emulsion' tasks (IDs 19, 7, 15) for all pea varieties should be completed Saturday morning after the patchy frost clears, taking advantage of warming daytime temperatures."
-          },
-          {
-            "urgency": "normal",
-            "observation": "The 'First feed — fish emulsion' task (ID 24) for the 'Orange Hat' tomato on Sunday is well-timed with the warming trend after the primary frost risk has passed."
-          }
-        ],
-        "weather_notes": [
-          "A Freeze Warning is in effect until 9 AM Saturday.",
-          "Patchy frost is expected each morning through Sunday.",
-          "Daytime temperatures will steadily rise, reaching near 72°F by Monday.",
-          "There is a very low chance of precipitation throughout the 7-day forecast."
-        ],
-        "suggested_tasks": [
-          {
-            "title": "Protect \"Orange Hat\" tomato",
-            "bed_id": "w2",
-            "urgency": "high",
-            "due_date": "2026-04-03",
-            "description": "Re-cover the tomato plant in bed w2 tonight and for subsequent frosty mornings to protect against freezing temperatures."
-          },
-          {
-            "title": "Feed all pea plantings (overdue)",
-            "bed_id": "c2",
-            "urgency": "high",
-            "due_date": "2026-04-04",
-            "description": "Apply fish emulsion to the pea plants in beds c2 ('Sugar Bon'), c3 ('Lincoln Garden'), and c4 ('Lillian's Caseload') Saturday morning after the frost clears."
-          },
-          {
-            "title": "Water new/active beds",
-            "bed_id": "w1",
-            "urgency": "normal",
-            "due_date": "2026-04-04",
-            "description": "Provide deep watering to beds w1 (Strawberries), w2 (Tomato), c1 (Radish), c2 (Snap Peas), c3 (Peas), and c4 (Peas) on Saturday morning, given the rising temperatures and no forecasted rain."
-          },
-          {
-            "title": "Check radishes for harvest",
-            "bed_id": "c1",
-            "urgency": "normal",
-            "due_date": "2026-04-06",
-            "description": "Begin checking '18-Day French' radishes in bed c1 for maturity (approx. 1 inch diameter) on Monday."
-          }
-        ]
-      },
-      "suggestions_state": {
-        "accepted": [
-          3
-        ],
-        "rejected": [
-          0,
-          1,
-          2
-        ]
-      },
-      "generated_at": "2026-04-03T12:00:01.577+00:00"
     }
   ]
 }
