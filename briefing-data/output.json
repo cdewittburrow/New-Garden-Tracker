@@ -1,23 +1,23 @@
 {
-  "headline": "Storms cleared — snap overdue scapes before they curl further",
+  "headline": "Scapes 3 days overdue; peas entering pod-fill window",
   "weather_notes": [
-    "Patchy frost clears by 9am today; 60°F and sunny the rest of Tuesday is the first workable window after 3 days of heavy rain.",
-    "Wednesday is the cleanest day this week: 65°F, mostly sunny, only 6% precip chance — ideal for any task needing dry conditions.",
-    "Thursday may see afternoon showers (23%); complete any pest treatments by Wednesday for full efficacy.",
-    "Lows stay 38–41°F through Friday — no frost risk for the new strawberries or onions."
+    "Today is 64°F and mostly sunny — best outdoor window before Thursday's afternoon thunderstorm risk (30%).",
+    "Thursday afternoon showers would wash off any pest spray; treat today or defer to Friday.",
+    "Friday opens clear at 68°F — prime window for slug inspection on w1 (task due May 1).",
+    "Overnight lows hold 39–43°F through Friday — no frost risk for newly sown beds."
   ],
   "surfaced_tasks": [
     {
       "task_id": "88",
       "bed_id": "w3",
       "title": "Check hardneck garlic for scapes",
-      "reason": "Two days overdue and today is the first clear window after multi-day storms — scape window narrows fast in Zone 7b."
+      "reason": "Three days overdue — each day past full curl diverts energy from bulb development that cannot be recovered."
     },
     {
-      "task_id": "30",
-      "bed_id": "w1",
-      "title": "Inspect for slugs",
-      "reason": "Due May 1 and three days of heavy rain have spiked slug pressure around the newly planted strawberry bed."
+      "task_id": "13",
+      "bed_id": "c2",
+      "title": "First harvest check",
+      "reason": "Due May 2; at day 52 from planting, pods are entering fill range and daily monitoring should begin now."
     }
   ],
   "suggested_tasks": []
