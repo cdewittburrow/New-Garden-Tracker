@@ -1,5 +1,5 @@
 {
-  "today": "2026-04-29",
+  "today": "2026-04-30",
   "plantings": [
     {
       "id": "79526620-7d75-4886-b31d-7c9bf731edc9",
@@ -540,45 +540,7 @@
       {
         "number": 1,
         "name": "Overnight",
-        "startTime": "2026-04-29T02:00:00-06:00",
-        "endTime": "2026-04-29T06:00:00-06:00",
-        "isDaytime": false,
-        "temperature": 37,
-        "temperatureUnit": "F",
-        "temperatureTrend": null,
-        "probabilityOfPrecipitation": {
-          "unitCode": "wmoUnit:percent",
-          "value": 2
-        },
-        "windSpeed": "3 mph",
-        "windDirection": "SSE",
-        "icon": "https://api.weather.gov/icons/land/night/few?size=medium",
-        "shortForecast": "Mostly Clear",
-        "detailedForecast": "Mostly clear. Low around 37, with temperatures rising to around 39 overnight. South southeast wind around 3 mph."
-      },
-      {
-        "number": 2,
-        "name": "Wednesday",
-        "startTime": "2026-04-29T06:00:00-06:00",
-        "endTime": "2026-04-29T18:00:00-06:00",
-        "isDaytime": true,
-        "temperature": 64,
-        "temperatureUnit": "F",
-        "temperatureTrend": null,
-        "probabilityOfPrecipitation": {
-          "unitCode": "wmoUnit:percent",
-          "value": 5
-        },
-        "windSpeed": "3 to 8 mph",
-        "windDirection": "NNW",
-        "icon": "https://api.weather.gov/icons/land/day/sct?size=medium",
-        "shortForecast": "Mostly Sunny",
-        "detailedForecast": "Mostly sunny, with a high near 64. North northwest wind 3 to 8 mph."
-      },
-      {
-        "number": 3,
-        "name": "Wednesday Night",
-        "startTime": "2026-04-29T18:00:00-06:00",
+        "startTime": "2026-04-30T02:00:00-06:00",
         "endTime": "2026-04-30T06:00:00-06:00",
         "isDaytime": false,
         "temperature": 39,
@@ -586,35 +548,35 @@
         "temperatureTrend": null,
         "probabilityOfPrecipitation": {
           "unitCode": "wmoUnit:percent",
-          "value": 4
+          "value": 2
         },
-        "windSpeed": "2 to 8 mph",
-        "windDirection": "NNW",
+        "windSpeed": "3 mph",
+        "windDirection": "NW",
         "icon": "https://api.weather.gov/icons/land/night/sct?size=medium",
         "shortForecast": "Partly Cloudy",
-        "detailedForecast": "Partly cloudy. Low around 39, with temperatures rising to around 41 overnight. North northwest wind 2 to 8 mph."
+        "detailedForecast": "Partly cloudy. Low around 39, with temperatures rising to around 41 overnight. Northwest wind around 3 mph."
       },
       {
-        "number": 4,
+        "number": 2,
         "name": "Thursday",
         "startTime": "2026-04-30T06:00:00-06:00",
         "endTime": "2026-04-30T18:00:00-06:00",
         "isDaytime": true,
-        "temperature": 65,
+        "temperature": 64,
         "temperatureUnit": "F",
         "temperatureTrend": null,
         "probabilityOfPrecipitation": {
           "unitCode": "wmoUnit:percent",
-          "value": 28
+          "value": 18
         },
         "windSpeed": "2 to 10 mph",
-        "windDirection": "N",
-        "icon": "https://api.weather.gov/icons/land/day/sct/tsra_hi,30?size=medium",
-        "shortForecast": "Mostly Sunny then Chance Showers And Thunderstorms",
-        "detailedForecast": "A chance of showers and thunderstorms after noon. Mostly sunny, with a high near 65. North wind 2 to 10 mph. Chance of precipitation is 30%."
+        "windDirection": "NW",
+        "icon": "https://api.weather.gov/icons/land/day/few/tsra_hi,20?size=medium",
+        "shortForecast": "Sunny then Slight Chance Showers And Thunderstorms",
+        "detailedForecast": "A slight chance of showers and thunderstorms after noon. Sunny. High near 64, with temperatures falling to around 62 in the afternoon. Northwest wind 2 to 10 mph. Chance of precipitation is 20%."
       },
       {
-        "number": 5,
+        "number": 3,
         "name": "Thursday Night",
         "startTime": "2026-04-30T18:00:00-06:00",
         "endTime": "2026-05-01T06:00:00-06:00",
@@ -624,56 +586,125 @@
         "temperatureTrend": null,
         "probabilityOfPrecipitation": {
           "unitCode": "wmoUnit:percent",
-          "value": 13
+          "value": 6
         },
         "windSpeed": "3 to 9 mph",
-        "windDirection": "NE",
-        "icon": "https://api.weather.gov/icons/land/night/tsra_hi/few?size=medium",
-        "shortForecast": "Slight Chance Showers And Thunderstorms then Mostly Clear",
-        "detailedForecast": "A slight chance of showers and thunderstorms before 9pm. Mostly clear, with a low around 40. Northeast wind 3 to 9 mph."
+        "windDirection": "NNE",
+        "icon": "https://api.weather.gov/icons/land/night/few?size=medium",
+        "shortForecast": "Mostly Clear",
+        "detailedForecast": "Mostly clear. Low around 40, with temperatures rising to around 42 overnight. North northeast wind 3 to 9 mph."
       },
       {
-        "number": 6,
+        "number": 4,
         "name": "Friday",
         "startTime": "2026-05-01T06:00:00-06:00",
         "endTime": "2026-05-01T18:00:00-06:00",
         "isDaytime": true,
-        "temperature": 68,
+        "temperature": 67,
         "temperatureUnit": "F",
         "temperatureTrend": null,
         "probabilityOfPrecipitation": {
           "unitCode": "wmoUnit:percent",
-          "value": 9
+          "value": 5
         },
-        "windSpeed": "3 to 8 mph",
-        "windDirection": "NNE",
+        "windSpeed": "2 to 8 mph",
+        "windDirection": "N",
         "icon": "https://api.weather.gov/icons/land/day/few?size=medium",
         "shortForecast": "Sunny",
-        "detailedForecast": "Sunny, with a high near 68."
+        "detailedForecast": "Sunny, with a high near 67. North wind 2 to 8 mph."
       },
       {
-        "number": 7,
+        "number": 5,
         "name": "Friday Night",
         "startTime": "2026-05-01T18:00:00-06:00",
         "endTime": "2026-05-02T06:00:00-06:00",
         "isDaytime": false,
-        "temperature": 43,
+        "temperature": 42,
+        "temperatureUnit": "F",
+        "temperatureTrend": null,
+        "probabilityOfPrecipitation": {
+          "unitCode": "wmoUnit:percent",
+          "value": 1
+        },
+        "windSpeed": "3 to 8 mph",
+        "windDirection": "NE",
+        "icon": "https://api.weather.gov/icons/land/night/few?size=medium",
+        "shortForecast": "Mostly Clear",
+        "detailedForecast": "Mostly clear, with a low around 42. Northeast wind 3 to 8 mph."
+      },
+      {
+        "number": 6,
+        "name": "Saturday",
+        "startTime": "2026-05-02T06:00:00-06:00",
+        "endTime": "2026-05-02T18:00:00-06:00",
+        "isDaytime": true,
+        "temperature": 75,
         "temperatureUnit": "F",
         "temperatureTrend": null,
         "probabilityOfPrecipitation": {
           "unitCode": "wmoUnit:percent",
           "value": 2
         },
-        "windSpeed": "3 to 8 mph",
-        "windDirection": "NE",
-        "icon": "https://api.weather.gov/icons/land/night/skc?size=medium",
-        "shortForecast": "Clear",
-        "detailedForecast": "Clear, with a low around 43."
+        "windSpeed": "7 mph",
+        "windDirection": "SSE",
+        "icon": "https://api.weather.gov/icons/land/day/few?size=medium",
+        "shortForecast": "Sunny",
+        "detailedForecast": "Sunny, with a high near 75."
+      },
+      {
+        "number": 7,
+        "name": "Saturday Night",
+        "startTime": "2026-05-02T18:00:00-06:00",
+        "endTime": "2026-05-03T06:00:00-06:00",
+        "isDaytime": false,
+        "temperature": 49,
+        "temperatureUnit": "F",
+        "temperatureTrend": null,
+        "probabilityOfPrecipitation": {
+          "unitCode": "wmoUnit:percent",
+          "value": 2
+        },
+        "windSpeed": "6 mph",
+        "windDirection": "SE",
+        "icon": "https://api.weather.gov/icons/land/night/sct?size=medium",
+        "shortForecast": "Partly Cloudy",
+        "detailedForecast": "Partly cloudy, with a low around 49."
       }
     ],
     "alerts": []
   },
   "recent_briefings": [
+    {
+      "payload": {
+        "headline": "Scapes 3 days overdue; peas entering pod-fill window",
+        "weather_notes": [
+          "Today is 64°F and mostly sunny — best outdoor window before Thursday's afternoon thunderstorm risk (30%).",
+          "Thursday afternoon showers would wash off any pest spray; treat today or defer to Friday.",
+          "Friday opens clear at 68°F — prime window for slug inspection on w1 (task due May 1).",
+          "Overnight lows hold 39–43°F through Friday — no frost risk for newly sown beds."
+        ],
+        "surfaced_tasks": [
+          {
+            "title": "Check hardneck garlic for scapes",
+            "bed_id": "w3",
+            "reason": "Three days overdue — each day past full curl diverts energy from bulb development that cannot be recovered.",
+            "task_id": "88"
+          },
+          {
+            "title": "First harvest check",
+            "bed_id": "c2",
+            "reason": "Due May 2; at day 52 from planting, pods are entering fill range and daily monitoring should begin now.",
+            "task_id": "13"
+          }
+        ],
+        "suggested_tasks": []
+      },
+      "suggestions_state": {
+        "accepted": [],
+        "rejected": []
+      },
+      "generated_at": "2026-04-29T12:17:05+00:00"
+    },
     {
       "payload": {
         "headline": "Storms cleared — snap overdue scapes before they curl further",
@@ -1311,75 +1342,6 @@
         ]
       },
       "generated_at": "2026-04-06T12:00:01.01+00:00"
-    },
-    {
-      "payload": {
-        "headline": "Warm, dry week: check new sprouts and boost watering.",
-        "insights": [
-          "The garden is experiencing optimal early spring growth conditions with warm, sunny weather and recent nutrient applications.",
-          "Radishes and peas are progressing rapidly towards maturity, indicating a successful start to the spring season.",
-          "New plantings of strawberries and tomatoes require vigilant monitoring for germination and consistent moisture management.",
-          "Garlic has successfully overwintered and is showing strong, active vegetative growth, benefiting from recent weeding and feeding.",
-          "The sustained warm and dry forecast necessitates a proactive approach to watering to support all plant stages and prevent drought stress."
-        ],
-        "narrative": "The garden is off to a strong start this spring. Peas in beds c2, c3, and c4 are growing vigorously, showing their characteristic 'tendrils,' while radishes in c1 have been thinned and are sizing up quickly. Garlic, planted last fall, is well-established and received a recent weeding, indicating strong overwintering success. Recent fish emulsion applications across many beds underscore a focus on early season nutrition, which should encourage robust growth in all active plantings. Newly sown strawberries in w1 and tomatoes in w2 are the latest additions, and attention should now turn to encouraging their germination.\n\nKey areas needing attention this week include the rapidly maturing radishes, which are nearing their expected harvest date. Regular checks will ensure they are picked at their prime. The newly sown strawberry and tomato beds will require consistent moisture to aid germination in the upcoming warm conditions. Furthermore, scheduled pest inspections for peas will become increasingly important as the weather warms.\n\nThe 7-day forecast predicts consistently warm, sunny, and dry conditions with daytime highs in the low 70s and overnight lows comfortably above freezing. This extended period of clear, warm weather is ideal for vigorous plant growth but also means a significant increase in water demand. With no precipitation expected, diligent and deep watering will be crucial across the entire garden to prevent stress, especially for young and actively growing plants.",
-        "task_timing": [
-          {
-            "urgency": "high",
-            "observation": "Radishes are nearing harvest; with warm weather, growth may accelerate. Consider checking a day or two early."
-          },
-          {
-            "urgency": "high",
-            "observation": "Warm weather will increase soil evaporation and plant water needs significantly. Review and likely increase watering frequency immediately."
-          },
-          {
-            "urgency": "normal",
-            "observation": "Pea pest inspections are due mid-month. Warm conditions can lead to earlier pest activity; stay on schedule."
-          },
-          {
-            "urgency": "normal",
-            "observation": "Tomato suckers should be checked on schedule. Warm conditions may promote faster sucker growth."
-          }
-        ],
-        "weather_notes": [
-          "Consistently warm daytime temperatures, reaching low 70s by Monday and Tuesday.",
-          "Overnight lows are well above freezing, ranging from 42F to 46F.",
-          "No precipitation is expected for the entire 7-day forecast period.",
-          "Light winds (2-8 mph) expected throughout the week."
-        ],
-        "suggested_tasks": [
-          {
-            "title": "Check new plantings for sprouts",
-            "bed_id": "w1, w2",
-            "urgency": "normal",
-            "due_date": "2026-04-07",
-            "description": "The warm, sunny weather should encourage germination. Check the Tomato (Orange Hat in w2) and Strawberries (Everbearing in w1) beds for first signs of growth. Ensure soil remains consistently moist, not waterlogged."
-          },
-          {
-            "title": "Increase watering for all beds",
-            "bed_id": "w3, w4, c4, c3, c2, w1, w2, c1",
-            "urgency": "high",
-            "due_date": "2026-04-06",
-            "description": "With 7 days of warm, sunny, and dry weather, ensure all beds receive adequate water. Prioritize newly sown areas (w1, w2) and rapidly growing peas (c2, c3, c4) and radishes (c1). Check soil moisture daily and water deeply as needed."
-          },
-          {
-            "title": "Pre-harvest radish check",
-            "bed_id": "c1",
-            "urgency": "high",
-            "due_date": "2026-04-10",
-            "description": "Radishes are growing quickly and are nearing their expected harvest date. Perform an early check to ensure they are sizing up well before they become woody or bolt in the warm weather."
-          }
-        ]
-      },
-      "suggestions_state": {
-        "accepted": [],
-        "rejected": [
-          0,
-          1,
-          2
-        ]
-      },
-      "generated_at": "2026-04-05T12:00:00.785+00:00"
     }
   ]
 }
