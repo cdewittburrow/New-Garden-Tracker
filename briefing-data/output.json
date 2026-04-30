@@ -1,23 +1,23 @@
 {
-  "headline": "Scapes 3 days overdue; peas entering pod-fill window",
+  "headline": "Scapes 4 days overdue; pea checks due Saturday",
   "weather_notes": [
-    "Today is 64°F and mostly sunny — best outdoor window before Thursday's afternoon thunderstorm risk (30%).",
-    "Thursday afternoon showers would wash off any pest spray; treat today or defer to Friday.",
-    "Friday opens clear at 68°F — prime window for slug inspection on w1 (task due May 1).",
-    "Overnight lows hold 39–43°F through Friday — no frost risk for newly sown beds."
+    "Afternoon storm risk today (20% after noon) — finish any outdoor tasks before midday.",
+    "Friday is the cleanest window: 67°F and sunny with only 5% precip chance.",
+    "Saturday reaches 75°F and sunny — ideal conditions right as pea first-harvest checks come due (May 2).",
+    "No frost risk through the weekend; overnight lows hold 39–49°F."
   ],
   "surfaced_tasks": [
     {
       "task_id": "88",
       "bed_id": "w3",
       "title": "Check hardneck garlic for scapes",
-      "reason": "Three days overdue — each day past full curl diverts energy from bulb development that cannot be recovered."
+      "reason": "Four days overdue — use Friday's clear window to snap any scapes before continued curl diverts more energy from bulb development."
     },
     {
       "task_id": "13",
       "bed_id": "c2",
       "title": "First harvest check",
-      "reason": "Due May 2; at day 52 from planting, pods are entering fill range and daily monitoring should begin now."
+      "reason": "Due Saturday and the 75°F sunny forecast is the best window of the week to check pods across all three pea beds (c2, c3, c4)."
     }
   ],
   "suggested_tasks": []
