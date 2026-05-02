@@ -1,5 +1,5 @@
 {
-  "today": "2026-05-01",
+  "today": "2026-05-02",
   "plantings": [
     {
       "id": "79526620-7d75-4886-b31d-7c9bf731edc9",
@@ -81,46 +81,11 @@
       "due_date": "2026-04-26"
     },
     {
-      "id": 31,
-      "planting_id": "79526620-7d75-4886-b31d-7c9bf731edc9",
-      "title": "Runner management",
-      "description": "Everbearing strawberries produce runners that root nearby. In a 2x4 raised bed, remove most runners to keep plant energy directed toward fruit production. Keep 1-2 runners per plant maximum if you want to propagate new plants.",
-      "due_date": "2026-05-01"
-    },
-    {
       "id": 55,
       "planting_id": "54c2c338-5c4d-4924-b91b-4ffc22ebb4b3",
       "title": "Inspect for hornworms — apply Bt if found",
       "description": "Check undersides of leaves on lower third of plant. Look for dark frass (droppings) as first sign. If hornworms found: spray Bacillus thuringiensis (Bt) on affected foliage per label. Hand-pick any large worms already present. Reapply Bt after rain.",
       "due_date": "2026-05-01"
-    },
-    {
-      "id": 30,
-      "planting_id": "79526620-7d75-4886-b31d-7c9bf731edc9",
-      "title": "Inspect for slugs",
-      "description": "Slugs eat into ripening berries overnight — look for ragged holes in fruit and slime trails on soil surface. Pick berries slightly underripe if slug pressure is high. Diatomaceous earth scattered around bed perimeter helps as a barrier.",
-      "due_date": "2026-05-01"
-    },
-    {
-      "id": 17,
-      "planting_id": "fcae49c2-9609-43da-ae75-fcebeca30243",
-      "title": "First harvest check",
-      "description": "Shelling peas: pods should feel full and firm with peas visible through the pod wall. Check every 2 days once pods start forming.",
-      "due_date": "2026-05-02"
-    },
-    {
-      "id": 13,
-      "planting_id": "e0280648-bd37-43b0-b99a-5b1ceed52faa",
-      "title": "First harvest check",
-      "description": "Harvest when pod is plump but before interior peas bulge too large — sweetness peaks here and drops off fast. Check every 2 days once pods are sizing up.",
-      "due_date": "2026-05-02"
-    },
-    {
-      "id": 5,
-      "planting_id": "5ed2b328-d443-49f2-966e-547a79002f31",
-      "title": "First harvest check",
-      "description": "Shelling peas: pods should feel full and firm with peas visible through the pod wall. Check every 2 days once pods start forming.",
-      "due_date": "2026-05-02"
     },
     {
       "id": 64,
@@ -151,15 +116,15 @@
       "due_date": "2026-05-07"
     },
     {
-      "id": 49,
-      "planting_id": "fcae49c2-9609-43da-ae75-fcebeca30243",
+      "id": 39,
+      "planting_id": "5ed2b328-d443-49f2-966e-547a79002f31",
       "title": "Inspect for aphids — apply Bt if caterpillars present",
       "description": "Check growing tips and undersides of upper leaves for aphid colonies or caterpillars. For aphids: blast off with hose or spray diluted dish soap solution. If caterpillar pests present: apply Bt per label. Avoid strong insecticides — pollinators are working these flowers.",
       "due_date": "2026-05-07"
     },
     {
-      "id": 39,
-      "planting_id": "5ed2b328-d443-49f2-966e-547a79002f31",
+      "id": 49,
+      "planting_id": "fcae49c2-9609-43da-ae75-fcebeca30243",
       "title": "Inspect for aphids — apply Bt if caterpillars present",
       "description": "Check growing tips and undersides of upper leaves for aphid colonies or caterpillars. For aphids: blast off with hose or spray diluted dish soap solution. If caterpillar pests present: apply Bt per label. Avoid strong insecticides — pollinators are working these flowers.",
       "due_date": "2026-05-07"
@@ -214,17 +179,17 @@
       "due_date": "2026-05-24"
     },
     {
-      "id": 58,
-      "planting_id": "54c2c338-5c4d-4924-b91b-4ffc22ebb4b3",
-      "title": "Inspect for hornworms — apply Bt if found",
-      "description": "Check undersides of leaves on lower third of plant. Look for dark frass (droppings) as first sign. If hornworms found: spray Bacillus thuringiensis (Bt) on affected foliage per label. Hand-pick any large worms already present. Reapply Bt after rain.",
-      "due_date": "2026-05-31"
-    },
-    {
       "id": 68,
       "planting_id": "54c2c338-5c4d-4924-b91b-4ffc22ebb4b3",
       "title": "Check for suckers",
       "description": "Remove suckers forming in the crotch between main stem and lateral branches. Indeterminate varieties only (Amish Paste, Comstock, Bonny Best) — leave determinates (Roma, Orange Hat) unpruned. Pinch suckers when small (under 2 inches) for a cleaner break.",
+      "due_date": "2026-05-31"
+    },
+    {
+      "id": 58,
+      "planting_id": "54c2c338-5c4d-4924-b91b-4ffc22ebb4b3",
+      "title": "Inspect for hornworms — apply Bt if found",
+      "description": "Check undersides of leaves on lower third of plant. Look for dark frass (droppings) as first sign. If hornworms found: spray Bacillus thuringiensis (Bt) on affected foliage per label. Hand-pick any large worms already present. Reapply Bt after rain.",
       "due_date": "2026-05-31"
     },
     {
@@ -284,15 +249,15 @@
       "due_date": "2026-06-20"
     },
     {
-      "id": 10,
-      "planting_id": "e93f2f5c-dcb8-47e9-9933-31e7e813b7e4",
+      "id": 27,
+      "planting_id": "abebbe9f-e355-4c78-a77f-79d4c88d17f7",
       "title": "Stop watering",
       "description": "Stop all irrigation 2 weeks before expected harvest. Dry conditions cure the outer wrapper and improve storage life significantly. Italian Red (softneck, W4) may be ready a week or two before Elephant & Music (hardneck, W3).",
       "due_date": "2026-06-21"
     },
     {
-      "id": 27,
-      "planting_id": "abebbe9f-e355-4c78-a77f-79d4c88d17f7",
+      "id": 10,
+      "planting_id": "e93f2f5c-dcb8-47e9-9933-31e7e813b7e4",
       "title": "Stop watering",
       "description": "Stop all irrigation 2 weeks before expected harvest. Dry conditions cure the outer wrapper and improve storage life significantly. Italian Red (softneck, W4) may be ready a week or two before Elephant & Music (hardneck, W3).",
       "due_date": "2026-06-21"
@@ -479,6 +444,11 @@
   "waterings": [
     {
       "zone": 2,
+      "watered_date": "2026-05-01",
+      "duration_minutes": 10
+    },
+    {
+      "zone": 2,
       "watered_date": "2026-04-25",
       "duration_minutes": 10
     },
@@ -521,11 +491,6 @@
       "zone": 2,
       "watered_date": "2026-03-24",
       "duration_minutes": 5
-    },
-    {
-      "zone": 2,
-      "watered_date": "2026-03-22",
-      "duration_minutes": 5
     }
   ],
   "weather": {
@@ -533,45 +498,7 @@
       {
         "number": 1,
         "name": "Overnight",
-        "startTime": "2026-05-01T02:00:00-06:00",
-        "endTime": "2026-05-01T06:00:00-06:00",
-        "isDaytime": false,
-        "temperature": 40,
-        "temperatureUnit": "F",
-        "temperatureTrend": null,
-        "probabilityOfPrecipitation": {
-          "unitCode": "wmoUnit:percent",
-          "value": 1
-        },
-        "windSpeed": "3 mph",
-        "windDirection": "NE",
-        "icon": "https://api.weather.gov/icons/land/night/few?size=medium",
-        "shortForecast": "Mostly Clear",
-        "detailedForecast": "Mostly clear. Low around 40, with temperatures rising to around 42 overnight. Northeast wind around 3 mph."
-      },
-      {
-        "number": 2,
-        "name": "Friday",
-        "startTime": "2026-05-01T06:00:00-06:00",
-        "endTime": "2026-05-01T18:00:00-06:00",
-        "isDaytime": true,
-        "temperature": 67,
-        "temperatureUnit": "F",
-        "temperatureTrend": null,
-        "probabilityOfPrecipitation": {
-          "unitCode": "wmoUnit:percent",
-          "value": 2
-        },
-        "windSpeed": "3 to 9 mph",
-        "windDirection": "NNE",
-        "icon": "https://api.weather.gov/icons/land/day/few?size=medium",
-        "shortForecast": "Sunny",
-        "detailedForecast": "Sunny, with a high near 67. North northeast wind 3 to 9 mph."
-      },
-      {
-        "number": 3,
-        "name": "Friday Night",
-        "startTime": "2026-05-01T18:00:00-06:00",
+        "startTime": "2026-05-02T01:00:00-06:00",
         "endTime": "2026-05-02T06:00:00-06:00",
         "isDaytime": false,
         "temperature": 42,
@@ -581,33 +508,33 @@
           "unitCode": "wmoUnit:percent",
           "value": 0
         },
-        "windSpeed": "3 to 8 mph",
-        "windDirection": "WSW",
+        "windSpeed": "5 mph",
+        "windDirection": "SSE",
         "icon": "https://api.weather.gov/icons/land/night/few?size=medium",
         "shortForecast": "Mostly Clear",
-        "detailedForecast": "Mostly clear. Low around 42, with temperatures rising to around 44 overnight. West southwest wind 3 to 8 mph."
+        "detailedForecast": "Mostly clear. Low around 42, with temperatures rising to around 44 overnight. South southeast wind around 5 mph."
       },
       {
-        "number": 4,
+        "number": 2,
         "name": "Saturday",
         "startTime": "2026-05-02T06:00:00-06:00",
         "endTime": "2026-05-02T18:00:00-06:00",
         "isDaytime": true,
-        "temperature": 75,
+        "temperature": 74,
         "temperatureUnit": "F",
         "temperatureTrend": null,
         "probabilityOfPrecipitation": {
           "unitCode": "wmoUnit:percent",
-          "value": 3
+          "value": 0
         },
-        "windSpeed": "7 mph",
-        "windDirection": "SSE",
+        "windSpeed": "6 mph",
+        "windDirection": "S",
         "icon": "https://api.weather.gov/icons/land/day/few?size=medium",
         "shortForecast": "Sunny",
-        "detailedForecast": "Sunny, with a high near 75. South southeast wind around 7 mph."
+        "detailedForecast": "Sunny. High near 74, with temperatures falling to around 72 in the afternoon. South wind around 6 mph."
       },
       {
-        "number": 5,
+        "number": 3,
         "name": "Saturday Night",
         "startTime": "2026-05-02T18:00:00-06:00",
         "endTime": "2026-05-03T06:00:00-06:00",
@@ -620,13 +547,13 @@
           "value": 0
         },
         "windSpeed": "6 mph",
-        "windDirection": "ENE",
+        "windDirection": "NNW",
         "icon": "https://api.weather.gov/icons/land/night/sct?size=medium",
         "shortForecast": "Partly Cloudy",
-        "detailedForecast": "Partly cloudy, with a low around 48. East northeast wind around 6 mph."
+        "detailedForecast": "Partly cloudy, with a low around 48. North northwest wind around 6 mph."
       },
       {
-        "number": 6,
+        "number": 4,
         "name": "Sunday",
         "startTime": "2026-05-03T06:00:00-06:00",
         "endTime": "2026-05-03T18:00:00-06:00",
@@ -636,37 +563,117 @@
         "temperatureTrend": null,
         "probabilityOfPrecipitation": {
           "unitCode": "wmoUnit:percent",
-          "value": 6
+          "value": 2
         },
         "windSpeed": "6 mph",
         "windDirection": "S",
         "icon": "https://api.weather.gov/icons/land/day/bkn?size=medium",
         "shortForecast": "Partly Sunny",
-        "detailedForecast": "Partly sunny, with a high near 77."
+        "detailedForecast": "Partly sunny, with a high near 77. South wind around 6 mph."
       },
       {
-        "number": 7,
+        "number": 5,
         "name": "Sunday Night",
         "startTime": "2026-05-03T18:00:00-06:00",
         "endTime": "2026-05-04T06:00:00-06:00",
         "isDaytime": false,
-        "temperature": 51,
+        "temperature": 53,
         "temperatureUnit": "F",
         "temperatureTrend": null,
         "probabilityOfPrecipitation": {
           "unitCode": "wmoUnit:percent",
-          "value": 21
+          "value": 8
         },
         "windSpeed": "6 mph",
-        "windDirection": "SSE",
-        "icon": "https://api.weather.gov/icons/land/night/bkn/rain_showers,20?size=medium",
-        "shortForecast": "Mostly Cloudy then Slight Chance Rain Showers",
-        "detailedForecast": "A slight chance of rain showers after midnight. Mostly cloudy, with a low around 51."
+        "windDirection": "ESE",
+        "icon": "https://api.weather.gov/icons/land/night/bkn?size=medium",
+        "shortForecast": "Mostly Cloudy",
+        "detailedForecast": "Mostly cloudy, with a low around 53. East southeast wind around 6 mph."
+      },
+      {
+        "number": 6,
+        "name": "Monday",
+        "startTime": "2026-05-04T06:00:00-06:00",
+        "endTime": "2026-05-04T18:00:00-06:00",
+        "isDaytime": true,
+        "temperature": 74,
+        "temperatureUnit": "F",
+        "temperatureTrend": null,
+        "probabilityOfPrecipitation": {
+          "unitCode": "wmoUnit:percent",
+          "value": 44
+        },
+        "windSpeed": "7 mph",
+        "windDirection": "S",
+        "icon": "https://api.weather.gov/icons/land/day/rain_showers,20/tsra_sct,40?size=medium",
+        "shortForecast": "Chance Showers And Thunderstorms",
+        "detailedForecast": "A slight chance of rain showers before noon, then a chance of showers and thunderstorms. Partly sunny, with a high near 74. Chance of precipitation is 40%."
+      },
+      {
+        "number": 7,
+        "name": "Monday Night",
+        "startTime": "2026-05-04T18:00:00-06:00",
+        "endTime": "2026-05-05T06:00:00-06:00",
+        "isDaytime": false,
+        "temperature": 49,
+        "temperatureUnit": "F",
+        "temperatureTrend": null,
+        "probabilityOfPrecipitation": {
+          "unitCode": "wmoUnit:percent",
+          "value": 44
+        },
+        "windSpeed": "6 mph",
+        "windDirection": "S",
+        "icon": "https://api.weather.gov/icons/land/night/tsra_sct,40?size=medium",
+        "shortForecast": "Chance Showers And Thunderstorms",
+        "detailedForecast": "A chance of showers and thunderstorms. Mostly cloudy, with a low around 49."
       }
     ],
     "alerts": []
   },
   "recent_briefings": [
+    {
+      "payload": {
+        "headline": "Pea harvest due tomorrow — sunny and dry all week",
+        "weather_notes": [
+          "No rain through Sunday (<10% daily chance) — any pest treatment this week will stick without washoff risk.",
+          "Saturday 75°F and Sunday 77°F are the best outdoor windows; first pea harvest checks are due tomorrow.",
+          "Overnight lows hold 40–51°F all week — no frost risk for any current planting.",
+          "Sunday night brings the first real rain chance (21%) — wrap outdoor tasks before then."
+        ],
+        "surfaced_tasks": [
+          {
+            "title": "Inspect for slugs",
+            "bed_id": "w1",
+            "reason": "Due today — newly planted strawberries coming off last week's rain events face peak slug pressure as beds begin to dry out.",
+            "task_id": "30"
+          },
+          {
+            "title": "First harvest check",
+            "bed_id": "c2",
+            "reason": "Due tomorrow and at day 54 from planting pods are sizing up — Saturday's 75°F sunny window is ideal for picking at peak sweetness (also check c3/c4, tasks 17 and 5, same due date).",
+            "task_id": "13"
+          }
+        ],
+        "suggested_tasks": [
+          {
+            "title": "Water new strawberry and onion beds",
+            "bed_id": "w1",
+            "urgency": "normal",
+            "due_date": "2026-05-02",
+            "description": "Six days without rain or irrigation and 75°F+ temps this weekend put newly planted w1 and w4 at establishment-moisture risk."
+          }
+        ]
+      },
+      "suggestions_state": {
+        "accepted": [],
+        "rejected": [],
+        "surfaced_dismissed": [
+          "13"
+        ]
+      },
+      "generated_at": "2026-05-01T12:10:50+00:00"
+    },
     {
       "payload": {
         "headline": "Scapes 4 days overdue; pea checks due Saturday",
@@ -1228,67 +1235,6 @@
         ]
       },
       "generated_at": "2026-04-12T12:00:01.745+00:00"
-    },
-    {
-      "payload": {
-        "headline": "Warm weather boosts growth; radishes nearing harvest, peas thriving.",
-        "insights": [
-          "Radishes are on track for harvest very soon, benefiting from recent warmth and feeding.",
-          "All pea varieties ('Lillian's Caseload', 'Lincoln Garden', 'Sugar Bon') are showing strong initial growth and benefiting from the recent fish emulsion application.",
-          "Recently planted 'Everbearing' strawberries and 'Orange Hat' tomato will be establishing roots and foliage during this warm period.",
-          "Garlic crops are well-established and growing steadily, having received a fish emulsion application recently.",
-          "The garden is progressing nicely into the spring season with most plantings active and showing good signs of development."
-        ],
-        "narrative": "The garden is experiencing a rapid growth spurt with unseasonably warm temperatures. Your recently planted peas are showing good progress with their characteristic 'tentacles,' and the '18-Day French' radish crop is quickly nearing its first harvest. Established garlic plants are also benefiting from the warmer conditions, setting the stage for a productive spring.\n\nThis week, your top priority is the '18-Day French' radish, which is expected to be ready for harvest around April 12th. Keep a close eye on your young tomato plant for suckers, with the first check due Sunday. Ensure all newly planted crops, especially the strawberries and tomato, receive adequate moisture during this warm stretch before the weekend rain.\n\nThe forecast promises two very warm days in the mid-70s, which will accelerate plant growth, especially for your spring crops. This warmth will be followed by a significant chance of rain and thunderstorms on Saturday, bringing cooler temperatures. This natural watering will be beneficial, but be mindful of any potential strong winds during the storms.",
-        "task_timing": [
-          {
-            "urgency": "high",
-            "observation": "Given the warm temperatures today and tomorrow, it's advisable to complete any necessary watering of new plantings (Strawberries, Tomato) before Saturday's forecasted heavy rain to ensure they are well-hydrated."
-          },
-          {
-            "urgency": "high",
-            "observation": "Begin daily checks for your '18-Day French' radish, as the warm weather will likely accelerate their readiness for harvest by the expected date of April 12."
-          },
-          {
-            "urgency": "normal",
-            "observation": "The first 'Check for suckers' task for the 'Orange Hat' Tomato is due on April 12. This can be performed any time between now and then, potentially on Friday before the rain."
-          }
-        ],
-        "weather_notes": [
-          "Unseasonably warm temperatures (mid-70s) expected for Thursday and Friday.",
-          "A 70% chance of rain and thunderstorms is forecasted for Saturday.",
-          "Temperatures will drop significantly after Saturday's rain to the low 40s at night.",
-          "Light to moderate winds (up to 15 mph) expected Friday and Saturday."
-        ],
-        "suggested_tasks": [
-          {
-            "title": "Deep water new strawberries",
-            "bed_id": "w1",
-            "urgency": "high",
-            "due_date": "2026-04-10",
-            "description": "Ensure your newly planted 'Everbearing' strawberries are thoroughly watered to help them establish roots and cope with the upcoming warm spell."
-          },
-          {
-            "title": "Deep water young tomato",
-            "bed_id": "w2",
-            "urgency": "high",
-            "due_date": "2026-04-10",
-            "description": "The young 'Orange Hat' tomato plant will benefit from deep watering to prevent stress from high temperatures and encourage strong root development."
-          },
-          {
-            "title": "Check radish for harvest",
-            "bed_id": "c1",
-            "urgency": "high",
-            "due_date": "2026-04-11",
-            "description": "Your '18-Day French' radishes are nearing their expected harvest date. Begin checking daily for root swelling and harvest when they reach desired size to prevent woodiness."
-          }
-        ]
-      },
-      "suggestions_state": {
-        "accepted": [],
-        "rejected": []
-      },
-      "generated_at": "2026-04-09T00:23:20.283+00:00"
     }
   ]
 }
