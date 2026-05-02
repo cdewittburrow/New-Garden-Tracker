@@ -1,32 +1,30 @@
 {
-  "headline": "Pea harvest due tomorrow — sunny and dry all week",
+  "headline": "Inspect peas today — Monday storms could wash out Bt",
   "weather_notes": [
-    "No rain through Sunday (<10% daily chance) — any pest treatment this week will stick without washoff risk.",
-    "Saturday 75°F and Sunday 77°F are the best outdoor windows; first pea harvest checks are due tomorrow.",
-    "Overnight lows hold 40–51°F all week — no frost risk for any current planting.",
-    "Sunday night brings the first real rain chance (21%) — wrap outdoor tasks before then."
+    "Today 74°F and sunny (0% rain) is the cleanest window this week to inspect peas and apply Bt before storm risk arrives.",
+    "Monday brings 44% chance of showers and thunderstorms — Bt applied today or Sunday gets two full dry days to activate.",
+    "Overnight lows hold 42–53°F through the week — no frost risk for newly sown strawberries (w1) or onions (w4).",
+    "If Monday rain arrives, hold irrigation on w1 and w4 — newly sown beds won't need water mid-week."
   ],
   "surfaced_tasks": [
     {
-      "task_id": "30",
-      "bed_id": "w1",
-      "title": "Inspect for slugs",
-      "reason": "Due today — newly planted strawberries coming off last week's rain events face peak slug pressure as beds begin to dry out."
+      "task_id": "44",
+      "bed_id": "c2",
+      "title": "Inspect for aphids — apply Bt if caterpillars present",
+      "reason": "Due May 7 and today's dry window is the last clean Bt application opportunity before Monday's 44% storm risk."
     },
     {
-      "task_id": "13",
-      "bed_id": "c2",
-      "title": "First harvest check",
-      "reason": "Due tomorrow and at day 54 from planting pods are sizing up — Saturday's 75°F sunny window is ideal for picking at peak sweetness (also check c3/c4, tasks 17 and 5, same due date)."
+      "task_id": "49",
+      "bed_id": "c3",
+      "title": "Inspect for aphids — apply Bt if caterpillars present",
+      "reason": "Due May 7 and today's dry window is the last clean Bt application opportunity before Monday's 44% storm risk."
+    },
+    {
+      "task_id": "39",
+      "bed_id": "c4",
+      "title": "Inspect for aphids — apply Bt if caterpillars present",
+      "reason": "Due May 7 and today's dry window is the last clean Bt application opportunity before Monday's 44% storm risk."
     }
   ],
-  "suggested_tasks": [
-    {
-      "title": "Water new strawberry and onion beds",
-      "due_date": "2026-05-02",
-      "description": "Six days without rain or irrigation and 75°F+ temps this weekend put newly planted w1 and w4 at establishment-moisture risk.",
-      "bed_id": "w1",
-      "urgency": "normal"
-    }
-  ]
+  "suggested_tasks": []
 }
