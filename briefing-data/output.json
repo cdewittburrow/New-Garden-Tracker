@@ -1,30 +1,19 @@
 {
-  "headline": "Inspect peas today — Monday storms could wash out Bt",
+  "headline": "Clear today, storms Monday — check snap peas now",
   "weather_notes": [
-    "Today 74°F and sunny (0% rain) is the cleanest window this week to inspect peas and apply Bt before storm risk arrives.",
-    "Monday brings 44% chance of showers and thunderstorms — Bt applied today or Sunday gets two full dry days to activate.",
-    "Overnight lows hold 42–53°F through the week — no frost risk for newly sown strawberries (w1) or onions (w4).",
-    "If Monday rain arrives, hold irrigation on w1 and w4 — newly sown beds won't need water mid-week."
+    "Today 78°F and sunny (2% precip) is the only dry window before Monday's 50% T-storm chance.",
+    "Monday–Tuesday both carry ~50% precip — natural rainfall will cover irrigation for all beds mid-week.",
+    "Post-storm wet conditions Wednesday raise slug pressure on newly established w1 and w4.",
+    "Tuesday night drops to 42°F — no frost risk for any active planting."
   ],
-  "surfaced_tasks": [
+  "surfaced_tasks": [],
+  "suggested_tasks": [
     {
-      "task_id": "44",
+      "title": "Check Sugar Bon snap peas for harvest",
+      "due_date": "2026-05-03",
+      "description": "Sugar Bon matures in 55 days — at day 56, pods are ready now and mature pods split after rain.",
       "bed_id": "c2",
-      "title": "Inspect for aphids — apply Bt if caterpillars present",
-      "reason": "Due May 7 and today's dry window is the last clean Bt application opportunity before Monday's 44% storm risk."
-    },
-    {
-      "task_id": "49",
-      "bed_id": "c3",
-      "title": "Inspect for aphids — apply Bt if caterpillars present",
-      "reason": "Due May 7 and today's dry window is the last clean Bt application opportunity before Monday's 44% storm risk."
-    },
-    {
-      "task_id": "39",
-      "bed_id": "c4",
-      "title": "Inspect for aphids — apply Bt if caterpillars present",
-      "reason": "Due May 7 and today's dry window is the last clean Bt application opportunity before Monday's 44% storm risk."
+      "urgency": "high"
     }
-  ],
-  "suggested_tasks": []
+  ]
 }
