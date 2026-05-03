@@ -1,5 +1,5 @@
 {
-  "today": "2026-05-02",
+  "today": "2026-05-03",
   "plantings": [
     {
       "id": "79526620-7d75-4886-b31d-7c9bf731edc9",
@@ -109,27 +109,6 @@
       "due_date": "2026-05-06"
     },
     {
-      "id": 44,
-      "planting_id": "e0280648-bd37-43b0-b99a-5b1ceed52faa",
-      "title": "Inspect for aphids — apply Bt if caterpillars present",
-      "description": "Check growing tips and undersides of upper leaves. For aphids: blast with hose or diluted dish soap. If caterpillar pests present: apply Bt per label. Avoid strong insecticides near flowering plants.",
-      "due_date": "2026-05-07"
-    },
-    {
-      "id": 39,
-      "planting_id": "5ed2b328-d443-49f2-966e-547a79002f31",
-      "title": "Inspect for aphids — apply Bt if caterpillars present",
-      "description": "Check growing tips and undersides of upper leaves for aphid colonies or caterpillars. For aphids: blast off with hose or spray diluted dish soap solution. If caterpillar pests present: apply Bt per label. Avoid strong insecticides — pollinators are working these flowers.",
-      "due_date": "2026-05-07"
-    },
-    {
-      "id": 49,
-      "planting_id": "fcae49c2-9609-43da-ae75-fcebeca30243",
-      "title": "Inspect for aphids — apply Bt if caterpillars present",
-      "description": "Check growing tips and undersides of upper leaves for aphid colonies or caterpillars. For aphids: blast off with hose or spray diluted dish soap solution. If caterpillar pests present: apply Bt per label. Avoid strong insecticides — pollinators are working these flowers.",
-      "due_date": "2026-05-07"
-    },
-    {
       "id": 65,
       "planting_id": "54c2c338-5c4d-4924-b91b-4ffc22ebb4b3",
       "title": "Check for suckers",
@@ -158,17 +137,17 @@
       "due_date": "2026-05-20"
     },
     {
-      "id": 22,
-      "planting_id": "54c2c338-5c4d-4924-b91b-4ffc22ebb4b3",
-      "title": "Mid-season feed — blood meal",
-      "description": "Work 1 tbsp blood meal per plant into top inch of soil. Apply once heavy fruiting begins to compensate for nitrogen demand. Skip if foliage is already very dark green — excess nitrogen pushes leaf growth at expense of fruit.",
-      "due_date": "2026-05-21"
-    },
-    {
       "id": 57,
       "planting_id": "54c2c338-5c4d-4924-b91b-4ffc22ebb4b3",
       "title": "Inspect for hornworms — apply Bt if found",
       "description": "Check undersides of leaves on lower third of plant. Look for dark frass (droppings) as first sign. If hornworms found: spray Bacillus thuringiensis (Bt) on affected foliage per label. Hand-pick any large worms already present. Reapply Bt after rain.",
+      "due_date": "2026-05-21"
+    },
+    {
+      "id": 22,
+      "planting_id": "54c2c338-5c4d-4924-b91b-4ffc22ebb4b3",
+      "title": "Mid-season feed — blood meal",
+      "description": "Work 1 tbsp blood meal per plant into top inch of soil. Apply once heavy fruiting begins to compensate for nitrogen demand. Skip if foliage is already very dark green — excess nitrogen pushes leaf growth at expense of fruit.",
       "due_date": "2026-05-21"
     },
     {
@@ -498,45 +477,7 @@
       {
         "number": 1,
         "name": "Overnight",
-        "startTime": "2026-05-02T01:00:00-06:00",
-        "endTime": "2026-05-02T06:00:00-06:00",
-        "isDaytime": false,
-        "temperature": 42,
-        "temperatureUnit": "F",
-        "temperatureTrend": null,
-        "probabilityOfPrecipitation": {
-          "unitCode": "wmoUnit:percent",
-          "value": 0
-        },
-        "windSpeed": "5 mph",
-        "windDirection": "SSE",
-        "icon": "https://api.weather.gov/icons/land/night/few?size=medium",
-        "shortForecast": "Mostly Clear",
-        "detailedForecast": "Mostly clear. Low around 42, with temperatures rising to around 44 overnight. South southeast wind around 5 mph."
-      },
-      {
-        "number": 2,
-        "name": "Saturday",
-        "startTime": "2026-05-02T06:00:00-06:00",
-        "endTime": "2026-05-02T18:00:00-06:00",
-        "isDaytime": true,
-        "temperature": 74,
-        "temperatureUnit": "F",
-        "temperatureTrend": null,
-        "probabilityOfPrecipitation": {
-          "unitCode": "wmoUnit:percent",
-          "value": 0
-        },
-        "windSpeed": "6 mph",
-        "windDirection": "S",
-        "icon": "https://api.weather.gov/icons/land/day/few?size=medium",
-        "shortForecast": "Sunny",
-        "detailedForecast": "Sunny. High near 74, with temperatures falling to around 72 in the afternoon. South wind around 6 mph."
-      },
-      {
-        "number": 3,
-        "name": "Saturday Night",
-        "startTime": "2026-05-02T18:00:00-06:00",
+        "startTime": "2026-05-03T02:00:00-06:00",
         "endTime": "2026-05-03T06:00:00-06:00",
         "isDaytime": false,
         "temperature": 48,
@@ -546,19 +487,19 @@
           "unitCode": "wmoUnit:percent",
           "value": 0
         },
-        "windSpeed": "6 mph",
-        "windDirection": "NNW",
+        "windSpeed": "5 mph",
+        "windDirection": "SSE",
         "icon": "https://api.weather.gov/icons/land/night/sct?size=medium",
         "shortForecast": "Partly Cloudy",
-        "detailedForecast": "Partly cloudy, with a low around 48. North northwest wind around 6 mph."
+        "detailedForecast": "Partly cloudy. Low around 48, with temperatures rising to around 50 overnight. South southeast wind around 5 mph."
       },
       {
-        "number": 4,
+        "number": 2,
         "name": "Sunday",
         "startTime": "2026-05-03T06:00:00-06:00",
         "endTime": "2026-05-03T18:00:00-06:00",
         "isDaytime": true,
-        "temperature": 77,
+        "temperature": 78,
         "temperatureUnit": "F",
         "temperatureTrend": null,
         "probabilityOfPrecipitation": {
@@ -569,10 +510,10 @@
         "windDirection": "S",
         "icon": "https://api.weather.gov/icons/land/day/bkn?size=medium",
         "shortForecast": "Partly Sunny",
-        "detailedForecast": "Partly sunny, with a high near 77. South wind around 6 mph."
+        "detailedForecast": "Partly sunny, with a high near 78. South wind around 6 mph."
       },
       {
-        "number": 5,
+        "number": 3,
         "name": "Sunday Night",
         "startTime": "2026-05-03T18:00:00-06:00",
         "endTime": "2026-05-04T06:00:00-06:00",
@@ -582,35 +523,35 @@
         "temperatureTrend": null,
         "probabilityOfPrecipitation": {
           "unitCode": "wmoUnit:percent",
-          "value": 8
+          "value": 7
         },
         "windSpeed": "6 mph",
-        "windDirection": "ESE",
+        "windDirection": "S",
         "icon": "https://api.weather.gov/icons/land/night/bkn?size=medium",
         "shortForecast": "Mostly Cloudy",
-        "detailedForecast": "Mostly cloudy, with a low around 53. East southeast wind around 6 mph."
+        "detailedForecast": "Mostly cloudy. Low around 53, with temperatures rising to around 55 overnight. South wind around 6 mph."
       },
       {
-        "number": 6,
+        "number": 4,
         "name": "Monday",
         "startTime": "2026-05-04T06:00:00-06:00",
         "endTime": "2026-05-04T18:00:00-06:00",
         "isDaytime": true,
-        "temperature": 74,
+        "temperature": 73,
         "temperatureUnit": "F",
         "temperatureTrend": null,
         "probabilityOfPrecipitation": {
           "unitCode": "wmoUnit:percent",
-          "value": 44
+          "value": 50
         },
-        "windSpeed": "7 mph",
+        "windSpeed": "8 mph",
         "windDirection": "S",
-        "icon": "https://api.weather.gov/icons/land/day/rain_showers,20/tsra_sct,40?size=medium",
-        "shortForecast": "Chance Showers And Thunderstorms",
-        "detailedForecast": "A slight chance of rain showers before noon, then a chance of showers and thunderstorms. Partly sunny, with a high near 74. Chance of precipitation is 40%."
+        "icon": "https://api.weather.gov/icons/land/day/bkn/tsra_sct,50?size=medium",
+        "shortForecast": "Partly Sunny then Scattered Showers And Thunderstorms",
+        "detailedForecast": "Scattered showers and thunderstorms between noon and 3pm, then scattered showers and thunderstorms. Partly sunny, with a high near 73. South wind around 8 mph. Chance of precipitation is 50%."
       },
       {
-        "number": 7,
+        "number": 5,
         "name": "Monday Night",
         "startTime": "2026-05-04T18:00:00-06:00",
         "endTime": "2026-05-05T06:00:00-06:00",
@@ -620,18 +561,98 @@
         "temperatureTrend": null,
         "probabilityOfPrecipitation": {
           "unitCode": "wmoUnit:percent",
-          "value": 44
+          "value": 37
         },
         "windSpeed": "6 mph",
         "windDirection": "S",
-        "icon": "https://api.weather.gov/icons/land/night/tsra_sct,40?size=medium",
-        "shortForecast": "Chance Showers And Thunderstorms",
-        "detailedForecast": "A chance of showers and thunderstorms. Mostly cloudy, with a low around 49."
+        "icon": "https://api.weather.gov/icons/land/night/tsra_hi,30/tsra_hi,40?size=medium",
+        "shortForecast": "Scattered Showers And Thunderstorms",
+        "detailedForecast": "Scattered showers and thunderstorms. Mostly cloudy, with a low around 49. South wind around 6 mph. Chance of precipitation is 40%."
+      },
+      {
+        "number": 6,
+        "name": "Tuesday",
+        "startTime": "2026-05-05T06:00:00-06:00",
+        "endTime": "2026-05-05T18:00:00-06:00",
+        "isDaytime": true,
+        "temperature": 66,
+        "temperatureUnit": "F",
+        "temperatureTrend": null,
+        "probabilityOfPrecipitation": {
+          "unitCode": "wmoUnit:percent",
+          "value": 52
+        },
+        "windSpeed": "8 mph",
+        "windDirection": "SW",
+        "icon": "https://api.weather.gov/icons/land/day/rain_showers,30/tsra_sct,50?size=medium",
+        "shortForecast": "Scattered Rain Showers",
+        "detailedForecast": "Scattered rain showers before noon, then scattered showers and thunderstorms. Partly sunny, with a high near 66. Chance of precipitation is 50%."
+      },
+      {
+        "number": 7,
+        "name": "Tuesday Night",
+        "startTime": "2026-05-05T18:00:00-06:00",
+        "endTime": "2026-05-06T06:00:00-06:00",
+        "isDaytime": false,
+        "temperature": 42,
+        "temperatureUnit": "F",
+        "temperatureTrend": null,
+        "probabilityOfPrecipitation": {
+          "unitCode": "wmoUnit:percent",
+          "value": 18
+        },
+        "windSpeed": "5 to 8 mph",
+        "windDirection": "N",
+        "icon": "https://api.weather.gov/icons/land/night/tsra_hi,20/few?size=medium",
+        "shortForecast": "Slight Chance Showers And Thunderstorms then Mostly Clear",
+        "detailedForecast": "A slight chance of showers and thunderstorms before midnight. Mostly clear, with a low around 42."
       }
     ],
     "alerts": []
   },
   "recent_briefings": [
+    {
+      "payload": {
+        "headline": "Inspect peas today — Monday storms could wash out Bt",
+        "weather_notes": [
+          "Today 74°F and sunny (0% rain) is the cleanest window this week to inspect peas and apply Bt before storm risk arrives.",
+          "Monday brings 44% chance of showers and thunderstorms — Bt applied today or Sunday gets two full dry days to activate.",
+          "Overnight lows hold 42–53°F through the week — no frost risk for newly sown strawberries (w1) or onions (w4).",
+          "If Monday rain arrives, hold irrigation on w1 and w4 — newly sown beds won't need water mid-week."
+        ],
+        "surfaced_tasks": [
+          {
+            "title": "Inspect for aphids — apply Bt if caterpillars present",
+            "bed_id": "c2",
+            "reason": "Due May 7 and today's dry window is the last clean Bt application opportunity before Monday's 44% storm risk.",
+            "task_id": "44"
+          },
+          {
+            "title": "Inspect for aphids — apply Bt if caterpillars present",
+            "bed_id": "c3",
+            "reason": "Due May 7 and today's dry window is the last clean Bt application opportunity before Monday's 44% storm risk.",
+            "task_id": "49"
+          },
+          {
+            "title": "Inspect for aphids — apply Bt if caterpillars present",
+            "bed_id": "c4",
+            "reason": "Due May 7 and today's dry window is the last clean Bt application opportunity before Monday's 44% storm risk.",
+            "task_id": "39"
+          }
+        ],
+        "suggested_tasks": []
+      },
+      "suggestions_state": {
+        "accepted": [],
+        "rejected": [],
+        "surfaced_dismissed": [
+          "44",
+          "49",
+          "39"
+        ]
+      },
+      "generated_at": "2026-05-02T12:18:54+00:00"
+    },
     {
       "payload": {
         "headline": "Pea harvest due tomorrow — sunny and dry all week",
@@ -1166,75 +1187,6 @@
         ]
       },
       "generated_at": "2026-04-18T15:08:50+00:00"
-    },
-    {
-      "payload": {
-        "headline": "Radish harvest day; prepare for multi-day rain event.",
-        "insights": [
-          "The '18-Day French' radishes have reached their expected harvest date, indicating successful early season growth.",
-          "Pea plants across three varieties are showing healthy tendril development, suggesting vigorous establishment.",
-          "Newly planted strawberries and tomatoes, though still in 'sown' status, are facing their first significant weather challenge with high winds.",
-          "Garlic plantings continue to thrive, benefiting from consistent moisture and recent fish emulsion application.",
-          "The garden has received consistent early spring care, including recent worm castings and fish emulsion applications to various beds."
-        ],
-        "narrative": "The garden is actively growing this spring! Your garlic plantings are robustly establishing, while pea varieties are thriving, showing their characteristic 'tentacles'. Newly sown strawberries and tomatoes are also settling into their beds, marking the start of a busy growing season. Critically, your '18-Day French' radishes are now ready for their first harvest today, and your 'Orange Hat' tomato needs a sucker check.\n\nLooking ahead, you'll need to inspect all your pea plants for aphids around April 17th. This week's weather will significantly impact outdoor activities. Strong winds are expected today, which could stress your younger plants, so temporary protection might be beneficial.\n\nExpect a good soaking from the sky over the next few days. Showers and thunderstorms are forecast from today through Tuesday. This means you can hold off on any manual watering, but it also necessitates careful planning for other tasks. Temperatures will be mild today before cooling down for Monday and Tuesday, with overnight lows hovering in the upper 30s. Tasks like pest inspection on peas should likely be scheduled after the rain subsides.",
-        "task_timing": [
-          {
-            "urgency": "high",
-            "observation": "Prioritize harvesting '18-Day French' radishes today, ideally before heavy rain starts later this afternoon."
-          },
-          {
-            "urgency": "high",
-            "observation": "Complete the scheduled 'Orange Hat' tomato sucker check today, being mindful of the strong winds."
-          },
-          {
-            "urgency": "normal",
-            "observation": "Delay all manual watering until after Tuesday due to the significant precipitation expected."
-          },
-          {
-            "urgency": "normal",
-            "observation": "Consider rescheduling pea aphid inspections (due Apr 17) to after the rainy period, around Wednesday or Thursday, for better efficacy."
-          }
-        ],
-        "weather_notes": [
-          "Significant rain and thunderstorms are expected today through Tuesday, providing natural irrigation.",
-          "Strong winds with gusts up to 38 mph are forecast for today, potentially stressing young plants.",
-          "Temperatures will drop after today, with highs in the upper 50s on Monday and Tuesday, and overnight lows near 38-39°F.",
-          "Wednesday offers a clearer, warmer window for garden activities after the rain."
-        ],
-        "suggested_tasks": [
-          {
-            "title": "Harvest 18-Day French Radish",
-            "bed_id": "c1",
-            "urgency": "high",
-            "due_date": "2026-04-12",
-            "description": "Your '18-Day French' radishes are ready for harvest! Pull them today for peak flavor and tenderness before they become woody. Check the size and taste test a few."
-          },
-          {
-            "title": "Protect Strawberries from wind",
-            "bed_id": "w1",
-            "urgency": "high",
-            "due_date": "2026-04-12",
-            "description": "High winds today could stress your newly sown 'Everbearing' strawberry plants. Consider temporary windbreaks or row covers."
-          },
-          {
-            "title": "Protect Tomato from wind",
-            "bed_id": "w2",
-            "urgency": "high",
-            "due_date": "2026-04-12",
-            "description": "Strong winds today could stress your recently planted 'Orange Hat' tomato. Consider temporary windbreaks or support."
-          }
-        ]
-      },
-      "suggestions_state": {
-        "accepted": [],
-        "rejected": [
-          2,
-          1,
-          0
-        ]
-      },
-      "generated_at": "2026-04-12T12:00:01.745+00:00"
     }
   ]
 }
