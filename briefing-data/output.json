@@ -1,19 +1,19 @@
 {
-  "headline": "Clear today, storms Monday — check snap peas now",
+  "headline": "Clear today, storms Monday — water new beds now",
   "weather_notes": [
-    "Today 78°F and sunny (2% precip) is the only dry window before Monday's 50% T-storm chance.",
-    "Monday–Tuesday both carry ~50% precip — natural rainfall will cover irrigation for all beds mid-week.",
-    "Post-storm wet conditions Wednesday raise slug pressure on newly established w1 and w4.",
-    "Tuesday night drops to 42°F — no frost risk for any active planting."
+    "Today is dry at 78°F (2% precip) — the only reliable outdoor window before Monday's 50% afternoon storm risk.",
+    "Monday–Tuesday carry 50–52% precip chances; if storms miss, newly sown w1 and w4 won't get enough natural moisture to skip irrigation.",
+    "If Monday–Tuesday rain does land, hold irrigation and check bed moisture Wednesday before watering again.",
+    "Tuesday night low 42°F — no frost risk for any active planting this week."
   ],
   "surfaced_tasks": [],
   "suggested_tasks": [
     {
-      "title": "Check Sugar Bon snap peas for harvest",
+      "title": "Water strawberry and onion beds before storms",
       "due_date": "2026-05-03",
-      "description": "Sugar Bon matures in 55 days — at day 56, pods are ready now and mature pods split after rain.",
-      "bed_id": "c2",
-      "urgency": "high"
+      "description": "Two days since last irrigation and 78°F today — water w1 and w4 now since Monday's 50% storm chance isn't guaranteed to deliver enough moisture for newly sown beds.",
+      "bed_id": "w1",
+      "urgency": "normal"
     }
   ]
 }
