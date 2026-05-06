@@ -1,18 +1,18 @@
 {
-  "headline": "Storms today; dry Wednesday opens the week",
+  "headline": "Overnight rain clears; 80°F heat arrives Friday",
   "weather_notes": [
-    "Today's 65% storm chance delivers natural irrigation — skip manual watering through Wednesday.",
-    "Wednesday clears to sunny and dry (62°F, 5% precip) — the best outdoor work window this week.",
-    "Thursday warms to 76°F with 0% precip — a second clean outdoor day if needed.",
-    "Tonight's low of 42°F poses no frost risk to any active planting."
+    "NWS Special Weather Statement active as of 2:17 AM today — check NWS SLC before outdoor work.",
+    "Tonight's 65-70% rain provides natural irrigation; skip Wednesday watering for all beds.",
+    "Wednesday clears to sunny 62°F — the week's cleanest window for outdoor tasks.",
+    "Thursday-Friday warm to 77-80°F, first real heat of the season; newly sown beds will dry out fast."
   ],
   "surfaced_tasks": [],
   "suggested_tasks": [
     {
-      "title": "Check onion emergence, resow if needed",
-      "due_date": "2026-05-09",
-      "description": "Onions sown April 25 hit day 14 on May 9 — if no sprouts visible by then, resow before soil warms past the ideal germination window.",
-      "bed_id": "w4",
+      "title": "Check c1 bean moisture before Thursday heat",
+      "due_date": "2026-05-08",
+      "description": "Beans sown May 3 need consistent soil moisture through germination; overnight rain covers Wednesday, but 77-80°F heat arriving Thursday will dry the bed before the 7-10 day germination window closes.",
+      "bed_id": "c1",
       "urgency": "normal"
     }
   ]
