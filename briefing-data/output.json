@@ -1,19 +1,19 @@
 {
-  "headline": "Overnight rain clears; 80°F heat arrives Friday",
+  "headline": "Sunny and dry all week; Sugar Bon peas overdue",
   "weather_notes": [
-    "NWS Special Weather Statement active as of 2:17 AM today — check NWS SLC before outdoor work.",
-    "Tonight's 65-70% rain provides natural irrigation; skip Wednesday watering for all beds.",
-    "Wednesday clears to sunny 62°F — the week's cleanest window for outdoor tasks.",
-    "Thursday-Friday warm to 77-80°F, first real heat of the season; newly sown beds will dry out fast."
+    "No rain through Saturday (0–4% daily) — no natural irrigation coming; any pest or foliar treatment applied this week will hold.",
+    "Highs of 77–79°F Thursday through Saturday offer a clean, extended outdoor work window.",
+    "Overnight lows of 44–52°F — no frost risk for any active planting; no covers needed.",
+    "Warm dry conditions will continue to dry raised beds — last watering was May 3."
   ],
   "surfaced_tasks": [],
   "suggested_tasks": [
     {
-      "title": "Check c1 bean moisture before Thursday heat",
-      "due_date": "2026-05-08",
-      "description": "Beans sown May 3 need consistent soil moisture through germination; overnight rain covers Wednesday, but 77-80°F heat arriving Thursday will dry the bed before the 7-10 day germination window closes.",
-      "bed_id": "c1",
-      "urgency": "normal"
+      "title": "Harvest Sugar Bon snap peas now",
+      "due_date": "2026-05-07",
+      "description": "Day 60 from planting — Sugar Bon matures at 55 days, pods are past peak and will toughen quickly in this week's 78°F+ heat.",
+      "bed_id": "c2",
+      "urgency": "high"
     }
   ]
 }
