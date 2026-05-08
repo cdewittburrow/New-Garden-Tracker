@@ -1,17 +1,17 @@
 {
-  "headline": "Sunny and dry all week; Sugar Bon peas overdue",
+  "headline": "84°F Sunday — harvest Sugar Bon before pods toughen",
   "weather_notes": [
-    "No rain through Saturday (0–4% daily) — no natural irrigation coming; any pest or foliar treatment applied this week will hold.",
-    "Highs of 77–79°F Thursday through Saturday offer a clean, extended outdoor work window.",
-    "Overnight lows of 44–52°F — no frost risk for any active planting; no covers needed.",
-    "Warm dry conditions will continue to dry raised beds — last watering was May 3."
+    "Sunday reaches 84°F with zero rain forecast all week — newly sown beds (w1, w4, c1) will dry fast; water by Saturday.",
+    "No precipitation through the week (0–2% daily) — clean window for any outdoor task; no washoff risk.",
+    "Overnight lows of 48–55°F — no frost risk for any active planting, no covers needed.",
+    "Fri–Sun all sunny and clear — best three-day outdoor work stretch of the season so far."
   ],
   "surfaced_tasks": [],
   "suggested_tasks": [
     {
       "title": "Harvest Sugar Bon snap peas now",
-      "due_date": "2026-05-07",
-      "description": "Day 60 from planting — Sugar Bon matures at 55 days, pods are past peak and will toughen quickly in this week's 78°F+ heat.",
+      "due_date": "2026-05-09",
+      "description": "Day 61 from planting against a 55-day DTM — pods are overdue and Sunday's 84°F will accelerate toughening and splitting.",
       "bed_id": "c2",
       "urgency": "high"
     }
