@@ -1,5 +1,5 @@
 {
-  "today": "2026-05-07",
+  "today": "2026-05-08",
   "plantings": [
     {
       "id": "79526620-7d75-4886-b31d-7c9bf731edc9",
@@ -426,6 +426,11 @@
   "waterings": [
     {
       "zone": 2,
+      "watered_date": "2026-05-07",
+      "duration_minutes": 10
+    },
+    {
+      "zone": 2,
       "watered_date": "2026-05-03",
       "duration_minutes": 10
     },
@@ -468,11 +473,6 @@
       "zone": 2,
       "watered_date": "2026-03-28",
       "duration_minutes": 5
-    },
-    {
-      "zone": 2,
-      "watered_date": "2026-03-27",
-      "duration_minutes": 5
     }
   ],
   "weather": {
@@ -480,62 +480,24 @@
       {
         "number": 1,
         "name": "Overnight",
-        "startTime": "2026-05-07T02:00:00-06:00",
-        "endTime": "2026-05-07T06:00:00-06:00",
+        "startTime": "2026-05-08T01:00:00-06:00",
+        "endTime": "2026-05-08T06:00:00-06:00",
         "isDaytime": false,
-        "temperature": 44,
+        "temperature": 49,
         "temperatureUnit": "F",
         "temperatureTrend": null,
         "probabilityOfPrecipitation": {
           "unitCode": "wmoUnit:percent",
           "value": 0
         },
-        "windSpeed": "8 mph",
-        "windDirection": "SSE",
-        "icon": "https://api.weather.gov/icons/land/night/sct?size=medium",
-        "shortForecast": "Partly Cloudy",
-        "detailedForecast": "Partly cloudy. Low around 44, with temperatures rising to around 47 overnight. South southeast wind around 8 mph."
+        "windSpeed": "2 mph",
+        "windDirection": "W",
+        "icon": "https://api.weather.gov/icons/land/night/few?size=medium",
+        "shortForecast": "Mostly Clear",
+        "detailedForecast": "Mostly clear. Low around 49, with temperatures rising to around 52 overnight. West wind around 2 mph."
       },
       {
         "number": 2,
-        "name": "Thursday",
-        "startTime": "2026-05-07T06:00:00-06:00",
-        "endTime": "2026-05-07T18:00:00-06:00",
-        "isDaytime": true,
-        "temperature": 78,
-        "temperatureUnit": "F",
-        "temperatureTrend": null,
-        "probabilityOfPrecipitation": {
-          "unitCode": "wmoUnit:percent",
-          "value": 2
-        },
-        "windSpeed": "8 to 12 mph",
-        "windDirection": "SW",
-        "icon": "https://api.weather.gov/icons/land/day/sct?size=medium",
-        "shortForecast": "Mostly Sunny",
-        "detailedForecast": "Mostly sunny, with a high near 78. Southwest wind 8 to 12 mph."
-      },
-      {
-        "number": 3,
-        "name": "Thursday Night",
-        "startTime": "2026-05-07T18:00:00-06:00",
-        "endTime": "2026-05-08T06:00:00-06:00",
-        "isDaytime": false,
-        "temperature": 50,
-        "temperatureUnit": "F",
-        "temperatureTrend": null,
-        "probabilityOfPrecipitation": {
-          "unitCode": "wmoUnit:percent",
-          "value": 4
-        },
-        "windSpeed": "2 to 7 mph",
-        "windDirection": "NW",
-        "icon": "https://api.weather.gov/icons/land/night/few?size=medium",
-        "shortForecast": "Mostly Clear",
-        "detailedForecast": "Mostly clear. Low around 50, with temperatures rising to around 52 overnight. Northwest wind 2 to 7 mph."
-      },
-      {
-        "number": 4,
         "name": "Friday",
         "startTime": "2026-05-08T06:00:00-06:00",
         "endTime": "2026-05-08T18:00:00-06:00",
@@ -545,16 +507,16 @@
         "temperatureTrend": null,
         "probabilityOfPrecipitation": {
           "unitCode": "wmoUnit:percent",
-          "value": 0
+          "value": 1
         },
         "windSpeed": "2 to 9 mph",
-        "windDirection": "WNW",
+        "windDirection": "SW",
         "icon": "https://api.weather.gov/icons/land/day/few?size=medium",
         "shortForecast": "Sunny",
-        "detailedForecast": "Sunny, with a high near 79. West northwest wind 2 to 9 mph."
+        "detailedForecast": "Sunny, with a high near 79. Southwest wind 2 to 9 mph."
       },
       {
-        "number": 5,
+        "number": 3,
         "name": "Friday Night",
         "startTime": "2026-05-08T18:00:00-06:00",
         "endTime": "2026-05-09T06:00:00-06:00",
@@ -564,21 +526,21 @@
         "temperatureTrend": null,
         "probabilityOfPrecipitation": {
           "unitCode": "wmoUnit:percent",
-          "value": 0
+          "value": 2
         },
-        "windSpeed": "2 to 7 mph",
-        "windDirection": "ENE",
+        "windSpeed": "2 to 6 mph",
+        "windDirection": "NNW",
         "icon": "https://api.weather.gov/icons/land/night/few?size=medium",
         "shortForecast": "Mostly Clear",
-        "detailedForecast": "Mostly clear, with a low around 52. East northeast wind 2 to 7 mph."
+        "detailedForecast": "Mostly clear. Low around 52, with temperatures rising to around 54 overnight. North northwest wind 2 to 6 mph."
       },
       {
-        "number": 6,
+        "number": 4,
         "name": "Saturday",
         "startTime": "2026-05-09T06:00:00-06:00",
         "endTime": "2026-05-09T18:00:00-06:00",
         "isDaytime": true,
-        "temperature": 77,
+        "temperature": 76,
         "temperatureUnit": "F",
         "temperatureTrend": null,
         "probabilityOfPrecipitation": {
@@ -586,18 +548,18 @@
           "value": 0
         },
         "windSpeed": "2 to 10 mph",
-        "windDirection": "N",
+        "windDirection": "NW",
         "icon": "https://api.weather.gov/icons/land/day/few?size=medium",
         "shortForecast": "Sunny",
-        "detailedForecast": "Sunny, with a high near 77."
+        "detailedForecast": "Sunny, with a high near 76. Northwest wind 2 to 10 mph."
       },
       {
-        "number": 7,
+        "number": 5,
         "name": "Saturday Night",
         "startTime": "2026-05-09T18:00:00-06:00",
         "endTime": "2026-05-10T06:00:00-06:00",
         "isDaytime": false,
-        "temperature": 49,
+        "temperature": 48,
         "temperatureUnit": "F",
         "temperatureTrend": null,
         "probabilityOfPrecipitation": {
@@ -605,15 +567,79 @@
           "value": 0
         },
         "windSpeed": "2 to 8 mph",
-        "windDirection": "E",
+        "windDirection": "ENE",
         "icon": "https://api.weather.gov/icons/land/night/few?size=medium",
         "shortForecast": "Mostly Clear",
-        "detailedForecast": "Mostly clear, with a low around 49."
+        "detailedForecast": "Mostly clear, with a low around 48. East northeast wind 2 to 8 mph."
+      },
+      {
+        "number": 6,
+        "name": "Sunday",
+        "startTime": "2026-05-10T06:00:00-06:00",
+        "endTime": "2026-05-10T18:00:00-06:00",
+        "isDaytime": true,
+        "temperature": 84,
+        "temperatureUnit": "F",
+        "temperatureTrend": null,
+        "probabilityOfPrecipitation": {
+          "unitCode": "wmoUnit:percent",
+          "value": 0
+        },
+        "windSpeed": "5 mph",
+        "windDirection": "S",
+        "icon": "https://api.weather.gov/icons/land/day/few?size=medium",
+        "shortForecast": "Sunny",
+        "detailedForecast": "Sunny, with a high near 84."
+      },
+      {
+        "number": 7,
+        "name": "Sunday Night",
+        "startTime": "2026-05-10T18:00:00-06:00",
+        "endTime": "2026-05-11T06:00:00-06:00",
+        "isDaytime": false,
+        "temperature": 55,
+        "temperatureUnit": "F",
+        "temperatureTrend": null,
+        "probabilityOfPrecipitation": {
+          "unitCode": "wmoUnit:percent",
+          "value": 0
+        },
+        "windSpeed": "3 to 7 mph",
+        "windDirection": "ESE",
+        "icon": "https://api.weather.gov/icons/land/night/few?size=medium",
+        "shortForecast": "Mostly Clear",
+        "detailedForecast": "Mostly clear, with a low around 55."
       }
     ],
     "alerts": []
   },
   "recent_briefings": [
+    {
+      "payload": {
+        "headline": "Sunny and dry all week; Sugar Bon peas overdue",
+        "weather_notes": [
+          "No rain through Saturday (0–4% daily) — no natural irrigation coming; any pest or foliar treatment applied this week will hold.",
+          "Highs of 77–79°F Thursday through Saturday offer a clean, extended outdoor work window.",
+          "Overnight lows of 44–52°F — no frost risk for any active planting; no covers needed.",
+          "Warm dry conditions will continue to dry raised beds — last watering was May 3."
+        ],
+        "surfaced_tasks": [],
+        "suggested_tasks": [
+          {
+            "title": "Harvest Sugar Bon snap peas now",
+            "bed_id": "c2",
+            "urgency": "high",
+            "due_date": "2026-05-07",
+            "description": "Day 60 from planting — Sugar Bon matures at 55 days, pods are past peak and will toughen quickly in this week's 78°F+ heat."
+          }
+        ]
+      },
+      "suggestions_state": {
+        "accepted": [],
+        "rejected": []
+      },
+      "generated_at": "2026-05-07T12:19:29+00:00"
+    },
     {
       "payload": {
         "headline": "Overnight rain clears; 80°F heat arrives Friday",
@@ -1062,49 +1088,6 @@
         "rejected": []
       },
       "generated_at": "2026-04-24T12:07:49+00:00"
-    },
-    {
-      "payload": {
-        "headline": "Friday window: inspect peas and snap garlic scapes",
-        "weather_notes": [
-          "Today's 60% storm chance washes off any Bt immediately — hold pest treatments until Friday.",
-          "Friday clears to 65°F and sunny — best garden work window before Saturday night's 73% storm.",
-          "Overnight lows of 38–40°F through Friday pose no frost risk to peas or garlic.",
-          "Saturday night's 73% precip chance means any Bt applied Friday has just one day to work — don't wait."
-        ],
-        "surfaced_tasks": [
-          {
-            "title": "Check hardneck garlic for scapes",
-            "bed_id": "w4",
-            "reason": "Due Saturday and late April is the prime emergence window in Zone 7b — snap before they curl fully or bulb size is lost.",
-            "task_id": "88"
-          },
-          {
-            "title": "Inspect for aphids — apply Bt if caterpillars present",
-            "bed_id": "c4",
-            "reason": "Peas are 10 days from expected harvest; Friday's dry window is the last chance to apply Bt before Saturday night's heavy rain.",
-            "task_id": "38"
-          },
-          {
-            "title": "Inspect for aphids — apply Bt if caterpillars present",
-            "bed_id": "c2",
-            "reason": "Peas are 10 days from expected harvest; Friday's dry window is the last chance to apply Bt before Saturday night's heavy rain.",
-            "task_id": "43"
-          },
-          {
-            "title": "Inspect for aphids — apply Bt if caterpillars present",
-            "bed_id": "c3",
-            "reason": "Peas are 10 days from expected harvest; Friday's dry window is the last chance to apply Bt before Saturday night's heavy rain.",
-            "task_id": "48"
-          }
-        ],
-        "suggested_tasks": []
-      },
-      "suggestions_state": {
-        "accepted": [],
-        "rejected": []
-      },
-      "generated_at": "2026-04-23T12:11:26+00:00"
     }
   ]
 }
