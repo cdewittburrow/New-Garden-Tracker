@@ -1,18 +1,18 @@
 {
-  "headline": "84°F Sunday — harvest Sugar Bon before pods toughen",
+  "headline": "93°F Monday — water young beds by Sunday",
   "weather_notes": [
-    "Sunday reaches 84°F with zero rain forecast all week — newly sown beds (w1, w4, c1) will dry fast; water by Saturday.",
-    "No precipitation through the week (0–2% daily) — clean window for any outdoor task; no washoff risk.",
-    "Overnight lows of 48–55°F — no frost risk for any active planting, no covers needed.",
-    "Fri–Sun all sunny and clear — best three-day outdoor work stretch of the season so far."
+    "Monday reaches 93°F — first heat spike of the season — with zero rain forecast all week.",
+    "Today (76°F) and Sunday (82°F) are the last two cooler windows before the heat arrives.",
+    "No precipitation through at least Monday; zone 2 was last watered May 7.",
+    "Overnight lows of 48–54°F pose no frost risk, but warm nights will accelerate surface moisture loss."
   ],
   "surfaced_tasks": [],
   "suggested_tasks": [
     {
-      "title": "Harvest Sugar Bon snap peas now",
-      "due_date": "2026-05-09",
-      "description": "Day 61 from planting against a 55-day DTM — pods are overdue and Sunday's 84°F will accelerate toughening and splitting.",
-      "bed_id": "c2",
+      "title": "Water c1, w1, w4 before Monday heat spike",
+      "due_date": "2026-05-10",
+      "description": "Beans are mid-germination (day 6) and 93°F Monday with no rain could stall or kill germination — water today or Sunday.",
+      "bed_id": "c1",
       "urgency": "high"
     }
   ]
