@@ -1,18 +1,18 @@
 {
-  "headline": "93°F Monday — water young beds by Sunday",
+  "headline": "92°F Monday hits day-2 tomato transplants hard",
   "weather_notes": [
-    "Monday reaches 93°F — first heat spike of the season — with zero rain forecast all week.",
-    "Today (76°F) and Sunday (82°F) are the last two cooler windows before the heat arrives.",
-    "No precipitation through at least Monday; zone 2 was last watered May 7.",
-    "Overnight lows of 48–54°F pose no frost risk, but warm nights will accelerate surface moisture loss."
+    "Monday 92°F and Tuesday 95°F with zero rain — the hottest stretch yet, arriving when e1–e4 tomatoes are only 24–48 hours in the ground.",
+    "No precipitation through at least Tuesday (0% all days) — irrigation is the only moisture source for every bed this week.",
+    "Overnight lows climb to 53–63°F Monday–Tuesday nights, eliminating overnight heat relief and keeping fresh transplants stressed around the clock.",
+    "Peas (c2–c4) logged at peak flower May 9 — temperatures above 85°F trigger blossom drop, and Tuesday's 95°F will cut set yield."
   ],
   "surfaced_tasks": [],
   "suggested_tasks": [
     {
-      "title": "Water c1, w1, w4 before Monday heat spike",
+      "title": "Deep-water e1–e4 tomatoes before Monday heat",
       "due_date": "2026-05-10",
-      "description": "Beans are mid-germination (day 6) and 93°F Monday with no rain could stall or kill germination — water today or Sunday.",
-      "bed_id": "c1",
+      "description": "Transplants are day 2 — a deep soak today before 92°F Monday is the single best protection against transplant shock and wilting failure.",
+      "bed_id": "e1",
       "urgency": "high"
     }
   ]
