@@ -1908,14 +1908,14 @@ async function getLastWatering(zone){
 
 async function saveWatering(zone,durationMinutes){
   try{
-    const res=await fetch(`${SB_URL}/rest/v1/waterings`,{
-      method:'POST',
-      headers:SB_HEADERS,
-      body:JSON.stringify({zone,watered_date:today(),duration_minutes:durationMinutes,source:'manual'})
+    const res=await fetch(`${SB_URL}/functions/v1/water-zone`,{
+      method:'PUT',
+      headers:{'Content-Type':'application/json'},
+      body:JSON.stringify({zone,durationMinutes})
     });
     if(!res.ok)throw new Error(await res.text());
   }catch(e){
-    console.error('Failed to save watering:',e);
+    console.error('Failed to start watering:',e);
     throw e;
   }
 }
@@ -2589,7 +2589,7 @@ function renderDetail(bedId){
     <button class="insp-pill insp-pill-water" id="water-pill" onclick="openWaterModal('${bedId}')">
       <span class="pill-icon">💧</span>
       <div class="pill-text">
-        <div class="pill-label">Log water</div>
+        <div class="pill-label">Start watering</div>
         <div class="pill-sub" id="water-sub">—</div>
       </div>
     </button>
@@ -3791,14 +3791,14 @@ function openWaterModal(bedId){
   overlay.className='insp-modal-overlay';
   overlay.id='insp-modal';
   overlay.innerHTML=`<div class="insp-modal">
-    <div class="insp-modal-title">Log watering — Zone ${zone}</div>
+    <div class="insp-modal-title">Start watering — Zone ${zone}</div>
     <div class="plan-form-field">
       <label class="plan-field-label">Duration (minutes)</label>
       <input class="log-input" type="number" id="modal-water-dur" value="10" min="1" max="240">
     </div>
     <div class="insp-modal-actions">
       <button class="insp-modal-cancel" onclick="closeInspModal()">Cancel</button>
-      <button class="insp-modal-confirm" id="modal-confirm-btn" onclick="submitWaterModal('${bedId}')">Log water</button>
+      <button class="insp-modal-confirm" id="modal-confirm-btn" onclick="submitWaterModal('${bedId}')">Start watering</button>
     </div>
   </div>`;
   overlay.addEventListener('click',e=>{if(e.target===overlay)closeInspModal();});
@@ -3927,12 +3927,12 @@ async function deleteCustomTask(taskId,plantingId,bedId){
 async function submitWaterModal(bedId){
   const dur=parseInt(document.getElementById('modal-water-dur')?.value)||10;
   const btn=document.getElementById('modal-confirm-btn');
-  if(btn){btn.disabled=true;btn.textContent='Logging…';}
+  if(btn){btn.disabled=true;btn.textContent='Starting…';}
   try{
     await saveWatering(BEDS[bedId].zone,dur);
     closeInspModal();
     await loadInspectorData(bedId);
-  }catch(e){if(btn){btn.disabled=false;btn.textContent='Log water';}}
+  }catch(e){if(btn){btn.disabled=false;btn.textContent='Start watering';}}
 }
 
 async function submitNoteModal(plantingId){
