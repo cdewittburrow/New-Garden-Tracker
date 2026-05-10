@@ -1506,18 +1506,18 @@ function toggleTheme(){
 
 /* ── BED DATA ───────────────────────────────────── */
 const BEDS={
-  w1:{id:'W1',zone:2,emitters:4,gph:4,slotA:{crop:'Strawberries',variety:'Everbearing — USDA Organic (Fast Growing Trees)',source:'Fast Growing Trees',sown:null,harvest:'Late spring, early fall, possible third in late fall',status:'planned'}},
-  w2:{id:'W2',zone:2,emitters:4,gph:4,slotA:{crop:'Tomato',variety:'Orange Hat (determinate)',sown:null,harvest:'Jul–Aug, 2026',status:'planned'}},
-  w3:{id:'W3',zone:2,emitters:4,gph:4,slotA:{crop:'Garlic',variety:'Elephant & Music (softneck)',sown:'Oct 27, 2025',harvest:'~Jul 15, 2026',status:'growing'}},
-  w4:{id:'W4',zone:2,emitters:4,gph:4,slotA:{crop:'Garlic',variety:'Italian Red (hardneck)',sown:'Oct 27, 2025',harvest:'~Jul 15, 2026',status:'growing'}},
-  c1:{id:'C1',zone:2,emitters:4,gph:4,slotA:{crop:'Radish',variety:'18-Day French',sown:'Mar 8, 2026',harvest:'~Mar 26, 2026',status:'sown'}},
-  c2:{id:'C2',zone:2,emitters:4,gph:4,slotA:{crop:'Snap Peas',variety:'Sugar Bon',source:'Baker Creek',sown:'Mar 8, 2026',harvest:'~May 3, 2026',status:'sown'}},
-  c3:{id:'C3',zone:2,emitters:4,gph:4,slotA:{crop:'Peas',variety:'Lincoln Garden',source:'Baker Creek',sown:'Mar 8, 2026',harvest:'~May 3, 2026',status:'sown'}},
-  c4:{id:'C4',zone:2,emitters:4,gph:4,slotA:{crop:'Peas',variety:"Lillian's Caseload",source:'Baker Creek',sown:'Mar 8, 2026',harvest:'~May 3, 2026',status:'sown'}},
-  e1:{id:'E1',zone:1,emitters:4,gph:8,slotA:{crop:'Tomato',variety:"Martino's Roma (determinate)",sown:null,harvest:'Jul 20 – Aug 10, 2026',status:'planned'}},
-  e2:{id:'E2',zone:1,emitters:4,gph:8,slotA:{crop:'Tomato',variety:'Amish Paste (indeterminate)',sown:null,harvest:'Aug 1–10, 2026',status:'planned'}},
-  e3:{id:'E3',zone:1,emitters:4,gph:8,slotA:{crop:'Tomato',variety:'Comstock Sauce & Slice (indeterminate)',sown:null,harvest:'Aug 5–15, 2026',status:'planned'}},
-  e4:{id:'E4',zone:1,emitters:4,gph:8,slotA:{crop:'Tomato',variety:'Bonny Best (indeterminate)',sown:null,harvest:'Jul 30 – Aug 10, 2026',status:'planned'}}
+  w1:{id:'W1',zone:1,emitters:4,gph:4,slotA:{crop:'Strawberries',variety:'Everbearing — USDA Organic (Fast Growing Trees)',source:'Fast Growing Trees',sown:null,harvest:'Late spring, early fall, possible third in late fall',status:'planned'}},
+  w2:{id:'W2',zone:1,emitters:4,gph:4,slotA:{crop:'Tomato',variety:'Orange Hat (determinate)',sown:null,harvest:'Jul–Aug, 2026',status:'planned'}},
+  w3:{id:'W3',zone:1,emitters:4,gph:4,slotA:{crop:'Garlic',variety:'Elephant & Music (softneck)',sown:'Oct 27, 2025',harvest:'~Jul 15, 2026',status:'growing'}},
+  w4:{id:'W4',zone:1,emitters:4,gph:4,slotA:{crop:'Garlic',variety:'Italian Red (hardneck)',sown:'Oct 27, 2025',harvest:'~Jul 15, 2026',status:'growing'}},
+  c1:{id:'C1',zone:1,emitters:4,gph:4,slotA:{crop:'Radish',variety:'18-Day French',sown:'Mar 8, 2026',harvest:'~Mar 26, 2026',status:'sown'}},
+  c2:{id:'C2',zone:1,emitters:4,gph:4,slotA:{crop:'Snap Peas',variety:'Sugar Bon',source:'Baker Creek',sown:'Mar 8, 2026',harvest:'~May 3, 2026',status:'sown'}},
+  c3:{id:'C3',zone:1,emitters:4,gph:4,slotA:{crop:'Peas',variety:'Lincoln Garden',source:'Baker Creek',sown:'Mar 8, 2026',harvest:'~May 3, 2026',status:'sown'}},
+  c4:{id:'C4',zone:1,emitters:4,gph:4,slotA:{crop:'Peas',variety:"Lillian's Caseload",source:'Baker Creek',sown:'Mar 8, 2026',harvest:'~May 3, 2026',status:'sown'}},
+  e1:{id:'E1',zone:2,emitters:4,gph:8,slotA:{crop:'Tomato',variety:"Martino's Roma (determinate)",sown:null,harvest:'Jul 20 – Aug 10, 2026',status:'planned'}},
+  e2:{id:'E2',zone:2,emitters:4,gph:8,slotA:{crop:'Tomato',variety:'Amish Paste (indeterminate)',sown:null,harvest:'Aug 1–10, 2026',status:'planned'}},
+  e3:{id:'E3',zone:2,emitters:4,gph:8,slotA:{crop:'Tomato',variety:'Comstock Sauce & Slice (indeterminate)',sown:null,harvest:'Aug 5–15, 2026',status:'planned'}},
+  e4:{id:'E4',zone:2,emitters:4,gph:8,slotA:{crop:'Tomato',variety:'Bonny Best (indeterminate)',sown:null,harvest:'Jul 30 – Aug 10, 2026',status:'planned'}}
 };
 const STATUS={
   planned:{label:'Planned',cls:'s-planned'},
@@ -3521,7 +3521,7 @@ function renderPlanForm(bedId,p){
   const m=planMethod;
   const bed=BEDS[bedId];
   const isActive=p&&p.planting_state==='active'&&p.planted_date;
-  const zoneGph=bed.zone===1?'Zone 1 · 2 GPH':'Zone 2 · 1 GPH';
+  const zoneGph=bed.zone===1?'Zone 1 · 1 GPH':'Zone 2 · 2 GPH';
   return `<div class="plan-form-header">
     <span class="insp-bed-chip">${bedId.toUpperCase()}</span>
     <span class="plan-form-title">${p?'Edit planting':'Plan this bed'}</span>
