@@ -1911,7 +1911,7 @@ async function saveWatering(zone,durationMinutes){
     const res=await fetch(`${SB_URL}/functions/v1/water-zone`,{
       method:'PUT',
       headers:{'Content-Type':'application/json'},
-      body:JSON.stringify({zone,durationMinutes})
+      body:JSON.stringify({zone,durationMinutes,date:today()})
     });
     if(!res.ok)throw new Error(await res.text());
   }catch(e){
