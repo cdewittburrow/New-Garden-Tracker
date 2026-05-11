@@ -1,17 +1,24 @@
 {
-  "headline": "92°F Monday hits day-2 tomato transplants hard",
+  "headline": "92-94°F heat dome hits day-2 tomato transplants",
   "weather_notes": [
-    "Monday 92°F and Tuesday 95°F with zero rain — the hottest stretch yet, arriving when e1–e4 tomatoes are only 24–48 hours in the ground.",
-    "No precipitation through at least Tuesday (0% all days) — irrigation is the only moisture source for every bed this week.",
-    "Overnight lows climb to 53–63°F Monday–Tuesday nights, eliminating overnight heat relief and keeping fresh transplants stressed around the clock.",
-    "Peas (c2–c4) logged at peak flower May 9 — temperatures above 85°F trigger blossom drop, and Tuesday's 95°F will cut set yield."
+    "Today 92°F and Tuesday 94°F with zero rain — day-2 tomato transplants face maximum stress with no natural moisture relief through Wednesday.",
+    "No precipitation through Tuesday (0%) — all beds depend entirely on irrigation; zone 1 and 2 were last watered May 9.",
+    "Peas (c2–c4) at peak flower — sustained 90°F+ temps trigger blossom drop and will reduce pod set for the June 3 harvest.",
+    "Wednesday brings a slight T-storm chance (14%) — if rain arrives, hold next irrigation and check soil moisture before watering again."
   ],
-  "surfaced_tasks": [],
+  "surfaced_tasks": [
+    {
+      "task_id": "94",
+      "bed_id": "e1",
+      "title": "Deep-water e1–e4 tomatoes before Monday heat",
+      "reason": "Overdue by one day — today IS the 92°F event and day-2 transplants need a deep soak now before Tuesday hits 94°F."
+    }
+  ],
   "suggested_tasks": [
     {
-      "title": "Deep-water e1–e4 tomatoes before Monday heat",
-      "due_date": "2026-05-10",
-      "description": "Transplants are day 2 — a deep soak today before 92°F Monday is the single best protection against transplant shock and wilting failure.",
+      "title": "Mulch base of e1–e4 tomato transplants",
+      "due_date": "2026-05-11",
+      "description": "A 2-3 inch mulch layer on day-2 transplants cuts soil temperature and halves moisture loss during back-to-back 90°F+ days.",
       "bed_id": "e1",
       "urgency": "high"
     }
