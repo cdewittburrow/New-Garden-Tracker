@@ -1,24 +1,17 @@
 {
-  "headline": "92-94°F heat dome hits day-2 tomato transplants",
+  "headline": "94°F hits day-4 tomatoes — water now",
   "weather_notes": [
-    "Today 92°F and Tuesday 94°F with zero rain — day-2 tomato transplants face maximum stress with no natural moisture relief through Wednesday.",
-    "No precipitation through Tuesday (0%) — all beds depend entirely on irrigation; zone 1 and 2 were last watered May 9.",
-    "Peas (c2–c4) at peak flower — sustained 90°F+ temps trigger blossom drop and will reduce pod set for the June 3 harvest.",
-    "Wednesday brings a slight T-storm chance (14%) — if rain arrives, hold next irrigation and check soil moisture before watering again."
+    "94°F today with zero precipitation — e1–e4 tomatoes are 4 days post-transplant and last irrigated May 9; wilt failure is likely without a deep soak today.",
+    "Wednesday hits 91°F with only a 20% storm chance — don't skip irrigation waiting for rain that probably won't come.",
+    "Wednesday night drops to 52°F and Thursday clears to 74°F — the heat breaks Thursday, the week's best outdoor work window.",
+    "Peas (c2–c4) logged at peak flower May 9 — two days of 90°F+ will cause significant blossom drop, shrinking the June 3 harvest."
   ],
-  "surfaced_tasks": [
-    {
-      "task_id": "94",
-      "bed_id": "e1",
-      "title": "Deep-water e1–e4 tomatoes before Monday heat",
-      "reason": "Overdue by one day — today IS the 92°F event and day-2 transplants need a deep soak now before Tuesday hits 94°F."
-    }
-  ],
+  "surfaced_tasks": [],
   "suggested_tasks": [
     {
-      "title": "Mulch base of e1–e4 tomato transplants",
-      "due_date": "2026-05-11",
-      "description": "A 2-3 inch mulch layer on day-2 transplants cuts soil temperature and halves moisture loss during back-to-back 90°F+ days.",
+      "title": "Water e1–e4 tomatoes thoroughly today",
+      "due_date": "2026-05-12",
+      "description": "Day-4 transplants last irrigated May 9; 94°F today will deplete soil moisture fast — a deep soak now prevents wilt and root damage.",
       "bed_id": "e1",
       "urgency": "high"
     }
