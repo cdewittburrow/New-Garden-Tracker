@@ -1,5 +1,5 @@
 {
-  "today": "2026-05-11",
+  "today": "2026-05-12",
   "plantings": [
     {
       "id": "79526620-7d75-4886-b31d-7c9bf731edc9",
@@ -159,13 +159,6 @@
       "due_date": "2026-05-06"
     },
     {
-      "id": 94,
-      "planting_id": "44002331-16ef-4f88-a215-e9db754dcec8",
-      "title": "Deep-water e1–e4 tomatoes before Monday heat",
-      "description": "Transplants are day 2 — a deep soak today before 92°F Monday is the single best protection against transplant shock and wilting failure.",
-      "due_date": "2026-05-10"
-    },
-    {
       "id": 65,
       "planting_id": "54c2c338-5c4d-4924-b91b-4ffc22ebb4b3",
       "title": "Check for suckers",
@@ -194,17 +187,17 @@
       "due_date": "2026-05-20"
     },
     {
-      "id": 22,
-      "planting_id": "54c2c338-5c4d-4924-b91b-4ffc22ebb4b3",
-      "title": "Mid-season feed — blood meal",
-      "description": "Work 1 tbsp blood meal per plant into top inch of soil. Apply once heavy fruiting begins to compensate for nitrogen demand. Skip if foliage is already very dark green — excess nitrogen pushes leaf growth at expense of fruit.",
-      "due_date": "2026-05-21"
-    },
-    {
       "id": 57,
       "planting_id": "54c2c338-5c4d-4924-b91b-4ffc22ebb4b3",
       "title": "Inspect for hornworms — apply Bt if found",
       "description": "Check undersides of leaves on lower third of plant. Look for dark frass (droppings) as first sign. If hornworms found: spray Bacillus thuringiensis (Bt) on affected foliage per label. Hand-pick any large worms already present. Reapply Bt after rain.",
+      "due_date": "2026-05-21"
+    },
+    {
+      "id": 22,
+      "planting_id": "54c2c338-5c4d-4924-b91b-4ffc22ebb4b3",
+      "title": "Mid-season feed — blood meal",
+      "description": "Work 1 tbsp blood meal per plant into top inch of soil. Apply once heavy fruiting begins to compensate for nitrogen demand. Skip if foliage is already very dark green — excess nitrogen pushes leaf growth at expense of fruit.",
       "due_date": "2026-05-21"
     },
     {
@@ -299,15 +292,15 @@
       "due_date": "2026-06-21"
     },
     {
-      "id": 9,
-      "planting_id": "e93f2f5c-dcb8-47e9-9933-31e7e813b7e4",
+      "id": 26,
+      "planting_id": "abebbe9f-e355-4c78-a77f-79d4c88d17f7",
       "title": "Harvest check",
       "description": "Harvest when lower 3-4 leaves have browned but upper 5-6 are still green. Do not wait until all leaves are brown — the wrapper will deteriorate. Dig carefully with a fork, do not pull by the stem.",
       "due_date": "2026-07-05"
     },
     {
-      "id": 26,
-      "planting_id": "abebbe9f-e355-4c78-a77f-79d4c88d17f7",
+      "id": 9,
+      "planting_id": "e93f2f5c-dcb8-47e9-9933-31e7e813b7e4",
       "title": "Harvest check",
       "description": "Harvest when lower 3-4 leaves have browned but upper 5-6 are still green. Do not wait until all leaves are brown — the wrapper will deteriorate. Dig carefully with a fork, do not pull by the stem.",
       "due_date": "2026-07-05"
@@ -542,45 +535,7 @@
       {
         "number": 1,
         "name": "Overnight",
-        "startTime": "2026-05-11T03:00:00-06:00",
-        "endTime": "2026-05-11T06:00:00-06:00",
-        "isDaytime": false,
-        "temperature": 53,
-        "temperatureUnit": "F",
-        "temperatureTrend": null,
-        "probabilityOfPrecipitation": {
-          "unitCode": "wmoUnit:percent",
-          "value": 0
-        },
-        "windSpeed": "7 mph",
-        "windDirection": "SSE",
-        "icon": "https://api.weather.gov/icons/land/night/few?size=medium",
-        "shortForecast": "Mostly Clear",
-        "detailedForecast": "Mostly clear. Low around 53, with temperatures rising to around 56 overnight. South southeast wind around 7 mph."
-      },
-      {
-        "number": 2,
-        "name": "Monday",
-        "startTime": "2026-05-11T06:00:00-06:00",
-        "endTime": "2026-05-11T18:00:00-06:00",
-        "isDaytime": true,
-        "temperature": 92,
-        "temperatureUnit": "F",
-        "temperatureTrend": null,
-        "probabilityOfPrecipitation": {
-          "unitCode": "wmoUnit:percent",
-          "value": 0
-        },
-        "windSpeed": "7 to 12 mph",
-        "windDirection": "SSW",
-        "icon": "https://api.weather.gov/icons/land/day/few?size=medium",
-        "shortForecast": "Sunny",
-        "detailedForecast": "Sunny, with a high near 92. South southwest wind 7 to 12 mph."
-      },
-      {
-        "number": 3,
-        "name": "Monday Night",
-        "startTime": "2026-05-11T18:00:00-06:00",
+        "startTime": "2026-05-12T02:00:00-06:00",
         "endTime": "2026-05-12T06:00:00-06:00",
         "isDaytime": false,
         "temperature": 59,
@@ -588,16 +543,16 @@
         "temperatureTrend": null,
         "probabilityOfPrecipitation": {
           "unitCode": "wmoUnit:percent",
-          "value": 1
+          "value": 0
         },
-        "windSpeed": "6 mph",
-        "windDirection": "SSE",
+        "windSpeed": "3 mph",
+        "windDirection": "S",
         "icon": "https://api.weather.gov/icons/land/night/few?size=medium",
         "shortForecast": "Mostly Clear",
-        "detailedForecast": "Mostly clear. Low around 59, with temperatures rising to around 62 overnight. South southeast wind around 6 mph."
+        "detailedForecast": "Mostly clear. Low around 59, with temperatures rising to around 61 overnight. South wind around 3 mph."
       },
       {
-        "number": 4,
+        "number": 2,
         "name": "Tuesday",
         "startTime": "2026-05-12T06:00:00-06:00",
         "endTime": "2026-05-12T18:00:00-06:00",
@@ -616,7 +571,7 @@
         "detailedForecast": "Sunny, with a high near 94. South southwest wind around 6 mph."
       },
       {
-        "number": 5,
+        "number": 3,
         "name": "Tuesday Night",
         "startTime": "2026-05-12T18:00:00-06:00",
         "endTime": "2026-05-13T06:00:00-06:00",
@@ -628,14 +583,14 @@
           "unitCode": "wmoUnit:percent",
           "value": 0
         },
-        "windSpeed": "7 mph",
-        "windDirection": "E",
+        "windSpeed": "6 to 9 mph",
+        "windDirection": "SE",
         "icon": "https://api.weather.gov/icons/land/night/few?size=medium",
         "shortForecast": "Mostly Clear",
-        "detailedForecast": "Mostly clear, with a low around 63. East wind around 7 mph."
+        "detailedForecast": "Mostly clear. Low around 63, with temperatures rising to around 67 overnight. Southeast wind 6 to 9 mph."
       },
       {
-        "number": 6,
+        "number": 4,
         "name": "Wednesday",
         "startTime": "2026-05-13T06:00:00-06:00",
         "endTime": "2026-05-13T18:00:00-06:00",
@@ -645,37 +600,113 @@
         "temperatureTrend": null,
         "probabilityOfPrecipitation": {
           "unitCode": "wmoUnit:percent",
-          "value": 8
+          "value": 18
         },
-        "windSpeed": "9 to 15 mph",
-        "windDirection": "SSE",
-        "icon": "https://api.weather.gov/icons/land/day/bkn?size=medium",
-        "shortForecast": "Partly Sunny",
-        "detailedForecast": "Partly sunny, with a high near 91."
+        "windSpeed": "14 mph",
+        "windDirection": "S",
+        "icon": "https://api.weather.gov/icons/land/day/bkn/tsra_hi,20?size=medium",
+        "shortForecast": "Partly Sunny then Slight Chance Showers And Thunderstorms",
+        "detailedForecast": "A slight chance of showers and thunderstorms after noon. Partly sunny, with a high near 91. South wind around 14 mph. Chance of precipitation is 20%."
       },
       {
-        "number": 7,
+        "number": 5,
         "name": "Wednesday Night",
         "startTime": "2026-05-13T18:00:00-06:00",
         "endTime": "2026-05-14T06:00:00-06:00",
         "isDaytime": false,
-        "temperature": 56,
+        "temperature": 52,
         "temperatureUnit": "F",
         "temperatureTrend": null,
         "probabilityOfPrecipitation": {
           "unitCode": "wmoUnit:percent",
-          "value": 14
+          "value": 15
         },
-        "windSpeed": "9 to 13 mph",
-        "windDirection": "S",
-        "icon": "https://api.weather.gov/icons/land/night/tsra_hi/sct?size=medium",
+        "windSpeed": "6 to 12 mph",
+        "windDirection": "WSW",
+        "icon": "https://api.weather.gov/icons/land/night/tsra_hi,20/sct?size=medium",
         "shortForecast": "Slight Chance Showers And Thunderstorms then Partly Cloudy",
-        "detailedForecast": "A slight chance of showers and thunderstorms before 9pm. Partly cloudy, with a low around 56."
+        "detailedForecast": "A slight chance of showers and thunderstorms before midnight. Partly cloudy, with a low around 52. West southwest wind 6 to 12 mph. Chance of precipitation is 20%."
+      },
+      {
+        "number": 6,
+        "name": "Thursday",
+        "startTime": "2026-05-14T06:00:00-06:00",
+        "endTime": "2026-05-14T18:00:00-06:00",
+        "isDaytime": true,
+        "temperature": 74,
+        "temperatureUnit": "F",
+        "temperatureTrend": null,
+        "probabilityOfPrecipitation": {
+          "unitCode": "wmoUnit:percent",
+          "value": 1
+        },
+        "windSpeed": "3 to 9 mph",
+        "windDirection": "NW",
+        "icon": "https://api.weather.gov/icons/land/day/few?size=medium",
+        "shortForecast": "Sunny",
+        "detailedForecast": "Sunny, with a high near 74."
+      },
+      {
+        "number": 7,
+        "name": "Thursday Night",
+        "startTime": "2026-05-14T18:00:00-06:00",
+        "endTime": "2026-05-15T06:00:00-06:00",
+        "isDaytime": false,
+        "temperature": 50,
+        "temperatureUnit": "F",
+        "temperatureTrend": null,
+        "probabilityOfPrecipitation": {
+          "unitCode": "wmoUnit:percent",
+          "value": 0
+        },
+        "windSpeed": "2 to 8 mph",
+        "windDirection": "E",
+        "icon": "https://api.weather.gov/icons/land/night/skc?size=medium",
+        "shortForecast": "Clear",
+        "detailedForecast": "Clear, with a low around 50."
       }
     ],
     "alerts": []
   },
   "recent_briefings": [
+    {
+      "payload": {
+        "headline": "92-94°F heat dome hits day-2 tomato transplants",
+        "weather_notes": [
+          "Today 92°F and Tuesday 94°F with zero rain — day-2 tomato transplants face maximum stress with no natural moisture relief through Wednesday.",
+          "No precipitation through Tuesday (0%) — all beds depend entirely on irrigation; zone 1 and 2 were last watered May 9.",
+          "Peas (c2–c4) at peak flower — sustained 90°F+ temps trigger blossom drop and will reduce pod set for the June 3 harvest.",
+          "Wednesday brings a slight T-storm chance (14%) — if rain arrives, hold next irrigation and check soil moisture before watering again."
+        ],
+        "surfaced_tasks": [
+          {
+            "title": "Deep-water e1–e4 tomatoes before Monday heat",
+            "bed_id": "e1",
+            "reason": "Overdue by one day — today IS the 92°F event and day-2 transplants need a deep soak now before Tuesday hits 94°F.",
+            "task_id": "94"
+          }
+        ],
+        "suggested_tasks": [
+          {
+            "title": "Mulch base of e1–e4 tomato transplants",
+            "bed_id": "e1",
+            "urgency": "high",
+            "due_date": "2026-05-11",
+            "description": "A 2-3 inch mulch layer on day-2 transplants cuts soil temperature and halves moisture loss during back-to-back 90°F+ days."
+          }
+        ]
+      },
+      "suggestions_state": {
+        "accepted": [
+          0
+        ],
+        "rejected": [],
+        "surfaced_dismissed": [
+          "94"
+        ]
+      },
+      "generated_at": "2026-05-11T12:26:03+00:00"
+    },
     {
       "payload": {
         "headline": "92°F Monday hits day-2 tomato transplants hard",
@@ -1072,37 +1103,6 @@
         ]
       },
       "generated_at": "2026-04-28T12:13:04+00:00"
-    },
-    {
-      "payload": {
-        "headline": "Storms clear Wednesday — act on scapes and slugs",
-        "weather_notes": [
-          "90% rain today through Monday evening makes outdoor work impossible — hold all tasks until Tuesday at earliest.",
-          "Wednesday opens to 66°F and mostly sunny (6% precip) — best window this week for any garden task.",
-          "Monday night low 36°F and Tuesday night 38°F are well above frost — no covers needed for peas, onions, or strawberries.",
-          "Heavy rain tonight will spike slug activity in newly planted w1 — inspect after soil drains Wednesday."
-        ],
-        "surfaced_tasks": [
-          {
-            "title": "Check hardneck garlic for scapes",
-            "bed_id": "w3",
-            "reason": "One day overdue; Wednesday's clear window is the first opportunity after multi-day storms, and the Zone 7b scape window closes fast.",
-            "task_id": "88"
-          },
-          {
-            "title": "Inspect for slugs",
-            "bed_id": "w1",
-            "reason": "Due May 1 and 90% rain today followed by overnight storms sharply raises slug pressure in a 2-day-old strawberry bed.",
-            "task_id": "30"
-          }
-        ],
-        "suggested_tasks": []
-      },
-      "suggestions_state": {
-        "accepted": [],
-        "rejected": []
-      },
-      "generated_at": "2026-04-27T12:20:28+00:00"
     }
   ]
 }
