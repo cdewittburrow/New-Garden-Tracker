@@ -1,5 +1,5 @@
 {
-  "today": "2026-05-12",
+  "today": "2026-05-13",
   "plantings": [
     {
       "id": "79526620-7d75-4886-b31d-7c9bf731edc9",
@@ -337,9 +337,29 @@
       "note": "Bajillion flowers"
     },
     {
+      "planting_id": "5ed2b328-d443-49f2-966e-547a79002f31",
+      "date": "May 12, 2026",
+      "note": "Pods observed. Lots already"
+    },
+    {
+      "planting_id": "e0280648-bd37-43b0-b99a-5b1ceed52faa",
+      "date": "May 12, 2026",
+      "note": "Pods just starting to appear"
+    },
+    {
+      "planting_id": "fcae49c2-9609-43da-ae75-fcebeca30243",
+      "date": "May 12, 2026",
+      "note": "Pods beginning to form"
+    },
+    {
       "planting_id": "e93f2f5c-dcb8-47e9-9933-31e7e813b7e4",
       "date": "Mar 29, 2026",
       "note": "Pulled weeds that grew through the straw"
+    },
+    {
+      "planting_id": "fcae49c2-9609-43da-ae75-fcebeca30243",
+      "date": "Mar 27, 2026",
+      "note": "The weird little pea tentacles have shown up"
     },
     {
       "planting_id": "5ed2b328-d443-49f2-966e-547a79002f31",
@@ -348,11 +368,6 @@
     },
     {
       "planting_id": "e0280648-bd37-43b0-b99a-5b1ceed52faa",
-      "date": "Mar 27, 2026",
-      "note": "The weird little pea tentacles have shown up"
-    },
-    {
-      "planting_id": "fcae49c2-9609-43da-ae75-fcebeca30243",
       "date": "Mar 27, 2026",
       "note": "The weird little pea tentacles have shown up"
     },
@@ -382,14 +397,14 @@
       "note": "Added a top dress of worm castings. Approx one or two cups."
     },
     {
-      "planting_id": "79526620-7d75-4886-b31d-7c9bf731edc9",
-      "date": "Mar 22, 2026",
-      "note": "Installed bed. 2 large bags of Kellogg organic potting soil mix. Bag of chicken compost. Healthy serving of bone meal, worm castings, humate and a berry mix organic fertilizer"
-    },
-    {
       "planting_id": "abebbe9f-e355-4c78-a77f-79d4c88d17f7",
       "date": "Mar 22, 2026",
       "note": "Installed bed today. Two bags of Kellogg organic raised bed mix. One bag of chicken compost. Humate and blood meal and worm castings."
+    },
+    {
+      "planting_id": "79526620-7d75-4886-b31d-7c9bf731edc9",
+      "date": "Mar 22, 2026",
+      "note": "Installed bed. 2 large bags of Kellogg organic potting soil mix. Bag of chicken compost. Healthy serving of bone meal, worm castings, humate and a berry mix organic fertilizer"
     },
     {
       "planting_id": "e0280648-bd37-43b0-b99a-5b1ceed52faa",
@@ -397,14 +412,14 @@
       "note": "First sprout observed"
     },
     {
-      "planting_id": "fcae49c2-9609-43da-ae75-fcebeca30243",
-      "date": "Mar 18, 2026",
-      "note": "Sprouts observed"
-    },
-    {
       "planting_id": "14a35329-35a2-42ef-b59c-9b35fc2a2c7e",
       "date": "Mar 18, 2026",
       "note": "Did a little thinning"
+    },
+    {
+      "planting_id": "fcae49c2-9609-43da-ae75-fcebeca30243",
+      "date": "Mar 18, 2026",
+      "note": "Sprouts observed"
     },
     {
       "planting_id": "5ed2b328-d443-49f2-966e-547a79002f31",
@@ -422,6 +437,11 @@
       "note": "Sprouts noticed today!"
     },
     {
+      "planting_id": "e0280648-bd37-43b0-b99a-5b1ceed52faa",
+      "date": "Mar 14, 2026",
+      "note": "Watered today. Also installed the trellis arch and frost cloth."
+    },
+    {
       "planting_id": "fcae49c2-9609-43da-ae75-fcebeca30243",
       "date": "Mar 14, 2026",
       "note": "Watered today. Also installed the trellis arch and frost cloth."
@@ -433,11 +453,6 @@
     },
     {
       "planting_id": "e0280648-bd37-43b0-b99a-5b1ceed52faa",
-      "date": "Mar 14, 2026",
-      "note": "Watered today. Also installed the trellis arch and frost cloth."
-    },
-    {
-      "planting_id": "e93f2f5c-dcb8-47e9-9933-31e7e813b7e4",
       "date": "Apr 4, 2026",
       "note": "Fish emulsion applied"
     },
@@ -447,7 +462,7 @@
       "note": "Fish emulsion applied"
     },
     {
-      "planting_id": "abebbe9f-e355-4c78-a77f-79d4c88d17f7",
+      "planting_id": "fcae49c2-9609-43da-ae75-fcebeca30243",
       "date": "Apr 4, 2026",
       "note": "Fish emulsion applied"
     },
@@ -457,12 +472,12 @@
       "note": "Fish emulsion applied"
     },
     {
-      "planting_id": "fcae49c2-9609-43da-ae75-fcebeca30243",
+      "planting_id": "abebbe9f-e355-4c78-a77f-79d4c88d17f7",
       "date": "Apr 4, 2026",
       "note": "Fish emulsion applied"
     },
     {
-      "planting_id": "e0280648-bd37-43b0-b99a-5b1ceed52faa",
+      "planting_id": "e93f2f5c-dcb8-47e9-9933-31e7e813b7e4",
       "date": "Apr 4, 2026",
       "note": "Fish emulsion applied"
     },
@@ -479,6 +494,16 @@
   ],
   "harvests": [],
   "waterings": [
+    {
+      "zone": 2,
+      "watered_date": "2026-05-12",
+      "duration_minutes": 15
+    },
+    {
+      "zone": 1,
+      "watered_date": "2026-05-12",
+      "duration_minutes": 15
+    },
     {
       "zone": 1,
       "watered_date": "2026-05-09",
@@ -518,16 +543,6 @@
       "zone": 2,
       "watered_date": "2026-04-25",
       "duration_minutes": 10
-    },
-    {
-      "zone": 2,
-      "watered_date": "2026-04-25",
-      "duration_minutes": 10
-    },
-    {
-      "zone": 2,
-      "watered_date": "2026-04-20",
-      "duration_minutes": 10
     }
   ],
   "weather": {
@@ -535,45 +550,7 @@
       {
         "number": 1,
         "name": "Overnight",
-        "startTime": "2026-05-12T02:00:00-06:00",
-        "endTime": "2026-05-12T06:00:00-06:00",
-        "isDaytime": false,
-        "temperature": 59,
-        "temperatureUnit": "F",
-        "temperatureTrend": null,
-        "probabilityOfPrecipitation": {
-          "unitCode": "wmoUnit:percent",
-          "value": 0
-        },
-        "windSpeed": "3 mph",
-        "windDirection": "S",
-        "icon": "https://api.weather.gov/icons/land/night/few?size=medium",
-        "shortForecast": "Mostly Clear",
-        "detailedForecast": "Mostly clear. Low around 59, with temperatures rising to around 61 overnight. South wind around 3 mph."
-      },
-      {
-        "number": 2,
-        "name": "Tuesday",
-        "startTime": "2026-05-12T06:00:00-06:00",
-        "endTime": "2026-05-12T18:00:00-06:00",
-        "isDaytime": true,
-        "temperature": 94,
-        "temperatureUnit": "F",
-        "temperatureTrend": null,
-        "probabilityOfPrecipitation": {
-          "unitCode": "wmoUnit:percent",
-          "value": 0
-        },
-        "windSpeed": "6 mph",
-        "windDirection": "SSW",
-        "icon": "https://api.weather.gov/icons/land/day/few?size=medium",
-        "shortForecast": "Sunny",
-        "detailedForecast": "Sunny, with a high near 94. South southwest wind around 6 mph."
-      },
-      {
-        "number": 3,
-        "name": "Tuesday Night",
-        "startTime": "2026-05-12T18:00:00-06:00",
+        "startTime": "2026-05-13T03:00:00-06:00",
         "endTime": "2026-05-13T06:00:00-06:00",
         "isDaytime": false,
         "temperature": 63,
@@ -583,52 +560,52 @@
           "unitCode": "wmoUnit:percent",
           "value": 0
         },
-        "windSpeed": "6 to 9 mph",
-        "windDirection": "SE",
-        "icon": "https://api.weather.gov/icons/land/night/few?size=medium",
-        "shortForecast": "Mostly Clear",
-        "detailedForecast": "Mostly clear. Low around 63, with temperatures rising to around 67 overnight. Southeast wind 6 to 9 mph."
+        "windSpeed": "8 mph",
+        "windDirection": "SSE",
+        "icon": "https://api.weather.gov/icons/land/night/sct?size=medium",
+        "shortForecast": "Partly Cloudy",
+        "detailedForecast": "Partly cloudy. Low around 63, with temperatures rising to around 66 overnight. South southeast wind around 8 mph."
       },
       {
-        "number": 4,
+        "number": 2,
         "name": "Wednesday",
         "startTime": "2026-05-13T06:00:00-06:00",
         "endTime": "2026-05-13T18:00:00-06:00",
         "isDaytime": true,
-        "temperature": 91,
+        "temperature": 90,
         "temperatureUnit": "F",
         "temperatureTrend": null,
         "probabilityOfPrecipitation": {
           "unitCode": "wmoUnit:percent",
-          "value": 18
+          "value": 26
         },
         "windSpeed": "14 mph",
         "windDirection": "S",
-        "icon": "https://api.weather.gov/icons/land/day/bkn/tsra_hi,20?size=medium",
-        "shortForecast": "Partly Sunny then Slight Chance Showers And Thunderstorms",
-        "detailedForecast": "A slight chance of showers and thunderstorms after noon. Partly sunny, with a high near 91. South wind around 14 mph. Chance of precipitation is 20%."
+        "icon": "https://api.weather.gov/icons/land/day/bkn/tsra_hi,30?size=medium",
+        "shortForecast": "Partly Sunny then Chance Showers And Thunderstorms",
+        "detailedForecast": "A chance of showers and thunderstorms between noon and 3pm, then a slight chance of showers and thunderstorms. Partly sunny. High near 90, with temperatures falling to around 87 in the afternoon. South wind around 14 mph. Chance of precipitation is 30%."
       },
       {
-        "number": 5,
+        "number": 3,
         "name": "Wednesday Night",
         "startTime": "2026-05-13T18:00:00-06:00",
         "endTime": "2026-05-14T06:00:00-06:00",
         "isDaytime": false,
-        "temperature": 52,
+        "temperature": 50,
         "temperatureUnit": "F",
         "temperatureTrend": null,
         "probabilityOfPrecipitation": {
           "unitCode": "wmoUnit:percent",
-          "value": 15
+          "value": 10
         },
-        "windSpeed": "6 to 12 mph",
+        "windSpeed": "5 to 14 mph",
         "windDirection": "WSW",
-        "icon": "https://api.weather.gov/icons/land/night/tsra_hi,20/sct?size=medium",
-        "shortForecast": "Slight Chance Showers And Thunderstorms then Partly Cloudy",
-        "detailedForecast": "A slight chance of showers and thunderstorms before midnight. Partly cloudy, with a low around 52. West southwest wind 6 to 12 mph. Chance of precipitation is 20%."
+        "icon": "https://api.weather.gov/icons/land/night/tsra_hi/few?size=medium",
+        "shortForecast": "Slight Chance Showers And Thunderstorms then Mostly Clear",
+        "detailedForecast": "A slight chance of showers and thunderstorms before 9pm. Mostly clear. Low around 50, with temperatures rising to around 52 overnight. West southwest wind 5 to 14 mph."
       },
       {
-        "number": 6,
+        "number": 4,
         "name": "Thursday",
         "startTime": "2026-05-14T06:00:00-06:00",
         "endTime": "2026-05-14T18:00:00-06:00",
@@ -638,19 +615,57 @@
         "temperatureTrend": null,
         "probabilityOfPrecipitation": {
           "unitCode": "wmoUnit:percent",
-          "value": 1
+          "value": 0
         },
-        "windSpeed": "3 to 9 mph",
-        "windDirection": "NW",
+        "windSpeed": "3 to 7 mph",
+        "windDirection": "NNW",
         "icon": "https://api.weather.gov/icons/land/day/few?size=medium",
         "shortForecast": "Sunny",
-        "detailedForecast": "Sunny, with a high near 74."
+        "detailedForecast": "Sunny, with a high near 74. North northwest wind 3 to 7 mph."
       },
       {
-        "number": 7,
+        "number": 5,
         "name": "Thursday Night",
         "startTime": "2026-05-14T18:00:00-06:00",
         "endTime": "2026-05-15T06:00:00-06:00",
+        "isDaytime": false,
+        "temperature": 48,
+        "temperatureUnit": "F",
+        "temperatureTrend": null,
+        "probabilityOfPrecipitation": {
+          "unitCode": "wmoUnit:percent",
+          "value": 0
+        },
+        "windSpeed": "6 mph",
+        "windDirection": "ESE",
+        "icon": "https://api.weather.gov/icons/land/night/few?size=medium",
+        "shortForecast": "Mostly Clear",
+        "detailedForecast": "Mostly clear, with a low around 48. East southeast wind around 6 mph."
+      },
+      {
+        "number": 6,
+        "name": "Friday",
+        "startTime": "2026-05-15T06:00:00-06:00",
+        "endTime": "2026-05-15T18:00:00-06:00",
+        "isDaytime": true,
+        "temperature": 81,
+        "temperatureUnit": "F",
+        "temperatureTrend": null,
+        "probabilityOfPrecipitation": {
+          "unitCode": "wmoUnit:percent",
+          "value": 0
+        },
+        "windSpeed": "3 to 9 mph",
+        "windDirection": "SW",
+        "icon": "https://api.weather.gov/icons/land/day/few?size=medium",
+        "shortForecast": "Sunny",
+        "detailedForecast": "Sunny, with a high near 81."
+      },
+      {
+        "number": 7,
+        "name": "Friday Night",
+        "startTime": "2026-05-15T18:00:00-06:00",
+        "endTime": "2026-05-16T06:00:00-06:00",
         "isDaytime": false,
         "temperature": 50,
         "temperatureUnit": "F",
@@ -659,16 +674,44 @@
           "unitCode": "wmoUnit:percent",
           "value": 0
         },
-        "windSpeed": "2 to 8 mph",
-        "windDirection": "E",
-        "icon": "https://api.weather.gov/icons/land/night/skc?size=medium",
-        "shortForecast": "Clear",
-        "detailedForecast": "Clear, with a low around 50."
+        "windSpeed": "1 to 7 mph",
+        "windDirection": "N",
+        "icon": "https://api.weather.gov/icons/land/night/few?size=medium",
+        "shortForecast": "Mostly Clear",
+        "detailedForecast": "Mostly clear, with a low around 50."
       }
     ],
     "alerts": []
   },
   "recent_briefings": [
+    {
+      "payload": {
+        "headline": "94°F hits day-4 tomatoes — water now",
+        "weather_notes": [
+          "94°F today with zero precipitation — e1–e4 tomatoes are 4 days post-transplant and last irrigated May 9; wilt failure is likely without a deep soak today.",
+          "Wednesday hits 91°F with only a 20% storm chance — don't skip irrigation waiting for rain that probably won't come.",
+          "Wednesday night drops to 52°F and Thursday clears to 74°F — the heat breaks Thursday, the week's best outdoor work window.",
+          "Peas (c2–c4) logged at peak flower May 9 — two days of 90°F+ will cause significant blossom drop, shrinking the June 3 harvest."
+        ],
+        "surfaced_tasks": [],
+        "suggested_tasks": [
+          {
+            "title": "Water e1–e4 tomatoes thoroughly today",
+            "bed_id": "e1",
+            "urgency": "high",
+            "due_date": "2026-05-12",
+            "description": "Day-4 transplants last irrigated May 9; 94°F today will deplete soil moisture fast — a deep soak now prevents wilt and root damage."
+          }
+        ]
+      },
+      "suggestions_state": {
+        "accepted": [],
+        "rejected": [
+          0
+        ]
+      },
+      "generated_at": "2026-05-12T12:15:11+00:00"
+    },
     {
       "payload": {
         "headline": "92-94°F heat dome hits day-2 tomato transplants",
@@ -1068,41 +1111,6 @@
         "rejected": []
       },
       "generated_at": "2026-04-29T12:17:05+00:00"
-    },
-    {
-      "payload": {
-        "headline": "Storms cleared — snap overdue scapes before they curl further",
-        "weather_notes": [
-          "Patchy frost clears by 9am today; 60°F and sunny the rest of Tuesday is the first workable window after 3 days of heavy rain.",
-          "Wednesday is the cleanest day this week: 65°F, mostly sunny, only 6% precip chance — ideal for any task needing dry conditions.",
-          "Thursday may see afternoon showers (23%); complete any pest treatments by Wednesday for full efficacy.",
-          "Lows stay 38–41°F through Friday — no frost risk for the new strawberries or onions."
-        ],
-        "surfaced_tasks": [
-          {
-            "title": "Check hardneck garlic for scapes",
-            "bed_id": "w3",
-            "reason": "Two days overdue and today is the first clear window after multi-day storms — scape window narrows fast in Zone 7b.",
-            "task_id": "88"
-          },
-          {
-            "title": "Inspect for slugs",
-            "bed_id": "w1",
-            "reason": "Due May 1 and three days of heavy rain have spiked slug pressure around the newly planted strawberry bed.",
-            "task_id": "30"
-          }
-        ],
-        "suggested_tasks": []
-      },
-      "suggestions_state": {
-        "accepted": [],
-        "rejected": [],
-        "surfaced_dismissed": [
-          "88",
-          "30"
-        ]
-      },
-      "generated_at": "2026-04-28T12:13:04+00:00"
     }
   ]
 }
