@@ -1,19 +1,32 @@
 {
-  "headline": "94°F hits day-4 tomatoes — water now",
+  "headline": "Sun through Saturday — tackle overdue tomato checks now",
   "weather_notes": [
-    "94°F today with zero precipitation — e1–e4 tomatoes are 4 days post-transplant and last irrigated May 9; wilt failure is likely without a deep soak today.",
-    "Wednesday hits 91°F with only a 20% storm chance — don't skip irrigation waiting for rain that probably won't come.",
-    "Wednesday night drops to 52°F and Thursday clears to 74°F — the heat breaks Thursday, the week's best outdoor work window.",
-    "Peas (c2–c4) logged at peak flower May 9 — two days of 90°F+ will cause significant blossom drop, shrinking the June 3 harvest."
+    "Zero precipitation through at least Saturday — no washoff risk, making this the ideal window to apply Bt if hornworms are found on e1–e4.",
+    "Highs of 74–77°F Thursday through Saturday are the cleanest multi-day outdoor work stretch since transplant week.",
+    "Overnight lows of 45–49°F — no frost risk for any active planting through the weekend.",
+    "Beds last watered May 12; three-plus sunny days will draw down soil moisture — check tomato and bean beds by Friday."
   ],
-  "surfaced_tasks": [],
+  "surfaced_tasks": [
+    {
+      "task_id": "56",
+      "bed_id": "e1",
+      "title": "Inspect for hornworms — apply Bt if found",
+      "reason": "Three days overdue and the zero-rain forecast through Saturday keeps any Bt applied now fully active without washoff risk."
+    },
+    {
+      "task_id": "50",
+      "bed_id": "e1",
+      "title": "Inspect for early blight",
+      "reason": "Eight days overdue — the first check on the e1–e4 transplants has been skipped; catch anything early before warm dry conditions accelerate spread."
+    }
+  ],
   "suggested_tasks": [
     {
-      "title": "Water e1–e4 tomatoes thoroughly today",
-      "due_date": "2026-05-12",
-      "description": "Day-4 transplants last irrigated May 9; 94°F today will deplete soil moisture fast — a deep soak now prevents wilt and root damage.",
-      "bed_id": "e1",
-      "urgency": "high"
+      "title": "Resow missing spots in bean bed",
+      "due_date": "2026-05-17",
+      "description": "Only 6 of 8 beans sprouted as of May 13; fill the 2 gaps now before 2-inch seedlings shade out anything sown later.",
+      "bed_id": "c1",
+      "urgency": "normal"
     }
   ]
 }
