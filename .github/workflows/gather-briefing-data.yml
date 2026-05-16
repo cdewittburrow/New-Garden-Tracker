@@ -2,7 +2,7 @@ name: Gather Briefing Data
 
 on:
   schedule:
-    - cron: '13 6 * * *'  # 6:13 UTC = 12:13am MDT
+    - cron: '45 11 * * *'  # 11:45 UTC = 5:45am MDT (after Rachio watering ends ~5:35am)
   workflow_dispatch:
 
 jobs:
@@ -12,6 +12,12 @@ jobs:
       contents: write
     steps:
       - uses: actions/checkout@v4
+
+      - name: Sync Rachio waterings to Supabase
+        run: |
+          curl -sf -X POST \
+            "https://ulivctyuudgepolulpvq.supabase.co/functions/v1/sync-rachio-waterings" \
+            -H "Content-Type: application/json" || echo "Rachio sync failed (non-fatal)"
 
       - name: Fetch garden data and weather
         run: |
