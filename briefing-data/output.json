@@ -1,32 +1,32 @@
 {
-  "headline": "Check tomatoes now — cold front arrives Sunday night",
+  "headline": "Storm hits Sunday — wrap outdoor tasks by Saturday",
   "weather_notes": [
-    "Zero precipitation through Saturday — the last clean window to inspect and treat tomatoes before Sunday's 44% rain chance.",
-    "Sunday night drops to 37°F with 74% precip and possible snow; tomatoes suffer chilling injury below 50°F, and wet saturated soil compounds the cold — cover e1–e4 Saturday evening.",
-    "Sunday–Monday rain naturally irrigates peas (c2–c4) at mid-pod formation — hold irrigation until soil dries mid-week.",
-    "Beds last watered May 12; three warm sunny days since — spot-check e1–e4 soil before Saturday."
+    "Sunday brings a 44% storm chance; Sunday night climbs to 74% rain/snow — Friday and Saturday are your only dry outdoor windows this week.",
+    "Any Bt applied Saturday has two dry days to activate before the storm; Sunday rain will wash off a fresh application.",
+    "Sunday night drops to 37°F, the coldest night this month — worth monitoring young tomato transplants (e1–e4) for chilling stress Monday morning.",
+    "Post-storm moisture Sunday–Monday removes any need to irrigate beds this weekend."
   ],
   "surfaced_tasks": [
     {
       "task_id": "56",
       "bed_id": "e1",
       "title": "Inspect for hornworms — apply Bt if found",
-      "reason": "Four days overdue; dry conditions through Saturday keep any Bt applied now active without washoff before Sunday rain."
+      "reason": "Four days overdue and Saturday is the last dry window before Sunday's rain washes off any fresh Bt application."
     },
     {
-      "task_id": "50",
+      "task_id": "66",
       "bed_id": "e1",
-      "title": "Inspect for early blight",
-      "reason": "Nine days overdue; Sunday's rain will spread any existing blight spores — remove affected leaves now while conditions are dry."
+      "title": "Check for suckers",
+      "reason": "Due Sunday but storms arrive that day — complete Saturday while conditions are dry."
     }
   ],
   "suggested_tasks": [
     {
-      "title": "Cover e1–e4 tomatoes Saturday evening",
-      "due_date": "2026-05-16",
-      "description": "Sunday night's 37°F low with 74% precip and possible snow poses chilling injury risk on 8-day transplants — wet soil cools faster and holds cold longer, so row cover or frost cloth Saturday evening is the window.",
-      "bed_id": "e1",
-      "urgency": "high"
+      "title": "Resow 2 missing bean spots in c1",
+      "due_date": "2026-05-17",
+      "description": "Six of 8 beans are up and growing tall; resow the 2 gaps now before taller neighbors shade out late-sown seed.",
+      "bed_id": "c1",
+      "urgency": "normal"
     }
   ]
 }
