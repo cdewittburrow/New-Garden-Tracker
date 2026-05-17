@@ -1,31 +1,31 @@
 {
-  "headline": "Storm hits Sunday — wrap outdoor tasks by Saturday",
+  "headline": "Storm arrives Sunday — finish outdoor tasks today",
   "weather_notes": [
-    "Sunday brings a 44% storm chance; Sunday night climbs to 74% rain/snow — Friday and Saturday are your only dry outdoor windows this week.",
-    "Any Bt applied Saturday has two dry days to activate before the storm; Sunday rain will wash off a fresh application.",
-    "Sunday night drops to 37°F, the coldest night this month — worth monitoring young tomato transplants (e1–e4) for chilling stress Monday morning.",
-    "Post-storm moisture Sunday–Monday removes any need to irrigate beds this weekend."
+    "Today (73°F, 3% precip) is the last dry window before Sunday afternoon's 58% T-storm — any Bt or foliar treatment applied now won't wash off.",
+    "Sunday night drops to 38°F with 68% rain — cold wet soil will slow root establishment on week-old tomato transplants in e1–e4.",
+    "Rain continues Monday (55%, high 56°F) — skip all irrigation; no bed needs water until Tuesday at the earliest.",
+    "Tuesday clears to 64°F with only 15% precip — first reliable post-storm window for soil checks and outdoor work."
   ],
   "surfaced_tasks": [
-    {
-      "task_id": "56",
-      "bed_id": "e1",
-      "title": "Inspect for hornworms — apply Bt if found",
-      "reason": "Four days overdue and Saturday is the last dry window before Sunday's rain washes off any fresh Bt application."
-    },
     {
       "task_id": "66",
       "bed_id": "e1",
       "title": "Check for suckers",
-      "reason": "Due Sunday but storms arrive that day — complete Saturday while conditions are dry."
+      "reason": "Due today and today is the last dry window before Sunday's storm — pinch any suckers on Amish Paste while conditions are clean."
+    },
+    {
+      "task_id": "51",
+      "bed_id": "e1",
+      "title": "Inspect for early blight",
+      "reason": "Due May 20 but Sunday–Monday rain will spread blight spores — inspect and remove affected leaves today before the wet period begins."
     }
   ],
   "suggested_tasks": [
     {
-      "title": "Resow 2 missing bean spots in c1",
-      "due_date": "2026-05-17",
-      "description": "Six of 8 beans are up and growing tall; resow the 2 gaps now before taller neighbors shade out late-sown seed.",
-      "bed_id": "c1",
+      "title": "Check w3 Italian Red for garlic scapes",
+      "due_date": "2026-05-22",
+      "description": "Hardneck garlic in Zone 7b typically sends up scapes in late May — remove promptly to redirect energy to bulb development ahead of the July harvest.",
+      "bed_id": "w3",
       "urgency": "normal"
     }
   ]
