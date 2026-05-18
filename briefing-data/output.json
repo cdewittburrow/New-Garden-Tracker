@@ -1,30 +1,25 @@
 {
-  "headline": "Storm arrives Sunday — finish outdoor tasks today",
+  "headline": "Rain through Monday; dry Tuesday for garden work",
   "weather_notes": [
-    "Today (73°F, 3% precip) is the last dry window before Sunday afternoon's 58% T-storm — any Bt or foliar treatment applied now won't wash off.",
-    "Sunday night drops to 38°F with 68% rain — cold wet soil will slow root establishment on week-old tomato transplants in e1–e4.",
-    "Rain continues Monday (55%, high 56°F) — skip all irrigation; no bed needs water until Tuesday at the earliest.",
-    "Tuesday clears to 64°F with only 15% precip — first reliable post-storm window for soil checks and outdoor work."
+    "Tonight 86–90% chance of thunderstorms, low 39°F — beds get natural water; skip all irrigation through Monday.",
+    "Monday stays wet (75% precip, high 56°F) — cold saturated soil will slow root establishment in week-old tomato transplants (e1–e4).",
+    "Monday night drops to 37°F — near-freezing temperatures for 8-day tomatoes will inhibit root activity.",
+    "Tuesday clears to 64°F with near-zero precip — first dry window after two wet days, ideal for post-rain inspections.",
+    "Wednesday reaches 72°F and sunny — the week's best outdoor working conditions for any pending tasks."
   ],
   "surfaced_tasks": [
-    {
-      "task_id": "66",
-      "bed_id": "e1",
-      "title": "Check for suckers",
-      "reason": "Due today and today is the last dry window before Sunday's storm — pinch any suckers on Amish Paste while conditions are clean."
-    },
     {
       "task_id": "51",
       "bed_id": "e1",
       "title": "Inspect for early blight",
-      "reason": "Due May 20 but Sunday–Monday rain will spread blight spores — inspect and remove affected leaves today before the wet period begins."
+      "reason": "Two days of rain ending Monday create ideal blight-spreading conditions; inspect lower leaves during Tuesday's clear window, right before the May 20 due date."
     }
   ],
   "suggested_tasks": [
     {
       "title": "Check w3 Italian Red for garlic scapes",
       "due_date": "2026-05-22",
-      "description": "Hardneck garlic in Zone 7b typically sends up scapes in late May — remove promptly to redirect energy to bulb development ahead of the July harvest.",
+      "description": "Late May is peak scape time for hardneck garlic in Zone 7b — remove scapes promptly now to redirect energy to bulb development before the July harvest.",
       "bed_id": "w3",
       "urgency": "normal"
     }
