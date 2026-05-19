@@ -1,26 +1,23 @@
 {
-  "headline": "Rain through Monday; dry Tuesday for garden work",
+  "headline": "Garlic scapes due on w3 — check by Friday",
   "weather_notes": [
-    "Tonight 86–90% chance of thunderstorms, low 39°F — beds get natural water; skip all irrigation through Monday.",
-    "Monday stays wet (75% precip, high 56°F) — cold saturated soil will slow root establishment in week-old tomato transplants (e1–e4).",
-    "Monday night drops to 37°F — near-freezing temperatures for 8-day tomatoes will inhibit root activity.",
-    "Tuesday clears to 64°F with near-zero precip — first dry window after two wet days, ideal for post-rain inspections.",
-    "Wednesday reaches 72°F and sunny — the week's best outdoor working conditions for any pending tasks."
+    "Irrigate all beds by Wednesday — last watered May 15–16 and no rain forecast before Thursday's slight 23% chance.",
+    "Install c1 bean trellis by Wednesday — clear dry conditions today through Wednesday close before a slight Thursday storm chance."
   ],
   "surfaced_tasks": [
     {
-      "task_id": "51",
-      "bed_id": "e1",
-      "title": "Inspect for early blight",
-      "reason": "Two days of rain ending Monday create ideal blight-spreading conditions; inspect lower leaves during Tuesday's clear window, right before the May 20 due date."
+      "task_id": "96",
+      "bed_id": "w3",
+      "title": "Check w3 Italian Red for garlic scapes",
+      "reason": "Due Friday (May 22) at peak scape season for hardneck garlic in Zone 7b — remove scapes now to redirect energy to bulb development ahead of the July harvest."
     }
   ],
   "suggested_tasks": [
     {
-      "title": "Check w3 Italian Red for garlic scapes",
+      "title": "Set up trellis support for c1 beans",
       "due_date": "2026-05-22",
-      "description": "Late May is peak scape time for hardneck garlic in Zone 7b — remove scapes promptly now to redirect energy to bulb development before the July harvest.",
-      "bed_id": "w3",
+      "description": "Good Mother Stollard is a pole bean — seedlings sprouted May 13 and will need support within days before vines become too long to redirect cleanly.",
+      "bed_id": "c1",
       "urgency": "normal"
     }
   ]
