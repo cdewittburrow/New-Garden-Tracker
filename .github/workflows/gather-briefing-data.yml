@@ -2,7 +2,7 @@ name: Gather Briefing Data
 
 on:
   schedule:
-    - cron: '45 11 * * *'  # 11:45 UTC = 5:45am MDT (after Rachio watering ends ~5:35am)
+    - cron: '0 10 * * *'  # 10:00 UTC = 4:00am MDT (runs early to ensure data is ready before briefing)
   workflow_dispatch:
 
 jobs:
