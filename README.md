@@ -20,7 +20,7 @@ Two-zone drip system fed from the front yard spigot (target 60+ PSI / 6+ GPM aft
 
 - **Zone 1** — 2 GPH emitters
 - **Zone 2** — 1 GPH emitters
-- **Timer:** Rachio smart controller
+- **Timer:** Rachio smart hose timer (cloud-rest.rach.io API — different from standard Rachio controller API)
 - **Trunk:** 3/4" PVC east–west along north edge (~30 ft)
 - **Laterals:** 1/2" PVC south down each column (~22 ft each)
 - **Install order:** Backflow preventer → Rachio timer → Pressure regulator (25–30 PSI) → Y-filter (150 mesh) → trunk → laterals → drip tubing
@@ -53,7 +53,7 @@ A task calendar below the grid shows all tasks this season by bed, filterable by
 
 **Overview tab** — Season summary: beds active, yield to date, most recent harvest. Activity feed of recent waterings and notes. Season notes section with bed filter chips.
 
-A **daily briefing card** sits at the top of the Overview tab. Each morning at 6am MDT a Supabase Edge Function reads active plantings, open tasks, recent logs, harvests, and waterings from the database, fetches the 7-day NWS forecast and active weather alerts, and calls the Gemini API to synthesize a briefing. The briefing has two sections: **This week** — 2–5 weather facts each tied to a consequence (e.g. "Rain Tue–Wed — skip watering Mon") — and **Actions** — suggested tasks where every item includes a specific reason it's needed now (a weather window, crop timing milestone, or overdue action). Each action is accept/rejectable from the card; accepted suggestions are added to the task system for the relevant bed.
+A **daily briefing card** sits at the top of the Overview tab. Each morning a GitHub Actions workflow gathers active plantings, open tasks, logs, harvests, waterings, and a 7-day NWS forecast into `briefing-data/input.json` and commits it. A Claude Code remote routine then reads that file and writes `briefing-data/output.json`; a second workflow inserts the result into Supabase. The briefing has two sections: **Weather** — 2–5 action-verb-first garden instructions driven by the forecast (e.g. "Skip watering through Tuesday — 70% rain chance") — and **Actions** — existing tasks surfaced because they're timely now, plus suggested new tasks, each with a specific reason it matters this week. Each action is accept/rejectable from the card; accepted suggestions are added to the task system for the relevant bed.
 
 **Water** — Full irrigation system diagram with component callouts and zone color coding.
 
@@ -68,8 +68,9 @@ A **daily briefing card** sits at the top of the Overview tab. Each morning at 6
 | Frontend | Single `index.html` — embedded CSS and JS, no build step |
 | Hosting | Vercel, auto-deploys from `main` |
 | Database | Supabase (Postgres) |
-| Daily briefing | Supabase Edge Function (`generate-briefing`) + Gemini 2.5 Flash API |
-| Briefing schedule | pg_cron + pg_net — fires at 12:00 UTC (6am MDT) daily |
+| Daily briefing | Claude Code remote routine reads `briefing-data/input.json`, writes `output.json`; second GitHub Actions workflow inserts into Supabase |
+| Briefing schedule | Gather: GitHub Actions cron 10:00 UTC (4:00am MDT) — syncs Rachio, fetches DB + NWS, commits `input.json`. Generate: Claude CCR routine at 13:30 UTC (7:30am MDT). |
+| Rachio sync | Supabase Edge Function (`sync-rachio-waterings`) — called by GitHub Actions before each briefing gather; queries `getValveDayViews` with a 7-day lookback window so missed days are backfilled |
 | Dev tools | VS Code + Live Server, Claude Code via terminal |
 | Planning | Claude.ai |
 | Irrigation timer | Rachio |
@@ -211,11 +212,14 @@ For planning and architecture: Claude.ai. For implementation: Claude Code. Diffe
 | Mar 30, 2026 | Split v2.2 into schema-first (v2.2a) and frontend-refactor (v2.2b) | Schema migration is purely additive and zero-risk; frontend refactor touches 9 functions and 4 hardcoded arrays and deserves its own ship cycle | Ship together; keep BEDS constant forever |
 | Mar 30, 2026 | `locations.label` matches existing `bed_id` strings — no cache key changes | `plantingCache` is keyed by `bed_id` string. Using `label` as the canonical identifier means the cache key, Supabase queries, and SVG element IDs (`pill-w1` etc.) all stay unchanged through v2.2 | Use UUID as primary key throughout; rename everything |
 | Mar 30, 2026 | Non-bed locations get DB records in v2.2a, map/planning UI deferred to v3 | Map and planning redesigns require real design work. The peach tree and blackberry need to be plantable and loggable now, not mappable yet. | Wait for v3 before inserting any non-bed locations |
-| Apr 2, 2026 | Daily briefing via Supabase Edge Function, not a Claude CCR remote trigger | CCR remote trigger has no outbound network access — the sandbox blocks all external HTTP (Supabase, weather APIs). A Supabase Edge Function runs on Supabase's own infrastructure, reads the DB directly without HTTP auth, and has full outbound network access. pg_cron + pg_net schedule it daily at 12:00 UTC. | CCR remote trigger (abandoned), local Mac cron (machine must be on), GitHub Actions |
-| Apr 2, 2026 | Gemini 2.5 Flash for AI synthesis in the edge function | Free tier with billing attached. As of April 2026, `gemini-2.0-flash` and `gemini-2.0-flash-lite` have `limit: 0` on the free tier for new projects — only `gemini-2.5-flash` carries actual free quota (20 RPD). Sufficient for 1 call/day with headroom. | Anthropic Claude Haiku (~$2/season), Gemini 2.0 Flash (quota blocked) |
-| Apr 2, 2026 | Google Cloud project must have "Generative Language API" enabled AND billing attached to unlock free tier | New Google Cloud projects created from AI Studio have the API enabled but free tier quotas default to 0. Attaching a billing account unlocks the quotas without charging for usage within the free limits. Not obvious from Google's documentation. | — |
+| Apr 2, 2026 | ~~Daily briefing via Supabase Edge Function + Gemini~~ → replaced May 2026 | Original plan used a Supabase Edge Function + Gemini 2.5 Flash. Replaced by a GitHub Actions gather + Claude CCR generate pipeline (see May 18 decision log entry). | — |
+| May 18, 2026 | Briefing synthesis moved to Claude Code remote routine (CCR) reading pre-gathered `input.json` | CCR routines can't make outbound HTTP calls — they read only from the git checkout at session start. The gather workflow pre-fetches all external data (Supabase DB + NWS weather) into `briefing-data/input.json` and commits it; the CCR routine runs after, reads that file, and writes `output.json`. A second GitHub Actions workflow (`write-briefing.yml`) is triggered by changes to `output.json` and inserts the briefing into Supabase. | Supabase Edge Function + Gemini (abandoned — Gemini quota constraints and tighter feedback loop with Claude) |
+| May 18, 2026 | Gather cron moved to 10:00 UTC (4am MDT); generate routine moved to 13:30 UTC (7:30am MDT) | GitHub Actions scheduled workflows can run 1–3+ hours late. The original 30-minute window between gather (11:45 UTC) and generate (12:15 UTC) meant the routine consistently read yesterday's weather data. Moving gather 1h45m earlier and generate 1h15m later creates a 3.5-hour buffer, covering observed worst-case delays. | Smaller buffer (fragile); chaining via repository dispatch (requires GitHub secret management) |
+| May 18, 2026 | Weather notes rewritten as action-verb-first garden instructions, not weather observations | The original prompt produced notes like "Cold saturated soil will slow root establishment" — correct facts but no actionable direction. New rule: every weather note must lead with an action verb and tell the gardener what to do or not do. Format: "[Verb] [target] — [weather condition]." Weather facts that don't drive a garden action are omitted. | Keep descriptive format with a stronger consequence clause |
 | Apr 2, 2026 | Service worker (`sw.js`) with network-first strategy for iOS PWA caching | iOS standalone PWA mode ignores `http-equiv` no-cache meta tags and aggressively caches the app shell. A service worker is the correct mechanism — always fetches fresh HTML when online, falls back to cache offline. `http-equiv` tags alone are insufficient for iOS home screen apps. | Strip no-cache meta tags; accept stale PWA behavior |
 | Apr 12, 2026 | Briefing card stripped to weather facts + actions only — no narrative, no insights | The narrative and insights sections produced verbose prose that restated garden state the gardener already knows. The briefing's job is: here is the weather for the next N days, and here is what you need to do because of it. Every action now requires a specific reason (weather window or crop timing milestone) to appear. | Keep narrative with a shorter word limit |
+| May 18, 2026 | Rachio sync uses `getValveDayViews` with a 7-day lookback, not a per-day query | The original implementation queried only `today`, so any day the sync failed (or Rachio data wasn't ready yet) was permanently lost. A 7-day window catches gaps on every run. The function also maps the base-station-scoped API response back to zone 1/2 by filtering `valveRunSummaries` by valve ID. | Webhook (more real-time but requires persistent public endpoint); single-day query (simpler but no recovery path) |
+| May 18, 2026 | Rachio sync uses the Smart Hose Timer API (`cloud-rest.rach.io`), not the standard Rachio v1 API | These devices are smart hose timers — they use a different API domain, different endpoint shapes, and different ID schemes (valve IDs and base station IDs, not device/zone IDs). The v1 event history endpoint (`/1/event/device`) does not apply. Request schema came from the official OpenAPI docs; all field names were confirmed from the spec before implementation. | Standard Rachio v1 API (wrong product line) |
 
 ---
 
@@ -234,14 +238,8 @@ Add a section to the Overview tab listing non-raised-bed locations (peach tree, 
 
 ---
 
-### Priority 1 — Rachio Integration
-The `waterings` table and display layer are already in place. Manual watering entries write `source='manual'`. When the Rachio timer and drip system are installed (~6 weeks), the integration is:
-1. Authenticate with the Rachio API
-2. Pull zone run history on a schedule or webhook
-3. Write events to `waterings` with `source='rachio'`
-4. Remove the manual "Log watering" button from the inspector
-
-The "last watered X days ago" display already reads from `waterings` regardless of source — no frontend changes needed.
+### ~~Priority 1 — Rachio Integration~~ ✓ Done
+The `sync-rachio-waterings` Supabase Edge Function runs before each morning's briefing data gather. It calls the Smart Hose Timer API (`/summary/getValveDayViews`) with a 7-day lookback window, maps valve IDs to zones, skips rain-skipped runs, deduplicates against existing records, and inserts completed waterings with `source='rachio'`. The manual "Log watering" button remains for any watering done outside the Rachio system.
 
 ### ~~Priority 2 — Custom Tasks~~ ✓ Done
 Custom task creation is implemented. The inspector task list includes an "Add task" entry that opens a modal for free-text title, optional description, and due date. Custom tasks are stored in the `tasks` table with `is_custom = true`.
