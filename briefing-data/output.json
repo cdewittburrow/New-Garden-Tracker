@@ -1,22 +1,23 @@
 {
-  "headline": "Garlic scapes due on w3 — check by Friday",
+  "headline": "One dry day left — scapes, trellis, before Thursday's storms",
   "weather_notes": [
-    "Irrigate all beds by Wednesday — last watered May 15–16 and no rain forecast before Thursday's slight 23% chance.",
-    "Install c1 bean trellis by Wednesday — clear dry conditions today through Wednesday close before a slight Thursday storm chance."
+    "Skip all watering through Thursday — Thursday's 78% T-storms will naturally irrigate every active planting.",
+    "Complete outdoor work today — Thursday brings all-day showers and T-storms (78%), closing the garden window until Friday.",
+    "Check potato_bags for drainage today — freshly planted Yukon Gold (May 19) can pool standing water in bags during Thursday's heavy rain; punch holes now if needed."
   ],
-  "surfaced_tasks": [
-    {
-      "task_id": "96",
-      "bed_id": "w3",
-      "title": "Check w3 Italian Red for garlic scapes",
-      "reason": "Due Friday (May 22) at peak scape season for hardneck garlic in Zone 7b — remove scapes now to redirect energy to bulb development ahead of the July harvest."
-    }
-  ],
+  "surfaced_tasks": [],
   "suggested_tasks": [
     {
-      "title": "Set up trellis support for c1 beans",
-      "due_date": "2026-05-22",
-      "description": "Good Mother Stollard is a pole bean — seedlings sprouted May 13 and will need support within days before vines become too long to redirect cleanly.",
+      "title": "Check w3 Italian Red garlic for scapes",
+      "due_date": "2026-05-20",
+      "description": "Late May is peak scape season for Italian Red hardneck — inspect and snap any scapes today, last dry window before Thursday's 78% T-storms.",
+      "bed_id": "w3",
+      "urgency": "normal"
+    },
+    {
+      "title": "Install trellis for c1 pole beans",
+      "due_date": "2026-05-21",
+      "description": "Good Mother Stollard (pole bean) sprouted May 13 — do it today before Thursday's storms tangle unsupported vines.",
       "bed_id": "c1",
       "urgency": "normal"
     }
