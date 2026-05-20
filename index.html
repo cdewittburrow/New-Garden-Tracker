@@ -1576,6 +1576,29 @@ const BEDS={
   e3:{id:'E3',zone:2,emitters:4,gph:8,slotA:{crop:'Tomato',variety:'Comstock Sauce & Slice (indeterminate)',sown:null,harvest:'Aug 5–15, 2026',status:'planned'}},
   e4:{id:'E4',zone:2,emitters:4,gph:8,slotA:{crop:'Tomato',variety:'Bonny Best (indeterminate)',sown:null,harvest:'Jul 30 – Aug 10, 2026',status:'planned'}}
 };
+
+/* ── OTHER GROWING AREAS ────────────────────────── */
+// mapType drives buildMiniMap; accent drives card color; zone/emitters/gph match drip system
+const OTHER_UNITS={
+  peach:{
+    id:'Peach',label:'Peach Tree',mapType:'tree',accent:'topaz',
+    zone:1,emitters:2,gph:4,
+    slotA:{crop:'Peach',variety:'Contender',status:'growing'}
+  },
+  blackberry:{
+    id:'Blackberry',label:'Blackberry Bush',mapType:'bush',accent:'amethyst',
+    zone:2,emitters:2,gph:4,
+    slotA:{crop:'Blackberry',variety:'Triple Crown (thornless)',status:'growing'}
+  },
+  potato_bags:{
+    id:'PotatoBags',label:'Potato Grow Bags',mapType:'bags',accent:'ruby',bagCount:3,
+    zone:2,emitters:3,gph:6,
+    slotA:{crop:'Potatoes',variety:'Yukon Gold',status:'planned'}
+  }
+};
+
+function getUnit(id){return BEDS[id]||OTHER_UNITS[id]||null;}
+
 const STATUS={
   planned:{label:'Planned',cls:'s-planned'},
   sown:{label:'Sown',cls:'s-sown'},
@@ -1978,7 +2001,7 @@ async function saveWatering(zone,durationMinutes){
 }
 
 async function loadWatering(bedId){
-  const zone=BEDS[bedId].zone;
+  const zone=getUnit(bedId).zone;
   const el=document.getElementById('last-watered');
   if(!el)return;
   const w=await getLastWatering(zone);
@@ -1998,7 +2021,7 @@ function bindWatering(bedId){
     const btn=document.getElementById('water-btn');
     const durIn=document.getElementById('water-dur');
     if(!btn||!durIn)return;
-    const zone=BEDS[bedId].zone;
+    const zone=getUnit(bedId).zone;
     btn.onclick=async()=>{
       const dur=parseInt(durIn.value)||30;
       btn.disabled=true;
@@ -2195,7 +2218,7 @@ function renderTaskTab(){
 
   let chips=`<button class="chip${activeTaskBedFilter==='all'?' active':''}" onclick="setTaskFilter('all')">All</button>`;
   for(const bid of bedIds){
-    chips+=`<button class="chip${activeTaskBedFilter===bid?' active':''}" onclick="setTaskFilter('${bid}')">${BEDS[bid].id}</button>`;
+    chips+=`<button class="chip${activeTaskBedFilter===bid?' active':''}" onclick="setTaskFilter('${bid}')">${getUnit(bid)?.id||bid.toUpperCase()}</button>`;
   }
   document.getElementById('task-chips').innerHTML=chips;
 
@@ -2207,11 +2230,12 @@ function renderTaskTab(){
     for(const t of filtered){
       const done=isTaskCompleted(t.bedId,t.taskId);
       const winStr=fmtDateRange(t.windowStart,t.windowEnd);
-      const crop=getActivePlanting(t.bedId)?.crop_name||BEDS[t.bedId].slotA.crop;
+      const u=getUnit(t.bedId);
+      const crop=getActivePlanting(t.bedId)?.crop_name||u?.slotA.crop||t.bedId;
       list+=`<div class="task-row">
         <input type="checkbox" class="task-cb" ${done?'checked disabled':''} data-bed="${t.bedId}" data-task="${t.taskId}" onchange="handleTaskCheck(this)">
         <div class="task-meta">
-          <div class="task-bed-label">${BEDS[t.bedId].id} · ${crop}</div>
+          <div class="task-bed-label">${u?.id||t.bedId.toUpperCase()} · ${crop}</div>
           <div class="task-name">${t.name}</div>
           <div class="task-window">${winStr}</div>
         </div>
@@ -2325,7 +2349,9 @@ async function markPlanted(bedId){
 }
 
 /* ── MINI MAP ────────────────────────────────────── */
-function buildMiniMap(activeBedId){
+const ACCENT_HEX={topaz:'#fcd34d',amethyst:'#c084fc',ruby:'#f87171',garnet:'#f472b6'};
+
+function buildMiniMapGrid(activeBedId){
   const colX=[18,48,78];
   const rowY=[20,48,76,104];
   let els='';
@@ -2337,13 +2363,12 @@ function buildMiniMap(activeBedId){
     const fill=isActive?(isZ1?'#2563c4':'#1a7a50'):(isZ1?'rgba(26,79,173,.22)':'rgba(20,196,171,.1)');
     const stroke=isActive?(isZ1?'#5b9cf0':'#14c4ab'):(isZ1?'rgba(91,156,240,.18)':'rgba(20,196,171,.15)');
     const sw=isActive?1.8:.7;
-    const cursor='cursor:pointer';
     const label=BEDS[key].id;
     const p=getActivePlanting(key);
     const pStatus=p?.status||(p?.planted_date?'growing':'planned');
     const dotColor=MINIMAP_STATUS_COLORS[pStatus];
     const dotEl=dotColor?`<circle cx="${x+15}" cy="${y+4}" r="2.5" fill="${dotColor}"/>`:'';
-    els+=`<g onclick="navToBed('${key}')" style="${cursor}">
+    els+=`<g onclick="navToBed('${key}')" style="cursor:pointer">
       <rect x="${x}" y="${y}" width="18" height="22" rx="9" fill="${fill}" stroke="${stroke}" stroke-width="${sw}"/>
       <text x="${colX[ci]}" y="${y+14}" font-family="'Inter',sans-serif" font-size="5.5" fill="rgba(255,255,255,${isActive?.9:.35})" text-anchor="middle">${label}</text>
       ${dotEl}
@@ -2356,6 +2381,47 @@ function buildMiniMap(activeBedId){
     ${els}
     <text x="48" y="129" font-family="'Inter',sans-serif" font-size="5" fill="rgba(20,196,171,.22)" text-anchor="middle" letter-spacing="1">S</text>
   </svg>`;
+}
+
+function buildMiniMapUnit(unit){
+  const c=ACCENT_HEX[unit.accent]||'#14c4ab';
+  const zoneLabel=`ZONE ${unit.zone}`;
+  let body='';
+  if(unit.mapType==='tree'){
+    body=`
+      <ellipse cx="48" cy="58" rx="26" ry="22" fill="${c}" opacity=".1" stroke="${c}" stroke-width="1" stroke-opacity=".3"/>
+      <ellipse cx="48" cy="52" rx="19" ry="17" fill="${c}" opacity=".16" stroke="${c}" stroke-width="1" stroke-opacity=".4"/>
+      <ellipse cx="48" cy="47" rx="12" ry="11" fill="${c}" opacity=".22" stroke="${c}" stroke-width="1" stroke-opacity=".5"/>
+      <rect x="44" y="77" width="8" height="28" rx="3" fill="${c}" opacity=".15" stroke="${c}" stroke-width=".8" stroke-opacity=".25"/>`;
+  } else if(unit.mapType==='bush'){
+    body=`
+      <ellipse cx="48" cy="78" rx="22" ry="18" fill="${c}" opacity=".12" stroke="${c}" stroke-width="1" stroke-opacity=".3"/>
+      <ellipse cx="30" cy="66" rx="17" ry="15" fill="${c}" opacity=".1" stroke="${c}" stroke-width=".8" stroke-opacity=".25"/>
+      <ellipse cx="66" cy="66" rx="17" ry="15" fill="${c}" opacity=".1" stroke="${c}" stroke-width=".8" stroke-opacity=".25"/>
+      <ellipse cx="48" cy="58" rx="16" ry="14" fill="${c}" opacity=".16" stroke="${c}" stroke-width="1" stroke-opacity=".4"/>
+      <ellipse cx="48" cy="50" rx="10" ry="9" fill="${c}" opacity=".2" stroke="${c}" stroke-width=".8" stroke-opacity=".45"/>`;
+  } else if(unit.mapType==='bags'){
+    const n=unit.bagCount||3;
+    const spacing=84/(n+1);
+    for(let i=0;i<n;i++){
+      const bx=spacing*(i+1)-10;
+      body+=`<rect x="${bx}" y="52" width="20" height="32" rx="5" fill="${c}" opacity="${.12+i*.02}" stroke="${c}" stroke-width="1" stroke-opacity="${.28+i*.04}"/>
+      <ellipse cx="${bx+10}" cy="52" rx="10" ry="3.5" fill="${c}" opacity="${.2+i*.02}"/>`;
+    }
+  }
+  return `<svg viewBox="0 0 96 132" xmlns="http://www.w3.org/2000/svg" style="border-radius:8px;overflow:hidden;display:block">
+    <rect width="96" height="132" rx="8" style="fill:var(--map-bg)"/>
+    <rect x="0" y="0" width="96" height="16" fill="${c}" opacity=".04"/>
+    <text x="48" y="11" font-family="'Inter',sans-serif" font-size="5" fill="${c}" fill-opacity=".5" text-anchor="middle" letter-spacing="1">${zoneLabel}</text>
+    ${body}
+    <text x="48" y="121" font-family="'Inter',sans-serif" font-size="5.5" fill="rgba(255,255,255,.45)" text-anchor="middle">${unit.label}</text>
+  </svg>`;
+}
+
+function buildMiniMap(activeBedId){
+  const unit=OTHER_UNITS[activeBedId];
+  if(unit)return buildMiniMapUnit(unit);
+  return buildMiniMapGrid(activeBedId);
 }
 
 /* ── SHEET LOGIC ─────────────────────────────────── */
@@ -2550,7 +2616,7 @@ function buildTimelineHtml(planting,cropData){
 
 /* ── DETAIL RENDER ───────────────────────────────── */
 function renderDetail(bedId){
-  const bed=BEDS[bedId],a=bed.slotA;
+  const bed=getUnit(bedId),a=bed.slotA;
   const dbPlanting=getSelectedPlanting(bedId);
   const cropName=dbPlanting?dbPlanting.crop_name:a.crop;
   const variety=dbPlanting?.variety||a.variety||null;
@@ -3041,6 +3107,66 @@ function bindHarvest(plantingId){
 }
 
 /* ── TABS ────────────────────────────────────────── */
+/* ── AREAS TAB ───────────────────────────────────── */
+function buildAreaIcon(unit){
+  const c=ACCENT_HEX[unit.accent]||'#14c4ab';
+  if(unit.mapType==='tree'){
+    return `<svg viewBox="0 0 36 36" xmlns="http://www.w3.org/2000/svg">
+      <ellipse cx="18" cy="15" rx="10" ry="9" fill="${c}" opacity=".18"/>
+      <ellipse cx="18" cy="12" rx="7.5" ry="7" fill="${c}" opacity=".28"/>
+      <ellipse cx="18" cy="9" rx="5" ry="5" fill="${c}" opacity=".38"/>
+      <rect x="16" y="22" width="4" height="10" rx="2" fill="${c}" opacity=".22"/>
+    </svg>`;
+  }
+  if(unit.mapType==='bush'){
+    return `<svg viewBox="0 0 36 36" xmlns="http://www.w3.org/2000/svg">
+      <ellipse cx="18" cy="22" rx="10" ry="8" fill="${c}" opacity=".18"/>
+      <ellipse cx="10" cy="18" rx="7" ry="6" fill="${c}" opacity=".16"/>
+      <ellipse cx="26" cy="18" rx="7" ry="6" fill="${c}" opacity=".16"/>
+      <ellipse cx="18" cy="14" rx="7" ry="6" fill="${c}" opacity=".26"/>
+      <ellipse cx="18" cy="10" rx="5" ry="4.5" fill="${c}" opacity=".34"/>
+    </svg>`;
+  }
+  if(unit.mapType==='bags'){
+    const n=unit.bagCount||3;
+    const w=Math.min(9,28/n);
+    const gap=(32-(n*w))/(n+1);
+    let bags='';
+    for(let i=0;i<n;i++){
+      const bx=gap+(gap+w)*i+1;
+      bags+=`<rect x="${bx}" y="14" width="${w}" height="16" rx="${w*.3}" fill="${c}" opacity="${.22+i*.04}"/>
+      <ellipse cx="${bx+w/2}" cy="14" rx="${w/2}" ry="2.5" fill="${c}" opacity="${.32+i*.04}"/>`;
+    }
+    return `<svg viewBox="0 0 36 36" xmlns="http://www.w3.org/2000/svg">${bags}</svg>`;
+  }
+  return `<svg viewBox="0 0 36 36" xmlns="http://www.w3.org/2000/svg"><circle cx="18" cy="18" r="10" fill="${c}" opacity=".25"/></svg>`;
+}
+
+function renderAreasTab(){
+  const grid=document.getElementById('areas-grid');
+  if(!grid)return;
+  grid.innerHTML=Object.entries(OTHER_UNITS).map(([unitId,unit])=>{
+    const planting=getActivePlanting(unitId);
+    const cropName=planting?.crop_name||unit.slotA.crop;
+    const variety=planting?.variety||unit.slotA.variety||'';
+    const rawStatus=planting?(planting.status||(planting.planted_date?'growing':'planned')):unit.slotA.status;
+    const st=STATUS[rawStatus]||STATUS.planned;
+    const zoneGph=unit.zone===1?'Zone 1 · 1 GPH':'Zone 2 · 2 GPH';
+    return `<div class="area-card" data-accent="${unit.accent}" onclick="openSheet('${unitId}')">
+      <div class="area-icon">${buildAreaIcon(unit)}</div>
+      <div class="area-content">
+        <div class="area-label">${unit.label}</div>
+        <div class="area-crop">${cropName}${variety?' · '+variety:''}</div>
+        <div class="area-meta">
+          <span class="zone-tag">${zoneGph}</span>
+          <span class="status-badge ${st.cls}"><span class="status-dot"></span>${st.label}</span>
+        </div>
+      </div>
+      <svg class="area-chevron" viewBox="0 0 6 10" width="6" height="10" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="1,1 5,5 1,9"/></svg>
+    </div>`;
+  }).join('');
+}
+
 /* ── OVERVIEW TAB ────────────────────────────────── */
 async function renderOverviewTab(){
   renderBriefingCard(briefingCache);
@@ -3576,7 +3702,7 @@ function vpRefresh(cropName){
 
 function renderPlanForm(bedId,p){
   const m=planMethod;
-  const bed=BEDS[bedId];
+  const bed=getUnit(bedId);
   const isActive=p&&p.planting_state==='active'&&p.planted_date;
   const zoneGph=bed.zone===1?'Zone 1 · 1 GPH':'Zone 2 · 2 GPH';
   return `<div class="plan-form-header">
@@ -3769,7 +3895,7 @@ async function savePlanSheet(bedId){
 async function loadInspectorData(bedId){
   const planting=getSelectedPlanting(bedId);
   if(!planting||!planting.planted_date)return;
-  const zone=BEDS[bedId].zone;
+  const zone=getUnit(bedId).zone;
   const [watering,notes]=await Promise.all([
     getLastWatering(zone),
     fetch(`${SB_URL}/rest/v1/logs?planting_id=eq.${planting.id}&order=created_at.desc&limit=3&select=date,note`,{headers:SB_HEADERS}).then(r=>r.json()).catch(()=>[])
@@ -3843,7 +3969,7 @@ function toggleNoteStrip(bedId,plantingId){
 
 /* ── INSPECTOR MODALS ────────────────────────────── */
 function openWaterModal(bedId){
-  const zone=BEDS[bedId].zone;
+  const zone=getUnit(bedId).zone;
   const overlay=document.createElement('div');
   overlay.className='insp-modal-overlay';
   overlay.id='insp-modal';
@@ -3986,7 +4112,7 @@ async function submitWaterModal(bedId){
   const btn=document.getElementById('modal-confirm-btn');
   if(btn){btn.disabled=true;btn.textContent='Starting…';}
   try{
-    await saveWatering(BEDS[bedId].zone,dur);
+    await saveWatering(getUnit(bedId).zone,dur);
     closeInspModal();
     await loadInspectorData(bedId);
   }catch(e){if(btn){btn.disabled=false;btn.textContent='Start watering';}}
@@ -4030,6 +4156,7 @@ function switchTab(id,btn){
   btn.classList.add('active');
   if(id==='tab-planning')renderPlanningTab();
   if(id==='tab-overview')renderOverviewTab();
+  if(id==='tab-areas')renderAreasTab();
 }
 
 /* ── WEEKLY BRIEFING ─────────────────────────────── */
@@ -4221,6 +4348,7 @@ window.addEventListener('load',async()=>{
   await fetchV2Tasks();
   renderBadges();
   renderPlanningTab();
+  renderAreasTab();
   fetchLatestBriefing(); // non-blocking — ready by the time user opens Overview
 });
 </script>
