@@ -2348,6 +2348,50 @@ async function markPlanted(bedId){
   renderStatusIndicators();
 }
 
+async function beginTrackingUnit(bedId){
+  const unit=OTHER_UNITS[bedId];
+  if(!unit)return;
+  const btn=document.querySelector('.planted-btn');
+  if(btn){btn.disabled=true;btn.textContent='Starting…';}
+  try{
+    // Perennials (tree/bush) start as already-growing; bags/annuals start as planned
+    const isEstablished=unit.mapType==='tree'||unit.mapType==='bush';
+    const body={
+      bed_id:bedId,
+      crop_name:unit.slotA.crop,
+      variety:unit.slotA.variety||null,
+      year:new Date().getFullYear(),
+      season:'Spring',
+      status:isEstablished?'growing':'planned',
+      planting_state:'active',
+      planted_date:isEstablished?today():null
+    };
+    const res=await fetch(`${SB_URL}/rest/v1/plantings`,{
+      method:'POST',
+      headers:{...SB_HEADERS,'Prefer':'return=representation','Content-Type':'application/json'},
+      body:JSON.stringify(body)
+    });
+    if(!res.ok)throw new Error(`HTTP ${res.status}`);
+    const [created]=await res.json();
+    // Update local cache so the inspector re-renders immediately without a full refetch
+    if(!plantingCache[bedId])plantingCache[bedId]=[];
+    plantingCache[bedId].unshift({
+      id:created.id,crop_name:created.crop_name,variety:created.variety,
+      expected_harvest:null,year:created.year,season:created.season,
+      planted_date:created.planted_date,ended_date:null,status:created.status,
+      planting_state:'active',planned_date:null,planting_method:'direct_sow',
+      start_indoors_date:null,seed_source:null,spacing_notes:null,season_notes:null
+    });
+    document.getElementById('bed-detail-content').innerHTML=renderDetail(bedId);
+    document.getElementById('mini-map').innerHTML=buildMiniMap(bedId);
+    loadInspectorData(bedId);
+    renderAreasTab();
+  }catch(e){
+    console.error('beginTrackingUnit failed:',e);
+    if(btn){btn.disabled=false;btn.textContent=`Begin tracking ${unit.label}`;}
+  }
+}
+
 /* ── MINI MAP ────────────────────────────────────── */
 const ACCENT_HEX={topaz:'#fcd34d',amethyst:'#c084fc',ruby:'#f87171',garnet:'#f472b6'};
 
@@ -2659,6 +2703,17 @@ function renderDetail(bedId){
       <button class="planted-btn" onclick="markPlanted('${bedId}')">Mark as planted today</button>
       ${dbPlanting?.planned_date?`<div class="draft-planned-date">Planned sow: ${fmtDate(dbPlanting.planned_date)}</div>`:''}
       ${dbPlanting?.seed_source?`<div class="draft-planned-date">${dbPlanting.seed_source}</div>`:''}
+    </div>`;
+    return h;
+  }
+
+  // OTHER_UNITS with no planting record yet — show begin-tracking CTA
+  if(!dbPlanting && OTHER_UNITS[bedId]){
+    const unit=OTHER_UNITS[bedId];
+    h+=`<div class="draft-cta">
+      <div style="font-size:.72rem;color:var(--text-dim);margin-bottom:4px">Zone ${unit.zone} · Last watered: <span id="water-sub">…</span></div>
+      <div style="font-size:.78rem;color:var(--text-sub);margin-bottom:14px;line-height:1.5">No tracking record yet. Start one to log notes, record waterings, and get this area in your briefings.</div>
+      <button class="planted-btn" onclick="beginTrackingUnit('${bedId}')">Begin tracking ${unit.label}</button>
     </div>`;
     return h;
   }
@@ -3894,27 +3949,36 @@ async function savePlanSheet(bedId){
 /* ── INSPECTOR DATA LOADER ───────────────────────── */
 async function loadInspectorData(bedId){
   const planting=getSelectedPlanting(bedId);
-  if(!planting||!planting.planted_date)return;
-  const zone=getUnit(bedId).zone;
+  const unit=getUnit(bedId);
+  const zone=unit?.zone;
+  if(!zone)return;
+
+  // Always load zone watering — it's shared infrastructure, not per-planting
+  const hasPlantingRecord=planting&&planting.planted_date;
   const [watering,notes]=await Promise.all([
     getLastWatering(zone),
-    fetch(`${SB_URL}/rest/v1/logs?planting_id=eq.${planting.id}&order=created_at.desc&limit=3&select=date,note`,{headers:SB_HEADERS}).then(r=>r.json()).catch(()=>[])
+    hasPlantingRecord
+      ?fetch(`${SB_URL}/rest/v1/logs?planting_id=eq.${planting.id}&order=created_at.desc&limit=3&select=date,note`,{headers:SB_HEADERS}).then(r=>r.json()).catch(()=>[])
+      :Promise.resolve([])
   ]);
   if(activeBedId!==bedId)return;
 
-  // Water pill — amber if 4+ days
-  const waterPill=document.getElementById('water-pill');
+  // water-sub exists in both the "begin tracking" CTA and the full water pill
   const waterSub=document.getElementById('water-sub');
+  const waterPill=document.getElementById('water-pill');
+  const waterText=!watering?'not yet watered':(() => {
+    const days=Math.floor((new Date()-new Date(watering.watered_date+'T00:00:00'))/864e5);
+    return days===0?'today':days===1?'yesterday':`${days} days ago`;
+  })();
+  if(waterSub)waterSub.textContent=waterText;
   if(waterPill&&waterSub){
-    if(!watering){
-      waterSub.textContent='not yet watered';
-    } else {
-      const days=Math.floor((new Date()-new Date(watering.watered_date+'T00:00:00'))/864e5);
-      waterSub.textContent=days===0?'today':days===1?'yesterday':`${days} days ago`;
-      if(days>=4)waterPill.classList.add('amber');
-      else waterPill.classList.remove('amber');
-    }
+    if(watering&&Math.floor((new Date()-new Date(watering.watered_date+'T00:00:00'))/864e5)>=4)
+      waterPill.classList.add('amber');
+    else waterPill.classList.remove('amber');
   }
+
+  // Below here is planting-specific — skip if no active planting record
+  if(!hasPlantingRecord)return;
 
   // Note pill sub-label — date of most recent note
   const notePillSub=document.getElementById('note-pill-sub');
