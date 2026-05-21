@@ -1,5 +1,5 @@
 {
-  "today": "2026-05-20",
+  "today": "2026-05-21",
   "plantings": [
     {
       "id": "79526620-7d75-4886-b31d-7c9bf731edc9",
@@ -102,16 +102,6 @@
       "season_notes": null
     },
     {
-      "id": "8c343e4e-65cb-4765-9435-00beae2b3c73",
-      "bed_id": "c1",
-      "crop_name": "Beans",
-      "variety": "Good Mother Stollard",
-      "planted_date": "2026-05-03",
-      "status": "germinating",
-      "expected_harvest": null,
-      "season_notes": null
-    },
-    {
       "id": "b162d546-6d6b-413d-a49f-557e905adb30",
       "bed_id": "w4",
       "crop_name": "Onion",
@@ -127,6 +117,16 @@
       "crop_name": "Potatoes",
       "variety": "Yukon Gold",
       "planted_date": "2026-05-19",
+      "status": "growing",
+      "expected_harvest": null,
+      "season_notes": null
+    },
+    {
+      "id": "8c343e4e-65cb-4765-9435-00beae2b3c73",
+      "bed_id": "c1",
+      "crop_name": "Beans",
+      "variety": "Good Mother Stollard",
+      "planted_date": "2026-05-03",
       "status": "growing",
       "expected_harvest": null,
       "season_notes": null
@@ -511,23 +511,38 @@
   "waterings": [
     {
       "zone": 1,
-      "watered_date": "2026-05-16",
-      "duration_minutes": 10
+      "watered_date": "2026-05-21",
+      "duration_minutes": 20
     },
     {
       "zone": 2,
-      "watered_date": "2026-05-16",
-      "duration_minutes": 10
-    },
-    {
-      "zone": 2,
-      "watered_date": "2026-05-15",
+      "watered_date": "2026-05-21",
       "duration_minutes": 15
+    },
+    {
+      "zone": 1,
+      "watered_date": "2026-05-20",
+      "duration_minutes": 10
+    },
+    {
+      "zone": 2,
+      "watered_date": "2026-05-16",
+      "duration_minutes": 10
+    },
+    {
+      "zone": 1,
+      "watered_date": "2026-05-16",
+      "duration_minutes": 10
     },
     {
       "zone": 1,
       "watered_date": "2026-05-15",
       "duration_minutes": 20
+    },
+    {
+      "zone": 2,
+      "watered_date": "2026-05-15",
+      "duration_minutes": 15
     },
     {
       "zone": 2,
@@ -543,21 +558,6 @@
       "zone": 1,
       "watered_date": "2026-05-12",
       "duration_minutes": 15
-    },
-    {
-      "zone": 2,
-      "watered_date": "2026-05-12",
-      "duration_minutes": 15
-    },
-    {
-      "zone": 1,
-      "watered_date": "2026-05-09",
-      "duration_minutes": 10
-    },
-    {
-      "zone": 2,
-      "watered_date": "2026-05-09",
-      "duration_minutes": 10
     }
   ],
   "weather": {
@@ -565,81 +565,43 @@
       {
         "number": 1,
         "name": "Today",
-        "startTime": "2026-05-20T06:00:00-06:00",
-        "endTime": "2026-05-20T18:00:00-06:00",
+        "startTime": "2026-05-21T06:00:00-06:00",
+        "endTime": "2026-05-21T18:00:00-06:00",
         "isDaytime": true,
-        "temperature": 70,
+        "temperature": 69,
         "temperatureUnit": "F",
         "temperatureTrend": null,
         "probabilityOfPrecipitation": {
           "unitCode": "wmoUnit:percent",
-          "value": 1
+          "value": 28
         },
-        "windSpeed": "3 to 7 mph",
+        "windSpeed": "3 to 13 mph",
         "windDirection": "WSW",
-        "icon": "https://api.weather.gov/icons/land/day/few?size=medium",
-        "shortForecast": "Sunny",
-        "detailedForecast": "Sunny, with a high near 70. West southwest wind 3 to 7 mph."
+        "icon": "https://api.weather.gov/icons/land/day/tsra_hi,30/tsra_hi,20?size=medium",
+        "shortForecast": "Scattered Showers And Thunderstorms then Isolated Showers And Thunderstorms",
+        "detailedForecast": "Isolated rain showers before 9am, then scattered showers and thunderstorms between 9am and noon, then isolated showers and thunderstorms between noon and 3pm. Partly sunny, with a high near 69. West southwest wind 3 to 13 mph. Chance of precipitation is 30%."
       },
       {
         "number": 2,
         "name": "Tonight",
-        "startTime": "2026-05-20T18:00:00-06:00",
-        "endTime": "2026-05-21T06:00:00-06:00",
-        "isDaytime": false,
-        "temperature": 48,
-        "temperatureUnit": "F",
-        "temperatureTrend": null,
-        "probabilityOfPrecipitation": {
-          "unitCode": "wmoUnit:percent",
-          "value": 7
-        },
-        "windSpeed": "6 mph",
-        "windDirection": "ESE",
-        "icon": "https://api.weather.gov/icons/land/night/bkn?size=medium",
-        "shortForecast": "Mostly Cloudy",
-        "detailedForecast": "Mostly cloudy. Low around 48, with temperatures rising to around 51 overnight. East southeast wind around 6 mph."
-      },
-      {
-        "number": 3,
-        "name": "Thursday",
-        "startTime": "2026-05-21T06:00:00-06:00",
-        "endTime": "2026-05-21T18:00:00-06:00",
-        "isDaytime": true,
-        "temperature": 66,
-        "temperatureUnit": "F",
-        "temperatureTrend": null,
-        "probabilityOfPrecipitation": {
-          "unitCode": "wmoUnit:percent",
-          "value": 78
-        },
-        "windSpeed": "5 to 10 mph",
-        "windDirection": "NW",
-        "icon": "https://api.weather.gov/icons/land/day/tsra,80/tsra,60?size=medium",
-        "shortForecast": "Showers And Thunderstorms",
-        "detailedForecast": "A chance of rain showers before 9am, then showers and thunderstorms. Mostly cloudy. High near 66, with temperatures falling to around 64 in the afternoon. Northwest wind 5 to 10 mph. Chance of precipitation is 80%."
-      },
-      {
-        "number": 4,
-        "name": "Thursday Night",
         "startTime": "2026-05-21T18:00:00-06:00",
         "endTime": "2026-05-22T06:00:00-06:00",
         "isDaytime": false,
-        "temperature": 43,
+        "temperature": 44,
         "temperatureUnit": "F",
         "temperatureTrend": null,
         "probabilityOfPrecipitation": {
           "unitCode": "wmoUnit:percent",
-          "value": 1
+          "value": 0
         },
-        "windSpeed": "2 to 9 mph",
-        "windDirection": "NE",
+        "windSpeed": "3 to 12 mph",
+        "windDirection": "N",
         "icon": "https://api.weather.gov/icons/land/night/few?size=medium",
         "shortForecast": "Mostly Clear",
-        "detailedForecast": "Mostly clear, with a low around 43. Northeast wind 2 to 9 mph."
+        "detailedForecast": "Mostly clear. Low around 44, with temperatures rising to around 46 overnight. North wind 3 to 12 mph."
       },
       {
-        "number": 5,
+        "number": 3,
         "name": "Friday",
         "startTime": "2026-05-22T06:00:00-06:00",
         "endTime": "2026-05-22T18:00:00-06:00",
@@ -649,40 +611,59 @@
         "temperatureTrend": null,
         "probabilityOfPrecipitation": {
           "unitCode": "wmoUnit:percent",
-          "value": 1
+          "value": 0
         },
-        "windSpeed": "3 to 7 mph",
-        "windDirection": "NE",
+        "windSpeed": "6 mph",
+        "windDirection": "E",
         "icon": "https://api.weather.gov/icons/land/day/sct?size=medium",
         "shortForecast": "Mostly Sunny",
-        "detailedForecast": "Mostly sunny, with a high near 72. Northeast wind 3 to 7 mph."
+        "detailedForecast": "Mostly sunny, with a high near 72. East wind around 6 mph."
       },
       {
-        "number": 6,
+        "number": 4,
         "name": "Friday Night",
         "startTime": "2026-05-22T18:00:00-06:00",
         "endTime": "2026-05-23T06:00:00-06:00",
         "isDaytime": false,
-        "temperature": 47,
+        "temperature": 48,
         "temperatureUnit": "F",
         "temperatureTrend": null,
         "probabilityOfPrecipitation": {
           "unitCode": "wmoUnit:percent",
-          "value": 1
+          "value": 0
         },
-        "windSpeed": "2 to 7 mph",
-        "windDirection": "ENE",
+        "windSpeed": "2 to 6 mph",
+        "windDirection": "E",
         "icon": "https://api.weather.gov/icons/land/night/few?size=medium",
         "shortForecast": "Mostly Clear",
-        "detailedForecast": "Mostly clear, with a low around 47."
+        "detailedForecast": "Mostly clear, with a low around 48. East wind 2 to 6 mph."
       },
       {
-        "number": 7,
+        "number": 5,
         "name": "Saturday",
         "startTime": "2026-05-23T06:00:00-06:00",
         "endTime": "2026-05-23T18:00:00-06:00",
         "isDaytime": true,
-        "temperature": 80,
+        "temperature": 82,
+        "temperatureUnit": "F",
+        "temperatureTrend": null,
+        "probabilityOfPrecipitation": {
+          "unitCode": "wmoUnit:percent",
+          "value": 0
+        },
+        "windSpeed": "7 mph",
+        "windDirection": "S",
+        "icon": "https://api.weather.gov/icons/land/day/few?size=medium",
+        "shortForecast": "Sunny",
+        "detailedForecast": "Sunny, with a high near 82. South wind around 7 mph."
+      },
+      {
+        "number": 6,
+        "name": "Saturday Night",
+        "startTime": "2026-05-23T18:00:00-06:00",
+        "endTime": "2026-05-24T06:00:00-06:00",
+        "isDaytime": false,
+        "temperature": 55,
         "temperatureUnit": "F",
         "temperatureTrend": null,
         "probabilityOfPrecipitation": {
@@ -690,15 +671,66 @@
           "value": 0
         },
         "windSpeed": "6 mph",
+        "windDirection": "E",
+        "icon": "https://api.weather.gov/icons/land/night/few?size=medium",
+        "shortForecast": "Mostly Clear",
+        "detailedForecast": "Mostly clear, with a low around 55."
+      },
+      {
+        "number": 7,
+        "name": "Sunday",
+        "startTime": "2026-05-24T06:00:00-06:00",
+        "endTime": "2026-05-24T18:00:00-06:00",
+        "isDaytime": true,
+        "temperature": 86,
+        "temperatureUnit": "F",
+        "temperatureTrend": null,
+        "probabilityOfPrecipitation": {
+          "unitCode": "wmoUnit:percent",
+          "value": 2
+        },
+        "windSpeed": "8 mph",
         "windDirection": "S",
         "icon": "https://api.weather.gov/icons/land/day/few?size=medium",
         "shortForecast": "Sunny",
-        "detailedForecast": "Sunny, with a high near 80."
+        "detailedForecast": "Sunny, with a high near 86."
       }
     ],
     "alerts": []
   },
   "recent_briefings": [
+    {
+      "payload": {
+        "headline": "One dry day left — scapes, trellis, before Thursday's storms",
+        "weather_notes": [
+          "Skip all watering through Thursday — Thursday's 78% T-storms will naturally irrigate every active planting.",
+          "Complete outdoor work today — Thursday brings all-day showers and T-storms (78%), closing the garden window until Friday.",
+          "Check potato_bags for drainage today — freshly planted Yukon Gold (May 19) can pool standing water in bags during Thursday's heavy rain; punch holes now if needed."
+        ],
+        "surfaced_tasks": [],
+        "suggested_tasks": [
+          {
+            "title": "Check w3 Italian Red garlic for scapes",
+            "bed_id": "w3",
+            "urgency": "normal",
+            "due_date": "2026-05-20",
+            "description": "Late May is peak scape season for Italian Red hardneck — inspect and snap any scapes today, last dry window before Thursday's 78% T-storms."
+          },
+          {
+            "title": "Install trellis for c1 pole beans",
+            "bed_id": "c1",
+            "urgency": "normal",
+            "due_date": "2026-05-21",
+            "description": "Good Mother Stollard (pole bean) sprouted May 13 — do it today before Thursday's storms tangle unsupported vines."
+          }
+        ]
+      },
+      "suggestions_state": {
+        "accepted": [],
+        "rejected": []
+      },
+      "generated_at": "2026-05-20T13:40:05+00:00"
+    },
     {
       "payload": {
         "headline": "Garlic scapes due on w3 — check by Friday",
@@ -1138,34 +1170,6 @@
         ]
       },
       "generated_at": "2026-05-06T12:16:14+00:00"
-    },
-    {
-      "payload": {
-        "headline": "Storms today; dry Wednesday opens the week",
-        "weather_notes": [
-          "Today's 65% storm chance delivers natural irrigation — skip manual watering through Wednesday.",
-          "Wednesday clears to sunny and dry (62°F, 5% precip) — the best outdoor work window this week.",
-          "Thursday warms to 76°F with 0% precip — a second clean outdoor day if needed.",
-          "Tonight's low of 42°F poses no frost risk to any active planting."
-        ],
-        "surfaced_tasks": [],
-        "suggested_tasks": [
-          {
-            "title": "Check onion emergence, resow if needed",
-            "bed_id": "w4",
-            "urgency": "normal",
-            "due_date": "2026-05-09",
-            "description": "Onions sown April 25 hit day 14 on May 9 — if no sprouts visible by then, resow before soil warms past the ideal germination window."
-          }
-        ]
-      },
-      "suggestions_state": {
-        "accepted": [],
-        "rejected": [
-          0
-        ]
-      },
-      "generated_at": "2026-05-05T12:07:11+00:00"
     }
   ]
 }
