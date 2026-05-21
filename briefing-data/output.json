@@ -1,24 +1,23 @@
 {
-  "headline": "One dry day left — scapes, trellis, before Thursday's storms",
+  "headline": "Clear window opens Friday — trellis beans, snap scapes",
   "weather_notes": [
-    "Skip all watering through Thursday — Thursday's 78% T-storms will naturally irrigate every active planting.",
-    "Complete outdoor work today — Thursday brings all-day showers and T-storms (78%), closing the garden window until Friday.",
-    "Check potato_bags for drainage today — freshly planted Yukon Gold (May 19) can pool standing water in bags during Thursday's heavy rain; punch holes now if needed."
+    "Schedule outdoor work for Friday — today's 30% morning storm risk clears tonight; Friday (72°F, 0% rain) is the first fully dry window of the week.",
+    "Check potato_bags moisture daily — 2-day-old Yukon Gold sets in bags dry out faster than raised beds as temps climb to 82–86°F this weekend."
   ],
   "surfaced_tasks": [],
   "suggested_tasks": [
     {
-      "title": "Check w3 Italian Red garlic for scapes",
-      "due_date": "2026-05-20",
-      "description": "Late May is peak scape season for Italian Red hardneck — inspect and snap any scapes today, last dry window before Thursday's 78% T-storms.",
-      "bed_id": "w3",
-      "urgency": "normal"
+      "title": "Install trellis in c1 bean bed",
+      "due_date": "2026-05-22",
+      "description": "Good Mother Stollard (pole bean) sprouted May 13 — at day 18, vines need vertical support now before they tangle during the warm-up to 82°F Saturday.",
+      "bed_id": "c1",
+      "urgency": "high"
     },
     {
-      "title": "Install trellis for c1 pole beans",
-      "due_date": "2026-05-21",
-      "description": "Good Mother Stollard (pole bean) sprouted May 13 — do it today before Thursday's storms tangle unsupported vines.",
-      "bed_id": "c1",
+      "title": "Snap scapes on w3 Italian Red garlic",
+      "due_date": "2026-05-22",
+      "description": "Late May is peak scape time for hardneck garlic — remove curled scapes Friday to redirect energy to bulb development before the July harvest.",
+      "bed_id": "w3",
       "urgency": "normal"
     }
   ]
