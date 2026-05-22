@@ -1,24 +1,22 @@
 {
-  "headline": "Clear window opens Friday — trellis beans, snap scapes",
+  "headline": "Scapes and trellis due today — hot dry weekend ahead",
   "weather_notes": [
-    "Schedule outdoor work for Friday — today's 30% morning storm risk clears tonight; Friday (72°F, 0% rain) is the first fully dry window of the week.",
-    "Check potato_bags moisture daily — 2-day-old Yukon Gold sets in bags dry out faster than raised beds as temps climb to 82–86°F this weekend."
+    "Water potato_bags before Saturday — freshly planted Yukon Gold (day 3) in bags dry out twice as fast as raised beds during 83-88°F weekend with zero rain through Memorial Day.",
+    "Water c2-c4 peas before Sunday — pods at fill-stage lose quality under heat stress without consistent soil moisture; 87-88°F Sunday-Monday with zero rain forecast."
   ],
-  "surfaced_tasks": [],
-  "suggested_tasks": [
+  "surfaced_tasks": [
     {
-      "title": "Install trellis in c1 bean bed",
-      "due_date": "2026-05-22",
-      "description": "Good Mother Stollard (pole bean) sprouted May 13 — at day 18, vines need vertical support now before they tangle during the warm-up to 82°F Saturday.",
-      "bed_id": "c1",
-      "urgency": "high"
+      "task_id": "99",
+      "bed_id": "w3",
+      "title": "Snap scapes on w3 Italian Red garlic",
+      "reason": "Due today at peak scape window — every day delayed redirects energy away from bulb development ahead of the July harvest."
     },
     {
-      "title": "Snap scapes on w3 Italian Red garlic",
-      "due_date": "2026-05-22",
-      "description": "Late May is peak scape time for hardneck garlic — remove curled scapes Friday to redirect energy to bulb development before the July harvest.",
-      "bed_id": "w3",
-      "urgency": "normal"
+      "task_id": "98",
+      "bed_id": "c1",
+      "title": "Install trellis in c1 bean bed",
+      "reason": "Due today — Good Mother Stollard pole beans need vertical support now before the warm weekend accelerates vine growth and tangling."
     }
-  ]
+  ],
+  "suggested_tasks": []
 }
