@@ -1,5 +1,5 @@
 {
-  "today": "2026-05-21",
+  "today": "2026-05-22",
   "plantings": [
     {
       "id": "79526620-7d75-4886-b31d-7c9bf731edc9",
@@ -197,6 +197,13 @@
       "due_date": "2026-05-20"
     },
     {
+      "id": 22,
+      "planting_id": "54c2c338-5c4d-4924-b91b-4ffc22ebb4b3",
+      "title": "Mid-season feed — blood meal",
+      "description": "Work 1 tbsp blood meal per plant into top inch of soil. Apply once heavy fruiting begins to compensate for nitrogen demand. Skip if foliage is already very dark green — excess nitrogen pushes leaf growth at expense of fruit.",
+      "due_date": "2026-05-21"
+    },
+    {
       "id": 57,
       "planting_id": "54c2c338-5c4d-4924-b91b-4ffc22ebb4b3",
       "title": "Inspect for hornworms — apply Bt if found",
@@ -204,11 +211,18 @@
       "due_date": "2026-05-21"
     },
     {
-      "id": 22,
-      "planting_id": "54c2c338-5c4d-4924-b91b-4ffc22ebb4b3",
-      "title": "Mid-season feed — blood meal",
-      "description": "Work 1 tbsp blood meal per plant into top inch of soil. Apply once heavy fruiting begins to compensate for nitrogen demand. Skip if foliage is already very dark green — excess nitrogen pushes leaf growth at expense of fruit.",
-      "due_date": "2026-05-21"
+      "id": 99,
+      "planting_id": "abebbe9f-e355-4c78-a77f-79d4c88d17f7",
+      "title": "Snap scapes on w3 Italian Red garlic",
+      "description": "Late May is peak scape time for hardneck garlic — remove curled scapes Friday to redirect energy to bulb development before the July harvest.",
+      "due_date": "2026-05-22"
+    },
+    {
+      "id": 98,
+      "planting_id": "8c343e4e-65cb-4765-9435-00beae2b3c73",
+      "title": "Install trellis in c1 bean bed",
+      "description": "Good Mother Stollard (pole bean) sprouted May 13 — at day 18, vines need vertical support now before they tangle during the warm-up to 82°F Saturday.",
+      "due_date": "2026-05-22"
     },
     {
       "id": 67,
@@ -218,17 +232,17 @@
       "due_date": "2026-05-24"
     },
     {
-      "id": 68,
-      "planting_id": "54c2c338-5c4d-4924-b91b-4ffc22ebb4b3",
-      "title": "Check for suckers",
-      "description": "Remove suckers forming in the crotch between main stem and lateral branches. Indeterminate varieties only (Amish Paste, Comstock, Bonny Best) — leave determinates (Roma, Orange Hat) unpruned. Pinch suckers when small (under 2 inches) for a cleaner break.",
-      "due_date": "2026-05-31"
-    },
-    {
       "id": 58,
       "planting_id": "54c2c338-5c4d-4924-b91b-4ffc22ebb4b3",
       "title": "Inspect for hornworms — apply Bt if found",
       "description": "Check undersides of leaves on lower third of plant. Look for dark frass (droppings) as first sign. If hornworms found: spray Bacillus thuringiensis (Bt) on affected foliage per label. Hand-pick any large worms already present. Reapply Bt after rain.",
+      "due_date": "2026-05-31"
+    },
+    {
+      "id": 68,
+      "planting_id": "54c2c338-5c4d-4924-b91b-4ffc22ebb4b3",
+      "title": "Check for suckers",
+      "description": "Remove suckers forming in the crotch between main stem and lateral branches. Indeterminate varieties only (Amish Paste, Comstock, Bonny Best) — leave determinates (Roma, Orange Hat) unpruned. Pinch suckers when small (under 2 inches) for a cleaner break.",
       "due_date": "2026-05-31"
     },
     {
@@ -565,86 +579,48 @@
       {
         "number": 1,
         "name": "Today",
-        "startTime": "2026-05-21T06:00:00-06:00",
-        "endTime": "2026-05-21T18:00:00-06:00",
+        "startTime": "2026-05-22T06:00:00-06:00",
+        "endTime": "2026-05-22T18:00:00-06:00",
         "isDaytime": true,
-        "temperature": 69,
+        "temperature": 74,
         "temperatureUnit": "F",
         "temperatureTrend": null,
         "probabilityOfPrecipitation": {
           "unitCode": "wmoUnit:percent",
-          "value": 28
+          "value": 0
         },
-        "windSpeed": "3 to 13 mph",
-        "windDirection": "WSW",
-        "icon": "https://api.weather.gov/icons/land/day/tsra_hi,30/tsra_hi,20?size=medium",
-        "shortForecast": "Scattered Showers And Thunderstorms then Isolated Showers And Thunderstorms",
-        "detailedForecast": "Isolated rain showers before 9am, then scattered showers and thunderstorms between 9am and noon, then isolated showers and thunderstorms between noon and 3pm. Partly sunny, with a high near 69. West southwest wind 3 to 13 mph. Chance of precipitation is 30%."
+        "windSpeed": "3 to 7 mph",
+        "windDirection": "NE",
+        "icon": "https://api.weather.gov/icons/land/day/bkn?size=medium",
+        "shortForecast": "Partly Sunny",
+        "detailedForecast": "Partly sunny, with a high near 74. Northeast wind 3 to 7 mph."
       },
       {
         "number": 2,
         "name": "Tonight",
-        "startTime": "2026-05-21T18:00:00-06:00",
-        "endTime": "2026-05-22T06:00:00-06:00",
-        "isDaytime": false,
-        "temperature": 44,
-        "temperatureUnit": "F",
-        "temperatureTrend": null,
-        "probabilityOfPrecipitation": {
-          "unitCode": "wmoUnit:percent",
-          "value": 0
-        },
-        "windSpeed": "3 to 12 mph",
-        "windDirection": "N",
-        "icon": "https://api.weather.gov/icons/land/night/few?size=medium",
-        "shortForecast": "Mostly Clear",
-        "detailedForecast": "Mostly clear. Low around 44, with temperatures rising to around 46 overnight. North wind 3 to 12 mph."
-      },
-      {
-        "number": 3,
-        "name": "Friday",
-        "startTime": "2026-05-22T06:00:00-06:00",
-        "endTime": "2026-05-22T18:00:00-06:00",
-        "isDaytime": true,
-        "temperature": 72,
-        "temperatureUnit": "F",
-        "temperatureTrend": null,
-        "probabilityOfPrecipitation": {
-          "unitCode": "wmoUnit:percent",
-          "value": 0
-        },
-        "windSpeed": "6 mph",
-        "windDirection": "E",
-        "icon": "https://api.weather.gov/icons/land/day/sct?size=medium",
-        "shortForecast": "Mostly Sunny",
-        "detailedForecast": "Mostly sunny, with a high near 72. East wind around 6 mph."
-      },
-      {
-        "number": 4,
-        "name": "Friday Night",
         "startTime": "2026-05-22T18:00:00-06:00",
         "endTime": "2026-05-23T06:00:00-06:00",
         "isDaytime": false,
-        "temperature": 48,
+        "temperature": 49,
         "temperatureUnit": "F",
         "temperatureTrend": null,
         "probabilityOfPrecipitation": {
           "unitCode": "wmoUnit:percent",
           "value": 0
         },
-        "windSpeed": "2 to 6 mph",
-        "windDirection": "E",
+        "windSpeed": "3 to 7 mph",
+        "windDirection": "SW",
         "icon": "https://api.weather.gov/icons/land/night/few?size=medium",
         "shortForecast": "Mostly Clear",
-        "detailedForecast": "Mostly clear, with a low around 48. East wind 2 to 6 mph."
+        "detailedForecast": "Mostly clear. Low around 49, with temperatures rising to around 51 overnight. Southwest wind 3 to 7 mph."
       },
       {
-        "number": 5,
+        "number": 3,
         "name": "Saturday",
         "startTime": "2026-05-23T06:00:00-06:00",
         "endTime": "2026-05-23T18:00:00-06:00",
         "isDaytime": true,
-        "temperature": 82,
+        "temperature": 83,
         "temperatureUnit": "F",
         "temperatureTrend": null,
         "probabilityOfPrecipitation": {
@@ -655,15 +631,15 @@
         "windDirection": "S",
         "icon": "https://api.weather.gov/icons/land/day/few?size=medium",
         "shortForecast": "Sunny",
-        "detailedForecast": "Sunny, with a high near 82. South wind around 7 mph."
+        "detailedForecast": "Sunny, with a high near 83. South wind around 7 mph."
       },
       {
-        "number": 6,
+        "number": 4,
         "name": "Saturday Night",
         "startTime": "2026-05-23T18:00:00-06:00",
         "endTime": "2026-05-24T06:00:00-06:00",
         "isDaytime": false,
-        "temperature": 55,
+        "temperature": 57,
         "temperatureUnit": "F",
         "temperatureTrend": null,
         "probabilityOfPrecipitation": {
@@ -671,34 +647,106 @@
           "value": 0
         },
         "windSpeed": "6 mph",
-        "windDirection": "E",
+        "windDirection": "ESE",
         "icon": "https://api.weather.gov/icons/land/night/few?size=medium",
         "shortForecast": "Mostly Clear",
-        "detailedForecast": "Mostly clear, with a low around 55."
+        "detailedForecast": "Mostly clear, with a low around 57. East southeast wind around 6 mph."
       },
       {
-        "number": 7,
+        "number": 5,
         "name": "Sunday",
         "startTime": "2026-05-24T06:00:00-06:00",
         "endTime": "2026-05-24T18:00:00-06:00",
         "isDaytime": true,
-        "temperature": 86,
+        "temperature": 87,
         "temperatureUnit": "F",
         "temperatureTrend": null,
         "probabilityOfPrecipitation": {
           "unitCode": "wmoUnit:percent",
           "value": 2
         },
-        "windSpeed": "8 mph",
+        "windSpeed": "6 to 9 mph",
         "windDirection": "S",
-        "icon": "https://api.weather.gov/icons/land/day/few?size=medium",
-        "shortForecast": "Sunny",
-        "detailedForecast": "Sunny, with a high near 86."
+        "icon": "https://api.weather.gov/icons/land/day/sct?size=medium",
+        "shortForecast": "Mostly Sunny",
+        "detailedForecast": "Mostly sunny, with a high near 87. South wind 6 to 9 mph."
+      },
+      {
+        "number": 6,
+        "name": "Sunday Night",
+        "startTime": "2026-05-24T18:00:00-06:00",
+        "endTime": "2026-05-25T06:00:00-06:00",
+        "isDaytime": false,
+        "temperature": 58,
+        "temperatureUnit": "F",
+        "temperatureTrend": null,
+        "probabilityOfPrecipitation": {
+          "unitCode": "wmoUnit:percent",
+          "value": 1
+        },
+        "windSpeed": "6 mph",
+        "windDirection": "SSE",
+        "icon": "https://api.weather.gov/icons/land/night/sct?size=medium",
+        "shortForecast": "Partly Cloudy",
+        "detailedForecast": "Partly cloudy, with a low around 58."
+      },
+      {
+        "number": 7,
+        "name": "Memorial Day",
+        "startTime": "2026-05-25T06:00:00-06:00",
+        "endTime": "2026-05-25T18:00:00-06:00",
+        "isDaytime": true,
+        "temperature": 88,
+        "temperatureUnit": "F",
+        "temperatureTrend": null,
+        "probabilityOfPrecipitation": {
+          "unitCode": "wmoUnit:percent",
+          "value": 2
+        },
+        "windSpeed": "9 mph",
+        "windDirection": "SSE",
+        "icon": "https://api.weather.gov/icons/land/day/sct?size=medium",
+        "shortForecast": "Mostly Sunny",
+        "detailedForecast": "Mostly sunny, with a high near 88."
       }
     ],
     "alerts": []
   },
   "recent_briefings": [
+    {
+      "payload": {
+        "headline": "Clear window opens Friday — trellis beans, snap scapes",
+        "weather_notes": [
+          "Schedule outdoor work for Friday — today's 30% morning storm risk clears tonight; Friday (72°F, 0% rain) is the first fully dry window of the week.",
+          "Check potato_bags moisture daily — 2-day-old Yukon Gold sets in bags dry out faster than raised beds as temps climb to 82–86°F this weekend."
+        ],
+        "surfaced_tasks": [],
+        "suggested_tasks": [
+          {
+            "title": "Install trellis in c1 bean bed",
+            "bed_id": "c1",
+            "urgency": "high",
+            "due_date": "2026-05-22",
+            "description": "Good Mother Stollard (pole bean) sprouted May 13 — at day 18, vines need vertical support now before they tangle during the warm-up to 82°F Saturday."
+          },
+          {
+            "title": "Snap scapes on w3 Italian Red garlic",
+            "bed_id": "w3",
+            "urgency": "normal",
+            "due_date": "2026-05-22",
+            "description": "Late May is peak scape time for hardneck garlic — remove curled scapes Friday to redirect energy to bulb development before the July harvest."
+          }
+        ]
+      },
+      "suggestions_state": {
+        "accepted": [
+          0,
+          1
+        ],
+        "rejected": []
+      },
+      "generated_at": "2026-05-21T13:45:41+00:00"
+    },
     {
       "payload": {
         "headline": "One dry day left — scapes, trellis, before Thursday's storms",
@@ -1142,34 +1190,6 @@
         "rejected": []
       },
       "generated_at": "2026-05-07T12:19:29+00:00"
-    },
-    {
-      "payload": {
-        "headline": "Overnight rain clears; 80°F heat arrives Friday",
-        "weather_notes": [
-          "NWS Special Weather Statement active as of 2:17 AM today — check NWS SLC before outdoor work.",
-          "Tonight's 65-70% rain provides natural irrigation; skip Wednesday watering for all beds.",
-          "Wednesday clears to sunny 62°F — the week's cleanest window for outdoor tasks.",
-          "Thursday-Friday warm to 77-80°F, first real heat of the season; newly sown beds will dry out fast."
-        ],
-        "surfaced_tasks": [],
-        "suggested_tasks": [
-          {
-            "title": "Check c1 bean moisture before Thursday heat",
-            "bed_id": "c1",
-            "urgency": "normal",
-            "due_date": "2026-05-08",
-            "description": "Beans sown May 3 need consistent soil moisture through germination; overnight rain covers Wednesday, but 77-80°F heat arriving Thursday will dry the bed before the 7-10 day germination window closes."
-          }
-        ]
-      },
-      "suggestions_state": {
-        "accepted": [],
-        "rejected": [
-          0
-        ]
-      },
-      "generated_at": "2026-05-06T12:16:14+00:00"
     }
   ]
 }
