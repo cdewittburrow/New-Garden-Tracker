@@ -1,22 +1,25 @@
 {
-  "headline": "Scapes and trellis due today — hot dry weekend ahead",
+  "headline": "89°F Memorial Day — trellis beans before they tangle",
   "weather_notes": [
-    "Water potato_bags before Saturday — freshly planted Yukon Gold (day 3) in bags dry out twice as fast as raised beds during 83-88°F weekend with zero rain through Memorial Day.",
-    "Water c2-c4 peas before Sunday — pods at fill-stage lose quality under heat stress without consistent soil moisture; 87-88°F Sunday-Monday with zero rain forecast."
+    "Water e1–e4 tomatoes deeply today — no rain forecast through Memorial Day and 83–89°F weekend heat will rapidly deplete bed moisture.",
+    "Check potato_bags moisture daily through Monday — 4-day Yukon Gold roots haven't established yet and bag soil dries twice as fast as beds in 83–89°F heat.",
+    "Pick from c2–c4 peas by Tuesday — 83–89°F heat this weekend accelerates pod fill and toughening, potentially pulling harvest ahead of the June 3 target."
   ],
   "surfaced_tasks": [
-    {
-      "task_id": "99",
-      "bed_id": "w3",
-      "title": "Snap scapes on w3 Italian Red garlic",
-      "reason": "Due today at peak scape window — every day delayed redirects energy away from bulb development ahead of the July harvest."
-    },
     {
       "task_id": "98",
       "bed_id": "c1",
       "title": "Install trellis in c1 bean bed",
-      "reason": "Due today — Good Mother Stollard pole beans need vertical support now before the warm weekend accelerates vine growth and tangling."
+      "reason": "Overdue by 1 day and pole bean vines will accelerate fast through the 83–89°F weekend — tangling becomes hard to correct once vines outpace support."
     }
   ],
-  "suggested_tasks": []
+  "suggested_tasks": [
+    {
+      "title": "Harvest check c4 peas before heat toughens pods",
+      "due_date": "2026-05-25",
+      "description": "Lillian's Caseload had the most pods forming on May 12 — 89°F Memorial Day weekend will accelerate toughening and splitting; check and pick c4 first.",
+      "bed_id": "c4",
+      "urgency": "normal"
+    }
+  ]
 }
