@@ -358,12 +358,6 @@ h1 em{font-style:normal;color:var(--teal);}
   background:transparent;color:var(--text-sub);cursor:pointer;transition:all .2s;white-space:nowrap;
 }
 .chip.active,.chip:hover{background:var(--emerald-mid);color:#e8f5f0;border-color:var(--emerald-mid);}
-.task-list{display:flex;flex-direction:column;}
-.task-row{
-  display:flex;align-items:flex-start;gap:14px;
-  padding:12px 0;border-bottom:1px solid var(--divider);
-}
-.task-row:last-child{border-bottom:none;}
 .task-cb{
   width:18px;height:18px;border-radius:5px;flex-shrink:0;margin-top:3px;
   border:1.5px solid var(--border-hi);appearance:none;-webkit-appearance:none;
@@ -372,10 +366,6 @@ h1 em{font-style:normal;color:var(--teal);}
 .task-cb:checked{background:var(--emerald-mid);border-color:var(--emerald-mid);}
 .task-cb:checked::after{content:'✓';position:absolute;inset:0;display:flex;align-items:center;justify-content:center;color:#fff;font-size:11px;line-height:1;}
 .task-cb:disabled{opacity:.7;cursor:default;}
-.task-meta{flex:1;min-width:0;}
-.task-bed-label{font-family:'Inter',sans-serif;font-size:.58rem;color:var(--teal);letter-spacing:.5px;text-transform:uppercase;margin-bottom:2px;}
-.task-name{font-size:.84rem;font-weight:500;margin-bottom:2px;}
-.task-window{font-family:'Inter',sans-serif;font-size:.58rem;color:var(--text-dim);}
 .task-empty{font-size:.85rem;color:var(--text-dim);font-style:italic;padding:32px 0;text-align:center;}
 .planted-row{margin:0 0 12px;}
 .planted-btn{
@@ -1615,96 +1605,7 @@ const BED_POS={
   e1:[2,0],e2:[2,1],e3:[2,2],e4:[2,3]
 };
 
-/* ── TASK DEFINITIONS ────────────────────────────── */
-// anchor: 'PLANTED'|'MAR_8'|'OCT_27'|'CALENDAR'
-// frequency: 'once'|'weekly'
-// once: {id, offset, windowWeeks}
-// weekly: {idBase, offsetStart, offsetEnd, windowWeeks}
-// CALENDAR: {id, calStart, calEnd} (YYYY-MM-DD)
-const TASK_DEFS={
-  e1:[
-    {id:'tomato-det-cage',name:'Install cage',anchor:'PLANTED',offset:1,windowWeeks:1,frequency:'once'},
-    {idBase:'tomato-det-ber',name:'Check for blossom end rot',anchor:'PLANTED',offsetStart:6,offsetEnd:14,windowWeeks:1,frequency:'weekly'},
-    {idBase:'tomato-det-harvest',name:'Harvest check',anchor:'PLANTED',offsetStart:10,offsetEnd:14,windowWeeks:1,frequency:'weekly'},
-  ],
-  e2:[
-    {id:'tomato-ind-cage',name:'Install cage or stake',anchor:'PLANTED',offset:1,windowWeeks:1,frequency:'once'},
-    {idBase:'tomato-ind-suckers',name:'Remove suckers',anchor:'PLANTED',offsetStart:2,offsetEnd:11,windowWeeks:1,frequency:'weekly'},
-    {idBase:'tomato-ind-leaves',name:'Remove lower / yellowing leaves',anchor:'PLANTED',offsetStart:4,offsetEnd:12,windowWeeks:1,frequency:'weekly'},
-    {idBase:'tomato-ind-ber',name:'Check for blossom end rot',anchor:'PLANTED',offsetStart:6,offsetEnd:14,windowWeeks:1,frequency:'weekly'},
-    {idBase:'tomato-ind-harvest',name:'Harvest check',anchor:'PLANTED',offsetStart:10,offsetEnd:16,windowWeeks:1,frequency:'weekly'},
-  ],
-  e3:[
-    {id:'tomato-ind-cage',name:'Install cage or stake',anchor:'PLANTED',offset:1,windowWeeks:1,frequency:'once'},
-    {idBase:'tomato-ind-suckers',name:'Remove suckers',anchor:'PLANTED',offsetStart:2,offsetEnd:11,windowWeeks:1,frequency:'weekly'},
-    {idBase:'tomato-ind-leaves',name:'Remove lower / yellowing leaves',anchor:'PLANTED',offsetStart:4,offsetEnd:12,windowWeeks:1,frequency:'weekly'},
-    {idBase:'tomato-ind-ber',name:'Check for blossom end rot',anchor:'PLANTED',offsetStart:6,offsetEnd:14,windowWeeks:1,frequency:'weekly'},
-    {idBase:'tomato-ind-harvest',name:'Harvest check',anchor:'PLANTED',offsetStart:10,offsetEnd:16,windowWeeks:1,frequency:'weekly'},
-  ],
-  e4:[
-    {id:'tomato-ind-cage',name:'Install cage or stake',anchor:'PLANTED',offset:1,windowWeeks:1,frequency:'once'},
-    {idBase:'tomato-ind-suckers',name:'Remove suckers',anchor:'PLANTED',offsetStart:2,offsetEnd:11,windowWeeks:1,frequency:'weekly'},
-    {idBase:'tomato-ind-leaves',name:'Remove lower / yellowing leaves',anchor:'PLANTED',offsetStart:4,offsetEnd:12,windowWeeks:1,frequency:'weekly'},
-    {idBase:'tomato-ind-ber',name:'Check for blossom end rot',anchor:'PLANTED',offsetStart:6,offsetEnd:14,windowWeeks:1,frequency:'weekly'},
-    {idBase:'tomato-ind-harvest',name:'Harvest check',anchor:'PLANTED',offsetStart:10,offsetEnd:16,windowWeeks:1,frequency:'weekly'},
-  ],
-  c1:[
-    {id:'radish-harvest',name:'Harvest radishes before bolt',anchor:'MAR_8',offset:2,windowWeeks:2,frequency:'once'},
-    {id:'gmstallard-trellis',name:'Check trellis is ready',anchor:'PLANTED',offset:0,windowWeeks:1,frequency:'once'},
-    {idBase:'gmstallard-drycheck',name:'Check pods drying on vine',anchor:'PLANTED',offsetStart:8,offsetEnd:14,windowWeeks:1,frequency:'weekly'},
-    {id:'gmstallard-pull',name:'Pull plants, finish drying indoors',anchor:'PLANTED',offset:14,windowWeeks:2,frequency:'once'},
-  ],
-  c2:[
-    {idBase:'peas-harvest',name:'Harvest check — pick regularly',anchor:'MAR_8',offsetStart:8,offsetEnd:14,windowWeeks:1,frequency:'weekly'},
-    {id:'bush-beans-firstcheck',name:'First harvest check',anchor:'PLANTED',offset:6,windowWeeks:1,frequency:'once'},
-    {idBase:'bush-beans-harvest',name:'Harvest every 2–3 days',anchor:'PLANTED',offsetStart:7,offsetEnd:10,windowWeeks:1,frequency:'weekly'},
-  ],
-  c3:[
-    {idBase:'peas-harvest',name:'Harvest check — pick regularly',anchor:'MAR_8',offsetStart:8,offsetEnd:14,windowWeeks:1,frequency:'weekly'},
-    {id:'bush-beans-firstcheck',name:'First harvest check',anchor:'PLANTED',offset:6,windowWeeks:1,frequency:'once'},
-    {idBase:'bush-beans-harvest',name:'Harvest every 2–3 days',anchor:'PLANTED',offsetStart:7,offsetEnd:10,windowWeeks:1,frequency:'weekly'},
-  ],
-  c4:[
-    {idBase:'peas-harvest',name:'Harvest check — pick regularly',anchor:'MAR_8',offsetStart:8,offsetEnd:14,windowWeeks:1,frequency:'weekly'},
-    {id:'bush-beans-firstcheck',name:'First harvest check',anchor:'PLANTED',offset:6,windowWeeks:1,frequency:'once'},
-    {idBase:'bush-beans-harvest',name:'Harvest every 2–3 days',anchor:'PLANTED',offsetStart:7,offsetEnd:10,windowWeeks:1,frequency:'weekly'},
-  ],
-  w1:[
-    {idBase:'strawberry-runners',name:'Runner check — root healthy, remove weak',anchor:'PLANTED',offsetStart:3,offsetEnd:26,windowWeeks:1,frequency:'weekly'},
-    {id:'strawberry-netting',name:'Install bird netting',anchor:'CALENDAR',calStart:'2026-04-20',calEnd:'2026-04-27',frequency:'once'},
-    {id:'strawberry-shade',name:'Install shade cloth',anchor:'CALENDAR',calStart:'2026-06-15',calEnd:'2026-06-22',frequency:'once'},
-    {id:'strawberry-remove-covers',name:'Remove netting and shade cloth',anchor:'CALENDAR',calStart:'2026-08-15',calEnd:'2026-08-22',frequency:'once'},
-    {id:'strawberry-winterize',name:'Cut back foliage, mulch for winter',anchor:'CALENDAR',calStart:'2026-10-20',calEnd:'2026-11-05',frequency:'once'},
-  ],
-  w3:[
-    {id:'garlic-soft-stopwater',name:'Stop watering',anchor:'CALENDAR',calStart:'2026-07-01',calEnd:'2026-07-07',frequency:'once'},
-    {id:'garlic-soft-harvest',name:'Harvest garlic',anchor:'CALENDAR',calStart:'2026-07-15',calEnd:'2026-07-25',frequency:'once'},
-    {id:'carrots-thin',name:'Thin seedlings if crowded',anchor:'PLANTED',offset:3,windowWeeks:2,frequency:'once'},
-    {idBase:'carrots-harvest',name:'Test harvest check',anchor:'PLANTED',offsetStart:12,offsetEnd:16,windowWeeks:1,frequency:'weekly'},
-  ],
-  w4:[
-    {id:'garlic-hard-scapes',name:'Cut scapes when they curl',anchor:'CALENDAR',calStart:'2026-06-10',calEnd:'2026-06-20',frequency:'once'},
-    {id:'garlic-hard-stopwater',name:'Stop watering',anchor:'CALENDAR',calStart:'2026-07-01',calEnd:'2026-07-07',frequency:'once'},
-    {id:'garlic-hard-harvest',name:'Harvest garlic',anchor:'CALENDAR',calStart:'2026-07-15',calEnd:'2026-07-25',frequency:'once'},
-    {id:'carrots-thin',name:'Thin seedlings if crowded',anchor:'PLANTED',offset:3,windowWeeks:2,frequency:'once'},
-    {idBase:'carrots-harvest',name:'Test harvest check',anchor:'PLANTED',offsetStart:12,offsetEnd:16,windowWeeks:1,frequency:'weekly'},
-  ],
-};
-
-/* ── TASK DATE UTILS ─────────────────────────────── */
-const ANCHOR_DATES={
-  MAR_8: new Date(2026,2,8),
-  OCT_27: new Date(2025,9,27),
-};
-
-
-function addDays(date,days){
-  const d=new Date(date);
-  d.setDate(d.getDate()+days);
-  d.setHours(0,0,0,0);
-  return d;
-}
-
+/* ── DATE UTILS ──────────────────────────────────── */
 function fmtDate(str){
   if(!str)return null;
   if(/^\d{4}-\d{2}-\d{2}$/.test(str)){
@@ -1723,64 +1624,6 @@ function relativeWeeks(str){
   if(days<7)return`${days} day${days===1?'':'s'} ago`;
   const w=Math.round(days/7);
   return`${w} week${w===1?'':'s'} ago`;
-}
-
-function fmtDateRange(start,end){
-  const mo={month:'short',day:'numeric'};
-  const s=start.toLocaleDateString('en-US',mo);
-  if(start.getMonth()===end.getMonth())
-    return `${s} – ${end.getDate()}`;
-  return `${s} – ${end.toLocaleDateString('en-US',mo)}`;
-}
-
-function isCurrentWindow(wStart,wEnd){
-  const now=new Date();
-  now.setHours(0,0,0,0);
-  return now>=wStart&&now<=wEnd;
-}
-
-// Expand TASK_DEFS for a bed into concrete task instances
-function expandTasks(bedId){
-  const defs=TASK_DEFS[bedId];
-  if(!defs)return[];
-  const pd=getActivePlanting(bedId)?.planted_date;
-  const planted=pd?new Date(pd+'T00:00:00'):null;
-  const tasks=[];
-  for(const def of defs){
-    if(def.anchor==='CALENDAR'){
-      tasks.push({taskId:def.id,name:def.name,windowStart:new Date(def.calStart),windowEnd:new Date(def.calEnd),bedId});
-      continue;
-    }
-    let anchor;
-    if(def.anchor==='PLANTED'){if(!planted)continue;anchor=new Date(planted);}
-    else if(def.anchor==='MAR_8'){anchor=ANCHOR_DATES.MAR_8;}
-    else if(def.anchor==='OCT_27'){anchor=ANCHOR_DATES.OCT_27;}
-    else continue;
-
-    if(def.frequency==='once'){
-      const ws=addDays(anchor,def.offset*7);
-      const we=addDays(ws,def.windowWeeks*7-1);
-      tasks.push({taskId:def.id,name:def.name,windowStart:ws,windowEnd:we,bedId});
-    } else {
-      for(let w=def.offsetStart;w<=def.offsetEnd;w++){
-        const ws=addDays(anchor,w*7);
-        const we=addDays(ws,6);
-        tasks.push({taskId:`${def.idBase}-w${w}`,name:def.name,windowStart:ws,windowEnd:we,bedId});
-      }
-    }
-  }
-  return tasks;
-}
-
-function getThisWeekTasks(){
-  const all=[];
-  for(const bedId of Object.keys(BEDS)){
-    for(const t of expandTasks(bedId)){
-      if(isCurrentWindow(t.windowStart,t.windowEnd))all.push(t);
-    }
-  }
-  all.sort((a,b)=>a.windowStart-b.windowStart);
-  return all;
 }
 
 function getPendingCount(bedId){
@@ -2209,56 +2052,6 @@ window.bootstrapTasksForActivePlantings=async function(){
   renderBadges();
 };
 
-/* ── TAB 4 RENDER ────────────────────────────────── */
-let activeTaskBedFilter='all';
-
-function renderTaskTab(){
-  const tasks=getThisWeekTasks();
-  const bedIds=[...new Set(tasks.map(t=>t.bedId))];
-
-  let chips=`<button class="chip${activeTaskBedFilter==='all'?' active':''}" onclick="setTaskFilter('all')">All</button>`;
-  for(const bid of bedIds){
-    chips+=`<button class="chip${activeTaskBedFilter===bid?' active':''}" onclick="setTaskFilter('${bid}')">${getUnit(bid)?.id||bid.toUpperCase()}</button>`;
-  }
-  document.getElementById('task-chips').innerHTML=chips;
-
-  const filtered=activeTaskBedFilter==='all'?tasks:tasks.filter(t=>t.bedId===activeTaskBedFilter);
-  let list='';
-  if(!filtered.length){
-    list='<p class="task-empty">Nothing due this week. Go enjoy the garden.</p>';
-  } else {
-    for(const t of filtered){
-      const done=isTaskCompleted(t.bedId,t.taskId);
-      const winStr=fmtDateRange(t.windowStart,t.windowEnd);
-      const u=getUnit(t.bedId);
-      const crop=getActivePlanting(t.bedId)?.crop_name||u?.slotA.crop||t.bedId;
-      list+=`<div class="task-row">
-        <input type="checkbox" class="task-cb" ${done?'checked disabled':''} data-bed="${t.bedId}" data-task="${t.taskId}" onchange="handleTaskCheck(this)">
-        <div class="task-meta">
-          <div class="task-bed-label">${u?.id||t.bedId.toUpperCase()} · ${crop}</div>
-          <div class="task-name">${t.name}</div>
-          <div class="task-window">${winStr}</div>
-        </div>
-      </div>`;
-    }
-  }
-  document.getElementById('task-list').innerHTML=list;
-}
-
-function setTaskFilter(bedId){
-  activeTaskBedFilter=bedId;
-  renderTaskTab();
-}
-
-async function handleTaskCheck(cb){
-  if(!cb.checked)return;
-  cb.disabled=true;
-  const bedId=cb.dataset.bed;
-  const taskId=cb.dataset.task;
-  await completeTask(bedId,taskId);
-  renderBadges();
-}
-
 async function handleInspTaskCheck(cb,taskRowId,bedId){
   if(!cb.checked)return;
   cb.disabled=true;
@@ -2321,10 +2114,6 @@ function renderBadges(){
     }
     svg.appendChild(g);
   }
-}
-
-function goToTaskTab(bedId){
-  activeTaskBedFilter=bedId;
 }
 
 /* ── MARK AS PLANTED ─────────────────────────────── */
