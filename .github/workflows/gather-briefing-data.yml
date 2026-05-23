@@ -58,9 +58,16 @@ jobs:
           FORECAST_URL=$(curl -sf -H "User-Agent: GardenTracker/1.0" \
             "https://api.weather.gov/points/40.6916,-111.9391" | jq -r '.properties.forecast')
 
+          SEVEN_AGO_ISO=$(date -u -d "7 days ago" +%Y-%m-%dT%H:%M:%SZ)
+          TODAY_ISO=$(date -u +%Y-%m-%dT%H:%M:%SZ)
+
           curl -sf -H "User-Agent: GardenTracker/1.0" "$FORECAST_URL" > /tmp/forecast.json &
           curl -sf -H "User-Agent: GardenTracker/1.0" \
             "https://api.weather.gov/alerts/active?point=40.6916,-111.9391" > /tmp/alerts.json &
+          # Historical observations from KSLC — last 7 days, hourly, aggregated to daily summaries
+          curl -sf -H "User-Agent: GardenTracker/1.0" \
+            "https://api.weather.gov/stations/KSLC/observations?start=${SEVEN_AGO_ISO}&end=${TODAY_ISO}&limit=200" \
+            > /tmp/observations.json &
 
           wait
 
@@ -74,6 +81,7 @@ jobs:
             --slurpfile forecast /tmp/forecast.json \
             --slurpfile alerts /tmp/alerts.json \
             --slurpfile briefing_history /tmp/briefing_history.json \
+            --slurpfile observations /tmp/observations.json \
             '{
               today: $today,
               plantings: $plantings[0],
@@ -83,7 +91,20 @@ jobs:
               waterings: $waterings[0],
               weather: {
                 forecast: ($forecast[0].properties.periods // [] | .[0:7]),
-                alerts: [$alerts[0].features // [] | .[0:3][] | .properties.headline]
+                alerts: [$alerts[0].features // [] | .[0:3][] | .properties.headline],
+                past_7_days: (
+                  $observations[0].features // [] |
+                  group_by(.properties.timestamp[0:10]) |
+                  map({
+                    date: .[0].properties.timestamp[0:10],
+                    conditions: ([.[].properties.textDescription] | map(select(. != null and . != "")) | unique | join(" / ")),
+                    high_f: ([.[].properties.temperature.value] | map(select(. != null)) | if length > 0 then (max * 9/5 + 32 | round) else null end),
+                    low_f:  ([.[].properties.temperature.value] | map(select(. != null)) | if length > 0 then (min * 9/5 + 32 | round) else null end),
+                    avg_humidity_pct: ([.[].properties.relativeHumidity.value] | map(select(. != null)) | if length > 0 then (add / length | round) else null end),
+                    precip_in: ([.[].properties.precipitationLastHour.value] | map(select(. != null)) | if length > 0 then (add / 25.4 * 100 | round | . / 100) else 0 end)
+                  }) |
+                  sort_by(.date)
+                )
               },
               recent_briefings: $briefing_history[0]
             }' > briefing-data/input.json
