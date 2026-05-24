@@ -1,25 +1,25 @@
 {
-  "headline": "89°F Memorial Day — trellis beans before they tangle",
+  "headline": "Peas 10 days out — 89°F heat will toughen pods fast",
   "weather_notes": [
-    "Water e1–e4 tomatoes deeply today — no rain forecast through Memorial Day and 83–89°F weekend heat will rapidly deplete bed moisture.",
-    "Check potato_bags moisture daily through Monday — 4-day Yukon Gold roots haven't established yet and bag soil dries twice as fast as beds in 83–89°F heat.",
-    "Pick from c2–c4 peas by Tuesday — 83–89°F heat this weekend accelerates pod fill and toughening, potentially pulling harvest ahead of the June 3 target."
+    "Pick from c2–c4 peas before Tuesday — 86–89°F Memorial Day weekend toughens pods fast with harvest only 10 days away.",
+    "Water peach, blackberry, and potato_bags Monday — all three are under a week old; Memorial Day's 89°F hits 2 days after their last drink.",
+    "Check the peach for wilt today and tomorrow — logged as struggling yesterday; 86–89°F on a day-1 transplant warrants shade cloth if leaves droop."
   ],
   "surfaced_tasks": [
     {
       "task_id": "98",
       "bed_id": "c1",
       "title": "Install trellis in c1 bean bed",
-      "reason": "Overdue by 1 day and pole bean vines will accelerate fast through the 83–89°F weekend — tangling becomes hard to correct once vines outpace support."
+      "reason": "Overdue two days — Good Mother Stollard is at day 21 and actively reaching for support; 89°F Memorial Day weekend will surge vine growth before untethered vines can be cleanly redirected."
     }
   ],
   "suggested_tasks": [
     {
-      "title": "Harvest check c4 peas before heat toughens pods",
+      "title": "Harvest peas before heat toughens pods",
       "due_date": "2026-05-25",
-      "description": "Lillian's Caseload had the most pods forming on May 12 — 89°F Memorial Day weekend will accelerate toughening and splitting; check and pick c4 first.",
+      "description": "Pods were forming heavily in c2–c4 as of May 12 — 86–89°F Memorial Day weekend will toughen unpicked pods fast; c4 (Lillian's) had the most and should be checked first.",
       "bed_id": "c4",
-      "urgency": "normal"
+      "urgency": "high"
     }
   ]
 }
