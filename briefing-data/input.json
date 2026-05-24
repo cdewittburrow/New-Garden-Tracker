@@ -1,5 +1,5 @@
 {
-  "today": "2026-05-23",
+  "today": "2026-05-24",
   "plantings": [
     {
       "id": "79526620-7d75-4886-b31d-7c9bf731edc9",
@@ -127,6 +127,26 @@
       "crop_name": "Beans",
       "variety": "Good Mother Stollard",
       "planted_date": "2026-05-03",
+      "status": "growing",
+      "expected_harvest": null,
+      "season_notes": null
+    },
+    {
+      "id": "c84ee64b-f589-4e98-81be-e1b4e323a2ca",
+      "bed_id": "blackberry",
+      "crop_name": "Blackberry",
+      "variety": "Triple Crown (thornless)",
+      "planted_date": "2026-05-23",
+      "status": "growing",
+      "expected_harvest": null,
+      "season_notes": null
+    },
+    {
+      "id": "9b70c528-46e5-439d-86ac-10aa998ebfac",
+      "bed_id": "peach",
+      "crop_name": "Peach",
+      "variety": "Contender",
+      "planted_date": "2026-05-23",
       "status": "growing",
       "expected_harvest": null,
       "season_notes": null
@@ -344,14 +364,24 @@
       "note": "Bajillion flowers"
     },
     {
+      "planting_id": "fcae49c2-9609-43da-ae75-fcebeca30243",
+      "date": "May 9, 2026",
+      "note": "Bajillion flowers"
+    },
+    {
       "planting_id": "5ed2b328-d443-49f2-966e-547a79002f31",
       "date": "May 9, 2026",
       "note": "Bajillion flowers"
     },
     {
-      "planting_id": "fcae49c2-9609-43da-ae75-fcebeca30243",
-      "date": "May 9, 2026",
-      "note": "Bajillion flowers"
+      "planting_id": "2a7bfcbb-580c-4518-a20a-47fc386f4760",
+      "date": "May 23, 2026",
+      "note": "4 sprouted. 2 knocked back by a late frost but I think they will come back"
+    },
+    {
+      "planting_id": "9b70c528-46e5-439d-86ac-10aa998ebfac",
+      "date": "May 23, 2026",
+      "note": "Looking really rough. Added fertilizer and watered full hose for 1 hour to try and kinda bring it back but she is a sad little tree this year."
     },
     {
       "planting_id": "8c343e4e-65cb-4765-9435-00beae2b3c73",
@@ -359,9 +389,9 @@
       "note": "Sprouts! Sprouted today already a couple inches tall. Six of the 8 so far."
     },
     {
-      "planting_id": "5ed2b328-d443-49f2-966e-547a79002f31",
+      "planting_id": "fcae49c2-9609-43da-ae75-fcebeca30243",
       "date": "May 12, 2026",
-      "note": "Pods observed. Lots already"
+      "note": "Pods beginning to form"
     },
     {
       "planting_id": "e0280648-bd37-43b0-b99a-5b1ceed52faa",
@@ -369,9 +399,9 @@
       "note": "Pods just starting to appear"
     },
     {
-      "planting_id": "fcae49c2-9609-43da-ae75-fcebeca30243",
+      "planting_id": "5ed2b328-d443-49f2-966e-547a79002f31",
       "date": "May 12, 2026",
-      "note": "Pods beginning to form"
+      "note": "Pods observed. Lots already"
     },
     {
       "planting_id": "e93f2f5c-dcb8-47e9-9933-31e7e813b7e4",
@@ -379,7 +409,7 @@
       "note": "Pulled weeds that grew through the straw"
     },
     {
-      "planting_id": "fcae49c2-9609-43da-ae75-fcebeca30243",
+      "planting_id": "e0280648-bd37-43b0-b99a-5b1ceed52faa",
       "date": "Mar 27, 2026",
       "note": "The weird little pea tentacles have shown up"
     },
@@ -389,19 +419,9 @@
       "note": "The weird little pea tentacles have shown up"
     },
     {
-      "planting_id": "e0280648-bd37-43b0-b99a-5b1ceed52faa",
+      "planting_id": "fcae49c2-9609-43da-ae75-fcebeca30243",
       "date": "Mar 27, 2026",
       "note": "The weird little pea tentacles have shown up"
-    },
-    {
-      "planting_id": "14a35329-35a2-42ef-b59c-9b35fc2a2c7e",
-      "date": "Mar 24, 2026",
-      "note": "Added a top dress of worm castings. Approx one or two cups."
-    },
-    {
-      "planting_id": "e0280648-bd37-43b0-b99a-5b1ceed52faa",
-      "date": "Mar 24, 2026",
-      "note": "Added a top dress of worm castings. Approx one or two cups."
     },
     {
       "planting_id": "fcae49c2-9609-43da-ae75-fcebeca30243",
@@ -419,9 +439,14 @@
       "note": "Planted."
     },
     {
-      "planting_id": "abebbe9f-e355-4c78-a77f-79d4c88d17f7",
-      "date": "Mar 22, 2026",
-      "note": "Installed bed today. Two bags of Kellogg organic raised bed mix. One bag of chicken compost. Humate and blood meal and worm castings."
+      "planting_id": "14a35329-35a2-42ef-b59c-9b35fc2a2c7e",
+      "date": "Mar 24, 2026",
+      "note": "Added a top dress of worm castings. Approx one or two cups."
+    },
+    {
+      "planting_id": "e0280648-bd37-43b0-b99a-5b1ceed52faa",
+      "date": "Mar 24, 2026",
+      "note": "Added a top dress of worm castings. Approx one or two cups."
     },
     {
       "planting_id": "79526620-7d75-4886-b31d-7c9bf731edc9",
@@ -429,19 +454,24 @@
       "note": "Installed bed. 2 large bags of Kellogg organic potting soil mix. Bag of chicken compost. Healthy serving of bone meal, worm castings, humate and a berry mix organic fertilizer"
     },
     {
+      "planting_id": "abebbe9f-e355-4c78-a77f-79d4c88d17f7",
+      "date": "Mar 22, 2026",
+      "note": "Installed bed today. Two bags of Kellogg organic raised bed mix. One bag of chicken compost. Humate and blood meal and worm castings."
+    },
+    {
       "planting_id": "e0280648-bd37-43b0-b99a-5b1ceed52faa",
       "date": "Mar 19, 2026",
       "note": "First sprout observed"
     },
     {
-      "planting_id": "fcae49c2-9609-43da-ae75-fcebeca30243",
-      "date": "Mar 18, 2026",
-      "note": "Sprouts observed"
-    },
-    {
       "planting_id": "14a35329-35a2-42ef-b59c-9b35fc2a2c7e",
       "date": "Mar 18, 2026",
       "note": "Did a little thinning"
+    },
+    {
+      "planting_id": "fcae49c2-9609-43da-ae75-fcebeca30243",
+      "date": "Mar 18, 2026",
+      "note": "Sprouts observed"
     },
     {
       "planting_id": "14a35329-35a2-42ef-b59c-9b35fc2a2c7e",
@@ -459,7 +489,7 @@
       "note": "Sprouts noticed today!"
     },
     {
-      "planting_id": "fcae49c2-9609-43da-ae75-fcebeca30243",
+      "planting_id": "e0280648-bd37-43b0-b99a-5b1ceed52faa",
       "date": "Mar 14, 2026",
       "note": "Watered today. Also installed the trellis arch and frost cloth."
     },
@@ -469,7 +499,7 @@
       "note": "Watered today. Also installed the trellis arch and frost cloth."
     },
     {
-      "planting_id": "e0280648-bd37-43b0-b99a-5b1ceed52faa",
+      "planting_id": "fcae49c2-9609-43da-ae75-fcebeca30243",
       "date": "Mar 14, 2026",
       "note": "Watered today. Also installed the trellis arch and frost cloth."
     },
@@ -522,19 +552,39 @@
       "duration_minutes": 15
     },
     {
+      "zone": 1,
+      "watered_date": "2026-05-23",
+      "duration_minutes": 20
+    },
+    {
+      "zone": 2,
+      "watered_date": "2026-05-23",
+      "duration_minutes": 20
+    },
+    {
+      "zone": 2,
+      "watered_date": "2026-05-23",
+      "duration_minutes": 20
+    },
+    {
+      "zone": 2,
+      "watered_date": "2026-05-23",
+      "duration_minutes": 15
+    },
+    {
       "zone": 2,
       "watered_date": "2026-05-22",
       "duration_minutes": 10
     },
     {
-      "zone": 1,
-      "watered_date": "2026-05-21",
-      "duration_minutes": 20
-    },
-    {
       "zone": 2,
       "watered_date": "2026-05-21",
       "duration_minutes": 15
+    },
+    {
+      "zone": 1,
+      "watered_date": "2026-05-21",
+      "duration_minutes": 20
     },
     {
       "zone": 1,
@@ -545,26 +595,6 @@
       "zone": 2,
       "watered_date": "2026-05-16",
       "duration_minutes": 10
-    },
-    {
-      "zone": 1,
-      "watered_date": "2026-05-16",
-      "duration_minutes": 10
-    },
-    {
-      "zone": 2,
-      "watered_date": "2026-05-15",
-      "duration_minutes": 15
-    },
-    {
-      "zone": 1,
-      "watered_date": "2026-05-15",
-      "duration_minutes": 20
-    },
-    {
-      "zone": 2,
-      "watered_date": "2026-05-13",
-      "duration_minutes": 15
     }
   ],
   "weather": {
@@ -572,45 +602,7 @@
       {
         "number": 1,
         "name": "Overnight",
-        "startTime": "2026-05-23T05:00:00-06:00",
-        "endTime": "2026-05-23T06:00:00-06:00",
-        "isDaytime": false,
-        "temperature": 48,
-        "temperatureUnit": "F",
-        "temperatureTrend": null,
-        "probabilityOfPrecipitation": {
-          "unitCode": "wmoUnit:percent",
-          "value": 0
-        },
-        "windSpeed": "5 mph",
-        "windDirection": "S",
-        "icon": "https://api.weather.gov/icons/land/night/sct?size=medium",
-        "shortForecast": "Partly Cloudy",
-        "detailedForecast": "Partly cloudy. Low around 48, with temperatures rising to around 51 overnight. South wind around 5 mph."
-      },
-      {
-        "number": 2,
-        "name": "Saturday",
-        "startTime": "2026-05-23T06:00:00-06:00",
-        "endTime": "2026-05-23T18:00:00-06:00",
-        "isDaytime": true,
-        "temperature": 83,
-        "temperatureUnit": "F",
-        "temperatureTrend": null,
-        "probabilityOfPrecipitation": {
-          "unitCode": "wmoUnit:percent",
-          "value": 0
-        },
-        "windSpeed": "7 mph",
-        "windDirection": "S",
-        "icon": "https://api.weather.gov/icons/land/day/few?size=medium",
-        "shortForecast": "Sunny",
-        "detailedForecast": "Sunny, with a high near 83. South wind around 7 mph."
-      },
-      {
-        "number": 3,
-        "name": "Saturday Night",
-        "startTime": "2026-05-23T18:00:00-06:00",
+        "startTime": "2026-05-24T05:00:00-06:00",
         "endTime": "2026-05-24T06:00:00-06:00",
         "isDaytime": false,
         "temperature": 58,
@@ -618,16 +610,16 @@
         "temperatureTrend": null,
         "probabilityOfPrecipitation": {
           "unitCode": "wmoUnit:percent",
-          "value": 2
+          "value": 0
         },
         "windSpeed": "6 mph",
         "windDirection": "S",
-        "icon": "https://api.weather.gov/icons/land/night/sct?size=medium",
-        "shortForecast": "Partly Cloudy",
-        "detailedForecast": "Partly cloudy. Low around 58, with temperatures rising to around 61 overnight. South wind around 6 mph."
+        "icon": "https://api.weather.gov/icons/land/night/bkn?size=medium",
+        "shortForecast": "Mostly Cloudy",
+        "detailedForecast": "Mostly cloudy. Low around 58, with temperatures rising to around 62 overnight. South wind around 6 mph."
       },
       {
-        "number": 4,
+        "number": 2,
         "name": "Sunday",
         "startTime": "2026-05-24T06:00:00-06:00",
         "endTime": "2026-05-24T18:00:00-06:00",
@@ -637,16 +629,16 @@
         "temperatureTrend": null,
         "probabilityOfPrecipitation": {
           "unitCode": "wmoUnit:percent",
-          "value": 4
+          "value": 7
         },
-        "windSpeed": "6 to 10 mph",
+        "windSpeed": "6 to 9 mph",
         "windDirection": "SSW",
         "icon": "https://api.weather.gov/icons/land/day/bkn?size=medium",
         "shortForecast": "Partly Sunny",
-        "detailedForecast": "Partly sunny, with a high near 86. South southwest wind 6 to 10 mph."
+        "detailedForecast": "Partly sunny, with a high near 86. South southwest wind 6 to 9 mph."
       },
       {
-        "number": 5,
+        "number": 3,
         "name": "Sunday Night",
         "startTime": "2026-05-24T18:00:00-06:00",
         "endTime": "2026-05-25T06:00:00-06:00",
@@ -656,16 +648,16 @@
         "temperatureTrend": null,
         "probabilityOfPrecipitation": {
           "unitCode": "wmoUnit:percent",
-          "value": 1
+          "value": 3
         },
-        "windSpeed": "5 mph",
-        "windDirection": "E",
-        "icon": "https://api.weather.gov/icons/land/night/few?size=medium",
-        "shortForecast": "Mostly Clear",
-        "detailedForecast": "Mostly clear, with a low around 58. East wind around 5 mph."
+        "windSpeed": "6 mph",
+        "windDirection": "SW",
+        "icon": "https://api.weather.gov/icons/land/night/sct?size=medium",
+        "shortForecast": "Partly Cloudy",
+        "detailedForecast": "Partly cloudy. Low around 58, with temperatures rising to around 60 overnight. Southwest wind around 6 mph."
       },
       {
-        "number": 6,
+        "number": 4,
         "name": "Memorial Day",
         "startTime": "2026-05-25T06:00:00-06:00",
         "endTime": "2026-05-25T18:00:00-06:00",
@@ -678,34 +670,122 @@
           "value": 3
         },
         "windSpeed": "8 mph",
-        "windDirection": "S",
-        "icon": "https://api.weather.gov/icons/land/day/few?size=medium",
-        "shortForecast": "Sunny",
-        "detailedForecast": "Sunny, with a high near 89."
+        "windDirection": "SSW",
+        "icon": "https://api.weather.gov/icons/land/day/sct?size=medium",
+        "shortForecast": "Mostly Sunny",
+        "detailedForecast": "Mostly sunny, with a high near 89. South southwest wind around 8 mph."
       },
       {
-        "number": 7,
+        "number": 5,
         "name": "Monday Night",
         "startTime": "2026-05-25T18:00:00-06:00",
         "endTime": "2026-05-26T06:00:00-06:00",
         "isDaytime": false,
-        "temperature": 60,
+        "temperature": 61,
+        "temperatureUnit": "F",
+        "temperatureTrend": null,
+        "probabilityOfPrecipitation": {
+          "unitCode": "wmoUnit:percent",
+          "value": 1
+        },
+        "windSpeed": "8 mph",
+        "windDirection": "SSE",
+        "icon": "https://api.weather.gov/icons/land/night/bkn?size=medium",
+        "shortForecast": "Mostly Cloudy",
+        "detailedForecast": "Mostly cloudy, with a low around 61. South southeast wind around 8 mph."
+      },
+      {
+        "number": 6,
+        "name": "Tuesday",
+        "startTime": "2026-05-26T06:00:00-06:00",
+        "endTime": "2026-05-26T18:00:00-06:00",
+        "isDaytime": true,
+        "temperature": 85,
+        "temperatureUnit": "F",
+        "temperatureTrend": null,
+        "probabilityOfPrecipitation": {
+          "unitCode": "wmoUnit:percent",
+          "value": 7
+        },
+        "windSpeed": "10 to 16 mph",
+        "windDirection": "SSE",
+        "icon": "https://api.weather.gov/icons/land/day/bkn?size=medium",
+        "shortForecast": "Mostly Cloudy",
+        "detailedForecast": "Mostly cloudy, with a high near 85."
+      },
+      {
+        "number": 7,
+        "name": "Tuesday Night",
+        "startTime": "2026-05-26T18:00:00-06:00",
+        "endTime": "2026-05-27T06:00:00-06:00",
+        "isDaytime": false,
+        "temperature": 56,
         "temperatureUnit": "F",
         "temperatureTrend": null,
         "probabilityOfPrecipitation": {
           "unitCode": "wmoUnit:percent",
           "value": 2
         },
-        "windSpeed": "7 to 10 mph",
+        "windSpeed": "8 to 14 mph",
         "windDirection": "SSE",
         "icon": "https://api.weather.gov/icons/land/night/sct?size=medium",
         "shortForecast": "Partly Cloudy",
-        "detailedForecast": "Partly cloudy, with a low around 60."
+        "detailedForecast": "Partly cloudy, with a low around 56."
       }
     ],
-    "alerts": []
+    "alerts": [],
+    "past_7_days": [
+      {
+        "date": "2026-05-23",
+        "conditions": "Clear / Mostly Clear / Partly Cloudy",
+        "high_f": 84,
+        "low_f": 79,
+        "avg_humidity_pct": 11,
+        "precip_in": 0
+      },
+      {
+        "date": "2026-05-24",
+        "conditions": "Clear / Mostly Clear / Mostly Cloudy / Partly Cloudy",
+        "high_f": 84,
+        "low_f": 63,
+        "avg_humidity_pct": 21,
+        "precip_in": 0
+      }
+    ]
   },
   "recent_briefings": [
+    {
+      "payload": {
+        "headline": "89°F Memorial Day — trellis beans before they tangle",
+        "weather_notes": [
+          "Water e1–e4 tomatoes deeply today — no rain forecast through Memorial Day and 83–89°F weekend heat will rapidly deplete bed moisture.",
+          "Check potato_bags moisture daily through Monday — 4-day Yukon Gold roots haven't established yet and bag soil dries twice as fast as beds in 83–89°F heat.",
+          "Pick from c2–c4 peas by Tuesday — 83–89°F heat this weekend accelerates pod fill and toughening, potentially pulling harvest ahead of the June 3 target."
+        ],
+        "surfaced_tasks": [
+          {
+            "title": "Install trellis in c1 bean bed",
+            "bed_id": "c1",
+            "reason": "Overdue by 1 day and pole bean vines will accelerate fast through the 83–89°F weekend — tangling becomes hard to correct once vines outpace support.",
+            "task_id": "98"
+          }
+        ],
+        "suggested_tasks": [
+          {
+            "title": "Harvest check c4 peas before heat toughens pods",
+            "bed_id": "c4",
+            "urgency": "normal",
+            "due_date": "2026-05-25",
+            "description": "Lillian's Caseload had the most pods forming on May 12 — 89°F Memorial Day weekend will accelerate toughening and splitting; check and pick c4 first."
+          }
+        ]
+      },
+      "suggestions_state": {
+        "accepted": [],
+        "rejected": []
+      },
+      "generated_at": "2026-05-23T13:41:31+00:00"
+    },
     {
       "payload": {
         "headline": "Scapes and trellis due today — hot dry weekend ahead",
@@ -1158,34 +1238,6 @@
         "rejected": []
       },
       "generated_at": "2026-05-09T12:10:18+00:00"
-    },
-    {
-      "payload": {
-        "headline": "84°F Sunday — harvest Sugar Bon before pods toughen",
-        "weather_notes": [
-          "Sunday reaches 84°F with zero rain forecast all week — newly sown beds (w1, w4, c1) will dry fast; water by Saturday.",
-          "No precipitation through the week (0–2% daily) — clean window for any outdoor task; no washoff risk.",
-          "Overnight lows of 48–55°F — no frost risk for any active planting, no covers needed.",
-          "Fri–Sun all sunny and clear — best three-day outdoor work stretch of the season so far."
-        ],
-        "surfaced_tasks": [],
-        "suggested_tasks": [
-          {
-            "title": "Harvest Sugar Bon snap peas now",
-            "bed_id": "c2",
-            "urgency": "high",
-            "due_date": "2026-05-09",
-            "description": "Day 61 from planting against a 55-day DTM — pods are overdue and Sunday's 84°F will accelerate toughening and splitting."
-          }
-        ]
-      },
-      "suggestions_state": {
-        "accepted": [],
-        "rejected": [
-          0
-        ]
-      },
-      "generated_at": "2026-05-08T12:17:34+00:00"
     }
   ]
 }
