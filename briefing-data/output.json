@@ -1,25 +1,24 @@
 {
-  "headline": "Peas 10 days out — 89°F heat will toughen pods fast",
+  "headline": "Stake peach, trellis beans before Tuesday's 33 mph gusts",
   "weather_notes": [
-    "Pick from c2–c4 peas before Tuesday — 86–89°F Memorial Day weekend toughens pods fast with harvest only 10 days away.",
-    "Water peach, blackberry, and potato_bags Monday — all three are under a week old; Memorial Day's 89°F hits 2 days after their last drink.",
-    "Check the peach for wilt today and tomorrow — logged as struggling yesterday; 86–89°F on a day-1 transplant warrants shade cloth if leaves droop."
+    "Stake the peach tree before Tuesday — 33 mph gusts forecast and it was already logged struggling at planting two days ago.",
+    "Check cages and ties on e1–e4 tomatoes before Tuesday — 33 mph gusts can snap stems on 16-day-old transplants.",
+    "Start picking c2–c4 peas today — 89°F heat with harvest 9 days out will toughen pods ahead of schedule.",
+    "Hold irrigation through Tuesday — watered today; reassess Wednesday when a 20% storm chance may bring natural moisture."
   ],
   "surfaced_tasks": [
     {
       "task_id": "98",
       "bed_id": "c1",
       "title": "Install trellis in c1 bean bed",
-      "reason": "Overdue two days — Good Mother Stollard is at day 21 and actively reaching for support; 89°F Memorial Day weekend will surge vine growth before untethered vines can be cleanly redirected."
+      "reason": "Three days overdue — Good Mother Stollard pole beans are at day 22 and vining fast in 89°F heat."
+    },
+    {
+      "task_id": "33",
+      "bed_id": "w1",
+      "title": "Mid-season feed — fish emulsion",
+      "reason": "Due June 1 in seven days — strawberries are 30 days in and actively fruiting; apply now to support continuous berry production."
     }
   ],
-  "suggested_tasks": [
-    {
-      "title": "Harvest peas before heat toughens pods",
-      "due_date": "2026-05-25",
-      "description": "Pods were forming heavily in c2–c4 as of May 12 — 86–89°F Memorial Day weekend will toughen unpicked pods fast; c4 (Lillian's) had the most and should be checked first.",
-      "bed_id": "c4",
-      "urgency": "high"
-    }
-  ]
+  "suggested_tasks": []
 }
