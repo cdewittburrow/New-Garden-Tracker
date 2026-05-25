@@ -1,5 +1,5 @@
 {
-  "today": "2026-05-24",
+  "today": "2026-05-25",
   "plantings": [
     {
       "id": "79526620-7d75-4886-b31d-7c9bf731edc9",
@@ -548,8 +548,23 @@
   "waterings": [
     {
       "zone": 2,
+      "watered_date": "2026-05-25",
+      "duration_minutes": 15
+    },
+    {
+      "zone": 1,
+      "watered_date": "2026-05-25",
+      "duration_minutes": 20
+    },
+    {
+      "zone": 2,
       "watered_date": "2026-05-23",
       "duration_minutes": 15
+    },
+    {
+      "zone": 2,
+      "watered_date": "2026-05-23",
+      "duration_minutes": 20
     },
     {
       "zone": 1,
@@ -565,6 +580,11 @@
       "zone": 2,
       "watered_date": "2026-05-23",
       "duration_minutes": 20
+    },
+    {
+      "zone": 2,
+      "watered_date": "2026-05-23",
+      "duration_minutes": 15
     },
     {
       "zone": 2,
@@ -575,89 +595,12 @@
       "zone": 2,
       "watered_date": "2026-05-22",
       "duration_minutes": 10
-    },
-    {
-      "zone": 2,
-      "watered_date": "2026-05-21",
-      "duration_minutes": 15
-    },
-    {
-      "zone": 1,
-      "watered_date": "2026-05-21",
-      "duration_minutes": 20
-    },
-    {
-      "zone": 1,
-      "watered_date": "2026-05-20",
-      "duration_minutes": 10
-    },
-    {
-      "zone": 2,
-      "watered_date": "2026-05-16",
-      "duration_minutes": 10
     }
   ],
   "weather": {
     "forecast": [
       {
         "number": 1,
-        "name": "Overnight",
-        "startTime": "2026-05-24T05:00:00-06:00",
-        "endTime": "2026-05-24T06:00:00-06:00",
-        "isDaytime": false,
-        "temperature": 58,
-        "temperatureUnit": "F",
-        "temperatureTrend": null,
-        "probabilityOfPrecipitation": {
-          "unitCode": "wmoUnit:percent",
-          "value": 0
-        },
-        "windSpeed": "6 mph",
-        "windDirection": "S",
-        "icon": "https://api.weather.gov/icons/land/night/bkn?size=medium",
-        "shortForecast": "Mostly Cloudy",
-        "detailedForecast": "Mostly cloudy. Low around 58, with temperatures rising to around 62 overnight. South wind around 6 mph."
-      },
-      {
-        "number": 2,
-        "name": "Sunday",
-        "startTime": "2026-05-24T06:00:00-06:00",
-        "endTime": "2026-05-24T18:00:00-06:00",
-        "isDaytime": true,
-        "temperature": 86,
-        "temperatureUnit": "F",
-        "temperatureTrend": null,
-        "probabilityOfPrecipitation": {
-          "unitCode": "wmoUnit:percent",
-          "value": 7
-        },
-        "windSpeed": "6 to 9 mph",
-        "windDirection": "SSW",
-        "icon": "https://api.weather.gov/icons/land/day/bkn?size=medium",
-        "shortForecast": "Partly Sunny",
-        "detailedForecast": "Partly sunny, with a high near 86. South southwest wind 6 to 9 mph."
-      },
-      {
-        "number": 3,
-        "name": "Sunday Night",
-        "startTime": "2026-05-24T18:00:00-06:00",
-        "endTime": "2026-05-25T06:00:00-06:00",
-        "isDaytime": false,
-        "temperature": 58,
-        "temperatureUnit": "F",
-        "temperatureTrend": null,
-        "probabilityOfPrecipitation": {
-          "unitCode": "wmoUnit:percent",
-          "value": 3
-        },
-        "windSpeed": "6 mph",
-        "windDirection": "SW",
-        "icon": "https://api.weather.gov/icons/land/night/sct?size=medium",
-        "shortForecast": "Partly Cloudy",
-        "detailedForecast": "Partly cloudy. Low around 58, with temperatures rising to around 60 overnight. Southwest wind around 6 mph."
-      },
-      {
-        "number": 4,
         "name": "Memorial Day",
         "startTime": "2026-05-25T06:00:00-06:00",
         "endTime": "2026-05-25T18:00:00-06:00",
@@ -667,17 +610,17 @@
         "temperatureTrend": null,
         "probabilityOfPrecipitation": {
           "unitCode": "wmoUnit:percent",
-          "value": 3
+          "value": 4
         },
         "windSpeed": "8 mph",
-        "windDirection": "SSW",
+        "windDirection": "SSE",
         "icon": "https://api.weather.gov/icons/land/day/sct?size=medium",
         "shortForecast": "Mostly Sunny",
-        "detailedForecast": "Mostly sunny, with a high near 89. South southwest wind around 8 mph."
+        "detailedForecast": "Mostly sunny. High near 89, with temperatures falling to around 87 in the afternoon. South southeast wind around 8 mph."
       },
       {
-        "number": 5,
-        "name": "Monday Night",
+        "number": 2,
+        "name": "Tonight",
         "startTime": "2026-05-25T18:00:00-06:00",
         "endTime": "2026-05-26T06:00:00-06:00",
         "isDaytime": false,
@@ -686,74 +629,163 @@
         "temperatureTrend": null,
         "probabilityOfPrecipitation": {
           "unitCode": "wmoUnit:percent",
-          "value": 1
+          "value": 3
         },
-        "windSpeed": "8 mph",
+        "windSpeed": "7 to 10 mph",
         "windDirection": "SSE",
         "icon": "https://api.weather.gov/icons/land/night/bkn?size=medium",
         "shortForecast": "Mostly Cloudy",
-        "detailedForecast": "Mostly cloudy, with a low around 61. South southeast wind around 8 mph."
+        "detailedForecast": "Mostly cloudy. Low around 61, with temperatures rising to around 65 overnight. South southeast wind 7 to 10 mph."
       },
       {
-        "number": 6,
+        "number": 3,
         "name": "Tuesday",
         "startTime": "2026-05-26T06:00:00-06:00",
         "endTime": "2026-05-26T18:00:00-06:00",
         "isDaytime": true,
-        "temperature": 85,
+        "temperature": 86,
+        "temperatureUnit": "F",
+        "temperatureTrend": null,
+        "probabilityOfPrecipitation": {
+          "unitCode": "wmoUnit:percent",
+          "value": 4
+        },
+        "windSpeed": "13 to 17 mph",
+        "windDirection": "SSE",
+        "icon": "https://api.weather.gov/icons/land/day/sct?size=medium",
+        "shortForecast": "Mostly Sunny",
+        "detailedForecast": "Mostly sunny, with a high near 86. South southeast wind 13 to 17 mph, with gusts as high as 33 mph."
+      },
+      {
+        "number": 4,
+        "name": "Tuesday Night",
+        "startTime": "2026-05-26T18:00:00-06:00",
+        "endTime": "2026-05-27T06:00:00-06:00",
+        "isDaytime": false,
+        "temperature": 57,
+        "temperatureUnit": "F",
+        "temperatureTrend": null,
+        "probabilityOfPrecipitation": {
+          "unitCode": "wmoUnit:percent",
+          "value": 4
+        },
+        "windSpeed": "6 to 15 mph",
+        "windDirection": "SSE",
+        "icon": "https://api.weather.gov/icons/land/night/sct?size=medium",
+        "shortForecast": "Partly Cloudy",
+        "detailedForecast": "Partly cloudy, with a low around 57. South southeast wind 6 to 15 mph."
+      },
+      {
+        "number": 5,
+        "name": "Wednesday",
+        "startTime": "2026-05-27T06:00:00-06:00",
+        "endTime": "2026-05-27T18:00:00-06:00",
+        "isDaytime": true,
+        "temperature": 81,
+        "temperatureUnit": "F",
+        "temperatureTrend": null,
+        "probabilityOfPrecipitation": {
+          "unitCode": "wmoUnit:percent",
+          "value": 16
+        },
+        "windSpeed": "5 to 14 mph",
+        "windDirection": "SSE",
+        "icon": "https://api.weather.gov/icons/land/day/sct/tsra_hi,20?size=medium",
+        "shortForecast": "Mostly Sunny then Isolated Showers And Thunderstorms",
+        "detailedForecast": "Isolated showers and thunderstorms after noon. Mostly sunny, with a high near 81. South southeast wind 5 to 14 mph. Chance of precipitation is 20%."
+      },
+      {
+        "number": 6,
+        "name": "Wednesday Night",
+        "startTime": "2026-05-27T18:00:00-06:00",
+        "endTime": "2026-05-28T06:00:00-06:00",
+        "isDaytime": false,
+        "temperature": 54,
+        "temperatureUnit": "F",
+        "temperatureTrend": null,
+        "probabilityOfPrecipitation": {
+          "unitCode": "wmoUnit:percent",
+          "value": 5
+        },
+        "windSpeed": "2 to 9 mph",
+        "windDirection": "S",
+        "icon": "https://api.weather.gov/icons/land/night/sct?size=medium",
+        "shortForecast": "Partly Cloudy",
+        "detailedForecast": "Partly cloudy, with a low around 54."
+      },
+      {
+        "number": 7,
+        "name": "Thursday",
+        "startTime": "2026-05-28T06:00:00-06:00",
+        "endTime": "2026-05-28T18:00:00-06:00",
+        "isDaytime": true,
+        "temperature": 82,
         "temperatureUnit": "F",
         "temperatureTrend": null,
         "probabilityOfPrecipitation": {
           "unitCode": "wmoUnit:percent",
           "value": 7
         },
-        "windSpeed": "10 to 16 mph",
-        "windDirection": "SSE",
-        "icon": "https://api.weather.gov/icons/land/day/bkn?size=medium",
-        "shortForecast": "Mostly Cloudy",
-        "detailedForecast": "Mostly cloudy, with a high near 85."
-      },
-      {
-        "number": 7,
-        "name": "Tuesday Night",
-        "startTime": "2026-05-26T18:00:00-06:00",
-        "endTime": "2026-05-27T06:00:00-06:00",
-        "isDaytime": false,
-        "temperature": 56,
-        "temperatureUnit": "F",
-        "temperatureTrend": null,
-        "probabilityOfPrecipitation": {
-          "unitCode": "wmoUnit:percent",
-          "value": 2
-        },
-        "windSpeed": "8 to 14 mph",
-        "windDirection": "SSE",
-        "icon": "https://api.weather.gov/icons/land/night/sct?size=medium",
-        "shortForecast": "Partly Cloudy",
-        "detailedForecast": "Partly cloudy, with a low around 56."
+        "windSpeed": "3 to 14 mph",
+        "windDirection": "S",
+        "icon": "https://api.weather.gov/icons/land/day/sct?size=medium",
+        "shortForecast": "Mostly Sunny",
+        "detailedForecast": "Mostly sunny, with a high near 82."
       }
     ],
     "alerts": [],
     "past_7_days": [
       {
-        "date": "2026-05-23",
-        "conditions": "Clear / Mostly Clear / Partly Cloudy",
+        "date": "2026-05-24",
+        "conditions": "Clear / Light Rain / Mostly Clear / Mostly Cloudy / Partly Cloudy",
         "high_f": 84,
         "low_f": 79,
-        "avg_humidity_pct": 11,
+        "avg_humidity_pct": 17,
         "precip_in": 0
       },
       {
-        "date": "2026-05-24",
-        "conditions": "Clear / Mostly Clear / Mostly Cloudy / Partly Cloudy",
-        "high_f": 84,
-        "low_f": 63,
-        "avg_humidity_pct": 21,
+        "date": "2026-05-25",
+        "conditions": "Clear / Clear and Windy / Mostly Clear / Mostly Clear and Windy / Mostly Cloudy / Partly Cloudy",
+        "high_f": 86,
+        "low_f": 61,
+        "avg_humidity_pct": 34,
         "precip_in": 0
       }
     ]
   },
   "recent_briefings": [
+    {
+      "payload": {
+        "headline": "Peas 10 days out — 89°F heat will toughen pods fast",
+        "weather_notes": [
+          "Pick from c2–c4 peas before Tuesday — 86–89°F Memorial Day weekend toughens pods fast with harvest only 10 days away.",
+          "Water peach, blackberry, and potato_bags Monday — all three are under a week old; Memorial Day's 89°F hits 2 days after their last drink.",
+          "Check the peach for wilt today and tomorrow — logged as struggling yesterday; 86–89°F on a day-1 transplant warrants shade cloth if leaves droop."
+        ],
+        "surfaced_tasks": [
+          {
+            "title": "Install trellis in c1 bean bed",
+            "bed_id": "c1",
+            "reason": "Overdue two days — Good Mother Stollard is at day 21 and actively reaching for support; 89°F Memorial Day weekend will surge vine growth before untethered vines can be cleanly redirected.",
+            "task_id": "98"
+          }
+        ],
+        "suggested_tasks": [
+          {
+            "title": "Harvest peas before heat toughens pods",
+            "bed_id": "c4",
+            "urgency": "high",
+            "due_date": "2026-05-25",
+            "description": "Pods were forming heavily in c2–c4 as of May 12 — 86–89°F Memorial Day weekend will toughen unpicked pods fast; c4 (Lillian's) had the most and should be checked first."
+          }
+        ]
+      },
+      "suggestions_state": {
+        "accepted": [],
+        "rejected": []
+      },
+      "generated_at": "2026-05-24T13:43:59+00:00"
+    },
     {
       "payload": {
         "headline": "89°F Memorial Day — trellis beans before they tangle",
@@ -1212,32 +1244,6 @@
         "rejected": []
       },
       "generated_at": "2026-05-10T12:20:13+00:00"
-    },
-    {
-      "payload": {
-        "headline": "93°F Monday — water young beds by Sunday",
-        "weather_notes": [
-          "Monday reaches 93°F — first heat spike of the season — with zero rain forecast all week.",
-          "Today (76°F) and Sunday (82°F) are the last two cooler windows before the heat arrives.",
-          "No precipitation through at least Monday; zone 2 was last watered May 7.",
-          "Overnight lows of 48–54°F pose no frost risk, but warm nights will accelerate surface moisture loss."
-        ],
-        "surfaced_tasks": [],
-        "suggested_tasks": [
-          {
-            "title": "Water c1, w1, w4 before Monday heat spike",
-            "bed_id": "c1",
-            "urgency": "high",
-            "due_date": "2026-05-10",
-            "description": "Beans are mid-germination (day 6) and 93°F Monday with no rain could stall or kill germination — water today or Sunday."
-          }
-        ]
-      },
-      "suggestions_state": {
-        "accepted": [],
-        "rejected": []
-      },
-      "generated_at": "2026-05-09T12:10:18+00:00"
     }
   ]
 }
