@@ -1,24 +1,39 @@
 {
-  "headline": "Stake peach, trellis beans before Tuesday's 33 mph gusts",
+  "headline": "Peas 9 days out, trellis 3 days late",
   "weather_notes": [
-    "Stake the peach tree before Tuesday — 33 mph gusts forecast and it was already logged struggling at planting two days ago.",
-    "Check cages and ties on e1–e4 tomatoes before Tuesday — 33 mph gusts can snap stems on 16-day-old transplants.",
-    "Start picking c2–c4 peas today — 89°F heat with harvest 9 days out will toughen pods ahead of schedule.",
-    "Hold irrigation through Tuesday — watered today; reassess Wednesday when a 20% storm chance may bring natural moisture."
+    "Stake blackberry and peach before Tuesday — wind gusts to 33 mph could uproot or snap 2-day-old transplants.",
+    "Provide afternoon shade for peach today — logged as struggling at planting and 89°F today is peak heat stress before roots can establish.",
+    "Pick c2–c4 peas before Tuesday's heat — 89°F today and 86°F tomorrow accelerate pod toughening with harvest just 9 days out.",
+    "Hold manual watering through Wednesday — Rachio already ran zones 1 and 2 this morning and Wednesday's 20% storm chance may cover any deficit."
   ],
   "surfaced_tasks": [
     {
       "task_id": "98",
       "bed_id": "c1",
       "title": "Install trellis in c1 bean bed",
-      "reason": "Three days overdue — Good Mother Stollard pole beans are at day 22 and vining fast in 89°F heat."
+      "reason": "Three days overdue — Good Mother Stollard pole beans are 22 days old and today's 89°F heat surges vine growth daily without support."
     },
     {
       "task_id": "33",
       "bed_id": "w1",
       "title": "Mid-season feed — fish emulsion",
-      "reason": "Due June 1 in seven days — strawberries are 30 days in and actively fruiting; apply now to support continuous berry production."
+      "reason": "Due June 1 (7 days) and strawberries at 30 days post-plant are entering peak fruiting season when nitrogen matters most."
     }
   ],
-  "suggested_tasks": []
+  "suggested_tasks": [
+    {
+      "title": "Pick ripe pods from c2–c4 peas",
+      "due_date": "2026-05-26",
+      "description": "Pods formed heavily by May 12 and harvest is 9 days out — 89°F today will toughen unpicked pods fast.",
+      "bed_id": "c4",
+      "urgency": "high"
+    },
+    {
+      "title": "Rig shade cloth over peach mid-afternoon",
+      "due_date": "2026-05-25",
+      "description": "Logged as 'looking really rough' at planting 2 days ago — 89°F today risks sunscald and transplant failure before roots can establish.",
+      "bed_id": "peach",
+      "urgency": "high"
+    }
+  ]
 }
