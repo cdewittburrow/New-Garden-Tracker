@@ -1,39 +1,25 @@
 {
-  "headline": "Peas 9 days out, trellis 3 days late",
+  "headline": "Peas 8 days from target — heat toughens pods fast",
   "weather_notes": [
-    "Stake blackberry and peach before Tuesday — wind gusts to 33 mph could uproot or snap 2-day-old transplants.",
-    "Provide afternoon shade for peach today — logged as struggling at planting and 89°F today is peak heat stress before roots can establish.",
-    "Pick c2–c4 peas before Tuesday's heat — 89°F today and 86°F tomorrow accelerate pod toughening with harvest just 9 days out.",
-    "Hold manual watering through Wednesday — Rachio already ran zones 1 and 2 this morning and Wednesday's 20% storm chance may cover any deficit."
+    "Secure e1–e4 tomato cages before noon — 32 mph gusts arriving this afternoon with 40% storm chance.",
+    "Pick c2–c4 peas no later than Wednesday — 85°F heat through Thursday toughens pods fast with harvest just 8 days out.",
+    "Water potato_bags Thursday — two consecutive 85°F days after yesterday's irrigation will drain bag soil by then."
   ],
-  "surfaced_tasks": [
-    {
-      "task_id": "98",
-      "bed_id": "c1",
-      "title": "Install trellis in c1 bean bed",
-      "reason": "Three days overdue — Good Mother Stollard pole beans are 22 days old and today's 89°F heat surges vine growth daily without support."
-    },
-    {
-      "task_id": "33",
-      "bed_id": "w1",
-      "title": "Mid-season feed — fish emulsion",
-      "reason": "Due June 1 (7 days) and strawberries at 30 days post-plant are entering peak fruiting season when nitrogen matters most."
-    }
-  ],
+  "surfaced_tasks": [],
   "suggested_tasks": [
     {
-      "title": "Pick ripe pods from c2–c4 peas",
-      "due_date": "2026-05-26",
-      "description": "Pods formed heavily by May 12 and harvest is 9 days out — 89°F today will toughen unpicked pods fast.",
+      "title": "Pick c2–c4 peas before Wednesday heat",
+      "due_date": "2026-05-27",
+      "description": "Pods forming heavily since May 12; harvest target June 3 and 85°F heat Wed–Thu toughens unpicked pods daily.",
       "bed_id": "c4",
       "urgency": "high"
     },
     {
-      "title": "Rig shade cloth over peach mid-afternoon",
-      "due_date": "2026-05-25",
-      "description": "Logged as 'looking really rough' at planting 2 days ago — 89°F today risks sunscald and transplant failure before roots can establish.",
+      "title": "Deep water the peach tree Thursday",
+      "due_date": "2026-05-28",
+      "description": "Logged struggling May 23; two 85°F days hit before Thursday when Rachio's last run (May 25) will be 3 days old.",
       "bed_id": "peach",
-      "urgency": "high"
+      "urgency": "normal"
     }
   ]
 }
