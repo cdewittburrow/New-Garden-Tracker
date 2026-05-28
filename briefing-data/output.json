@@ -1,25 +1,17 @@
 {
-  "headline": "Peas 8 days from target — heat toughens pods fast",
+  "headline": "Deep-water peach today before Friday thunderstorms arrive",
   "weather_notes": [
-    "Secure e1–e4 tomato cages before noon — 32 mph gusts arriving this afternoon with 40% storm chance.",
-    "Pick c2–c4 peas no later than Wednesday — 85°F heat through Thursday toughens pods fast with harvest just 8 days out.",
-    "Water potato_bags Thursday — two consecutive 85°F days after yesterday's irrigation will drain bag soil by then."
+    "Water potato_bags today — 87°F heat with 3 days since last irrigation drains bag soil faster than raised beds, and Friday's 33% storm chance is not a reliable substitute.",
+    "Hold irrigation after today — Friday night through Saturday brings 49–58% rain probability that should recharge all beds.",
+    "Check and tighten e1–e4 tomato cage ties before Friday — gusty thunderstorms arrive Friday afternoon on 19-day-old transplants."
   ],
-  "surfaced_tasks": [],
-  "suggested_tasks": [
+  "surfaced_tasks": [
     {
-      "title": "Pick c2–c4 peas before Wednesday heat",
-      "due_date": "2026-05-27",
-      "description": "Pods forming heavily since May 12; harvest target June 3 and 85°F heat Wed–Thu toughens unpicked pods daily.",
-      "bed_id": "c4",
-      "urgency": "high"
-    },
-    {
-      "title": "Deep water the peach tree Thursday",
-      "due_date": "2026-05-28",
-      "description": "Logged struggling May 23; two 85°F days hit before Thursday when Rachio's last run (May 25) will be 3 days old.",
+      "task_id": "100",
       "bed_id": "peach",
-      "urgency": "normal"
+      "title": "Deep water the peach tree Thursday",
+      "reason": "Due today and logged struggling May 23 — 87°F with 3 dry days is peak stress window before Friday rain breaks the drought."
     }
-  ]
+  ],
+  "suggested_tasks": []
 }
