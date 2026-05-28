@@ -1,5 +1,5 @@
 {
-  "today": "2026-05-26",
+  "today": "2026-05-28",
   "plantings": [
     {
       "id": "79526620-7d75-4886-b31d-7c9bf731edc9",
@@ -29,36 +29,6 @@
       "planted_date": "2025-10-27",
       "status": "growing",
       "expected_harvest": "~Jul 15, 2026",
-      "season_notes": null
-    },
-    {
-      "id": "e0280648-bd37-43b0-b99a-5b1ceed52faa",
-      "bed_id": "c2",
-      "crop_name": "Snap Peas",
-      "variety": "Sugar Bon",
-      "planted_date": "2026-03-08",
-      "status": "growing",
-      "expected_harvest": "~June 3, 2026",
-      "season_notes": null
-    },
-    {
-      "id": "fcae49c2-9609-43da-ae75-fcebeca30243",
-      "bed_id": "c3",
-      "crop_name": "Peas",
-      "variety": "Lincoln Garden",
-      "planted_date": "2026-03-08",
-      "status": "growing",
-      "expected_harvest": "~June 3, 2026",
-      "season_notes": null
-    },
-    {
-      "id": "5ed2b328-d443-49f2-966e-547a79002f31",
-      "bed_id": "c4",
-      "crop_name": "Peas",
-      "variety": "Lillian's Caseload",
-      "planted_date": "2026-03-08",
-      "status": "growing",
-      "expected_harvest": "~June 3, 2026",
       "season_notes": null
     },
     {
@@ -217,17 +187,17 @@
       "due_date": "2026-05-20"
     },
     {
-      "id": 57,
-      "planting_id": "54c2c338-5c4d-4924-b91b-4ffc22ebb4b3",
-      "title": "Inspect for hornworms — apply Bt if found",
-      "description": "Check undersides of leaves on lower third of plant. Look for dark frass (droppings) as first sign. If hornworms found: spray Bacillus thuringiensis (Bt) on affected foliage per label. Hand-pick any large worms already present. Reapply Bt after rain.",
-      "due_date": "2026-05-21"
-    },
-    {
       "id": 22,
       "planting_id": "54c2c338-5c4d-4924-b91b-4ffc22ebb4b3",
       "title": "Mid-season feed — blood meal",
       "description": "Work 1 tbsp blood meal per plant into top inch of soil. Apply once heavy fruiting begins to compensate for nitrogen demand. Skip if foliage is already very dark green — excess nitrogen pushes leaf growth at expense of fruit.",
+      "due_date": "2026-05-21"
+    },
+    {
+      "id": 57,
+      "planting_id": "54c2c338-5c4d-4924-b91b-4ffc22ebb4b3",
+      "title": "Inspect for hornworms — apply Bt if found",
+      "description": "Check undersides of leaves on lower third of plant. Look for dark frass (droppings) as first sign. If hornworms found: spray Bacillus thuringiensis (Bt) on affected foliage per label. Hand-pick any large worms already present. Reapply Bt after rain.",
       "due_date": "2026-05-21"
     },
     {
@@ -238,17 +208,24 @@
       "due_date": "2026-05-24"
     },
     {
-      "id": 68,
-      "planting_id": "54c2c338-5c4d-4924-b91b-4ffc22ebb4b3",
-      "title": "Check for suckers",
-      "description": "Remove suckers forming in the crotch between main stem and lateral branches. Indeterminate varieties only (Amish Paste, Comstock, Bonny Best) — leave determinates (Roma, Orange Hat) unpruned. Pinch suckers when small (under 2 inches) for a cleaner break.",
-      "due_date": "2026-05-31"
+      "id": 100,
+      "planting_id": "9b70c528-46e5-439d-86ac-10aa998ebfac",
+      "title": "Deep water the peach tree Thursday",
+      "description": "Logged struggling May 23; two 85°F days hit before Thursday when Rachio's last run (May 25) will be 3 days old.",
+      "due_date": "2026-05-28"
     },
     {
       "id": 58,
       "planting_id": "54c2c338-5c4d-4924-b91b-4ffc22ebb4b3",
       "title": "Inspect for hornworms — apply Bt if found",
       "description": "Check undersides of leaves on lower third of plant. Look for dark frass (droppings) as first sign. If hornworms found: spray Bacillus thuringiensis (Bt) on affected foliage per label. Hand-pick any large worms already present. Reapply Bt after rain.",
+      "due_date": "2026-05-31"
+    },
+    {
+      "id": 68,
+      "planting_id": "54c2c338-5c4d-4924-b91b-4ffc22ebb4b3",
+      "title": "Check for suckers",
+      "description": "Remove suckers forming in the crotch between main stem and lateral branches. Indeterminate varieties only (Amish Paste, Comstock, Bonny Best) — leave determinates (Roma, Orange Hat) unpruned. Pinch suckers when small (under 2 inches) for a cleaner break.",
       "due_date": "2026-05-31"
     },
     {
@@ -357,24 +334,29 @@
       "note": "Bajillion flowers"
     },
     {
-      "planting_id": "fcae49c2-9609-43da-ae75-fcebeca30243",
-      "date": "May 9, 2026",
-      "note": "Bajillion flowers"
-    },
-    {
       "planting_id": "5ed2b328-d443-49f2-966e-547a79002f31",
       "date": "May 9, 2026",
       "note": "Bajillion flowers"
     },
     {
-      "planting_id": "2a7bfcbb-580c-4518-a20a-47fc386f4760",
-      "date": "May 23, 2026",
-      "note": "4 sprouted. 2 knocked back by a late frost but I think they will come back"
+      "planting_id": "fcae49c2-9609-43da-ae75-fcebeca30243",
+      "date": "May 9, 2026",
+      "note": "Bajillion flowers"
+    },
+    {
+      "planting_id": "e0280648-bd37-43b0-b99a-5b1ceed52faa",
+      "date": "May 27, 2026",
+      "note": "Final yield only 1 lb. Delicious. I think I needed to plant a little earlier and water more generously."
     },
     {
       "planting_id": "9b70c528-46e5-439d-86ac-10aa998ebfac",
       "date": "May 23, 2026",
       "note": "Looking really rough. Added fertilizer and watered full hose for 1 hour to try and kinda bring it back but she is a sad little tree this year."
+    },
+    {
+      "planting_id": "2a7bfcbb-580c-4518-a20a-47fc386f4760",
+      "date": "May 23, 2026",
+      "note": "4 sprouted. 2 knocked back by a late frost but I think they will come back"
     },
     {
       "planting_id": "8c343e4e-65cb-4765-9435-00beae2b3c73",
@@ -402,27 +384,27 @@
       "note": "Pulled weeds that grew through the straw"
     },
     {
+      "planting_id": "5ed2b328-d443-49f2-966e-547a79002f31",
+      "date": "Mar 27, 2026",
+      "note": "The weird little pea tentacles have shown up"
+    },
+    {
+      "planting_id": "fcae49c2-9609-43da-ae75-fcebeca30243",
+      "date": "Mar 27, 2026",
+      "note": "The weird little pea tentacles have shown up"
+    },
+    {
       "planting_id": "e0280648-bd37-43b0-b99a-5b1ceed52faa",
       "date": "Mar 27, 2026",
       "note": "The weird little pea tentacles have shown up"
     },
     {
       "planting_id": "5ed2b328-d443-49f2-966e-547a79002f31",
-      "date": "Mar 27, 2026",
-      "note": "The weird little pea tentacles have shown up"
-    },
-    {
-      "planting_id": "fcae49c2-9609-43da-ae75-fcebeca30243",
-      "date": "Mar 27, 2026",
-      "note": "The weird little pea tentacles have shown up"
-    },
-    {
-      "planting_id": "fcae49c2-9609-43da-ae75-fcebeca30243",
       "date": "Mar 24, 2026",
       "note": "Added a top dress of worm castings. Approx one or two cups."
     },
     {
-      "planting_id": "5ed2b328-d443-49f2-966e-547a79002f31",
+      "planting_id": "e0280648-bd37-43b0-b99a-5b1ceed52faa",
       "date": "Mar 24, 2026",
       "note": "Added a top dress of worm castings. Approx one or two cups."
     },
@@ -437,7 +419,7 @@
       "note": "Added a top dress of worm castings. Approx one or two cups."
     },
     {
-      "planting_id": "e0280648-bd37-43b0-b99a-5b1ceed52faa",
+      "planting_id": "fcae49c2-9609-43da-ae75-fcebeca30243",
       "date": "Mar 24, 2026",
       "note": "Added a top dress of worm castings. Approx one or two cups."
     },
@@ -482,6 +464,11 @@
       "note": "Sprouts noticed today!"
     },
     {
+      "planting_id": "fcae49c2-9609-43da-ae75-fcebeca30243",
+      "date": "Mar 14, 2026",
+      "note": "Watered today. Also installed the trellis arch and frost cloth."
+    },
+    {
       "planting_id": "e0280648-bd37-43b0-b99a-5b1ceed52faa",
       "date": "Mar 14, 2026",
       "note": "Watered today. Also installed the trellis arch and frost cloth."
@@ -492,12 +479,12 @@
       "note": "Watered today. Also installed the trellis arch and frost cloth."
     },
     {
-      "planting_id": "fcae49c2-9609-43da-ae75-fcebeca30243",
-      "date": "Mar 14, 2026",
-      "note": "Watered today. Also installed the trellis arch and frost cloth."
+      "planting_id": "14a35329-35a2-42ef-b59c-9b35fc2a2c7e",
+      "date": "Apr 4, 2026",
+      "note": "Fish emulsion applied"
     },
     {
-      "planting_id": "14a35329-35a2-42ef-b59c-9b35fc2a2c7e",
+      "planting_id": "e0280648-bd37-43b0-b99a-5b1ceed52faa",
       "date": "Apr 4, 2026",
       "note": "Fish emulsion applied"
     },
@@ -527,17 +514,31 @@
       "note": "Fish emulsion applied"
     },
     {
-      "planting_id": "e0280648-bd37-43b0-b99a-5b1ceed52faa",
-      "date": "Apr 4, 2026",
-      "note": "Fish emulsion applied"
-    },
-    {
       "planting_id": "14a35329-35a2-42ef-b59c-9b35fc2a2c7e",
       "date": "Apr 20, 2026",
       "note": "About 12 oz of radish is all. After tops cut."
     }
   ],
-  "harvests": [],
+  "harvests": [
+    {
+      "planting_id": "e0280648-bd37-43b0-b99a-5b1ceed52faa",
+      "harvest_date": "2026-05-27",
+      "amount": 1.1,
+      "unit": "lbs"
+    },
+    {
+      "planting_id": "fcae49c2-9609-43da-ae75-fcebeca30243",
+      "harvest_date": "2026-05-27",
+      "amount": 1,
+      "unit": "lbs"
+    },
+    {
+      "planting_id": "5ed2b328-d443-49f2-966e-547a79002f31",
+      "harvest_date": "2026-05-27",
+      "amount": 1.2,
+      "unit": "lbs"
+    }
+  ],
   "waterings": [
     {
       "zone": 2,
@@ -595,101 +596,25 @@
       {
         "number": 1,
         "name": "Today",
-        "startTime": "2026-05-26T09:00:00-06:00",
-        "endTime": "2026-05-26T18:00:00-06:00",
+        "startTime": "2026-05-28T06:00:00-06:00",
+        "endTime": "2026-05-28T18:00:00-06:00",
         "isDaytime": true,
-        "temperature": 84,
-        "temperatureUnit": "F",
-        "temperatureTrend": null,
-        "probabilityOfPrecipitation": {
-          "unitCode": "wmoUnit:percent",
-          "value": 35
-        },
-        "windSpeed": "15 to 18 mph",
-        "windDirection": "SSE",
-        "icon": "https://api.weather.gov/icons/land/day/bkn/tsra_hi,40?size=medium",
-        "shortForecast": "Partly Sunny then Slight Chance Showers And Thunderstorms",
-        "detailedForecast": "A slight chance of showers and thunderstorms between noon and 3pm, then a chance of showers and thunderstorms. Partly sunny. High near 84, with temperatures falling to around 81 in the afternoon. South southeast wind 15 to 18 mph, with gusts as high as 32 mph. Chance of precipitation is 40%."
-      },
-      {
-        "number": 2,
-        "name": "Tonight",
-        "startTime": "2026-05-26T18:00:00-06:00",
-        "endTime": "2026-05-27T06:00:00-06:00",
-        "isDaytime": false,
-        "temperature": 57,
-        "temperatureUnit": "F",
-        "temperatureTrend": null,
-        "probabilityOfPrecipitation": {
-          "unitCode": "wmoUnit:percent",
-          "value": 7
-        },
-        "windSpeed": "5 to 14 mph",
-        "windDirection": "SSE",
-        "icon": "https://api.weather.gov/icons/land/night/sct?size=medium",
-        "shortForecast": "Partly Cloudy",
-        "detailedForecast": "Partly cloudy. Low around 57, with temperatures rising to around 59 overnight. South southeast wind 5 to 14 mph."
-      },
-      {
-        "number": 3,
-        "name": "Wednesday",
-        "startTime": "2026-05-27T06:00:00-06:00",
-        "endTime": "2026-05-27T18:00:00-06:00",
-        "isDaytime": true,
-        "temperature": 85,
-        "temperatureUnit": "F",
-        "temperatureTrend": null,
-        "probabilityOfPrecipitation": {
-          "unitCode": "wmoUnit:percent",
-          "value": 1
-        },
-        "windSpeed": "6 to 15 mph",
-        "windDirection": "SSE",
-        "icon": "https://api.weather.gov/icons/land/day/few?size=medium",
-        "shortForecast": "Sunny",
-        "detailedForecast": "Sunny, with a high near 85. South southeast wind 6 to 15 mph."
-      },
-      {
-        "number": 4,
-        "name": "Wednesday Night",
-        "startTime": "2026-05-27T18:00:00-06:00",
-        "endTime": "2026-05-28T06:00:00-06:00",
-        "isDaytime": false,
-        "temperature": 57,
+        "temperature": 87,
         "temperatureUnit": "F",
         "temperatureTrend": null,
         "probabilityOfPrecipitation": {
           "unitCode": "wmoUnit:percent",
           "value": 0
         },
-        "windSpeed": "3 to 12 mph",
-        "windDirection": "SE",
-        "icon": "https://api.weather.gov/icons/land/night/few?size=medium",
-        "shortForecast": "Mostly Clear",
-        "detailedForecast": "Mostly clear, with a low around 57. Southeast wind 3 to 12 mph."
-      },
-      {
-        "number": 5,
-        "name": "Thursday",
-        "startTime": "2026-05-28T06:00:00-06:00",
-        "endTime": "2026-05-28T18:00:00-06:00",
-        "isDaytime": true,
-        "temperature": 85,
-        "temperatureUnit": "F",
-        "temperatureTrend": null,
-        "probabilityOfPrecipitation": {
-          "unitCode": "wmoUnit:percent",
-          "value": 2
-        },
-        "windSpeed": "5 to 13 mph",
+        "windSpeed": "6 to 17 mph",
         "windDirection": "SSE",
-        "icon": "https://api.weather.gov/icons/land/day/sct?size=medium",
-        "shortForecast": "Mostly Sunny",
-        "detailedForecast": "Mostly sunny, with a high near 85. South southeast wind 5 to 13 mph."
+        "icon": "https://api.weather.gov/icons/land/day/few?size=medium",
+        "shortForecast": "Sunny",
+        "detailedForecast": "Sunny. High near 87, with temperatures falling to around 85 in the afternoon. South southeast wind 6 to 17 mph, with gusts as high as 31 mph."
       },
       {
-        "number": 6,
-        "name": "Thursday Night",
+        "number": 2,
+        "name": "Tonight",
         "startTime": "2026-05-28T18:00:00-06:00",
         "endTime": "2026-05-29T06:00:00-06:00",
         "isDaytime": false,
@@ -698,47 +623,165 @@
         "temperatureTrend": null,
         "probabilityOfPrecipitation": {
           "unitCode": "wmoUnit:percent",
-          "value": 2
+          "value": 4
         },
-        "windSpeed": "2 to 10 mph",
-        "windDirection": "SSE",
-        "icon": "https://api.weather.gov/icons/land/night/sct?size=medium",
-        "shortForecast": "Partly Cloudy",
-        "detailedForecast": "Partly cloudy, with a low around 55."
+        "windSpeed": "2 to 12 mph",
+        "windDirection": "WSW",
+        "icon": "https://api.weather.gov/icons/land/night/few?size=medium",
+        "shortForecast": "Mostly Clear",
+        "detailedForecast": "Mostly clear. Low around 55, with temperatures rising to around 57 overnight. West southwest wind 2 to 12 mph."
       },
       {
-        "number": 7,
+        "number": 3,
         "name": "Friday",
         "startTime": "2026-05-29T06:00:00-06:00",
         "endTime": "2026-05-29T18:00:00-06:00",
         "isDaytime": true,
-        "temperature": 76,
+        "temperature": 78,
         "temperatureUnit": "F",
         "temperatureTrend": null,
         "probabilityOfPrecipitation": {
           "unitCode": "wmoUnit:percent",
-          "value": 22
+          "value": 33
         },
-        "windSpeed": "2 to 8 mph",
+        "windSpeed": "5 to 8 mph",
         "windDirection": "SSW",
-        "icon": "https://api.weather.gov/icons/land/day/sct/tsra_hi,20?size=medium",
-        "shortForecast": "Mostly Sunny then Slight Chance Showers And Thunderstorms",
-        "detailedForecast": "A slight chance of showers and thunderstorms after noon. Mostly sunny, with a high near 76."
+        "icon": "https://api.weather.gov/icons/land/day/sct/tsra_hi,30?size=medium",
+        "shortForecast": "Mostly Sunny then Scattered Showers And Thunderstorms",
+        "detailedForecast": "Scattered rain showers between noon and 3pm, then scattered showers and thunderstorms. Mostly sunny. High near 78, with temperatures falling to around 71 in the afternoon. South southwest wind 5 to 8 mph. Chance of precipitation is 30%."
+      },
+      {
+        "number": 4,
+        "name": "Friday Night",
+        "startTime": "2026-05-29T18:00:00-06:00",
+        "endTime": "2026-05-30T06:00:00-06:00",
+        "isDaytime": false,
+        "temperature": 50,
+        "temperatureUnit": "F",
+        "temperatureTrend": null,
+        "probabilityOfPrecipitation": {
+          "unitCode": "wmoUnit:percent",
+          "value": 49
+        },
+        "windSpeed": "3 to 8 mph",
+        "windDirection": "S",
+        "icon": "https://api.weather.gov/icons/land/night/tsra_sct,30/tsra_sct,50?size=medium",
+        "shortForecast": "Scattered Showers And Thunderstorms",
+        "detailedForecast": "Scattered showers and thunderstorms. Mostly cloudy, with a low around 50. South wind 3 to 8 mph. Chance of precipitation is 50%."
+      },
+      {
+        "number": 5,
+        "name": "Saturday",
+        "startTime": "2026-05-30T06:00:00-06:00",
+        "endTime": "2026-05-30T18:00:00-06:00",
+        "isDaytime": true,
+        "temperature": 72,
+        "temperatureUnit": "F",
+        "temperatureTrend": null,
+        "probabilityOfPrecipitation": {
+          "unitCode": "wmoUnit:percent",
+          "value": 58
+        },
+        "windSpeed": "6 mph",
+        "windDirection": "SW",
+        "icon": "https://api.weather.gov/icons/land/day/rain_showers,60/tsra_sct,40?size=medium",
+        "shortForecast": "Chance Rain Showers",
+        "detailedForecast": "A chance of rain showers before noon, then scattered showers and thunderstorms. Partly sunny, with a high near 72. Southwest wind around 6 mph. Chance of precipitation is 60%."
+      },
+      {
+        "number": 6,
+        "name": "Saturday Night",
+        "startTime": "2026-05-30T18:00:00-06:00",
+        "endTime": "2026-05-31T06:00:00-06:00",
+        "isDaytime": false,
+        "temperature": 50,
+        "temperatureUnit": "F",
+        "temperatureTrend": null,
+        "probabilityOfPrecipitation": {
+          "unitCode": "wmoUnit:percent",
+          "value": 25
+        },
+        "windSpeed": "1 to 6 mph",
+        "windDirection": "NE",
+        "icon": "https://api.weather.gov/icons/land/night/tsra_hi,30/tsra_hi?size=medium",
+        "shortForecast": "Chance Showers And Thunderstorms then Slight Chance Showers And Thunderstorms",
+        "detailedForecast": "A chance of showers and thunderstorms before midnight, then a slight chance of showers and thunderstorms. Partly cloudy, with a low around 50. Chance of precipitation is 30%."
+      },
+      {
+        "number": 7,
+        "name": "Sunday",
+        "startTime": "2026-05-31T06:00:00-06:00",
+        "endTime": "2026-05-31T18:00:00-06:00",
+        "isDaytime": true,
+        "temperature": 74,
+        "temperatureUnit": "F",
+        "temperatureTrend": null,
+        "probabilityOfPrecipitation": {
+          "unitCode": "wmoUnit:percent",
+          "value": 11
+        },
+        "windSpeed": "1 to 9 mph",
+        "windDirection": "NNW",
+        "icon": "https://api.weather.gov/icons/land/day/tsra_hi/sct?size=medium",
+        "shortForecast": "Slight Chance Showers And Thunderstorms then Mostly Sunny",
+        "detailedForecast": "A slight chance of showers and thunderstorms before noon. Mostly sunny, with a high near 74."
       }
     ],
     "alerts": [],
     "past_7_days": [
       {
-        "date": "2026-05-26",
-        "conditions": "Clear / Clear and Windy / Cloudy / Cloudy and Windy / Light Rain / Mostly Clear / Mostly Clear and Windy / Mostly Cloudy / Mostly Cloudy and Breezy / Mostly Cloudy and Windy / Partly Cloudy / Partly Cloudy and Windy / Rain / Windy",
-        "high_f": 84,
-        "low_f": 59,
-        "avg_humidity_pct": 38,
-        "precip_in": 0.01
+        "date": "2026-05-27",
+        "conditions": "Clear / Mostly Cloudy / Mostly Cloudy and Windy",
+        "high_f": 86,
+        "low_f": 82,
+        "avg_humidity_pct": 13,
+        "precip_in": 0
+      },
+      {
+        "date": "2026-05-28",
+        "conditions": "Clear / Mostly Clear / Mostly Cloudy / Mostly Cloudy and Windy / Partly Cloudy",
+        "high_f": 85,
+        "low_f": 63,
+        "avg_humidity_pct": 21,
+        "precip_in": 0
       }
     ]
   },
   "recent_briefings": [
+    {
+      "payload": {
+        "headline": "Peas 8 days from target — heat toughens pods fast",
+        "weather_notes": [
+          "Secure e1–e4 tomato cages before noon — 32 mph gusts arriving this afternoon with 40% storm chance.",
+          "Pick c2–c4 peas no later than Wednesday — 85°F heat through Thursday toughens pods fast with harvest just 8 days out.",
+          "Water potato_bags Thursday — two consecutive 85°F days after yesterday's irrigation will drain bag soil by then."
+        ],
+        "surfaced_tasks": [],
+        "suggested_tasks": [
+          {
+            "title": "Pick c2–c4 peas before Wednesday heat",
+            "bed_id": "c4",
+            "urgency": "high",
+            "due_date": "2026-05-27",
+            "description": "Pods forming heavily since May 12; harvest target June 3 and 85°F heat Wed–Thu toughens unpicked pods daily."
+          },
+          {
+            "title": "Deep water the peach tree Thursday",
+            "bed_id": "peach",
+            "urgency": "normal",
+            "due_date": "2026-05-28",
+            "description": "Logged struggling May 23; two 85°F days hit before Thursday when Rachio's last run (May 25) will be 3 days old."
+          }
+        ]
+      },
+      "suggestions_state": {
+        "accepted": [
+          1
+        ],
+        "rejected": []
+      },
+      "generated_at": "2026-05-27T13:43:12+00:00"
+    },
     {
       "payload": {
         "headline": "Peas 9 days out, trellis 3 days late",
@@ -1216,34 +1259,6 @@
         "rejected": []
       },
       "generated_at": "2026-05-14T12:06:57+00:00"
-    },
-    {
-      "payload": {
-        "headline": "94°F hits day-4 tomatoes — water now",
-        "weather_notes": [
-          "94°F today with zero precipitation — e1–e4 tomatoes are 4 days post-transplant and last irrigated May 9; wilt failure is likely without a deep soak today.",
-          "Wednesday hits 91°F with only a 20% storm chance — don't skip irrigation waiting for rain that probably won't come.",
-          "Wednesday night drops to 52°F and Thursday clears to 74°F — the heat breaks Thursday, the week's best outdoor work window.",
-          "Peas (c2–c4) logged at peak flower May 9 — two days of 90°F+ will cause significant blossom drop, shrinking the June 3 harvest."
-        ],
-        "surfaced_tasks": [],
-        "suggested_tasks": [
-          {
-            "title": "Water e1–e4 tomatoes thoroughly today",
-            "bed_id": "e1",
-            "urgency": "high",
-            "due_date": "2026-05-12",
-            "description": "Day-4 transplants last irrigated May 9; 94°F today will deplete soil moisture fast — a deep soak now prevents wilt and root damage."
-          }
-        ]
-      },
-      "suggestions_state": {
-        "accepted": [],
-        "rejected": [
-          0
-        ]
-      },
-      "generated_at": "2026-05-12T12:15:11+00:00"
     }
   ]
 }
