@@ -2621,6 +2621,8 @@ async function endPlanting(bedId){
   if(!p)return;
   const okBtn=document.querySelector('.end-confirm-ok');
   if(okBtn){okBtn.disabled=true;okBtn.textContent='Ending…';}
+  // Capture successor before mutating cache — getActivePlanting changes after ended_date is set
+  const succ=getNextDraft(bedId);
   await fetch(`${SB_URL}/rest/v1/plantings?id=eq.${p.id}`,{
     method:'PATCH',
     headers:{...SB_HEADERS,'Prefer':'return=minimal'},
@@ -2628,8 +2630,6 @@ async function endPlanting(bedId){
   });
   p.ended_date=today();
   p.planting_state='ended';
-  // Activate next queued draft if one exists
-  const succ=getNextDraft(bedId);
   if(succ){
     const plantedOn=today();
     await activatePlanting(succ.id,plantedOn,succ.crop_name);
