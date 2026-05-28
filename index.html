@@ -2603,10 +2603,7 @@ function confirmEndPlanting(bedId){
   if(!p)return;
   const link=document.getElementById('close-planting-link');
   if(!link)return;
-  const succ=getNextDraft(bedId);
-  const confirmMsg=succ
-    ?`End ${p.crop_name} and activate ${succ.crop_name}?`
-    :`Mark ${p.crop_name} as ended? This bed will show as fallow.`;
+  const confirmMsg=`End ${p.crop_name}? This bed will show as fallow until the next crop is planted.`;
   link.outerHTML=`<div class="end-confirm-row" id="end-confirm">
     <div class="end-confirm-text">${confirmMsg}</div>
     <div class="end-confirm-btns">
@@ -2621,8 +2618,6 @@ async function endPlanting(bedId){
   if(!p)return;
   const okBtn=document.querySelector('.end-confirm-ok');
   if(okBtn){okBtn.disabled=true;okBtn.textContent='Ending…';}
-  // Capture successor before mutating cache — getActivePlanting changes after ended_date is set
-  const succ=getNextDraft(bedId);
   await fetch(`${SB_URL}/rest/v1/plantings?id=eq.${p.id}`,{
     method:'PATCH',
     headers:{...SB_HEADERS,'Prefer':'return=minimal'},
@@ -2630,13 +2625,6 @@ async function endPlanting(bedId){
   });
   p.ended_date=today();
   p.planting_state='ended';
-  if(succ){
-    const plantedOn=today();
-    await activatePlanting(succ.id,plantedOn,succ.crop_name);
-    succ.planted_date=plantedOn;
-    succ.planting_state='active';
-    await fetchAllPlantings();
-  }
   closeSheet();
   updateMapLabels();
   renderStatusIndicators();
