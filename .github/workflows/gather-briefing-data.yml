@@ -67,7 +67,7 @@ jobs:
           # Historical observations from KSLC — last 7 days, hourly, aggregated to daily summaries
           curl -sf -H "User-Agent: GardenTracker/1.0" \
             "https://api.weather.gov/stations/KSLC/observations?start=${SEVEN_AGO_ISO}&end=${TODAY_ISO}&limit=200" \
-            > /tmp/observations.json &
+            > /tmp/observations.json || echo '{"features":[]}' > /tmp/observations.json &
 
           wait
 
