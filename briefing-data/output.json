@@ -1,17 +1,25 @@
 {
-  "headline": "Deep-water peach today before Friday thunderstorms arrive",
+  "headline": "Tie down tomatoes before 3pm — T-storms through Saturday",
   "weather_notes": [
-    "Water potato_bags today — 87°F heat with 3 days since last irrigation drains bag soil faster than raised beds, and Friday's 33% storm chance is not a reliable substitute.",
-    "Hold irrigation after today — Friday night through Saturday brings 49–58% rain probability that should recharge all beds.",
-    "Check and tighten e1–e4 tomato cage ties before Friday — gusty thunderstorms arrive Friday afternoon on 19-day-old transplants."
+    "Secure e1–e4 cage ties and stakes before 3pm — T-storms arrive this afternoon on 20-day-old transplants with 60%+ rain continuing overnight through Saturday.",
+    "Skip all irrigation through Sunday — tonight's 63% and Saturday's 61% rain probability will fully recharge every active bed.",
+    "Pull back straw mulch edges on w2–w3 garlic before tonight's rain — 47 days from July harvest, excess weekend moisture risks bulb rot in the final curing stage."
   ],
   "surfaced_tasks": [
     {
-      "task_id": "100",
-      "bed_id": "peach",
-      "title": "Deep water the peach tree Thursday",
-      "reason": "Due today and logged struggling May 23 — 87°F with 3 dry days is peak stress window before Friday rain breaks the drought."
+      "task_id": "33",
+      "bed_id": "w1",
+      "title": "Mid-season feed — fish emulsion",
+      "reason": "Due in 3 days (June 1) with strawberries at 34 days actively fruiting — Sunday's post-rain moist soil is ideal timing for this liquid application."
     }
   ],
-  "suggested_tasks": []
+  "suggested_tasks": [
+    {
+      "title": "Check peach for standing water after rain",
+      "due_date": "2026-06-01",
+      "description": "Tree logged struggling May 23 and May 28 — heavy rain tonight through Saturday risks waterlogging an already-stressed root zone; check for pooling at the base on Sunday.",
+      "bed_id": "peach",
+      "urgency": "normal"
+    }
+  ]
 }
