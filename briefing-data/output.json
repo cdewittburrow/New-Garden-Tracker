@@ -1,24 +1,30 @@
 {
-  "headline": "Tie down tomatoes before 3pm — T-storms through Saturday",
+  "headline": "Check Amish Paste suckers Sunday before 83°F Monday",
   "weather_notes": [
-    "Secure e1–e4 cage ties and stakes before 3pm — T-storms arrive this afternoon on 20-day-old transplants with 60%+ rain continuing overnight through Saturday.",
-    "Skip all irrigation through Sunday — tonight's 63% and Saturday's 61% rain probability will fully recharge every active bed.",
-    "Pull back straw mulch edges on w2–w3 garlic before tonight's rain — 47 days from July harvest, excess weekend moisture risks bulb rot in the final curing stage."
+    "Skip all irrigation through Sunday — beds watered May 29 and today's 70% rain leaves every active bed saturated.",
+    "Inspect e1–e4 tomato lower leaves for early blight Sunday — today's 76% humidity and active rain are prime blight-spreading conditions.",
+    "Check c2, c3, c4 bean beds Monday — seeds sown May 28 can stall if surface soil bakes dry under 83°F heat; water if dry."
   ],
   "surfaced_tasks": [
     {
-      "task_id": "33",
-      "bed_id": "w1",
-      "title": "Mid-season feed — fish emulsion",
-      "reason": "Due in 3 days (June 1) with strawberries at 34 days actively fruiting — Sunday's post-rain moist soil is ideal timing for this liquid application."
+      "task_id": "68",
+      "bed_id": "e1",
+      "title": "Check for suckers",
+      "reason": "Due tomorrow on Amish Paste (indeterminate, e1) — Sunday's clear dry window after today's rain is ideal to pinch lateral shoots before Monday's 83°F accelerates growth."
+    },
+    {
+      "task_id": "52",
+      "bed_id": "e1",
+      "title": "Inspect for early blight",
+      "reason": "Due June 3 and today's 76% humidity with active rain creates prime blight conditions — inspect Sunday while leaves are drying before Monday's heat locks in any infection."
     }
   ],
   "suggested_tasks": [
     {
-      "title": "Check peach for standing water after rain",
+      "title": "Check blackberry for flower clusters",
       "due_date": "2026-06-01",
-      "description": "Tree logged struggling May 23 and May 28 — heavy rain tonight through Saturday risks waterlogging an already-stressed root zone; check for pooling at the base on Sunday.",
-      "bed_id": "peach",
+      "description": "Triple Crown enters its first fruiting season (year 2, planted May 2025) — confirm second-year canes are flowering now, the peak window for Zone 7b.",
+      "bed_id": "blackberry",
       "urgency": "normal"
     }
   ]
