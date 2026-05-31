@@ -1,31 +1,29 @@
 {
-  "headline": "Check Amish Paste suckers Sunday before 83°F Monday",
+  "headline": "Hornworms due today — strawberry feed and blackberry check tomorrow",
   "weather_notes": [
-    "Skip all irrigation through Sunday — beds watered May 29 and today's 70% rain leaves every active bed saturated.",
-    "Inspect e1–e4 tomato lower leaves for early blight Sunday — today's 76% humidity and active rain are prime blight-spreading conditions.",
-    "Check c2, c3, c4 bean beds Monday — seeds sown May 28 can stall if surface soil bakes dry under 83°F heat; water if dry."
+    "Water all beds Monday — no rain forecast all week and 85°F arrives Tuesday with soil already 3 days dry after May 29 irrigation.",
+    "Keep c2–c4 bean beds surface-moist daily — seeds sown May 28 are mid-germination and 85°F Tuesday will dry surface soil before sprouts emerge.",
+    "Check and water potato_bags Monday — bag soil dries twice as fast as raised beds and Tuesday's 85°F hits 4 days after last irrigation."
   ],
   "surfaced_tasks": [
     {
-      "task_id": "68",
+      "task_id": "58",
       "bed_id": "e1",
-      "title": "Check for suckers",
-      "reason": "Due tomorrow on Amish Paste (indeterminate, e1) — Sunday's clear dry window after today's rain is ideal to pinch lateral shoots before Monday's 83°F accelerates growth."
+      "title": "Inspect for hornworms — apply Bt if found",
+      "reason": "Due today on 22-day tomatoes; today's clear dry conditions are ideal for spotting frass before Tuesday's 85°F accelerates pest activity."
     },
     {
-      "task_id": "52",
-      "bed_id": "e1",
-      "title": "Inspect for early blight",
-      "reason": "Due June 3 and today's 76% humidity with active rain creates prime blight conditions — inspect Sunday while leaves are drying before Monday's heat locks in any infection."
+      "task_id": "107",
+      "bed_id": "blackberry",
+      "title": "Check blackberry for flower clusters",
+      "reason": "Due tomorrow at year 2 Triple Crown's first fruiting window — confirming flowers are set now determines whether the plant yields this season."
+    },
+    {
+      "task_id": "33",
+      "bed_id": "w1",
+      "title": "Mid-season feed — fish emulsion",
+      "reason": "Due tomorrow with strawberries at 36 days in active fruiting — apply on Monday's moist soil before the week's heat builds."
     }
   ],
-  "suggested_tasks": [
-    {
-      "title": "Check blackberry for flower clusters",
-      "due_date": "2026-06-01",
-      "description": "Triple Crown enters its first fruiting season (year 2, planted May 2025) — confirm second-year canes are flowering now, the peak window for Zone 7b.",
-      "bed_id": "blackberry",
-      "urgency": "normal"
-    }
-  ]
+  "suggested_tasks": []
 }
