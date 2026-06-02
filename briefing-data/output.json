@@ -1,29 +1,30 @@
 {
-  "headline": "Hornworm check today, blackberry tomorrow, 85°F Tuesday",
+  "headline": "Two tasks due today — 90°F heat arrives Thursday",
   "weather_notes": [
-    "Hold all watering today — Rachio ran 2 days ago at 75°F with zero rain risk; every active bed is at adequate moisture.",
-    "Water potato_bags and c2–c4 bean beds by Tuesday — 85°F heat arrives with no rain in the 7-day forecast; bag soil and just-sown bean seeds lose moisture faster than established raised beds."
+    "Water c2/c3/c4 bean beds today — seeds sown 4 days ago are mid-germination and 85°F Tuesday will dry surface soil before sprouts emerge.",
+    "Water potato_bags before Tuesday — bag soil dries twice as fast as raised beds; 3 days since last irrigation and 90°F arrives Thursday.",
+    "Water e1–e4 tomatoes deeply today — four consecutive 85–90°F days begin tomorrow with zero rain in the 7-day forecast."
   ],
   "surfaced_tasks": [
     {
-      "task_id": "58",
-      "bed_id": "e1",
-      "title": "Inspect for hornworms — apply Bt if found",
-      "reason": "Due today — tomato beds are 22 days in and entering the peak hornworm window; today's warm sunny conditions are ideal for checking lower leaves for frass before the week heats up."
+      "task_id": "33",
+      "bed_id": "w1",
+      "title": "Mid-season feed — fish emulsion",
+      "reason": "Due today with strawberries at 37 days actively fruiting — apply on moist soil before Wednesday's 89°F dries the bed."
     },
     {
       "task_id": "107",
       "bed_id": "blackberry",
       "title": "Check blackberry for flower clusters",
-      "reason": "Due tomorrow — Triple Crown is entering its first fruiting season at year 2 and confirming flowers now sets expectations for summer berry yield."
+      "reason": "Due today in year 2 Triple Crown's first fruiting season — confirming flower set now determines whether the plant yields berries this summer."
     }
   ],
   "suggested_tasks": [
     {
-      "title": "Check frost-damaged potato sprouts for recovery",
-      "due_date": "2026-06-01",
-      "description": "Two sprouts were knocked back by frost May 23 — 8 days later with 85°F arriving Tuesday, confirm recovery or spot-replant before soil temperatures spike.",
-      "bed_id": "potato_bags",
+      "title": "Check Amish Paste e1 for suckers",
+      "due_date": "2026-06-03",
+      "description": "Amish Paste is indeterminate at 23 days — Wednesday's 89°F will surge lateral growth; pinch suckers now before they exceed 2 inches.",
+      "bed_id": "e1",
       "urgency": "normal"
     }
   ]
