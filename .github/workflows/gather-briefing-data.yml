@@ -58,16 +58,13 @@ jobs:
           FORECAST_URL=$(curl -sf -H "User-Agent: GardenTracker/1.0" \
             "https://api.weather.gov/points/40.6916,-111.9391" | jq -r '.properties.forecast')
 
-          SEVEN_AGO_ISO=$(date -u -d "7 days ago" +%Y-%m-%dT%H:%M:%SZ)
-          TODAY_ISO=$(date -u +%Y-%m-%dT%H:%M:%SZ)
-
           curl -sf -H "User-Agent: GardenTracker/1.0" "$FORECAST_URL" > /tmp/forecast.json &
           curl -sf -H "User-Agent: GardenTracker/1.0" \
             "https://api.weather.gov/alerts/active?point=40.6916,-111.9391" > /tmp/alerts.json &
-          # Historical observations from KSLC — last 7 days, hourly, aggregated to daily summaries
-          curl -sf -H "User-Agent: GardenTracker/1.0" \
-            "https://api.weather.gov/stations/KSLC/observations?start=${SEVEN_AGO_ISO}&end=${TODAY_ISO}&limit=200" \
-            > /tmp/observations.json || echo '{"features":[]}' > /tmp/observations.json &
+          # Historical daily precip/temps from Open-Meteo — gridded to actual coordinates, not a distant station
+          curl -sf \
+            "https://archive-api.open-meteo.com/v1/archive?latitude=40.6916&longitude=-111.9391&start_date=${SEVEN_AGO}&end_date=${TODAY}&daily=precipitation_sum,temperature_2m_max,temperature_2m_min&timezone=America%2FDenver" \
+            > /tmp/observations.json || echo '{"daily":{"time":[],"precipitation_sum":[],"temperature_2m_max":[],"temperature_2m_min":[]}}' > /tmp/observations.json &
 
           wait
 
@@ -93,17 +90,17 @@ jobs:
                 forecast: ($forecast[0].properties.periods // [] | .[0:7]),
                 alerts: [$alerts[0].features // [] | .[0:3][] | .properties.headline],
                 past_7_days: (
-                  $observations[0].features // [] |
-                  group_by(.properties.timestamp[0:10]) |
+                  [$observations[0].daily.time // [],
+                   $observations[0].daily.precipitation_sum // [],
+                   $observations[0].daily.temperature_2m_max // [],
+                   $observations[0].daily.temperature_2m_min // []] |
+                  transpose |
                   map({
-                    date: .[0].properties.timestamp[0:10],
-                    conditions: ([.[].properties.textDescription] | map(select(. != null and . != "")) | unique | join(" / ")),
-                    high_f: ([.[].properties.temperature.value] | map(select(. != null)) | if length > 0 then (max * 9/5 + 32 | round) else null end),
-                    low_f:  ([.[].properties.temperature.value] | map(select(. != null)) | if length > 0 then (min * 9/5 + 32 | round) else null end),
-                    avg_humidity_pct: ([.[].properties.relativeHumidity.value] | map(select(. != null)) | if length > 0 then (add / length | round) else null end),
-                    precip_in: ([.[].properties.precipitationLastHour.value] | map(select(. != null)) | if length > 0 then (add / 25.4 * 100 | round | . / 100) else 0 end)
-                  }) |
-                  sort_by(.date)
+                    date: .[0],
+                    precip_in: (.[1] // 0 | . / 25.4 * 100 | round | . / 100),
+                    high_f: (.[2] // null | if . != null then (. * 9/5 + 32 | round) else null end),
+                    low_f: (.[3] // null | if . != null then (. * 9/5 + 32 | round) else null end)
+                  })
                 )
               },
               recent_briefings: $briefing_history[0]
