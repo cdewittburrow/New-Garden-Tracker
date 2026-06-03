@@ -1,5 +1,5 @@
 {
-  "today": "2026-06-02",
+  "today": "2026-06-03",
   "plantings": [
     {
       "id": "79526620-7d75-4886-b31d-7c9bf731edc9",
@@ -576,13 +576,33 @@
   ],
   "waterings": [
     {
+      "zone": 1,
+      "watered_date": "2026-06-02",
+      "duration_minutes": 20
+    },
+    {
+      "zone": 2,
+      "watered_date": "2026-06-02",
+      "duration_minutes": 10
+    },
+    {
       "zone": 2,
       "watered_date": "2026-06-02",
       "duration_minutes": 15
     },
     {
-      "zone": 1,
+      "zone": 2,
       "watered_date": "2026-06-02",
+      "duration_minutes": 15
+    },
+    {
+      "zone": 2,
+      "watered_date": "2026-06-02",
+      "duration_minutes": 10
+    },
+    {
+      "zone": 1,
+      "watered_date": "2026-05-29",
       "duration_minutes": 20
     },
     {
@@ -592,7 +612,7 @@
     },
     {
       "zone": 1,
-      "watered_date": "2026-05-29",
+      "watered_date": "2026-05-28",
       "duration_minutes": 20
     },
     {
@@ -601,28 +621,8 @@
       "duration_minutes": 20
     },
     {
-      "zone": 1,
-      "watered_date": "2026-05-28",
-      "duration_minutes": 20
-    },
-    {
       "zone": 2,
       "watered_date": "2026-05-25",
-      "duration_minutes": 15
-    },
-    {
-      "zone": 1,
-      "watered_date": "2026-05-25",
-      "duration_minutes": 20
-    },
-    {
-      "zone": 2,
-      "watered_date": "2026-05-23",
-      "duration_minutes": 20
-    },
-    {
-      "zone": 2,
-      "watered_date": "2026-05-23",
       "duration_minutes": 15
     }
   ],
@@ -631,45 +631,7 @@
       {
         "number": 1,
         "name": "Today",
-        "startTime": "2026-06-02T07:00:00-06:00",
-        "endTime": "2026-06-02T18:00:00-06:00",
-        "isDaytime": true,
-        "temperature": 85,
-        "temperatureUnit": "F",
-        "temperatureTrend": null,
-        "probabilityOfPrecipitation": {
-          "unitCode": "wmoUnit:percent",
-          "value": 1
-        },
-        "windSpeed": "1 to 8 mph",
-        "windDirection": "NNW",
-        "icon": "https://api.weather.gov/icons/land/day/few?size=medium",
-        "shortForecast": "Sunny",
-        "detailedForecast": "Sunny. High near 85, with temperatures falling to around 83 in the afternoon. North northwest wind 1 to 8 mph."
-      },
-      {
-        "number": 2,
-        "name": "Tonight",
-        "startTime": "2026-06-02T18:00:00-06:00",
-        "endTime": "2026-06-03T06:00:00-06:00",
-        "isDaytime": false,
-        "temperature": 57,
-        "temperatureUnit": "F",
-        "temperatureTrend": null,
-        "probabilityOfPrecipitation": {
-          "unitCode": "wmoUnit:percent",
-          "value": 0
-        },
-        "windSpeed": "2 to 8 mph",
-        "windDirection": "NNW",
-        "icon": "https://api.weather.gov/icons/land/night/few?size=medium",
-        "shortForecast": "Mostly Clear",
-        "detailedForecast": "Mostly clear. Low around 57, with temperatures rising to around 60 overnight. North northwest wind 2 to 8 mph."
-      },
-      {
-        "number": 3,
-        "name": "Wednesday",
-        "startTime": "2026-06-03T06:00:00-06:00",
+        "startTime": "2026-06-03T08:00:00-06:00",
         "endTime": "2026-06-03T18:00:00-06:00",
         "isDaytime": true,
         "temperature": 90,
@@ -677,59 +639,40 @@
         "temperatureTrend": null,
         "probabilityOfPrecipitation": {
           "unitCode": "wmoUnit:percent",
-          "value": 0
+          "value": 1
         },
         "windSpeed": "2 to 6 mph",
-        "windDirection": "SW",
+        "windDirection": "WSW",
         "icon": "https://api.weather.gov/icons/land/day/sct?size=medium",
         "shortForecast": "Mostly Sunny",
-        "detailedForecast": "Mostly sunny, with a high near 90. Southwest wind 2 to 6 mph."
+        "detailedForecast": "Mostly sunny, with a high near 90. West southwest wind 2 to 6 mph."
       },
       {
-        "number": 4,
-        "name": "Wednesday Night",
+        "number": 2,
+        "name": "Tonight",
         "startTime": "2026-06-03T18:00:00-06:00",
         "endTime": "2026-06-04T06:00:00-06:00",
         "isDaytime": false,
-        "temperature": 62,
+        "temperature": 61,
         "temperatureUnit": "F",
         "temperatureTrend": null,
         "probabilityOfPrecipitation": {
           "unitCode": "wmoUnit:percent",
-          "value": 0
+          "value": 2
         },
         "windSpeed": "6 mph",
-        "windDirection": "E",
+        "windDirection": "NE",
         "icon": "https://api.weather.gov/icons/land/night/sct?size=medium",
         "shortForecast": "Partly Cloudy",
-        "detailedForecast": "Partly cloudy, with a low around 62. East wind around 6 mph."
+        "detailedForecast": "Partly cloudy. Low around 61, with temperatures rising to around 64 overnight. Northeast wind around 6 mph."
       },
       {
-        "number": 5,
+        "number": 3,
         "name": "Thursday",
         "startTime": "2026-06-04T06:00:00-06:00",
         "endTime": "2026-06-04T18:00:00-06:00",
         "isDaytime": true,
-        "temperature": 89,
-        "temperatureUnit": "F",
-        "temperatureTrend": null,
-        "probabilityOfPrecipitation": {
-          "unitCode": "wmoUnit:percent",
-          "value": 0
-        },
-        "windSpeed": "3 to 8 mph",
-        "windDirection": "WNW",
-        "icon": "https://api.weather.gov/icons/land/day/few?size=medium",
-        "shortForecast": "Sunny",
-        "detailedForecast": "Sunny, with a high near 89. West northwest wind 3 to 8 mph."
-      },
-      {
-        "number": 6,
-        "name": "Thursday Night",
-        "startTime": "2026-06-04T18:00:00-06:00",
-        "endTime": "2026-06-05T06:00:00-06:00",
-        "isDaytime": false,
-        "temperature": 60,
+        "temperature": 87,
         "temperatureUnit": "F",
         "temperatureTrend": null,
         "probabilityOfPrecipitation": {
@@ -737,18 +680,37 @@
           "value": 0
         },
         "windSpeed": "2 to 9 mph",
-        "windDirection": "NE",
-        "icon": "https://api.weather.gov/icons/land/night/few?size=medium",
-        "shortForecast": "Mostly Clear",
-        "detailedForecast": "Mostly clear, with a low around 60."
+        "windDirection": "NW",
+        "icon": "https://api.weather.gov/icons/land/day/few?size=medium",
+        "shortForecast": "Sunny",
+        "detailedForecast": "Sunny, with a high near 87. Northwest wind 2 to 9 mph."
       },
       {
-        "number": 7,
+        "number": 4,
+        "name": "Thursday Night",
+        "startTime": "2026-06-04T18:00:00-06:00",
+        "endTime": "2026-06-05T06:00:00-06:00",
+        "isDaytime": false,
+        "temperature": 58,
+        "temperatureUnit": "F",
+        "temperatureTrend": null,
+        "probabilityOfPrecipitation": {
+          "unitCode": "wmoUnit:percent",
+          "value": 0
+        },
+        "windSpeed": "1 to 9 mph",
+        "windDirection": "ENE",
+        "icon": "https://api.weather.gov/icons/land/night/skc?size=medium",
+        "shortForecast": "Clear",
+        "detailedForecast": "Clear, with a low around 58. East northeast wind 1 to 9 mph."
+      },
+      {
+        "number": 5,
         "name": "Friday",
         "startTime": "2026-06-05T06:00:00-06:00",
         "endTime": "2026-06-05T18:00:00-06:00",
         "isDaytime": true,
-        "temperature": 91,
+        "temperature": 93,
         "temperatureUnit": "F",
         "temperatureTrend": null,
         "probabilityOfPrecipitation": {
@@ -756,33 +718,141 @@
           "value": 0
         },
         "windSpeed": "1 to 6 mph",
-        "windDirection": "SW",
+        "windDirection": "S",
         "icon": "https://api.weather.gov/icons/land/day/skc?size=medium",
         "shortForecast": "Sunny",
-        "detailedForecast": "Sunny, with a high near 91."
+        "detailedForecast": "Sunny, with a high near 93. South wind 1 to 6 mph."
+      },
+      {
+        "number": 6,
+        "name": "Friday Night",
+        "startTime": "2026-06-05T18:00:00-06:00",
+        "endTime": "2026-06-06T06:00:00-06:00",
+        "isDaytime": false,
+        "temperature": 66,
+        "temperatureUnit": "F",
+        "temperatureTrend": null,
+        "probabilityOfPrecipitation": {
+          "unitCode": "wmoUnit:percent",
+          "value": 0
+        },
+        "windSpeed": "5 to 12 mph",
+        "windDirection": "SSE",
+        "icon": "https://api.weather.gov/icons/land/night/few?size=medium",
+        "shortForecast": "Mostly Clear",
+        "detailedForecast": "Mostly clear, with a low around 66."
+      },
+      {
+        "number": 7,
+        "name": "Saturday",
+        "startTime": "2026-06-06T06:00:00-06:00",
+        "endTime": "2026-06-06T18:00:00-06:00",
+        "isDaytime": true,
+        "temperature": 95,
+        "temperatureUnit": "F",
+        "temperatureTrend": null,
+        "probabilityOfPrecipitation": {
+          "unitCode": "wmoUnit:percent",
+          "value": 0
+        },
+        "windSpeed": "12 to 16 mph",
+        "windDirection": "S",
+        "icon": "https://api.weather.gov/icons/land/day/few?size=medium",
+        "shortForecast": "Sunny",
+        "detailedForecast": "Sunny, with a high near 95."
       }
     ],
     "alerts": [],
     "past_7_days": [
       {
-        "date": "2026-06-01",
-        "conditions": "Clear / Mostly Clear",
+        "date": "2026-05-27",
+        "precip_in": 0,
+        "high_f": 86,
+        "low_f": 56
+      },
+      {
+        "date": "2026-05-28",
+        "precip_in": 0,
+        "high_f": 87,
+        "low_f": 58
+      },
+      {
+        "date": "2026-05-29",
+        "precip_in": 0.15,
         "high_f": 81,
-        "low_f": 79,
-        "avg_humidity_pct": 16,
-        "precip_in": 0
+        "low_f": 57
+      },
+      {
+        "date": "2026-05-30",
+        "precip_in": 0.44,
+        "high_f": 65,
+        "low_f": 51
+      },
+      {
+        "date": "2026-05-31",
+        "precip_in": 0.01,
+        "high_f": 75,
+        "low_f": 54
+      },
+      {
+        "date": "2026-06-01",
+        "precip_in": 0,
+        "high_f": 82,
+        "low_f": 52
       },
       {
         "date": "2026-06-02",
-        "conditions": "Clear / Mostly Clear / Mostly Cloudy / Partly Cloudy",
-        "high_f": 81,
-        "low_f": 57,
-        "avg_humidity_pct": 40,
-        "precip_in": 0
+        "precip_in": 0,
+        "high_f": 85,
+        "low_f": 56
+      },
+      {
+        "date": "2026-06-03",
+        "precip_in": 0,
+        "high_f": 91,
+        "low_f": 60
       }
     ]
   },
   "recent_briefings": [
+    {
+      "payload": {
+        "headline": "Blight check due tomorrow — 91°F heat by Friday",
+        "weather_notes": [
+          "Water c2–c4 bean beds and potato_bags Thursday — 90°F Wednesday burns off today's irrigation from the shallow seedling zone by day 2 with zero rain in the 7-day forecast.",
+          "Water e1–e4 tomatoes deeply Thursday — 89–91°F heat builds through Friday with no rain; Thursday is the 2-day rewater window after today's Rachio run.",
+          "Hold manual watering on w2/w3 garlic now — heat wave is accelerating natural dry-down at 43 days to harvest; complete stop due June 21."
+        ],
+        "surfaced_tasks": [
+          {
+            "title": "Inspect for early blight",
+            "bed_id": "e1",
+            "reason": "Due tomorrow; inspect lower leaves before 90°F Wednesday heat accelerates any latent infection into rapid spread.",
+            "task_id": "52"
+          },
+          {
+            "title": "Mid-season feed — fish emulsion",
+            "bed_id": "w1",
+            "reason": "One day overdue with bed freshly irrigated today — ideal window to apply fish emulsion before 90°F heat reduces nutrient uptake.",
+            "task_id": "33"
+          }
+        ],
+        "suggested_tasks": [
+          {
+            "title": "Check potato_bags for frost recovery",
+            "bed_id": "potato_bags",
+            "urgency": "normal",
+            "due_date": "2026-06-04",
+            "description": "Two sprouts frost-damaged May 23 (10 days ago); Wednesday's first 90°F day is the heat-stress test — confirm recovery before temps build to 91°F Friday."
+          }
+        ]
+      },
+      "suggestions_state": {
+        "accepted": [],
+        "rejected": []
+      },
+      "generated_at": "2026-06-03T13:44:21+00:00"
+    },
     {
       "payload": {
         "headline": "Two tasks due today — 90°F heat arrives Thursday",
@@ -1246,38 +1316,6 @@
         "rejected": []
       },
       "generated_at": "2026-05-21T13:45:41+00:00"
-    },
-    {
-      "payload": {
-        "headline": "One dry day left — scapes, trellis, before Thursday's storms",
-        "weather_notes": [
-          "Skip all watering through Thursday — Thursday's 78% T-storms will naturally irrigate every active planting.",
-          "Complete outdoor work today — Thursday brings all-day showers and T-storms (78%), closing the garden window until Friday.",
-          "Check potato_bags for drainage today — freshly planted Yukon Gold (May 19) can pool standing water in bags during Thursday's heavy rain; punch holes now if needed."
-        ],
-        "surfaced_tasks": [],
-        "suggested_tasks": [
-          {
-            "title": "Check w3 Italian Red garlic for scapes",
-            "bed_id": "w3",
-            "urgency": "normal",
-            "due_date": "2026-05-20",
-            "description": "Late May is peak scape season for Italian Red hardneck — inspect and snap any scapes today, last dry window before Thursday's 78% T-storms."
-          },
-          {
-            "title": "Install trellis for c1 pole beans",
-            "bed_id": "c1",
-            "urgency": "normal",
-            "due_date": "2026-05-21",
-            "description": "Good Mother Stollard (pole bean) sprouted May 13 — do it today before Thursday's storms tangle unsupported vines."
-          }
-        ]
-      },
-      "suggestions_state": {
-        "accepted": [],
-        "rejected": []
-      },
-      "generated_at": "2026-05-20T13:40:05+00:00"
     }
   ]
 }
