@@ -1,30 +1,30 @@
 {
-  "headline": "Two tasks due today — 90°F heat arrives Thursday",
+  "headline": "Blight check due tomorrow — 91°F heat by Friday",
   "weather_notes": [
-    "Water c2/c3/c4 bean beds today — seeds sown 4 days ago are mid-germination and 85°F Tuesday will dry surface soil before sprouts emerge.",
-    "Water potato_bags before Tuesday — bag soil dries twice as fast as raised beds; 3 days since last irrigation and 90°F arrives Thursday.",
-    "Water e1–e4 tomatoes deeply today — four consecutive 85–90°F days begin tomorrow with zero rain in the 7-day forecast."
+    "Water c2–c4 bean beds and potato_bags Thursday — 90°F Wednesday burns off today's irrigation from the shallow seedling zone by day 2 with zero rain in the 7-day forecast.",
+    "Water e1–e4 tomatoes deeply Thursday — 89–91°F heat builds through Friday with no rain; Thursday is the 2-day rewater window after today's Rachio run.",
+    "Hold manual watering on w2/w3 garlic now — heat wave is accelerating natural dry-down at 43 days to harvest; complete stop due June 21."
   ],
   "surfaced_tasks": [
+    {
+      "task_id": "52",
+      "bed_id": "e1",
+      "title": "Inspect for early blight",
+      "reason": "Due tomorrow; inspect lower leaves before 90°F Wednesday heat accelerates any latent infection into rapid spread."
+    },
     {
       "task_id": "33",
       "bed_id": "w1",
       "title": "Mid-season feed — fish emulsion",
-      "reason": "Due today with strawberries at 37 days actively fruiting — apply on moist soil before Wednesday's 89°F dries the bed."
-    },
-    {
-      "task_id": "107",
-      "bed_id": "blackberry",
-      "title": "Check blackberry for flower clusters",
-      "reason": "Due today in year 2 Triple Crown's first fruiting season — confirming flower set now determines whether the plant yields berries this summer."
+      "reason": "One day overdue with bed freshly irrigated today — ideal window to apply fish emulsion before 90°F heat reduces nutrient uptake."
     }
   ],
   "suggested_tasks": [
     {
-      "title": "Check Amish Paste e1 for suckers",
-      "due_date": "2026-06-03",
-      "description": "Amish Paste is indeterminate at 23 days — Wednesday's 89°F will surge lateral growth; pinch suckers now before they exceed 2 inches.",
-      "bed_id": "e1",
+      "title": "Check potato_bags for frost recovery",
+      "due_date": "2026-06-04",
+      "description": "Two sprouts frost-damaged May 23 (10 days ago); Wednesday's first 90°F day is the heat-stress test — confirm recovery before temps build to 91°F Friday.",
+      "bed_id": "potato_bags",
       "urgency": "normal"
     }
   ]
