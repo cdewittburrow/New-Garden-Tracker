@@ -1,31 +1,33 @@
 {
-  "headline": "Blight check due tomorrow — 91°F heat by Friday",
+  "headline": "Heat peaks 97°F Saturday — protect beds before the gusts.",
   "weather_notes": [
-    "Water c2–c4 bean beds and potato_bags Thursday — 90°F Wednesday burns off today's irrigation from the shallow seedling zone by day 2 with zero rain in the 7-day forecast.",
-    "Water e1–e4 tomatoes deeply Thursday — 89–91°F heat builds through Friday with no rain; Thursday is the 2-day rewater window after today's Rachio run.",
-    "Hold manual watering on w2/w3 garlic now — heat wave is accelerating natural dry-down at 43 days to harvest; complete stop due June 21."
+    "Secure e1–e4 tomato cage ties before Saturday — 33 mph gusts at 97°F can snap stems on 26-day-old transplants.",
+    "Water all beds early Saturday morning — 97°F arrives 2 days after today's Rachio run with zero rain in the forecast.",
+    "Skip supplemental watering on w2/w3 garlic this week — 97°F heat is accelerating curing and excess moisture at 41 days from harvest risks wrapper damage before the June 21 stop.",
+    "Check c2–c4 bean beds daily for emergence — day-7 seeds are mid-germination and 88–97°F heat with no rain can bake the seed zone dry."
   ],
   "surfaced_tasks": [
     {
-      "task_id": "52",
+      "task_id": "69",
       "bed_id": "e1",
-      "title": "Inspect for early blight",
-      "reason": "Due tomorrow; inspect lower leaves before 90°F Wednesday heat accelerates any latent infection into rapid spread."
-    },
-    {
-      "task_id": "33",
-      "bed_id": "w1",
-      "title": "Mid-season feed — fish emulsion",
-      "reason": "One day overdue with bed freshly irrigated today — ideal window to apply fish emulsion before 90°F heat reduces nutrient uptake."
+      "title": "Check for suckers",
+      "reason": "Due Sunday; 88–97°F heat through Saturday will surge lateral growth on this indeterminate variety — pinch before suckers pass 2 inches."
     }
   ],
   "suggested_tasks": [
     {
-      "title": "Check potato_bags for frost recovery",
-      "due_date": "2026-06-04",
-      "description": "Two sprouts frost-damaged May 23 (10 days ago); Wednesday's first 90°F day is the heat-stress test — confirm recovery before temps build to 91°F Friday.",
+      "title": "Hill remaining 3 potato_bags plants",
+      "due_date": "2026-06-07",
+      "description": "Three of five sprouted plants still need hilling after the June 3 partial job — cover stems before heat-wave growth makes it harder to do cleanly.",
       "bed_id": "potato_bags",
       "urgency": "normal"
+    },
+    {
+      "title": "Mulch e1–e4 tomato bases before Saturday",
+      "due_date": "2026-06-06",
+      "description": "Apply 2-inch straw mulch around tomato bases before Saturday — bare soil under 97°F with 33 mph gusts will lose moisture rapidly.",
+      "bed_id": "e1",
+      "urgency": "high"
     }
   ]
 }
