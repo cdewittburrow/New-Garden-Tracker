@@ -25,6 +25,29 @@ Two-zone drip system fed from the front yard spigot (target 60+ PSI / 6+ GPM aft
 - **Laterals:** 1/2" PVC south down each column (~22 ft each)
 - **Install order:** Backflow preventer → Rachio timer → Pressure regulator (25–30 PSI) → Y-filter (150 mesh) → trunk → laterals → drip tubing
 
+### Rachio Schedule
+
+Managed entirely via the `setup-rachio-programs` Supabase Edge Function — **not** the Rachio app. The function is the source of truth. Invoking it wipes all existing Rachio programs and recreates them from the `PROGRAMS` array in `index.ts`.
+
+| Program | Zone | Interval | Duration | Window |
+|---------|------|----------|----------|--------|
+| Spring - Mixed Beds | 1 | every 2 days | 10 min | Apr 1 – Jun 15 |
+| Spring - Tomatoes | 2 | every 2 days | 8 min | Apr 1 – Jun 15 |
+| Summer - Mixed Beds | 1 | every 2 days | 25 min | Jun 16 – Aug 31 |
+| Summer - Tomatoes | 2 | daily | 20 min | Jun 16 – Aug 31 |
+| Fall - Mixed Beds | 1 | every 3 days | 18 min | Sep 1 – Oct 31 |
+| Fall - Tomatoes | 2 | every 3 days | 12 min | Sep 1 – Oct 31 |
+
+All programs run at 5:00–5:35am. Rain skip is enabled on all programs.
+
+**To update the schedule:**
+1. Read the `setup-rachio-programs` edge function via Supabase MCP (`get_edge_function`)
+2. Edit the `PROGRAMS` array — durations are in seconds (`durationSec`), intervals in days (`intervalDays`), date windows in `settings.startOn`/`endOn`
+3. Deploy the updated function (`deploy_edge_function`)
+4. Invoke it: `curl -X POST https://ulivctyuudgepolulpvq.supabase.co/functions/v1/setup-rachio-programs`
+
+**To manually trigger a zone** from the app: tap the water button on any bed in that zone. This calls the `water-zone` edge function, which activates the Rachio valve immediately and logs it to the `waterings` table with `source='rachio'`.
+
 ---
 
 ## The App
@@ -95,6 +118,7 @@ Or use `RemoteTrigger({ action: "get", trigger_id: "trig_01Nm8PiiXL6Y8VEVnhBC4iF
 | Daily briefing | Claude.ai Remote Routine (`trig_01Nm8PiiXL6Y8VEVnhBC4iFU`) reads `briefing-data/input.json`, writes `output.json`; GitHub Actions workflow (`write-briefing.yml`) inserts into Supabase on push |
 | Briefing schedule | Gather: GitHub Actions cron 10:00 UTC (4am MDT) — syncs Rachio, fetches DB + NWS, commits `input.json`. Generate: Remote Routine at 13:30 UTC (7:30am MDT). |
 | Rachio sync | Supabase Edge Function (`sync-rachio-waterings`) — called by GitHub Actions before each briefing gather; queries `getValveDayViews` with a 7-day lookback window so missed days are backfilled |
+| Rachio schedule | Supabase Edge Function (`setup-rachio-programs`) — source of truth for all zone schedules. Edit the `PROGRAMS` array in the function, deploy it, then invoke it via `curl -X POST https://ulivctyuudgepolulpvq.supabase.co/functions/v1/setup-rachio-programs`. It deletes all existing Rachio programs and recreates them from the array. |
 | Dev tools | VS Code + Live Server, Claude Code via terminal |
 | Planning | Claude.ai |
 | Irrigation timer | Rachio |
@@ -243,6 +267,7 @@ For planning and architecture: Claude.ai. For implementation: Claude Code. Diffe
 | Apr 2, 2026 | Service worker (`sw.js`) with network-first strategy for iOS PWA caching | iOS standalone PWA mode ignores `http-equiv` no-cache meta tags and aggressively caches the app shell. A service worker is the correct mechanism — always fetches fresh HTML when online, falls back to cache offline. `http-equiv` tags alone are insufficient for iOS home screen apps. | Strip no-cache meta tags; accept stale PWA behavior |
 | Apr 12, 2026 | Briefing card stripped to weather facts + actions only — no narrative, no insights | The narrative and insights sections produced verbose prose that restated garden state the gardener already knows. The briefing's job is: here is the weather for the next N days, and here is what you need to do because of it. Every action now requires a specific reason (weather window or crop timing milestone) to appear. | Keep narrative with a shorter word limit |
 | May 18, 2026 | Rachio sync uses `getValveDayViews` with a 7-day lookback, not a per-day query | The original implementation queried only `today`, so any day the sync failed (or Rachio data wasn't ready yet) was permanently lost. A 7-day window catches gaps on every run. The function also maps the base-station-scoped API response back to zone 1/2 by filtering `valveRunSummaries` by valve ID. | Webhook (more real-time but requires persistent public endpoint); single-day query (simpler but no recovery path) |
+| Jun 4, 2026 | Spring schedule cut to 10 min (Zone 1) and 8 min (Zone 2) to address overwatering of newly transplanted summer crops | Seepage at base of corrugated metal beds and saturated soil under straw mulch even at 90°F — heavy mulch retains far more moisture than the original schedule assumed. Summer schedule left at full durations; plants will need more water once established and heat ramps up. | Reduce interval to every-3-days; wait for plants to show stress |
 | May 18, 2026 | Rachio sync uses the Smart Hose Timer API (`cloud-rest.rach.io`), not the standard Rachio v1 API | These devices are smart hose timers — they use a different API domain, different endpoint shapes, and different ID schemes (valve IDs and base station IDs, not device/zone IDs). The v1 event history endpoint (`/1/event/device`) does not apply. Request schema came from the official OpenAPI docs; all field names were confirmed from the spec before implementation. | Standard Rachio v1 API (wrong product line) |
 
 ---
