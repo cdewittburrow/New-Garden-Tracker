@@ -1,33 +1,37 @@
 {
-  "headline": "96°F Saturday — water at dawn, cage tomatoes first.",
+  "headline": "97°F Saturday — secure cages, begin garlic dry-down.",
   "weather_notes": [
-    "Water all beds early Saturday morning — 96°F with 33 mph gusts arrives 2 days after Thursday's last Rachio run with zero rain in the forecast.",
-    "Secure e1–e4 tomato cage ties before Saturday afternoon — 33 mph gusts can snap stems on 27-day-old transplants.",
-    "Skip supplemental watering on w2/w3 garlic this week — 40 days from harvest and 92°F+ heat is advancing natural dry-down ahead of the June 21 stop.",
-    "Check c3 and c4 bean seedling soil Saturday — germinating seeds at 8 days sit in the shallow zone that dries fastest under 96°F heat and wind."
+    "Secure e1–e4 cage ties before noon — 35 mph gusts arrive this afternoon on 28-day transplants.",
+    "Water c2–c4 bean seedling beds and potato_bags tomorrow morning if the top inch is dry — 97°F today drains the shallow germination zone within 24 hours.",
+    "Use Sunday's 80°F break to deep-water any dry established beds — it's the optimal window before Monday's 89°F resumes; last meaningful rain was May 30."
   ],
   "surfaced_tasks": [
     {
       "task_id": "69",
       "bed_id": "e1",
       "title": "Check for suckers",
-      "reason": "Due Sunday; 96°F Saturday accelerates lateral growth on indeterminate Amish Paste — pinch before suckers exceed 2 inches."
+      "reason": "Due tomorrow on Amish Paste (indeterminate, 28 days old) — 97°F today surges lateral growth; pinch before suckers exceed 2 inches."
+    },
+    {
+      "task_id": "10",
+      "bed_id": "w2",
+      "title": "Stop watering",
+      "reason": "97°F heat wave is accelerating garlic curing 39 days from harvest — taper irrigation now, ahead of the June 21 cutoff, to protect wrapper quality."
+    },
+    {
+      "task_id": "27",
+      "bed_id": "w3",
+      "title": "Stop watering",
+      "reason": "Same heat-driven timing as w2 — 97°F this week is advancing curing ahead of schedule; begin reducing water now before the June 21 stop."
     }
   ],
   "suggested_tasks": [
     {
-      "title": "Check c2 for quail damage, replant gaps",
-      "due_date": "2026-06-06",
-      "description": "Quail wallowed in c2 yesterday — check for displaced seedlings and replant bare spots before Saturday's 96°F bakes exposed seeds dry.",
+      "title": "Count c2 sprouts, replant quail-damage gaps",
+      "due_date": "2026-06-07",
+      "description": "Quail wallowed in c2 Jun 4 — first sprout appeared Jun 5 but gaps likely remain; count emerged beans and replant bare spots before Sunday's heat sets the soil.",
       "bed_id": "c2",
       "urgency": "high"
-    },
-    {
-      "title": "Hill remaining 3 potato_bags plants",
-      "due_date": "2026-06-07",
-      "description": "Three plants still need hilling after the June 3 partial job — complete before Sunday's possible storm window.",
-      "bed_id": "potato_bags",
-      "urgency": "normal"
     }
   ]
 }
