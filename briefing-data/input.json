@@ -1,5 +1,5 @@
 {
-  "today": "2026-06-05",
+  "today": "2026-06-06",
   "plantings": [
     {
       "id": "79526620-7d75-4886-b31d-7c9bf731edc9",
@@ -507,9 +507,9 @@
       "note": "Watered today. Also installed the trellis arch and frost cloth."
     },
     {
-      "planting_id": "2fbf44cd-1b8a-43e1-b0aa-dd7b8766140f",
-      "date": "Jun 4, 2026",
-      "note": "First sprout noticed"
+      "planting_id": "67cc6456-af8e-4e73-b9b2-0e44b0c7a665",
+      "date": "Jun 5, 2026",
+      "note": "First sprout observed"
     },
     {
       "planting_id": "f636fc70-8976-4da4-bb95-d4fef49b7482",
@@ -522,9 +522,19 @@
       "note": "Friggin quail did their dirt baths in this bed. Possible some beans lost they really wallowed in there. So obnoxious"
     },
     {
+      "planting_id": "2fbf44cd-1b8a-43e1-b0aa-dd7b8766140f",
+      "date": "Jun 4, 2026",
+      "note": "First sprout noticed"
+    },
+    {
       "planting_id": "2a7bfcbb-580c-4518-a20a-47fc386f4760",
       "date": "Jun 3, 2026",
       "note": "All five sprouted so the two that froze bounced back. I hill d 2 of them today"
+    },
+    {
+      "planting_id": "79526620-7d75-4886-b31d-7c9bf731edc9",
+      "date": "Jun 3, 2026",
+      "note": "Couldn’t find my watering can so I applied berry food instead of fish emulsion"
     },
     {
       "planting_id": "c84ee64b-f589-4e98-81be-e1b4e323a2ca",
@@ -537,17 +547,17 @@
       "note": "Yeah I think she’s dead. Gonna water one more time to be sure"
     },
     {
-      "planting_id": "79526620-7d75-4886-b31d-7c9bf731edc9",
-      "date": "Jun 3, 2026",
-      "note": "Couldn’t find my watering can so I applied berry food instead of fish emulsion"
-    },
-    {
-      "planting_id": "14a35329-35a2-42ef-b59c-9b35fc2a2c7e",
+      "planting_id": "abebbe9f-e355-4c78-a77f-79d4c88d17f7",
       "date": "Apr 4, 2026",
       "note": "Fish emulsion applied"
     },
     {
       "planting_id": "e93f2f5c-dcb8-47e9-9933-31e7e813b7e4",
+      "date": "Apr 4, 2026",
+      "note": "Fish emulsion applied"
+    },
+    {
+      "planting_id": "14a35329-35a2-42ef-b59c-9b35fc2a2c7e",
       "date": "Apr 4, 2026",
       "note": "Fish emulsion applied"
     },
@@ -568,11 +578,6 @@
     },
     {
       "planting_id": "14a35329-35a2-42ef-b59c-9b35fc2a2c7e",
-      "date": "Apr 4, 2026",
-      "note": "Fish emulsion applied"
-    },
-    {
-      "planting_id": "abebbe9f-e355-4c78-a77f-79d4c88d17f7",
       "date": "Apr 4, 2026",
       "note": "Fish emulsion applied"
     },
@@ -605,6 +610,16 @@
   "waterings": [
     {
       "zone": 1,
+      "watered_date": "2026-06-06",
+      "duration_minutes": 0
+    },
+    {
+      "zone": 2,
+      "watered_date": "2026-06-06",
+      "duration_minutes": 8
+    },
+    {
+      "zone": 1,
       "watered_date": "2026-06-04",
       "duration_minutes": 20
     },
@@ -612,16 +627,6 @@
       "zone": 2,
       "watered_date": "2026-06-04",
       "duration_minutes": 15
-    },
-    {
-      "zone": 2,
-      "watered_date": "2026-06-02",
-      "duration_minutes": 10
-    },
-    {
-      "zone": 2,
-      "watered_date": "2026-06-02",
-      "duration_minutes": 10
     },
     {
       "zone": 2,
@@ -636,12 +641,12 @@
     {
       "zone": 2,
       "watered_date": "2026-06-02",
-      "duration_minutes": 15
+      "duration_minutes": 10
     },
     {
       "zone": 2,
       "watered_date": "2026-06-02",
-      "duration_minutes": 15
+      "duration_minutes": 10
     },
     {
       "zone": 2,
@@ -658,44 +663,25 @@
     "forecast": [
       {
         "number": 1,
-        "name": "Today",
-        "startTime": "2026-06-05T06:00:00-06:00",
-        "endTime": "2026-06-05T18:00:00-06:00",
-        "isDaytime": true,
-        "temperature": 92,
+        "name": "Overnight",
+        "startTime": "2026-06-06T05:00:00-06:00",
+        "endTime": "2026-06-06T06:00:00-06:00",
+        "isDaytime": false,
+        "temperature": 67,
         "temperatureUnit": "F",
         "temperatureTrend": null,
         "probabilityOfPrecipitation": {
           "unitCode": "wmoUnit:percent",
           "value": 0
         },
-        "windSpeed": "1 to 6 mph",
-        "windDirection": "NW",
-        "icon": "https://api.weather.gov/icons/land/day/few?size=medium",
-        "shortForecast": "Sunny",
-        "detailedForecast": "Sunny, with a high near 92. Northwest wind 1 to 6 mph."
+        "windSpeed": "12 mph",
+        "windDirection": "S",
+        "icon": "https://api.weather.gov/icons/land/night/sct?size=medium",
+        "shortForecast": "Partly Cloudy",
+        "detailedForecast": "Partly cloudy. Low around 67, with temperatures rising to around 72 overnight. South wind around 12 mph."
       },
       {
         "number": 2,
-        "name": "Tonight",
-        "startTime": "2026-06-05T18:00:00-06:00",
-        "endTime": "2026-06-06T06:00:00-06:00",
-        "isDaytime": false,
-        "temperature": 66,
-        "temperatureUnit": "F",
-        "temperatureTrend": null,
-        "probabilityOfPrecipitation": {
-          "unitCode": "wmoUnit:percent",
-          "value": 0
-        },
-        "windSpeed": "5 to 12 mph",
-        "windDirection": "SSW",
-        "icon": "https://api.weather.gov/icons/land/night/sct?size=medium",
-        "shortForecast": "Partly Cloudy",
-        "detailedForecast": "Partly cloudy. Low around 66, with temperatures rising to around 72 overnight. South southwest wind 5 to 12 mph."
-      },
-      {
-        "number": 3,
         "name": "Saturday",
         "startTime": "2026-06-06T06:00:00-06:00",
         "endTime": "2026-06-06T18:00:00-06:00",
@@ -705,73 +691,73 @@
         "temperatureTrend": null,
         "probabilityOfPrecipitation": {
           "unitCode": "wmoUnit:percent",
-          "value": 0
+          "value": 1
         },
         "windSpeed": "15 to 18 mph",
         "windDirection": "S",
-        "icon": "https://api.weather.gov/icons/land/day/sct?size=medium",
-        "shortForecast": "Mostly Sunny",
-        "detailedForecast": "Mostly sunny, with a high near 96. South wind 15 to 18 mph, with gusts as high as 33 mph."
+        "icon": "https://api.weather.gov/icons/land/day/few?size=medium",
+        "shortForecast": "Sunny then Patchy Blowing Dust",
+        "detailedForecast": "Patchy blowing dust after 3pm. Sunny, with a high near 96. South wind 15 to 18 mph, with gusts as high as 35 mph."
       },
       {
-        "number": 4,
+        "number": 3,
         "name": "Saturday Night",
         "startTime": "2026-06-06T18:00:00-06:00",
         "endTime": "2026-06-07T06:00:00-06:00",
         "isDaytime": false,
-        "temperature": 64,
+        "temperature": 63,
         "temperatureUnit": "F",
         "temperatureTrend": null,
         "probabilityOfPrecipitation": {
           "unitCode": "wmoUnit:percent",
-          "value": 3
+          "value": 5
         },
         "windSpeed": "3 to 13 mph",
-        "windDirection": "SSW",
+        "windDirection": "SW",
         "icon": "https://api.weather.gov/icons/land/night/sct?size=medium",
-        "shortForecast": "Partly Cloudy",
-        "detailedForecast": "Partly cloudy, with a low around 64. South southwest wind 3 to 13 mph."
+        "shortForecast": "Patchy Blowing Dust then Partly Cloudy",
+        "detailedForecast": "Patchy blowing dust before midnight. Partly cloudy. Low around 63, with temperatures rising to around 66 overnight. Southwest wind 3 to 13 mph."
       },
       {
-        "number": 5,
+        "number": 4,
         "name": "Sunday",
         "startTime": "2026-06-07T06:00:00-06:00",
         "endTime": "2026-06-07T18:00:00-06:00",
         "isDaytime": true,
-        "temperature": 81,
+        "temperature": 80,
         "temperatureUnit": "F",
         "temperatureTrend": null,
         "probabilityOfPrecipitation": {
           "unitCode": "wmoUnit:percent",
-          "value": 12
+          "value": 10
         },
-        "windSpeed": "3 to 10 mph",
-        "windDirection": "WSW",
+        "windSpeed": "5 to 10 mph",
+        "windDirection": "NW",
         "icon": "https://api.weather.gov/icons/land/day/sct/tsra_hi?size=medium",
         "shortForecast": "Mostly Sunny then Isolated Showers And Thunderstorms",
-        "detailedForecast": "Isolated showers and thunderstorms after noon. Mostly sunny, with a high near 81. West southwest wind 3 to 10 mph."
+        "detailedForecast": "Isolated showers and thunderstorms between noon and 3pm. Mostly sunny, with a high near 80. Northwest wind 5 to 10 mph."
       },
       {
-        "number": 6,
+        "number": 5,
         "name": "Sunday Night",
         "startTime": "2026-06-07T18:00:00-06:00",
         "endTime": "2026-06-08T06:00:00-06:00",
         "isDaytime": false,
-        "temperature": 54,
+        "temperature": 53,
         "temperatureUnit": "F",
         "temperatureTrend": null,
         "probabilityOfPrecipitation": {
           "unitCode": "wmoUnit:percent",
-          "value": 1
+          "value": 0
         },
-        "windSpeed": "2 to 10 mph",
-        "windDirection": "NNW",
+        "windSpeed": "2 to 9 mph",
+        "windDirection": "N",
         "icon": "https://api.weather.gov/icons/land/night/few?size=medium",
         "shortForecast": "Mostly Clear",
-        "detailedForecast": "Mostly clear, with a low around 54."
+        "detailedForecast": "Mostly clear, with a low around 53. North wind 2 to 9 mph."
       },
       {
-        "number": 7,
+        "number": 6,
         "name": "Monday",
         "startTime": "2026-06-08T06:00:00-06:00",
         "endTime": "2026-06-08T18:00:00-06:00",
@@ -783,21 +769,34 @@
           "unitCode": "wmoUnit:percent",
           "value": 0
         },
-        "windSpeed": "2 to 15 mph",
+        "windSpeed": "2 to 13 mph",
         "windDirection": "S",
         "icon": "https://api.weather.gov/icons/land/day/sct?size=medium",
         "shortForecast": "Mostly Sunny",
         "detailedForecast": "Mostly sunny, with a high near 89."
+      },
+      {
+        "number": 7,
+        "name": "Monday Night",
+        "startTime": "2026-06-08T18:00:00-06:00",
+        "endTime": "2026-06-09T06:00:00-06:00",
+        "isDaytime": false,
+        "temperature": 63,
+        "temperatureUnit": "F",
+        "temperatureTrend": null,
+        "probabilityOfPrecipitation": {
+          "unitCode": "wmoUnit:percent",
+          "value": 1
+        },
+        "windSpeed": "8 to 15 mph",
+        "windDirection": "SSW",
+        "icon": "https://api.weather.gov/icons/land/night/bkn?size=medium",
+        "shortForecast": "Mostly Cloudy",
+        "detailedForecast": "Mostly cloudy, with a low around 63."
       }
     ],
     "alerts": [],
     "past_7_days": [
-      {
-        "date": "2026-05-29",
-        "precip_in": 0.15,
-        "high_f": 81,
-        "low_f": 57
-      },
       {
         "date": "2026-05-30",
         "precip_in": 0.44,
@@ -837,12 +836,58 @@
       {
         "date": "2026-06-05",
         "precip_in": 0,
-        "high_f": 93,
-        "low_f": 66
+        "high_f": 92,
+        "low_f": 64
+      },
+      {
+        "date": "2026-06-06",
+        "precip_in": 0,
+        "high_f": 97,
+        "low_f": 74
       }
     ]
   },
   "recent_briefings": [
+    {
+      "payload": {
+        "headline": "96°F Saturday — water at dawn, cage tomatoes first.",
+        "weather_notes": [
+          "Water all beds early Saturday morning — 96°F with 33 mph gusts arrives 2 days after Thursday's last Rachio run with zero rain in the forecast.",
+          "Secure e1–e4 tomato cage ties before Saturday afternoon — 33 mph gusts can snap stems on 27-day-old transplants.",
+          "Skip supplemental watering on w2/w3 garlic this week — 40 days from harvest and 92°F+ heat is advancing natural dry-down ahead of the June 21 stop.",
+          "Check c3 and c4 bean seedling soil Saturday — germinating seeds at 8 days sit in the shallow zone that dries fastest under 96°F heat and wind."
+        ],
+        "surfaced_tasks": [
+          {
+            "title": "Check for suckers",
+            "bed_id": "e1",
+            "reason": "Due Sunday; 96°F Saturday accelerates lateral growth on indeterminate Amish Paste — pinch before suckers exceed 2 inches.",
+            "task_id": "69"
+          }
+        ],
+        "suggested_tasks": [
+          {
+            "title": "Check c2 for quail damage, replant gaps",
+            "bed_id": "c2",
+            "urgency": "high",
+            "due_date": "2026-06-06",
+            "description": "Quail wallowed in c2 yesterday — check for displaced seedlings and replant bare spots before Saturday's 96°F bakes exposed seeds dry."
+          },
+          {
+            "title": "Hill remaining 3 potato_bags plants",
+            "bed_id": "potato_bags",
+            "urgency": "normal",
+            "due_date": "2026-06-07",
+            "description": "Three plants still need hilling after the June 3 partial job — complete before Sunday's possible storm window."
+          }
+        ]
+      },
+      "suggestions_state": {
+        "accepted": [],
+        "rejected": []
+      },
+      "generated_at": "2026-06-05T13:42:44+00:00"
+    },
     {
       "payload": {
         "headline": "Heat peaks 97°F Saturday — protect beds before the gusts.",
@@ -1328,35 +1373,6 @@
         "rejected": []
       },
       "generated_at": "2026-05-23T13:41:31+00:00"
-    },
-    {
-      "payload": {
-        "headline": "Scapes and trellis due today — hot dry weekend ahead",
-        "weather_notes": [
-          "Water potato_bags before Saturday — freshly planted Yukon Gold (day 3) in bags dry out twice as fast as raised beds during 83-88°F weekend with zero rain through Memorial Day.",
-          "Water c2-c4 peas before Sunday — pods at fill-stage lose quality under heat stress without consistent soil moisture; 87-88°F Sunday-Monday with zero rain forecast."
-        ],
-        "surfaced_tasks": [
-          {
-            "title": "Snap scapes on w3 Italian Red garlic",
-            "bed_id": "w3",
-            "reason": "Due today at peak scape window — every day delayed redirects energy away from bulb development ahead of the July harvest.",
-            "task_id": "99"
-          },
-          {
-            "title": "Install trellis in c1 bean bed",
-            "bed_id": "c1",
-            "reason": "Due today — Good Mother Stollard pole beans need vertical support now before the warm weekend accelerates vine growth and tangling.",
-            "task_id": "98"
-          }
-        ],
-        "suggested_tasks": []
-      },
-      "suggestions_state": {
-        "accepted": [],
-        "rejected": []
-      },
-      "generated_at": "2026-05-22T13:42:08+00:00"
     }
   ]
 }
