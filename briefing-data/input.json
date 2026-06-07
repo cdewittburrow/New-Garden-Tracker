@@ -1,5 +1,5 @@
 {
-  "today": "2026-06-06",
+  "today": "2026-06-07",
   "plantings": [
     {
       "id": "79526620-7d75-4886-b31d-7c9bf731edc9",
@@ -664,62 +664,24 @@
       {
         "number": 1,
         "name": "Overnight",
-        "startTime": "2026-06-06T05:00:00-06:00",
-        "endTime": "2026-06-06T06:00:00-06:00",
+        "startTime": "2026-06-07T05:00:00-06:00",
+        "endTime": "2026-06-07T06:00:00-06:00",
         "isDaytime": false,
-        "temperature": 67,
+        "temperature": 62,
         "temperatureUnit": "F",
         "temperatureTrend": null,
         "probabilityOfPrecipitation": {
           "unitCode": "wmoUnit:percent",
-          "value": 0
+          "value": 4
         },
-        "windSpeed": "12 mph",
-        "windDirection": "S",
+        "windSpeed": "3 mph",
+        "windDirection": "SSW",
         "icon": "https://api.weather.gov/icons/land/night/sct?size=medium",
         "shortForecast": "Partly Cloudy",
-        "detailedForecast": "Partly cloudy. Low around 67, with temperatures rising to around 72 overnight. South wind around 12 mph."
+        "detailedForecast": "Partly cloudy. Low around 62, with temperatures rising to around 66 overnight. South southwest wind around 3 mph."
       },
       {
         "number": 2,
-        "name": "Saturday",
-        "startTime": "2026-06-06T06:00:00-06:00",
-        "endTime": "2026-06-06T18:00:00-06:00",
-        "isDaytime": true,
-        "temperature": 96,
-        "temperatureUnit": "F",
-        "temperatureTrend": null,
-        "probabilityOfPrecipitation": {
-          "unitCode": "wmoUnit:percent",
-          "value": 1
-        },
-        "windSpeed": "15 to 18 mph",
-        "windDirection": "S",
-        "icon": "https://api.weather.gov/icons/land/day/few?size=medium",
-        "shortForecast": "Sunny then Patchy Blowing Dust",
-        "detailedForecast": "Patchy blowing dust after 3pm. Sunny, with a high near 96. South wind 15 to 18 mph, with gusts as high as 35 mph."
-      },
-      {
-        "number": 3,
-        "name": "Saturday Night",
-        "startTime": "2026-06-06T18:00:00-06:00",
-        "endTime": "2026-06-07T06:00:00-06:00",
-        "isDaytime": false,
-        "temperature": 63,
-        "temperatureUnit": "F",
-        "temperatureTrend": null,
-        "probabilityOfPrecipitation": {
-          "unitCode": "wmoUnit:percent",
-          "value": 5
-        },
-        "windSpeed": "3 to 13 mph",
-        "windDirection": "SW",
-        "icon": "https://api.weather.gov/icons/land/night/sct?size=medium",
-        "shortForecast": "Patchy Blowing Dust then Partly Cloudy",
-        "detailedForecast": "Patchy blowing dust before midnight. Partly cloudy. Low around 63, with temperatures rising to around 66 overnight. Southwest wind 3 to 13 mph."
-      },
-      {
-        "number": 4,
         "name": "Sunday",
         "startTime": "2026-06-07T06:00:00-06:00",
         "endTime": "2026-06-07T18:00:00-06:00",
@@ -729,35 +691,35 @@
         "temperatureTrend": null,
         "probabilityOfPrecipitation": {
           "unitCode": "wmoUnit:percent",
-          "value": 10
+          "value": 7
         },
-        "windSpeed": "5 to 10 mph",
+        "windSpeed": "3 to 10 mph",
         "windDirection": "NW",
-        "icon": "https://api.weather.gov/icons/land/day/sct/tsra_hi?size=medium",
-        "shortForecast": "Mostly Sunny then Isolated Showers And Thunderstorms",
-        "detailedForecast": "Isolated showers and thunderstorms between noon and 3pm. Mostly sunny, with a high near 80. Northwest wind 5 to 10 mph."
+        "icon": "https://api.weather.gov/icons/land/day/sct?size=medium",
+        "shortForecast": "Mostly Sunny",
+        "detailedForecast": "Mostly sunny, with a high near 80. Northwest wind 3 to 10 mph."
       },
       {
-        "number": 5,
+        "number": 3,
         "name": "Sunday Night",
         "startTime": "2026-06-07T18:00:00-06:00",
         "endTime": "2026-06-08T06:00:00-06:00",
         "isDaytime": false,
-        "temperature": 53,
+        "temperature": 54,
         "temperatureUnit": "F",
         "temperatureTrend": null,
         "probabilityOfPrecipitation": {
           "unitCode": "wmoUnit:percent",
-          "value": 0
+          "value": 7
         },
         "windSpeed": "2 to 9 mph",
-        "windDirection": "N",
-        "icon": "https://api.weather.gov/icons/land/night/few?size=medium",
-        "shortForecast": "Mostly Clear",
-        "detailedForecast": "Mostly clear, with a low around 53. North wind 2 to 9 mph."
+        "windDirection": "NW",
+        "icon": "https://api.weather.gov/icons/land/night/sct?size=medium",
+        "shortForecast": "Partly Cloudy then Patchy Blowing Dust",
+        "detailedForecast": "Patchy blowing dust between midnight and 1am. Partly cloudy. Low around 54, with temperatures rising to around 56 overnight. Northwest wind 2 to 9 mph."
       },
       {
-        "number": 6,
+        "number": 4,
         "name": "Monday",
         "startTime": "2026-06-08T06:00:00-06:00",
         "endTime": "2026-06-08T18:00:00-06:00",
@@ -769,14 +731,14 @@
           "unitCode": "wmoUnit:percent",
           "value": 0
         },
-        "windSpeed": "2 to 13 mph",
+        "windSpeed": "2 to 12 mph",
         "windDirection": "S",
-        "icon": "https://api.weather.gov/icons/land/day/sct?size=medium",
-        "shortForecast": "Mostly Sunny",
-        "detailedForecast": "Mostly sunny, with a high near 89."
+        "icon": "https://api.weather.gov/icons/land/day/bkn?size=medium",
+        "shortForecast": "Partly Sunny",
+        "detailedForecast": "Partly sunny, with a high near 89. South wind 2 to 12 mph."
       },
       {
-        "number": 7,
+        "number": 5,
         "name": "Monday Night",
         "startTime": "2026-06-08T18:00:00-06:00",
         "endTime": "2026-06-09T06:00:00-06:00",
@@ -786,23 +748,55 @@
         "temperatureTrend": null,
         "probabilityOfPrecipitation": {
           "unitCode": "wmoUnit:percent",
-          "value": 1
+          "value": 0
         },
-        "windSpeed": "8 to 15 mph",
-        "windDirection": "SSW",
+        "windSpeed": "7 to 14 mph",
+        "windDirection": "S",
         "icon": "https://api.weather.gov/icons/land/night/bkn?size=medium",
         "shortForecast": "Mostly Cloudy",
-        "detailedForecast": "Mostly cloudy, with a low around 63."
+        "detailedForecast": "Mostly cloudy, with a low around 63. South wind 7 to 14 mph."
+      },
+      {
+        "number": 6,
+        "name": "Tuesday",
+        "startTime": "2026-06-09T06:00:00-06:00",
+        "endTime": "2026-06-09T18:00:00-06:00",
+        "isDaytime": true,
+        "temperature": 80,
+        "temperatureUnit": "F",
+        "temperatureTrend": null,
+        "probabilityOfPrecipitation": {
+          "unitCode": "wmoUnit:percent",
+          "value": 13
+        },
+        "windSpeed": "3 to 10 mph",
+        "windDirection": "WNW",
+        "icon": "https://api.weather.gov/icons/land/day/bkn/tsra_sct?size=medium",
+        "shortForecast": "Partly Sunny then Slight Chance Showers And Thunderstorms",
+        "detailedForecast": "A slight chance of showers and thunderstorms after 3pm. Partly sunny, with a high near 80."
+      },
+      {
+        "number": 7,
+        "name": "Tuesday Night",
+        "startTime": "2026-06-09T18:00:00-06:00",
+        "endTime": "2026-06-10T06:00:00-06:00",
+        "isDaytime": false,
+        "temperature": 53,
+        "temperatureUnit": "F",
+        "temperatureTrend": null,
+        "probabilityOfPrecipitation": {
+          "unitCode": "wmoUnit:percent",
+          "value": 19
+        },
+        "windSpeed": "1 to 8 mph",
+        "windDirection": "NW",
+        "icon": "https://api.weather.gov/icons/land/night/rain_showers,20/few?size=medium",
+        "shortForecast": "Slight Chance Rain Showers then Mostly Clear",
+        "detailedForecast": "A slight chance of rain showers before midnight. Mostly clear, with a low around 53."
       }
     ],
     "alerts": [],
     "past_7_days": [
-      {
-        "date": "2026-05-30",
-        "precip_in": 0.44,
-        "high_f": 65,
-        "low_f": 51
-      },
       {
         "date": "2026-05-31",
         "precip_in": 0.01,
@@ -842,12 +836,65 @@
       {
         "date": "2026-06-06",
         "precip_in": 0,
-        "high_f": 97,
-        "low_f": 74
+        "high_f": 96,
+        "low_f": 73
+      },
+      {
+        "date": "2026-06-07",
+        "precip_in": 0.04,
+        "high_f": 80,
+        "low_f": 68
       }
     ]
   },
   "recent_briefings": [
+    {
+      "payload": {
+        "headline": "97°F Saturday — secure cages, begin garlic dry-down.",
+        "weather_notes": [
+          "Secure e1–e4 cage ties before noon — 35 mph gusts arrive this afternoon on 28-day transplants.",
+          "Water c2–c4 bean seedling beds and potato_bags tomorrow morning if the top inch is dry — 97°F today drains the shallow germination zone within 24 hours.",
+          "Use Sunday's 80°F break to deep-water any dry established beds — it's the optimal window before Monday's 89°F resumes; last meaningful rain was May 30."
+        ],
+        "surfaced_tasks": [
+          {
+            "title": "Check for suckers",
+            "bed_id": "e1",
+            "reason": "Due tomorrow on Amish Paste (indeterminate, 28 days old) — 97°F today surges lateral growth; pinch before suckers exceed 2 inches.",
+            "task_id": "69"
+          },
+          {
+            "title": "Stop watering",
+            "bed_id": "w2",
+            "reason": "97°F heat wave is accelerating garlic curing 39 days from harvest — taper irrigation now, ahead of the June 21 cutoff, to protect wrapper quality.",
+            "task_id": "10"
+          },
+          {
+            "title": "Stop watering",
+            "bed_id": "w3",
+            "reason": "Same heat-driven timing as w2 — 97°F this week is advancing curing ahead of schedule; begin reducing water now before the June 21 stop.",
+            "task_id": "27"
+          }
+        ],
+        "suggested_tasks": [
+          {
+            "title": "Count c2 sprouts, replant quail-damage gaps",
+            "bed_id": "c2",
+            "urgency": "high",
+            "due_date": "2026-06-07",
+            "description": "Quail wallowed in c2 Jun 4 — first sprout appeared Jun 5 but gaps likely remain; count emerged beans and replant bare spots before Sunday's heat sets the soil."
+          }
+        ]
+      },
+      "suggestions_state": {
+        "accepted": [],
+        "rejected": [],
+        "surfaced_dismissed": [
+          "69"
+        ]
+      },
+      "generated_at": "2026-06-06T13:40:22+00:00"
+    },
     {
       "payload": {
         "headline": "96°F Saturday — water at dawn, cage tomatoes first.",
@@ -1341,38 +1388,6 @@
         "rejected": []
       },
       "generated_at": "2026-05-24T13:43:59+00:00"
-    },
-    {
-      "payload": {
-        "headline": "89°F Memorial Day — trellis beans before they tangle",
-        "weather_notes": [
-          "Water e1–e4 tomatoes deeply today — no rain forecast through Memorial Day and 83–89°F weekend heat will rapidly deplete bed moisture.",
-          "Check potato_bags moisture daily through Monday — 4-day Yukon Gold roots haven't established yet and bag soil dries twice as fast as beds in 83–89°F heat.",
-          "Pick from c2–c4 peas by Tuesday — 83–89°F heat this weekend accelerates pod fill and toughening, potentially pulling harvest ahead of the June 3 target."
-        ],
-        "surfaced_tasks": [
-          {
-            "title": "Install trellis in c1 bean bed",
-            "bed_id": "c1",
-            "reason": "Overdue by 1 day and pole bean vines will accelerate fast through the 83–89°F weekend — tangling becomes hard to correct once vines outpace support.",
-            "task_id": "98"
-          }
-        ],
-        "suggested_tasks": [
-          {
-            "title": "Harvest check c4 peas before heat toughens pods",
-            "bed_id": "c4",
-            "urgency": "normal",
-            "due_date": "2026-05-25",
-            "description": "Lillian's Caseload had the most pods forming on May 12 — 89°F Memorial Day weekend will accelerate toughening and splitting; check and pick c4 first."
-          }
-        ]
-      },
-      "suggestions_state": {
-        "accepted": [],
-        "rejected": []
-      },
-      "generated_at": "2026-05-23T13:41:31+00:00"
     }
   ]
 }
