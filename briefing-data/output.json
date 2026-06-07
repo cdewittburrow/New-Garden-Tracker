@@ -1,37 +1,31 @@
 {
-  "headline": "97°F Saturday — secure cages, begin garlic dry-down.",
+  "headline": "Water zone 1 today before Monday's 89°F returns.",
   "weather_notes": [
-    "Secure e1–e4 cage ties before noon — 35 mph gusts arrive this afternoon on 28-day transplants.",
-    "Water c2–c4 bean seedling beds and potato_bags tomorrow morning if the top inch is dry — 97°F today drains the shallow germination zone within 24 hours.",
-    "Use Sunday's 80°F break to deep-water any dry established beds — it's the optimal window before Monday's 89°F resumes; last meaningful rain was May 30."
+    "Water e1–e4 tomatoes and c1–c4 bean seedlings today — zone 1 last ran June 4 (3 days ago) and Monday's 89°F will stress 29-day transplants and 10-day sprouts before the next scheduled run.",
+    "Hold off on zone 2 beds (w1–w4, blackberry) today — zone 2 ran yesterday and today's 80°F leaves those beds adequately moist.",
+    "Inspect w2/w3 garlic this week for early lower-leaf browning — last week's 85–96°F heat may have accelerated bulb curing ahead of the July 15 harvest target."
   ],
   "surfaced_tasks": [
     {
       "task_id": "69",
       "bed_id": "e1",
       "title": "Check for suckers",
-      "reason": "Due tomorrow on Amish Paste (indeterminate, 28 days old) — 97°F today surges lateral growth; pinch before suckers exceed 2 inches."
+      "reason": "Due today on indeterminate Amish Paste — last week's 85–96°F heat drove rapid lateral growth, making today's 80°F break the ideal window to pinch before suckers exceed 2 inches."
     },
     {
-      "task_id": "10",
-      "bed_id": "w2",
-      "title": "Stop watering",
-      "reason": "97°F heat wave is accelerating garlic curing 39 days from harvest — taper irrigation now, ahead of the June 21 cutoff, to protect wrapper quality."
-    },
-    {
-      "task_id": "27",
-      "bed_id": "w3",
-      "title": "Stop watering",
-      "reason": "Same heat-driven timing as w2 — 97°F this week is advancing curing ahead of schedule; begin reducing water now before the June 21 stop."
+      "task_id": "59",
+      "bed_id": "e1",
+      "title": "Inspect for hornworms — apply Bt if found",
+      "reason": "Due June 10 — today's 80°F is the most comfortable inspection window this week before Monday's 89°F resumes and frass becomes harder to spot on dense foliage."
     }
   ],
   "suggested_tasks": [
     {
-      "title": "Count c2 sprouts, replant quail-damage gaps",
+      "title": "Hill remaining 3 potato_bags plants",
       "due_date": "2026-06-07",
-      "description": "Quail wallowed in c2 Jun 4 — first sprout appeared Jun 5 but gaps likely remain; count emerged beans and replant bare spots before Sunday's heat sets the soil.",
-      "bed_id": "c2",
-      "urgency": "high"
+      "description": "Three plants still unhilled per June 3 log — today's 80°F is the coolest working day this week before Monday's 89°F returns.",
+      "bed_id": "potato_bags",
+      "urgency": "normal"
     }
   ]
 }
