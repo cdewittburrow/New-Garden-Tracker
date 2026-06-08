@@ -1,29 +1,42 @@
 {
-  "headline": "Water zone 1 today before Monday's 89°F returns.",
+  "headline": "Garlic dry-down begins — water tomatoes before Monday's 89°F",
   "weather_notes": [
-    "Water e1–e4 tomatoes and c1–c4 bean seedlings today — zone 1 last ran June 4 (3 days ago) and Monday's 89°F will stress 29-day transplants and 10-day sprouts before the next scheduled run.",
-    "Hold off on zone 2 beds (w1–w4, blackberry) today — zone 2 ran yesterday and today's 80°F leaves those beds adequately moist.",
-    "Inspect w2/w3 garlic this week for early lower-leaf browning — last week's 85–96°F heat may have accelerated bulb curing ahead of the July 15 harvest target."
+    "Water e1–e4 tomatoes and potato_bags today — zone 1 last ran Jun 4, now 3 days dry with Monday at 89°F.",
+    "Stop all irrigation on w2 and w3 garlic now — 38 days to harvest opens the 2-week dry-down window before the Jun 21 cutoff.",
+    "Check c2–c4 bean seedling soil before Monday — 10-day-old sprouts need surface moisture as 89°F heat returns."
   ],
   "surfaced_tasks": [
-    {
-      "task_id": "69",
-      "bed_id": "e1",
-      "title": "Check for suckers",
-      "reason": "Due today on indeterminate Amish Paste — last week's 85–96°F heat drove rapid lateral growth, making today's 80°F break the ideal window to pinch before suckers exceed 2 inches."
-    },
     {
       "task_id": "59",
       "bed_id": "e1",
       "title": "Inspect for hornworms — apply Bt if found",
-      "reason": "Due June 10 — today's 80°F is the most comfortable inspection window this week before Monday's 89°F resumes and frass becomes harder to spot on dense foliage."
+      "reason": "Due Jun 10 — 29-day tomatoes enter peak hornworm window as heat returns to 89°F Monday; check lower leaves for frass today."
+    },
+    {
+      "task_id": "10",
+      "bed_id": "w2",
+      "title": "Stop watering",
+      "reason": "Harvest is 38 days out — today is exactly 14 days before the Jun 21 stop date; begin tapering irrigation now to protect wrapper quality."
+    },
+    {
+      "task_id": "27",
+      "bed_id": "w3",
+      "title": "Stop watering",
+      "reason": "Same timing as w2 — Italian Red hardneck is 38 days from harvest; start dry-down this weekend alongside w2."
     }
   ],
   "suggested_tasks": [
     {
-      "title": "Hill remaining 3 potato_bags plants",
-      "due_date": "2026-06-07",
-      "description": "Three plants still unhilled per June 3 log — today's 80°F is the coolest working day this week before Monday's 89°F returns.",
+      "title": "Check w3 Italian Red garlic for scapes",
+      "due_date": "2026-06-10",
+      "description": "Italian Red hardneck produces curling flower scapes 3–4 weeks before harvest — snap any off now to redirect energy into bulb size before Jul 15.",
+      "bed_id": "w3",
+      "urgency": "normal"
+    },
+    {
+      "title": "Hill 3 remaining potato_bags plants",
+      "due_date": "2026-06-09",
+      "description": "Three of five plants were not hilled Jun 3 — hill before Monday's 89°F surges top growth past the effective hilling window.",
       "bed_id": "potato_bags",
       "urgency": "normal"
     }
