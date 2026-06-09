@@ -45,6 +45,7 @@ All programs run at 5:00–5:35am. Rain skip is enabled on all programs.
 2. Edit the `PROGRAMS` array — durations are in seconds (`durationSec`), intervals in days (`intervalDays`), date windows in `settings.startOn`/`endOn`
 3. Deploy the updated function (`deploy_edge_function`)
 4. Invoke it: `curl -X POST https://ulivctyuudgepolulpvq.supabase.co/functions/v1/setup-rachio-programs`
+5. **Copy the new program IDs from the response log into `KNOWN_PROGRAM_IDS`** in the function, then redeploy — the Rachio API returns PERMISSION_DENIED on all list endpoints, so IDs must be tracked manually or the next run will stack duplicates on top of existing programs.
 
 **To manually trigger a zone** from the app: tap the water button on any bed in that zone. This calls the `water-zone` edge function, which activates the Rachio valve immediately and logs it to the `waterings` table with `source='rachio'`.
 
