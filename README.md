@@ -45,7 +45,8 @@ All programs run at 5:00–5:35am. Rain skip is enabled on all programs.
 2. Edit the `PROGRAMS` array — durations are in seconds (`durationSec`), intervals in days (`intervalDays`), date windows in `settings.startOn`/`endOn`
 3. Deploy the updated function (`deploy_edge_function`)
 4. Invoke it: `curl -X POST https://ulivctyuudgepolulpvq.supabase.co/functions/v1/setup-rachio-programs`
-5. **Copy the new program IDs from the response log into `KNOWN_PROGRAM_IDS`** in the function, then redeploy — the Rachio API returns PERMISSION_DENIED on all list endpoints, so IDs must be tracked manually or the next run will stack duplicates on top of existing programs.
+
+The function lists all existing programs via `GET /program/listPrograms/{valveId}` before deleting them, so no manual ID tracking is needed and duplicate stacking is impossible.
 
 **To manually trigger a zone** from the app: tap the water button on any bed in that zone. This calls the `water-zone` edge function, which activates the Rachio valve immediately and logs it to the `waterings` table with `source='rachio'`.
 
@@ -270,6 +271,7 @@ For planning and architecture: Claude.ai. For implementation: Claude Code. Diffe
 | May 18, 2026 | Rachio sync uses `getValveDayViews` with a 7-day lookback, not a per-day query | The original implementation queried only `today`, so any day the sync failed (or Rachio data wasn't ready yet) was permanently lost. A 7-day window catches gaps on every run. The function also maps the base-station-scoped API response back to zone 1/2 by filtering `valveRunSummaries` by valve ID. | Webhook (more real-time but requires persistent public endpoint); single-day query (simpler but no recovery path) |
 | Jun 4, 2026 | Spring schedule cut to 10 min (Zone 1) and 8 min (Zone 2) to address overwatering of newly transplanted summer crops | Seepage at base of corrugated metal beds and saturated soil under straw mulch even at 90°F — heavy mulch retains far more moisture than the original schedule assumed. Summer schedule left at full durations; plants will need more water once established and heat ramps up. | Reduce interval to every-3-days; wait for plants to show stress |
 | May 18, 2026 | Rachio sync uses the Smart Hose Timer API (`cloud-rest.rach.io`), not the standard Rachio v1 API | These devices are smart hose timers — they use a different API domain, different endpoint shapes, and different ID schemes (valve IDs and base station IDs, not device/zone IDs). The v1 event history endpoint (`/1/event/device`) does not apply. Request schema came from the official OpenAPI docs; all field names were confirmed from the spec before implementation. | Standard Rachio v1 API (wrong product line) |
+| Jun 8, 2026 | `setup-rachio-programs` now lists programs dynamically via `GET /program/listPrograms/{valveId}` before deleting | Confirmed via live API probe: `listPrograms/{valveId}` returns 200 with full program list; `listProgramsV2` returns 403; `listPrograms/{baseStationId}` returns 404. The previous `KNOWN_PROGRAM_IDS` manual tracking approach was causing duplicate stacking — 18 programs had accumulated across both zones (3 prior runs × 3 programs each × 2 zones). Dynamic listing eliminates the problem entirely. | Manual ID tracking in `KNOWN_PROGRAM_IDS` (abandoned — caused stacking on every run) |
 
 ---
 
