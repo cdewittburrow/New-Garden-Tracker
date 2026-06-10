@@ -1,30 +1,30 @@
 {
-  "headline": "Hornworm check due tomorrow; 87°F returns Friday.",
+  "headline": "Cool today and Thursday — scout pests, replant c2, check peach.",
   "weather_notes": [
-    "Water e1–e4, c1–c4, and potato_bags by Thursday — beds last irrigated Jun 8 will be 5 days dry when Friday's 87°F arrives.",
-    "Skip w2/w3 garlic zones in Thursday's watering — 87°F Friday accelerates bulb curing with the Jun 21 stop-irrigation deadline 12 days out.",
-    "Use today's 77°F window for pest scouting — best inspection conditions before Wednesday warms and Friday's 87°F returns."
+    "Skip watering through Thursday — both Rachio zones ran today and 77-81°F won't stress soil before Friday's 88°F heat.",
+    "Inspect e1 for hornworms today — mild 77-81°F is the easiest scouting window before Friday's heat returns.",
+    "Check the peach tree for new growth before Friday's 88°F — confirm whether last week's emergency watering worked."
   ],
   "surfaced_tasks": [
+    {
+      "task_id": "109",
+      "bed_id": "c2",
+      "title": "Check c2 gaps, replant quail-damaged spots",
+      "reason": "Due tomorrow, and today's mild 77-81°F gives new seeds time to imbibe before Friday's 88°F heat returns."
+    },
     {
       "task_id": "59",
       "bed_id": "e1",
       "title": "Inspect for hornworms — apply Bt if found",
-      "reason": "Due tomorrow — 31-day Amish Paste tomatoes are in peak hornworm window; today's 77°F is ideal for checking lower leaves for frass."
-    },
-    {
-      "task_id": "27",
-      "bed_id": "w3",
-      "title": "Stop watering",
-      "reason": "Garlic harvest is 36 days out and the Jun 21 cutoff is 12 days away — exclude w3 from Rachio scheduling before Friday's 87°F advances curing further."
+      "reason": "Due today, and 32-day-old Amish Paste is in peak hornworm season with mild conditions ideal for spotting frass."
     }
   ],
   "suggested_tasks": [
     {
-      "title": "Check c2 gaps, replant quail-damaged spots",
+      "title": "Check peach tree for signs of recovery",
       "due_date": "2026-06-11",
-      "description": "Day 12 since planting and the sprouting window closes this week — bare spots from the Jun 4 quail disturbance won't self-fill and need seeds now.",
-      "bed_id": "c2",
+      "description": "7 days since the Jun 3 'one more watering' — assess new growth now while it's mild, before Friday's heat and before it's too late to plan a replacement.",
+      "bed_id": "peach",
       "urgency": "high"
     }
   ]
