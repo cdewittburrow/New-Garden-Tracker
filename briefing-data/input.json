@@ -1,5 +1,5 @@
 {
-  "today": "2026-06-09",
+  "today": "2026-06-10",
   "plantings": [
     {
       "id": "79526620-7d75-4886-b31d-7c9bf731edc9",
@@ -278,6 +278,13 @@
       "title": "Inspect for hornworms — apply Bt if found",
       "description": "Check undersides of leaves on lower third of plant. Look for dark frass (droppings) as first sign. If hornworms found: spray Bacillus thuringiensis (Bt) on affected foliage per label. Hand-pick any large worms already present. Reapply Bt after rain.",
       "due_date": "2026-06-10"
+    },
+    {
+      "id": 109,
+      "planting_id": "67cc6456-af8e-4e73-b9b2-0e44b0c7a665",
+      "title": "Check c2 gaps, replant quail-damaged spots",
+      "description": "Day 12 since planting and the sprouting window closes this week — bare spots from the Jun 4 quail disturbance won't self-fill and need seeds now.",
+      "due_date": "2026-06-11"
     },
     {
       "id": 70,
@@ -602,14 +609,24 @@
   ],
   "waterings": [
     {
+      "zone": 2,
+      "watered_date": "2026-06-10",
+      "duration_minutes": 8
+    },
+    {
       "zone": 1,
-      "watered_date": "2026-06-08",
-      "duration_minutes": 20
+      "watered_date": "2026-06-10",
+      "duration_minutes": 10
     },
     {
       "zone": 2,
       "watered_date": "2026-06-08",
       "duration_minutes": 15
+    },
+    {
+      "zone": 1,
+      "watered_date": "2026-06-08",
+      "duration_minutes": 20
     },
     {
       "zone": 1,
@@ -640,16 +657,6 @@
       "zone": 1,
       "watered_date": "2026-06-04",
       "duration_minutes": 20
-    },
-    {
-      "zone": 1,
-      "watered_date": "2026-06-02",
-      "duration_minutes": 20
-    },
-    {
-      "zone": 2,
-      "watered_date": "2026-06-02",
-      "duration_minutes": 10
     }
   ],
   "weather": {
@@ -657,81 +664,43 @@
       {
         "number": 1,
         "name": "Today",
-        "startTime": "2026-06-09T06:00:00-06:00",
-        "endTime": "2026-06-09T18:00:00-06:00",
-        "isDaytime": true,
-        "temperature": 77,
-        "temperatureUnit": "F",
-        "temperatureTrend": null,
-        "probabilityOfPrecipitation": {
-          "unitCode": "wmoUnit:percent",
-          "value": 20
-        },
-        "windSpeed": "10 mph",
-        "windDirection": "NW",
-        "icon": "https://api.weather.gov/icons/land/day/rain_showers,20/tsra_sct,20?size=medium",
-        "shortForecast": "Slight Chance Rain Showers then Slight Chance Showers And Thunderstorms",
-        "detailedForecast": "A slight chance of rain showers before noon, then a slight chance of showers and thunderstorms. Partly sunny, with a high near 77. Northwest wind around 10 mph. Chance of precipitation is 20%."
-      },
-      {
-        "number": 2,
-        "name": "Tonight",
-        "startTime": "2026-06-09T18:00:00-06:00",
-        "endTime": "2026-06-10T06:00:00-06:00",
-        "isDaytime": false,
-        "temperature": 52,
-        "temperatureUnit": "F",
-        "temperatureTrend": null,
-        "probabilityOfPrecipitation": {
-          "unitCode": "wmoUnit:percent",
-          "value": 3
-        },
-        "windSpeed": "2 to 7 mph",
-        "windDirection": "NW",
-        "icon": "https://api.weather.gov/icons/land/night/few?size=medium",
-        "shortForecast": "Mostly Clear",
-        "detailedForecast": "Mostly clear. Low around 52, with temperatures rising to around 55 overnight. Northwest wind 2 to 7 mph."
-      },
-      {
-        "number": 3,
-        "name": "Wednesday",
         "startTime": "2026-06-10T06:00:00-06:00",
         "endTime": "2026-06-10T18:00:00-06:00",
         "isDaytime": true,
-        "temperature": 79,
-        "temperatureUnit": "F",
-        "temperatureTrend": null,
-        "probabilityOfPrecipitation": {
-          "unitCode": "wmoUnit:percent",
-          "value": 2
-        },
-        "windSpeed": "2 to 13 mph",
-        "windDirection": "WNW",
-        "icon": "https://api.weather.gov/icons/land/day/few?size=medium",
-        "shortForecast": "Sunny",
-        "detailedForecast": "Sunny. High near 79, with temperatures falling to around 77 in the afternoon. West northwest wind 2 to 13 mph."
-      },
-      {
-        "number": 4,
-        "name": "Wednesday Night",
-        "startTime": "2026-06-10T18:00:00-06:00",
-        "endTime": "2026-06-11T06:00:00-06:00",
-        "isDaytime": false,
-        "temperature": 48,
+        "temperature": 81,
         "temperatureUnit": "F",
         "temperatureTrend": null,
         "probabilityOfPrecipitation": {
           "unitCode": "wmoUnit:percent",
           "value": 0
         },
-        "windSpeed": "3 to 15 mph",
-        "windDirection": "NNW",
-        "icon": "https://api.weather.gov/icons/land/night/skc?size=medium",
-        "shortForecast": "Clear",
-        "detailedForecast": "Clear, with a low around 48. North northwest wind 3 to 15 mph."
+        "windSpeed": "2 to 9 mph",
+        "windDirection": "WNW",
+        "icon": "https://api.weather.gov/icons/land/day/few?size=medium",
+        "shortForecast": "Sunny",
+        "detailedForecast": "Sunny, with a high near 81. West northwest wind 2 to 9 mph."
       },
       {
-        "number": 5,
+        "number": 2,
+        "name": "Tonight",
+        "startTime": "2026-06-10T18:00:00-06:00",
+        "endTime": "2026-06-11T06:00:00-06:00",
+        "isDaytime": false,
+        "temperature": 49,
+        "temperatureUnit": "F",
+        "temperatureTrend": null,
+        "probabilityOfPrecipitation": {
+          "unitCode": "wmoUnit:percent",
+          "value": 2
+        },
+        "windSpeed": "3 to 16 mph",
+        "windDirection": "NNW",
+        "icon": "https://api.weather.gov/icons/land/night/few?size=medium",
+        "shortForecast": "Mostly Clear",
+        "detailedForecast": "Mostly clear, with a low around 49. North northwest wind 3 to 16 mph."
+      },
+      {
+        "number": 3,
         "name": "Thursday",
         "startTime": "2026-06-11T06:00:00-06:00",
         "endTime": "2026-06-11T18:00:00-06:00",
@@ -743,38 +712,38 @@
           "unitCode": "wmoUnit:percent",
           "value": 0
         },
-        "windSpeed": "1 to 8 mph",
-        "windDirection": "NNW",
-        "icon": "https://api.weather.gov/icons/land/day/skc?size=medium",
+        "windSpeed": "2 to 7 mph",
+        "windDirection": "NW",
+        "icon": "https://api.weather.gov/icons/land/day/few?size=medium",
         "shortForecast": "Sunny",
-        "detailedForecast": "Sunny, with a high near 77. North northwest wind 1 to 8 mph."
+        "detailedForecast": "Sunny, with a high near 77. Northwest wind 2 to 7 mph."
       },
       {
-        "number": 6,
+        "number": 4,
         "name": "Thursday Night",
         "startTime": "2026-06-11T18:00:00-06:00",
         "endTime": "2026-06-12T06:00:00-06:00",
         "isDaytime": false,
-        "temperature": 51,
+        "temperature": 52,
         "temperatureUnit": "F",
         "temperatureTrend": null,
         "probabilityOfPrecipitation": {
           "unitCode": "wmoUnit:percent",
           "value": 0
         },
-        "windSpeed": "1 to 8 mph",
-        "windDirection": "ENE",
-        "icon": "https://api.weather.gov/icons/land/night/skc?size=medium",
-        "shortForecast": "Clear",
-        "detailedForecast": "Clear, with a low around 51."
+        "windSpeed": "1 to 7 mph",
+        "windDirection": "N",
+        "icon": "https://api.weather.gov/icons/land/night/few?size=medium",
+        "shortForecast": "Mostly Clear",
+        "detailedForecast": "Mostly clear, with a low around 52. North wind 1 to 7 mph."
       },
       {
-        "number": 7,
+        "number": 5,
         "name": "Friday",
         "startTime": "2026-06-12T06:00:00-06:00",
         "endTime": "2026-06-12T18:00:00-06:00",
         "isDaytime": true,
-        "temperature": 87,
+        "temperature": 88,
         "temperatureUnit": "F",
         "temperatureTrend": null,
         "probabilityOfPrecipitation": {
@@ -782,20 +751,52 @@
           "value": 0
         },
         "windSpeed": "1 to 8 mph",
-        "windDirection": "NE",
+        "windDirection": "W",
+        "icon": "https://api.weather.gov/icons/land/day/few?size=medium",
+        "shortForecast": "Sunny",
+        "detailedForecast": "Sunny, with a high near 88. West wind 1 to 8 mph."
+      },
+      {
+        "number": 6,
+        "name": "Friday Night",
+        "startTime": "2026-06-12T18:00:00-06:00",
+        "endTime": "2026-06-13T06:00:00-06:00",
+        "isDaytime": false,
+        "temperature": 59,
+        "temperatureUnit": "F",
+        "temperatureTrend": null,
+        "probabilityOfPrecipitation": {
+          "unitCode": "wmoUnit:percent",
+          "value": 0
+        },
+        "windSpeed": "2 to 7 mph",
+        "windDirection": "E",
+        "icon": "https://api.weather.gov/icons/land/night/skc?size=medium",
+        "shortForecast": "Clear",
+        "detailedForecast": "Clear, with a low around 59."
+      },
+      {
+        "number": 7,
+        "name": "Saturday",
+        "startTime": "2026-06-13T06:00:00-06:00",
+        "endTime": "2026-06-13T18:00:00-06:00",
+        "isDaytime": true,
+        "temperature": 89,
+        "temperatureUnit": "F",
+        "temperatureTrend": null,
+        "probabilityOfPrecipitation": {
+          "unitCode": "wmoUnit:percent",
+          "value": 0
+        },
+        "windSpeed": "1 to 10 mph",
+        "windDirection": "WSW",
         "icon": "https://api.weather.gov/icons/land/day/skc?size=medium",
         "shortForecast": "Sunny",
-        "detailedForecast": "Sunny, with a high near 87."
+        "detailedForecast": "Sunny, with a high near 89."
       }
     ],
     "alerts": [],
     "past_7_days": [
-      {
-        "date": "2026-06-02",
-        "precip_in": 0,
-        "high_f": 85,
-        "low_f": 56
-      },
       {
         "date": "2026-06-03",
         "precip_in": 0,
@@ -834,13 +835,62 @@
       },
       {
         "date": "2026-06-09",
-        "precip_in": 0,
+        "precip_in": 0.02,
         "high_f": 79,
-        "low_f": 67
+        "low_f": 69
+      },
+      {
+        "date": "2026-06-10",
+        "precip_in": 0,
+        "high_f": 81,
+        "low_f": 58
       }
     ]
   },
   "recent_briefings": [
+    {
+      "payload": {
+        "headline": "Hornworm check due tomorrow; 87°F returns Friday.",
+        "weather_notes": [
+          "Water e1–e4, c1–c4, and potato_bags by Thursday — beds last irrigated Jun 8 will be 5 days dry when Friday's 87°F arrives.",
+          "Skip w2/w3 garlic zones in Thursday's watering — 87°F Friday accelerates bulb curing with the Jun 21 stop-irrigation deadline 12 days out.",
+          "Use today's 77°F window for pest scouting — best inspection conditions before Wednesday warms and Friday's 87°F returns."
+        ],
+        "surfaced_tasks": [
+          {
+            "title": "Inspect for hornworms — apply Bt if found",
+            "bed_id": "e1",
+            "reason": "Due tomorrow — 31-day Amish Paste tomatoes are in peak hornworm window; today's 77°F is ideal for checking lower leaves for frass.",
+            "task_id": "59"
+          },
+          {
+            "title": "Stop watering",
+            "bed_id": "w3",
+            "reason": "Garlic harvest is 36 days out and the Jun 21 cutoff is 12 days away — exclude w3 from Rachio scheduling before Friday's 87°F advances curing further.",
+            "task_id": "27"
+          }
+        ],
+        "suggested_tasks": [
+          {
+            "title": "Check c2 gaps, replant quail-damaged spots",
+            "bed_id": "c2",
+            "urgency": "high",
+            "due_date": "2026-06-11",
+            "description": "Day 12 since planting and the sprouting window closes this week — bare spots from the Jun 4 quail disturbance won't self-fill and need seeds now."
+          }
+        ]
+      },
+      "suggestions_state": {
+        "accepted": [
+          0
+        ],
+        "rejected": [],
+        "surfaced_dismissed": [
+          "27"
+        ]
+      },
+      "generated_at": "2026-06-09T13:40:38+00:00"
+    },
     {
       "payload": {
         "headline": "Garlic dry-down begins — water tomatoes before Monday's 89°F",
@@ -1360,52 +1410,6 @@
         "rejected": []
       },
       "generated_at": "2026-05-27T13:43:12+00:00"
-    },
-    {
-      "payload": {
-        "headline": "Peas 9 days out, trellis 3 days late",
-        "weather_notes": [
-          "Stake blackberry and peach before Tuesday — wind gusts to 33 mph could uproot or snap 2-day-old transplants.",
-          "Provide afternoon shade for peach today — logged as struggling at planting and 89°F today is peak heat stress before roots can establish.",
-          "Pick c2–c4 peas before Tuesday's heat — 89°F today and 86°F tomorrow accelerate pod toughening with harvest just 9 days out.",
-          "Hold manual watering through Wednesday — Rachio already ran zones 1 and 2 this morning and Wednesday's 20% storm chance may cover any deficit."
-        ],
-        "surfaced_tasks": [
-          {
-            "title": "Install trellis in c1 bean bed",
-            "bed_id": "c1",
-            "reason": "Three days overdue — Good Mother Stollard pole beans are 22 days old and today's 89°F heat surges vine growth daily without support.",
-            "task_id": "98"
-          },
-          {
-            "title": "Mid-season feed — fish emulsion",
-            "bed_id": "w1",
-            "reason": "Due June 1 (7 days) and strawberries at 30 days post-plant are entering peak fruiting season when nitrogen matters most.",
-            "task_id": "33"
-          }
-        ],
-        "suggested_tasks": [
-          {
-            "title": "Pick ripe pods from c2–c4 peas",
-            "bed_id": "c4",
-            "urgency": "high",
-            "due_date": "2026-05-26",
-            "description": "Pods formed heavily by May 12 and harvest is 9 days out — 89°F today will toughen unpicked pods fast."
-          },
-          {
-            "title": "Rig shade cloth over peach mid-afternoon",
-            "bed_id": "peach",
-            "urgency": "high",
-            "due_date": "2026-05-25",
-            "description": "Logged as 'looking really rough' at planting 2 days ago — 89°F today risks sunscald and transplant failure before roots can establish."
-          }
-        ]
-      },
-      "suggestions_state": {
-        "accepted": [],
-        "rejected": []
-      },
-      "generated_at": "2026-05-26T13:38:16+00:00"
     }
   ]
 }
