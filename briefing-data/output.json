@@ -1,31 +1,30 @@
 {
-  "headline": "Cool today and Thursday — scout pests, replant c2, check peach.",
+  "headline": "Hornworm check due today; replant c2 gaps before Friday's heat.",
   "weather_notes": [
-    "Skip watering through Thursday — both Rachio zones ran today and 77-81°F won't stress soil before Friday's 88°F heat.",
-    "Inspect e1 for hornworms today — mild 77-81°F is the easiest scouting window before Friday's heat returns.",
-    "Check the peach tree for new growth before Friday's 88°F — confirm whether last week's emergency watering worked."
+    "Replant c2 quail-damage gaps tomorrow — use the cool 77°F window before Friday's 88°F heat arrives.",
+    "Scout e1–e4 and bean beds for pests and heat stress today or tomorrow — 77–81°F beats Friday's 88°F for inspection comfort."
   ],
   "surfaced_tasks": [
-    {
-      "task_id": "109",
-      "bed_id": "c2",
-      "title": "Check c2 gaps, replant quail-damaged spots",
-      "reason": "Due tomorrow, and today's mild 77-81°F gives new seeds time to imbibe before Friday's 88°F heat returns."
-    },
     {
       "task_id": "59",
       "bed_id": "e1",
       "title": "Inspect for hornworms — apply Bt if found",
-      "reason": "Due today, and 32-day-old Amish Paste is in peak hornworm season with mild conditions ideal for spotting frass."
+      "reason": "Due today, and today's mild 81°F is the easiest inspection window before Friday's 88°F heat returns."
+    },
+    {
+      "task_id": "109",
+      "bed_id": "c2",
+      "title": "Check c2 gaps, replant quail-damaged spots",
+      "reason": "Due tomorrow — quail-damaged gaps from Jun 4 need seeds now while the sprouting window is still open."
     }
   ],
   "suggested_tasks": [
     {
-      "title": "Check peach tree for signs of recovery",
-      "due_date": "2026-06-11",
-      "description": "7 days since the Jun 3 'one more watering' — assess new growth now while it's mild, before Friday's heat and before it's too late to plan a replacement.",
+      "title": "Check peach for new growth, deep-water",
+      "due_date": "2026-06-12",
+      "description": "Last log (Jun 3) feared the tree was dead with no follow-up since — check for new growth and deep-water before Friday's 88°F heat.",
       "bed_id": "peach",
-      "urgency": "high"
+      "urgency": "normal"
     }
   ]
 }
