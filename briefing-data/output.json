@@ -1,29 +1,35 @@
 {
-  "headline": "Hornworm check due today; replant c2 gaps before Friday's heat.",
+  "headline": "Peach and c2 checks overdue — 86°F heat returns today.",
   "weather_notes": [
-    "Replant c2 quail-damage gaps tomorrow — use the cool 77°F window before Friday's 88°F heat arrives.",
-    "Scout e1–e4 and bean beds for pests and heat stress today or tomorrow — 77–81°F beats Friday's 88°F for inspection comfort."
+    "Deep-water the peach tree today — 9 days since its last watering, with 86°F heat resuming after the cool snap.",
+    "Water c2–c4 bean beds and potato_bags by Sunday — zone 1's cycle is 2 days old and 86–88°F, rain-free days run through Monday."
   ],
   "surfaced_tasks": [
     {
-      "task_id": "59",
-      "bed_id": "e1",
-      "title": "Inspect for hornworms — apply Bt if found",
-      "reason": "Due today, and today's mild 81°F is the easiest inspection window before Friday's 88°F heat returns."
+      "task_id": "110",
+      "bed_id": "peach",
+      "title": "Check peach tree for signs of recovery",
+      "reason": "Now 1 day overdue and 9 days dry — confirm whether new growth justifies keeping the tree or planning a replacement."
     },
     {
       "task_id": "109",
       "bed_id": "c2",
       "title": "Check c2 gaps, replant quail-damaged spots",
-      "reason": "Due tomorrow — quail-damaged gaps from Jun 4 need seeds now while the sprouting window is still open."
+      "reason": "Now 1 day overdue at day 15 since planting — quail-damaged gaps need seed before the sprouting window closes."
+    },
+    {
+      "task_id": "70",
+      "bed_id": "e1",
+      "title": "Check for suckers",
+      "reason": "Due Sunday — today's return to 86–88°F heat will accelerate lateral growth on indeterminate Amish Paste before suckers exceed 2 inches."
     }
   ],
   "suggested_tasks": [
     {
-      "title": "Check peach for new growth, deep-water",
-      "due_date": "2026-06-12",
-      "description": "Last log (Jun 3) feared the tree was dead with no follow-up since — check for new growth and deep-water before Friday's 88°F heat.",
-      "bed_id": "peach",
+      "title": "Check c1 runner beans for trellis support",
+      "due_date": "2026-06-14",
+      "description": "At 40 days with no support logged, set up poles or trellis for c1 Good Mother Stollard before this weekend's 86–88°F surge speeds up vine growth.",
+      "bed_id": "c1",
       "urgency": "normal"
     }
   ]
