@@ -1,36 +1,30 @@
 {
-  "headline": "Peach and c2 checks overdue — 86°F heat returns today.",
+  "headline": "Heat returns — water everything except garlic, recheck peach.",
   "weather_notes": [
-    "Deep-water the peach tree today — 9 days since its last watering, with 86°F heat resuming after the cool snap.",
-    "Water c2–c4 bean beds and potato_bags by Sunday — zone 1's cycle is 2 days old and 86–88°F, rain-free days run through Monday."
+    "Water e1–e4, c1–c4, and potato_bags today — zone 1 has sat dry since Wednesday, with no rain through Monday's 89°F.",
+    "Water w1, w4, and blackberry today too, but skip w2/w3 — zone 2 is also 3 days dry, and garlic benefits from drying out ahead of the Jun 21 cutoff."
   ],
   "surfaced_tasks": [
     {
       "task_id": "110",
       "bed_id": "peach",
       "title": "Check peach tree for signs of recovery",
-      "reason": "Now 1 day overdue and 9 days dry — confirm whether new growth justifies keeping the tree or planning a replacement."
-    },
-    {
-      "task_id": "109",
-      "bed_id": "c2",
-      "title": "Check c2 gaps, replant quail-damaged spots",
-      "reason": "Now 1 day overdue at day 15 since planting — quail-damaged gaps need seed before the sprouting window closes."
+      "reason": "2 days overdue, and today's mild dry 86°F is the easiest check-in before highs climb toward 89°F by Monday."
     },
     {
       "task_id": "70",
       "bed_id": "e1",
       "title": "Check for suckers",
-      "reason": "Due Sunday — today's return to 86–88°F heat will accelerate lateral growth on indeterminate Amish Paste before suckers exceed 2 inches."
+      "reason": "Due tomorrow — today's 86°F kicks off a hot, dry run to 89°F by Monday that will push lateral growth past the 2-inch pinch window."
     }
   ],
   "suggested_tasks": [
     {
-      "title": "Check c1 runner beans for trellis support",
+      "title": "Set up trellis support for c1 beans",
       "due_date": "2026-06-14",
-      "description": "At 40 days with no support logged, set up poles or trellis for c1 Good Mother Stollard before this weekend's 86–88°F surge speeds up vine growth.",
+      "description": "Set up poles or trellis for c1 Good Mother Stollard now — at 41 days with no support, Monday's 89°F surge will accelerate vine sprawl.",
       "bed_id": "c1",
-      "urgency": "normal"
+      "urgency": "high"
     }
   ]
 }
