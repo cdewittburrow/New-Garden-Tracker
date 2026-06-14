@@ -1,5 +1,5 @@
 {
-  "today": "2026-06-13",
+  "today": "2026-06-14",
   "plantings": [
     {
       "id": "79526620-7d75-4886-b31d-7c9bf731edc9",
@@ -217,17 +217,17 @@
       "due_date": "2026-05-20"
     },
     {
-      "id": 57,
-      "planting_id": "54c2c338-5c4d-4924-b91b-4ffc22ebb4b3",
-      "title": "Inspect for hornworms — apply Bt if found",
-      "description": "Check undersides of leaves on lower third of plant. Look for dark frass (droppings) as first sign. If hornworms found: spray Bacillus thuringiensis (Bt) on affected foliage per label. Hand-pick any large worms already present. Reapply Bt after rain.",
-      "due_date": "2026-05-21"
-    },
-    {
       "id": 22,
       "planting_id": "54c2c338-5c4d-4924-b91b-4ffc22ebb4b3",
       "title": "Mid-season feed — blood meal",
       "description": "Work 1 tbsp blood meal per plant into top inch of soil. Apply once heavy fruiting begins to compensate for nitrogen demand. Skip if foliage is already very dark green — excess nitrogen pushes leaf growth at expense of fruit.",
+      "due_date": "2026-05-21"
+    },
+    {
+      "id": 57,
+      "planting_id": "54c2c338-5c4d-4924-b91b-4ffc22ebb4b3",
+      "title": "Inspect for hornworms — apply Bt if found",
+      "description": "Check undersides of leaves on lower third of plant. Look for dark frass (droppings) as first sign. If hornworms found: spray Bacillus thuringiensis (Bt) on affected foliage per label. Hand-pick any large worms already present. Reapply Bt after rain.",
       "due_date": "2026-05-21"
     },
     {
@@ -287,13 +287,6 @@
       "due_date": "2026-06-11"
     },
     {
-      "id": 109,
-      "planting_id": "67cc6456-af8e-4e73-b9b2-0e44b0c7a665",
-      "title": "Check c2 gaps, replant quail-damaged spots",
-      "description": "Day 12 since planting and the sprouting window closes this week — bare spots from the Jun 4 quail disturbance won't self-fill and need seeds now.",
-      "due_date": "2026-06-11"
-    },
-    {
       "id": 70,
       "planting_id": "54c2c338-5c4d-4924-b91b-4ffc22ebb4b3",
       "title": "Check for suckers",
@@ -315,13 +308,6 @@
       "due_date": "2026-06-20"
     },
     {
-      "id": 27,
-      "planting_id": "abebbe9f-e355-4c78-a77f-79d4c88d17f7",
-      "title": "Stop watering",
-      "description": "Stop all irrigation 2 weeks before expected harvest. Dry conditions cure the outer wrapper and improve storage life significantly. Italian Red (softneck, W4) may be ready a week or two before Elephant & Music (hardneck, W3).",
-      "due_date": "2026-06-21"
-    },
-    {
       "id": 10,
       "planting_id": "e93f2f5c-dcb8-47e9-9933-31e7e813b7e4",
       "title": "Stop watering",
@@ -329,15 +315,15 @@
       "due_date": "2026-06-21"
     },
     {
-      "id": 26,
-      "planting_id": "abebbe9f-e355-4c78-a77f-79d4c88d17f7",
+      "id": 9,
+      "planting_id": "e93f2f5c-dcb8-47e9-9933-31e7e813b7e4",
       "title": "Harvest check",
       "description": "Harvest when lower 3-4 leaves have browned but upper 5-6 are still green. Do not wait until all leaves are brown — the wrapper will deteriorate. Dig carefully with a fork, do not pull by the stem.",
       "due_date": "2026-07-05"
     },
     {
-      "id": 9,
-      "planting_id": "e93f2f5c-dcb8-47e9-9933-31e7e813b7e4",
+      "id": 26,
+      "planting_id": "abebbe9f-e355-4c78-a77f-79d4c88d17f7",
       "title": "Harvest check",
       "description": "Harvest when lower 3-4 leaves have browned but upper 5-6 are still green. Do not wait until all leaves are brown — the wrapper will deteriorate. Dig carefully with a fork, do not pull by the stem.",
       "due_date": "2026-07-05"
@@ -598,6 +584,16 @@
   "waterings": [
     {
       "zone": 2,
+      "watered_date": "2026-06-14",
+      "duration_minutes": 8
+    },
+    {
+      "zone": 1,
+      "watered_date": "2026-06-14",
+      "duration_minutes": 10
+    },
+    {
+      "zone": 2,
       "watered_date": "2026-06-10",
       "duration_minutes": 8
     },
@@ -635,16 +631,6 @@
       "zone": 2,
       "watered_date": "2026-06-06",
       "duration_minutes": 8
-    },
-    {
-      "zone": 2,
-      "watered_date": "2026-06-04",
-      "duration_minutes": 15
-    },
-    {
-      "zone": 1,
-      "watered_date": "2026-06-04",
-      "duration_minutes": 20
     }
   ],
   "weather": {
@@ -652,45 +638,7 @@
       {
         "number": 1,
         "name": "Overnight",
-        "startTime": "2026-06-13T05:00:00-06:00",
-        "endTime": "2026-06-13T06:00:00-06:00",
-        "isDaytime": false,
-        "temperature": 57,
-        "temperatureUnit": "F",
-        "temperatureTrend": null,
-        "probabilityOfPrecipitation": {
-          "unitCode": "wmoUnit:percent",
-          "value": 0
-        },
-        "windSpeed": "2 mph",
-        "windDirection": "W",
-        "icon": "https://api.weather.gov/icons/land/night/skc?size=medium",
-        "shortForecast": "Clear",
-        "detailedForecast": "Clear. Low around 57, with temperatures rising to around 60 overnight. West wind around 2 mph."
-      },
-      {
-        "number": 2,
-        "name": "Saturday",
-        "startTime": "2026-06-13T06:00:00-06:00",
-        "endTime": "2026-06-13T18:00:00-06:00",
-        "isDaytime": true,
-        "temperature": 86,
-        "temperatureUnit": "F",
-        "temperatureTrend": null,
-        "probabilityOfPrecipitation": {
-          "unitCode": "wmoUnit:percent",
-          "value": 0
-        },
-        "windSpeed": "2 to 10 mph",
-        "windDirection": "NNW",
-        "icon": "https://api.weather.gov/icons/land/day/skc?size=medium",
-        "shortForecast": "Sunny",
-        "detailedForecast": "Sunny, with a high near 86. North northwest wind 2 to 10 mph."
-      },
-      {
-        "number": 3,
-        "name": "Saturday Night",
-        "startTime": "2026-06-13T18:00:00-06:00",
+        "startTime": "2026-06-14T05:00:00-06:00",
         "endTime": "2026-06-14T06:00:00-06:00",
         "isDaytime": false,
         "temperature": 57,
@@ -700,14 +648,14 @@
           "unitCode": "wmoUnit:percent",
           "value": 0
         },
-        "windSpeed": "2 to 8 mph",
+        "windSpeed": "2 mph",
         "windDirection": "NNW",
-        "icon": "https://api.weather.gov/icons/land/night/few?size=medium",
-        "shortForecast": "Mostly Clear",
-        "detailedForecast": "Mostly clear. Low around 57, with temperatures rising to around 59 overnight. North northwest wind 2 to 8 mph."
+        "icon": "https://api.weather.gov/icons/land/night/skc?size=medium",
+        "shortForecast": "Clear",
+        "detailedForecast": "Clear. Low around 57, with temperatures rising to around 59 overnight. North northwest wind around 2 mph."
       },
       {
-        "number": 4,
+        "number": 2,
         "name": "Sunday",
         "startTime": "2026-06-14T06:00:00-06:00",
         "endTime": "2026-06-14T18:00:00-06:00",
@@ -717,16 +665,16 @@
         "temperatureTrend": null,
         "probabilityOfPrecipitation": {
           "unitCode": "wmoUnit:percent",
-          "value": 0
+          "value": 1
         },
         "windSpeed": "2 to 10 mph",
-        "windDirection": "N",
-        "icon": "https://api.weather.gov/icons/land/day/few?size=medium",
+        "windDirection": "NNW",
+        "icon": "https://api.weather.gov/icons/land/day/skc?size=medium",
         "shortForecast": "Sunny",
-        "detailedForecast": "Sunny, with a high near 87. North wind 2 to 10 mph."
+        "detailedForecast": "Sunny, with a high near 87. North northwest wind 2 to 10 mph."
       },
       {
-        "number": 5,
+        "number": 3,
         "name": "Sunday Night",
         "startTime": "2026-06-14T18:00:00-06:00",
         "endTime": "2026-06-15T06:00:00-06:00",
@@ -738,33 +686,33 @@
           "unitCode": "wmoUnit:percent",
           "value": 1
         },
-        "windSpeed": "1 to 8 mph",
-        "windDirection": "NNE",
+        "windSpeed": "2 to 8 mph",
+        "windDirection": "NNW",
         "icon": "https://api.weather.gov/icons/land/night/few?size=medium",
         "shortForecast": "Mostly Clear",
-        "detailedForecast": "Mostly clear, with a low around 57. North northeast wind 1 to 8 mph."
+        "detailedForecast": "Mostly clear. Low around 57, with temperatures rising to around 60 overnight. North northwest wind 2 to 8 mph."
       },
       {
-        "number": 6,
+        "number": 4,
         "name": "Monday",
         "startTime": "2026-06-15T06:00:00-06:00",
         "endTime": "2026-06-15T18:00:00-06:00",
         "isDaytime": true,
-        "temperature": 89,
+        "temperature": 88,
         "temperatureUnit": "F",
         "temperatureTrend": null,
         "probabilityOfPrecipitation": {
           "unitCode": "wmoUnit:percent",
           "value": 0
         },
-        "windSpeed": "1 to 12 mph",
-        "windDirection": "SSE",
+        "windSpeed": "2 to 10 mph",
+        "windDirection": "NNW",
         "icon": "https://api.weather.gov/icons/land/day/few?size=medium",
         "shortForecast": "Sunny",
-        "detailedForecast": "Sunny, with a high near 89."
+        "detailedForecast": "Sunny, with a high near 88. North northwest wind 2 to 10 mph."
       },
       {
-        "number": 7,
+        "number": 5,
         "name": "Monday Night",
         "startTime": "2026-06-15T18:00:00-06:00",
         "endTime": "2026-06-16T06:00:00-06:00",
@@ -776,21 +724,53 @@
           "unitCode": "wmoUnit:percent",
           "value": 0
         },
-        "windSpeed": "2 to 10 mph",
+        "windSpeed": "2 to 9 mph",
         "windDirection": "ENE",
         "icon": "https://api.weather.gov/icons/land/night/few?size=medium",
         "shortForecast": "Mostly Clear",
-        "detailedForecast": "Mostly clear, with a low around 60."
+        "detailedForecast": "Mostly clear, with a low around 60. East northeast wind 2 to 9 mph."
+      },
+      {
+        "number": 6,
+        "name": "Tuesday",
+        "startTime": "2026-06-16T06:00:00-06:00",
+        "endTime": "2026-06-16T18:00:00-06:00",
+        "isDaytime": true,
+        "temperature": 93,
+        "temperatureUnit": "F",
+        "temperatureTrend": null,
+        "probabilityOfPrecipitation": {
+          "unitCode": "wmoUnit:percent",
+          "value": 0
+        },
+        "windSpeed": "3 to 9 mph",
+        "windDirection": "WSW",
+        "icon": "https://api.weather.gov/icons/land/day/few?size=medium",
+        "shortForecast": "Sunny",
+        "detailedForecast": "Sunny, with a high near 93."
+      },
+      {
+        "number": 7,
+        "name": "Tuesday Night",
+        "startTime": "2026-06-16T18:00:00-06:00",
+        "endTime": "2026-06-17T06:00:00-06:00",
+        "isDaytime": false,
+        "temperature": 64,
+        "temperatureUnit": "F",
+        "temperatureTrend": null,
+        "probabilityOfPrecipitation": {
+          "unitCode": "wmoUnit:percent",
+          "value": 0
+        },
+        "windSpeed": "2 to 8 mph",
+        "windDirection": "SE",
+        "icon": "https://api.weather.gov/icons/land/night/skc?size=medium",
+        "shortForecast": "Clear",
+        "detailedForecast": "Clear, with a low around 64."
       }
     ],
     "alerts": [],
     "past_7_days": [
-      {
-        "date": "2026-06-06",
-        "precip_in": 0,
-        "high_f": 96,
-        "low_f": 73
-      },
       {
         "date": "2026-06-07",
         "precip_in": 0.02,
@@ -831,11 +811,54 @@
         "date": "2026-06-13",
         "precip_in": 0,
         "high_f": 89,
-        "low_f": 64
+        "low_f": 62
+      },
+      {
+        "date": "2026-06-14",
+        "precip_in": 0,
+        "high_f": 90,
+        "low_f": 62
       }
     ]
   },
   "recent_briefings": [
+    {
+      "payload": {
+        "headline": "Heat returns — water everything except garlic, recheck peach.",
+        "weather_notes": [
+          "Water e1–e4, c1–c4, and potato_bags today — zone 1 has sat dry since Wednesday, with no rain through Monday's 89°F.",
+          "Water w1, w4, and blackberry today too, but skip w2/w3 — zone 2 is also 3 days dry, and garlic benefits from drying out ahead of the Jun 21 cutoff."
+        ],
+        "surfaced_tasks": [
+          {
+            "title": "Check peach tree for signs of recovery",
+            "bed_id": "peach",
+            "reason": "2 days overdue, and today's mild dry 86°F is the easiest check-in before highs climb toward 89°F by Monday.",
+            "task_id": "110"
+          },
+          {
+            "title": "Check for suckers",
+            "bed_id": "e1",
+            "reason": "Due tomorrow — today's 86°F kicks off a hot, dry run to 89°F by Monday that will push lateral growth past the 2-inch pinch window.",
+            "task_id": "70"
+          }
+        ],
+        "suggested_tasks": [
+          {
+            "title": "Set up trellis support for c1 beans",
+            "bed_id": "c1",
+            "urgency": "high",
+            "due_date": "2026-06-14",
+            "description": "Set up poles or trellis for c1 Good Mother Stollard now — at 41 days with no support, Monday's 89°F surge will accelerate vine sprawl."
+          }
+        ]
+      },
+      "suggestions_state": {
+        "accepted": [],
+        "rejected": []
+      },
+      "generated_at": "2026-06-13T13:39:02+00:00"
+    },
     {
       "payload": {
         "headline": "Peach and c2 checks overdue — 86°F heat returns today.",
@@ -1377,49 +1400,6 @@
         ]
       },
       "generated_at": "2026-05-31T13:43:42+00:00"
-    },
-    {
-      "payload": {
-        "headline": "Check Amish Paste suckers Sunday before 83°F Monday",
-        "weather_notes": [
-          "Skip all irrigation through Sunday — beds watered May 29 and today's 70% rain leaves every active bed saturated.",
-          "Inspect e1–e4 tomato lower leaves for early blight Sunday — today's 76% humidity and active rain are prime blight-spreading conditions.",
-          "Check c2, c3, c4 bean beds Monday — seeds sown May 28 can stall if surface soil bakes dry under 83°F heat; water if dry."
-        ],
-        "surfaced_tasks": [
-          {
-            "title": "Check for suckers",
-            "bed_id": "e1",
-            "reason": "Due tomorrow on Amish Paste (indeterminate, e1) — Sunday's clear dry window after today's rain is ideal to pinch lateral shoots before Monday's 83°F accelerates growth.",
-            "task_id": "68"
-          },
-          {
-            "title": "Inspect for early blight",
-            "bed_id": "e1",
-            "reason": "Due June 3 and today's 76% humidity with active rain creates prime blight conditions — inspect Sunday while leaves are drying before Monday's heat locks in any infection.",
-            "task_id": "52"
-          }
-        ],
-        "suggested_tasks": [
-          {
-            "title": "Check blackberry for flower clusters",
-            "bed_id": "blackberry",
-            "urgency": "normal",
-            "due_date": "2026-06-01",
-            "description": "Triple Crown enters its first fruiting season (year 2, planted May 2025) — confirm second-year canes are flowering now, the peak window for Zone 7b."
-          }
-        ]
-      },
-      "suggestions_state": {
-        "accepted": [
-          0
-        ],
-        "rejected": [],
-        "surfaced_dismissed": [
-          "68"
-        ]
-      },
-      "generated_at": "2026-05-30T13:45:58+00:00"
     }
   ]
 }
