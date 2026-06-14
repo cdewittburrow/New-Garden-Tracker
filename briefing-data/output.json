@@ -1,30 +1,36 @@
 {
-  "headline": "Heat returns — water everything except garlic, recheck peach.",
+  "headline": "93°F Tuesday — check e1 tomatoes, peach, harvest strawberries.",
   "weather_notes": [
-    "Water e1–e4, c1–c4, and potato_bags today — zone 1 has sat dry since Wednesday, with no rain through Monday's 89°F.",
-    "Water w1, w4, and blackberry today too, but skip w2/w3 — zone 2 is also 3 days dry, and garlic benefits from drying out ahead of the Jun 21 cutoff."
+    "Skip watering today — both Rachio zones already ran this morning, well ahead of Tuesday's 93°F peak.",
+    "Harvest ripe strawberries and tomatoes promptly — 90-93°F heat through Tuesday spoils and softens fruit fast."
   ],
   "surfaced_tasks": [
-    {
-      "task_id": "110",
-      "bed_id": "peach",
-      "title": "Check peach tree for signs of recovery",
-      "reason": "2 days overdue, and today's mild dry 86°F is the easiest check-in before highs climb toward 89°F by Monday."
-    },
     {
       "task_id": "70",
       "bed_id": "e1",
       "title": "Check for suckers",
-      "reason": "Due tomorrow — today's 86°F kicks off a hot, dry run to 89°F by Monday that will push lateral growth past the 2-inch pinch window."
+      "reason": "Due today, and the climb to 93°F by Tuesday accelerates lateral growth past the 2-inch pinch window."
+    },
+    {
+      "task_id": "21",
+      "bed_id": "e1",
+      "title": "First harvest check",
+      "reason": "9 days overdue, and 90-93°F heat through Tuesday will soften any ripe fruit fast."
+    },
+    {
+      "task_id": "110",
+      "bed_id": "peach",
+      "title": "Check peach tree for signs of recovery",
+      "reason": "3 days overdue on a tree last logged as likely dead — confirm status before Tuesday's 93°F adds further stress."
     }
   ],
   "suggested_tasks": [
     {
-      "title": "Set up trellis support for c1 beans",
+      "title": "Harvest ripe strawberries before heat spoils them",
       "due_date": "2026-06-14",
-      "description": "Set up poles or trellis for c1 Good Mother Stollard now — at 41 days with no support, Monday's 89°F surge will accelerate vine sprawl.",
-      "bed_id": "c1",
-      "urgency": "high"
+      "description": "Pick ripe w1 berries today — 90-93°F heat through Tuesday spoils fruit fast left on the vine.",
+      "bed_id": "w1",
+      "urgency": "normal"
     }
   ]
 }
