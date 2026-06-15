@@ -1,34 +1,36 @@
 {
-  "headline": "93°F Tuesday — check e1 tomatoes, peach, harvest strawberries.",
+  "headline": "Pick strawberries, water the peach — 93°F by Tuesday.",
   "weather_notes": [
-    "Skip watering today — both Rachio zones already ran this morning, well ahead of Tuesday's 93°F peak.",
-    "Harvest ripe strawberries and tomatoes promptly — 90-93°F heat through Tuesday spoils and softens fruit fast."
+    "Hand-water the peach tree today — it's been dry since Jun 3 and 93°F arrives by Tuesday.",
+    "Skip extra watering on w1, w2, w3, w4, and blackberry today — zone 2 already ran this morning.",
+    "Pick ripe w1 strawberries today — 87-93°F heat through Tuesday will soften and spoil fruit left on the plant."
   ],
   "surfaced_tasks": [
-    {
-      "task_id": "70",
-      "bed_id": "e1",
-      "title": "Check for suckers",
-      "reason": "Due today, and the climb to 93°F by Tuesday accelerates lateral growth past the 2-inch pinch window."
-    },
-    {
-      "task_id": "21",
-      "bed_id": "e1",
-      "title": "First harvest check",
-      "reason": "9 days overdue, and 90-93°F heat through Tuesday will soften any ripe fruit fast."
-    },
     {
       "task_id": "110",
       "bed_id": "peach",
       "title": "Check peach tree for signs of recovery",
-      "reason": "3 days overdue on a tree last logged as likely dead — confirm status before Tuesday's 93°F adds further stress."
+      "reason": "Now 3 days overdue and dry since Jun 3, with highs climbing to 93°F by Tuesday — check before the heat forecloses any recovery window."
+    },
+    {
+      "task_id": "70",
+      "bed_id": "e1",
+      "title": "Check for suckers",
+      "reason": "Due today, and three straight days of 87-93°F heat will push lateral growth past the 2-inch pinch window."
     }
   ],
   "suggested_tasks": [
     {
+      "title": "Hand-water the peach tree today",
+      "due_date": "2026-06-14",
+      "description": "11 days since its last watering (Jun 3) and 93°F arrives by Tuesday — water now regardless of recovery odds to limit further stress.",
+      "bed_id": "peach",
+      "urgency": "high"
+    },
+    {
       "title": "Harvest ripe strawberries before heat spoils them",
       "due_date": "2026-06-14",
-      "description": "Pick ripe w1 berries today — 90-93°F heat through Tuesday spoils fruit fast left on the vine.",
+      "description": "Seascape and Flamingo have been actively fruiting since early June, and 87-93°F through Tuesday will soften any ripe berries fast.",
       "bed_id": "w1",
       "urgency": "normal"
     }
