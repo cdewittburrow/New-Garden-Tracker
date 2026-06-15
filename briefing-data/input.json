@@ -1,5 +1,5 @@
 {
-  "today": "2026-06-14",
+  "today": "2026-06-15",
   "plantings": [
     {
       "id": "79526620-7d75-4886-b31d-7c9bf731edc9",
@@ -280,13 +280,6 @@
       "due_date": "2026-06-10"
     },
     {
-      "id": 110,
-      "planting_id": "9b70c528-46e5-439d-86ac-10aa998ebfac",
-      "title": "Check peach tree for signs of recovery",
-      "description": "7 days since the Jun 3 'one more watering' — assess new growth now while it's mild, before Friday's heat and before it's too late to plan a replacement.",
-      "due_date": "2026-06-11"
-    },
-    {
       "id": 70,
       "planting_id": "54c2c338-5c4d-4924-b91b-4ffc22ebb4b3",
       "title": "Check for suckers",
@@ -385,14 +378,14 @@
       "note": "Sprouts! Sprouted today already a couple inches tall. Six of the 8 so far."
     },
     {
-      "planting_id": "5ed2b328-d443-49f2-966e-547a79002f31",
-      "date": "May 12, 2026",
-      "note": "Pods observed. Lots already"
-    },
-    {
       "planting_id": "e0280648-bd37-43b0-b99a-5b1ceed52faa",
       "date": "May 12, 2026",
       "note": "Pods just starting to appear"
+    },
+    {
+      "planting_id": "5ed2b328-d443-49f2-966e-547a79002f31",
+      "date": "May 12, 2026",
+      "note": "Pods observed. Lots already"
     },
     {
       "planting_id": "fcae49c2-9609-43da-ae75-fcebeca30243",
@@ -405,17 +398,17 @@
       "note": "Pulled weeds that grew through the straw"
     },
     {
+      "planting_id": "e0280648-bd37-43b0-b99a-5b1ceed52faa",
+      "date": "Mar 27, 2026",
+      "note": "The weird little pea tentacles have shown up"
+    },
+    {
       "planting_id": "5ed2b328-d443-49f2-966e-547a79002f31",
       "date": "Mar 27, 2026",
       "note": "The weird little pea tentacles have shown up"
     },
     {
       "planting_id": "fcae49c2-9609-43da-ae75-fcebeca30243",
-      "date": "Mar 27, 2026",
-      "note": "The weird little pea tentacles have shown up"
-    },
-    {
-      "planting_id": "e0280648-bd37-43b0-b99a-5b1ceed52faa",
       "date": "Mar 27, 2026",
       "note": "The weird little pea tentacles have shown up"
     },
@@ -445,14 +438,14 @@
       "note": "Added a top dress of worm castings. Approx one or two cups."
     },
     {
-      "planting_id": "79526620-7d75-4886-b31d-7c9bf731edc9",
-      "date": "Mar 22, 2026",
-      "note": "Installed bed. 2 large bags of Kellogg organic potting soil mix. Bag of chicken compost. Healthy serving of bone meal, worm castings, humate and a berry mix organic fertilizer"
-    },
-    {
       "planting_id": "abebbe9f-e355-4c78-a77f-79d4c88d17f7",
       "date": "Mar 22, 2026",
       "note": "Installed bed today. Two bags of Kellogg organic raised bed mix. One bag of chicken compost. Humate and blood meal and worm castings."
+    },
+    {
+      "planting_id": "79526620-7d75-4886-b31d-7c9bf731edc9",
+      "date": "Mar 22, 2026",
+      "note": "Installed bed. 2 large bags of Kellogg organic potting soil mix. Bag of chicken compost. Healthy serving of bone meal, worm castings, humate and a berry mix organic fertilizer"
     },
     {
       "planting_id": "e0280648-bd37-43b0-b99a-5b1ceed52faa",
@@ -490,12 +483,12 @@
       "note": "Watered today. Also installed the trellis arch and frost cloth."
     },
     {
-      "planting_id": "fcae49c2-9609-43da-ae75-fcebeca30243",
+      "planting_id": "5ed2b328-d443-49f2-966e-547a79002f31",
       "date": "Mar 14, 2026",
       "note": "Watered today. Also installed the trellis arch and frost cloth."
     },
     {
-      "planting_id": "5ed2b328-d443-49f2-966e-547a79002f31",
+      "planting_id": "fcae49c2-9609-43da-ae75-fcebeca30243",
       "date": "Mar 14, 2026",
       "note": "Watered today. Also installed the trellis arch and frost cloth."
     },
@@ -503,11 +496,6 @@
       "planting_id": "67cc6456-af8e-4e73-b9b2-0e44b0c7a665",
       "date": "Jun 5, 2026",
       "note": "First sprout observed"
-    },
-    {
-      "planting_id": "f636fc70-8976-4da4-bb95-d4fef49b7482",
-      "date": "Jun 4, 2026",
-      "note": "First bean sprout appeared!"
     },
     {
       "planting_id": "67cc6456-af8e-4e73-b9b2-0e44b0c7a665",
@@ -520,9 +508,9 @@
       "note": "First sprout noticed"
     },
     {
-      "planting_id": "2a7bfcbb-580c-4518-a20a-47fc386f4760",
-      "date": "Jun 3, 2026",
-      "note": "All five sprouted so the two that froze bounced back. I hill d 2 of them today"
+      "planting_id": "f636fc70-8976-4da4-bb95-d4fef49b7482",
+      "date": "Jun 4, 2026",
+      "note": "First bean sprout appeared!"
     },
     {
       "planting_id": "79526620-7d75-4886-b31d-7c9bf731edc9",
@@ -530,9 +518,9 @@
       "note": "Couldn’t find my watering can so I applied berry food instead of fish emulsion"
     },
     {
-      "planting_id": "c84ee64b-f589-4e98-81be-e1b4e323a2ca",
+      "planting_id": "2a7bfcbb-580c-4518-a20a-47fc386f4760",
       "date": "Jun 3, 2026",
-      "note": "Applied some berry food"
+      "note": "All five sprouted so the two that froze bounced back. I hill d 2 of them today"
     },
     {
       "planting_id": "9b70c528-46e5-439d-86ac-10aa998ebfac",
@@ -540,7 +528,22 @@
       "note": "Yeah I think she’s dead. Gonna water one more time to be sure"
     },
     {
-      "planting_id": "abebbe9f-e355-4c78-a77f-79d4c88d17f7",
+      "planting_id": "c84ee64b-f589-4e98-81be-e1b4e323a2ca",
+      "date": "Jun 3, 2026",
+      "note": "Applied some berry food"
+    },
+    {
+      "planting_id": "c84ee64b-f589-4e98-81be-e1b4e323a2ca",
+      "date": "Jun 14, 2026",
+      "note": "Berries observed. Also at least five new canes"
+    },
+    {
+      "planting_id": "2a7bfcbb-580c-4518-a20a-47fc386f4760",
+      "date": "Jun 14, 2026",
+      "note": "All five bounced back. Hurried leaves and rolled out the bags a bit more today. I would say on the two that didn’t freeze we are 2/3 done and the others about 1/3 done"
+    },
+    {
+      "planting_id": "14a35329-35a2-42ef-b59c-9b35fc2a2c7e",
       "date": "Apr 4, 2026",
       "note": "Fish emulsion applied"
     },
@@ -550,7 +553,7 @@
       "note": "Fish emulsion applied"
     },
     {
-      "planting_id": "14a35329-35a2-42ef-b59c-9b35fc2a2c7e",
+      "planting_id": "abebbe9f-e355-4c78-a77f-79d4c88d17f7",
       "date": "Apr 4, 2026",
       "note": "Fish emulsion applied"
     },
@@ -637,65 +640,8 @@
     "forecast": [
       {
         "number": 1,
-        "name": "Overnight",
-        "startTime": "2026-06-14T05:00:00-06:00",
-        "endTime": "2026-06-14T06:00:00-06:00",
-        "isDaytime": false,
-        "temperature": 57,
-        "temperatureUnit": "F",
-        "temperatureTrend": null,
-        "probabilityOfPrecipitation": {
-          "unitCode": "wmoUnit:percent",
-          "value": 0
-        },
-        "windSpeed": "2 mph",
-        "windDirection": "NNW",
-        "icon": "https://api.weather.gov/icons/land/night/skc?size=medium",
-        "shortForecast": "Clear",
-        "detailedForecast": "Clear. Low around 57, with temperatures rising to around 59 overnight. North northwest wind around 2 mph."
-      },
-      {
-        "number": 2,
-        "name": "Sunday",
-        "startTime": "2026-06-14T06:00:00-06:00",
-        "endTime": "2026-06-14T18:00:00-06:00",
-        "isDaytime": true,
-        "temperature": 87,
-        "temperatureUnit": "F",
-        "temperatureTrend": null,
-        "probabilityOfPrecipitation": {
-          "unitCode": "wmoUnit:percent",
-          "value": 1
-        },
-        "windSpeed": "2 to 10 mph",
-        "windDirection": "NNW",
-        "icon": "https://api.weather.gov/icons/land/day/skc?size=medium",
-        "shortForecast": "Sunny",
-        "detailedForecast": "Sunny, with a high near 87. North northwest wind 2 to 10 mph."
-      },
-      {
-        "number": 3,
-        "name": "Sunday Night",
-        "startTime": "2026-06-14T18:00:00-06:00",
-        "endTime": "2026-06-15T06:00:00-06:00",
-        "isDaytime": false,
-        "temperature": 57,
-        "temperatureUnit": "F",
-        "temperatureTrend": null,
-        "probabilityOfPrecipitation": {
-          "unitCode": "wmoUnit:percent",
-          "value": 1
-        },
-        "windSpeed": "2 to 8 mph",
-        "windDirection": "NNW",
-        "icon": "https://api.weather.gov/icons/land/night/few?size=medium",
-        "shortForecast": "Mostly Clear",
-        "detailedForecast": "Mostly clear. Low around 57, with temperatures rising to around 60 overnight. North northwest wind 2 to 8 mph."
-      },
-      {
-        "number": 4,
-        "name": "Monday",
-        "startTime": "2026-06-15T06:00:00-06:00",
+        "name": "Today",
+        "startTime": "2026-06-15T09:00:00-06:00",
         "endTime": "2026-06-15T18:00:00-06:00",
         "isDaytime": true,
         "temperature": 88,
@@ -705,15 +651,15 @@
           "unitCode": "wmoUnit:percent",
           "value": 0
         },
-        "windSpeed": "2 to 10 mph",
-        "windDirection": "NNW",
-        "icon": "https://api.weather.gov/icons/land/day/few?size=medium",
+        "windSpeed": "5 to 9 mph",
+        "windDirection": "NW",
+        "icon": "https://api.weather.gov/icons/land/day/skc?size=medium",
         "shortForecast": "Sunny",
-        "detailedForecast": "Sunny, with a high near 88. North northwest wind 2 to 10 mph."
+        "detailedForecast": "Sunny, with a high near 88. Northwest wind 5 to 9 mph."
       },
       {
-        "number": 5,
-        "name": "Monday Night",
+        "number": 2,
+        "name": "Tonight",
         "startTime": "2026-06-15T18:00:00-06:00",
         "endTime": "2026-06-16T06:00:00-06:00",
         "isDaytime": false,
@@ -724,33 +670,33 @@
           "unitCode": "wmoUnit:percent",
           "value": 0
         },
-        "windSpeed": "2 to 9 mph",
-        "windDirection": "ENE",
+        "windSpeed": "2 to 8 mph",
+        "windDirection": "W",
         "icon": "https://api.weather.gov/icons/land/night/few?size=medium",
         "shortForecast": "Mostly Clear",
-        "detailedForecast": "Mostly clear, with a low around 60. East northeast wind 2 to 9 mph."
+        "detailedForecast": "Mostly clear. Low around 60, with temperatures rising to around 63 overnight. West wind 2 to 8 mph."
       },
       {
-        "number": 6,
+        "number": 3,
         "name": "Tuesday",
         "startTime": "2026-06-16T06:00:00-06:00",
         "endTime": "2026-06-16T18:00:00-06:00",
         "isDaytime": true,
-        "temperature": 93,
+        "temperature": 92,
         "temperatureUnit": "F",
         "temperatureTrend": null,
         "probabilityOfPrecipitation": {
           "unitCode": "wmoUnit:percent",
           "value": 0
         },
-        "windSpeed": "3 to 9 mph",
-        "windDirection": "WSW",
+        "windSpeed": "2 to 8 mph",
+        "windDirection": "WNW",
         "icon": "https://api.weather.gov/icons/land/day/few?size=medium",
         "shortForecast": "Sunny",
-        "detailedForecast": "Sunny, with a high near 93."
+        "detailedForecast": "Sunny, with a high near 92. West northwest wind 2 to 8 mph."
       },
       {
-        "number": 7,
+        "number": 4,
         "name": "Tuesday Night",
         "startTime": "2026-06-16T18:00:00-06:00",
         "endTime": "2026-06-17T06:00:00-06:00",
@@ -762,21 +708,72 @@
           "unitCode": "wmoUnit:percent",
           "value": 0
         },
-        "windSpeed": "2 to 8 mph",
+        "windSpeed": "2 to 7 mph",
         "windDirection": "SE",
         "icon": "https://api.weather.gov/icons/land/night/skc?size=medium",
         "shortForecast": "Clear",
-        "detailedForecast": "Clear, with a low around 64."
+        "detailedForecast": "Clear, with a low around 64. Southeast wind 2 to 7 mph."
+      },
+      {
+        "number": 5,
+        "name": "Wednesday",
+        "startTime": "2026-06-17T06:00:00-06:00",
+        "endTime": "2026-06-17T18:00:00-06:00",
+        "isDaytime": true,
+        "temperature": 92,
+        "temperatureUnit": "F",
+        "temperatureTrend": null,
+        "probabilityOfPrecipitation": {
+          "unitCode": "wmoUnit:percent",
+          "value": 0
+        },
+        "windSpeed": "1 to 12 mph",
+        "windDirection": "WNW",
+        "icon": "https://api.weather.gov/icons/land/day/skc?size=medium",
+        "shortForecast": "Sunny",
+        "detailedForecast": "Sunny, with a high near 92. West northwest wind 1 to 12 mph."
+      },
+      {
+        "number": 6,
+        "name": "Wednesday Night",
+        "startTime": "2026-06-17T18:00:00-06:00",
+        "endTime": "2026-06-18T06:00:00-06:00",
+        "isDaytime": false,
+        "temperature": 61,
+        "temperatureUnit": "F",
+        "temperatureTrend": null,
+        "probabilityOfPrecipitation": {
+          "unitCode": "wmoUnit:percent",
+          "value": 0
+        },
+        "windSpeed": "2 to 10 mph",
+        "windDirection": "NNW",
+        "icon": "https://api.weather.gov/icons/land/night/skc?size=medium",
+        "shortForecast": "Clear",
+        "detailedForecast": "Clear, with a low around 61."
+      },
+      {
+        "number": 7,
+        "name": "Thursday",
+        "startTime": "2026-06-18T06:00:00-06:00",
+        "endTime": "2026-06-18T18:00:00-06:00",
+        "isDaytime": true,
+        "temperature": 90,
+        "temperatureUnit": "F",
+        "temperatureTrend": null,
+        "probabilityOfPrecipitation": {
+          "unitCode": "wmoUnit:percent",
+          "value": 0
+        },
+        "windSpeed": "1 to 8 mph",
+        "windDirection": "N",
+        "icon": "https://api.weather.gov/icons/land/day/few?size=medium",
+        "shortForecast": "Sunny",
+        "detailedForecast": "Sunny, with a high near 90."
       }
     ],
     "alerts": [],
     "past_7_days": [
-      {
-        "date": "2026-06-07",
-        "precip_in": 0.02,
-        "high_f": 82,
-        "low_f": 68
-      },
       {
         "date": "2026-06-08",
         "precip_in": 0,
@@ -816,12 +813,113 @@
       {
         "date": "2026-06-14",
         "precip_in": 0,
-        "high_f": 90,
+        "high_f": 89,
         "low_f": 62
+      },
+      {
+        "date": "2026-06-15",
+        "precip_in": 0,
+        "high_f": 90,
+        "low_f": 63
       }
     ]
   },
   "recent_briefings": [
+    {
+      "payload": {
+        "headline": "Pick strawberries, water the peach — 93°F by Tuesday.",
+        "weather_notes": [
+          "Hand-water the peach tree today — it's been dry since Jun 3 and 93°F arrives by Tuesday.",
+          "Skip extra watering on w1, w2, w3, w4, and blackberry today — zone 2 already ran this morning.",
+          "Pick ripe w1 strawberries today — 87-93°F heat through Tuesday will soften and spoil fruit left on the plant."
+        ],
+        "surfaced_tasks": [
+          {
+            "title": "Check peach tree for signs of recovery",
+            "bed_id": "peach",
+            "reason": "Now 3 days overdue and dry since Jun 3, with highs climbing to 93°F by Tuesday — check before the heat forecloses any recovery window.",
+            "task_id": "110"
+          },
+          {
+            "title": "Check for suckers",
+            "bed_id": "e1",
+            "reason": "Due today, and three straight days of 87-93°F heat will push lateral growth past the 2-inch pinch window.",
+            "task_id": "70"
+          }
+        ],
+        "suggested_tasks": [
+          {
+            "title": "Hand-water the peach tree today",
+            "bed_id": "peach",
+            "urgency": "high",
+            "due_date": "2026-06-14",
+            "description": "11 days since its last watering (Jun 3) and 93°F arrives by Tuesday — water now regardless of recovery odds to limit further stress."
+          },
+          {
+            "title": "Harvest ripe strawberries before heat spoils them",
+            "bed_id": "w1",
+            "urgency": "normal",
+            "due_date": "2026-06-14",
+            "description": "Seascape and Flamingo have been actively fruiting since early June, and 87-93°F through Tuesday will soften any ripe berries fast."
+          }
+        ]
+      },
+      "suggestions_state": {
+        "accepted": [],
+        "rejected": []
+      },
+      "generated_at": "2026-06-15T13:39:07+00:00"
+    },
+    {
+      "payload": {
+        "headline": "93°F Tuesday — check e1 tomatoes, peach, harvest strawberries.",
+        "weather_notes": [
+          "Skip watering today — both Rachio zones already ran this morning, well ahead of Tuesday's 93°F peak.",
+          "Harvest ripe strawberries and tomatoes promptly — 90-93°F heat through Tuesday spoils and softens fruit fast."
+        ],
+        "surfaced_tasks": [
+          {
+            "title": "Check for suckers",
+            "bed_id": "e1",
+            "reason": "Due today, and the climb to 93°F by Tuesday accelerates lateral growth past the 2-inch pinch window.",
+            "task_id": "70"
+          },
+          {
+            "title": "First harvest check",
+            "bed_id": "e1",
+            "reason": "9 days overdue, and 90-93°F heat through Tuesday will soften any ripe fruit fast.",
+            "task_id": "21"
+          },
+          {
+            "title": "Check peach tree for signs of recovery",
+            "bed_id": "peach",
+            "reason": "3 days overdue on a tree last logged as likely dead — confirm status before Tuesday's 93°F adds further stress.",
+            "task_id": "110"
+          }
+        ],
+        "suggested_tasks": [
+          {
+            "title": "Harvest ripe strawberries before heat spoils them",
+            "bed_id": "w1",
+            "urgency": "normal",
+            "due_date": "2026-06-14",
+            "description": "Pick ripe w1 berries today — 90-93°F heat through Tuesday spoils fruit fast left on the vine."
+          }
+        ]
+      },
+      "suggestions_state": {
+        "accepted": [],
+        "rejected": [
+          0
+        ],
+        "surfaced_dismissed": [
+          "110",
+          "21",
+          "70"
+        ]
+      },
+      "generated_at": "2026-06-14T13:37:59+00:00"
+    },
     {
       "payload": {
         "headline": "Heat returns — water everything except garlic, recheck peach.",
@@ -1323,83 +1421,6 @@
         "rejected": []
       },
       "generated_at": "2026-06-02T13:44:42+00:00"
-    },
-    {
-      "payload": {
-        "headline": "Hornworm check today, blackberry tomorrow, 85°F Tuesday",
-        "weather_notes": [
-          "Hold all watering today — Rachio ran 2 days ago at 75°F with zero rain risk; every active bed is at adequate moisture.",
-          "Water potato_bags and c2–c4 bean beds by Tuesday — 85°F heat arrives with no rain in the 7-day forecast; bag soil and just-sown bean seeds lose moisture faster than established raised beds."
-        ],
-        "surfaced_tasks": [
-          {
-            "title": "Inspect for hornworms — apply Bt if found",
-            "bed_id": "e1",
-            "reason": "Due today — tomato beds are 22 days in and entering the peak hornworm window; today's warm sunny conditions are ideal for checking lower leaves for frass before the week heats up.",
-            "task_id": "58"
-          },
-          {
-            "title": "Check blackberry for flower clusters",
-            "bed_id": "blackberry",
-            "reason": "Due tomorrow — Triple Crown is entering its first fruiting season at year 2 and confirming flowers now sets expectations for summer berry yield.",
-            "task_id": "107"
-          }
-        ],
-        "suggested_tasks": [
-          {
-            "title": "Check frost-damaged potato sprouts for recovery",
-            "bed_id": "potato_bags",
-            "urgency": "normal",
-            "due_date": "2026-06-01",
-            "description": "Two sprouts were knocked back by frost May 23 — 8 days later with 85°F arriving Tuesday, confirm recovery or spot-replant before soil temperatures spike."
-          }
-        ]
-      },
-      "suggestions_state": {
-        "accepted": [],
-        "rejected": []
-      },
-      "generated_at": "2026-06-01T13:44:27+00:00"
-    },
-    {
-      "payload": {
-        "headline": "Hornworms due today — strawberry feed and blackberry check tomorrow",
-        "weather_notes": [
-          "Water all beds Monday — no rain forecast all week and 85°F arrives Tuesday with soil already 3 days dry after May 29 irrigation.",
-          "Keep c2–c4 bean beds surface-moist daily — seeds sown May 28 are mid-germination and 85°F Tuesday will dry surface soil before sprouts emerge.",
-          "Check and water potato_bags Monday — bag soil dries twice as fast as raised beds and Tuesday's 85°F hits 4 days after last irrigation."
-        ],
-        "surfaced_tasks": [
-          {
-            "title": "Inspect for hornworms — apply Bt if found",
-            "bed_id": "e1",
-            "reason": "Due today on 22-day tomatoes; today's clear dry conditions are ideal for spotting frass before Tuesday's 85°F accelerates pest activity.",
-            "task_id": "58"
-          },
-          {
-            "title": "Check blackberry for flower clusters",
-            "bed_id": "blackberry",
-            "reason": "Due tomorrow at year 2 Triple Crown's first fruiting window — confirming flowers are set now determines whether the plant yields this season.",
-            "task_id": "107"
-          },
-          {
-            "title": "Mid-season feed — fish emulsion",
-            "bed_id": "w1",
-            "reason": "Due tomorrow with strawberries at 36 days in active fruiting — apply on Monday's moist soil before the week's heat builds.",
-            "task_id": "33"
-          }
-        ],
-        "suggested_tasks": []
-      },
-      "suggestions_state": {
-        "accepted": [],
-        "rejected": [],
-        "surfaced_dismissed": [
-          "58",
-          "107"
-        ]
-      },
-      "generated_at": "2026-05-31T13:43:42+00:00"
     }
   ]
 }
