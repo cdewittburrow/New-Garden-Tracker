@@ -1,37 +1,37 @@
 {
-  "headline": "Pick strawberries, water the peach — 93°F by Tuesday.",
+  "headline": "92°F arrives Tuesday — pull w2 garlic off irrigation now.",
   "weather_notes": [
-    "Hand-water the peach tree today — it's been dry since Jun 3 and 93°F arrives by Tuesday.",
-    "Skip extra watering on w1, w2, w3, w4, and blackberry today — zone 2 already ran this morning.",
-    "Pick ripe w1 strawberries today — 87-93°F heat through Tuesday will soften and spoil fruit left on the plant."
+    "Water e1–e4 tomatoes, c1–c4 beans, and potato_bags by Tuesday — 2 days since the Jun 14 irrigation with 92°F heat arriving and no rain through the week.",
+    "Exclude w2 garlic from Tuesday's watering — the Jun 21 stop-water deadline is 6 days away with harvest 30 days out.",
+    "Water w1, w4, and blackberry no later than Wednesday — 88–92°F heat all week will stress these beds 3+ days from the Jun 14 zone 2 run."
   ],
   "surfaced_tasks": [
     {
-      "task_id": "110",
-      "bed_id": "peach",
-      "title": "Check peach tree for signs of recovery",
-      "reason": "Now 3 days overdue and dry since Jun 3, with highs climbing to 93°F by Tuesday — check before the heat forecloses any recovery window."
+      "task_id": "10",
+      "bed_id": "w2",
+      "title": "Stop watering",
+      "reason": "The Jun 21 cutoff is 6 days away with harvest ~30 days out — this is the week to permanently remove w2 from irrigation scheduling."
     },
     {
-      "task_id": "70",
+      "task_id": "53",
       "bed_id": "e1",
-      "title": "Check for suckers",
-      "reason": "Due today, and three straight days of 87-93°F heat will push lateral growth past the 2-inch pinch window."
+      "title": "Inspect for early blight",
+      "reason": "Due Wednesday on 37-day tomatoes — inspect lower leaves before 88–92°F heat peaks Tuesday through Thursday."
     }
   ],
   "suggested_tasks": [
     {
-      "title": "Hand-water the peach tree today",
-      "due_date": "2026-06-14",
-      "description": "11 days since its last watering (Jun 3) and 93°F arrives by Tuesday — water now regardless of recovery odds to limit further stress.",
-      "bed_id": "peach",
-      "urgency": "high"
+      "title": "Train new blackberry canes to trellis",
+      "due_date": "2026-06-17",
+      "description": "Five new canes observed Jun 14 — tie to the trellis structure while growth is still flexible before 92°F heat hardens new wood.",
+      "bed_id": "blackberry",
+      "urgency": "normal"
     },
     {
-      "title": "Harvest ripe strawberries before heat spoils them",
-      "due_date": "2026-06-14",
-      "description": "Seascape and Flamingo have been actively fruiting since early June, and 87-93°F through Tuesday will soften any ripe berries fast.",
-      "bed_id": "w1",
+      "title": "Check w3 Italian Red for scapes",
+      "due_date": "2026-06-17",
+      "description": "30 days to harvest — snap any curled scapes now to redirect energy into bulbs, last window before the harvest dry-down.",
+      "bed_id": "w3",
       "urgency": "normal"
     }
   ]
