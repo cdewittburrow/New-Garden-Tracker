@@ -1,36 +1,37 @@
 {
-  "headline": "92°F arrives Tuesday — pull w2 garlic off irrigation now.",
+  "headline": "97°F arrives Friday — water now, blight check tomorrow.",
   "weather_notes": [
-    "Water e1–e4 tomatoes, c1–c4 beans, and potato_bags by Tuesday — 2 days since the Jun 14 irrigation with 92°F heat arriving and no rain through the week.",
-    "Exclude w2 garlic from Tuesday's watering — the Jun 21 stop-water deadline is 6 days away with harvest 30 days out.",
-    "Water w1, w4, and blackberry no later than Wednesday — 88–92°F heat all week will stress these beds 3+ days from the Jun 14 zone 2 run."
+    "Water e1–e4, c1–c4, and potato_bags today — zone 1 last ran June 14 and heat climbs from 93°F today to 97°F Friday with zero rain forecast.",
+    "Water w1, w4, and blackberry today — zone 2 also last ran June 14 and the same dry heat window applies through the weekend.",
+    "Exclude w2 and w3 garlic from all remaining irrigation — 29 days to July 15 opens the 2-week dry-down window right now.",
+    "Check c2–c4 bean seedling soil daily this week — 19-day sprouts in 93-97°F with no rain can dry out at the surface between zone 1 runs."
   ],
   "surfaced_tasks": [
-    {
-      "task_id": "10",
-      "bed_id": "w2",
-      "title": "Stop watering",
-      "reason": "The Jun 21 cutoff is 6 days away with harvest ~30 days out — this is the week to permanently remove w2 from irrigation scheduling."
-    },
     {
       "task_id": "53",
       "bed_id": "e1",
       "title": "Inspect for early blight",
-      "reason": "Due Wednesday on 37-day tomatoes — inspect lower leaves before 88–92°F heat peaks Tuesday through Thursday."
+      "reason": "Due tomorrow on 38-day Amish Paste — inspect lower leaves now before 93–97°F heat through Friday accelerates any latent infection."
+    },
+    {
+      "task_id": "10",
+      "bed_id": "w2",
+      "title": "Stop watering",
+      "reason": "Due in 5 days with harvest 29 days out — the 2-week dry-down must begin today to protect wrapper quality."
     }
   ],
   "suggested_tasks": [
     {
       "title": "Train new blackberry canes to trellis",
-      "due_date": "2026-06-17",
-      "description": "Five new canes observed Jun 14 — tie to the trellis structure while growth is still flexible before 92°F heat hardens new wood.",
+      "due_date": "2026-06-18",
+      "description": "Five new canes observed June 14 — tie them to the trellis while growth is still flexible before Friday's 97°F hardens new wood.",
       "bed_id": "blackberry",
       "urgency": "normal"
     },
     {
       "title": "Check w3 Italian Red for scapes",
-      "due_date": "2026-06-17",
-      "description": "30 days to harvest — snap any curled scapes now to redirect energy into bulbs, last window before the harvest dry-down.",
+      "due_date": "2026-06-18",
+      "description": "Hardneck Italian Red at 29 days from harvest — snap any curled scapes now to redirect energy into bulbs before the dry-down window closes.",
       "bed_id": "w3",
       "urgency": "normal"
     }
