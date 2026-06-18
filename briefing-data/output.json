@@ -1,39 +1,37 @@
 {
-  "headline": "97°F arrives Friday — water now, blight check tomorrow.",
+  "headline": "97°F Friday — blight check overdue, cut garlic water.",
   "weather_notes": [
-    "Water e1–e4, c1–c4, and potato_bags today — zone 1 last ran June 14 and heat climbs from 93°F today to 97°F Friday with zero rain forecast.",
-    "Water w1, w4, and blackberry today — zone 2 also last ran June 14 and the same dry heat window applies through the weekend.",
-    "Exclude w2 and w3 garlic from all remaining irrigation — 29 days to July 15 opens the 2-week dry-down window right now.",
-    "Check c2–c4 bean seedling soil daily this week — 19-day sprouts in 93-97°F with no rain can dry out at the surface between zone 1 runs."
+    "Remove w2 and w3 garlic from zone 2 irrigation starting now — today's run should be their last with the Jun 21 stop-water deadline 3 days away and harvest 27 days out.",
+    "Do all tomato scouting and plant work before 9 AM Friday — 97°F Juneteenth heat peaks by midday with no wind relief forecast.",
+    "Monitor Saturday afternoon's slim storm chance (12%) — if showers arrive, skip the next zone 1 run to avoid waterlogging 21-day bean seedlings in c2–c4."
   ],
   "surfaced_tasks": [
     {
       "task_id": "53",
       "bed_id": "e1",
       "title": "Inspect for early blight",
-      "reason": "Due tomorrow on 38-day Amish Paste — inspect lower leaves now before 93–97°F heat through Friday accelerates any latent infection."
+      "reason": "Due yesterday on 40-day Amish Paste — inspect lower leaves this morning before 97°F Friday intensifies stress on heat-loaded foliage."
+    },
+    {
+      "task_id": "60",
+      "bed_id": "e1",
+      "title": "Inspect for hornworms — apply Bt if found",
+      "reason": "Due in 2 days — hornworm feeding accelerates with 97°F arriving Friday; check and treat before peak heat conditions."
     },
     {
       "task_id": "10",
       "bed_id": "w2",
       "title": "Stop watering",
-      "reason": "Due in 5 days with harvest 29 days out — the 2-week dry-down must begin today to protect wrapper quality."
+      "reason": "Deadline is 3 days away with harvest 27 days out — today's zone 2 run should be w2's last before the Jun 21 cutoff."
     }
   ],
   "suggested_tasks": [
     {
       "title": "Train new blackberry canes to trellis",
       "due_date": "2026-06-18",
-      "description": "Five new canes observed June 14 — tie them to the trellis while growth is still flexible before Friday's 97°F hardens new wood.",
+      "description": "Five new canes observed Jun 14 — tie to trellis structure while still pliable before 97°F Friday hardens new wood.",
       "bed_id": "blackberry",
-      "urgency": "normal"
-    },
-    {
-      "title": "Check w3 Italian Red for scapes",
-      "due_date": "2026-06-18",
-      "description": "Hardneck Italian Red at 29 days from harvest — snap any curled scapes now to redirect energy into bulbs before the dry-down window closes.",
-      "bed_id": "w3",
-      "urgency": "normal"
+      "urgency": "low"
     }
   ]
 }
