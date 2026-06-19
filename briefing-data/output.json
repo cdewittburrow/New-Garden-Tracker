@@ -1,37 +1,29 @@
 {
-  "headline": "97°F Friday — blight check overdue, cut garlic water.",
+  "headline": "Stop w2 garlic water — 2 days to June 21 deadline.",
   "weather_notes": [
-    "Remove w2 and w3 garlic from zone 2 irrigation starting now — today's run should be their last with the Jun 21 stop-water deadline 3 days away and harvest 27 days out.",
-    "Do all tomato scouting and plant work before 9 AM Friday — 97°F Juneteenth heat peaks by midday with no wind relief forecast.",
-    "Monitor Saturday afternoon's slim storm chance (12%) — if showers arrive, skip the next zone 1 run to avoid waterlogging 21-day bean seedlings in c2–c4."
+    "Do all garden work before 9 AM today — Heat Advisory continues through Saturday morning and 97°F midday conditions make outdoor work unsafe.",
+    "Add or check mulch depth on e1–e4 tomato beds — 97°F soil surface loses moisture fast and 2-3 inches of mulch extends time between zone 1 runs.",
+    "Run zone 1 as scheduled Saturday morning — 2 days dry and 90°F forecast warrants it; pause only if afternoon showers arrive before the scheduled run."
   ],
   "surfaced_tasks": [
     {
-      "task_id": "53",
-      "bed_id": "e1",
-      "title": "Inspect for early blight",
-      "reason": "Due yesterday on 40-day Amish Paste — inspect lower leaves this morning before 97°F Friday intensifies stress on heat-loaded foliage."
+      "task_id": "10",
+      "bed_id": "w2",
+      "title": "Stop watering",
+      "reason": "June 21 deadline is 2 days away with harvest 26 days out — yesterday's zone 2 run may have been the last acceptable irrigation before the dry-down window must begin."
     },
     {
       "task_id": "60",
       "bed_id": "e1",
       "title": "Inspect for hornworms — apply Bt if found",
-      "reason": "Due in 2 days — hornworm feeding accelerates with 97°F arriving Friday; check and treat before peak heat conditions."
+      "reason": "Due tomorrow and today's 97°F drives peak hornworm feeding — check lower leaf undersides for frass this morning before the task goes overdue."
     },
     {
-      "task_id": "10",
-      "bed_id": "w2",
-      "title": "Stop watering",
-      "reason": "Deadline is 3 days away with harvest 27 days out — today's zone 2 run should be w2's last before the Jun 21 cutoff."
+      "task_id": "22",
+      "bed_id": "e1",
+      "title": "Mid-season feed — blood meal",
+      "reason": "41 days from transplant with first harvest 31 days out — the heavy fruiting window is opening now, and Sunday's cooler 88°F after possible Saturday rain is the ideal application window."
     }
   ],
-  "suggested_tasks": [
-    {
-      "title": "Train new blackberry canes to trellis",
-      "due_date": "2026-06-18",
-      "description": "Five new canes observed Jun 14 — tie to trellis structure while still pliable before 97°F Friday hardens new wood.",
-      "bed_id": "blackberry",
-      "urgency": "low"
-    }
-  ]
+  "suggested_tasks": []
 }
