@@ -1,29 +1,31 @@
 {
-  "headline": "Stop w2 garlic water — 2 days to June 21 deadline.",
+  "headline": "Stop w2 garlic water now — deadline is tomorrow.",
   "weather_notes": [
-    "Do all garden work before 9 AM today — Heat Advisory continues through Saturday morning and 97°F midday conditions make outdoor work unsafe.",
-    "Add or check mulch depth on e1–e4 tomato beds — 97°F soil surface loses moisture fast and 2-3 inches of mulch extends time between zone 1 runs.",
-    "Run zone 1 as scheduled Saturday morning — 2 days dry and 90°F forecast warrants it; pause only if afternoon showers arrive before the scheduled run."
+    "Complete all garden tasks before 10 AM — Fire Weather Watch active today until 10 PM MDT brings gusty wind and extreme low humidity.",
+    "Check potato_bags soil moisture today — grow bags dry out faster than ground beds under Fire Weather Watch conditions and bags last watered June 18.",
+    "Run zone 1 Sunday morning if tonight's isolated storms (30% chance) deliver nothing — tomatoes and beans last watered June 18 face 88–91°F heat through Monday."
   ],
   "surfaced_tasks": [
     {
       "task_id": "10",
       "bed_id": "w2",
       "title": "Stop watering",
-      "reason": "June 21 deadline is 2 days away with harvest 26 days out — yesterday's zone 2 run may have been the last acceptable irrigation before the dry-down window must begin."
+      "reason": "Due tomorrow — zone 2 last ran June 18 and harvest is 25 days out; exclude w2 from all future zone 2 runs starting today."
     },
     {
       "task_id": "60",
       "bed_id": "e1",
       "title": "Inspect for hornworms — apply Bt if found",
-      "reason": "Due tomorrow and today's 97°F drives peak hornworm feeding — check lower leaf undersides for frass this morning before the task goes overdue."
-    },
-    {
-      "task_id": "22",
-      "bed_id": "e1",
-      "title": "Mid-season feed — blood meal",
-      "reason": "41 days from transplant with first harvest 31 days out — the heavy fruiting window is opening now, and Sunday's cooler 88°F after possible Saturday rain is the ideal application window."
+      "reason": "Due today on 42-day Amish Paste — 7 days of 89–97°F heat drives peak hornworm feeding; check lower leaves for frass this morning."
     }
   ],
-  "suggested_tasks": []
+  "suggested_tasks": [
+    {
+      "title": "Harvest ripe blackberries before they soften",
+      "due_date": "2026-06-21",
+      "description": "Berries first observed June 14 — 6 days of 89–97°F heat will have ripened and begun softening fruit; pick now before they pass peak.",
+      "bed_id": "blackberry",
+      "urgency": "normal"
+    }
+  ]
 }
