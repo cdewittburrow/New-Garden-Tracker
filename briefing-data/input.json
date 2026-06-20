@@ -1,5 +1,5 @@
 {
-  "today": "2026-06-19",
+  "today": "2026-06-20",
   "plantings": [
     {
       "id": "79526620-7d75-4886-b31d-7c9bf731edc9",
@@ -640,27 +640,8 @@
     "forecast": [
       {
         "number": 1,
-        "name": "Juneteenth",
-        "startTime": "2026-06-19T07:00:00-06:00",
-        "endTime": "2026-06-19T18:00:00-06:00",
-        "isDaytime": true,
-        "temperature": 97,
-        "temperatureUnit": "F",
-        "temperatureTrend": null,
-        "probabilityOfPrecipitation": {
-          "unitCode": "wmoUnit:percent",
-          "value": 0
-        },
-        "windSpeed": "6 mph",
-        "windDirection": "S",
-        "icon": "https://api.weather.gov/icons/land/day/sct?size=medium",
-        "shortForecast": "Mostly Sunny",
-        "detailedForecast": "Mostly sunny, with a high near 97. South wind around 6 mph."
-      },
-      {
-        "number": 2,
-        "name": "Tonight",
-        "startTime": "2026-06-19T18:00:00-06:00",
+        "name": "Overnight",
+        "startTime": "2026-06-20T05:00:00-06:00",
         "endTime": "2026-06-20T06:00:00-06:00",
         "isDaytime": false,
         "temperature": 69,
@@ -668,16 +649,16 @@
         "temperatureTrend": null,
         "probabilityOfPrecipitation": {
           "unitCode": "wmoUnit:percent",
-          "value": 4
+          "value": 5
         },
-        "windSpeed": "5 to 10 mph",
-        "windDirection": "SE",
+        "windSpeed": "12 mph",
+        "windDirection": "S",
         "icon": "https://api.weather.gov/icons/land/night/sct?size=medium",
         "shortForecast": "Partly Cloudy",
-        "detailedForecast": "Partly cloudy. Low around 69, with temperatures rising to around 71 overnight. Southeast wind 5 to 10 mph."
+        "detailedForecast": "Partly cloudy. Low around 69, with temperatures rising to around 72 overnight. South wind around 12 mph."
       },
       {
-        "number": 3,
+        "number": 2,
         "name": "Saturday",
         "startTime": "2026-06-20T06:00:00-06:00",
         "endTime": "2026-06-20T18:00:00-06:00",
@@ -687,16 +668,16 @@
         "temperatureTrend": null,
         "probabilityOfPrecipitation": {
           "unitCode": "wmoUnit:percent",
-          "value": 22
+          "value": 17
         },
-        "windSpeed": "8 to 12 mph",
-        "windDirection": "WSW",
+        "windSpeed": "8 to 13 mph",
+        "windDirection": "SW",
         "icon": "https://api.weather.gov/icons/land/day/few/tsra_hi,20?size=medium",
-        "shortForecast": "Sunny then Isolated Showers And Thunderstorms",
-        "detailedForecast": "Isolated rain showers between noon and 3pm, then isolated showers and thunderstorms. Sunny. High near 90, with temperatures falling to around 87 in the afternoon. West southwest wind 8 to 12 mph. Chance of precipitation is 20%."
+        "shortForecast": "Sunny then Isolated T-storms",
+        "detailedForecast": "Isolated thunderstorms after 3pm. Sunny. High near 90, with temperatures falling to around 88 in the afternoon. Southwest wind 8 to 13 mph. Chance of precipitation is 20%."
       },
       {
-        "number": 4,
+        "number": 3,
         "name": "Saturday Night",
         "startTime": "2026-06-20T18:00:00-06:00",
         "endTime": "2026-06-21T06:00:00-06:00",
@@ -706,16 +687,16 @@
         "temperatureTrend": null,
         "probabilityOfPrecipitation": {
           "unitCode": "wmoUnit:percent",
-          "value": 7
+          "value": 26
         },
-        "windSpeed": "1 to 8 mph",
-        "windDirection": "NE",
-        "icon": "https://api.weather.gov/icons/land/night/sct?size=medium",
-        "shortForecast": "Partly Cloudy",
-        "detailedForecast": "Partly cloudy, with a low around 60. Northeast wind 1 to 8 mph."
+        "windSpeed": "2 to 8 mph",
+        "windDirection": "NW",
+        "icon": "https://api.weather.gov/icons/land/night/tsra_hi,30/few?size=medium",
+        "shortForecast": "Isolated T-storms then Mostly Clear",
+        "detailedForecast": "Isolated thunderstorms before midnight. Mostly clear. Low around 60, with temperatures rising to around 62 overnight. Northwest wind 2 to 8 mph. Chance of precipitation is 30%."
       },
       {
-        "number": 5,
+        "number": 4,
         "name": "Sunday",
         "startTime": "2026-06-21T06:00:00-06:00",
         "endTime": "2026-06-21T18:00:00-06:00",
@@ -727,14 +708,14 @@
           "unitCode": "wmoUnit:percent",
           "value": 0
         },
-        "windSpeed": "1 to 8 mph",
+        "windSpeed": "2 to 9 mph",
         "windDirection": "NW",
-        "icon": "https://api.weather.gov/icons/land/day/few?size=medium",
+        "icon": "https://api.weather.gov/icons/land/day/skc?size=medium",
         "shortForecast": "Sunny",
-        "detailedForecast": "Sunny, with a high near 88. Northwest wind 1 to 8 mph."
+        "detailedForecast": "Sunny, with a high near 88. Northwest wind 2 to 9 mph."
       },
       {
-        "number": 6,
+        "number": 5,
         "name": "Sunday Night",
         "startTime": "2026-06-21T18:00:00-06:00",
         "endTime": "2026-06-22T06:00:00-06:00",
@@ -746,14 +727,14 @@
           "unitCode": "wmoUnit:percent",
           "value": 0
         },
-        "windSpeed": "2 to 8 mph",
-        "windDirection": "ENE",
+        "windSpeed": "2 to 9 mph",
+        "windDirection": "NE",
         "icon": "https://api.weather.gov/icons/land/night/few?size=medium",
         "shortForecast": "Mostly Clear",
-        "detailedForecast": "Mostly clear, with a low around 61."
+        "detailedForecast": "Mostly clear, with a low around 61. Northeast wind 2 to 9 mph."
       },
       {
-        "number": 7,
+        "number": 6,
         "name": "Monday",
         "startTime": "2026-06-22T06:00:00-06:00",
         "endTime": "2026-06-22T18:00:00-06:00",
@@ -766,22 +747,36 @@
           "value": 0
         },
         "windSpeed": "1 to 8 mph",
-        "windDirection": "NW",
+        "windDirection": "WNW",
         "icon": "https://api.weather.gov/icons/land/day/few?size=medium",
         "shortForecast": "Sunny",
         "detailedForecast": "Sunny, with a high near 91."
+      },
+      {
+        "number": 7,
+        "name": "Monday Night",
+        "startTime": "2026-06-22T18:00:00-06:00",
+        "endTime": "2026-06-23T06:00:00-06:00",
+        "isDaytime": false,
+        "temperature": 61,
+        "temperatureUnit": "F",
+        "temperatureTrend": null,
+        "probabilityOfPrecipitation": {
+          "unitCode": "wmoUnit:percent",
+          "value": 0
+        },
+        "windSpeed": "2 to 9 mph",
+        "windDirection": "NE",
+        "icon": "https://api.weather.gov/icons/land/night/skc?size=medium",
+        "shortForecast": "Clear",
+        "detailedForecast": "Clear, with a low around 61."
       }
     ],
     "alerts": [
-      "Heat Advisory issued June 18 at 10:54AM MDT until June 20 at 6:00AM MDT by NWS Salt Lake City UT"
+      "Fire Weather Watch issued June 20 at 3:04AM MDT until June 20 at 10:00PM MDT by NWS Salt Lake City UT",
+      "Heat Advisory issued June 19 at 10:59AM MDT until June 20 at 6:00AM MDT by NWS Salt Lake City UT"
     ],
     "past_7_days": [
-      {
-        "date": "2026-06-12",
-        "precip_in": 0,
-        "high_f": 87,
-        "low_f": 58
-      },
       {
         "date": "2026-06-13",
         "precip_in": 0,
@@ -823,10 +818,52 @@
         "precip_in": 0,
         "high_f": 97,
         "low_f": 68
+      },
+      {
+        "date": "2026-06-20",
+        "precip_in": 0.02,
+        "high_f": 91,
+        "low_f": 76
       }
     ]
   },
   "recent_briefings": [
+    {
+      "payload": {
+        "headline": "Stop w2 garlic water — 2 days to June 21 deadline.",
+        "weather_notes": [
+          "Do all garden work before 9 AM today — Heat Advisory continues through Saturday morning and 97°F midday conditions make outdoor work unsafe.",
+          "Add or check mulch depth on e1–e4 tomato beds — 97°F soil surface loses moisture fast and 2-3 inches of mulch extends time between zone 1 runs.",
+          "Run zone 1 as scheduled Saturday morning — 2 days dry and 90°F forecast warrants it; pause only if afternoon showers arrive before the scheduled run."
+        ],
+        "surfaced_tasks": [
+          {
+            "title": "Stop watering",
+            "bed_id": "w2",
+            "reason": "June 21 deadline is 2 days away with harvest 26 days out — yesterday's zone 2 run may have been the last acceptable irrigation before the dry-down window must begin.",
+            "task_id": "10"
+          },
+          {
+            "title": "Inspect for hornworms — apply Bt if found",
+            "bed_id": "e1",
+            "reason": "Due tomorrow and today's 97°F drives peak hornworm feeding — check lower leaf undersides for frass this morning before the task goes overdue.",
+            "task_id": "60"
+          },
+          {
+            "title": "Mid-season feed — blood meal",
+            "bed_id": "e1",
+            "reason": "41 days from transplant with first harvest 31 days out — the heavy fruiting window is opening now, and Sunday's cooler 88°F after possible Saturday rain is the ideal application window.",
+            "task_id": "22"
+          }
+        ],
+        "suggested_tasks": []
+      },
+      "suggestions_state": {
+        "accepted": [],
+        "rejected": []
+      },
+      "generated_at": "2026-06-19T13:40:15+00:00"
+    },
     {
       "payload": {
         "headline": "97°F Friday — blight check overdue, cut garlic water.",
@@ -1402,46 +1439,6 @@
         ]
       },
       "generated_at": "2026-06-06T13:40:22+00:00"
-    },
-    {
-      "payload": {
-        "headline": "96°F Saturday — water at dawn, cage tomatoes first.",
-        "weather_notes": [
-          "Water all beds early Saturday morning — 96°F with 33 mph gusts arrives 2 days after Thursday's last Rachio run with zero rain in the forecast.",
-          "Secure e1–e4 tomato cage ties before Saturday afternoon — 33 mph gusts can snap stems on 27-day-old transplants.",
-          "Skip supplemental watering on w2/w3 garlic this week — 40 days from harvest and 92°F+ heat is advancing natural dry-down ahead of the June 21 stop.",
-          "Check c3 and c4 bean seedling soil Saturday — germinating seeds at 8 days sit in the shallow zone that dries fastest under 96°F heat and wind."
-        ],
-        "surfaced_tasks": [
-          {
-            "title": "Check for suckers",
-            "bed_id": "e1",
-            "reason": "Due Sunday; 96°F Saturday accelerates lateral growth on indeterminate Amish Paste — pinch before suckers exceed 2 inches.",
-            "task_id": "69"
-          }
-        ],
-        "suggested_tasks": [
-          {
-            "title": "Check c2 for quail damage, replant gaps",
-            "bed_id": "c2",
-            "urgency": "high",
-            "due_date": "2026-06-06",
-            "description": "Quail wallowed in c2 yesterday — check for displaced seedlings and replant bare spots before Saturday's 96°F bakes exposed seeds dry."
-          },
-          {
-            "title": "Hill remaining 3 potato_bags plants",
-            "bed_id": "potato_bags",
-            "urgency": "normal",
-            "due_date": "2026-06-07",
-            "description": "Three plants still need hilling after the June 3 partial job — complete before Sunday's possible storm window."
-          }
-        ]
-      },
-      "suggestions_state": {
-        "accepted": [],
-        "rejected": []
-      },
-      "generated_at": "2026-06-05T13:42:44+00:00"
     }
   ]
 }
