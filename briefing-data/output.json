@@ -1,31 +1,31 @@
 {
-  "headline": "Garlic cutoff today — 97°F heat wave arrives mid-week.",
+  "headline": "Garlic off zone 2 now — 24 days to harvest.",
   "weather_notes": [
-    "Inspect e1 tomatoes for hornworms and blight before 9 AM Mon–Wed — 92°F Monday escalates to 97°F Wednesday, peaking both pest feeding and disease risk.",
-    "Check potato_bags moisture daily this week — grow bags dry significantly faster than ground beds during the 95-97°F mid-week stretch with zero rain forecast.",
-    "Mulch exposed soil on c2–c4 bean beds before Tuesday — 24-day-old seedlings face their first 95°F day with no rain in the forecast."
+    "Do all garden work before 9 AM Monday through Wednesday — heat climbs from 92°F to 97°F with no rain in the 7-day forecast.",
+    "Re-run zone 1 by Wednesday morning — today's run will be 3 days old at Wednesday's 97°F peak, which may stress 24-day bean seedlings in c2–c4 and the potato bags."
   ],
   "surfaced_tasks": [
     {
       "task_id": "10",
       "bed_id": "w2",
       "title": "Stop watering",
-      "reason": "Due today — zone 2 ran this morning on the deadline; remove w2 from all future zone 2 cycles with harvest 24 days out."
-    },
-    {
-      "task_id": "60",
-      "bed_id": "e1",
-      "title": "Inspect for hornworms — apply Bt if found",
-      "reason": "Overdue by 1 day on 43-day Amish Paste — 95-97°F mid-week heat drives peak hornworm feeding; check lower leaves for frass this morning."
+      "reason": "Due today — zone 2 ran this morning but w2 and w3 must be excluded from all future zone 2 runs now; both garlic beds are 24 days from harvest and the dry-down cannot wait another day."
     }
   ],
   "suggested_tasks": [
     {
-      "title": "Harvest ripe blackberries before heat spoils them",
+      "title": "Harvest ripe blackberries before heat peaks",
       "due_date": "2026-06-22",
-      "description": "Berries first observed Jun 14 — 7 days of 89-97°F heat means fruit is at or past peak and will soften fast in this week's 95°F+ stretch.",
+      "description": "Berries first observed June 14 — 7 days on the vine plus 95–97°F heat arriving Tuesday will over-ripen and soften remaining fruit within 1–2 days.",
       "bed_id": "blackberry",
       "urgency": "normal"
+    },
+    {
+      "title": "Check e1 Amish Paste for suckers",
+      "due_date": "2026-06-24",
+      "description": "At 43 days with no active sucker task for this planting, indeterminate Amish Paste is in peak lateral growth — 97°F heat by Wednesday will push suckers past the 2-inch pinch window.",
+      "bed_id": "e1",
+      "urgency": "low"
     }
   ]
 }
