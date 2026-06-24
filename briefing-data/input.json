@@ -1,5 +1,5 @@
 {
-  "today": "2026-06-23",
+  "today": "2026-06-24",
   "plantings": [
     {
       "id": "79526620-7d75-4886-b31d-7c9bf731edc9",
@@ -215,17 +215,17 @@
       "due_date": "2026-05-03"
     },
     {
-      "id": 50,
-      "planting_id": "54c2c338-5c4d-4924-b91b-4ffc22ebb4b3",
-      "title": "Inspect for early blight",
-      "description": "Look for brown spots with yellow halos on lower leaves. Remove affected leaves immediately and dispose (do not compost). Increase airflow by pruning dense interior foliage if severe.",
-      "due_date": "2026-05-06"
-    },
-    {
       "id": 23,
       "planting_id": "54c2c338-5c4d-4924-b91b-4ffc22ebb4b3",
       "title": "Pre-fruit feed — bone meal",
       "description": "Side-dress 1 tbsp bone meal per plant once first flowers appear. Supports fruit set and meets phosphorus demand during flowering.",
+      "due_date": "2026-05-06"
+    },
+    {
+      "id": 50,
+      "planting_id": "54c2c338-5c4d-4924-b91b-4ffc22ebb4b3",
+      "title": "Inspect for early blight",
+      "description": "Look for brown spots with yellow halos on lower leaves. Remove affected leaves immediately and dispose (do not compost). Increase airflow by pruning dense interior foliage if severe.",
       "due_date": "2026-05-06"
     },
     {
@@ -257,17 +257,17 @@
       "due_date": "2026-05-20"
     },
     {
-      "id": 57,
-      "planting_id": "54c2c338-5c4d-4924-b91b-4ffc22ebb4b3",
-      "title": "Inspect for hornworms — apply Bt if found",
-      "description": "Check undersides of leaves on lower third of plant. Look for dark frass (droppings) as first sign. If hornworms found: spray Bacillus thuringiensis (Bt) on affected foliage per label. Hand-pick any large worms already present. Reapply Bt after rain.",
-      "due_date": "2026-05-21"
-    },
-    {
       "id": 22,
       "planting_id": "54c2c338-5c4d-4924-b91b-4ffc22ebb4b3",
       "title": "Mid-season feed — blood meal",
       "description": "Work 1 tbsp blood meal per plant into top inch of soil. Apply once heavy fruiting begins to compensate for nitrogen demand. Skip if foliage is already very dark green — excess nitrogen pushes leaf growth at expense of fruit.",
+      "due_date": "2026-05-21"
+    },
+    {
+      "id": 57,
+      "planting_id": "54c2c338-5c4d-4924-b91b-4ffc22ebb4b3",
+      "title": "Inspect for hornworms — apply Bt if found",
+      "description": "Check undersides of leaves on lower third of plant. Look for dark frass (droppings) as first sign. If hornworms found: spray Bacillus thuringiensis (Bt) on affected foliage per label. Hand-pick any large worms already present. Reapply Bt after rain.",
       "due_date": "2026-05-21"
     },
     {
@@ -339,6 +339,13 @@
       "title": "Inspect for hornworms — apply Bt if found",
       "description": "Check undersides of leaves on lower third of plant. Look for dark frass (droppings) as first sign. If hornworms found: spray Bacillus thuringiensis (Bt) on affected foliage per label. Hand-pick any large worms already present. Reapply Bt after rain.",
       "due_date": "2026-06-20"
+    },
+    {
+      "id": 113,
+      "planting_id": "2a7bfcbb-580c-4518-a20a-47fc386f4760",
+      "title": "Finish hilling the potato bags",
+      "description": "June 14 log shows two bags at 2/3 hilled and three at 1/3 — complete coverage now before plant growth outpaces stem burial in the heat.",
+      "due_date": "2026-06-25"
     },
     {
       "id": 26,
@@ -620,33 +627,43 @@
   "waterings": [
     {
       "zone": 2,
+      "watered_date": "2026-06-23",
+      "duration_minutes": 25
+    },
+    {
+      "zone": 1,
+      "watered_date": "2026-06-23",
+      "duration_minutes": 20
+    },
+    {
+      "zone": 2,
       "watered_date": "2026-06-21",
       "duration_minutes": 20
     },
     {
       "zone": 1,
       "watered_date": "2026-06-21",
+      "duration_minutes": 25
+    },
+    {
+      "zone": 1,
+      "watered_date": "2026-06-18",
       "duration_minutes": 25
     },
     {
       "zone": 2,
       "watered_date": "2026-06-18",
       "duration_minutes": 20
-    },
-    {
-      "zone": 1,
-      "watered_date": "2026-06-18",
-      "duration_minutes": 25
-    },
-    {
-      "zone": 1,
-      "watered_date": "2026-06-14",
-      "duration_minutes": 10
     },
     {
       "zone": 2,
       "watered_date": "2026-06-14",
       "duration_minutes": 8
+    },
+    {
+      "zone": 1,
+      "watered_date": "2026-06-14",
+      "duration_minutes": 10
     },
     {
       "zone": 2,
@@ -657,16 +674,6 @@
       "zone": 1,
       "watered_date": "2026-06-10",
       "duration_minutes": 10
-    },
-    {
-      "zone": 1,
-      "watered_date": "2026-06-08",
-      "duration_minutes": 20
-    },
-    {
-      "zone": 2,
-      "watered_date": "2026-06-08",
-      "duration_minutes": 15
     }
   ],
   "weather": {
@@ -674,63 +681,25 @@
       {
         "number": 1,
         "name": "Today",
-        "startTime": "2026-06-23T06:00:00-06:00",
-        "endTime": "2026-06-23T18:00:00-06:00",
+        "startTime": "2026-06-24T06:00:00-06:00",
+        "endTime": "2026-06-24T18:00:00-06:00",
         "isDaytime": true,
-        "temperature": 96,
+        "temperature": 98,
         "temperatureUnit": "F",
         "temperatureTrend": null,
         "probabilityOfPrecipitation": {
           "unitCode": "wmoUnit:percent",
-          "value": 0
+          "value": 45
         },
-        "windSpeed": "7 mph",
-        "windDirection": "WSW",
-        "icon": "https://api.weather.gov/icons/land/day/smoke?size=medium",
-        "shortForecast": "Patchy Smoke",
-        "detailedForecast": "Patchy smoke. Sunny, with a high near 96. West southwest wind around 7 mph."
+        "windSpeed": "8 to 13 mph",
+        "windDirection": "S",
+        "icon": "https://api.weather.gov/icons/land/day/smoke/tsra_hi,50?size=medium",
+        "shortForecast": "Smoke",
+        "detailedForecast": "Patchy smoke before noon, then patchy smoke and a slight chance of rain showers between noon and 3pm, then smoke and a chance of showers and thunderstorms. Mostly sunny. High near 98, with temperatures falling to around 92 in the afternoon. South wind 8 to 13 mph. Chance of precipitation is 50%."
       },
       {
         "number": 2,
         "name": "Tonight",
-        "startTime": "2026-06-23T18:00:00-06:00",
-        "endTime": "2026-06-24T06:00:00-06:00",
-        "isDaytime": false,
-        "temperature": 67,
-        "temperatureUnit": "F",
-        "temperatureTrend": null,
-        "probabilityOfPrecipitation": {
-          "unitCode": "wmoUnit:percent",
-          "value": 0
-        },
-        "windSpeed": "3 to 10 mph",
-        "windDirection": "E",
-        "icon": "https://api.weather.gov/icons/land/night/smoke/few?size=medium",
-        "shortForecast": "Patchy Smoke then Mostly Clear",
-        "detailedForecast": "Patchy smoke before midnight. Mostly clear. Low around 67, with temperatures rising to around 73 overnight. East wind 3 to 10 mph."
-      },
-      {
-        "number": 3,
-        "name": "Wednesday",
-        "startTime": "2026-06-24T06:00:00-06:00",
-        "endTime": "2026-06-24T18:00:00-06:00",
-        "isDaytime": true,
-        "temperature": 97,
-        "temperatureUnit": "F",
-        "temperatureTrend": null,
-        "probabilityOfPrecipitation": {
-          "unitCode": "wmoUnit:percent",
-          "value": 22
-        },
-        "windSpeed": "8 to 15 mph",
-        "windDirection": "S",
-        "icon": "https://api.weather.gov/icons/land/day/sct/tsra_hi,20?size=medium",
-        "shortForecast": "Mostly Sunny then Slight Chance Showers And Thunderstorms",
-        "detailedForecast": "A slight chance of rain showers between noon and 3pm, then a slight chance of showers and thunderstorms. Mostly sunny. High near 97, with temperatures falling to around 93 in the afternoon. South wind 8 to 15 mph. Chance of precipitation is 20%."
-      },
-      {
-        "number": 4,
-        "name": "Wednesday Night",
         "startTime": "2026-06-24T18:00:00-06:00",
         "endTime": "2026-06-25T06:00:00-06:00",
         "isDaytime": false,
@@ -739,80 +708,114 @@
         "temperatureTrend": null,
         "probabilityOfPrecipitation": {
           "unitCode": "wmoUnit:percent",
-          "value": 33
+          "value": 52
         },
         "windSpeed": "8 to 13 mph",
-        "windDirection": "SSE",
-        "icon": "https://api.weather.gov/icons/land/night/tsra_hi,30/bkn?size=medium",
-        "shortForecast": "Chance Showers And Thunderstorms then Mostly Cloudy",
-        "detailedForecast": "A chance of showers and thunderstorms before midnight. Mostly cloudy, with a low around 64. South southeast wind 8 to 13 mph. Chance of precipitation is 30%."
+        "windDirection": "S",
+        "icon": "https://api.weather.gov/icons/land/night/tsra_hi,50/tsra_hi?size=medium",
+        "shortForecast": "Smoke",
+        "detailedForecast": "Smoke and a chance of showers and thunderstorms. Partly cloudy. Low around 64, with temperatures rising to around 67 overnight. South wind 8 to 13 mph. Chance of precipitation is 50%."
       },
       {
-        "number": 5,
+        "number": 3,
         "name": "Thursday",
         "startTime": "2026-06-25T06:00:00-06:00",
         "endTime": "2026-06-25T18:00:00-06:00",
         "isDaytime": true,
-        "temperature": 92,
+        "temperature": 91,
         "temperatureUnit": "F",
         "temperatureTrend": null,
         "probabilityOfPrecipitation": {
           "unitCode": "wmoUnit:percent",
-          "value": 16
+          "value": 33
         },
-        "windSpeed": "7 to 10 mph",
+        "windSpeed": "8 to 12 mph",
         "windDirection": "SSW",
-        "icon": "https://api.weather.gov/icons/land/day/sct/tsra_hi,20?size=medium",
-        "shortForecast": "Mostly Sunny then Slight Chance Showers And Thunderstorms",
-        "detailedForecast": "A slight chance of showers and thunderstorms after noon. Mostly sunny, with a high near 92. South southwest wind 7 to 10 mph. Chance of precipitation is 20%."
+        "icon": "https://api.weather.gov/icons/land/day/smoke/tsra_hi,30?size=medium",
+        "shortForecast": "Patchy Smoke then Chance Showers And Thunderstorms",
+        "detailedForecast": "Patchy smoke before noon, then a chance of showers and thunderstorms between noon and 3pm, then patchy smoke and a chance of showers and thunderstorms. Mostly sunny, with a high near 91. South southwest wind 8 to 12 mph. Chance of precipitation is 30%."
       },
       {
-        "number": 6,
+        "number": 4,
         "name": "Thursday Night",
         "startTime": "2026-06-25T18:00:00-06:00",
         "endTime": "2026-06-26T06:00:00-06:00",
         "isDaytime": false,
-        "temperature": 63,
+        "temperature": 65,
         "temperatureUnit": "F",
         "temperatureTrend": null,
         "probabilityOfPrecipitation": {
           "unitCode": "wmoUnit:percent",
-          "value": 3
+          "value": 11
         },
-        "windSpeed": "7 mph",
-        "windDirection": "E",
-        "icon": "https://api.weather.gov/icons/land/night/sct?size=medium",
-        "shortForecast": "Partly Cloudy",
-        "detailedForecast": "Partly cloudy, with a low around 63."
+        "windSpeed": "6 to 9 mph",
+        "windDirection": "SSE",
+        "icon": "https://api.weather.gov/icons/land/night/tsra_hi/sct?size=medium",
+        "shortForecast": "Slight Chance Showers And Thunderstorms then Partly Cloudy",
+        "detailedForecast": "A slight chance of showers and thunderstorms before 9pm. Partly cloudy, with a low around 65. South southeast wind 6 to 9 mph."
       },
       {
-        "number": 7,
+        "number": 5,
         "name": "Friday",
         "startTime": "2026-06-26T06:00:00-06:00",
         "endTime": "2026-06-26T18:00:00-06:00",
         "isDaytime": true,
-        "temperature": 96,
+        "temperature": 95,
         "temperatureUnit": "F",
         "temperatureTrend": null,
         "probabilityOfPrecipitation": {
           "unitCode": "wmoUnit:percent",
-          "value": 3
+          "value": 0
         },
-        "windSpeed": "12 to 17 mph",
+        "windSpeed": "14 to 20 mph",
         "windDirection": "S",
         "icon": "https://api.weather.gov/icons/land/day/few?size=medium",
         "shortForecast": "Sunny",
-        "detailedForecast": "Sunny, with a high near 96."
+        "detailedForecast": "Sunny, with a high near 95. South wind 14 to 20 mph, with gusts as high as 35 mph."
+      },
+      {
+        "number": 6,
+        "name": "Friday Night",
+        "startTime": "2026-06-26T18:00:00-06:00",
+        "endTime": "2026-06-27T06:00:00-06:00",
+        "isDaytime": false,
+        "temperature": 61,
+        "temperatureUnit": "F",
+        "temperatureTrend": null,
+        "probabilityOfPrecipitation": {
+          "unitCode": "wmoUnit:percent",
+          "value": 9
+        },
+        "windSpeed": "2 to 16 mph",
+        "windDirection": "WNW",
+        "icon": "https://api.weather.gov/icons/land/night/bkn?size=medium",
+        "shortForecast": "Mostly Cloudy",
+        "detailedForecast": "Mostly cloudy, with a low around 61."
+      },
+      {
+        "number": 7,
+        "name": "Saturday",
+        "startTime": "2026-06-27T06:00:00-06:00",
+        "endTime": "2026-06-27T18:00:00-06:00",
+        "isDaytime": true,
+        "temperature": 82,
+        "temperatureUnit": "F",
+        "temperatureTrend": null,
+        "probabilityOfPrecipitation": {
+          "unitCode": "wmoUnit:percent",
+          "value": 30
+        },
+        "windSpeed": "2 to 10 mph",
+        "windDirection": "SSW",
+        "icon": "https://api.weather.gov/icons/land/day/rain_showers,30/tsra_hi,20?size=medium",
+        "shortForecast": "Chance Rain Showers then Slight Chance Showers And Thunderstorms",
+        "detailedForecast": "A chance of rain showers before noon, then a slight chance of showers and thunderstorms. Mostly sunny, with a high near 82."
       }
     ],
-    "alerts": [],
+    "alerts": [
+      "Fire Weather Watch issued June 23 at 10:02PM MDT until June 28 at 3:00AM MDT by NWS Salt Lake City UT"
+    ],
     "past_7_days": [
-      {
-        "date": "2026-06-16",
-        "precip_in": 0,
-        "high_f": 94,
-        "low_f": 66
-      },
       {
         "date": "2026-06-17",
         "precip_in": 0,
@@ -846,7 +849,7 @@
       {
         "date": "2026-06-22",
         "precip_in": 0,
-        "high_f": 96,
+        "high_f": 95,
         "low_f": 66
       },
       {
@@ -854,10 +857,52 @@
         "precip_in": 0,
         "high_f": 97,
         "low_f": 71
+      },
+      {
+        "date": "2026-06-24",
+        "precip_in": 0.01,
+        "high_f": 97,
+        "low_f": 76
       }
     ]
   },
   "recent_briefings": [
+    {
+      "payload": {
+        "headline": "New tomatoes day 3 in 96°F heat — run zones now.",
+        "weather_notes": [
+          "Run zone 1 this morning — 3-day-old e1-e4 transplants last watered June 21 cannot go 3 days dry with 96°F today and 97°F Wednesday.",
+          "Run zone 2 this morning for w1, w4, and blackberry — last watered June 21; skip w2 and w3 garlic.",
+          "Hold Wednesday's zone runs if afternoon storms deliver — 20% storm chance that afternoon; check soil before scheduling the next run."
+        ],
+        "surfaced_tasks": [],
+        "suggested_tasks": [
+          {
+            "title": "Hand-water e1-e4 transplants at stem base daily",
+            "bed_id": "e1",
+            "urgency": "high",
+            "due_date": "2026-06-24",
+            "description": "3-day-old transplants in 96-97°F heat need daily soil checks beyond the zone schedule — hand-water at the base on any day zone 1 doesn't run."
+          },
+          {
+            "title": "Finish hilling the potato bags",
+            "bed_id": "potato_bags",
+            "urgency": "normal",
+            "due_date": "2026-06-25",
+            "description": "June 14 log shows two bags at 2/3 hilled and three at 1/3 — complete coverage now before plant growth outpaces stem burial in the heat."
+          }
+        ]
+      },
+      "suggestions_state": {
+        "accepted": [
+          1
+        ],
+        "rejected": [
+          0
+        ]
+      },
+      "generated_at": "2026-06-23T13:37:12+00:00"
+    },
     {
       "payload": {
         "headline": "Garlic off zone 2 now — 24 days to harvest.",
@@ -1412,49 +1457,6 @@
         "rejected": []
       },
       "generated_at": "2026-06-10T13:44:44+00:00"
-    },
-    {
-      "payload": {
-        "headline": "Hornworm check due tomorrow; 87°F returns Friday.",
-        "weather_notes": [
-          "Water e1–e4, c1–c4, and potato_bags by Thursday — beds last irrigated Jun 8 will be 5 days dry when Friday's 87°F arrives.",
-          "Skip w2/w3 garlic zones in Thursday's watering — 87°F Friday accelerates bulb curing with the Jun 21 stop-irrigation deadline 12 days out.",
-          "Use today's 77°F window for pest scouting — best inspection conditions before Wednesday warms and Friday's 87°F returns."
-        ],
-        "surfaced_tasks": [
-          {
-            "title": "Inspect for hornworms — apply Bt if found",
-            "bed_id": "e1",
-            "reason": "Due tomorrow — 31-day Amish Paste tomatoes are in peak hornworm window; today's 77°F is ideal for checking lower leaves for frass.",
-            "task_id": "59"
-          },
-          {
-            "title": "Stop watering",
-            "bed_id": "w3",
-            "reason": "Garlic harvest is 36 days out and the Jun 21 cutoff is 12 days away — exclude w3 from Rachio scheduling before Friday's 87°F advances curing further.",
-            "task_id": "27"
-          }
-        ],
-        "suggested_tasks": [
-          {
-            "title": "Check c2 gaps, replant quail-damaged spots",
-            "bed_id": "c2",
-            "urgency": "high",
-            "due_date": "2026-06-11",
-            "description": "Day 12 since planting and the sprouting window closes this week — bare spots from the Jun 4 quail disturbance won't self-fill and need seeds now."
-          }
-        ]
-      },
-      "suggestions_state": {
-        "accepted": [
-          0
-        ],
-        "rejected": [],
-        "surfaced_dismissed": [
-          "27"
-        ]
-      },
-      "generated_at": "2026-06-09T13:40:38+00:00"
     }
   ]
 }
