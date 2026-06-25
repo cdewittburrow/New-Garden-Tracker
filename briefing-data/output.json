@@ -1,23 +1,24 @@
 {
-  "headline": "Stake e1-e4 now — Friday brings 35 mph wind gusts.",
+  "headline": "Stake new tomatoes today — 36 mph gusts hit Friday.",
   "weather_notes": [
-    "Exclude w2 and w3 garlic from zone 2's next run — harvest is 21 days out and continued irrigation now deteriorates wrapper quality.",
-    "Check soil before running zones Thursday — tonight's 50% storm chance may deliver enough moisture to push the next irrigation window to Friday.",
-    "Do all garden work before 9 AM through Friday — Fire Weather Watch active through June 28 with extreme low humidity and gusting winds."
+    "Do all garden work before 9 AM Friday — Red Flag Warning through June 28 with 36 mph gusts and extreme low humidity.",
+    "Skip zone runs Friday — zones ran today and tomorrow's 95°F is within the 1-day watering threshold; no irrigation needed.",
+    "Hold Saturday irrigation until afternoon — 50% rain chance may cover soil moisture needs before zones need to run.",
+    "Keep w2 and w3 garlic off all irrigation — 20 days to expected July 15 harvest and dry-down must hold."
   ],
   "surfaced_tasks": [
     {
       "task_id": "113",
       "bed_id": "potato_bags",
       "title": "Finish hilling the potato bags",
-      "reason": "Due tomorrow; bags were partially hilled June 14 and Friday's 35 mph gusts close the practical outdoor work window — complete today or early Thursday morning."
+      "reason": "Due today — yesterday's log confirms 3 bags still need one final hill to reach full coverage."
     }
   ],
   "suggested_tasks": [
     {
-      "title": "Stake e1-e4 tomatoes before Friday gusts",
+      "title": "Stake e1-e4 transplants before Friday gusts",
       "due_date": "2026-06-26",
-      "description": "4-day-old transplants face 35 mph south wind gusts Friday — stake now before root-rocking loosens rootballs before establishment.",
+      "description": "5-day-old transplants face 36 mph gusts Friday — stake now before wind rocks rootballs loose before they establish.",
       "bed_id": "e1",
       "urgency": "high"
     }
