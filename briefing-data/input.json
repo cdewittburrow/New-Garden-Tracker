@@ -1,5 +1,5 @@
 {
-  "today": "2026-06-25",
+  "today": "2026-06-26",
   "plantings": [
     {
       "id": "79526620-7d75-4886-b31d-7c9bf731edc9",
@@ -686,63 +686,25 @@
       {
         "number": 1,
         "name": "Today",
-        "startTime": "2026-06-25T06:00:00-06:00",
-        "endTime": "2026-06-25T18:00:00-06:00",
+        "startTime": "2026-06-26T06:00:00-06:00",
+        "endTime": "2026-06-26T18:00:00-06:00",
         "isDaytime": true,
-        "temperature": 92,
+        "temperature": 96,
         "temperatureUnit": "F",
         "temperatureTrend": null,
         "probabilityOfPrecipitation": {
           "unitCode": "wmoUnit:percent",
-          "value": 30
+          "value": 1
         },
-        "windSpeed": "8 to 13 mph",
-        "windDirection": "SSW",
-        "icon": "https://api.weather.gov/icons/land/day/smoke/tsra_hi,30?size=medium",
-        "shortForecast": "Patchy Smoke then Chance Showers And Thunderstorms",
-        "detailedForecast": "Patchy smoke before noon, then a chance of showers and thunderstorms. Mostly sunny. High near 92, with temperatures falling to around 89 in the afternoon. South southwest wind 8 to 13 mph. Chance of precipitation is 30%."
+        "windSpeed": "16 to 21 mph",
+        "windDirection": "S",
+        "icon": "https://api.weather.gov/icons/land/day/wind_few?size=medium",
+        "shortForecast": "Sunny then Patchy Blowing Dust",
+        "detailedForecast": "Patchy blowing dust after 3pm. Sunny, with a high near 96. South wind 16 to 21 mph, with gusts as high as 36 mph."
       },
       {
         "number": 2,
         "name": "Tonight",
-        "startTime": "2026-06-25T18:00:00-06:00",
-        "endTime": "2026-06-26T06:00:00-06:00",
-        "isDaytime": false,
-        "temperature": 65,
-        "temperatureUnit": "F",
-        "temperatureTrend": null,
-        "probabilityOfPrecipitation": {
-          "unitCode": "wmoUnit:percent",
-          "value": 24
-        },
-        "windSpeed": "7 to 13 mph",
-        "windDirection": "SSE",
-        "icon": "https://api.weather.gov/icons/land/night/tsra_hi,20/smoke?size=medium",
-        "shortForecast": "Slight Chance Showers And Thunderstorms then Areas Of Smoke",
-        "detailedForecast": "A slight chance of showers and thunderstorms before 9pm, then areas of smoke. Partly cloudy. Low around 65, with temperatures rising to around 70 overnight. South southeast wind 7 to 13 mph. Chance of precipitation is 20%."
-      },
-      {
-        "number": 3,
-        "name": "Friday",
-        "startTime": "2026-06-26T06:00:00-06:00",
-        "endTime": "2026-06-26T18:00:00-06:00",
-        "isDaytime": true,
-        "temperature": 95,
-        "temperatureUnit": "F",
-        "temperatureTrend": null,
-        "probabilityOfPrecipitation": {
-          "unitCode": "wmoUnit:percent",
-          "value": 2
-        },
-        "windSpeed": "15 to 20 mph",
-        "windDirection": "S",
-        "icon": "https://api.weather.gov/icons/land/day/smoke/few?size=medium",
-        "shortForecast": "Areas Of Smoke then Sunny",
-        "detailedForecast": "Areas of smoke before 9am. Sunny. High near 95, with temperatures falling to around 92 in the afternoon. South wind 15 to 20 mph, with gusts as high as 36 mph."
-      },
-      {
-        "number": 4,
-        "name": "Friday Night",
         "startTime": "2026-06-26T18:00:00-06:00",
         "endTime": "2026-06-27T06:00:00-06:00",
         "isDaytime": false,
@@ -751,82 +713,114 @@
         "temperatureTrend": null,
         "probabilityOfPrecipitation": {
           "unitCode": "wmoUnit:percent",
-          "value": 14
+          "value": 10
         },
-        "windSpeed": "2 to 16 mph",
-        "windDirection": "WNW",
-        "icon": "https://api.weather.gov/icons/land/night/bkn?size=medium",
-        "shortForecast": "Mostly Cloudy",
-        "detailedForecast": "Mostly cloudy, with a low around 61. West northwest wind 2 to 16 mph, with gusts as high as 31 mph."
+        "windSpeed": "2 to 17 mph",
+        "windDirection": "W",
+        "icon": "https://api.weather.gov/icons/land/night/bkn/tsra_hi?size=medium",
+        "shortForecast": "Patchy Blowing Dust then Slight Chance Showers And Thunderstorms",
+        "detailedForecast": "Patchy blowing dust before 9pm, then a slight chance of showers and thunderstorms. Mostly cloudy. Low around 61, with temperatures rising to around 63 overnight. West wind 2 to 17 mph, with gusts as high as 35 mph."
       },
       {
-        "number": 5,
+        "number": 3,
         "name": "Saturday",
         "startTime": "2026-06-27T06:00:00-06:00",
         "endTime": "2026-06-27T18:00:00-06:00",
         "isDaytime": true,
-        "temperature": 81,
+        "temperature": 83,
+        "temperatureUnit": "F",
+        "temperatureTrend": null,
+        "probabilityOfPrecipitation": {
+          "unitCode": "wmoUnit:percent",
+          "value": 26
+        },
+        "windSpeed": "3 to 9 mph",
+        "windDirection": "WSW",
+        "icon": "https://api.weather.gov/icons/land/day/rain_showers,20/tsra_hi,30?size=medium",
+        "shortForecast": "Chance Showers And Thunderstorms",
+        "detailedForecast": "A slight chance of rain showers before noon, then a chance of showers and thunderstorms. Mostly sunny. High near 83, with temperatures falling to around 81 in the afternoon. West southwest wind 3 to 9 mph. Chance of precipitation is 30%."
+      },
+      {
+        "number": 4,
+        "name": "Saturday Night",
+        "startTime": "2026-06-27T18:00:00-06:00",
+        "endTime": "2026-06-28T06:00:00-06:00",
+        "isDaytime": false,
+        "temperature": 54,
+        "temperatureUnit": "F",
+        "temperatureTrend": null,
+        "probabilityOfPrecipitation": {
+          "unitCode": "wmoUnit:percent",
+          "value": 31
+        },
+        "windSpeed": "6 to 14 mph",
+        "windDirection": "NNW",
+        "icon": "https://api.weather.gov/icons/land/night/tsra/tsra,30?size=medium",
+        "shortForecast": "Chance Showers And Thunderstorms",
+        "detailedForecast": "A chance of showers and thunderstorms. Mostly cloudy, with a low around 54. North northwest wind 6 to 14 mph. Chance of precipitation is 30%."
+      },
+      {
+        "number": 5,
+        "name": "Sunday",
+        "startTime": "2026-06-28T06:00:00-06:00",
+        "endTime": "2026-06-28T18:00:00-06:00",
+        "isDaytime": true,
+        "temperature": 68,
         "temperatureUnit": "F",
         "temperatureTrend": null,
         "probabilityOfPrecipitation": {
           "unitCode": "wmoUnit:percent",
           "value": 50
         },
-        "windSpeed": "3 to 10 mph",
-        "windDirection": "SSW",
-        "icon": "https://api.weather.gov/icons/land/day/rain_showers,50/tsra_sct,50?size=medium",
+        "windSpeed": "6 to 9 mph",
+        "windDirection": "NW",
+        "icon": "https://api.weather.gov/icons/land/day/rain_showers,50/tsra_sct,30?size=medium",
         "shortForecast": "Chance Rain Showers",
-        "detailedForecast": "A chance of rain showers before noon, then a chance of showers and thunderstorms. Partly sunny, with a high near 81. South southwest wind 3 to 10 mph. Chance of precipitation is 50%."
+        "detailedForecast": "A chance of rain showers before noon, then a chance of showers and thunderstorms. Partly sunny, with a high near 68. Northwest wind 6 to 9 mph. Chance of precipitation is 50%."
       },
       {
         "number": 6,
-        "name": "Saturday Night",
-        "startTime": "2026-06-27T18:00:00-06:00",
-        "endTime": "2026-06-28T06:00:00-06:00",
+        "name": "Sunday Night",
+        "startTime": "2026-06-28T18:00:00-06:00",
+        "endTime": "2026-06-29T06:00:00-06:00",
         "isDaytime": false,
-        "temperature": 52,
+        "temperature": 47,
         "temperatureUnit": "F",
         "temperatureTrend": null,
         "probabilityOfPrecipitation": {
           "unitCode": "wmoUnit:percent",
-          "value": 34
+          "value": 27
         },
-        "windSpeed": "3 to 12 mph",
-        "windDirection": "NNW",
-        "icon": "https://api.weather.gov/icons/land/night/tsra_hi,30?size=medium",
-        "shortForecast": "Chance Showers And Thunderstorms",
-        "detailedForecast": "A chance of showers and thunderstorms. Mostly cloudy, with a low around 52. Chance of precipitation is 30%."
+        "windSpeed": "1 to 8 mph",
+        "windDirection": "N",
+        "icon": "https://api.weather.gov/icons/land/night/sct/rain_showers,30?size=medium",
+        "shortForecast": "Partly Cloudy then Chance Rain Showers",
+        "detailedForecast": "A chance of rain showers after midnight. Partly cloudy, with a low around 47. Chance of precipitation is 30%."
       },
       {
         "number": 7,
-        "name": "Sunday",
-        "startTime": "2026-06-28T06:00:00-06:00",
-        "endTime": "2026-06-28T18:00:00-06:00",
+        "name": "Monday",
+        "startTime": "2026-06-29T06:00:00-06:00",
+        "endTime": "2026-06-29T18:00:00-06:00",
         "isDaytime": true,
-        "temperature": 71,
+        "temperature": 74,
         "temperatureUnit": "F",
         "temperatureTrend": null,
         "probabilityOfPrecipitation": {
           "unitCode": "wmoUnit:percent",
-          "value": 38
+          "value": 17
         },
-        "windSpeed": "2 to 9 mph",
-        "windDirection": "NW",
-        "icon": "https://api.weather.gov/icons/land/day/rain_showers,40/tsra_hi,20?size=medium",
-        "shortForecast": "Chance Rain Showers then Slight Chance Showers And Thunderstorms",
-        "detailedForecast": "A chance of rain showers before noon, then a slight chance of showers and thunderstorms. Mostly sunny, with a high near 71."
+        "windSpeed": "2 to 6 mph",
+        "windDirection": "WSW",
+        "icon": "https://api.weather.gov/icons/land/day/rain_showers,20/few?size=medium",
+        "shortForecast": "Slight Chance Rain Showers then Sunny",
+        "detailedForecast": "A slight chance of rain showers before noon. Sunny, with a high near 74."
       }
     ],
     "alerts": [
-      "Red Flag Warning issued June 24 at 11:06PM MDT until June 28 at 12:00AM MDT by NWS Salt Lake City UT"
+      "Red Flag Warning issued June 26 at 3:29AM MDT until June 28 at 12:00AM MDT by NWS Salt Lake City UT"
     ],
     "past_7_days": [
-      {
-        "date": "2026-06-18",
-        "precip_in": 0,
-        "high_f": 90,
-        "low_f": 65
-      },
       {
         "date": "2026-06-19",
         "precip_in": 0,
@@ -865,13 +859,54 @@
       },
       {
         "date": "2026-06-25",
-        "precip_in": 0.03,
-        "high_f": 88,
-        "low_f": 69
+        "precip_in": 0.02,
+        "high_f": 89,
+        "low_f": 67
+      },
+      {
+        "date": "2026-06-26",
+        "precip_in": 0,
+        "high_f": 98,
+        "low_f": 74
       }
     ]
   },
   "recent_briefings": [
+    {
+      "payload": {
+        "headline": "Stake new tomatoes today — 36 mph gusts hit Friday.",
+        "weather_notes": [
+          "Do all garden work before 9 AM Friday — Red Flag Warning through June 28 with 36 mph gusts and extreme low humidity.",
+          "Skip zone runs Friday — zones ran today and tomorrow's 95°F is within the 1-day watering threshold; no irrigation needed.",
+          "Hold Saturday irrigation until afternoon — 50% rain chance may cover soil moisture needs before zones need to run.",
+          "Keep w2 and w3 garlic off all irrigation — 20 days to expected July 15 harvest and dry-down must hold."
+        ],
+        "surfaced_tasks": [
+          {
+            "title": "Finish hilling the potato bags",
+            "bed_id": "potato_bags",
+            "reason": "Due today — yesterday's log confirms 3 bags still need one final hill to reach full coverage.",
+            "task_id": "113"
+          }
+        ],
+        "suggested_tasks": [
+          {
+            "title": "Stake e1-e4 transplants before Friday gusts",
+            "bed_id": "e1",
+            "urgency": "high",
+            "due_date": "2026-06-26",
+            "description": "5-day-old transplants face 36 mph gusts Friday — stake now before wind rocks rootballs loose before they establish."
+          }
+        ]
+      },
+      "suggestions_state": {
+        "accepted": [],
+        "rejected": [
+          0
+        ]
+      },
+      "generated_at": "2026-06-25T13:36:37+00:00"
+    },
     {
       "payload": {
         "headline": "Stake e1-e4 now — Friday brings 35 mph wind gusts.",
@@ -1420,43 +1455,6 @@
         "rejected": []
       },
       "generated_at": "2026-06-12T13:38:58+00:00"
-    },
-    {
-      "payload": {
-        "headline": "Hornworm check due today; replant c2 gaps before Friday's heat.",
-        "weather_notes": [
-          "Replant c2 quail-damage gaps tomorrow — use the cool 77°F window before Friday's 88°F heat arrives.",
-          "Scout e1–e4 and bean beds for pests and heat stress today or tomorrow — 77–81°F beats Friday's 88°F for inspection comfort."
-        ],
-        "surfaced_tasks": [
-          {
-            "title": "Inspect for hornworms — apply Bt if found",
-            "bed_id": "e1",
-            "reason": "Due today, and today's mild 81°F is the easiest inspection window before Friday's 88°F heat returns.",
-            "task_id": "59"
-          },
-          {
-            "title": "Check c2 gaps, replant quail-damaged spots",
-            "bed_id": "c2",
-            "reason": "Due tomorrow — quail-damaged gaps from Jun 4 need seeds now while the sprouting window is still open.",
-            "task_id": "109"
-          }
-        ],
-        "suggested_tasks": [
-          {
-            "title": "Check peach for new growth, deep-water",
-            "bed_id": "peach",
-            "urgency": "normal",
-            "due_date": "2026-06-12",
-            "description": "Last log (Jun 3) feared the tree was dead with no follow-up since — check for new growth and deep-water before Friday's 88°F heat."
-          }
-        ]
-      },
-      "suggestions_state": {
-        "accepted": [],
-        "rejected": []
-      },
-      "generated_at": "2026-06-11T13:42:10+00:00"
     }
   ]
 }
