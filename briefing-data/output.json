@@ -1,26 +1,26 @@
 {
-  "headline": "Stake new tomatoes today — 36 mph gusts hit Friday.",
+  "headline": "Finish potatoes, pick blackberries — 96°F Red Flag today.",
   "weather_notes": [
-    "Do all garden work before 9 AM Friday — Red Flag Warning through June 28 with 36 mph gusts and extreme low humidity.",
-    "Skip zone runs Friday — zones ran today and tomorrow's 95°F is within the 1-day watering threshold; no irrigation needed.",
-    "Hold Saturday irrigation until afternoon — 50% rain chance may cover soil moisture needs before zones need to run.",
-    "Keep w2 and w3 garlic off all irrigation — 20 days to expected July 15 harvest and dry-down must hold."
+    "Do all garden work before 9 AM — Red Flag Warning active through Saturday night with 96°F and 36 mph gusts makes afternoon conditions dangerous.",
+    "Skip zone runs today — both zones ran yesterday and 96°F meets the 1-day no-water threshold.",
+    "Hold Saturday morning irrigation — 30% storm chance Saturday afternoon may cover beds before zones need to run.",
+    "Skip Sunday zone irrigation — 50% rain chance should handle the moisture gap; reassess schedule Monday based on actual rainfall."
   ],
   "surfaced_tasks": [
     {
       "task_id": "113",
       "bed_id": "potato_bags",
       "title": "Finish hilling the potato bags",
-      "reason": "Due today — yesterday's log confirms 3 bags still need one final hill to reach full coverage."
+      "reason": "1 day overdue — Jun 24 log confirms 3 bags still need one final hill; do it this morning before 96°F heat and weekend rain close the window."
     }
   ],
   "suggested_tasks": [
     {
-      "title": "Stake e1-e4 transplants before Friday gusts",
+      "title": "Pick ripe blackberries before weekend rain",
       "due_date": "2026-06-26",
-      "description": "5-day-old transplants face 36 mph gusts Friday — stake now before wind rocks rootballs loose before they establish.",
-      "bed_id": "e1",
-      "urgency": "high"
+      "description": "Triple Crown berries have been ripening 5 days in 95-98°F heat — pick today before Saturday storms soften ripe fruit on the cane.",
+      "bed_id": "blackberry",
+      "urgency": "normal"
     }
   ]
 }
