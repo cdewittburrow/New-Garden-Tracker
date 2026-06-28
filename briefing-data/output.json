@@ -1,29 +1,18 @@
 {
-  "headline": "Heat breaks — hill potato bags this morning before storms.",
+  "headline": "17 days to garlic harvest — check for heat-advanced browning.",
   "weather_notes": [
-    "Do all outdoor work before 9 AM today — Red Flag Warning active through midnight with gusty winds and extreme low humidity.",
-    "Skip both zone runs through Sunday — zone 2 ran yesterday and 50% storm chance today plus 41% Sunday cover the moisture gap.",
-    "Reassess irrigation Monday — check soil after weekend storms clear before scheduling the next zone run."
+    "Skip all irrigation through Monday — zones ran this morning and Sunday-night storm chances will maintain soil moisture into a clear Monday.",
+    "Resume zone 1 and zone 2 by Tuesday morning — 80°F arrives dry with no rain in the 7-day outlook; first scheduled run after the weekend gap.",
+    "Check w2 and w3 garlic leaf browning before Tuesday's warmup — last week's 95–99°F peak may have pulled the July 15 harvest window forward by 1-2 weeks."
   ],
-  "surfaced_tasks": [
+  "surfaced_tasks": [],
+  "suggested_tasks": [
     {
-      "task_id": "113",
-      "bed_id": "potato_bags",
-      "title": "Finish hilling the potato bags",
-      "reason": "2 days overdue — Jun 24 log confirms 3 bags still need one final hill; today's 78°F break is the first practical outdoor window after a week of 95-99°F heat."
-    },
-    {
-      "task_id": "9",
-      "bed_id": "w2",
-      "title": "Harvest check",
-      "reason": "Five consecutive days of 95-99°F heat can accelerate garlic maturation by a week — check leaf browning on w2 now rather than waiting for the Jul 5 due date to avoid missing the harvest window."
-    },
-    {
-      "task_id": "26",
-      "bed_id": "w3",
-      "title": "Harvest check",
-      "reason": "Same heat-acceleration risk as w2 — check Italian Red leaf browning alongside w2 this weekend to confirm whether the Jul 15 harvest window has shifted earlier."
+      "title": "Inspect c1 beans: support and pod set",
+      "due_date": "2026-06-30",
+      "description": "Good Mother Stollard is a pole bean at 56 days — now in early pod set with no log since May 13; confirm trellis support is in place before vines sprawl further.",
+      "bed_id": "c1",
+      "urgency": "normal"
     }
-  ],
-  "suggested_tasks": []
+  ]
 }
