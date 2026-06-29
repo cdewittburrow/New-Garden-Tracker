@@ -1,16 +1,23 @@
 {
-  "headline": "17 days to garlic harvest — check for heat-advanced browning.",
+  "headline": "Cool break — finish potato hilling before heat returns.",
   "weather_notes": [
-    "Skip all irrigation through Monday — zones ran this morning and Sunday-night storm chances will maintain soil moisture into a clear Monday.",
-    "Resume zone 1 and zone 2 by Tuesday morning — 80°F arrives dry with no rain in the 7-day outlook; first scheduled run after the weekend gap.",
-    "Check w2 and w3 garlic leaf browning before Tuesday's warmup — last week's 95–99°F peak may have pulled the July 15 harvest window forward by 1-2 weeks."
+    "Skip all irrigation through Monday — both zones ran this morning and tonight's 30% rain chance extends the moisture window.",
+    "Exclude w2 and w3 garlic from zone 2's next run — 17 days to harvest and today's watering should be their last before cure.",
+    "Do outdoor tasks today or Monday — 68°F today and 73°F Monday are the only cool windows before heat climbs back to 80°F Tuesday."
   ],
-  "surfaced_tasks": [],
+  "surfaced_tasks": [
+    {
+      "task_id": "113",
+      "bed_id": "potato_bags",
+      "title": "Finish hilling the potato bags",
+      "reason": "3 days overdue — Jun 24 log confirms 3 bags still need one final hill; today's 68°F break is the first practical outdoor window after a week of 95–99°F heat."
+    }
+  ],
   "suggested_tasks": [
     {
-      "title": "Inspect c1 beans: support and pod set",
-      "due_date": "2026-06-30",
-      "description": "Good Mother Stollard is a pole bean at 56 days — now in early pod set with no log since May 13; confirm trellis support is in place before vines sprawl further.",
+      "title": "Side-dress c1 beans with fish emulsion",
+      "due_date": "2026-07-01",
+      "description": "56 days from seeding with no logged fertilizer application — feed now before pod set begins, using this week's cool 68–80°F window.",
       "bed_id": "c1",
       "urgency": "normal"
     }
