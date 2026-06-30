@@ -1,5 +1,5 @@
 {
-  "today": "2026-06-29",
+  "today": "2026-06-30",
   "plantings": [
     {
       "id": "79526620-7d75-4886-b31d-7c9bf731edc9",
@@ -278,17 +278,17 @@
       "due_date": "2026-05-24"
     },
     {
-      "id": 68,
-      "planting_id": "54c2c338-5c4d-4924-b91b-4ffc22ebb4b3",
-      "title": "Check for suckers",
-      "description": "Remove suckers forming in the crotch between main stem and lateral branches. Indeterminate varieties only (Amish Paste, Comstock, Bonny Best) — leave determinates (Roma, Orange Hat) unpruned. Pinch suckers when small (under 2 inches) for a cleaner break.",
-      "due_date": "2026-05-31"
-    },
-    {
       "id": 58,
       "planting_id": "54c2c338-5c4d-4924-b91b-4ffc22ebb4b3",
       "title": "Inspect for hornworms — apply Bt if found",
       "description": "Check undersides of leaves on lower third of plant. Look for dark frass (droppings) as first sign. If hornworms found: spray Bacillus thuringiensis (Bt) on affected foliage per label. Hand-pick any large worms already present. Reapply Bt after rain.",
+      "due_date": "2026-05-31"
+    },
+    {
+      "id": 68,
+      "planting_id": "54c2c338-5c4d-4924-b91b-4ffc22ebb4b3",
+      "title": "Check for suckers",
+      "description": "Remove suckers forming in the crotch between main stem and lateral branches. Indeterminate varieties only (Amish Paste, Comstock, Bonny Best) — leave determinates (Roma, Orange Hat) unpruned. Pinch suckers when small (under 2 inches) for a cleaner break.",
       "due_date": "2026-05-31"
     },
     {
@@ -346,6 +346,13 @@
       "title": "Finish hilling the potato bags",
       "description": "June 14 log shows two bags at 2/3 hilled and three at 1/3 — complete coverage now before plant growth outpaces stem burial in the heat.",
       "due_date": "2026-06-25"
+    },
+    {
+      "id": 114,
+      "planting_id": "8c343e4e-65cb-4765-9435-00beae2b3c73",
+      "title": "Side-dress c1 beans with fish emulsion",
+      "description": "56 days from seeding with no logged fertilizer application — feed now before pod set begins, using this week's cool 68–80°F window.",
+      "due_date": "2026-07-01"
     },
     {
       "id": 26,
@@ -686,63 +693,25 @@
       {
         "number": 1,
         "name": "Today",
-        "startTime": "2026-06-29T07:00:00-06:00",
-        "endTime": "2026-06-29T18:00:00-06:00",
+        "startTime": "2026-06-30T06:00:00-06:00",
+        "endTime": "2026-06-30T18:00:00-06:00",
         "isDaytime": true,
-        "temperature": 75,
+        "temperature": 81,
         "temperatureUnit": "F",
         "temperatureTrend": null,
         "probabilityOfPrecipitation": {
           "unitCode": "wmoUnit:percent",
-          "value": 11
+          "value": 2
         },
-        "windSpeed": "6 mph",
-        "windDirection": "SSW",
-        "icon": "https://api.weather.gov/icons/land/day/few?size=medium",
-        "shortForecast": "Sunny",
-        "detailedForecast": "Sunny. High near 75, with temperatures falling to around 73 in the afternoon. South southwest wind around 6 mph."
+        "windSpeed": "2 to 6 mph",
+        "windDirection": "NNW",
+        "icon": "https://api.weather.gov/icons/land/day/sct?size=medium",
+        "shortForecast": "Mostly Sunny",
+        "detailedForecast": "Mostly sunny. High near 81, with temperatures falling to around 79 in the afternoon. North northwest wind 2 to 6 mph."
       },
       {
         "number": 2,
         "name": "Tonight",
-        "startTime": "2026-06-29T18:00:00-06:00",
-        "endTime": "2026-06-30T06:00:00-06:00",
-        "isDaytime": false,
-        "temperature": 50,
-        "temperatureUnit": "F",
-        "temperatureTrend": null,
-        "probabilityOfPrecipitation": {
-          "unitCode": "wmoUnit:percent",
-          "value": 0
-        },
-        "windSpeed": "6 mph",
-        "windDirection": "NE",
-        "icon": "https://api.weather.gov/icons/land/night/few?size=medium",
-        "shortForecast": "Mostly Clear",
-        "detailedForecast": "Mostly clear. Low around 50, with temperatures rising to around 52 overnight. Northeast wind around 6 mph."
-      },
-      {
-        "number": 3,
-        "name": "Tuesday",
-        "startTime": "2026-06-30T06:00:00-06:00",
-        "endTime": "2026-06-30T18:00:00-06:00",
-        "isDaytime": true,
-        "temperature": 82,
-        "temperatureUnit": "F",
-        "temperatureTrend": null,
-        "probabilityOfPrecipitation": {
-          "unitCode": "wmoUnit:percent",
-          "value": 3
-        },
-        "windSpeed": "3 to 8 mph",
-        "windDirection": "NW",
-        "icon": "https://api.weather.gov/icons/land/day/bkn?size=medium",
-        "shortForecast": "Partly Sunny",
-        "detailedForecast": "Partly sunny. High near 82, with temperatures falling to around 80 in the afternoon. Northwest wind 3 to 8 mph."
-      },
-      {
-        "number": 4,
-        "name": "Tuesday Night",
         "startTime": "2026-06-30T18:00:00-06:00",
         "endTime": "2026-07-01T06:00:00-06:00",
         "isDaytime": false,
@@ -751,16 +720,16 @@
         "temperatureTrend": null,
         "probabilityOfPrecipitation": {
           "unitCode": "wmoUnit:percent",
-          "value": 0
+          "value": 2
         },
         "windSpeed": "5 mph",
-        "windDirection": "E",
+        "windDirection": "ENE",
         "icon": "https://api.weather.gov/icons/land/night/few?size=medium",
         "shortForecast": "Mostly Clear",
-        "detailedForecast": "Mostly clear, with a low around 55. East wind around 5 mph."
+        "detailedForecast": "Mostly clear. Low around 55, with temperatures rising to around 58 overnight. East northeast wind around 5 mph."
       },
       {
-        "number": 5,
+        "number": 3,
         "name": "Wednesday",
         "startTime": "2026-07-01T06:00:00-06:00",
         "endTime": "2026-07-01T18:00:00-06:00",
@@ -779,7 +748,7 @@
         "detailedForecast": "Mostly sunny, with a high near 87. South wind around 8 mph."
       },
       {
-        "number": 6,
+        "number": 4,
         "name": "Wednesday Night",
         "startTime": "2026-07-01T18:00:00-06:00",
         "endTime": "2026-07-02T06:00:00-06:00",
@@ -789,16 +758,16 @@
         "temperatureTrend": null,
         "probabilityOfPrecipitation": {
           "unitCode": "wmoUnit:percent",
-          "value": 3
+          "value": 2
         },
         "windSpeed": "6 mph",
-        "windDirection": "SSW",
+        "windDirection": "SSE",
         "icon": "https://api.weather.gov/icons/land/night/sct?size=medium",
         "shortForecast": "Partly Cloudy",
-        "detailedForecast": "Partly cloudy, with a low around 60."
+        "detailedForecast": "Partly cloudy, with a low around 60. South southeast wind around 6 mph."
       },
       {
-        "number": 7,
+        "number": 5,
         "name": "Thursday",
         "startTime": "2026-07-02T06:00:00-06:00",
         "endTime": "2026-07-02T18:00:00-06:00",
@@ -808,9 +777,47 @@
         "temperatureTrend": null,
         "probabilityOfPrecipitation": {
           "unitCode": "wmoUnit:percent",
-          "value": 1
+          "value": 0
         },
         "windSpeed": "8 mph",
+        "windDirection": "S",
+        "icon": "https://api.weather.gov/icons/land/day/few?size=medium",
+        "shortForecast": "Sunny",
+        "detailedForecast": "Sunny, with a high near 90. South wind around 8 mph."
+      },
+      {
+        "number": 6,
+        "name": "Thursday Night",
+        "startTime": "2026-07-02T18:00:00-06:00",
+        "endTime": "2026-07-03T06:00:00-06:00",
+        "isDaytime": false,
+        "temperature": 63,
+        "temperatureUnit": "F",
+        "temperatureTrend": null,
+        "probabilityOfPrecipitation": {
+          "unitCode": "wmoUnit:percent",
+          "value": 0
+        },
+        "windSpeed": "7 mph",
+        "windDirection": "S",
+        "icon": "https://api.weather.gov/icons/land/night/sct?size=medium",
+        "shortForecast": "Partly Cloudy",
+        "detailedForecast": "Partly cloudy, with a low around 63."
+      },
+      {
+        "number": 7,
+        "name": "Friday",
+        "startTime": "2026-07-03T06:00:00-06:00",
+        "endTime": "2026-07-03T18:00:00-06:00",
+        "isDaytime": true,
+        "temperature": 90,
+        "temperatureUnit": "F",
+        "temperatureTrend": null,
+        "probabilityOfPrecipitation": {
+          "unitCode": "wmoUnit:percent",
+          "value": 1
+        },
+        "windSpeed": "7 to 10 mph",
         "windDirection": "S",
         "icon": "https://api.weather.gov/icons/land/day/few?size=medium",
         "shortForecast": "Sunny",
@@ -819,12 +826,6 @@
     ],
     "alerts": [],
     "past_7_days": [
-      {
-        "date": "2026-06-22",
-        "precip_in": 0,
-        "high_f": 95,
-        "low_f": 66
-      },
       {
         "date": "2026-06-23",
         "precip_in": 0,
@@ -866,6 +867,12 @@
         "precip_in": 0.05,
         "high_f": 74,
         "low_f": 49
+      },
+      {
+        "date": "2026-06-30",
+        "precip_in": 0.05,
+        "high_f": 83,
+        "low_f": 55
       }
     ]
   },
@@ -897,8 +904,13 @@
         ]
       },
       "suggestions_state": {
-        "accepted": [],
-        "rejected": []
+        "accepted": [
+          0
+        ],
+        "rejected": [],
+        "surfaced_dismissed": [
+          "113"
+        ]
       },
       "generated_at": "2026-06-29T13:36:24+00:00"
     },
