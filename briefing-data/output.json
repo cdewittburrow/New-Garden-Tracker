@@ -1,25 +1,17 @@
 {
-  "headline": "Cool break — finish potato hilling before heat returns.",
+  "headline": "Zone 2 needs water before Wednesday's heat returns.",
   "weather_notes": [
-    "Skip all irrigation through Monday — both zones ran this morning and tonight's 30% rain chance extends the moisture window.",
-    "Exclude w2 and w3 garlic from zone 2's next run — 17 days to harvest and today's watering should be their last before cure.",
-    "Do outdoor tasks today or Monday — 68°F today and 73°F Monday are the only cool windows before heat climbs back to 80°F Tuesday."
+    "Run zone 2 today for w1, w4, and blackberry — last watered Jun 26 and this week's light drizzle never reached 0.1in.",
+    "Keep w2 and w3 garlic off today's zone 2 run — dry-down continues toward the mid-July harvest.",
+    "Schedule zone 1's next run for Thursday — last watered Jun 28, and Thursday's 90°F will make it 4 days dry by then."
   ],
   "surfaced_tasks": [
     {
-      "task_id": "113",
-      "bed_id": "potato_bags",
-      "title": "Finish hilling the potato bags",
-      "reason": "3 days overdue — Jun 24 log confirms 3 bags still need one final hill; today's 68°F break is the first practical outdoor window after a week of 95–99°F heat."
+      "task_id": "114",
+      "bed_id": "c1",
+      "title": "Side-dress c1 beans with fish emulsion",
+      "reason": "Due tomorrow at 58 days since seeding — today's mild 81°F is the last cool day before heat climbs to 87-90°F Wed-Fri."
     }
   ],
-  "suggested_tasks": [
-    {
-      "title": "Side-dress c1 beans with fish emulsion",
-      "due_date": "2026-07-01",
-      "description": "56 days from seeding with no logged fertilizer application — feed now before pod set begins, using this week's cool 68–80°F window.",
-      "bed_id": "c1",
-      "urgency": "normal"
-    }
-  ]
+  "suggested_tasks": []
 }
