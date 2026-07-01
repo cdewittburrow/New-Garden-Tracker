@@ -1,17 +1,18 @@
 {
-  "headline": "Zone 2 needs water before Wednesday's heat returns.",
+  "headline": "Heat back to 93°F by Friday — run zones and feed beans.",
   "weather_notes": [
-    "Run zone 2 today for w1, w4, and blackberry — last watered Jun 26 and this week's light drizzle never reached 0.1in.",
-    "Keep w2 and w3 garlic off today's zone 2 run — dry-down continues toward the mid-July harvest.",
-    "Schedule zone 1's next run for Thursday — last watered Jun 28, and Thursday's 90°F will make it 4 days dry by then."
+    "Run both Rachio zones this morning — 3 days dry with heat climbing to 91–93°F by July 3–4 and zero rain in the forecast.",
+    "Mulch e1–e4 tomato beds before Friday — 11-day transplants need 2–3 inches of mulch to hold soil moisture through the 93°F weekend.",
+    "Do all bed work before 9 AM Wednesday through Sunday — 91–93°F with no rain relief through Independence Day."
   ],
-  "surfaced_tasks": [
+  "surfaced_tasks": [],
+  "suggested_tasks": [
     {
-      "task_id": "114",
-      "bed_id": "c1",
-      "title": "Side-dress c1 beans with fish emulsion",
-      "reason": "Due tomorrow at 58 days since seeding — today's mild 81°F is the last cool day before heat climbs to 87-90°F Wed-Fri."
+      "title": "Side-dress c2–c4 beans with fish emulsion",
+      "due_date": "2026-07-05",
+      "description": "34 days from seeding with no fertilizer logged — apply fish emulsion before Sunday's 93°F to support the push to first harvest.",
+      "bed_id": "c2",
+      "urgency": "normal"
     }
-  ],
-  "suggested_tasks": []
+  ]
 }
