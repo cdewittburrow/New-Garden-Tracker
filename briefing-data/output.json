@@ -1,18 +1,25 @@
 {
-  "headline": "Heat back to 93°F by Friday — run zones and feed beans.",
+  "headline": "Heat spikes to 98°F Sunday — run zones again by Friday.",
   "weather_notes": [
-    "Run both Rachio zones this morning — 3 days dry with heat climbing to 91–93°F by July 3–4 and zero rain in the forecast.",
-    "Mulch e1–e4 tomato beds before Friday — 11-day transplants need 2–3 inches of mulch to hold soil moisture through the 93°F weekend.",
-    "Do all bed work before 9 AM Wednesday through Sunday — 91–93°F with no rain relief through Independence Day."
+    "Run both zones again by Friday morning — 95°F Saturday and 98°F Sunday exceed what today's irrigation alone will cover.",
+    "Do all bed work before 9 AM Friday through Sunday — 91-98°F heat with zero rain forecast closes all afternoon outdoor windows for the holiday weekend.",
+    "Top up mulch on e1-e4 before Friday — 12-day transplants need 2-3 inches of cover to buffer the 95-98°F weekend heat spike."
   ],
-  "surfaced_tasks": [],
+  "surfaced_tasks": [
+    {
+      "task_id": "113",
+      "bed_id": "potato_bags",
+      "title": "Finish hilling the potato bags",
+      "reason": "7 days overdue — Jun 24 log confirms 3 bags need one final hill; Thursday morning is the last cool window before 91-98°F closes outdoor work through the weekend."
+    }
+  ],
   "suggested_tasks": [
     {
-      "title": "Side-dress c2–c4 beans with fish emulsion",
-      "due_date": "2026-07-05",
-      "description": "34 days from seeding with no fertilizer logged — apply fish emulsion before Sunday's 93°F to support the push to first harvest.",
-      "bed_id": "c2",
-      "urgency": "normal"
+      "title": "Check peach tree for signs of life",
+      "due_date": "2026-07-04",
+      "description": "29 days since the Jun 3 'possibly dead' log with no follow-up — assess before Sunday's 98°F to decide on intervention or replacement.",
+      "bed_id": "peach",
+      "urgency": "low"
     }
   ]
 }
