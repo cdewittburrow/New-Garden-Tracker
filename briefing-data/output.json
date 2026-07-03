@@ -1,25 +1,18 @@
 {
-  "headline": "Heat spikes to 98°F Sunday — run zones again by Friday.",
+  "headline": "91°F today, 98°F Sunday — run zones Saturday morning.",
   "weather_notes": [
-    "Run both zones again by Friday morning — 95°F Saturday and 98°F Sunday exceed what today's irrigation alone will cover.",
-    "Do all bed work before 9 AM Friday through Sunday — 91-98°F heat with zero rain forecast closes all afternoon outdoor windows for the holiday weekend.",
-    "Top up mulch on e1-e4 before Friday — 12-day transplants need 2-3 inches of cover to buffer the 95-98°F weekend heat spike."
+    "Run both zones early Saturday morning — zones last ran July 2 and Independence Day's 95°F hits two days dry; water before holiday activities close the window.",
+    "Do all bed work tonight or before 8 AM Saturday — 95°F Independence Day and 98°F Sunday with zero rain close every afternoon outdoor window through the holiday weekend.",
+    "Check e1-e4 transplant soil tonight — 13-day plants begin their first stretch of back-to-back 91-98°F days and any dry rootball pockets need hand-watering before Saturday."
   ],
-  "surfaced_tasks": [
-    {
-      "task_id": "113",
-      "bed_id": "potato_bags",
-      "title": "Finish hilling the potato bags",
-      "reason": "7 days overdue — Jun 24 log confirms 3 bags need one final hill; Thursday morning is the last cool window before 91-98°F closes outdoor work through the weekend."
-    }
-  ],
+  "surfaced_tasks": [],
   "suggested_tasks": [
     {
-      "title": "Check peach tree for signs of life",
+      "title": "Feed c2-c4 bush beans Saturday morning",
       "due_date": "2026-07-04",
-      "description": "29 days since the Jun 3 'possibly dead' log with no follow-up — assess before Sunday's 98°F to decide on intervention or replacement.",
-      "bed_id": "peach",
-      "urgency": "low"
+      "description": "36-day bush beans have no logged fertilizer — apply fish emulsion Saturday morning before Sunday's 98°F closes the comfortable feeding window.",
+      "bed_id": "c2",
+      "urgency": "normal"
     }
   ]
 }
