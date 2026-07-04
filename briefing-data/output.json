@@ -1,16 +1,17 @@
 {
-  "headline": "91°F today, 98°F Sunday — run zones Saturday morning.",
+  "headline": "96°F today, 98°F weekend — run zones early.",
   "weather_notes": [
-    "Run both zones early Saturday morning — zones last ran July 2 and Independence Day's 95°F hits two days dry; water before holiday activities close the window.",
-    "Do all bed work tonight or before 8 AM Saturday — 95°F Independence Day and 98°F Sunday with zero rain close every afternoon outdoor window through the holiday weekend.",
-    "Check e1-e4 transplant soil tonight — 13-day plants begin their first stretch of back-to-back 91-98°F days and any dry rootball pockets need hand-watering before Saturday."
+    "Run both zones this morning — last irrigated July 2, and 96°F today through 98°F Monday with no rain in the forecast.",
+    "Do all garden work before 9 AM today through Monday — 96-98°F heat closes every afternoon outdoor window for the next 3 days.",
+    "Check potato bag moisture after the zone run — grow bags lose moisture significantly faster than ground beds in sustained 96-98°F heat.",
+    "Mulch e1-e4 beds if not already done — 14-day transplants need 2-3 inches of cover to hold soil moisture through the 96-98°F weekend."
   ],
   "surfaced_tasks": [],
   "suggested_tasks": [
     {
-      "title": "Feed c2-c4 bush beans Saturday morning",
+      "title": "Feed c2–c4 bush beans this morning",
       "due_date": "2026-07-04",
-      "description": "36-day bush beans have no logged fertilizer — apply fish emulsion Saturday morning before Sunday's 98°F closes the comfortable feeding window.",
+      "description": "37-day beans with no logged fertilizer — apply fish emulsion early before heat climbs past 90°F.",
       "bed_id": "c2",
       "urgency": "normal"
     }
