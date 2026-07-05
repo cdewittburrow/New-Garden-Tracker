@@ -1,18 +1,24 @@
 {
-  "headline": "96°F today, 98°F weekend — run zones early.",
+  "headline": "99°F scorcher — run zone 1 and feed beans early.",
   "weather_notes": [
-    "Run both zones this morning — last irrigated July 2, and 96°F today through 98°F Monday with no rain in the forecast.",
-    "Do all garden work before 9 AM today through Monday — 96-98°F heat closes every afternoon outdoor window for the next 3 days.",
-    "Check potato bag moisture after the zone run — grow bags lose moisture significantly faster than ground beds in sustained 96-98°F heat.",
-    "Mulch e1-e4 beds if not already done — 14-day transplants need 2-3 inches of cover to hold soil moisture through the 96-98°F weekend."
+    "Run zone 1 this morning — e1–e4 transplants and c-beds are 3 days dry entering 99°F today and 97°F Monday.",
+    "Do all outdoor work before 8 AM — 99°F today through 96°F Tuesday with zero rain closes every afternoon garden window.",
+    "Check potato bag moisture daily this week — grow bags dry 2–3× faster than ground beds in sustained 97–99°F heat."
   ],
-  "surfaced_tasks": [],
+  "surfaced_tasks": [
+    {
+      "task_id": "115",
+      "bed_id": "c2",
+      "title": "Feed c2–c4 bush beans this morning",
+      "reason": "Overdue by 1 day — 38-day beans with no fertilizer logged; run zone 1 first, then apply fish emulsion before 99°F heat climbs."
+    }
+  ],
   "suggested_tasks": [
     {
-      "title": "Feed c2–c4 bush beans this morning",
-      "due_date": "2026-07-04",
-      "description": "37-day beans with no logged fertilizer — apply fish emulsion early before heat climbs past 90°F.",
-      "bed_id": "c2",
+      "title": "Inspect c1 beans for pod set",
+      "due_date": "2026-07-06",
+      "description": "Good Mother Stollard at 63 days with no log since May 13 — check for pod development before Monday's 97°F heat peaks.",
+      "bed_id": "c1",
       "urgency": "normal"
     }
   ]
