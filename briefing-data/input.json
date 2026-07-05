@@ -1,5 +1,5 @@
 {
-  "today": "2026-07-04",
+  "today": "2026-07-05",
   "plantings": [
     {
       "id": "79526620-7d75-4886-b31d-7c9bf731edc9",
@@ -328,6 +328,13 @@
       "due_date": "2026-06-25"
     },
     {
+      "id": 115,
+      "planting_id": "67cc6456-af8e-4e73-b9b2-0e44b0c7a665",
+      "title": "Feed c2–c4 bush beans this morning",
+      "description": "37-day beans with no logged fertilizer — apply fish emulsion early before heat climbs past 90°F.",
+      "due_date": "2026-07-04"
+    },
+    {
       "id": 32,
       "planting_id": "79526620-7d75-4886-b31d-7c9bf731edc9",
       "title": "Fall renovation",
@@ -604,6 +611,11 @@
   ],
   "waterings": [
     {
+      "zone": 2,
+      "watered_date": "2026-07-05",
+      "duration_minutes": 30
+    },
+    {
       "zone": 1,
       "watered_date": "2026-07-02",
       "duration_minutes": 25
@@ -647,11 +659,6 @@
       "zone": 1,
       "watered_date": "2026-06-23",
       "duration_minutes": 20
-    },
-    {
-      "zone": 1,
-      "watered_date": "2026-06-21",
-      "duration_minutes": 25
     }
   ],
   "weather": {
@@ -659,45 +666,7 @@
       {
         "number": 1,
         "name": "Overnight",
-        "startTime": "2026-07-04T05:00:00-06:00",
-        "endTime": "2026-07-04T06:00:00-06:00",
-        "isDaytime": false,
-        "temperature": 64,
-        "temperatureUnit": "F",
-        "temperatureTrend": null,
-        "probabilityOfPrecipitation": {
-          "unitCode": "wmoUnit:percent",
-          "value": 0
-        },
-        "windSpeed": "3 mph",
-        "windDirection": "SSE",
-        "icon": "https://api.weather.gov/icons/land/night/few?size=medium",
-        "shortForecast": "Mostly Clear",
-        "detailedForecast": "Mostly clear. Low around 64, with temperatures rising to around 66 overnight. South southeast wind around 3 mph."
-      },
-      {
-        "number": 2,
-        "name": "Independence Day",
-        "startTime": "2026-07-04T06:00:00-06:00",
-        "endTime": "2026-07-04T18:00:00-06:00",
-        "isDaytime": true,
-        "temperature": 96,
-        "temperatureUnit": "F",
-        "temperatureTrend": null,
-        "probabilityOfPrecipitation": {
-          "unitCode": "wmoUnit:percent",
-          "value": 1
-        },
-        "windSpeed": "3 to 7 mph",
-        "windDirection": "NW",
-        "icon": "https://api.weather.gov/icons/land/day/few?size=medium",
-        "shortForecast": "Sunny",
-        "detailedForecast": "Sunny, with a high near 96. Northwest wind 3 to 7 mph."
-      },
-      {
-        "number": 3,
-        "name": "Saturday Night",
-        "startTime": "2026-07-04T18:00:00-06:00",
+        "startTime": "2026-07-05T05:00:00-06:00",
         "endTime": "2026-07-05T06:00:00-06:00",
         "isDaytime": false,
         "temperature": 66,
@@ -707,97 +676,129 @@
           "unitCode": "wmoUnit:percent",
           "value": 0
         },
-        "windSpeed": "3 to 7 mph",
-        "windDirection": "N",
+        "windSpeed": "5 mph",
+        "windDirection": "SSE",
         "icon": "https://api.weather.gov/icons/land/night/few?size=medium",
         "shortForecast": "Mostly Clear",
-        "detailedForecast": "Mostly clear. Low around 66, with temperatures rising to around 68 overnight. North wind 3 to 7 mph."
+        "detailedForecast": "Mostly clear. Low around 66, with temperatures rising to around 69 overnight. South southeast wind around 5 mph."
       },
       {
-        "number": 4,
+        "number": 2,
         "name": "Sunday",
         "startTime": "2026-07-05T06:00:00-06:00",
         "endTime": "2026-07-05T18:00:00-06:00",
         "isDaytime": true,
-        "temperature": 98,
-        "temperatureUnit": "F",
-        "temperatureTrend": null,
-        "probabilityOfPrecipitation": {
-          "unitCode": "wmoUnit:percent",
-          "value": 1
-        },
-        "windSpeed": "6 mph",
-        "windDirection": "S",
-        "icon": "https://api.weather.gov/icons/land/day/few?size=medium",
-        "shortForecast": "Sunny",
-        "detailedForecast": "Sunny, with a high near 98. South wind around 6 mph."
-      },
-      {
-        "number": 5,
-        "name": "Sunday Night",
-        "startTime": "2026-07-05T18:00:00-06:00",
-        "endTime": "2026-07-06T06:00:00-06:00",
-        "isDaytime": false,
-        "temperature": 70,
+        "temperature": 99,
         "temperatureUnit": "F",
         "temperatureTrend": null,
         "probabilityOfPrecipitation": {
           "unitCode": "wmoUnit:percent",
           "value": 0
         },
-        "windSpeed": "6 mph",
-        "windDirection": "ENE",
-        "icon": "https://api.weather.gov/icons/land/night/sct?size=medium",
-        "shortForecast": "Partly Cloudy",
-        "detailedForecast": "Partly cloudy, with a low around 70. East northeast wind around 6 mph."
+        "windSpeed": "8 mph",
+        "windDirection": "S",
+        "icon": "https://api.weather.gov/icons/land/day/few?size=medium",
+        "shortForecast": "Sunny",
+        "detailedForecast": "Sunny, with a high near 99. South wind around 8 mph."
       },
       {
-        "number": 6,
-        "name": "Monday",
-        "startTime": "2026-07-06T06:00:00-06:00",
-        "endTime": "2026-07-06T18:00:00-06:00",
-        "isDaytime": true,
-        "temperature": 98,
+        "number": 3,
+        "name": "Sunday Night",
+        "startTime": "2026-07-05T18:00:00-06:00",
+        "endTime": "2026-07-06T06:00:00-06:00",
+        "isDaytime": false,
+        "temperature": 71,
         "temperatureUnit": "F",
         "temperatureTrend": null,
         "probabilityOfPrecipitation": {
           "unitCode": "wmoUnit:percent",
-          "value": 4
+          "value": 2
         },
-        "windSpeed": "7 to 10 mph",
-        "windDirection": "S",
-        "icon": "https://api.weather.gov/icons/land/day/bkn?size=medium",
-        "shortForecast": "Partly Sunny",
-        "detailedForecast": "Partly sunny, with a high near 98."
+        "windSpeed": "6 mph",
+        "windDirection": "SW",
+        "icon": "https://api.weather.gov/icons/land/night/bkn?size=medium",
+        "shortForecast": "Mostly Cloudy",
+        "detailedForecast": "Mostly cloudy. Low around 71, with temperatures rising to around 75 overnight. Southwest wind around 6 mph."
       },
       {
-        "number": 7,
-        "name": "Monday Night",
-        "startTime": "2026-07-06T18:00:00-06:00",
-        "endTime": "2026-07-07T06:00:00-06:00",
-        "isDaytime": false,
-        "temperature": 70,
+        "number": 4,
+        "name": "Monday",
+        "startTime": "2026-07-06T06:00:00-06:00",
+        "endTime": "2026-07-06T18:00:00-06:00",
+        "isDaytime": true,
+        "temperature": 97,
         "temperatureUnit": "F",
         "temperatureTrend": null,
         "probabilityOfPrecipitation": {
           "unitCode": "wmoUnit:percent",
           "value": 13
         },
-        "windSpeed": "3 to 7 mph",
+        "windSpeed": "8 mph",
         "windDirection": "S",
-        "icon": "https://api.weather.gov/icons/land/night/tsra_hi/bkn?size=medium",
-        "shortForecast": "Slight Chance Showers And Thunderstorms then Mostly Cloudy",
-        "detailedForecast": "A slight chance of showers and thunderstorms before midnight. Mostly cloudy, with a low around 70."
+        "icon": "https://api.weather.gov/icons/land/day/bkn/tsra_hi?size=medium",
+        "shortForecast": "Partly Sunny then Slight Chance Showers And Thunderstorms",
+        "detailedForecast": "A slight chance of showers and thunderstorms after 3pm. Partly sunny, with a high near 97. South wind around 8 mph."
+      },
+      {
+        "number": 5,
+        "name": "Monday Night",
+        "startTime": "2026-07-06T18:00:00-06:00",
+        "endTime": "2026-07-07T06:00:00-06:00",
+        "isDaytime": false,
+        "temperature": 68,
+        "temperatureUnit": "F",
+        "temperatureTrend": null,
+        "probabilityOfPrecipitation": {
+          "unitCode": "wmoUnit:percent",
+          "value": 19
+        },
+        "windSpeed": "2 to 7 mph",
+        "windDirection": "SSW",
+        "icon": "https://api.weather.gov/icons/land/night/tsra_hi,20/sct?size=medium",
+        "shortForecast": "Slight Chance Showers And Thunderstorms then Partly Cloudy",
+        "detailedForecast": "A slight chance of showers and thunderstorms before midnight. Partly cloudy, with a low around 68. South southwest wind 2 to 7 mph. Chance of precipitation is 20%."
+      },
+      {
+        "number": 6,
+        "name": "Tuesday",
+        "startTime": "2026-07-07T06:00:00-06:00",
+        "endTime": "2026-07-07T18:00:00-06:00",
+        "isDaytime": true,
+        "temperature": 96,
+        "temperatureUnit": "F",
+        "temperatureTrend": null,
+        "probabilityOfPrecipitation": {
+          "unitCode": "wmoUnit:percent",
+          "value": 4
+        },
+        "windSpeed": "2 to 6 mph",
+        "windDirection": "SSW",
+        "icon": "https://api.weather.gov/icons/land/day/few?size=medium",
+        "shortForecast": "Sunny",
+        "detailedForecast": "Sunny, with a high near 96."
+      },
+      {
+        "number": 7,
+        "name": "Tuesday Night",
+        "startTime": "2026-07-07T18:00:00-06:00",
+        "endTime": "2026-07-08T06:00:00-06:00",
+        "isDaytime": false,
+        "temperature": 68,
+        "temperatureUnit": "F",
+        "temperatureTrend": null,
+        "probabilityOfPrecipitation": {
+          "unitCode": "wmoUnit:percent",
+          "value": 1
+        },
+        "windSpeed": "2 to 7 mph",
+        "windDirection": "ENE",
+        "icon": "https://api.weather.gov/icons/land/night/few?size=medium",
+        "shortForecast": "Mostly Clear",
+        "detailedForecast": "Mostly clear, with a low around 68."
       }
     ],
     "alerts": [],
     "past_7_days": [
-      {
-        "date": "2026-06-27",
-        "precip_in": 0.07,
-        "high_f": 76,
-        "low_f": 66
-      },
       {
         "date": "2026-06-28",
         "precip_in": 0.04,
@@ -838,11 +839,45 @@
         "date": "2026-07-04",
         "precip_in": 0,
         "high_f": 98,
-        "low_f": 68
+        "low_f": 67
+      },
+      {
+        "date": "2026-07-05",
+        "precip_in": 0,
+        "high_f": 101,
+        "low_f": 74
       }
     ]
   },
   "recent_briefings": [
+    {
+      "payload": {
+        "headline": "96°F today, 98°F weekend — run zones early.",
+        "weather_notes": [
+          "Run both zones this morning — last irrigated July 2, and 96°F today through 98°F Monday with no rain in the forecast.",
+          "Do all garden work before 9 AM today through Monday — 96-98°F heat closes every afternoon outdoor window for the next 3 days.",
+          "Check potato bag moisture after the zone run — grow bags lose moisture significantly faster than ground beds in sustained 96-98°F heat.",
+          "Mulch e1-e4 beds if not already done — 14-day transplants need 2-3 inches of cover to hold soil moisture through the 96-98°F weekend."
+        ],
+        "surfaced_tasks": [],
+        "suggested_tasks": [
+          {
+            "title": "Feed c2–c4 bush beans this morning",
+            "bed_id": "c2",
+            "urgency": "normal",
+            "due_date": "2026-07-04",
+            "description": "37-day beans with no logged fertilizer — apply fish emulsion early before heat climbs past 90°F."
+          }
+        ]
+      },
+      "suggestions_state": {
+        "accepted": [
+          0
+        ],
+        "rejected": []
+      },
+      "generated_at": "2026-07-04T13:41:42+00:00"
+    },
     {
       "payload": {
         "headline": "91°F today, 98°F Sunday — run zones Saturday morning.",
@@ -1284,47 +1319,6 @@
         "rejected": []
       },
       "generated_at": "2026-06-21T13:37:50+00:00"
-    },
-    {
-      "payload": {
-        "headline": "Stop w2 garlic water now — deadline is tomorrow.",
-        "weather_notes": [
-          "Complete all garden tasks before 10 AM — Fire Weather Watch active today until 10 PM MDT brings gusty wind and extreme low humidity.",
-          "Check potato_bags soil moisture today — grow bags dry out faster than ground beds under Fire Weather Watch conditions and bags last watered June 18.",
-          "Run zone 1 Sunday morning if tonight's isolated storms (30% chance) deliver nothing — tomatoes and beans last watered June 18 face 88–91°F heat through Monday."
-        ],
-        "surfaced_tasks": [
-          {
-            "title": "Stop watering",
-            "bed_id": "w2",
-            "reason": "Due tomorrow — zone 2 last ran June 18 and harvest is 25 days out; exclude w2 from all future zone 2 runs starting today.",
-            "task_id": "10"
-          },
-          {
-            "title": "Inspect for hornworms — apply Bt if found",
-            "bed_id": "e1",
-            "reason": "Due today on 42-day Amish Paste — 7 days of 89–97°F heat drives peak hornworm feeding; check lower leaves for frass this morning.",
-            "task_id": "60"
-          }
-        ],
-        "suggested_tasks": [
-          {
-            "title": "Harvest ripe blackberries before they soften",
-            "bed_id": "blackberry",
-            "urgency": "normal",
-            "due_date": "2026-06-21",
-            "description": "Berries first observed June 14 — 6 days of 89–97°F heat will have ripened and begun softening fruit; pick now before they pass peak."
-          }
-        ]
-      },
-      "suggestions_state": {
-        "accepted": [],
-        "rejected": [],
-        "surfaced_dismissed": [
-          "10"
-        ]
-      },
-      "generated_at": "2026-06-20T13:37:55+00:00"
     }
   ]
 }
