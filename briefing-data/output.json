@@ -1,24 +1,24 @@
 {
-  "headline": "99°F scorcher — run zone 1 and feed beans early.",
+  "headline": "Beans overdue 2 days; run zones Tuesday morning.",
   "weather_notes": [
-    "Run zone 1 this morning — e1–e4 transplants and c-beds are 3 days dry entering 99°F today and 97°F Monday.",
-    "Do all outdoor work before 8 AM — 99°F today through 96°F Tuesday with zero rain closes every afternoon garden window.",
-    "Check potato bag moisture daily this week — grow bags dry 2–3× faster than ground beds in sustained 97–99°F heat."
+    "Run both zones Tuesday morning — 2 days dry at 95°F will stress 16-day tomato transplants and peak-growth beans.",
+    "Do all outdoor work before 9 AM through Thursday — zero-rain forecast with 94–97°F daily highs closes every afternoon window.",
+    "Check potato bag moisture daily — sustained 95–97°F accelerates bag drying 2–3× faster than ground beds."
   ],
   "surfaced_tasks": [
     {
       "task_id": "115",
       "bed_id": "c2",
       "title": "Feed c2–c4 bush beans this morning",
-      "reason": "Overdue by 1 day — 38-day beans with no fertilizer logged; run zone 1 first, then apply fish emulsion before 99°F heat climbs."
+      "reason": "2 days overdue — 39-day beans have no fertilizer logged and need nitrogen for pod set; apply fish emulsion early before today's 97°F heat peaks."
     }
   ],
   "suggested_tasks": [
     {
-      "title": "Inspect c1 beans for pod set",
-      "due_date": "2026-07-06",
-      "description": "Good Mother Stollard at 63 days with no log since May 13 — check for pod development before Monday's 97°F heat peaks.",
-      "bed_id": "c1",
+      "title": "Check w4 onion tops for harvest signal",
+      "due_date": "2026-07-08",
+      "description": "At 72 days with no logged check, Yellow Sweet Spanish may be approaching maturity — look for fallen tops signaling it's time to pull and cure.",
+      "bed_id": "w4",
       "urgency": "normal"
     }
   ]
