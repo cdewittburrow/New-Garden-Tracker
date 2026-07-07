@@ -1,25 +1,18 @@
 {
-  "headline": "Beans overdue 2 days; run zones Tuesday morning.",
+  "headline": "Heat ramps to 99°F Friday — run zones today.",
   "weather_notes": [
-    "Run both zones Tuesday morning — 2 days dry at 95°F will stress 16-day tomato transplants and peak-growth beans.",
-    "Do all outdoor work before 9 AM through Thursday — zero-rain forecast with 94–97°F daily highs closes every afternoon window.",
-    "Check potato bag moisture daily — sustained 95–97°F accelerates bag drying 2–3× faster than ground beds."
+    "Run both zones this morning — 2 days dry entering a 96–99°F stretch through Friday; water before today's heat peaks.",
+    "Do all bed work before 9 AM through Friday — 96–99°F forecast with zero rain closes every afternoon outdoor window.",
+    "Check potato bag moisture daily this week — bags lose moisture 2–3× faster than ground beds in sustained 96–99°F heat."
   ],
-  "surfaced_tasks": [
-    {
-      "task_id": "115",
-      "bed_id": "c2",
-      "title": "Feed c2–c4 bush beans this morning",
-      "reason": "2 days overdue — 39-day beans have no fertilizer logged and need nitrogen for pod set; apply fish emulsion early before today's 97°F heat peaks."
-    }
-  ],
+  "surfaced_tasks": [],
   "suggested_tasks": [
     {
-      "title": "Check w4 onion tops for harvest signal",
-      "due_date": "2026-07-08",
-      "description": "At 72 days with no logged check, Yellow Sweet Spanish may be approaching maturity — look for fallen tops signaling it's time to pull and cure.",
-      "bed_id": "w4",
-      "urgency": "normal"
+      "title": "Tip new blackberry primocanes if 3–4 ft tall",
+      "due_date": "2026-07-10",
+      "description": "New canes logged June 14 are now 23 days old; tip at 3–4 ft now to promote lateral branching for next year's fruit.",
+      "bed_id": "blackberry",
+      "urgency": "low"
     }
   ]
 }
