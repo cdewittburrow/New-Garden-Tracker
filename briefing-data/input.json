@@ -1,5 +1,5 @@
 {
-  "today": "2026-07-06",
+  "today": "2026-07-07",
   "plantings": [
     {
       "id": "79526620-7d75-4886-b31d-7c9bf731edc9",
@@ -666,84 +666,8 @@
       {
         "number": 1,
         "name": "Today",
-        "startTime": "2026-07-06T07:00:00-06:00",
-        "endTime": "2026-07-06T18:00:00-06:00",
-        "isDaytime": true,
-        "temperature": 97,
-        "temperatureUnit": "F",
-        "temperatureTrend": null,
-        "probabilityOfPrecipitation": {
-          "unitCode": "wmoUnit:percent",
-          "value": 20
-        },
-        "windSpeed": "9 mph",
-        "windDirection": "SSW",
-        "icon": "https://api.weather.gov/icons/land/day/bkn/tsra_hi,20?size=medium",
-        "shortForecast": "Partly Sunny then Slight Chance Showers And Thunderstorms",
-        "detailedForecast": "A slight chance of showers and thunderstorms after noon. Partly sunny, with a high near 97. South southwest wind around 9 mph. Chance of precipitation is 20%."
-      },
-      {
-        "number": 2,
-        "name": "Tonight",
-        "startTime": "2026-07-06T18:00:00-06:00",
-        "endTime": "2026-07-07T06:00:00-06:00",
-        "isDaytime": false,
-        "temperature": 68,
-        "temperatureUnit": "F",
-        "temperatureTrend": null,
-        "probabilityOfPrecipitation": {
-          "unitCode": "wmoUnit:percent",
-          "value": 14
-        },
-        "windSpeed": "2 to 7 mph",
-        "windDirection": "WSW",
-        "icon": "https://api.weather.gov/icons/land/night/tsra_hi/sct?size=medium",
-        "shortForecast": "Slight Chance Showers And Thunderstorms then Partly Cloudy",
-        "detailedForecast": "A slight chance of showers and thunderstorms before 9pm. Partly cloudy. Low around 68, with temperatures rising to around 71 overnight. West southwest wind 2 to 7 mph."
-      },
-      {
-        "number": 3,
-        "name": "Tuesday",
         "startTime": "2026-07-07T06:00:00-06:00",
         "endTime": "2026-07-07T18:00:00-06:00",
-        "isDaytime": true,
-        "temperature": 95,
-        "temperatureUnit": "F",
-        "temperatureTrend": null,
-        "probabilityOfPrecipitation": {
-          "unitCode": "wmoUnit:percent",
-          "value": 12
-        },
-        "windSpeed": "2 to 7 mph",
-        "windDirection": "WSW",
-        "icon": "https://api.weather.gov/icons/land/day/few/tsra_hi?size=medium",
-        "shortForecast": "Sunny then Slight Chance Showers And Thunderstorms",
-        "detailedForecast": "A slight chance of showers and thunderstorms after noon. Sunny. High near 95, with temperatures falling to around 93 in the afternoon. West southwest wind 2 to 7 mph."
-      },
-      {
-        "number": 4,
-        "name": "Tuesday Night",
-        "startTime": "2026-07-07T18:00:00-06:00",
-        "endTime": "2026-07-08T06:00:00-06:00",
-        "isDaytime": false,
-        "temperature": 68,
-        "temperatureUnit": "F",
-        "temperatureTrend": null,
-        "probabilityOfPrecipitation": {
-          "unitCode": "wmoUnit:percent",
-          "value": 2
-        },
-        "windSpeed": "2 to 7 mph",
-        "windDirection": "NE",
-        "icon": "https://api.weather.gov/icons/land/night/sct?size=medium",
-        "shortForecast": "Partly Cloudy",
-        "detailedForecast": "Partly cloudy, with a low around 68. Northeast wind 2 to 7 mph."
-      },
-      {
-        "number": 5,
-        "name": "Wednesday",
-        "startTime": "2026-07-08T06:00:00-06:00",
-        "endTime": "2026-07-08T18:00:00-06:00",
         "isDaytime": true,
         "temperature": 96,
         "temperatureUnit": "F",
@@ -752,14 +676,52 @@
           "unitCode": "wmoUnit:percent",
           "value": 4
         },
-        "windSpeed": "6 mph",
+        "windSpeed": "3 to 7 mph",
         "windDirection": "SSW",
-        "icon": "https://api.weather.gov/icons/land/day/sct?size=medium",
-        "shortForecast": "Mostly Sunny",
-        "detailedForecast": "Mostly sunny, with a high near 96. South southwest wind around 6 mph."
+        "icon": "https://api.weather.gov/icons/land/day/few?size=medium",
+        "shortForecast": "Sunny",
+        "detailedForecast": "Sunny, with a high near 96. South southwest wind 3 to 7 mph."
       },
       {
-        "number": 6,
+        "number": 2,
+        "name": "Tonight",
+        "startTime": "2026-07-07T18:00:00-06:00",
+        "endTime": "2026-07-08T06:00:00-06:00",
+        "isDaytime": false,
+        "temperature": 67,
+        "temperatureUnit": "F",
+        "temperatureTrend": null,
+        "probabilityOfPrecipitation": {
+          "unitCode": "wmoUnit:percent",
+          "value": 2
+        },
+        "windSpeed": "2 to 8 mph",
+        "windDirection": "NW",
+        "icon": "https://api.weather.gov/icons/land/night/few?size=medium",
+        "shortForecast": "Mostly Clear",
+        "detailedForecast": "Mostly clear. Low around 67, with temperatures rising to around 71 overnight. Northwest wind 2 to 8 mph."
+      },
+      {
+        "number": 3,
+        "name": "Wednesday",
+        "startTime": "2026-07-08T06:00:00-06:00",
+        "endTime": "2026-07-08T18:00:00-06:00",
+        "isDaytime": true,
+        "temperature": 97,
+        "temperatureUnit": "F",
+        "temperatureTrend": null,
+        "probabilityOfPrecipitation": {
+          "unitCode": "wmoUnit:percent",
+          "value": 5
+        },
+        "windSpeed": "2 to 7 mph",
+        "windDirection": "S",
+        "icon": "https://api.weather.gov/icons/land/day/few?size=medium",
+        "shortForecast": "Sunny",
+        "detailedForecast": "Sunny, with a high near 97. South wind 2 to 7 mph."
+      },
+      {
+        "number": 4,
         "name": "Wednesday Night",
         "startTime": "2026-07-08T18:00:00-06:00",
         "endTime": "2026-07-09T06:00:00-06:00",
@@ -771,40 +733,72 @@
           "unitCode": "wmoUnit:percent",
           "value": 2
         },
-        "windSpeed": "1 to 7 mph",
+        "windSpeed": "2 to 7 mph",
         "windDirection": "NE",
         "icon": "https://api.weather.gov/icons/land/night/sct?size=medium",
         "shortForecast": "Partly Cloudy",
-        "detailedForecast": "Partly cloudy, with a low around 67."
+        "detailedForecast": "Partly cloudy, with a low around 67. Northeast wind 2 to 7 mph."
       },
       {
-        "number": 7,
+        "number": 5,
         "name": "Thursday",
         "startTime": "2026-07-09T06:00:00-06:00",
         "endTime": "2026-07-09T18:00:00-06:00",
         "isDaytime": true,
-        "temperature": 94,
+        "temperature": 96,
         "temperatureUnit": "F",
         "temperatureTrend": null,
         "probabilityOfPrecipitation": {
           "unitCode": "wmoUnit:percent",
           "value": 0
         },
-        "windSpeed": "1 to 9 mph",
-        "windDirection": "W",
+        "windSpeed": "1 to 8 mph",
+        "windDirection": "SW",
         "icon": "https://api.weather.gov/icons/land/day/few?size=medium",
         "shortForecast": "Sunny",
-        "detailedForecast": "Sunny, with a high near 94."
+        "detailedForecast": "Sunny, with a high near 96. Southwest wind 1 to 8 mph."
+      },
+      {
+        "number": 6,
+        "name": "Thursday Night",
+        "startTime": "2026-07-09T18:00:00-06:00",
+        "endTime": "2026-07-10T06:00:00-06:00",
+        "isDaytime": false,
+        "temperature": 66,
+        "temperatureUnit": "F",
+        "temperatureTrend": null,
+        "probabilityOfPrecipitation": {
+          "unitCode": "wmoUnit:percent",
+          "value": 0
+        },
+        "windSpeed": "3 to 8 mph",
+        "windDirection": "ENE",
+        "icon": "https://api.weather.gov/icons/land/night/few?size=medium",
+        "shortForecast": "Mostly Clear",
+        "detailedForecast": "Mostly clear, with a low around 66."
+      },
+      {
+        "number": 7,
+        "name": "Friday",
+        "startTime": "2026-07-10T06:00:00-06:00",
+        "endTime": "2026-07-10T18:00:00-06:00",
+        "isDaytime": true,
+        "temperature": 99,
+        "temperatureUnit": "F",
+        "temperatureTrend": null,
+        "probabilityOfPrecipitation": {
+          "unitCode": "wmoUnit:percent",
+          "value": 0
+        },
+        "windSpeed": "6 mph",
+        "windDirection": "SSE",
+        "icon": "https://api.weather.gov/icons/land/day/few?size=medium",
+        "shortForecast": "Sunny",
+        "detailedForecast": "Sunny, with a high near 99."
       }
     ],
     "alerts": [],
     "past_7_days": [
-      {
-        "date": "2026-06-29",
-        "precip_in": 0.05,
-        "high_f": 74,
-        "low_f": 49
-      },
       {
         "date": "2026-06-30",
         "precip_in": 0,
@@ -844,12 +838,55 @@
       {
         "date": "2026-07-06",
         "precip_in": 0,
-        "high_f": 99,
-        "low_f": 78
+        "high_f": 101,
+        "low_f": 76
+      },
+      {
+        "date": "2026-07-07",
+        "precip_in": 0.02,
+        "high_f": 94,
+        "low_f": 74
       }
     ]
   },
   "recent_briefings": [
+    {
+      "payload": {
+        "headline": "Beans overdue 2 days; run zones Tuesday morning.",
+        "weather_notes": [
+          "Run both zones Tuesday morning — 2 days dry at 95°F will stress 16-day tomato transplants and peak-growth beans.",
+          "Do all outdoor work before 9 AM through Thursday — zero-rain forecast with 94–97°F daily highs closes every afternoon window.",
+          "Check potato bag moisture daily — sustained 95–97°F accelerates bag drying 2–3× faster than ground beds."
+        ],
+        "surfaced_tasks": [
+          {
+            "title": "Feed c2–c4 bush beans this morning",
+            "bed_id": "c2",
+            "reason": "2 days overdue — 39-day beans have no fertilizer logged and need nitrogen for pod set; apply fish emulsion early before today's 97°F heat peaks.",
+            "task_id": "115"
+          }
+        ],
+        "suggested_tasks": [
+          {
+            "title": "Check w4 onion tops for harvest signal",
+            "bed_id": "w4",
+            "urgency": "normal",
+            "due_date": "2026-07-08",
+            "description": "At 72 days with no logged check, Yellow Sweet Spanish may be approaching maturity — look for fallen tops signaling it's time to pull and cure."
+          }
+        ]
+      },
+      "suggestions_state": {
+        "accepted": [],
+        "rejected": [
+          0
+        ],
+        "surfaced_dismissed": [
+          "115"
+        ]
+      },
+      "generated_at": "2026-07-06T13:41:41+00:00"
+    },
     {
       "payload": {
         "headline": "99°F scorcher — run zone 1 and feed beans early.",
@@ -1267,50 +1304,6 @@
         ]
       },
       "generated_at": "2026-06-23T13:37:12+00:00"
-    },
-    {
-      "payload": {
-        "headline": "Garlic off zone 2 now — 24 days to harvest.",
-        "weather_notes": [
-          "Do all garden work before 9 AM Monday through Wednesday — heat climbs from 92°F to 97°F with no rain in the 7-day forecast.",
-          "Re-run zone 1 by Wednesday morning — today's run will be 3 days old at Wednesday's 97°F peak, which may stress 24-day bean seedlings in c2–c4 and the potato bags."
-        ],
-        "surfaced_tasks": [
-          {
-            "title": "Stop watering",
-            "bed_id": "w2",
-            "reason": "Due today — zone 2 ran this morning but w2 and w3 must be excluded from all future zone 2 runs now; both garlic beds are 24 days from harvest and the dry-down cannot wait another day.",
-            "task_id": "10"
-          }
-        ],
-        "suggested_tasks": [
-          {
-            "title": "Harvest ripe blackberries before heat peaks",
-            "bed_id": "blackberry",
-            "urgency": "normal",
-            "due_date": "2026-06-22",
-            "description": "Berries first observed June 14 — 7 days on the vine plus 95–97°F heat arriving Tuesday will over-ripen and soften remaining fruit within 1–2 days."
-          },
-          {
-            "title": "Check e1 Amish Paste for suckers",
-            "bed_id": "e1",
-            "urgency": "low",
-            "due_date": "2026-06-24",
-            "description": "At 43 days with no active sucker task for this planting, indeterminate Amish Paste is in peak lateral growth — 97°F heat by Wednesday will push suckers past the 2-inch pinch window."
-          }
-        ]
-      },
-      "suggestions_state": {
-        "accepted": [],
-        "rejected": [
-          0,
-          1
-        ],
-        "surfaced_dismissed": [
-          "10"
-        ]
-      },
-      "generated_at": "2026-06-22T13:38:57+00:00"
     }
   ]
 }
