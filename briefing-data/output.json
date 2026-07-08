@@ -1,18 +1,26 @@
 {
-  "headline": "Heat ramps to 99°F Friday — run zones today.",
+  "headline": "Run zones now — 3 days dry, 99°F Friday.",
   "weather_notes": [
-    "Run both zones this morning — 2 days dry entering a 96–99°F stretch through Friday; water before today's heat peaks.",
-    "Do all bed work before 9 AM through Friday — 96–99°F forecast with zero rain closes every afternoon outdoor window.",
-    "Check potato bag moisture daily this week — bags lose moisture 2–3× faster than ground beds in sustained 96–99°F heat."
+    "Run both zones this morning — 3 days dry entering 97°F today and 99°F Friday with zero rain forecast.",
+    "Hand-check e1–e4 transplant root zones after irrigation — 18-day tomatoes in sustained 97–99°F heat may need spot watering between cycles.",
+    "Do all garden work before 8 AM through Friday — back-to-back 97–99°F closes every afternoon outdoor window this week.",
+    "Check potato bag moisture daily — bags lose moisture 2–3× faster than ground beds in sustained extreme heat."
   ],
-  "surfaced_tasks": [],
+  "surfaced_tasks": [
+    {
+      "task_id": "116",
+      "bed_id": "blackberry",
+      "title": "Tip new blackberry primocanes if 3–4 ft tall",
+      "reason": "Due Thursday — canes logged June 14 are now 24 days old and likely at tipping height; tip before continued 97–99°F heat stresses new laterals after pinching."
+    }
+  ],
   "suggested_tasks": [
     {
-      "title": "Tip new blackberry primocanes if 3–4 ft tall",
-      "due_date": "2026-07-10",
-      "description": "New canes logged June 14 are now 23 days old; tip at 3–4 ft now to promote lateral branching for next year's fruit.",
-      "bed_id": "blackberry",
-      "urgency": "low"
+      "title": "Check c2–c4 beans for first pod set",
+      "due_date": "2026-07-15",
+      "description": "At 41 days, Red Swan and Jade Bush are 10–14 days from 55-day maturity — confirm pod set now and watch for heat-induced blossom drop in this week's 97–99°F stretch.",
+      "bed_id": "c2",
+      "urgency": "normal"
     }
   ]
 }
