@@ -1,26 +1,25 @@
 {
-  "headline": "Run zones now — 3 days dry, 99°F Friday.",
+  "headline": "104°F weekend inbound — tip blackberries, mulch tomatoes Friday.",
   "weather_notes": [
-    "Run both zones this morning — 3 days dry entering 97°F today and 99°F Friday with zero rain forecast.",
-    "Hand-check e1–e4 transplant root zones after irrigation — 18-day tomatoes in sustained 97–99°F heat may need spot watering between cycles.",
-    "Do all garden work before 8 AM through Friday — back-to-back 97–99°F closes every afternoon outdoor window this week.",
-    "Check potato bag moisture daily — bags lose moisture 2–3× faster than ground beds in sustained extreme heat."
+    "Do all garden work before 8 AM through Sunday — 99°F Friday, 104°F Saturday, and 106°F Sunday under an active Extreme Heat Watch.",
+    "Run both zones Friday morning — today's watering will be 1 day dry by Friday's 99°F, the re-water threshold for heat above 85°F.",
+    "Check potato bag moisture daily Friday through Sunday — bags dry 2–3× faster than ground beds at 104–106°F."
   ],
   "surfaced_tasks": [
     {
       "task_id": "116",
       "bed_id": "blackberry",
       "title": "Tip new blackberry primocanes if 3–4 ft tall",
-      "reason": "Due Thursday — canes logged June 14 are now 24 days old and likely at tipping height; tip before continued 97–99°F heat stresses new laterals after pinching."
+      "reason": "Due tomorrow July 10 — tip before Friday's 99°F rises to Saturday's 104°F so new laterals aren't immediately hit by peak heat."
     }
   ],
   "suggested_tasks": [
     {
-      "title": "Check c2–c4 beans for first pod set",
-      "due_date": "2026-07-15",
-      "description": "At 41 days, Red Swan and Jade Bush are 10–14 days from 55-day maturity — confirm pod set now and watch for heat-induced blossom drop in this week's 97–99°F stretch.",
-      "bed_id": "c2",
-      "urgency": "normal"
+      "title": "Mulch e1–e4 tomato beds before Saturday",
+      "due_date": "2026-07-11",
+      "description": "Apply 2–3 inches of mulch to e1–e4 before Saturday's 104°F to protect 19-day root zones through the Extreme Heat Watch weekend.",
+      "bed_id": "e1",
+      "urgency": "high"
     }
   ]
 }
