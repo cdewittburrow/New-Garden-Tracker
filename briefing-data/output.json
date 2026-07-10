@@ -1,25 +1,18 @@
 {
-  "headline": "104°F weekend inbound — tip blackberries, mulch tomatoes Friday.",
+  "headline": "Extreme heat peaks 106°F — tip canes now, zones Saturday.",
   "weather_notes": [
-    "Do all garden work before 8 AM through Sunday — 99°F Friday, 104°F Saturday, and 106°F Sunday under an active Extreme Heat Watch.",
-    "Run both zones Friday morning — today's watering will be 1 day dry by Friday's 99°F, the re-water threshold for heat above 85°F.",
-    "Check potato bag moisture daily Friday through Sunday — bags dry 2–3× faster than ground beds at 104–106°F."
+    "Do all garden work before 8 AM through Monday — Extreme Heat Warning is active until July 14 with 100–106°F daily highs.",
+    "Run both zones early Saturday morning — yesterday's irrigation is 2 days dry by Saturday's 103°F, crossing the re-water threshold for extreme heat.",
+    "Check e1–e4 transplant soil between irrigation cycles — 20-day tomatoes under 100–106°F may need spot watering before the next scheduled zone run.",
+    "Check potato bag moisture daily through Monday — bags lose moisture 2–3× faster than ground beds in 100–106°F extreme heat."
   ],
   "surfaced_tasks": [
     {
       "task_id": "116",
       "bed_id": "blackberry",
       "title": "Tip new blackberry primocanes if 3–4 ft tall",
-      "reason": "Due tomorrow July 10 — tip before Friday's 99°F rises to Saturday's 104°F so new laterals aren't immediately hit by peak heat."
+      "reason": "Due today — do it before 8 AM while it's coolest; Saturday's 103°F and Sunday's 106°F close every subsequent outdoor morning window through the weekend."
     }
   ],
-  "suggested_tasks": [
-    {
-      "title": "Mulch e1–e4 tomato beds before Saturday",
-      "due_date": "2026-07-11",
-      "description": "Apply 2–3 inches of mulch to e1–e4 before Saturday's 104°F to protect 19-day root zones through the Extreme Heat Watch weekend.",
-      "bed_id": "e1",
-      "urgency": "high"
-    }
-  ]
+  "suggested_tasks": []
 }
