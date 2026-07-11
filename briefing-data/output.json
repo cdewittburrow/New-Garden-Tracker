@@ -1,18 +1,11 @@
 {
-  "headline": "Extreme heat peaks 106°F — tip canes now, zones Saturday.",
+  "headline": "107°F Sunday — run zones now, shade young tomatoes.",
   "weather_notes": [
-    "Do all garden work before 8 AM through Monday — Extreme Heat Warning is active until July 14 with 100–106°F daily highs.",
-    "Run both zones early Saturday morning — yesterday's irrigation is 2 days dry by Saturday's 103°F, crossing the re-water threshold for extreme heat.",
-    "Check e1–e4 transplant soil between irrigation cycles — 20-day tomatoes under 100–106°F may need spot watering before the next scheduled zone run.",
-    "Check potato bag moisture daily through Monday — bags lose moisture 2–3× faster than ground beds in 100–106°F extreme heat."
+    "Run both zones this morning — 2 days dry entering today's 103°F crosses the 1-day re-water threshold for heat above 85°F.",
+    "Do all outdoor garden work before 8 AM today through Monday — Extreme Heat Warning is active through July 14 with 103–107°F highs.",
+    "Hang shade cloth over e1–e4 midday Sunday — 107°F risks permanent sunscald on 21-day transplants; remove by 5 PM.",
+    "Check the new potato-bag cutting daily through Monday — started July 9 and not yet established, making it the highest-risk plant in Sunday's 107°F."
   ],
-  "surfaced_tasks": [
-    {
-      "task_id": "116",
-      "bed_id": "blackberry",
-      "title": "Tip new blackberry primocanes if 3–4 ft tall",
-      "reason": "Due today — do it before 8 AM while it's coolest; Saturday's 103°F and Sunday's 106°F close every subsequent outdoor morning window through the weekend."
-    }
-  ],
+  "surfaced_tasks": [],
   "suggested_tasks": []
 }
