@@ -1,5 +1,5 @@
 {
-  "today": "2026-07-10",
+  "today": "2026-07-11",
   "plantings": [
     {
       "id": "79526620-7d75-4886-b31d-7c9bf731edc9",
@@ -663,30 +663,11 @@
     "forecast": [
       {
         "number": 1,
-        "name": "Today",
-        "startTime": "2026-07-10T06:00:00-06:00",
-        "endTime": "2026-07-10T18:00:00-06:00",
-        "isDaytime": true,
-        "temperature": 100,
-        "temperatureUnit": "F",
-        "temperatureTrend": null,
-        "probabilityOfPrecipitation": {
-          "unitCode": "wmoUnit:percent",
-          "value": 0
-        },
-        "windSpeed": "3 to 7 mph",
-        "windDirection": "S",
-        "icon": "https://api.weather.gov/icons/land/day/hot?size=medium",
-        "shortForecast": "Sunny",
-        "detailedForecast": "Sunny. High near 100, with temperatures falling to around 98 in the afternoon. South wind 3 to 7 mph."
-      },
-      {
-        "number": 2,
-        "name": "Tonight",
-        "startTime": "2026-07-10T18:00:00-06:00",
+        "name": "Overnight",
+        "startTime": "2026-07-11T04:00:00-06:00",
         "endTime": "2026-07-11T06:00:00-06:00",
         "isDaytime": false,
-        "temperature": 69,
+        "temperature": 68,
         "temperatureUnit": "F",
         "temperatureTrend": null,
         "probabilityOfPrecipitation": {
@@ -694,13 +675,13 @@
           "value": 0
         },
         "windSpeed": "6 mph",
-        "windDirection": "ENE",
+        "windDirection": "S",
         "icon": "https://api.weather.gov/icons/land/night/few?size=medium",
         "shortForecast": "Mostly Clear",
-        "detailedForecast": "Mostly clear. Low around 69, with temperatures rising to around 72 overnight. East northeast wind around 6 mph."
+        "detailedForecast": "Mostly clear. Low around 68, with temperatures rising to around 72 overnight. South wind around 6 mph."
       },
       {
-        "number": 3,
+        "number": 2,
         "name": "Saturday",
         "startTime": "2026-07-11T06:00:00-06:00",
         "endTime": "2026-07-11T18:00:00-06:00",
@@ -713,13 +694,13 @@
           "value": 0
         },
         "windSpeed": "7 mph",
-        "windDirection": "WSW",
+        "windDirection": "S",
         "icon": "https://api.weather.gov/icons/land/day/hot?size=medium",
         "shortForecast": "Sunny",
-        "detailedForecast": "Sunny, with a high near 103. West southwest wind around 7 mph."
+        "detailedForecast": "Sunny, with a high near 103. South wind around 7 mph."
       },
       {
-        "number": 4,
+        "number": 3,
         "name": "Saturday Night",
         "startTime": "2026-07-11T18:00:00-06:00",
         "endTime": "2026-07-12T06:00:00-06:00",
@@ -735,29 +716,29 @@
         "windDirection": "ENE",
         "icon": "https://api.weather.gov/icons/land/night/few?size=medium",
         "shortForecast": "Mostly Clear",
-        "detailedForecast": "Mostly clear, with a low around 72. East northeast wind 3 to 7 mph."
+        "detailedForecast": "Mostly clear. Low around 72, with temperatures rising to around 75 overnight. East northeast wind 3 to 7 mph."
       },
       {
-        "number": 5,
+        "number": 4,
         "name": "Sunday",
         "startTime": "2026-07-12T06:00:00-06:00",
         "endTime": "2026-07-12T18:00:00-06:00",
         "isDaytime": true,
-        "temperature": 106,
+        "temperature": 107,
         "temperatureUnit": "F",
         "temperatureTrend": null,
         "probabilityOfPrecipitation": {
           "unitCode": "wmoUnit:percent",
           "value": 0
         },
-        "windSpeed": "7 mph",
-        "windDirection": "S",
+        "windSpeed": "8 mph",
+        "windDirection": "SSW",
         "icon": "https://api.weather.gov/icons/land/day/hot?size=medium",
         "shortForecast": "Sunny",
-        "detailedForecast": "Sunny, with a high near 106. South wind around 7 mph."
+        "detailedForecast": "Sunny, with a high near 107. South southwest wind around 8 mph."
       },
       {
-        "number": 6,
+        "number": 5,
         "name": "Sunday Night",
         "startTime": "2026-07-12T18:00:00-06:00",
         "endTime": "2026-07-13T06:00:00-06:00",
@@ -769,14 +750,14 @@
           "unitCode": "wmoUnit:percent",
           "value": 0
         },
-        "windSpeed": "3 to 8 mph",
-        "windDirection": "ENE",
+        "windSpeed": "2 to 8 mph",
+        "windDirection": "NE",
         "icon": "https://api.weather.gov/icons/land/night/few?size=medium",
         "shortForecast": "Mostly Clear",
-        "detailedForecast": "Mostly clear, with a low around 74."
+        "detailedForecast": "Mostly clear, with a low around 74. Northeast wind 2 to 8 mph."
       },
       {
-        "number": 7,
+        "number": 6,
         "name": "Monday",
         "startTime": "2026-07-13T06:00:00-06:00",
         "endTime": "2026-07-13T18:00:00-06:00",
@@ -786,26 +767,39 @@
         "temperatureTrend": null,
         "probabilityOfPrecipitation": {
           "unitCode": "wmoUnit:percent",
-          "value": 1
+          "value": 0
         },
-        "windSpeed": "3 to 7 mph",
-        "windDirection": "S",
+        "windSpeed": "2 to 6 mph",
+        "windDirection": "SSW",
         "icon": "https://api.weather.gov/icons/land/day/hot?size=medium",
         "shortForecast": "Sunny",
         "detailedForecast": "Sunny, with a high near 103."
+      },
+      {
+        "number": 7,
+        "name": "Monday Night",
+        "startTime": "2026-07-13T18:00:00-06:00",
+        "endTime": "2026-07-14T06:00:00-06:00",
+        "isDaytime": false,
+        "temperature": 74,
+        "temperatureUnit": "F",
+        "temperatureTrend": null,
+        "probabilityOfPrecipitation": {
+          "unitCode": "wmoUnit:percent",
+          "value": 2
+        },
+        "windSpeed": "2 to 6 mph",
+        "windDirection": "S",
+        "icon": "https://api.weather.gov/icons/land/night/sct?size=medium",
+        "shortForecast": "Partly Cloudy",
+        "detailedForecast": "Partly cloudy, with a low around 74."
       }
     ],
     "alerts": [
-      "Extreme Heat Warning issued July 10 at 5:16AM MDT until July 14 at 6:00AM MDT by NWS Salt Lake City UT",
+      "Extreme Heat Warning issued July 10 at 10:06AM MDT until July 14 at 6:00AM MDT by NWS Salt Lake City UT",
       "The Extreme Heat Watch has been replaced. Please see the latest information from NWS Salt Lake City UT on this developing situation."
     ],
     "past_7_days": [
-      {
-        "date": "2026-07-03",
-        "precip_in": 0.01,
-        "high_f": 92,
-        "low_f": 67
-      },
       {
         "date": "2026-07-04",
         "precip_in": 0,
@@ -845,12 +839,46 @@
       {
         "date": "2026-07-10",
         "precip_in": 0,
-        "high_f": 98,
-        "low_f": 72
+        "high_f": 99,
+        "low_f": 70
+      },
+      {
+        "date": "2026-07-11",
+        "precip_in": 0,
+        "high_f": 106,
+        "low_f": 78
       }
     ]
   },
   "recent_briefings": [
+    {
+      "payload": {
+        "headline": "Extreme heat peaks 106°F — tip canes now, zones Saturday.",
+        "weather_notes": [
+          "Do all garden work before 8 AM through Monday — Extreme Heat Warning is active until July 14 with 100–106°F daily highs.",
+          "Run both zones early Saturday morning — yesterday's irrigation is 2 days dry by Saturday's 103°F, crossing the re-water threshold for extreme heat.",
+          "Check e1–e4 transplant soil between irrigation cycles — 20-day tomatoes under 100–106°F may need spot watering before the next scheduled zone run.",
+          "Check potato bag moisture daily through Monday — bags lose moisture 2–3× faster than ground beds in 100–106°F extreme heat."
+        ],
+        "surfaced_tasks": [
+          {
+            "title": "Tip new blackberry primocanes if 3–4 ft tall",
+            "bed_id": "blackberry",
+            "reason": "Due today — do it before 8 AM while it's coolest; Saturday's 103°F and Sunday's 106°F close every subsequent outdoor morning window through the weekend.",
+            "task_id": "116"
+          }
+        ],
+        "suggested_tasks": []
+      },
+      "suggestions_state": {
+        "accepted": [],
+        "rejected": [],
+        "surfaced_dismissed": [
+          "116"
+        ]
+      },
+      "generated_at": "2026-07-10T13:42:14+00:00"
+    },
     {
       "payload": {
         "headline": "104°F weekend inbound — tip blackberries, mulch tomatoes Friday.",
@@ -1260,41 +1288,6 @@
         ]
       },
       "generated_at": "2026-06-27T13:37:36+00:00"
-    },
-    {
-      "payload": {
-        "headline": "Finish potatoes, pick blackberries — 96°F Red Flag today.",
-        "weather_notes": [
-          "Do all garden work before 9 AM — Red Flag Warning active through Saturday night with 96°F and 36 mph gusts makes afternoon conditions dangerous.",
-          "Skip zone runs today — both zones ran yesterday and 96°F meets the 1-day no-water threshold.",
-          "Hold Saturday morning irrigation — 30% storm chance Saturday afternoon may cover beds before zones need to run.",
-          "Skip Sunday zone irrigation — 50% rain chance should handle the moisture gap; reassess schedule Monday based on actual rainfall."
-        ],
-        "surfaced_tasks": [
-          {
-            "title": "Finish hilling the potato bags",
-            "bed_id": "potato_bags",
-            "reason": "1 day overdue — Jun 24 log confirms 3 bags still need one final hill; do it this morning before 96°F heat and weekend rain close the window.",
-            "task_id": "113"
-          }
-        ],
-        "suggested_tasks": [
-          {
-            "title": "Pick ripe blackberries before weekend rain",
-            "bed_id": "blackberry",
-            "urgency": "normal",
-            "due_date": "2026-06-26",
-            "description": "Triple Crown berries have been ripening 5 days in 95-98°F heat — pick today before Saturday storms soften ripe fruit on the cane."
-          }
-        ]
-      },
-      "suggestions_state": {
-        "accepted": [],
-        "rejected": [
-          0
-        ]
-      },
-      "generated_at": "2026-06-26T13:36:54+00:00"
     }
   ]
 }
