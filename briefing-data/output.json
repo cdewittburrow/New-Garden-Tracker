@@ -1,33 +1,32 @@
 {
-  "headline": "Heat warning ends Tuesday — tip canes Wednesday morning.",
+  "headline": "101°F and 2 days dry — water and tip canes.",
   "weather_notes": [
-    "Run both zones early Tuesday morning — 2 days dry entering 101°F; afternoon isolated storms (20% chance) aren't reliable enough to skip irrigation.",
-    "Limit all outdoor work to before 8 AM today — 102°F under an active Extreme Heat Warning that expires Tuesday at 6 AM MDT.",
-    "Check e1–e4 transplants Wednesday morning — first 96°F window after 4+ days above 100°F; pull any heat-damaged foliage before it invites disease.",
-    "Monitor new potato bag cutting daily — just 4 days since the Jul 9 restart, most vulnerable plant in continued 100°F+ heat.",
-    "Skip foliar sprays or feeds through Tuesday — 20–28% storm chance Tuesday–Wednesday could wash off applications within hours."
+    "Run both zones early this morning — 2 days dry entering 101°F crosses the 1-day re-water threshold for heat above 85°F.",
+    "Finish all garden work before 8 AM — heat stays 96–101°F through Thursday with no meaningful rain in the forecast.",
+    "Hang shade cloth over e1–e4 by midday — 24-day transplants risk sunscald at 101°F; remove by 5 PM.",
+    "Skip foliar sprays through Tuesday night — 13% storm chance could wash off same-day applications; Wednesday morning is the first clean window."
   ],
   "surfaced_tasks": [
     {
       "task_id": "116",
       "bed_id": "blackberry",
       "title": "Tip new blackberry primocanes if 3–4 ft tall",
-      "reason": "3 days overdue; Wednesday's 96°F is the first bearable morning window after the Extreme Heat Warning lifts to get this done."
+      "reason": "4 days overdue — the Extreme Heat Warning lifts at 6 AM this morning, opening the first workable early window since Jul 10."
     }
   ],
   "suggested_tasks": [
     {
-      "title": "Harvest check — blackberry bed",
-      "due_date": "2026-07-15",
-      "description": "Berries logged Jun 14; Triple Crown ripens mid-July — check for ready fruit before heat damages what's ready to pick.",
+      "title": "Pick ripe blackberries before midday heat",
+      "due_date": "2026-07-14",
+      "description": "Berries observed Jun 14 are 30 days into peak season — harvest any ripe fruit this morning before 101°F softens and damages them on the cane.",
       "bed_id": "blackberry",
-      "urgency": "normal"
+      "urgency": "high"
     },
     {
-      "title": "Feed w1 strawberries with berry food",
+      "title": "First feed e1–e4 tomatoes with fish emulsion",
       "due_date": "2026-07-15",
-      "description": "Last logged feeding was Jun 3 (40 days ago); apply Wednesday morning during the heat break to support continued production.",
-      "bed_id": "w1",
+      "description": "24-day transplants have no fertilizer logged — apply fish emulsion Wednesday morning, the first clear window before Thursday's 20% storm chance.",
+      "bed_id": "e1",
       "urgency": "normal"
     }
   ]
