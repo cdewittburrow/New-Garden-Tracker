@@ -1,32 +1,32 @@
 {
-  "headline": "101°F and 2 days dry — water and tip canes.",
+  "headline": "Heat breaks to 94°F — tip canes and feed tomatoes.",
   "weather_notes": [
-    "Run both zones early this morning — 2 days dry entering 101°F crosses the 1-day re-water threshold for heat above 85°F.",
-    "Finish all garden work before 8 AM — heat stays 96–101°F through Thursday with no meaningful rain in the forecast.",
-    "Hang shade cloth over e1–e4 by midday — 24-day transplants risk sunscald at 101°F; remove by 5 PM.",
-    "Skip foliar sprays through Tuesday night — 13% storm chance could wash off same-day applications; Wednesday morning is the first clean window."
+    "Run both zones this morning — 3 days dry at 94°F today, rising to 97°F Thursday with no reliable rain until Friday.",
+    "Do all garden work before 8 AM today through Friday — 94–98°F daily highs close every afternoon outdoor window.",
+    "Apply fish emulsion to e1–e4 and w1 by Thursday morning — Friday's 40% storm chance could wash off same-day applications.",
+    "Watch Friday's storm forecast before scheduling next week's zone run — a real rain event could replace one irrigation cycle."
   ],
   "surfaced_tasks": [
     {
       "task_id": "116",
       "bed_id": "blackberry",
       "title": "Tip new blackberry primocanes if 3–4 ft tall",
-      "reason": "4 days overdue — the Extreme Heat Warning lifts at 6 AM this morning, opening the first workable early window since Jul 10."
+      "reason": "5 days overdue — today's 94°F is the first bearable morning window after last week's 100–108°F heat wave."
     }
   ],
   "suggested_tasks": [
     {
-      "title": "Pick ripe blackberries before midday heat",
-      "due_date": "2026-07-14",
-      "description": "Berries observed Jun 14 are 30 days into peak season — harvest any ripe fruit this morning before 101°F softens and damages them on the cane.",
-      "bed_id": "blackberry",
+      "title": "Feed e1–e4 tomatoes with fish emulsion",
+      "due_date": "2026-07-16",
+      "description": "25-day transplants have no logged fertilizer — apply by Thursday morning before Friday's 40% storm chance could wash off the application.",
+      "bed_id": "e1",
       "urgency": "high"
     },
     {
-      "title": "First feed e1–e4 tomatoes with fish emulsion",
-      "due_date": "2026-07-15",
-      "description": "24-day transplants have no fertilizer logged — apply fish emulsion Wednesday morning, the first clear window before Thursday's 20% storm chance.",
-      "bed_id": "e1",
+      "title": "Feed w1 strawberries with berry food",
+      "due_date": "2026-07-16",
+      "description": "42 days since the Jun 3 feed — apply Thursday morning before Friday's 40% storm narrows the clean application window.",
+      "bed_id": "w1",
       "urgency": "normal"
     }
   ]
