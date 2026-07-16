@@ -1,31 +1,31 @@
 {
-  "headline": "Heat breaks to 94°F — tip canes and feed tomatoes.",
+  "headline": "Run zone 1, tip canes — Friday storms incoming.",
   "weather_notes": [
-    "Run both zones this morning — 3 days dry at 94°F today, rising to 97°F Thursday with no reliable rain until Friday.",
-    "Do all garden work before 8 AM today through Friday — 94–98°F daily highs close every afternoon outdoor window.",
-    "Apply fish emulsion to e1–e4 and w1 by Thursday morning — Friday's 40% storm chance could wash off same-day applications.",
-    "Watch Friday's storm forecast before scheduling next week's zone run — a real rain event could replace one irrigation cycle."
+    "Run zone 1 this morning — 4 days dry at 98°F is past the 1-day re-water threshold; afternoon's 30% storm chance isn't reliable enough to skip.",
+    "Do all outdoor work before 8 AM today through Saturday — 96–98°F daily highs close every outdoor window by mid-morning.",
+    "Apply fish emulsion before 9 AM today — Friday's 46% and Saturday's 41% afternoon storm chances will wash off same-day foliar applications before they absorb.",
+    "Harvest blackberries before noon — today's afternoon storm chance will bruise ripe Triple Crown fruit on the cane and accelerate spoilage."
   ],
   "surfaced_tasks": [
     {
       "task_id": "116",
       "bed_id": "blackberry",
       "title": "Tip new blackberry primocanes if 3–4 ft tall",
-      "reason": "5 days overdue — today's 94°F is the first bearable morning window after last week's 100–108°F heat wave."
+      "reason": "6 days overdue; today's early morning is the best outdoor window this week before Friday–Saturday storms and continued 96–98°F heat."
     }
   ],
   "suggested_tasks": [
     {
       "title": "Feed e1–e4 tomatoes with fish emulsion",
       "due_date": "2026-07-16",
-      "description": "25-day transplants have no logged fertilizer — apply by Thursday morning before Friday's 40% storm chance could wash off the application.",
+      "description": "26-day transplants with no logged fertilizer; apply this morning before Friday's 46% storm chance washes off the application.",
       "bed_id": "e1",
       "urgency": "high"
     },
     {
       "title": "Feed w1 strawberries with berry food",
-      "due_date": "2026-07-16",
-      "description": "42 days since the Jun 3 feed — apply Thursday morning before Friday's 40% storm narrows the clean application window.",
+      "due_date": "2026-07-18",
+      "description": "43 days since the last June 3 feed; apply Saturday morning before afternoon storms so the feed has time to absorb.",
       "bed_id": "w1",
       "urgency": "normal"
     }
