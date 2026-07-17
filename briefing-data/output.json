@@ -1,32 +1,31 @@
 {
-  "headline": "Run zone 1, tip canes — Friday storms incoming.",
+  "headline": "Pick berries and feed tomatoes before noon storms.",
   "weather_notes": [
-    "Run zone 1 this morning — 4 days dry at 98°F is past the 1-day re-water threshold; afternoon's 30% storm chance isn't reliable enough to skip.",
-    "Do all outdoor work before 8 AM today through Saturday — 96–98°F daily highs close every outdoor window by mid-morning.",
-    "Apply fish emulsion before 9 AM today — Friday's 46% and Saturday's 41% afternoon storm chances will wash off same-day foliar applications before they absorb.",
-    "Harvest blackberries before noon — today's afternoon storm chance will bruise ripe Triple Crown fruit on the cane and accelerate spoilage."
+    "Finish all outdoor garden work before noon — today's 51% afternoon storm chance closes the outdoor window; mornings are clear and manageable at 95°F vs last week's 100°F+ heat.",
+    "Skip zone irrigation today — both zones ran Jul 16; hold to see if this afternoon's storms deliver meaningful rain before scheduling the next cycle.",
+    "Inspect e1–e4 after any afternoon storm — check 27-day transplants for pooling or stem lodging from heavy monsoon downpours."
   ],
   "surfaced_tasks": [
     {
       "task_id": "116",
       "bed_id": "blackberry",
       "title": "Tip new blackberry primocanes if 3–4 ft tall",
-      "reason": "6 days overdue; today's early morning is the best outdoor window this week before Friday–Saturday storms and continued 96–98°F heat."
+      "reason": "7 days overdue; this morning before storms is the cleanest outdoor window of the week — get it done before Saturday's 37% storm pattern repeats."
     }
   ],
   "suggested_tasks": [
     {
-      "title": "Feed e1–e4 tomatoes with fish emulsion",
-      "due_date": "2026-07-16",
-      "description": "26-day transplants with no logged fertilizer; apply this morning before Friday's 46% storm chance washes off the application.",
-      "bed_id": "e1",
+      "title": "Harvest blackberries before noon",
+      "due_date": "2026-07-17",
+      "description": "Today's 51% afternoon storm chance risks bruising ripe Triple Crown fruit on the cane; pick this morning before storms arrive.",
+      "bed_id": "blackberry",
       "urgency": "high"
     },
     {
-      "title": "Feed w1 strawberries with berry food",
-      "due_date": "2026-07-18",
-      "description": "43 days since the last June 3 feed; apply Saturday morning before afternoon storms so the feed has time to absorb.",
-      "bed_id": "w1",
+      "title": "Feed e1–e4 tomatoes — fish emulsion",
+      "due_date": "2026-07-17",
+      "description": "27-day transplants have no logged fertilizer; apply this morning so today's afternoon storms help wash it into the root zone.",
+      "bed_id": "e1",
       "urgency": "normal"
     }
   ]
