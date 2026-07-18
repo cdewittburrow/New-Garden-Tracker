@@ -1,31 +1,31 @@
 {
-  "headline": "Pick berries and feed tomatoes before noon storms.",
+  "headline": "Heat breaks to 92°F — tip canes before Sunday's 96°F.",
   "weather_notes": [
-    "Finish all outdoor garden work before noon — today's 51% afternoon storm chance closes the outdoor window; mornings are clear and manageable at 95°F vs last week's 100°F+ heat.",
-    "Skip zone irrigation today — both zones ran Jul 16; hold to see if this afternoon's storms deliver meaningful rain before scheduling the next cycle.",
-    "Inspect e1–e4 after any afternoon storm — check 27-day transplants for pooling or stem lodging from heavy monsoon downpours."
+    "Run both zones this morning — 2 days dry at 92°F crosses the 1-day re-water threshold for heat above 85°F.",
+    "Do all garden work before 9 AM today through Monday — heat climbs from 92°F Saturday to 99°F Monday, closing every afternoon outdoor window.",
+    "Apply fish emulsion to e1–e4 tomatoes this morning — 28-day transplants need a first feed, and Monday's 40% storm chance will help wash it into root zones."
   ],
   "surfaced_tasks": [
     {
       "task_id": "116",
       "bed_id": "blackberry",
       "title": "Tip new blackberry primocanes if 3–4 ft tall",
-      "reason": "7 days overdue; this morning before storms is the cleanest outdoor window of the week — get it done before Saturday's 37% storm pattern repeats."
+      "reason": "8 days overdue; today's 92°F is the first manageable morning window since the 108°F heat wave — tip before Sunday's 96°F and Monday's 99°F close the outdoor window again."
     }
   ],
   "suggested_tasks": [
     {
-      "title": "Harvest blackberries before noon",
-      "due_date": "2026-07-17",
-      "description": "Today's 51% afternoon storm chance risks bruising ripe Triple Crown fruit on the cane; pick this morning before storms arrive.",
+      "title": "Harvest blackberries before afternoon storms",
+      "due_date": "2026-07-18",
+      "description": "Berries logged June 14 are 34 days into peak ripening — pick ripe Triple Crown fruit this morning before today's 22% afternoon storm chance and Sunday's 96°F soften what's left on the cane.",
       "bed_id": "blackberry",
       "urgency": "high"
     },
     {
-      "title": "Feed e1–e4 tomatoes — fish emulsion",
-      "due_date": "2026-07-17",
-      "description": "27-day transplants have no logged fertilizer; apply this morning so today's afternoon storms help wash it into the root zone.",
-      "bed_id": "e1",
+      "title": "Check c2–c4 beans for harvest-ready pods",
+      "due_date": "2026-07-20",
+      "description": "At 51 days, Jade Bush (55-day) and Red Swan Bush are entering the harvest window — check for ready pods before Monday's 40% storm chance knocks them.",
+      "bed_id": "c2",
       "urgency": "normal"
     }
   ]
