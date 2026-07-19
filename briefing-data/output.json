@@ -1,32 +1,26 @@
 {
-  "headline": "Heat breaks to 92°F — tip canes before Sunday's 96°F.",
+  "headline": "Beans at 52 days — check pods before Tuesday storms.",
   "weather_notes": [
-    "Run both zones this morning — 2 days dry at 92°F crosses the 1-day re-water threshold for heat above 85°F.",
-    "Do all garden work before 9 AM today through Monday — heat climbs from 92°F Saturday to 99°F Monday, closing every afternoon outdoor window.",
-    "Apply fish emulsion to e1–e4 tomatoes this morning — 28-day transplants need a first feed, and Monday's 40% storm chance will help wash it into root zones."
+    "Run zone 1 before 9 AM — 3 days dry entering today's 99°F is past the 1-day re-water threshold for heat above 85°F.",
+    "Finish all garden work before 9 AM today and Monday — 99°F today and 100°F Monday close every outdoor afternoon window.",
+    "Hold zone runs after Monday — Tuesday's 62% storm chance may deliver the first meaningful rain in two weeks; skip irrigation if storms arrive.",
+    "Harvest any ripe beans and blackberries before Tuesday noon — 62% storm chance risks knocking mature pods and bruising ripe fruit on the cane."
   ],
   "surfaced_tasks": [
     {
       "task_id": "116",
       "bed_id": "blackberry",
       "title": "Tip new blackberry primocanes if 3–4 ft tall",
-      "reason": "8 days overdue; today's 92°F is the first manageable morning window since the 108°F heat wave — tip before Sunday's 96°F and Monday's 99°F close the outdoor window again."
+      "reason": "9 days overdue; canes are 35 days from the Jun 14 observation and past typical tipping height — early morning today or Monday is the last calm window before Tuesday's monsoon storms."
     }
   ],
   "suggested_tasks": [
     {
-      "title": "Harvest blackberries before afternoon storms",
-      "due_date": "2026-07-18",
-      "description": "Berries logged June 14 are 34 days into peak ripening — pick ripe Triple Crown fruit this morning before today's 22% afternoon storm chance and Sunday's 96°F soften what's left on the cane.",
-      "bed_id": "blackberry",
-      "urgency": "high"
-    },
-    {
       "title": "Check c2–c4 beans for harvest-ready pods",
       "due_date": "2026-07-20",
-      "description": "At 51 days, Jade Bush (55-day) and Red Swan Bush are entering the harvest window — check for ready pods before Monday's 40% storm chance knocks them.",
+      "description": "At 52 days, Jade Bush (55-day) and Red Swan Bush are entering the harvest window — pick ready pods before Tuesday's 62% storm chance knocks them.",
       "bed_id": "c2",
-      "urgency": "normal"
+      "urgency": "high"
     }
   ]
 }
