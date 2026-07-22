@@ -1,5 +1,5 @@
 {
-  "today": "2026-07-21",
+  "today": "2026-07-22",
   "plantings": [
     {
       "id": "44002331-16ef-4f88-a215-e9db754dcec8",
@@ -657,45 +657,7 @@
       {
         "number": 1,
         "name": "Overnight",
-        "startTime": "2026-07-21T05:00:00-06:00",
-        "endTime": "2026-07-21T06:00:00-06:00",
-        "isDaytime": false,
-        "temperature": 75,
-        "temperatureUnit": "F",
-        "temperatureTrend": null,
-        "probabilityOfPrecipitation": {
-          "unitCode": "wmoUnit:percent",
-          "value": 8
-        },
-        "windSpeed": "2 mph",
-        "windDirection": "SSW",
-        "icon": "https://api.weather.gov/icons/land/night/sct?size=medium",
-        "shortForecast": "Partly Cloudy",
-        "detailedForecast": "Partly cloudy. Low around 75, with temperatures rising to around 79 overnight. South southwest wind around 2 mph."
-      },
-      {
-        "number": 2,
-        "name": "Tuesday",
-        "startTime": "2026-07-21T06:00:00-06:00",
-        "endTime": "2026-07-21T18:00:00-06:00",
-        "isDaytime": true,
-        "temperature": 99,
-        "temperatureUnit": "F",
-        "temperatureTrend": null,
-        "probabilityOfPrecipitation": {
-          "unitCode": "wmoUnit:percent",
-          "value": 34
-        },
-        "windSpeed": "6 mph",
-        "windDirection": "WSW",
-        "icon": "https://api.weather.gov/icons/land/day/bkn/tsra_hi,30?size=medium",
-        "shortForecast": "Partly Sunny then Chance Showers And Thunderstorms",
-        "detailedForecast": "A chance of showers and thunderstorms after noon. Partly sunny. High near 99, with temperatures falling to around 96 in the afternoon. West southwest wind around 6 mph. Chance of precipitation is 30%."
-      },
-      {
-        "number": 3,
-        "name": "Tuesday Night",
-        "startTime": "2026-07-21T18:00:00-06:00",
+        "startTime": "2026-07-22T05:00:00-06:00",
         "endTime": "2026-07-22T06:00:00-06:00",
         "isDaytime": false,
         "temperature": 71,
@@ -703,99 +665,131 @@
         "temperatureTrend": null,
         "probabilityOfPrecipitation": {
           "unitCode": "wmoUnit:percent",
-          "value": 51
+          "value": 32
         },
-        "windSpeed": "2 to 6 mph",
-        "windDirection": "SSE",
-        "icon": "https://api.weather.gov/icons/land/night/tsra_sct,50?size=medium",
-        "shortForecast": "Chance Showers And Thunderstorms",
-        "detailedForecast": "A chance of showers and thunderstorms before 9pm, then a chance of showers and thunderstorms. Mostly cloudy. Low around 71, with temperatures rising to around 75 overnight. South southeast wind 2 to 6 mph. Chance of precipitation is 50%."
+        "windSpeed": "2 mph",
+        "windDirection": "E",
+        "icon": "https://api.weather.gov/icons/land/night/rain_showers,30?size=medium",
+        "shortForecast": "Chance Rain Showers",
+        "detailedForecast": "A chance of rain showers. Mostly cloudy. Low around 71, with temperatures rising to around 75 overnight. East wind around 2 mph. Chance of precipitation is 30%."
       },
       {
-        "number": 4,
+        "number": 2,
         "name": "Wednesday",
         "startTime": "2026-07-22T06:00:00-06:00",
         "endTime": "2026-07-22T18:00:00-06:00",
         "isDaytime": true,
-        "temperature": 92,
+        "temperature": 93,
         "temperatureUnit": "F",
         "temperatureTrend": null,
         "probabilityOfPrecipitation": {
           "unitCode": "wmoUnit:percent",
-          "value": 61
+          "value": 64
         },
         "windSpeed": "5 mph",
-        "windDirection": "WSW",
+        "windDirection": "SW",
         "icon": "https://api.weather.gov/icons/land/day/bkn/tsra_sct,60?size=medium",
-        "shortForecast": "Mostly Cloudy then Chance Showers And Thunderstorms",
-        "detailedForecast": "A chance of showers and thunderstorms between noon and 3pm, then showers and thunderstorms likely. Mostly cloudy, with a high near 92. West southwest wind around 5 mph. Chance of precipitation is 60%."
+        "shortForecast": "Partly Sunny then Chance Showers And Thunderstorms",
+        "detailedForecast": "A chance of showers and thunderstorms between noon and 3pm, then showers and thunderstorms likely. Partly sunny. High near 93, with temperatures falling to around 90 in the afternoon. Southwest wind around 5 mph. Chance of precipitation is 60%."
       },
       {
-        "number": 5,
+        "number": 3,
         "name": "Wednesday Night",
         "startTime": "2026-07-22T18:00:00-06:00",
         "endTime": "2026-07-23T06:00:00-06:00",
         "isDaytime": false,
-        "temperature": 69,
+        "temperature": 70,
         "temperatureUnit": "F",
         "temperatureTrend": null,
         "probabilityOfPrecipitation": {
           "unitCode": "wmoUnit:percent",
-          "value": 33
+          "value": 39
         },
         "windSpeed": "5 mph",
-        "windDirection": "SW",
-        "icon": "https://api.weather.gov/icons/land/night/tsra_sct,30?size=medium",
+        "windDirection": "SSE",
+        "icon": "https://api.weather.gov/icons/land/night/tsra_hi,40/tsra_hi,20?size=medium",
         "shortForecast": "Chance Showers And Thunderstorms",
-        "detailedForecast": "A chance of showers and thunderstorms before 9pm, then a chance of showers and thunderstorms. Mostly cloudy, with a low around 69. Southwest wind around 5 mph. Chance of precipitation is 30%."
+        "detailedForecast": "A chance of showers and thunderstorms before 9pm, then a chance of showers and thunderstorms between 9pm and midnight, then a slight chance of showers and thunderstorms. Partly cloudy. Low around 70, with temperatures rising to around 73 overnight. South southeast wind around 5 mph. Chance of precipitation is 40%."
       },
       {
-        "number": 6,
+        "number": 4,
         "name": "Thursday",
         "startTime": "2026-07-23T06:00:00-06:00",
         "endTime": "2026-07-23T18:00:00-06:00",
         "isDaytime": true,
-        "temperature": 94,
+        "temperature": 95,
         "temperatureUnit": "F",
         "temperatureTrend": null,
         "probabilityOfPrecipitation": {
           "unitCode": "wmoUnit:percent",
-          "value": 19
+          "value": 6
         },
-        "windSpeed": "2 to 6 mph",
-        "windDirection": "SSW",
-        "icon": "https://api.weather.gov/icons/land/day/sct/tsra_hi,20?size=medium",
-        "shortForecast": "Mostly Sunny then Slight Chance Showers And Thunderstorms",
-        "detailedForecast": "A slight chance of showers and thunderstorms after noon. Mostly sunny, with a high near 94. Chance of precipitation is 20%."
+        "windSpeed": "3 to 7 mph",
+        "windDirection": "WSW",
+        "icon": "https://api.weather.gov/icons/land/day/few?size=medium",
+        "shortForecast": "Sunny",
+        "detailedForecast": "Sunny, with a high near 95. West southwest wind 3 to 7 mph."
       },
       {
-        "number": 7,
+        "number": 5,
         "name": "Thursday Night",
         "startTime": "2026-07-23T18:00:00-06:00",
         "endTime": "2026-07-24T06:00:00-06:00",
         "isDaytime": false,
-        "temperature": 71,
+        "temperature": 72,
         "temperatureUnit": "F",
         "temperatureTrend": null,
         "probabilityOfPrecipitation": {
           "unitCode": "wmoUnit:percent",
-          "value": 3
+          "value": 0
         },
-        "windSpeed": "2 to 6 mph",
-        "windDirection": "E",
+        "windSpeed": "2 to 7 mph",
+        "windDirection": "ENE",
         "icon": "https://api.weather.gov/icons/land/night/few?size=medium",
         "shortForecast": "Mostly Clear",
-        "detailedForecast": "Mostly clear, with a low around 71."
+        "detailedForecast": "Mostly clear, with a low around 72. East northeast wind 2 to 7 mph."
+      },
+      {
+        "number": 6,
+        "name": "Friday",
+        "startTime": "2026-07-24T06:00:00-06:00",
+        "endTime": "2026-07-24T18:00:00-06:00",
+        "isDaytime": true,
+        "temperature": 99,
+        "temperatureUnit": "F",
+        "temperatureTrend": null,
+        "probabilityOfPrecipitation": {
+          "unitCode": "wmoUnit:percent",
+          "value": 7
+        },
+        "windSpeed": "6 mph",
+        "windDirection": "S",
+        "icon": "https://api.weather.gov/icons/land/day/few?size=medium",
+        "shortForecast": "Sunny",
+        "detailedForecast": "Sunny, with a high near 99."
+      },
+      {
+        "number": 7,
+        "name": "Friday Night",
+        "startTime": "2026-07-24T18:00:00-06:00",
+        "endTime": "2026-07-25T06:00:00-06:00",
+        "isDaytime": false,
+        "temperature": 75,
+        "temperatureUnit": "F",
+        "temperatureTrend": null,
+        "probabilityOfPrecipitation": {
+          "unitCode": "wmoUnit:percent",
+          "value": 13
+        },
+        "windSpeed": "7 mph",
+        "windDirection": "S",
+        "icon": "https://api.weather.gov/icons/land/night/tsra_hi/sct?size=medium",
+        "shortForecast": "Slight Chance Showers And Thunderstorms then Partly Cloudy",
+        "detailedForecast": "A slight chance of showers and thunderstorms before midnight. Partly cloudy, with a low around 75."
       }
     ],
     "alerts": [],
     "past_7_days": [
-      {
-        "date": "2026-07-14",
-        "precip_in": 0,
-        "high_f": 100,
-        "low_f": 77
-      },
       {
         "date": "2026-07-15",
         "precip_in": 0.01,
@@ -834,13 +828,59 @@
       },
       {
         "date": "2026-07-21",
-        "precip_in": 0,
-        "high_f": 102,
+        "precip_in": 0.02,
+        "high_f": 101,
         "low_f": 80
+      },
+      {
+        "date": "2026-07-22",
+        "precip_in": 0.04,
+        "high_f": 92,
+        "low_f": 77
       }
     ]
   },
   "recent_briefings": [
+    {
+      "payload": {
+        "headline": "Beans at peak — harvest this morning before storms hit.",
+        "weather_notes": [
+          "Run both zones this morning — 2 days dry at 99°F is past the 1-day heat threshold; hold the next cycle if Wednesday's 60% storms actually deliver.",
+          "Pick beans and blackberries this morning — tonight's 50% and Wednesday's 60% storm chances risk knocking pods and bruising ripe fruit on the cane.",
+          "Apply fish emulsion to e1–e4 before noon — Wednesday's 60% storm window will help wash it into root zones.",
+          "Finish all outdoor tasks before noon — 99°F heat and afternoon thunderstorms close the outdoor work window through Wednesday."
+        ],
+        "surfaced_tasks": [
+          {
+            "title": "Tip new blackberry primocanes if 3–4 ft tall",
+            "bed_id": "blackberry",
+            "reason": "11 days overdue; canes are 37+ days of growth since the Jun 14 observation — this morning before afternoon storms is the week's clearest outdoor window.",
+            "task_id": "116"
+          }
+        ],
+        "suggested_tasks": [
+          {
+            "title": "Harvest c2–c4 beans — pods at maturity",
+            "bed_id": "c2",
+            "urgency": "high",
+            "due_date": "2026-07-21",
+            "description": "Jade Bush (c3/c4) and Red Swan (c2) are 54 days in, right at the 55-day window; pick today before tonight's 50% storms knock mature pods."
+          },
+          {
+            "title": "Feed e1–e4 tomatoes with fish emulsion",
+            "bed_id": "e1",
+            "urgency": "normal",
+            "due_date": "2026-07-21",
+            "description": "31-day transplants have no logged fertilizer; apply this morning so Wednesday's 60% storm chance helps wash it into root zones."
+          }
+        ]
+      },
+      "suggestions_state": {
+        "accepted": [],
+        "rejected": []
+      },
+      "generated_at": "2026-07-21T13:41:56+00:00"
+    },
     {
       "payload": {
         "headline": "Heat advisory peaks today — harvest beans before storms.",
@@ -1288,41 +1328,6 @@
         "rejected": []
       },
       "generated_at": "2026-07-09T13:41:59+00:00"
-    },
-    {
-      "payload": {
-        "headline": "Run zones now — 3 days dry, 99°F Friday.",
-        "weather_notes": [
-          "Run both zones this morning — 3 days dry entering 97°F today and 99°F Friday with zero rain forecast.",
-          "Hand-check e1–e4 transplant root zones after irrigation — 18-day tomatoes in sustained 97–99°F heat may need spot watering between cycles.",
-          "Do all garden work before 8 AM through Friday — back-to-back 97–99°F closes every afternoon outdoor window this week.",
-          "Check potato bag moisture daily — bags lose moisture 2–3× faster than ground beds in sustained extreme heat."
-        ],
-        "surfaced_tasks": [
-          {
-            "title": "Tip new blackberry primocanes if 3–4 ft tall",
-            "bed_id": "blackberry",
-            "reason": "Due Thursday — canes logged June 14 are now 24 days old and likely at tipping height; tip before continued 97–99°F heat stresses new laterals after pinching.",
-            "task_id": "116"
-          }
-        ],
-        "suggested_tasks": [
-          {
-            "title": "Check c2–c4 beans for first pod set",
-            "bed_id": "c2",
-            "urgency": "normal",
-            "due_date": "2026-07-15",
-            "description": "At 41 days, Red Swan and Jade Bush are 10–14 days from 55-day maturity — confirm pod set now and watch for heat-induced blossom drop in this week's 97–99°F stretch."
-          }
-        ]
-      },
-      "suggestions_state": {
-        "accepted": [],
-        "rejected": [
-          0
-        ]
-      },
-      "generated_at": "2026-07-08T13:41:50+00:00"
     }
   ]
 }
