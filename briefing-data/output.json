@@ -1,32 +1,32 @@
 {
-  "headline": "Beans hit 55 days — pick before afternoon storms.",
+  "headline": "Harvest and feed now — 100°F closes Friday's window.",
   "weather_notes": [
-    "Run zones before noon today — 3 days dry at 93°F exceeds the 1-day heat threshold; skip only if today's 60% afternoon storms actually deliver rain.",
-    "Harvest beans (c2/c3/c4) and check blackberries before noon — today's 60% afternoon storm window will knock ripe pods and bruise cane fruit.",
-    "Hold all foliar feeds and sprays until Thursday morning — today's 60% afternoon storms will wash off applications before they absorb.",
-    "Plan a zone run for Thursday morning — 95-99°F with no rain forecast Thursday-Friday will push soil past the re-water threshold within a day of today's storms clearing."
+    "Do all outdoor work before 9 AM today — 94°F today is the last manageable morning before 100°F hits Friday through Saturday.",
+    "Skip hand watering today — zone 1 ran this morning and yesterday's 0.16\" rain keeps soil adequately moist.",
+    "Apply soil feeds this morning — Friday's 100°F shrinks the usable outdoor window to pre-8 AM.",
+    "Hold the next zone run until after Saturday — let Saturday's 20% afternoon storm chance play out before scheduling the next irrigation cycle."
   ],
   "surfaced_tasks": [
     {
       "task_id": "116",
       "bed_id": "blackberry",
       "title": "Tip new blackberry primocanes if 3–4 ft tall",
-      "reason": "12 days overdue; this morning before today's 60% afternoon storms is the clearest outdoor window of the week."
+      "reason": "13 days overdue; today's 94°F is the last workable morning window before Friday–Saturday 100°F closes outdoor access."
     }
   ],
   "suggested_tasks": [
     {
-      "title": "Harvest c2/c3/c4 beans before noon storms",
-      "due_date": "2026-07-22",
-      "description": "Jade Bush (c3/c4) and Red Swan (c2) hit 55 days today — pick this morning before today's 60% afternoon storms knock ripe pods.",
+      "title": "Harvest c2/c3/c4 beans this morning",
+      "due_date": "2026-07-23",
+      "description": "At 56 days, Jade Bush (c3/c4) and Red Swan (c2) are past their harvest window — pick now before Friday's 100°F degrades remaining pods.",
       "bed_id": "c2",
       "urgency": "high"
     },
     {
-      "title": "Feed w1 strawberries with berry food",
-      "due_date": "2026-07-25",
-      "description": "49 days since the Jun 3 berry food application — apply Friday morning after today's storms clear and soil surface dries slightly.",
-      "bed_id": "w1",
+      "title": "Feed e1–e4 tomatoes with fish emulsion",
+      "due_date": "2026-07-23",
+      "description": "33-day transplants have no logged fertilizer — apply this morning before Friday's 100°F narrows the early work window further.",
+      "bed_id": "e1",
       "urgency": "normal"
     }
   ]
