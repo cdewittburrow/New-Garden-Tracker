@@ -1,32 +1,32 @@
 {
-  "headline": "Harvest and feed now — 100°F closes Friday's window.",
+  "headline": "Beans 2 days past peak — harvest before 100°F heat watch.",
   "weather_notes": [
-    "Do all outdoor work before 9 AM today — 94°F today is the last manageable morning before 100°F hits Friday through Saturday.",
-    "Skip hand watering today — zone 1 ran this morning and yesterday's 0.16\" rain keeps soil adequately moist.",
-    "Apply soil feeds this morning — Friday's 100°F shrinks the usable outdoor window to pre-8 AM.",
-    "Hold the next zone run until after Saturday — let Saturday's 20% afternoon storm chance play out before scheduling the next irrigation cycle."
+    "Do all outdoor work before 8 AM through Monday — Extreme Heat Watch active July 24–28 with 100–101°F daily highs closing every afternoon window.",
+    "Skip irrigation today — both zones ran yesterday July 23 and soil retains adequate moisture for the next 24 hours.",
+    "Run both zones early Saturday morning — 2 days at 100°F+ will push soil past the re-water threshold; don't delay to Sunday's 101°F.",
+    "Check potato bags for heat and moisture stress before 8 AM — container soil dries faster than raised beds at 100°F+, especially the new cutting started July 9."
   ],
   "surfaced_tasks": [
     {
       "task_id": "116",
       "bed_id": "blackberry",
       "title": "Tip new blackberry primocanes if 3–4 ft tall",
-      "reason": "13 days overdue; today's 94°F is the last workable morning window before Friday–Saturday 100°F closes outdoor access."
+      "reason": "14 days overdue — tip before 8 AM today in the only open window before 100°F+ heat closes outdoor access through Monday."
     }
   ],
   "suggested_tasks": [
     {
-      "title": "Harvest c2/c3/c4 beans this morning",
-      "due_date": "2026-07-23",
-      "description": "At 56 days, Jade Bush (c3/c4) and Red Swan (c2) are past their harvest window — pick now before Friday's 100°F degrades remaining pods.",
+      "title": "Harvest c2/c3/c4 beans — 2 days past peak",
+      "due_date": "2026-07-24",
+      "description": "Jade Bush (c3/c4) and Red Swan (c2) hit 57 days today — pick before 8 AM while the Extreme Heat Watch allows fieldwork, before pods go fibrous.",
       "bed_id": "c2",
       "urgency": "high"
     },
     {
-      "title": "Feed e1–e4 tomatoes with fish emulsion",
-      "due_date": "2026-07-23",
-      "description": "33-day transplants have no logged fertilizer — apply this morning before Friday's 100°F narrows the early work window further.",
-      "bed_id": "e1",
+      "title": "Check c1 GMS beans for shell-stage pods",
+      "due_date": "2026-07-26",
+      "description": "Good Mother Stollard is at 82 days from planting and entering its harvest window — check for plump green shell beans early Saturday morning.",
+      "bed_id": "c1",
       "urgency": "normal"
     }
   ]
