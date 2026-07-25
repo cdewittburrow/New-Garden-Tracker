@@ -1,33 +1,18 @@
 {
-  "headline": "Beans 2 days past peak — harvest before 100°F heat watch.",
+  "headline": "Heat Advisory through Monday — water at dawn, tip canes.",
   "weather_notes": [
-    "Do all outdoor work before 8 AM through Monday — Extreme Heat Watch active July 24–28 with 100–101°F daily highs closing every afternoon window.",
-    "Skip irrigation today — both zones ran yesterday July 23 and soil retains adequate moisture for the next 24 hours.",
-    "Run both zones early Saturday morning — 2 days at 100°F+ will push soil past the re-water threshold; don't delay to Sunday's 101°F.",
-    "Check potato bags for heat and moisture stress before 8 AM — container soil dries faster than raised beds at 100°F+, especially the new cutting started July 9."
+    "Run both zones before 8 AM — 2 days dry at 101°F is past the 1-day re-water threshold; don't delay to Sunday's 102°F.",
+    "Do all garden work before 8 AM today through Monday — Heat Advisory active with 101-102°F highs closing every outdoor afternoon window.",
+    "Check e1–e4 transplants this morning for sunscald — pull any scorched foliage now after 3 consecutive days above 100°F before disease takes hold.",
+    "Hand-check potato bags for moisture after zones run — containers dry 2-3× faster than raised beds under 101°F Heat Advisory conditions."
   ],
   "surfaced_tasks": [
     {
       "task_id": "116",
       "bed_id": "blackberry",
       "title": "Tip new blackberry primocanes if 3–4 ft tall",
-      "reason": "14 days overdue — tip before 8 AM today in the only open window before 100°F+ heat closes outdoor access through Monday."
+      "reason": "15 days overdue — early this morning before 8 AM is the only safe window before the Heat Advisory closes outdoor access through Monday."
     }
   ],
-  "suggested_tasks": [
-    {
-      "title": "Harvest c2/c3/c4 beans — 2 days past peak",
-      "due_date": "2026-07-24",
-      "description": "Jade Bush (c3/c4) and Red Swan (c2) hit 57 days today — pick before 8 AM while the Extreme Heat Watch allows fieldwork, before pods go fibrous.",
-      "bed_id": "c2",
-      "urgency": "high"
-    },
-    {
-      "title": "Check c1 GMS beans for shell-stage pods",
-      "due_date": "2026-07-26",
-      "description": "Good Mother Stollard is at 82 days from planting and entering its harvest window — check for plump green shell beans early Saturday morning.",
-      "bed_id": "c1",
-      "urgency": "normal"
-    }
-  ]
+  "suggested_tasks": []
 }
