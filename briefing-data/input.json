@@ -1,5 +1,5 @@
 {
-  "today": "2026-07-25",
+  "today": "2026-07-26",
   "plantings": [
     {
       "id": "44002331-16ef-4f88-a215-e9db754dcec8",
@@ -603,6 +603,11 @@
   "waterings": [
     {
       "zone": 2,
+      "watered_date": "2026-07-26",
+      "duration_minutes": 30
+    },
+    {
+      "zone": 2,
       "watered_date": "2026-07-23",
       "duration_minutes": 30
     },
@@ -622,12 +627,12 @@
       "duration_minutes": 30
     },
     {
-      "zone": 2,
+      "zone": 1,
       "watered_date": "2026-07-16",
       "duration_minutes": 30
     },
     {
-      "zone": 1,
+      "zone": 2,
       "watered_date": "2026-07-16",
       "duration_minutes": 30
     },
@@ -643,11 +648,6 @@
     },
     {
       "zone": 1,
-      "watered_date": "2026-07-09",
-      "duration_minutes": 30
-    },
-    {
-      "zone": 2,
       "watered_date": "2026-07-09",
       "duration_minutes": 30
     }
@@ -657,45 +657,7 @@
       {
         "number": 1,
         "name": "Overnight",
-        "startTime": "2026-07-25T04:00:00-06:00",
-        "endTime": "2026-07-25T06:00:00-06:00",
-        "isDaytime": false,
-        "temperature": 75,
-        "temperatureUnit": "F",
-        "temperatureTrend": null,
-        "probabilityOfPrecipitation": {
-          "unitCode": "wmoUnit:percent",
-          "value": 9
-        },
-        "windSpeed": "6 mph",
-        "windDirection": "SSE",
-        "icon": "https://api.weather.gov/icons/land/night/sct?size=medium",
-        "shortForecast": "Partly Cloudy",
-        "detailedForecast": "Partly cloudy. Low around 75, with temperatures rising to around 78 overnight. South southeast wind around 6 mph."
-      },
-      {
-        "number": 2,
-        "name": "Saturday",
-        "startTime": "2026-07-25T06:00:00-06:00",
-        "endTime": "2026-07-25T18:00:00-06:00",
-        "isDaytime": true,
-        "temperature": 101,
-        "temperatureUnit": "F",
-        "temperatureTrend": null,
-        "probabilityOfPrecipitation": {
-          "unitCode": "wmoUnit:percent",
-          "value": 18
-        },
-        "windSpeed": "6 to 10 mph",
-        "windDirection": "S",
-        "icon": "https://api.weather.gov/icons/land/day/hot/tsra_hi,20?size=medium",
-        "shortForecast": "Mostly Sunny then Slight Chance Showers And Thunderstorms",
-        "detailedForecast": "A slight chance of showers and thunderstorms after noon. Mostly sunny, with a high near 101. South wind 6 to 10 mph. Chance of precipitation is 20%."
-      },
-      {
-        "number": 3,
-        "name": "Saturday Night",
-        "startTime": "2026-07-25T18:00:00-06:00",
+        "startTime": "2026-07-26T05:00:00-06:00",
         "endTime": "2026-07-26T06:00:00-06:00",
         "isDaytime": false,
         "temperature": 75,
@@ -703,35 +665,35 @@
         "temperatureTrend": null,
         "probabilityOfPrecipitation": {
           "unitCode": "wmoUnit:percent",
-          "value": 6
+          "value": 1
         },
-        "windSpeed": "6 mph",
-        "windDirection": "SW",
+        "windSpeed": "5 mph",
+        "windDirection": "SSE",
         "icon": "https://api.weather.gov/icons/land/night/few?size=medium",
         "shortForecast": "Mostly Clear",
-        "detailedForecast": "Mostly clear. Low around 75, with temperatures rising to around 79 overnight. Southwest wind around 6 mph."
+        "detailedForecast": "Mostly clear. Low around 75, with temperatures rising to around 79 overnight. South southeast wind around 5 mph."
       },
       {
-        "number": 4,
+        "number": 2,
         "name": "Sunday",
         "startTime": "2026-07-26T06:00:00-06:00",
         "endTime": "2026-07-26T18:00:00-06:00",
         "isDaytime": true,
-        "temperature": 102,
+        "temperature": 104,
         "temperatureUnit": "F",
         "temperatureTrend": null,
         "probabilityOfPrecipitation": {
           "unitCode": "wmoUnit:percent",
-          "value": 1
+          "value": 3
         },
         "windSpeed": "8 mph",
-        "windDirection": "S",
+        "windDirection": "SSW",
         "icon": "https://api.weather.gov/icons/land/day/hot?size=medium",
         "shortForecast": "Mostly Sunny",
-        "detailedForecast": "Mostly sunny, with a high near 102. South wind around 8 mph."
+        "detailedForecast": "Mostly sunny, with a high near 104. South southwest wind around 8 mph."
       },
       {
-        "number": 5,
+        "number": 3,
         "name": "Sunday Night",
         "startTime": "2026-07-26T18:00:00-06:00",
         "endTime": "2026-07-27T06:00:00-06:00",
@@ -743,33 +705,33 @@
           "unitCode": "wmoUnit:percent",
           "value": 7
         },
-        "windSpeed": "6 mph",
-        "windDirection": "SSE",
+        "windSpeed": "7 mph",
+        "windDirection": "SSW",
         "icon": "https://api.weather.gov/icons/land/night/sct?size=medium",
         "shortForecast": "Partly Cloudy",
-        "detailedForecast": "Partly cloudy, with a low around 77. South southeast wind around 6 mph."
+        "detailedForecast": "Partly cloudy. Low around 77, with temperatures rising to around 81 overnight. South southwest wind around 7 mph."
       },
       {
-        "number": 6,
+        "number": 4,
         "name": "Monday",
         "startTime": "2026-07-27T06:00:00-06:00",
         "endTime": "2026-07-27T18:00:00-06:00",
         "isDaytime": true,
-        "temperature": 101,
+        "temperature": 100,
         "temperatureUnit": "F",
         "temperatureTrend": null,
         "probabilityOfPrecipitation": {
           "unitCode": "wmoUnit:percent",
-          "value": 2
+          "value": 5
         },
-        "windSpeed": "8 mph",
+        "windSpeed": "6 to 10 mph",
         "windDirection": "SSW",
         "icon": "https://api.weather.gov/icons/land/day/hot?size=medium",
         "shortForecast": "Mostly Sunny",
-        "detailedForecast": "Mostly sunny, with a high near 101."
+        "detailedForecast": "Mostly sunny, with a high near 100. South southwest wind 6 to 10 mph."
       },
       {
-        "number": 7,
+        "number": 5,
         "name": "Monday Night",
         "startTime": "2026-07-27T18:00:00-06:00",
         "endTime": "2026-07-28T06:00:00-06:00",
@@ -783,21 +745,53 @@
         },
         "windSpeed": "6 mph",
         "windDirection": "ENE",
+        "icon": "https://api.weather.gov/icons/land/night/few?size=medium",
+        "shortForecast": "Mostly Clear",
+        "detailedForecast": "Mostly clear, with a low around 75. East northeast wind around 6 mph."
+      },
+      {
+        "number": 6,
+        "name": "Tuesday",
+        "startTime": "2026-07-28T06:00:00-06:00",
+        "endTime": "2026-07-28T18:00:00-06:00",
+        "isDaytime": true,
+        "temperature": 100,
+        "temperatureUnit": "F",
+        "temperatureTrend": null,
+        "probabilityOfPrecipitation": {
+          "unitCode": "wmoUnit:percent",
+          "value": 8
+        },
+        "windSpeed": "5 to 8 mph",
+        "windDirection": "S",
+        "icon": "https://api.weather.gov/icons/land/day/hot?size=medium",
+        "shortForecast": "Mostly Sunny",
+        "detailedForecast": "Mostly sunny, with a high near 100."
+      },
+      {
+        "number": 7,
+        "name": "Tuesday Night",
+        "startTime": "2026-07-28T18:00:00-06:00",
+        "endTime": "2026-07-29T06:00:00-06:00",
+        "isDaytime": false,
+        "temperature": 74,
+        "temperatureUnit": "F",
+        "temperatureTrend": null,
+        "probabilityOfPrecipitation": {
+          "unitCode": "wmoUnit:percent",
+          "value": 11
+        },
+        "windSpeed": "7 mph",
+        "windDirection": "E",
         "icon": "https://api.weather.gov/icons/land/night/sct?size=medium",
         "shortForecast": "Partly Cloudy",
-        "detailedForecast": "Partly cloudy, with a low around 75."
+        "detailedForecast": "Partly cloudy, with a low around 74."
       }
     ],
     "alerts": [
-      "Heat Advisory issued July 25 at 12:38AM MDT until July 28 at 12:00AM MDT by NWS Salt Lake City UT"
+      "Heat Advisory issued July 25 at 11:07PM MDT until July 28 at 12:00AM MDT by NWS Salt Lake City UT"
     ],
     "past_7_days": [
-      {
-        "date": "2026-07-18",
-        "precip_in": 0.03,
-        "high_f": 96,
-        "low_f": 73
-      },
       {
         "date": "2026-07-19",
         "precip_in": 0,
@@ -836,13 +830,44 @@
       },
       {
         "date": "2026-07-25",
-        "precip_in": 0.01,
-        "high_f": 101,
-        "low_f": 78
+        "precip_in": 0,
+        "high_f": 104,
+        "low_f": 76
+      },
+      {
+        "date": "2026-07-26",
+        "precip_in": 0.03,
+        "high_f": 103,
+        "low_f": 81
       }
     ]
   },
   "recent_briefings": [
+    {
+      "payload": {
+        "headline": "Heat Advisory through Monday — water at dawn, tip canes.",
+        "weather_notes": [
+          "Run both zones before 8 AM — 2 days dry at 101°F is past the 1-day re-water threshold; don't delay to Sunday's 102°F.",
+          "Do all garden work before 8 AM today through Monday — Heat Advisory active with 101-102°F highs closing every outdoor afternoon window.",
+          "Check e1–e4 transplants this morning for sunscald — pull any scorched foliage now after 3 consecutive days above 100°F before disease takes hold.",
+          "Hand-check potato bags for moisture after zones run — containers dry 2-3× faster than raised beds under 101°F Heat Advisory conditions."
+        ],
+        "surfaced_tasks": [
+          {
+            "title": "Tip new blackberry primocanes if 3–4 ft tall",
+            "bed_id": "blackberry",
+            "reason": "15 days overdue — early this morning before 8 AM is the only safe window before the Heat Advisory closes outdoor access through Monday.",
+            "task_id": "116"
+          }
+        ],
+        "suggested_tasks": []
+      },
+      "suggestions_state": {
+        "accepted": [],
+        "rejected": []
+      },
+      "generated_at": "2026-07-25T13:42:15+00:00"
+    },
     {
       "payload": {
         "headline": "Beans 2 days past peak — harvest before 100°F heat watch.",
@@ -1355,24 +1380,6 @@
         "rejected": []
       },
       "generated_at": "2026-07-12T15:34:16+00:00"
-    },
-    {
-      "payload": {
-        "headline": "106°F today — zone 1 three days dry.",
-        "weather_notes": [
-          "Run zone 1 immediately — e1–e4 transplants and c-beds are 3 days dry entering 106°F today, two days past the 1-day re-water threshold for heat above 85°F.",
-          "Do all garden work before 8 AM through Tuesday — Extreme Heat Warning is active until July 14 with 103–106°F daily highs closing every outdoor window.",
-          "Hang shade cloth over e1–e4 by midday — 22-day tomato transplants risk permanent sunscald at 106°F; remove by 5 PM.",
-          "Check potato bag moisture after zone 1 runs — bags lose moisture 2–3× faster than in-ground beds at 106°F."
-        ],
-        "surfaced_tasks": [],
-        "suggested_tasks": []
-      },
-      "suggestions_state": {
-        "accepted": [],
-        "rejected": []
-      },
-      "generated_at": "2026-07-12T13:42:14+00:00"
     }
   ]
 }
