@@ -1,31 +1,25 @@
 {
-  "headline": "Potato harvest window opens; tip canes before 8 AM.",
+  "headline": "Canes need tipping — 17 days overdue, heat advisory active.",
   "weather_notes": [
-    "Complete all garden work before 8 AM through Tuesday — Heat Advisory active through Monday night with 100–104°F highs closing every afternoon window.",
-    "Run zone 1 early tomorrow morning — 3 days without irrigation entering 104°F today is past the 1-day rewater threshold for zone 1 beds.",
-    "Shade e1–e4 tomato transplants by midday today — 36-day plants under back-to-back 100°F+ days risk sunscald and flower drop."
+    "Work before 8 AM today and Tuesday — Heat Advisory active through midnight July 28 with 99°F+ highs closing every afternoon outdoor window.",
+    "Run both zones early Tuesday morning — both ran July 26; two days at 99°F with no storm relief means beds are due for rewatering by tomorrow.",
+    "Shade e1–e4 tomatoes through midday today — 37-day transplants face sunscald risk after five consecutive days above 99°F.",
+    "Limit Thursday outdoor work to pre-dawn — 101°F with 0% precipitation is the hottest day of the week and leaves no safe window past sunrise."
   ],
   "surfaced_tasks": [
     {
       "task_id": "116",
       "bed_id": "blackberry",
       "title": "Tip new blackberry primocanes if 3–4 ft tall",
-      "reason": "16 days overdue and 42 days of summer growth since the June 14 observation means canes are well past tipping height; before-8-AM is the only safe window under the active Heat Advisory."
+      "reason": "Canes are 43 days past the June 14 observation and 17 days overdue — early morning today or Tuesday is the only outdoor window under the active Heat Advisory."
     }
   ],
   "suggested_tasks": [
     {
-      "title": "Watch potato bags for dying tops",
-      "due_date": "2026-07-30",
-      "description": "Yukon Gold at 68 days is entering the 65–80 day harvest window — check daily for yellowing or collapsing tops as the signal to stop hilling and begin harvest.",
-      "bed_id": "potato_bags",
-      "urgency": "normal"
-    },
-    {
-      "title": "Check w4 onions for harvest readiness",
-      "due_date": "2026-08-02",
-      "description": "Super Star onions at 92 days are 3–5 days from typical maturity — look daily for softening necks and falling tops, then bend any still-upright stems to finish bulb curing.",
-      "bed_id": "w4",
+      "title": "Check peach for fruit or confirm dead",
+      "due_date": "2026-07-29",
+      "description": "Contender's harvest window is now — last log June 3 left status uncertain; confirm live wood or pick any remaining fruit before heat accelerates loss.",
+      "bed_id": "peach",
       "urgency": "normal"
     }
   ]
