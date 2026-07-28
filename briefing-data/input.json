@@ -1,5 +1,5 @@
 {
-  "today": "2026-07-27",
+  "today": "2026-07-28",
   "plantings": [
     {
       "id": "44002331-16ef-4f88-a215-e9db754dcec8",
@@ -656,27 +656,8 @@
     "forecast": [
       {
         "number": 1,
-        "name": "Today",
-        "startTime": "2026-07-27T06:00:00-06:00",
-        "endTime": "2026-07-27T18:00:00-06:00",
-        "isDaytime": true,
-        "temperature": 99,
-        "temperatureUnit": "F",
-        "temperatureTrend": null,
-        "probabilityOfPrecipitation": {
-          "unitCode": "wmoUnit:percent",
-          "value": 17
-        },
-        "windSpeed": "6 to 12 mph",
-        "windDirection": "SSW",
-        "icon": "https://api.weather.gov/icons/land/day/bkn/tsra_hi,20?size=medium",
-        "shortForecast": "Partly Sunny then Slight Chance Showers And Thunderstorms",
-        "detailedForecast": "A slight chance of showers and thunderstorms after noon. Partly sunny. High near 99, with temperatures falling to around 97 in the afternoon. South southwest wind 6 to 12 mph. Chance of precipitation is 20%."
-      },
-      {
-        "number": 2,
-        "name": "Tonight",
-        "startTime": "2026-07-27T18:00:00-06:00",
+        "name": "Overnight",
+        "startTime": "2026-07-28T05:00:00-06:00",
         "endTime": "2026-07-28T06:00:00-06:00",
         "isDaytime": false,
         "temperature": 74,
@@ -684,35 +665,35 @@
         "temperatureTrend": null,
         "probabilityOfPrecipitation": {
           "unitCode": "wmoUnit:percent",
-          "value": 21
+          "value": 5
         },
-        "windSpeed": "6 mph",
-        "windDirection": "SW",
-        "icon": "https://api.weather.gov/icons/land/night/tsra_hi,20/sct?size=medium",
-        "shortForecast": "Slight Chance Showers And Thunderstorms then Partly Cloudy",
-        "detailedForecast": "A slight chance of showers and thunderstorms before midnight. Partly cloudy. Low around 74, with temperatures rising to around 78 overnight. Southwest wind around 6 mph. Chance of precipitation is 20%."
+        "windSpeed": "5 mph",
+        "windDirection": "SSE",
+        "icon": "https://api.weather.gov/icons/land/night/sct?size=medium",
+        "shortForecast": "Partly Cloudy",
+        "detailedForecast": "Partly cloudy. Low around 74, with temperatures rising to around 76 overnight. South southeast wind around 5 mph."
       },
       {
-        "number": 3,
+        "number": 2,
         "name": "Tuesday",
         "startTime": "2026-07-28T06:00:00-06:00",
         "endTime": "2026-07-28T18:00:00-06:00",
         "isDaytime": true,
-        "temperature": 99,
+        "temperature": 97,
         "temperatureUnit": "F",
         "temperatureTrend": null,
         "probabilityOfPrecipitation": {
           "unitCode": "wmoUnit:percent",
-          "value": 12
+          "value": 26
         },
-        "windSpeed": "5 to 8 mph",
+        "windSpeed": "6 mph",
         "windDirection": "SSW",
-        "icon": "https://api.weather.gov/icons/land/day/few/tsra_hi?size=medium",
-        "shortForecast": "Sunny then Slight Chance Showers And Thunderstorms",
-        "detailedForecast": "A slight chance of showers and thunderstorms after 3pm. Sunny, with a high near 99. South southwest wind 5 to 8 mph."
+        "icon": "https://api.weather.gov/icons/land/day/sct/tsra_hi,30?size=medium",
+        "shortForecast": "Mostly Sunny then Chance Showers And Thunderstorms",
+        "detailedForecast": "A chance of showers and thunderstorms after noon. Mostly sunny, with a high near 97. South southwest wind around 6 mph. Chance of precipitation is 30%."
       },
       {
-        "number": 4,
+        "number": 3,
         "name": "Tuesday Night",
         "startTime": "2026-07-28T18:00:00-06:00",
         "endTime": "2026-07-29T06:00:00-06:00",
@@ -722,59 +703,59 @@
         "temperatureTrend": null,
         "probabilityOfPrecipitation": {
           "unitCode": "wmoUnit:percent",
-          "value": 8
+          "value": 5
         },
-        "windSpeed": "6 mph",
-        "windDirection": "NNE",
+        "windSpeed": "5 mph",
+        "windDirection": "ESE",
         "icon": "https://api.weather.gov/icons/land/night/sct?size=medium",
         "shortForecast": "Partly Cloudy",
-        "detailedForecast": "Partly cloudy, with a low around 73. North northeast wind around 6 mph."
+        "detailedForecast": "Partly cloudy. Low around 73, with temperatures rising to around 76 overnight. East southeast wind around 5 mph."
       },
       {
-        "number": 5,
+        "number": 4,
         "name": "Wednesday",
         "startTime": "2026-07-29T06:00:00-06:00",
         "endTime": "2026-07-29T18:00:00-06:00",
         "isDaytime": true,
-        "temperature": 99,
+        "temperature": 97,
         "temperatureUnit": "F",
         "temperatureTrend": null,
         "probabilityOfPrecipitation": {
           "unitCode": "wmoUnit:percent",
-          "value": 13
+          "value": 18
         },
-        "windSpeed": "6 to 9 mph",
+        "windSpeed": "7 to 10 mph",
         "windDirection": "S",
-        "icon": "https://api.weather.gov/icons/land/day/sct/tsra_hi?size=medium",
-        "shortForecast": "Mostly Sunny then Slight Chance Showers And Thunderstorms",
-        "detailedForecast": "A slight chance of showers and thunderstorms after noon. Mostly sunny, with a high near 99. South wind 6 to 9 mph."
+        "icon": "https://api.weather.gov/icons/land/day/rain_showers,20/tsra_hi,20?size=medium",
+        "shortForecast": "Slight Chance Rain Showers then Slight Chance Showers And Thunderstorms",
+        "detailedForecast": "A slight chance of rain showers between 9am and noon, then a slight chance of showers and thunderstorms. Mostly sunny, with a high near 97. South wind 7 to 10 mph. Chance of precipitation is 20%."
       },
       {
-        "number": 6,
+        "number": 5,
         "name": "Wednesday Night",
         "startTime": "2026-07-29T18:00:00-06:00",
         "endTime": "2026-07-30T06:00:00-06:00",
         "isDaytime": false,
-        "temperature": 72,
+        "temperature": 70,
         "temperatureUnit": "F",
         "temperatureTrend": null,
         "probabilityOfPrecipitation": {
           "unitCode": "wmoUnit:percent",
           "value": 4
         },
-        "windSpeed": "6 mph",
-        "windDirection": "SSE",
+        "windSpeed": "7 mph",
+        "windDirection": "S",
         "icon": "https://api.weather.gov/icons/land/night/few?size=medium",
         "shortForecast": "Mostly Clear",
-        "detailedForecast": "Mostly clear, with a low around 72."
+        "detailedForecast": "Mostly clear, with a low around 70. South wind around 7 mph."
       },
       {
-        "number": 7,
+        "number": 6,
         "name": "Thursday",
         "startTime": "2026-07-30T06:00:00-06:00",
         "endTime": "2026-07-30T18:00:00-06:00",
         "isDaytime": true,
-        "temperature": 101,
+        "temperature": 100,
         "temperatureUnit": "F",
         "temperatureTrend": null,
         "probabilityOfPrecipitation": {
@@ -785,19 +766,30 @@
         "windDirection": "S",
         "icon": "https://api.weather.gov/icons/land/day/hot?size=medium",
         "shortForecast": "Sunny",
-        "detailedForecast": "Sunny, with a high near 101."
+        "detailedForecast": "Sunny, with a high near 100."
+      },
+      {
+        "number": 7,
+        "name": "Thursday Night",
+        "startTime": "2026-07-30T18:00:00-06:00",
+        "endTime": "2026-07-31T06:00:00-06:00",
+        "isDaytime": false,
+        "temperature": 72,
+        "temperatureUnit": "F",
+        "temperatureTrend": null,
+        "probabilityOfPrecipitation": {
+          "unitCode": "wmoUnit:percent",
+          "value": 0
+        },
+        "windSpeed": "2 to 7 mph",
+        "windDirection": "ENE",
+        "icon": "https://api.weather.gov/icons/land/night/skc?size=medium",
+        "shortForecast": "Clear",
+        "detailedForecast": "Clear, with a low around 72."
       }
     ],
-    "alerts": [
-      "Heat Advisory issued July 27 at 5:48AM MDT until July 28 at 12:00AM MDT by NWS Salt Lake City UT"
-    ],
+    "alerts": [],
     "past_7_days": [
-      {
-        "date": "2026-07-20",
-        "precip_in": 0,
-        "high_f": 104,
-        "low_f": 77
-      },
       {
         "date": "2026-07-21",
         "precip_in": 0.02,
@@ -836,13 +828,52 @@
       },
       {
         "date": "2026-07-27",
-        "precip_in": 0.05,
-        "high_f": 101,
-        "low_f": 85
+        "precip_in": 0.04,
+        "high_f": 98,
+        "low_f": 80
+      },
+      {
+        "date": "2026-07-28",
+        "precip_in": 0.02,
+        "high_f": 97,
+        "low_f": 74
       }
     ]
   },
   "recent_briefings": [
+    {
+      "payload": {
+        "headline": "Canes need tipping — 17 days overdue, heat advisory active.",
+        "weather_notes": [
+          "Work before 8 AM today and Tuesday — Heat Advisory active through midnight July 28 with 99°F+ highs closing every afternoon outdoor window.",
+          "Run both zones early Tuesday morning — both ran July 26; two days at 99°F with no storm relief means beds are due for rewatering by tomorrow.",
+          "Shade e1–e4 tomatoes through midday today — 37-day transplants face sunscald risk after five consecutive days above 99°F.",
+          "Limit Thursday outdoor work to pre-dawn — 101°F with 0% precipitation is the hottest day of the week and leaves no safe window past sunrise."
+        ],
+        "surfaced_tasks": [
+          {
+            "title": "Tip new blackberry primocanes if 3–4 ft tall",
+            "bed_id": "blackberry",
+            "reason": "Canes are 43 days past the June 14 observation and 17 days overdue — early morning today or Tuesday is the only outdoor window under the active Heat Advisory.",
+            "task_id": "116"
+          }
+        ],
+        "suggested_tasks": [
+          {
+            "title": "Check peach for fruit or confirm dead",
+            "bed_id": "peach",
+            "urgency": "normal",
+            "due_date": "2026-07-29",
+            "description": "Contender's harvest window is now — last log June 3 left status uncertain; confirm live wood or pick any remaining fruit before heat accelerates loss."
+          }
+        ]
+      },
+      "suggestions_state": {
+        "accepted": [],
+        "rejected": []
+      },
+      "generated_at": "2026-07-27T13:43:39+00:00"
+    },
     {
       "payload": {
         "headline": "Potato harvest window opens; tip canes before 8 AM.",
@@ -1341,47 +1372,6 @@
         "rejected": []
       },
       "generated_at": "2026-07-14T13:41:41+00:00"
-    },
-    {
-      "payload": {
-        "headline": "Heat warning ends Tuesday — tip canes Wednesday morning.",
-        "weather_notes": [
-          "Run both zones early Tuesday morning — 2 days dry entering 101°F; afternoon isolated storms (20% chance) aren't reliable enough to skip irrigation.",
-          "Limit all outdoor work to before 8 AM today — 102°F under an active Extreme Heat Warning that expires Tuesday at 6 AM MDT.",
-          "Check e1–e4 transplants Wednesday morning — first 96°F window after 4+ days above 100°F; pull any heat-damaged foliage before it invites disease.",
-          "Monitor new potato bag cutting daily — just 4 days since the Jul 9 restart, most vulnerable plant in continued 100°F+ heat.",
-          "Skip foliar sprays or feeds through Tuesday — 20–28% storm chance Tuesday–Wednesday could wash off applications within hours."
-        ],
-        "surfaced_tasks": [
-          {
-            "title": "Tip new blackberry primocanes if 3–4 ft tall",
-            "bed_id": "blackberry",
-            "reason": "3 days overdue; Wednesday's 96°F is the first bearable morning window after the Extreme Heat Warning lifts to get this done.",
-            "task_id": "116"
-          }
-        ],
-        "suggested_tasks": [
-          {
-            "title": "Harvest check — blackberry bed",
-            "bed_id": "blackberry",
-            "urgency": "normal",
-            "due_date": "2026-07-15",
-            "description": "Berries logged Jun 14; Triple Crown ripens mid-July — check for ready fruit before heat damages what's ready to pick."
-          },
-          {
-            "title": "Feed w1 strawberries with berry food",
-            "bed_id": "w1",
-            "urgency": "normal",
-            "due_date": "2026-07-15",
-            "description": "Last logged feeding was Jun 3 (40 days ago); apply Wednesday morning during the heat break to support continued production."
-          }
-        ]
-      },
-      "suggestions_state": {
-        "accepted": [],
-        "rejected": []
-      },
-      "generated_at": "2026-07-13T13:41:43+00:00"
     }
   ]
 }
