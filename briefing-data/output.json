@@ -1,25 +1,32 @@
 {
-  "headline": "Canes need tipping — 17 days overdue, heat advisory active.",
+  "headline": "Water at dawn, tip canes — 97°F through Thursday.",
   "weather_notes": [
-    "Work before 8 AM today and Tuesday — Heat Advisory active through midnight July 28 with 99°F+ highs closing every afternoon outdoor window.",
-    "Run both zones early Tuesday morning — both ran July 26; two days at 99°F with no storm relief means beds are due for rewatering by tomorrow.",
-    "Shade e1–e4 tomatoes through midday today — 37-day transplants face sunscald risk after five consecutive days above 99°F.",
-    "Limit Thursday outdoor work to pre-dawn — 101°F with 0% precipitation is the hottest day of the week and leaves no safe window past sunrise."
+    "Run both zones before 9 AM — 2 days without irrigation at 97°F exceeds the 1-day heat threshold; don't rely on today's 26% afternoon storm chance.",
+    "Finish all outdoor tasks before 9 AM — highs climb from 97°F today to 100°F Thursday with zero precipitation, closing every afternoon window.",
+    "Shade e1–e4 tomato beds by 11 AM — 38-day transplants under sustained 97–100°F remain at sunscald and blossom-drop risk through the week.",
+    "Check potato bags for moisture Thursday — 100°F with no rain dries container soil faster than raised beds; don't skip that day's check."
   ],
   "surfaced_tasks": [
     {
       "task_id": "116",
       "bed_id": "blackberry",
       "title": "Tip new blackberry primocanes if 3–4 ft tall",
-      "reason": "Canes are 43 days past the June 14 observation and 17 days overdue — early morning today or Tuesday is the only outdoor window under the active Heat Advisory."
+      "reason": "18 days overdue — tip before today's afternoon storms close the outdoor window; further delay risks canes outgrowing the tipping window and losing next year's lateral branching."
     }
   ],
   "suggested_tasks": [
     {
-      "title": "Check peach for fruit or confirm dead",
-      "due_date": "2026-07-29",
-      "description": "Contender's harvest window is now — last log June 3 left status uncertain; confirm live wood or pick any remaining fruit before heat accelerates loss.",
-      "bed_id": "peach",
+      "title": "Check w4 onions for harvest readiness",
+      "due_date": "2026-08-01",
+      "description": "At 94 days, Super Star and Yellow Sweet Spanish are entering their maturity window — look for softening necks and falling tops as the signal to bend stems and begin curing.",
+      "bed_id": "w4",
+      "urgency": "normal"
+    },
+    {
+      "title": "Watch potato bags for dying tops",
+      "due_date": "2026-08-03",
+      "description": "Yukon Gold at 70 days is entering the 65–80 day harvest window — check daily for yellowing or collapsing foliage as the cue to stop hilling and begin harvest.",
+      "bed_id": "potato_bags",
       "urgency": "normal"
     }
   ]
