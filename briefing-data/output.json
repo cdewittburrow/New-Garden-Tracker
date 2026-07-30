@@ -1,31 +1,24 @@
 {
-  "headline": "102°F Friday looming — water zones and tip canes today.",
+  "headline": "Heat Watch through Saturday — zone 2 overdue, tip canes.",
   "weather_notes": [
-    "Run both zones before 9 AM — 3 days since last irrigation entering 93°F today (98°F Thursday, 102°F Friday) exceeds the 1-day heat threshold; today's 33% storm chance is too unreliable to skip.",
-    "Finish all outdoor tasks before 9 AM Thursday — heat climbs to 98°F Thursday and 102°F Friday with zero precipitation forecast, leaving no afternoon work window through the weekend.",
-    "Shade e1–e4 tomato beds through midday — sustained 93–102°F through Friday keeps 39-day transplants at sunscald and blossom-drop risk."
+    "Run zone 2 before Friday — 4 days without irrigation entering 97–104°F is past the 1-day heat threshold; zone 1 ran this morning but zone 2 beds remain dry.",
+    "Do all outdoor work before 9 AM through Sunday — Extreme Heat Watch active through August 2 with highs of 97°F today, 102°F Friday, 104°F Saturday.",
+    "Shade e1–e4 tomato beds through midday — 40-day transplants face flower-drop risk above 95°F under three consecutive extreme heat days."
   ],
   "surfaced_tasks": [
     {
       "task_id": "116",
       "bed_id": "blackberry",
       "title": "Tip new blackberry primocanes if 3–4 ft tall",
-      "reason": "19 days overdue — today's 93°F is the last manageable morning window before Thursday's 98°F and Friday's 102°F close outdoor cane work through the weekend."
+      "reason": "20 days overdue — early morning before 9 AM is the only outdoor window under the active Extreme Heat Watch through August 2."
     }
   ],
   "suggested_tasks": [
     {
-      "title": "Check w4 onions for neck softening",
+      "title": "Pick ripe w1 strawberries before Saturday",
       "due_date": "2026-08-01",
-      "description": "At 95 days, Super Star and Yellow Sweet Spanish are entering their maturity window — check necks for softening and bend any still-upright tops before this week's 102°F accelerates post-maturity deterioration.",
-      "bed_id": "w4",
-      "urgency": "normal"
-    },
-    {
-      "title": "Watch potato bags for dying tops",
-      "due_date": "2026-08-02",
-      "description": "Yukon Gold at 71 days is in the 65–80-day harvest window — check daily for yellowing or collapsing foliage as this week's 98–102°F heat will push vines toward maturity faster.",
-      "bed_id": "potato_bags",
+      "description": "Harvest any ripe Seascape and Flamingo berries before Saturday's 104°F bakes fruit still on the plant.",
+      "bed_id": "w1",
       "urgency": "normal"
     }
   ]
