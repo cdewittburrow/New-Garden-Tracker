@@ -1,25 +1,26 @@
 {
-  "headline": "Heat Watch through Saturday — zone 2 overdue, tip canes.",
+  "headline": "104°F Saturday — tip canes now, onions at maturity.",
   "weather_notes": [
-    "Run zone 2 before Friday — 4 days without irrigation entering 97–104°F is past the 1-day heat threshold; zone 1 ran this morning but zone 2 beds remain dry.",
-    "Do all outdoor work before 9 AM through Sunday — Extreme Heat Watch active through August 2 with highs of 97°F today, 102°F Friday, 104°F Saturday.",
-    "Shade e1–e4 tomato beds through midday — 40-day transplants face flower-drop risk above 95°F under three consecutive extreme heat days."
+    "Work before 9 AM through Sunday — Extreme Heat Warning active through Aug 2 at 9 PM with 101°F today and 104°F Saturday.",
+    "Run both zones early Saturday morning — irrigation will be 2 days out at 104°F, past the 1-day heat threshold.",
+    "Shade e1–e4 tomato beds by 11 AM through Sunday — 41-day transplants at sustained 101–104°F risk sunscald and blossom drop.",
+    "Hand-check potato bags for moisture each morning — containers dry 2–3× faster than raised beds at 104°F."
   ],
   "surfaced_tasks": [
     {
       "task_id": "116",
       "bed_id": "blackberry",
       "title": "Tip new blackberry primocanes if 3–4 ft tall",
-      "reason": "20 days overdue — early morning before 9 AM is the only outdoor window under the active Extreme Heat Watch through August 2."
+      "reason": "21 days overdue — early morning before 9 AM is the only outdoor window under the active Extreme Heat Warning through Sunday Aug 2."
     }
   ],
   "suggested_tasks": [
     {
-      "title": "Pick ripe w1 strawberries before Saturday",
+      "title": "Check w4 onions for neck softening",
       "due_date": "2026-08-01",
-      "description": "Harvest any ripe Seascape and Flamingo berries before Saturday's 104°F bakes fruit still on the plant.",
-      "bed_id": "w1",
-      "urgency": "normal"
+      "description": "Super Star at 97 days is entering its 100–115-day maturity window — check daily for soft necks and falling tops before Saturday's 104°F accelerates post-maturity softening.",
+      "bed_id": "w4",
+      "urgency": "high"
     }
   ]
 }
