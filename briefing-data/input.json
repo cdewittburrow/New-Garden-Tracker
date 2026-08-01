@@ -1,5 +1,5 @@
 {
-  "today": "2026-07-31",
+  "today": "2026-08-01",
   "plantings": [
     {
       "id": "44002331-16ef-4f88-a215-e9db754dcec8",
@@ -657,10 +657,10 @@
       {
         "number": 1,
         "name": "Overnight",
-        "startTime": "2026-07-31T05:00:00-06:00",
-        "endTime": "2026-07-31T06:00:00-06:00",
+        "startTime": "2026-08-01T05:00:00-06:00",
+        "endTime": "2026-08-01T06:00:00-06:00",
         "isDaytime": false,
-        "temperature": 68,
+        "temperature": 71,
         "temperatureUnit": "F",
         "temperatureTrend": null,
         "probabilityOfPrecipitation": {
@@ -669,55 +669,17 @@
         },
         "windSpeed": "5 mph",
         "windDirection": "SSE",
-        "icon": "https://api.weather.gov/icons/land/night/smoke?size=medium",
-        "shortForecast": "Patchy Smoke",
-        "detailedForecast": "Patchy smoke. Mostly clear. Low around 68, with temperatures rising to around 72 overnight. South southeast wind around 5 mph."
+        "icon": "https://api.weather.gov/icons/land/night/few?size=medium",
+        "shortForecast": "Mostly Clear",
+        "detailedForecast": "Mostly clear. Low around 71, with temperatures rising to around 75 overnight. South southeast wind around 5 mph."
       },
       {
         "number": 2,
-        "name": "Friday",
-        "startTime": "2026-07-31T06:00:00-06:00",
-        "endTime": "2026-07-31T18:00:00-06:00",
-        "isDaytime": true,
-        "temperature": 101,
-        "temperatureUnit": "F",
-        "temperatureTrend": null,
-        "probabilityOfPrecipitation": {
-          "unitCode": "wmoUnit:percent",
-          "value": 0
-        },
-        "windSpeed": "6 mph",
-        "windDirection": "S",
-        "icon": "https://api.weather.gov/icons/land/day/smoke/hot?size=medium",
-        "shortForecast": "Patchy Smoke then Sunny",
-        "detailedForecast": "Patchy smoke before noon. Sunny. High near 101, with temperatures falling to around 99 in the afternoon. South wind around 6 mph."
-      },
-      {
-        "number": 3,
-        "name": "Friday Night",
-        "startTime": "2026-07-31T18:00:00-06:00",
-        "endTime": "2026-08-01T06:00:00-06:00",
-        "isDaytime": false,
-        "temperature": 73,
-        "temperatureUnit": "F",
-        "temperatureTrend": null,
-        "probabilityOfPrecipitation": {
-          "unitCode": "wmoUnit:percent",
-          "value": 0
-        },
-        "windSpeed": "3 to 7 mph",
-        "windDirection": "N",
-        "icon": "https://api.weather.gov/icons/land/night/few?size=medium",
-        "shortForecast": "Mostly Clear",
-        "detailedForecast": "Mostly clear. Low around 73, with temperatures rising to around 75 overnight. North wind 3 to 7 mph."
-      },
-      {
-        "number": 4,
         "name": "Saturday",
         "startTime": "2026-08-01T06:00:00-06:00",
         "endTime": "2026-08-01T18:00:00-06:00",
         "isDaytime": true,
-        "temperature": 104,
+        "temperature": 103,
         "temperatureUnit": "F",
         "temperatureTrend": null,
         "probabilityOfPrecipitation": {
@@ -725,13 +687,13 @@
           "value": 0
         },
         "windSpeed": "7 mph",
-        "windDirection": "SSE",
-        "icon": "https://api.weather.gov/icons/land/day/hot?size=medium",
-        "shortForecast": "Sunny",
-        "detailedForecast": "Sunny, with a high near 104. South southeast wind around 7 mph."
+        "windDirection": "SSW",
+        "icon": "https://api.weather.gov/icons/land/day/hot/smoke?size=medium",
+        "shortForecast": "Sunny then Patchy Smoke",
+        "detailedForecast": "Patchy smoke after 3pm. Sunny, with a high near 103. South southwest wind around 7 mph."
       },
       {
-        "number": 5,
+        "number": 3,
         "name": "Saturday Night",
         "startTime": "2026-08-01T18:00:00-06:00",
         "endTime": "2026-08-02T06:00:00-06:00",
@@ -743,19 +705,19 @@
           "unitCode": "wmoUnit:percent",
           "value": 0
         },
-        "windSpeed": "2 to 7 mph",
-        "windDirection": "ENE",
-        "icon": "https://api.weather.gov/icons/land/night/few?size=medium",
-        "shortForecast": "Mostly Clear",
-        "detailedForecast": "Mostly clear, with a low around 75. East northeast wind 2 to 7 mph."
+        "windSpeed": "7 mph",
+        "windDirection": "S",
+        "icon": "https://api.weather.gov/icons/land/night/smoke?size=medium",
+        "shortForecast": "Patchy Smoke",
+        "detailedForecast": "Patchy smoke. Partly cloudy. Low around 75, with temperatures rising to around 78 overnight. South wind around 7 mph."
       },
       {
-        "number": 6,
+        "number": 4,
         "name": "Sunday",
         "startTime": "2026-08-02T06:00:00-06:00",
         "endTime": "2026-08-02T18:00:00-06:00",
         "isDaytime": true,
-        "temperature": 102,
+        "temperature": 101,
         "temperatureUnit": "F",
         "temperatureTrend": null,
         "probabilityOfPrecipitation": {
@@ -763,13 +725,13 @@
           "value": 0
         },
         "windSpeed": "8 mph",
-        "windDirection": "S",
-        "icon": "https://api.weather.gov/icons/land/day/hot?size=medium",
-        "shortForecast": "Sunny",
-        "detailedForecast": "Sunny, with a high near 102."
+        "windDirection": "SW",
+        "icon": "https://api.weather.gov/icons/land/day/smoke?size=medium",
+        "shortForecast": "Patchy Smoke",
+        "detailedForecast": "Patchy smoke. Mostly sunny, with a high near 101. Southwest wind around 8 mph."
       },
       {
-        "number": 7,
+        "number": 5,
         "name": "Sunday Night",
         "startTime": "2026-08-02T18:00:00-06:00",
         "endTime": "2026-08-03T06:00:00-06:00",
@@ -781,23 +743,55 @@
           "unitCode": "wmoUnit:percent",
           "value": 0
         },
-        "windSpeed": "1 to 8 mph",
+        "windSpeed": "1 to 7 mph",
         "windDirection": "NNW",
+        "icon": "https://api.weather.gov/icons/land/night/smoke/few?size=medium",
+        "shortForecast": "Patchy Smoke then Mostly Clear",
+        "detailedForecast": "Patchy smoke before 9pm. Mostly clear, with a low around 71. North northwest wind 1 to 7 mph."
+      },
+      {
+        "number": 6,
+        "name": "Monday",
+        "startTime": "2026-08-03T06:00:00-06:00",
+        "endTime": "2026-08-03T18:00:00-06:00",
+        "isDaytime": true,
+        "temperature": 95,
+        "temperatureUnit": "F",
+        "temperatureTrend": null,
+        "probabilityOfPrecipitation": {
+          "unitCode": "wmoUnit:percent",
+          "value": 0
+        },
+        "windSpeed": "1 to 9 mph",
+        "windDirection": "NW",
+        "icon": "https://api.weather.gov/icons/land/day/few?size=medium",
+        "shortForecast": "Sunny",
+        "detailedForecast": "Sunny, with a high near 95."
+      },
+      {
+        "number": 7,
+        "name": "Monday Night",
+        "startTime": "2026-08-03T18:00:00-06:00",
+        "endTime": "2026-08-04T06:00:00-06:00",
+        "isDaytime": false,
+        "temperature": 67,
+        "temperatureUnit": "F",
+        "temperatureTrend": null,
+        "probabilityOfPrecipitation": {
+          "unitCode": "wmoUnit:percent",
+          "value": 0
+        },
+        "windSpeed": "2 to 8 mph",
+        "windDirection": "N",
         "icon": "https://api.weather.gov/icons/land/night/few?size=medium",
         "shortForecast": "Mostly Clear",
-        "detailedForecast": "Mostly clear, with a low around 71."
+        "detailedForecast": "Mostly clear, with a low around 67."
       }
     ],
     "alerts": [
-      "Extreme Heat Warning issued July 31 at 4:58AM MDT until August 2 at 9:00PM MDT by NWS Salt Lake City UT"
+      "Extreme Heat Warning issued August 1 at 1:36AM MDT until August 2 at 9:00PM MDT by NWS Salt Lake City UT"
     ],
     "past_7_days": [
-      {
-        "date": "2026-07-24",
-        "precip_in": 0.02,
-        "high_f": 100,
-        "low_f": 74
-      },
       {
         "date": "2026-07-25",
         "precip_in": 0,
@@ -837,12 +831,51 @@
       {
         "date": "2026-07-31",
         "precip_in": 0,
-        "high_f": 103,
-        "low_f": 74
+        "high_f": 102,
+        "low_f": 71
+      },
+      {
+        "date": "2026-08-01",
+        "precip_in": 0,
+        "high_f": 105,
+        "low_f": 77
       }
     ]
   },
   "recent_briefings": [
+    {
+      "payload": {
+        "headline": "104°F Saturday — tip canes now, onions at maturity.",
+        "weather_notes": [
+          "Work before 9 AM through Sunday — Extreme Heat Warning active through Aug 2 at 9 PM with 101°F today and 104°F Saturday.",
+          "Run both zones early Saturday morning — irrigation will be 2 days out at 104°F, past the 1-day heat threshold.",
+          "Shade e1–e4 tomato beds by 11 AM through Sunday — 41-day transplants at sustained 101–104°F risk sunscald and blossom drop.",
+          "Hand-check potato bags for moisture each morning — containers dry 2–3× faster than raised beds at 104°F."
+        ],
+        "surfaced_tasks": [
+          {
+            "title": "Tip new blackberry primocanes if 3–4 ft tall",
+            "bed_id": "blackberry",
+            "reason": "21 days overdue — early morning before 9 AM is the only outdoor window under the active Extreme Heat Warning through Sunday Aug 2.",
+            "task_id": "116"
+          }
+        ],
+        "suggested_tasks": [
+          {
+            "title": "Check w4 onions for neck softening",
+            "bed_id": "w4",
+            "urgency": "high",
+            "due_date": "2026-08-01",
+            "description": "Super Star at 97 days is entering its 100–115-day maturity window — check daily for soft necks and falling tops before Saturday's 104°F accelerates post-maturity softening."
+          }
+        ]
+      },
+      "suggestions_state": {
+        "accepted": [],
+        "rejected": []
+      },
+      "generated_at": "2026-07-31T13:41:32+00:00"
+    },
     {
       "payload": {
         "headline": "Heat Watch through Saturday — zone 2 overdue, tip canes.",
@@ -1326,45 +1359,6 @@
         "rejected": []
       },
       "generated_at": "2026-07-18T13:41:59+00:00"
-    },
-    {
-      "payload": {
-        "headline": "Pick berries and feed tomatoes before noon storms.",
-        "weather_notes": [
-          "Finish all outdoor garden work before noon — today's 51% afternoon storm chance closes the outdoor window; mornings are clear and manageable at 95°F vs last week's 100°F+ heat.",
-          "Skip zone irrigation today — both zones ran Jul 16; hold to see if this afternoon's storms deliver meaningful rain before scheduling the next cycle.",
-          "Inspect e1–e4 after any afternoon storm — check 27-day transplants for pooling or stem lodging from heavy monsoon downpours."
-        ],
-        "surfaced_tasks": [
-          {
-            "title": "Tip new blackberry primocanes if 3–4 ft tall",
-            "bed_id": "blackberry",
-            "reason": "7 days overdue; this morning before storms is the cleanest outdoor window of the week — get it done before Saturday's 37% storm pattern repeats.",
-            "task_id": "116"
-          }
-        ],
-        "suggested_tasks": [
-          {
-            "title": "Harvest blackberries before noon",
-            "bed_id": "blackberry",
-            "urgency": "high",
-            "due_date": "2026-07-17",
-            "description": "Today's 51% afternoon storm chance risks bruising ripe Triple Crown fruit on the cane; pick this morning before storms arrive."
-          },
-          {
-            "title": "Feed e1–e4 tomatoes — fish emulsion",
-            "bed_id": "e1",
-            "urgency": "normal",
-            "due_date": "2026-07-17",
-            "description": "27-day transplants have no logged fertilizer; apply this morning so today's afternoon storms help wash it into the root zone."
-          }
-        ]
-      },
-      "suggestions_state": {
-        "accepted": [],
-        "rejected": []
-      },
-      "generated_at": "2026-07-17T13:42:06+00:00"
     }
   ]
 }
