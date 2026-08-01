@@ -1,26 +1,33 @@
 {
-  "headline": "104°F Saturday — tip canes now, onions at maturity.",
+  "headline": "103°F heat warning — onions due, potatoes peaking.",
   "weather_notes": [
-    "Work before 9 AM through Sunday — Extreme Heat Warning active through Aug 2 at 9 PM with 101°F today and 104°F Saturday.",
-    "Run both zones early Saturday morning — irrigation will be 2 days out at 104°F, past the 1-day heat threshold.",
-    "Shade e1–e4 tomato beds by 11 AM through Sunday — 41-day transplants at sustained 101–104°F risk sunscald and blossom drop.",
-    "Hand-check potato bags for moisture each morning — containers dry 2–3× faster than raised beds at 104°F."
+    "Work before 9 AM through Sunday — Extreme Heat Warning active through Aug 2 at 9 PM MDT with 103°F today and 101°F Sunday.",
+    "Run both zones this morning — 2 days without irrigation at 103°F exceeds the 1-day heat threshold.",
+    "Shade e1–e4 tomato beds through midday — 42-day transplants at 101–103°F risk sunscald and blossom drop through Sunday.",
+    "Check potato bags for moisture after zones run — container soil dries 2–3× faster than raised beds under extreme heat."
   ],
   "surfaced_tasks": [
     {
       "task_id": "116",
       "bed_id": "blackberry",
       "title": "Tip new blackberry primocanes if 3–4 ft tall",
-      "reason": "21 days overdue — early morning before 9 AM is the only outdoor window under the active Extreme Heat Warning through Sunday Aug 2."
+      "reason": "22 days overdue — early morning before 9 AM is the only outdoor window under the active Extreme Heat Warning through Sunday Aug 2."
     }
   ],
   "suggested_tasks": [
     {
       "title": "Check w4 onions for neck softening",
       "due_date": "2026-08-01",
-      "description": "Super Star at 97 days is entering its 100–115-day maturity window — check daily for soft necks and falling tops before Saturday's 104°F accelerates post-maturity softening.",
+      "description": "Super Star at 98 days enters its maturity window today — check for soft necks and falling tops before this week's 103°F accelerates post-maturity softening.",
       "bed_id": "w4",
       "urgency": "high"
+    },
+    {
+      "title": "Dig potato bags to check harvest readiness",
+      "due_date": "2026-08-03",
+      "description": "Yukon Gold at 74 days is at the center of its 65–80 day window — check for yellowing tops and probe one bag before the harvest window closes.",
+      "bed_id": "potato_bags",
+      "urgency": "normal"
     }
   ]
 }
