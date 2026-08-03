@@ -1,31 +1,30 @@
 {
-  "headline": "Extreme heat expires tonight — run zone 1, tip canes Monday.",
+  "headline": "91°F today — potatoes past peak, canes 24 days overdue.",
   "weather_notes": [
-    "Work only before 9 AM today — Extreme Heat Warning active through 9 PM MDT with 101°F highs and patchy smoke.",
-    "Run zone 1 beds today — 3 days without irrigation at 101°F exceeds the 1-day heat threshold.",
-    "Shade e1–e4 tomato beds through midday — 43-day transplants at 101°F are at sunscald risk.",
-    "Plan cane tipping and potato probe for Monday — 92°F is the best outdoor work window of the week with no rain through Tuesday."
+    "Work outdoors this morning and early Tuesday — 91°F is the week's coolest stretch before 94°F Wednesday and 99°F Thursday; do all outdoor garden tasks now.",
+    "Run both zones Wednesday morning — 3 days after Aug 2 irrigation with 94°F Wednesday and 99°F Thursday ahead puts soil past the re-water threshold.",
+    "Remove any sunscalded foliage from e1–e4 tomatoes — 44-day transplants weathered 7 consecutive days of 94–105°F; clear damaged leaves before heat climbs again."
   ],
   "surfaced_tasks": [
     {
       "task_id": "116",
       "bed_id": "blackberry",
       "title": "Tip new blackberry primocanes if 3–4 ft tall",
-      "reason": "23 days overdue — Monday's 92°F drop is the first safe outdoor work window since the Extreme Heat Warning began."
+      "reason": "24 days overdue — today and tomorrow's 91°F are the week's last manageable windows before heat climbs to 94°F Wednesday and 99°F Thursday."
     }
   ],
   "suggested_tasks": [
     {
-      "title": "Probe one potato bag for harvest readiness",
-      "due_date": "2026-08-03",
-      "description": "Yukon Gold at 75 days is in the center of the 65–80 day harvest window — probe one bag Monday morning before heat-accelerated vine die-back closes the opportunity.",
+      "title": "Probe potato bags for harvest readiness",
+      "due_date": "2026-08-04",
+      "description": "Yukon Gold at 76 days is past the 65–80 day window — probe one bag today or tomorrow before Thursday's 99°F accelerates vine die-back.",
       "bed_id": "potato_bags",
       "urgency": "high"
     },
     {
       "title": "Check w4 onions for soft necks",
-      "due_date": "2026-08-03",
-      "description": "Super Star onions at 99 days are entering their maturity window — feel for soft necks and falling tops before this week's sustained heat accelerates post-maturity softening.",
+      "due_date": "2026-08-05",
+      "description": "Super Star at 100 days is in its maturity window — check for soft necks and falling tops before Wednesday's 94°F pushes post-maturity softening.",
       "bed_id": "w4",
       "urgency": "normal"
     }
