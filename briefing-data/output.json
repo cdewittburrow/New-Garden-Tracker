@@ -1,31 +1,39 @@
 {
-  "headline": "91°F today — potatoes past peak, canes 24 days overdue.",
+  "headline": "Water zones today — potato window closes Friday.",
   "weather_notes": [
-    "Work outdoors this morning and early Tuesday — 91°F is the week's coolest stretch before 94°F Wednesday and 99°F Thursday; do all outdoor garden tasks now.",
-    "Run both zones Wednesday morning — 3 days after Aug 2 irrigation with 94°F Wednesday and 99°F Thursday ahead puts soil past the re-water threshold.",
-    "Remove any sunscalded foliage from e1–e4 tomatoes — 44-day transplants weathered 7 consecutive days of 94–105°F; clear damaged leaves before heat climbs again."
+    "Run both zones today — 2 days since Aug 2 irrigation already exceeds the 1-day heat threshold at 91°F; delaying to Wednesday's 94°F or Thursday's 99°F compounds soil stress.",
+    "Do all outdoor work before 9 AM Wednesday and Thursday — 94°F Wednesday and 99°F Thursday with zero rain in the forecast close every afternoon window.",
+    "Shade e1–e4 tomato beds through midday this week — 45-day transplants face sunscald risk at 91–99°F with 3+ weeks remaining before harvest.",
+    "Hand-water potato bags if dry between zone runs — containers lose moisture 2–3× faster than raised beds in sustained 90°F+ heat."
   ],
   "surfaced_tasks": [
     {
       "task_id": "116",
       "bed_id": "blackberry",
       "title": "Tip new blackberry primocanes if 3–4 ft tall",
-      "reason": "24 days overdue — today and tomorrow's 91°F are the week's last manageable windows before heat climbs to 94°F Wednesday and 99°F Thursday."
+      "reason": "25 days overdue — today's 91°F and Wednesday's 94°F are the week's only workable windows before Thursday's 99°F closes outdoor cane work."
     }
   ],
   "suggested_tasks": [
     {
-      "title": "Probe potato bags for harvest readiness",
-      "due_date": "2026-08-04",
-      "description": "Yukon Gold at 76 days is past the 65–80 day window — probe one bag today or tomorrow before Thursday's 99°F accelerates vine die-back.",
+      "title": "Probe potato bags — 80-day window closes Friday",
+      "due_date": "2026-08-06",
+      "description": "Yukon Gold at 77 days hits the end of its 65–80 day harvest window on Aug 7 — probe one bag Wednesday morning before Thursday's 99°F accelerates vine dieback.",
       "bed_id": "potato_bags",
       "urgency": "high"
     },
     {
-      "title": "Check w4 onions for soft necks",
-      "due_date": "2026-08-05",
-      "description": "Super Star at 100 days is in its maturity window — check for soft necks and falling tops before Wednesday's 94°F pushes post-maturity softening.",
+      "title": "Check w4 onions for soft necks and harvest",
+      "due_date": "2026-08-06",
+      "description": "Super Star and Yellow Sweet Spanish at 101 days are in the 100–120 day maturity window — feel for soft necks and pull mature bulbs before the week's heat softens them further.",
       "bed_id": "w4",
+      "urgency": "normal"
+    },
+    {
+      "title": "Harvest ripe blackberries before Thursday's 99°F",
+      "due_date": "2026-08-06",
+      "description": "Jun 14 log confirmed berries forming and Triple Crown peaks mid-summer — Thursday's 99°F will bake any ripe fruit still on the cane.",
+      "bed_id": "blackberry",
       "urgency": "normal"
     }
   ]
