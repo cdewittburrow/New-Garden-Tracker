@@ -1,33 +1,40 @@
 {
-  "headline": "107°F today — early morning is the only safe window.",
+  "headline": "Water and harvest now — extreme heat extends through Monday.",
   "weather_notes": [
-    "Do all outdoor work before 8 AM — Extreme Heat Warning active through Aug 10 with 107°F today, 101°F Saturday, and 99°F Sunday closing every afternoon window.",
-    "Shade e1–e4 tomato beds by 11 AM through the weekend — 107°F today puts 48-day transplants at sunscald risk with harvest still 17–38 days out.",
-    "Run both zones early Saturday morning — zones last ran Aug 6; two days at 100°F+ will push soil past the 1-day re-water threshold by Saturday.",
-    "Move or shade potato bags out of direct afternoon sun — container root zones reach lethal temperatures under sustained 107°F heat."
+    "Run both zones before 9 AM — 2 days since Aug 6 irrigation at 101°F exceeds the 1-day heat threshold with the Extreme Heat Warning active through Monday.",
+    "Do all outdoor work before 9 AM through Monday — Extreme Heat Warning active with 101°F today, 99°F Sunday, 97°F Monday closing every afternoon window.",
+    "Shade e1–e4 tomato beds by 11 AM — 49-day transplants remain at sunscald risk at 101°F with harvest still 16–37 days out.",
+    "Check potato bags for heat stress after zones run — container soil reaches lethal temperatures under sustained 101°F; water immediately if dry to touch."
   ],
   "surfaced_tasks": [
     {
       "task_id": "116",
       "bed_id": "blackberry",
       "title": "Tip new blackberry primocanes if 3–4 ft tall",
-      "reason": "28 days overdue — early morning before 8 AM today is the only outdoor window under the active Extreme Heat Warning through Sunday Aug 10."
+      "reason": "29 days overdue — early morning before 9 AM is the only outdoor window under the Extreme Heat Warning active through Monday Aug 10."
     }
   ],
   "suggested_tasks": [
     {
-      "title": "Harvest ripe blackberries before 10 AM today",
-      "due_date": "2026-08-07",
-      "description": "107°F will cook any ripe Triple Crown fruit still on the canes — pick before the heat peaks today.",
-      "bed_id": "blackberry",
+      "title": "Probe potato bags — 81 days, past harvest window",
+      "due_date": "2026-08-08",
+      "description": "Yukon Gold hit the outer edge of its 65–80 day window yesterday — probe one bag this morning before heat-accelerated vine dieback makes assessment harder.",
+      "bed_id": "potato_bags",
       "urgency": "high"
     },
     {
-      "title": "Probe potato bags — 80-day window closes now",
-      "due_date": "2026-08-08",
-      "description": "Yukon Gold at 80 days has hit the outer edge of its 65–80 day harvest window — probe one bag Saturday morning before heat-accelerated vine dieback closes the opportunity.",
-      "bed_id": "potato_bags",
+      "title": "Check w4 onion necks and pull soft bulbs",
+      "due_date": "2026-08-09",
+      "description": "Super Star at 105 days is inside its maturity window — squeeze necks and pull any soft bulbs before this week's 101°F+ accelerates post-maturity rot.",
+      "bed_id": "w4",
       "urgency": "high"
+    },
+    {
+      "title": "Check c1 Good Mother Stollard for dry pods",
+      "due_date": "2026-08-10",
+      "description": "Dry bean variety at 97 days is likely drying on the vine — check for papery pods and harvest before heat causes pod shatter.",
+      "bed_id": "c1",
+      "urgency": "normal"
     }
   ]
 }
