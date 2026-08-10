@@ -1,5 +1,5 @@
 {
-  "today": "2026-08-09",
+  "today": "2026-08-10",
   "plantings": [
     {
       "id": "44002331-16ef-4f88-a215-e9db754dcec8",
@@ -657,45 +657,7 @@
       {
         "number": 1,
         "name": "Overnight",
-        "startTime": "2026-08-09T04:00:00-06:00",
-        "endTime": "2026-08-09T06:00:00-06:00",
-        "isDaytime": false,
-        "temperature": 75,
-        "temperatureUnit": "F",
-        "temperatureTrend": null,
-        "probabilityOfPrecipitation": {
-          "unitCode": "wmoUnit:percent",
-          "value": 1
-        },
-        "windSpeed": "5 mph",
-        "windDirection": "S",
-        "icon": "https://api.weather.gov/icons/land/night/bkn?size=medium",
-        "shortForecast": "Mostly Cloudy",
-        "detailedForecast": "Mostly cloudy. Low around 75, with temperatures rising to around 77 overnight. South wind around 5 mph."
-      },
-      {
-        "number": 2,
-        "name": "Sunday",
-        "startTime": "2026-08-09T06:00:00-06:00",
-        "endTime": "2026-08-09T18:00:00-06:00",
-        "isDaytime": true,
-        "temperature": 99,
-        "temperatureUnit": "F",
-        "temperatureTrend": null,
-        "probabilityOfPrecipitation": {
-          "unitCode": "wmoUnit:percent",
-          "value": 12
-        },
-        "windSpeed": "7 mph",
-        "windDirection": "SSW",
-        "icon": "https://api.weather.gov/icons/land/day/sct/tsra_hi?size=medium",
-        "shortForecast": "Mostly Sunny then Slight Chance Showers And Thunderstorms",
-        "detailedForecast": "A slight chance of showers and thunderstorms after noon. Mostly sunny, with a high near 99. South southwest wind around 7 mph."
-      },
-      {
-        "number": 3,
-        "name": "Sunday Night",
-        "startTime": "2026-08-09T18:00:00-06:00",
+        "startTime": "2026-08-10T04:00:00-06:00",
         "endTime": "2026-08-10T06:00:00-06:00",
         "isDaytime": false,
         "temperature": 72,
@@ -703,35 +665,35 @@
         "temperatureTrend": null,
         "probabilityOfPrecipitation": {
           "unitCode": "wmoUnit:percent",
-          "value": 18
+          "value": 1
         },
         "windSpeed": "7 mph",
         "windDirection": "S",
-        "icon": "https://api.weather.gov/icons/land/night/tsra_hi,20/sct?size=medium",
-        "shortForecast": "Slight Chance Showers And Thunderstorms then Partly Cloudy",
-        "detailedForecast": "A slight chance of showers and thunderstorms before midnight. Partly cloudy. Low around 72, with temperatures rising to around 75 overnight. South wind around 7 mph. Chance of precipitation is 20%."
+        "icon": "https://api.weather.gov/icons/land/night/bkn?size=medium",
+        "shortForecast": "Mostly Cloudy",
+        "detailedForecast": "Mostly cloudy. Low around 72, with temperatures rising to around 74 overnight. South wind around 7 mph."
       },
       {
-        "number": 4,
+        "number": 2,
         "name": "Monday",
         "startTime": "2026-08-10T06:00:00-06:00",
         "endTime": "2026-08-10T18:00:00-06:00",
         "isDaytime": true,
-        "temperature": 98,
+        "temperature": 97,
         "temperatureUnit": "F",
         "temperatureTrend": null,
         "probabilityOfPrecipitation": {
           "unitCode": "wmoUnit:percent",
-          "value": 18
+          "value": 35
         },
         "windSpeed": "6 to 9 mph",
         "windDirection": "SSE",
-        "icon": "https://api.weather.gov/icons/land/day/sct/tsra_hi,20?size=medium",
-        "shortForecast": "Mostly Sunny then Slight Chance Showers And Thunderstorms",
-        "detailedForecast": "A slight chance of showers and thunderstorms after 3pm. Mostly sunny, with a high near 98. South southeast wind 6 to 9 mph. Chance of precipitation is 20%."
+        "icon": "https://api.weather.gov/icons/land/day/sct/tsra_hi,40?size=medium",
+        "shortForecast": "Mostly Sunny then Chance Showers And Thunderstorms",
+        "detailedForecast": "A chance of showers and thunderstorms after noon. Mostly sunny, with a high near 97. South southeast wind 6 to 9 mph. Chance of precipitation is 40%."
       },
       {
-        "number": 5,
+        "number": 3,
         "name": "Monday Night",
         "startTime": "2026-08-10T18:00:00-06:00",
         "endTime": "2026-08-11T06:00:00-06:00",
@@ -741,16 +703,16 @@
         "temperatureTrend": null,
         "probabilityOfPrecipitation": {
           "unitCode": "wmoUnit:percent",
-          "value": 5
+          "value": 21
         },
         "windSpeed": "7 mph",
-        "windDirection": "SSE",
-        "icon": "https://api.weather.gov/icons/land/night/bkn?size=medium",
-        "shortForecast": "Mostly Cloudy",
-        "detailedForecast": "Mostly cloudy, with a low around 72. South southeast wind around 7 mph."
+        "windDirection": "SSW",
+        "icon": "https://api.weather.gov/icons/land/night/tsra_sct,20/bkn?size=medium",
+        "shortForecast": "Slight Chance Showers And Thunderstorms then Mostly Cloudy",
+        "detailedForecast": "A slight chance of showers and thunderstorms before 9pm. Mostly cloudy. Low around 72, with temperatures rising to around 74 overnight. South southwest wind around 7 mph. Chance of precipitation is 20%."
       },
       {
-        "number": 6,
+        "number": 4,
         "name": "Tuesday",
         "startTime": "2026-08-11T06:00:00-06:00",
         "endTime": "2026-08-11T18:00:00-06:00",
@@ -760,44 +722,74 @@
         "temperatureTrend": null,
         "probabilityOfPrecipitation": {
           "unitCode": "wmoUnit:percent",
-          "value": 4
+          "value": 7
         },
-        "windSpeed": "6 mph",
+        "windSpeed": "7 mph",
         "windDirection": "S",
-        "icon": "https://api.weather.gov/icons/land/day/bkn?size=medium",
-        "shortForecast": "Partly Sunny",
-        "detailedForecast": "Partly sunny, with a high near 96."
+        "icon": "https://api.weather.gov/icons/land/day/sct?size=medium",
+        "shortForecast": "Mostly Sunny",
+        "detailedForecast": "Mostly sunny, with a high near 96. South wind around 7 mph."
       },
       {
-        "number": 7,
+        "number": 5,
         "name": "Tuesday Night",
         "startTime": "2026-08-11T18:00:00-06:00",
         "endTime": "2026-08-12T06:00:00-06:00",
         "isDaytime": false,
-        "temperature": 71,
+        "temperature": 70,
         "temperatureUnit": "F",
         "temperatureTrend": null,
         "probabilityOfPrecipitation": {
           "unitCode": "wmoUnit:percent",
           "value": 15
         },
-        "windSpeed": "7 mph",
-        "windDirection": "S",
+        "windSpeed": "6 mph",
+        "windDirection": "SSE",
         "icon": "https://api.weather.gov/icons/land/night/bkn/rain_showers,20?size=medium",
         "shortForecast": "Mostly Cloudy then Slight Chance Rain Showers",
-        "detailedForecast": "A slight chance of rain showers after midnight. Mostly cloudy, with a low around 71."
+        "detailedForecast": "A slight chance of rain showers after midnight. Mostly cloudy, with a low around 70. South southeast wind around 6 mph. Chance of precipitation is 20%."
+      },
+      {
+        "number": 6,
+        "name": "Wednesday",
+        "startTime": "2026-08-12T06:00:00-06:00",
+        "endTime": "2026-08-12T18:00:00-06:00",
+        "isDaytime": true,
+        "temperature": 90,
+        "temperatureUnit": "F",
+        "temperatureTrend": null,
+        "probabilityOfPrecipitation": {
+          "unitCode": "wmoUnit:percent",
+          "value": 33
+        },
+        "windSpeed": "5 mph",
+        "windDirection": "SW",
+        "icon": "https://api.weather.gov/icons/land/day/rain_showers,30/tsra_sct,30?size=medium",
+        "shortForecast": "Chance Rain Showers then Chance Showers And Thunderstorms",
+        "detailedForecast": "A chance of rain showers before noon, then a chance of showers and thunderstorms. Mostly cloudy, with a high near 90. Chance of precipitation is 30%."
+      },
+      {
+        "number": 7,
+        "name": "Wednesday Night",
+        "startTime": "2026-08-12T18:00:00-06:00",
+        "endTime": "2026-08-13T06:00:00-06:00",
+        "isDaytime": false,
+        "temperature": 63,
+        "temperatureUnit": "F",
+        "temperatureTrend": null,
+        "probabilityOfPrecipitation": {
+          "unitCode": "wmoUnit:percent",
+          "value": 36
+        },
+        "windSpeed": "6 mph",
+        "windDirection": "SSW",
+        "icon": "https://api.weather.gov/icons/land/night/tsra,20/tsra,40?size=medium",
+        "shortForecast": "Slight Chance Showers And Thunderstorms then Chance Showers And Thunderstorms",
+        "detailedForecast": "A slight chance of showers and thunderstorms before midnight, then a chance of showers and thunderstorms. Mostly cloudy, with a low around 63."
       }
     ],
-    "alerts": [
-      "Extreme Heat Warning issued August 8 at 8:31PM MDT until August 10 at 12:00AM MDT by NWS Salt Lake City UT"
-    ],
+    "alerts": [],
     "past_7_days": [
-      {
-        "date": "2026-08-02",
-        "precip_in": 0,
-        "high_f": 102,
-        "low_f": 78
-      },
       {
         "date": "2026-08-03",
         "precip_in": 0,
@@ -836,13 +828,59 @@
       },
       {
         "date": "2026-08-09",
+        "precip_in": 0.02,
+        "high_f": 101,
+        "low_f": 78
+      },
+      {
+        "date": "2026-08-10",
         "precip_in": 0,
-        "high_f": 98,
-        "low_f": 80
+        "high_f": 97,
+        "low_f": 77
       }
     ]
   },
   "recent_briefings": [
+    {
+      "payload": {
+        "headline": "Heat warning ends Monday — beans overdue, tip canes at dawn.",
+        "weather_notes": [
+          "Work only before 9 AM through Monday — Extreme Heat Warning active through midnight Aug 10 with 99°F today and 98°F Monday.",
+          "Run both zones Monday morning — today's irrigation resets the clock; 98°F Monday triggers the 1-day heat re-water threshold.",
+          "Shade e1–e4 tomato beds by 11 AM today — Phoenix harvest opens Aug 24 and sunscald risk stays high at 99°F through the warning period.",
+          "Plan heavier garden work for Tuesday — warning expires Monday night and Tuesday's 96°F opens the week's first full outdoor work window."
+        ],
+        "surfaced_tasks": [
+          {
+            "title": "Tip new blackberry primocanes if 3–4 ft tall",
+            "bed_id": "blackberry",
+            "reason": "30 days overdue — before-9-AM Monday is the last heat-warning window; Tuesday's cooler forecast makes this the best two-day stretch to get it done.",
+            "task_id": "116"
+          }
+        ],
+        "suggested_tasks": [
+          {
+            "title": "Harvest c2/c3/c4 beans — past peak",
+            "bed_id": "c2",
+            "urgency": "high",
+            "due_date": "2026-08-10",
+            "description": "Jade Bush and Red Swan Bush planted May 28 are 16–19 days past their 54–57-day maturity window — check pods for tough texture or bulging seeds and harvest before they dry out entirely."
+          },
+          {
+            "title": "Pull soft-necked w4 onions now",
+            "bed_id": "w4",
+            "urgency": "high",
+            "due_date": "2026-08-10",
+            "description": "Super Star and Yellow Sweet Spanish at 106 days are deep in their maturity window — pull any bulbs with soft necks before sustained 96–99°F this week accelerates post-maturity rot."
+          }
+        ]
+      },
+      "suggestions_state": {
+        "accepted": [],
+        "rejected": []
+      },
+      "generated_at": "2026-08-09T13:42:06+00:00"
+    },
     {
       "payload": {
         "headline": "Water and harvest now — extreme heat extends through Monday.",
@@ -1352,45 +1390,6 @@
         "rejected": []
       },
       "generated_at": "2026-07-27T13:43:39+00:00"
-    },
-    {
-      "payload": {
-        "headline": "Potato harvest window opens; tip canes before 8 AM.",
-        "weather_notes": [
-          "Complete all garden work before 8 AM through Tuesday — Heat Advisory active through Monday night with 100–104°F highs closing every afternoon window.",
-          "Run zone 1 early tomorrow morning — 3 days without irrigation entering 104°F today is past the 1-day rewater threshold for zone 1 beds.",
-          "Shade e1–e4 tomato transplants by midday today — 36-day plants under back-to-back 100°F+ days risk sunscald and flower drop."
-        ],
-        "surfaced_tasks": [
-          {
-            "title": "Tip new blackberry primocanes if 3–4 ft tall",
-            "bed_id": "blackberry",
-            "reason": "16 days overdue and 42 days of summer growth since the June 14 observation means canes are well past tipping height; before-8-AM is the only safe window under the active Heat Advisory.",
-            "task_id": "116"
-          }
-        ],
-        "suggested_tasks": [
-          {
-            "title": "Watch potato bags for dying tops",
-            "bed_id": "potato_bags",
-            "urgency": "normal",
-            "due_date": "2026-07-30",
-            "description": "Yukon Gold at 68 days is entering the 65–80 day harvest window — check daily for yellowing or collapsing tops as the signal to stop hilling and begin harvest."
-          },
-          {
-            "title": "Check w4 onions for harvest readiness",
-            "bed_id": "w4",
-            "urgency": "normal",
-            "due_date": "2026-08-02",
-            "description": "Super Star onions at 92 days are 3–5 days from typical maturity — look daily for softening necks and falling tops, then bend any still-upright stems to finish bulb curing."
-          }
-        ]
-      },
-      "suggestions_state": {
-        "accepted": [],
-        "rejected": []
-      },
-      "generated_at": "2026-07-26T13:42:45+00:00"
     }
   ]
 }
