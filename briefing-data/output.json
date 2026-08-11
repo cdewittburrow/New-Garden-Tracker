@@ -1,32 +1,32 @@
 {
-  "headline": "Heat warning over — harvest beans and onions this week.",
+  "headline": "Rain arrives Thursday — harvest overdue onions and potatoes.",
   "weather_notes": [
-    "Work outdoors before 10 AM today — 97°F afternoon with 40% storm chance after noon closes the safe outdoor window early.",
-    "Run both zones Tuesday morning if today's storms don't bring measurable rain — zones last ran Aug 9; Tuesday's 96°F puts beds 2 days past the 1-day heat re-water threshold.",
-    "Target Wednesday morning for heavier garden tasks — 90°F forecast is the week's coolest daytime high with storm systems providing a viable work window.",
-    "Shade e1–e4 tomato beds by 11 AM today and tomorrow — Phoenix harvest opens Aug 24 and 96–97°F through Tuesday sustains sunscald risk."
+    "Water both zones today — 2 days since Aug 9 irrigation at 97°F exceeds the 1-day heat re-water threshold; don't skip for today's 19% storm chance.",
+    "Plan harvesting and outdoor work for Wednesday morning — 92°F with 30% storm chance is the last workable window before Thursday's 90% storm system closes the yard.",
+    "Shade e1–e4 tomato beds by 11 AM today and Wednesday — Phoenix harvest opens Aug 24 and 92–97°F sustains sunscald risk through Wednesday.",
+    "Skip irrigation Thursday — 90%+ storm chance should bring measurable rain; reassess zones on Friday after seeing Thursday's totals."
   ],
   "surfaced_tasks": [
     {
       "task_id": "116",
       "bed_id": "blackberry",
       "title": "Tip new blackberry primocanes if 3–4 ft tall",
-      "reason": "31 days overdue — Extreme Heat Warning expired overnight; today's early morning is the first safe outdoor window in weeks."
+      "reason": "32 days overdue — Wednesday morning before Thursday's 90% storm is the week's best outdoor work window for cane tipping."
     }
   ],
   "suggested_tasks": [
     {
-      "title": "Harvest c2/c3/c4 beans — past peak",
-      "due_date": "2026-08-11",
-      "description": "Jade Bush and Red Swan Bush planted May 28 are 74 days in — 17–24 days past their 50–57-day window; harvest before pods toughen or dry out completely.",
-      "bed_id": "c2",
+      "title": "Harvest w4 onions before Thursday's rain",
+      "due_date": "2026-08-12",
+      "description": "Super Star and Yellow Sweet Spanish at 108 days are deep in their maturity windows — harvest Wednesday morning before Thursday's rain saturates soil and accelerates neck rot.",
+      "bed_id": "w4",
       "urgency": "high"
     },
     {
-      "title": "Pull soft-necked w4 onions before rot sets in",
-      "due_date": "2026-08-11",
-      "description": "Super Star and Yellow Sweet Spanish at 107 days are deep in their maturity window — squeeze necks and pull any soft bulbs before Tuesday's 96°F accelerates post-maturity rot.",
-      "bed_id": "w4",
+      "title": "Probe potato bags — 4 days past harvest window",
+      "due_date": "2026-08-12",
+      "description": "Yukon Gold at 84 days is past the 80-day outer harvest window — probe one bag Wednesday before Thursday's heavy rain makes digging muddy.",
+      "bed_id": "potato_bags",
       "urgency": "high"
     }
   ]
