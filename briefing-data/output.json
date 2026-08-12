@@ -1,33 +1,40 @@
 {
-  "headline": "Rain arrives Thursday — harvest overdue onions and potatoes.",
+  "headline": "Storm arrives tomorrow — harvest onions and potatoes today.",
   "weather_notes": [
-    "Water both zones today — 2 days since Aug 9 irrigation at 97°F exceeds the 1-day heat re-water threshold; don't skip for today's 19% storm chance.",
-    "Plan harvesting and outdoor work for Wednesday morning — 92°F with 30% storm chance is the last workable window before Thursday's 90% storm system closes the yard.",
-    "Shade e1–e4 tomato beds by 11 AM today and Wednesday — Phoenix harvest opens Aug 24 and 92–97°F sustains sunscald risk through Wednesday.",
-    "Skip irrigation Thursday — 90%+ storm chance should bring measurable rain; reassess zones on Friday after seeing Thursday's totals."
+    "Skip all irrigation through Friday — Thursday's 90% storm is forecast to deliver 0.25–0.5 in, fully resetting bed moisture; watering today would be wasted.",
+    "Complete all harvest work by midday today — today's 89°F is the last clear outdoor window before Thursday's rain saturates soil through Friday.",
+    "Shade e1–e4 tomato beds through 11 AM — 89°F today with incoming storm humidity sustains sunscald risk before Phoenix's Aug 24 harvest window opens.",
+    "Pick ripe blackberries before Wednesday evening — Thursday's 90% storm will knock ripe Triple Crown fruit from canes before you can harvest."
   ],
   "surfaced_tasks": [
     {
       "task_id": "116",
       "bed_id": "blackberry",
       "title": "Tip new blackberry primocanes if 3–4 ft tall",
-      "reason": "32 days overdue — Wednesday morning before Thursday's 90% storm is the week's best outdoor work window for cane tipping."
+      "reason": "33 days overdue — today's 89°F is the best outdoor work window in weeks before Thursday's 90% storm closes yard work through Friday."
     }
   ],
   "suggested_tasks": [
     {
-      "title": "Harvest w4 onions before Thursday's rain",
+      "title": "Pull w4 onions before Thursday's rain",
       "due_date": "2026-08-12",
-      "description": "Super Star and Yellow Sweet Spanish at 108 days are deep in their maturity windows — harvest Wednesday morning before Thursday's rain saturates soil and accelerates neck rot.",
+      "description": "Super Star and Yellow Sweet Spanish at 109 days are past their maturity window — harvest this morning before 0.25–0.5 in of rain saturates soil and accelerates neck rot.",
       "bed_id": "w4",
       "urgency": "high"
     },
     {
-      "title": "Probe potato bags — 4 days past harvest window",
+      "title": "Probe and harvest potato bags before storm",
       "due_date": "2026-08-12",
-      "description": "Yukon Gold at 84 days is past the 80-day outer harvest window — probe one bag Wednesday before Thursday's heavy rain makes digging muddy.",
+      "description": "Yukon Gold at 85 days is 5 days past the 80-day outer harvest window — dig one bag this morning before Thursday's rain waterloggs container soil.",
       "bed_id": "potato_bags",
       "urgency": "high"
+    },
+    {
+      "title": "Check c2/c3/c4 beans for any usable pods",
+      "due_date": "2026-08-12",
+      "description": "Jade Bush and Red Swan Bush at 76 days are 19–26 days past their fresh harvest window — check for any remaining usable pods before Thursday's rain accelerates deterioration.",
+      "bed_id": "c2",
+      "urgency": "normal"
     }
   ]
 }
