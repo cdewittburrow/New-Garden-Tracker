@@ -1,38 +1,38 @@
 {
-  "headline": "Rain clears Saturday — harvest onions, tip canes.",
+  "headline": "Saturday clear: harvest onions, dig potatoes, tip canes.",
   "weather_notes": [
-    "Skip all watering through Friday — 0.31 in fell today and 50%+ rain chance Friday keeps soil saturated.",
-    "Harvest w4 onions by Saturday morning — two days of rain accelerates neck rot on mature bulbs still in the ground.",
-    "Wait until Saturday to dig potato bags — let containers drain; Saturday's clear 85°F is the week's cleanest digging window.",
-    "Inspect c1 dry bean pods Saturday — repeated rain events this week risk mold on pods drying on the vine."
+    "Skip all watering today — yesterday's 0.33\" rain plus today's 45% storm chance keeps soil saturated through Saturday.",
+    "Do all harvesting and digging Saturday — sunny 85°F with no storm risk is the first clean outdoor work window since the heat wave ended.",
+    "Shade e1–e4 beds by 11 AM Sunday — 88°F increases sunscald risk for 55-day tomato transplants still 3–4 weeks from first harvest.",
+    "Cure harvested onions out of direct sun — lay pulled bulbs in shade before Sunday's 88°F accelerates post-harvest neck rot."
   ],
   "surfaced_tasks": [
     {
       "task_id": "116",
       "bed_id": "blackberry",
       "title": "Tip new blackberry primocanes if 3–4 ft tall",
-      "reason": "34 days overdue — Saturday's clear 85°F window after today's storms is the best outdoor work opportunity since the heat wave ended."
+      "reason": "35 days overdue — Saturday's sunny 85°F is the first comfortable outdoor work window since mid-July; complete before Sunday's 88°F."
     }
   ],
   "suggested_tasks": [
     {
-      "title": "Harvest w4 onions before neck rot sets in",
+      "title": "Harvest w4 onions before Sunday heat",
       "due_date": "2026-08-15",
-      "description": "Super Star and Yellow Sweet Spanish at 110 days are past maturity — pull bulbs Saturday before two days of rain accelerates post-maturity neck rot.",
+      "description": "Super Star and Yellow Sweet Spanish at 111 days are past maturity — pull bulbs Saturday morning while soil is draining from yesterday's 0.33\" rain.",
       "bed_id": "w4",
       "urgency": "high"
     },
     {
-      "title": "Dig potato bags Saturday — 86 days past window",
+      "title": "Dig potato bags — 7 days past harvest window",
       "due_date": "2026-08-15",
-      "description": "Yukon Gold at 86 days is 6 days past the 80-day harvest window — Saturday's dry 85°F is the first clean digging opportunity after today's storms.",
+      "description": "Yukon Gold at 87 days is 7 past the 80-day outer window — Saturday's dry 85°F is the cleanest digging opportunity this week.",
       "bed_id": "potato_bags",
       "urgency": "high"
     },
     {
-      "title": "Check c1 dry beans for mold on drying pods",
+      "title": "Harvest c1 dry beans — check for rattle",
       "due_date": "2026-08-15",
-      "description": "Good Mother Stollard at 102 days is drying on the vine — inspect Saturday for pod mold after two rain events; harvest any papery pods at risk.",
+      "description": "Good Mother Stollard at 103 days is likely fully dry — pull papery pods Saturday before Sunday's 88°F causes shatter.",
       "bed_id": "c1",
       "urgency": "normal"
     }
