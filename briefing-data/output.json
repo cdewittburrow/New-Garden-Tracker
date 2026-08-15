@@ -1,40 +1,39 @@
 {
-  "headline": "Saturday clear: harvest onions, dig potatoes, tip canes.",
+  "headline": "86°F window — dig potatoes, pull onions, tip canes today.",
   "weather_notes": [
-    "Skip all watering today — yesterday's 0.33\" rain plus today's 45% storm chance keeps soil saturated through Saturday.",
-    "Do all harvesting and digging Saturday — sunny 85°F with no storm risk is the first clean outdoor work window since the heat wave ended.",
-    "Shade e1–e4 beds by 11 AM Sunday — 88°F increases sunscald risk for 55-day tomato transplants still 3–4 weeks from first harvest.",
-    "Cure harvested onions out of direct sun — lay pulled bulbs in shade before Sunday's 88°F accelerates post-harvest neck rot."
+    "Water all zones Sunday morning — beds will be 2 days post-rain at 89°F, crossing the 1-day heat re-water threshold before Monday's 92°F arrives.",
+    "Finish all harvest and pruning tasks today — 86°F Saturday is the week's most comfortable outdoor window; heat climbs to 89°F Sunday and 92°F Monday.",
+    "Shade e1–e4 beds by 11 AM Monday — 92°F risks sunscald on Phoenix and Hamson tomatoes with first harvest windows 9–23 days out."
   ],
   "surfaced_tasks": [
     {
       "task_id": "116",
       "bed_id": "blackberry",
       "title": "Tip new blackberry primocanes if 3–4 ft tall",
-      "reason": "35 days overdue — Saturday's sunny 85°F is the first comfortable outdoor work window since mid-July; complete before Sunday's 88°F."
+      "reason": "36 days overdue — today's 86°F is the week's easiest outdoor work window before heat climbs to 92°F Monday."
     }
   ],
   "suggested_tasks": [
     {
-      "title": "Harvest w4 onions before Sunday heat",
+      "title": "Harvest w4 onions — 112 days, past maturity",
       "due_date": "2026-08-15",
-      "description": "Super Star and Yellow Sweet Spanish at 111 days are past maturity — pull bulbs Saturday morning while soil is draining from yesterday's 0.33\" rain.",
+      "description": "Super Star and Yellow Sweet Spanish at 112 days are deep in their maturity window — pull bulbs now while soil has good drainage from Thursday's rains.",
       "bed_id": "w4",
       "urgency": "high"
     },
     {
-      "title": "Dig potato bags — 7 days past harvest window",
+      "title": "Dig potato bags — 8 days past harvest window",
       "due_date": "2026-08-15",
-      "description": "Yukon Gold at 87 days is 7 past the 80-day outer window — Saturday's dry 85°F is the cleanest digging opportunity this week.",
+      "description": "Yukon Gold at 88 days is 8 past the 80-day outer window — dig at least one bag today before Monday's 92°F rebuilds heat stress on containers.",
       "bed_id": "potato_bags",
       "urgency": "high"
     },
     {
-      "title": "Harvest c1 dry beans — check for rattle",
-      "due_date": "2026-08-15",
-      "description": "Good Mother Stollard at 103 days is likely fully dry — pull papery pods Saturday before Sunday's 88°F causes shatter.",
-      "bed_id": "c1",
-      "urgency": "normal"
+      "title": "Inspect e1 Phoenix for first fruit and support",
+      "due_date": "2026-08-22",
+      "description": "Harvest window opens Aug 24 — check fruit set and confirm cages are secure before first pick next week.",
+      "bed_id": "e1",
+      "urgency": "low"
     }
   ]
 }
