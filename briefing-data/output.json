@@ -1,39 +1,32 @@
 {
-  "headline": "86°F window — dig potatoes, pull onions, tip canes today.",
+  "headline": "93°F by Tuesday — water zones, harvest before the heat.",
   "weather_notes": [
-    "Water all zones Sunday morning — beds will be 2 days post-rain at 89°F, crossing the 1-day heat re-water threshold before Monday's 92°F arrives.",
-    "Finish all harvest and pruning tasks today — 86°F Saturday is the week's most comfortable outdoor window; heat climbs to 89°F Sunday and 92°F Monday.",
-    "Shade e1–e4 beds by 11 AM Monday — 92°F risks sunscald on Phoenix and Hamson tomatoes with first harvest windows 9–23 days out."
+    "Water zone 2 today — last ran Aug 9 (7 days); zone 1 also due at 2 days since Aug 14 with 90–93°F heat building through Tuesday.",
+    "Do all outdoor harvest work before 10 AM through Tuesday — heat climbs from 90°F today to 93°F Tuesday with no meaningful rain in the 7-day forecast.",
+    "Shade e1–e4 tomato beds by 11 AM through Tuesday — Phoenix harvest window opens Aug 24 (8 days) and 90–93°F sustains sunscald risk on developing fruit."
   ],
   "surfaced_tasks": [
     {
       "task_id": "116",
       "bed_id": "blackberry",
       "title": "Tip new blackberry primocanes if 3–4 ft tall",
-      "reason": "36 days overdue — today's 86°F is the week's easiest outdoor work window before heat climbs to 92°F Monday."
+      "reason": "37 days overdue — Sunday morning at 90°F is the week's most comfortable window before heat climbs to 92°F Monday and 93°F Tuesday."
     }
   ],
   "suggested_tasks": [
     {
-      "title": "Harvest w4 onions — 112 days, past maturity",
-      "due_date": "2026-08-15",
-      "description": "Super Star and Yellow Sweet Spanish at 112 days are deep in their maturity window — pull bulbs now while soil has good drainage from Thursday's rains.",
+      "title": "Harvest w4 onions — 113 days, well past maturity",
+      "due_date": "2026-08-17",
+      "description": "Super Star and Yellow Sweet Spanish at 113 days are overdue — pull bulbs Monday morning before 92–93°F accelerates post-maturity neck rot in dry soil.",
       "bed_id": "w4",
       "urgency": "high"
     },
     {
-      "title": "Dig potato bags — 8 days past harvest window",
-      "due_date": "2026-08-15",
-      "description": "Yukon Gold at 88 days is 8 past the 80-day outer window — dig at least one bag today before Monday's 92°F rebuilds heat stress on containers.",
+      "title": "Dig potato bags — 9 days past harvest window",
+      "due_date": "2026-08-17",
+      "description": "Yukon Gold at 89 days is 9 days past the 80-day outer window — dig at least one bag Monday before Tuesday's 93°F and dry containers accelerate vine decline.",
       "bed_id": "potato_bags",
       "urgency": "high"
-    },
-    {
-      "title": "Inspect e1 Phoenix for first fruit and support",
-      "due_date": "2026-08-22",
-      "description": "Harvest window opens Aug 24 — check fruit set and confirm cages are secure before first pick next week.",
-      "bed_id": "e1",
-      "urgency": "low"
     }
   ]
 }
