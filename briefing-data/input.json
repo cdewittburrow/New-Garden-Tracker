@@ -1,5 +1,5 @@
 {
-  "today": "2026-08-15",
+  "today": "2026-08-16",
   "plantings": [
     {
       "id": "44002331-16ef-4f88-a215-e9db754dcec8",
@@ -657,45 +657,7 @@
       {
         "number": 1,
         "name": "Overnight",
-        "startTime": "2026-08-15T04:00:00-06:00",
-        "endTime": "2026-08-15T06:00:00-06:00",
-        "isDaytime": false,
-        "temperature": 57,
-        "temperatureUnit": "F",
-        "temperatureTrend": null,
-        "probabilityOfPrecipitation": {
-          "unitCode": "wmoUnit:percent",
-          "value": 2
-        },
-        "windSpeed": "5 mph",
-        "windDirection": "S",
-        "icon": "https://api.weather.gov/icons/land/night/sct?size=medium",
-        "shortForecast": "Partly Cloudy",
-        "detailedForecast": "Partly cloudy. Low around 57, with temperatures rising to around 60 overnight. South wind around 5 mph."
-      },
-      {
-        "number": 2,
-        "name": "Saturday",
-        "startTime": "2026-08-15T06:00:00-06:00",
-        "endTime": "2026-08-15T18:00:00-06:00",
-        "isDaytime": true,
-        "temperature": 86,
-        "temperatureUnit": "F",
-        "temperatureTrend": null,
-        "probabilityOfPrecipitation": {
-          "unitCode": "wmoUnit:percent",
-          "value": 4
-        },
-        "windSpeed": "3 to 8 mph",
-        "windDirection": "SSW",
-        "icon": "https://api.weather.gov/icons/land/day/few?size=medium",
-        "shortForecast": "Sunny",
-        "detailedForecast": "Sunny. High near 86, with temperatures falling to around 84 in the afternoon. South southwest wind 3 to 8 mph."
-      },
-      {
-        "number": 3,
-        "name": "Saturday Night",
-        "startTime": "2026-08-15T18:00:00-06:00",
+        "startTime": "2026-08-16T03:00:00-06:00",
         "endTime": "2026-08-16T06:00:00-06:00",
         "isDaytime": false,
         "temperature": 61,
@@ -703,21 +665,40 @@
         "temperatureTrend": null,
         "probabilityOfPrecipitation": {
           "unitCode": "wmoUnit:percent",
-          "value": 2
+          "value": 1
         },
         "windSpeed": "5 mph",
-        "windDirection": "ESE",
+        "windDirection": "SSE",
         "icon": "https://api.weather.gov/icons/land/night/few?size=medium",
         "shortForecast": "Mostly Clear",
-        "detailedForecast": "Mostly clear. Low around 61, with temperatures rising to around 63 overnight. East southeast wind around 5 mph."
+        "detailedForecast": "Mostly clear. Low around 61, with temperatures rising to around 64 overnight. South southeast wind around 5 mph."
       },
       {
-        "number": 4,
+        "number": 2,
         "name": "Sunday",
         "startTime": "2026-08-16T06:00:00-06:00",
         "endTime": "2026-08-16T18:00:00-06:00",
         "isDaytime": true,
-        "temperature": 89,
+        "temperature": 90,
+        "temperatureUnit": "F",
+        "temperatureTrend": null,
+        "probabilityOfPrecipitation": {
+          "unitCode": "wmoUnit:percent",
+          "value": 4
+        },
+        "windSpeed": "3 to 7 mph",
+        "windDirection": "S",
+        "icon": "https://api.weather.gov/icons/land/day/few?size=medium",
+        "shortForecast": "Sunny",
+        "detailedForecast": "Sunny. High near 90, with temperatures falling to around 88 in the afternoon. South wind 3 to 7 mph."
+      },
+      {
+        "number": 3,
+        "name": "Sunday Night",
+        "startTime": "2026-08-16T18:00:00-06:00",
+        "endTime": "2026-08-17T06:00:00-06:00",
+        "isDaytime": false,
+        "temperature": 65,
         "temperatureUnit": "F",
         "temperatureTrend": null,
         "probabilityOfPrecipitation": {
@@ -725,32 +706,13 @@
           "value": 1
         },
         "windSpeed": "5 mph",
-        "windDirection": "SSW",
-        "icon": "https://api.weather.gov/icons/land/day/few?size=medium",
-        "shortForecast": "Sunny",
-        "detailedForecast": "Sunny, with a high near 89. South southwest wind around 5 mph."
-      },
-      {
-        "number": 5,
-        "name": "Sunday Night",
-        "startTime": "2026-08-16T18:00:00-06:00",
-        "endTime": "2026-08-17T06:00:00-06:00",
-        "isDaytime": false,
-        "temperature": 63,
-        "temperatureUnit": "F",
-        "temperatureTrend": null,
-        "probabilityOfPrecipitation": {
-          "unitCode": "wmoUnit:percent",
-          "value": 0
-        },
-        "windSpeed": "5 mph",
         "windDirection": "ENE",
         "icon": "https://api.weather.gov/icons/land/night/few?size=medium",
         "shortForecast": "Mostly Clear",
-        "detailedForecast": "Mostly clear, with a low around 63. East northeast wind around 5 mph."
+        "detailedForecast": "Mostly clear. Low around 65, with temperatures rising to around 67 overnight. East northeast wind around 5 mph."
       },
       {
-        "number": 6,
+        "number": 4,
         "name": "Monday",
         "startTime": "2026-08-17T06:00:00-06:00",
         "endTime": "2026-08-17T18:00:00-06:00",
@@ -760,21 +722,21 @@
         "temperatureTrend": null,
         "probabilityOfPrecipitation": {
           "unitCode": "wmoUnit:percent",
-          "value": 0
+          "value": 2
         },
-        "windSpeed": "5 mph",
-        "windDirection": "S",
+        "windSpeed": "6 mph",
+        "windDirection": "SSW",
         "icon": "https://api.weather.gov/icons/land/day/sct?size=medium",
         "shortForecast": "Mostly Sunny",
-        "detailedForecast": "Mostly sunny, with a high near 92."
+        "detailedForecast": "Mostly sunny, with a high near 92. South southwest wind around 6 mph."
       },
       {
-        "number": 7,
+        "number": 5,
         "name": "Monday Night",
         "startTime": "2026-08-17T18:00:00-06:00",
         "endTime": "2026-08-18T06:00:00-06:00",
         "isDaytime": false,
-        "temperature": 66,
+        "temperature": 68,
         "temperatureUnit": "F",
         "temperatureTrend": null,
         "probabilityOfPrecipitation": {
@@ -782,20 +744,52 @@
           "value": 2
         },
         "windSpeed": "5 mph",
-        "windDirection": "SE",
-        "icon": "https://api.weather.gov/icons/land/night/bkn?size=medium",
-        "shortForecast": "Mostly Cloudy",
-        "detailedForecast": "Mostly cloudy, with a low around 66."
+        "windDirection": "ESE",
+        "icon": "https://api.weather.gov/icons/land/night/sct?size=medium",
+        "shortForecast": "Partly Cloudy",
+        "detailedForecast": "Partly cloudy, with a low around 68. East southeast wind around 5 mph."
+      },
+      {
+        "number": 6,
+        "name": "Tuesday",
+        "startTime": "2026-08-18T06:00:00-06:00",
+        "endTime": "2026-08-18T18:00:00-06:00",
+        "isDaytime": true,
+        "temperature": 93,
+        "temperatureUnit": "F",
+        "temperatureTrend": null,
+        "probabilityOfPrecipitation": {
+          "unitCode": "wmoUnit:percent",
+          "value": 5
+        },
+        "windSpeed": "6 mph",
+        "windDirection": "SSW",
+        "icon": "https://api.weather.gov/icons/land/day/sct?size=medium",
+        "shortForecast": "Mostly Sunny",
+        "detailedForecast": "Mostly sunny, with a high near 93."
+      },
+      {
+        "number": 7,
+        "name": "Tuesday Night",
+        "startTime": "2026-08-18T18:00:00-06:00",
+        "endTime": "2026-08-19T06:00:00-06:00",
+        "isDaytime": false,
+        "temperature": 68,
+        "temperatureUnit": "F",
+        "temperatureTrend": null,
+        "probabilityOfPrecipitation": {
+          "unitCode": "wmoUnit:percent",
+          "value": 10
+        },
+        "windSpeed": "5 mph",
+        "windDirection": "E",
+        "icon": "https://api.weather.gov/icons/land/night/tsra_hi/bkn?size=medium",
+        "shortForecast": "Slight Chance Showers And Thunderstorms then Mostly Cloudy",
+        "detailedForecast": "A slight chance of showers and thunderstorms before 9pm. Mostly cloudy, with a low around 68."
       }
     ],
     "alerts": [],
     "past_7_days": [
-      {
-        "date": "2026-08-08",
-        "precip_in": 0,
-        "high_f": 103,
-        "low_f": 77
-      },
       {
         "date": "2026-08-09",
         "precip_in": 0.02,
@@ -835,12 +829,64 @@
       {
         "date": "2026-08-15",
         "precip_in": 0,
-        "high_f": 83,
-        "low_f": 61
+        "high_f": 84,
+        "low_f": 59
+      },
+      {
+        "date": "2026-08-16",
+        "precip_in": 0,
+        "high_f": 91,
+        "low_f": 62
       }
     ]
   },
   "recent_briefings": [
+    {
+      "payload": {
+        "headline": "86°F window — dig potatoes, pull onions, tip canes today.",
+        "weather_notes": [
+          "Water all zones Sunday morning — beds will be 2 days post-rain at 89°F, crossing the 1-day heat re-water threshold before Monday's 92°F arrives.",
+          "Finish all harvest and pruning tasks today — 86°F Saturday is the week's most comfortable outdoor window; heat climbs to 89°F Sunday and 92°F Monday.",
+          "Shade e1–e4 beds by 11 AM Monday — 92°F risks sunscald on Phoenix and Hamson tomatoes with first harvest windows 9–23 days out."
+        ],
+        "surfaced_tasks": [
+          {
+            "title": "Tip new blackberry primocanes if 3–4 ft tall",
+            "bed_id": "blackberry",
+            "reason": "36 days overdue — today's 86°F is the week's easiest outdoor work window before heat climbs to 92°F Monday.",
+            "task_id": "116"
+          }
+        ],
+        "suggested_tasks": [
+          {
+            "title": "Harvest w4 onions — 112 days, past maturity",
+            "bed_id": "w4",
+            "urgency": "high",
+            "due_date": "2026-08-15",
+            "description": "Super Star and Yellow Sweet Spanish at 112 days are deep in their maturity window — pull bulbs now while soil has good drainage from Thursday's rains."
+          },
+          {
+            "title": "Dig potato bags — 8 days past harvest window",
+            "bed_id": "potato_bags",
+            "urgency": "high",
+            "due_date": "2026-08-15",
+            "description": "Yukon Gold at 88 days is 8 past the 80-day outer window — dig at least one bag today before Monday's 92°F rebuilds heat stress on containers."
+          },
+          {
+            "title": "Inspect e1 Phoenix for first fruit and support",
+            "bed_id": "e1",
+            "urgency": "low",
+            "due_date": "2026-08-22",
+            "description": "Harvest window opens Aug 24 — check fruit set and confirm cages are secure before first pick next week."
+          }
+        ]
+      },
+      "suggestions_state": {
+        "accepted": [],
+        "rejected": []
+      },
+      "generated_at": "2026-08-15T13:41:38+00:00"
+    },
     {
       "payload": {
         "headline": "Saturday clear: harvest onions, dig potatoes, tip canes.",
@@ -1394,46 +1440,6 @@
         "rejected": []
       },
       "generated_at": "2026-08-02T13:41:21+00:00"
-    },
-    {
-      "payload": {
-        "headline": "103°F heat warning — onions due, potatoes peaking.",
-        "weather_notes": [
-          "Work before 9 AM through Sunday — Extreme Heat Warning active through Aug 2 at 9 PM MDT with 103°F today and 101°F Sunday.",
-          "Run both zones this morning — 2 days without irrigation at 103°F exceeds the 1-day heat threshold.",
-          "Shade e1–e4 tomato beds through midday — 42-day transplants at 101–103°F risk sunscald and blossom drop through Sunday.",
-          "Check potato bags for moisture after zones run — container soil dries 2–3× faster than raised beds under extreme heat."
-        ],
-        "surfaced_tasks": [
-          {
-            "title": "Tip new blackberry primocanes if 3–4 ft tall",
-            "bed_id": "blackberry",
-            "reason": "22 days overdue — early morning before 9 AM is the only outdoor window under the active Extreme Heat Warning through Sunday Aug 2.",
-            "task_id": "116"
-          }
-        ],
-        "suggested_tasks": [
-          {
-            "title": "Check w4 onions for neck softening",
-            "bed_id": "w4",
-            "urgency": "high",
-            "due_date": "2026-08-01",
-            "description": "Super Star at 98 days enters its maturity window today — check for soft necks and falling tops before this week's 103°F accelerates post-maturity softening."
-          },
-          {
-            "title": "Dig potato bags to check harvest readiness",
-            "bed_id": "potato_bags",
-            "urgency": "normal",
-            "due_date": "2026-08-03",
-            "description": "Yukon Gold at 74 days is at the center of its 65–80 day window — check for yellowing tops and probe one bag before the harvest window closes."
-          }
-        ]
-      },
-      "suggestions_state": {
-        "accepted": [],
-        "rejected": []
-      },
-      "generated_at": "2026-08-01T13:41:20+00:00"
     }
   ]
 }
