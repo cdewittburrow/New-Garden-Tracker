@@ -1,5 +1,5 @@
 {
-  "today": "2026-08-20",
+  "today": "2026-08-21",
   "plantings": [
     {
       "id": "44002331-16ef-4f88-a215-e9db754dcec8",
@@ -657,48 +657,10 @@
       {
         "number": 1,
         "name": "Overnight",
-        "startTime": "2026-08-20T04:00:00-06:00",
-        "endTime": "2026-08-20T06:00:00-06:00",
-        "isDaytime": false,
-        "temperature": 72,
-        "temperatureUnit": "F",
-        "temperatureTrend": null,
-        "probabilityOfPrecipitation": {
-          "unitCode": "wmoUnit:percent",
-          "value": 1
-        },
-        "windSpeed": "5 mph",
-        "windDirection": "SSE",
-        "icon": "https://api.weather.gov/icons/land/night/sct?size=medium",
-        "shortForecast": "Partly Cloudy",
-        "detailedForecast": "Partly cloudy. Low around 72, with temperatures rising to around 74 overnight. South southeast wind around 5 mph."
-      },
-      {
-        "number": 2,
-        "name": "Thursday",
-        "startTime": "2026-08-20T06:00:00-06:00",
-        "endTime": "2026-08-20T18:00:00-06:00",
-        "isDaytime": true,
-        "temperature": 101,
-        "temperatureUnit": "F",
-        "temperatureTrend": null,
-        "probabilityOfPrecipitation": {
-          "unitCode": "wmoUnit:percent",
-          "value": 4
-        },
-        "windSpeed": "5 to 9 mph",
-        "windDirection": "SSW",
-        "icon": "https://api.weather.gov/icons/land/day/hot?size=medium",
-        "shortForecast": "Mostly Sunny",
-        "detailedForecast": "Mostly sunny, with a high near 101. South southwest wind 5 to 9 mph."
-      },
-      {
-        "number": 3,
-        "name": "Thursday Night",
-        "startTime": "2026-08-20T18:00:00-06:00",
+        "startTime": "2026-08-21T04:00:00-06:00",
         "endTime": "2026-08-21T06:00:00-06:00",
         "isDaytime": false,
-        "temperature": 73,
+        "temperature": 74,
         "temperatureUnit": "F",
         "temperatureTrend": null,
         "probabilityOfPrecipitation": {
@@ -707,31 +669,31 @@
         },
         "windSpeed": "7 mph",
         "windDirection": "SSE",
-        "icon": "https://api.weather.gov/icons/land/night/few?size=medium",
-        "shortForecast": "Mostly Clear",
-        "detailedForecast": "Mostly clear. Low around 73, with temperatures rising to around 76 overnight. South southeast wind around 7 mph."
+        "icon": "https://api.weather.gov/icons/land/night/sct?size=medium",
+        "shortForecast": "Partly Cloudy",
+        "detailedForecast": "Partly cloudy. Low around 74, with temperatures rising to around 77 overnight. South southeast wind around 7 mph."
       },
       {
-        "number": 4,
+        "number": 2,
         "name": "Friday",
         "startTime": "2026-08-21T06:00:00-06:00",
         "endTime": "2026-08-21T18:00:00-06:00",
         "isDaytime": true,
-        "temperature": 100,
+        "temperature": 101,
         "temperatureUnit": "F",
         "temperatureTrend": null,
         "probabilityOfPrecipitation": {
           "unitCode": "wmoUnit:percent",
-          "value": 10
+          "value": 20
         },
         "windSpeed": "6 to 9 mph",
         "windDirection": "S",
-        "icon": "https://api.weather.gov/icons/land/day/hot/tsra_hi?size=medium",
-        "shortForecast": "Mostly Sunny then Slight Chance Showers And Thunderstorms",
-        "detailedForecast": "A slight chance of showers and thunderstorms after 3pm. Mostly sunny, with a high near 100. South wind 6 to 9 mph."
+        "icon": "https://api.weather.gov/icons/land/day/hot/tsra_hi,20?size=medium",
+        "shortForecast": "Mostly Sunny then Isolated Showers And Thunderstorms",
+        "detailedForecast": "Isolated showers and thunderstorms after 3pm. Mostly sunny. High near 101, with temperatures falling to around 98 in the afternoon. South wind 6 to 9 mph. Chance of precipitation is 20%."
       },
       {
-        "number": 5,
+        "number": 3,
         "name": "Friday Night",
         "startTime": "2026-08-21T18:00:00-06:00",
         "endTime": "2026-08-22T06:00:00-06:00",
@@ -741,63 +703,95 @@
         "temperatureTrend": null,
         "probabilityOfPrecipitation": {
           "unitCode": "wmoUnit:percent",
-          "value": 34
+          "value": 32
         },
-        "windSpeed": "5 to 8 mph",
+        "windSpeed": "7 mph",
         "windDirection": "SSE",
-        "icon": "https://api.weather.gov/icons/land/night/tsra,30?size=medium",
-        "shortForecast": "Chance Showers And Thunderstorms",
-        "detailedForecast": "A chance of showers and thunderstorms. Mostly cloudy, with a low around 71. South southeast wind 5 to 8 mph. Chance of precipitation is 30%."
+        "icon": "https://api.weather.gov/icons/land/night/tsra_sct,30/tsra_sct,20?size=medium",
+        "shortForecast": "Scattered Showers And Thunderstorms",
+        "detailedForecast": "Scattered showers and thunderstorms. Mostly cloudy. Low around 71, with temperatures rising to around 74 overnight. South southeast wind around 7 mph. Chance of precipitation is 30%."
       },
       {
-        "number": 6,
+        "number": 4,
         "name": "Saturday",
         "startTime": "2026-08-22T06:00:00-06:00",
         "endTime": "2026-08-22T18:00:00-06:00",
+        "isDaytime": true,
+        "temperature": 96,
+        "temperatureUnit": "F",
+        "temperatureTrend": null,
+        "probabilityOfPrecipitation": {
+          "unitCode": "wmoUnit:percent",
+          "value": 17
+        },
+        "windSpeed": "6 to 9 mph",
+        "windDirection": "S",
+        "icon": "https://api.weather.gov/icons/land/day/sct/tsra_hi,20?size=medium",
+        "shortForecast": "Mostly Sunny then Isolated Showers And Thunderstorms",
+        "detailedForecast": "Isolated showers and thunderstorms after noon. Mostly sunny, with a high near 96. South wind 6 to 9 mph. Chance of precipitation is 20%."
+      },
+      {
+        "number": 5,
+        "name": "Saturday Night",
+        "startTime": "2026-08-22T18:00:00-06:00",
+        "endTime": "2026-08-23T06:00:00-06:00",
+        "isDaytime": false,
+        "temperature": 69,
+        "temperatureUnit": "F",
+        "temperatureTrend": null,
+        "probabilityOfPrecipitation": {
+          "unitCode": "wmoUnit:percent",
+          "value": 32
+        },
+        "windSpeed": "6 mph",
+        "windDirection": "SSE",
+        "icon": "https://api.weather.gov/icons/land/night/tsra_hi,30?size=medium",
+        "shortForecast": "Scattered Showers And Thunderstorms",
+        "detailedForecast": "Scattered showers and thunderstorms. Mostly cloudy, with a low around 69. South southeast wind around 6 mph. Chance of precipitation is 30%."
+      },
+      {
+        "number": 6,
+        "name": "Sunday",
+        "startTime": "2026-08-23T06:00:00-06:00",
+        "endTime": "2026-08-23T18:00:00-06:00",
         "isDaytime": true,
         "temperature": 95,
         "temperatureUnit": "F",
         "temperatureTrend": null,
         "probabilityOfPrecipitation": {
           "unitCode": "wmoUnit:percent",
-          "value": 26
+          "value": 10
         },
-        "windSpeed": "5 to 8 mph",
+        "windSpeed": "3 to 8 mph",
         "windDirection": "S",
-        "icon": "https://api.weather.gov/icons/land/day/bkn/tsra_sct,30?size=medium",
-        "shortForecast": "Partly Sunny then Chance Showers And Thunderstorms",
-        "detailedForecast": "A chance of showers and thunderstorms between noon and 3pm, then a chance of showers and thunderstorms. Partly sunny, with a high near 95. Chance of precipitation is 30%."
+        "icon": "https://api.weather.gov/icons/land/day/sct/tsra_hi?size=medium",
+        "shortForecast": "Mostly Sunny then Isolated Showers And Thunderstorms",
+        "detailedForecast": "Isolated showers and thunderstorms after noon. Mostly sunny, with a high near 95."
       },
       {
         "number": 7,
-        "name": "Saturday Night",
-        "startTime": "2026-08-22T18:00:00-06:00",
-        "endTime": "2026-08-23T06:00:00-06:00",
+        "name": "Sunday Night",
+        "startTime": "2026-08-23T18:00:00-06:00",
+        "endTime": "2026-08-24T06:00:00-06:00",
         "isDaytime": false,
         "temperature": 67,
         "temperatureUnit": "F",
         "temperatureTrend": null,
         "probabilityOfPrecipitation": {
           "unitCode": "wmoUnit:percent",
-          "value": 50
+          "value": 27
         },
-        "windSpeed": "7 mph",
+        "windSpeed": "5 mph",
         "windDirection": "S",
-        "icon": "https://api.weather.gov/icons/land/night/tsra_sct,50/tsra_sct,30?size=medium",
-        "shortForecast": "Chance Showers And Thunderstorms",
-        "detailedForecast": "A chance of showers and thunderstorms before 9pm, then a chance of showers and thunderstorms. Mostly cloudy, with a low around 67."
+        "icon": "https://api.weather.gov/icons/land/night/tsra_hi,30/bkn?size=medium",
+        "shortForecast": "Chance Showers And Thunderstorms then Mostly Cloudy",
+        "detailedForecast": "A chance of showers and thunderstorms before midnight. Mostly cloudy, with a low around 67."
       }
     ],
     "alerts": [
-      "Heat Advisory issued August 19 at 1:51PM MDT until August 22 at 7:00AM MDT by NWS Salt Lake City UT"
+      "Heat Advisory issued August 20 at 9:43PM MDT until August 22 at 7:00AM MDT by NWS Salt Lake City UT"
     ],
     "past_7_days": [
-      {
-        "date": "2026-08-13",
-        "precip_in": 0.33,
-        "high_f": 78,
-        "low_f": 65
-      },
       {
         "date": "2026-08-14",
         "precip_in": 0.11,
@@ -837,12 +831,126 @@
       {
         "date": "2026-08-20",
         "precip_in": 0,
+        "high_f": 101,
+        "low_f": 76
+      },
+      {
+        "date": "2026-08-21",
+        "precip_in": 0.01,
         "high_f": 100,
-        "low_f": 77
+        "low_f": 79
       }
     ]
   },
   "recent_briefings": [
+    {
+      "payload": {
+        "headline": "Heat breaks Saturday — harvest onions, potatoes, dry beans.",
+        "weather_notes": [
+          "Restrict all outdoor work to before 9 AM through Friday — Heat Advisory active at 100–101°F closes every afternoon window.",
+          "Plan all harvesting for Saturday morning before 10 AM — Heat Advisory lifts at 7 AM Saturday with 95°F high, the week's best work window.",
+          "Shade e1–e4 tomato beds by 11 AM daily through Friday — 100–101°F puts Phoenix and Hamson fruit at sunscald risk with harvest windows opening Aug 24.",
+          "Pull w4 onions Saturday morning before any afternoon storms — 30–50% storm chance Saturday afternoon complicates curing if bulbs remain in wet ground."
+        ],
+        "surfaced_tasks": [
+          {
+            "title": "Tip new blackberry primocanes if 3–4 ft tall",
+            "bed_id": "blackberry",
+            "reason": "41 days overdue — Saturday morning after the Heat Advisory lifts at 7 AM is the first comfortable outdoor cane-work window in weeks.",
+            "task_id": "116"
+          }
+        ],
+        "suggested_tasks": [
+          {
+            "title": "Pull w4 onions — 117 days, past maturity",
+            "bed_id": "w4",
+            "urgency": "high",
+            "due_date": "2026-08-22",
+            "description": "Super Star and Yellow Sweet Spanish at 117 days are deep past their maturity window — pull Saturday morning before afternoon storm risk saturates soil and complicates curing."
+          },
+          {
+            "title": "Dig potato bags — 13 days past harvest window",
+            "bed_id": "potato_bags",
+            "urgency": "high",
+            "due_date": "2026-08-22",
+            "description": "Yukon Gold at 93 days is 13 past the 80-day outer window — dig Saturday morning while the Heat Advisory is lifted and conditions are most workable."
+          },
+          {
+            "title": "Harvest c1 dry beans — pods should be papery",
+            "bed_id": "c1",
+            "urgency": "normal",
+            "due_date": "2026-08-22",
+            "description": "Good Mother Stollard at 109 days is well past its 85–90-day dry window — pull pods Saturday before pod shatter accelerates under 100°F+ heat."
+          },
+          {
+            "title": "Check e1 Phoenix for fruit showing color",
+            "bed_id": "e1",
+            "urgency": "normal",
+            "due_date": "2026-08-23",
+            "description": "Harvest window opens Aug 24 — inspect Sunday for any fruit advancing early, as sustained 100°F+ can accelerate ripening ahead of schedule."
+          }
+        ]
+      },
+      "suggestions_state": {
+        "accepted": [],
+        "rejected": []
+      },
+      "generated_at": "2026-08-20T13:40:41+00:00"
+    },
+    {
+      "payload": {
+        "headline": "Heat breaks Saturday — harvest onions, potatoes, dry beans.",
+        "weather_notes": [
+          "Restrict all outdoor work to before 9 AM through Friday — Heat Advisory active at 100–101°F closes every afternoon window.",
+          "Plan all harvesting for Saturday morning before 10 AM — Heat Advisory lifts at 7 AM Saturday with 95°F high, the week's best work window.",
+          "Shade e1–e4 tomato beds by 11 AM daily through Friday — 100–101°F puts Phoenix and Hamson fruit at sunscald risk with harvest windows opening Aug 24.",
+          "Pull w4 onions Saturday morning before any afternoon storms — 30–50% storm chance Saturday afternoon complicates curing if bulbs remain in wet ground."
+        ],
+        "surfaced_tasks": [
+          {
+            "title": "Tip new blackberry primocanes if 3–4 ft tall",
+            "bed_id": "blackberry",
+            "reason": "41 days overdue — Saturday morning after the Heat Advisory lifts at 7 AM is the first comfortable outdoor cane-work window in weeks.",
+            "task_id": "116"
+          }
+        ],
+        "suggested_tasks": [
+          {
+            "title": "Pull w4 onions — 117 days, past maturity",
+            "bed_id": "w4",
+            "urgency": "high",
+            "due_date": "2026-08-22",
+            "description": "Super Star and Yellow Sweet Spanish at 117 days are deep past their maturity window — pull Saturday morning before afternoon storm risk saturates soil and complicates curing."
+          },
+          {
+            "title": "Dig potato bags — 13 days past harvest window",
+            "bed_id": "potato_bags",
+            "urgency": "high",
+            "due_date": "2026-08-22",
+            "description": "Yukon Gold at 93 days is 13 past the 80-day outer window — dig Saturday morning while the Heat Advisory is lifted and conditions are most workable."
+          },
+          {
+            "title": "Harvest c1 dry beans — pods should be papery",
+            "bed_id": "c1",
+            "urgency": "normal",
+            "due_date": "2026-08-22",
+            "description": "Good Mother Stollard at 109 days is well past its 85–90-day dry window — pull pods Saturday before pod shatter accelerates under 100°F+ heat."
+          },
+          {
+            "title": "Check e1 Phoenix for fruit showing color",
+            "bed_id": "e1",
+            "urgency": "normal",
+            "due_date": "2026-08-23",
+            "description": "Harvest window opens Aug 24 — inspect Sunday for any fruit advancing early, as sustained 100°F+ can accelerate ripening ahead of schedule."
+          }
+        ]
+      },
+      "suggestions_state": {
+        "accepted": [],
+        "rejected": []
+      },
+      "generated_at": "2026-08-20T13:40:40+00:00"
+    },
     {
       "payload": {
         "headline": "97–101°F crunch — water, harvest, dig today.",
@@ -1374,86 +1482,6 @@
         "rejected": []
       },
       "generated_at": "2026-08-08T13:41:15+00:00"
-    },
-    {
-      "payload": {
-        "headline": "107°F today — early morning is the only safe window.",
-        "weather_notes": [
-          "Do all outdoor work before 8 AM — Extreme Heat Warning active through Aug 10 with 107°F today, 101°F Saturday, and 99°F Sunday closing every afternoon window.",
-          "Shade e1–e4 tomato beds by 11 AM through the weekend — 107°F today puts 48-day transplants at sunscald risk with harvest still 17–38 days out.",
-          "Run both zones early Saturday morning — zones last ran Aug 6; two days at 100°F+ will push soil past the 1-day re-water threshold by Saturday.",
-          "Move or shade potato bags out of direct afternoon sun — container root zones reach lethal temperatures under sustained 107°F heat."
-        ],
-        "surfaced_tasks": [
-          {
-            "title": "Tip new blackberry primocanes if 3–4 ft tall",
-            "bed_id": "blackberry",
-            "reason": "28 days overdue — early morning before 8 AM today is the only outdoor window under the active Extreme Heat Warning through Sunday Aug 10.",
-            "task_id": "116"
-          }
-        ],
-        "suggested_tasks": [
-          {
-            "title": "Harvest ripe blackberries before 10 AM today",
-            "bed_id": "blackberry",
-            "urgency": "high",
-            "due_date": "2026-08-07",
-            "description": "107°F will cook any ripe Triple Crown fruit still on the canes — pick before the heat peaks today."
-          },
-          {
-            "title": "Probe potato bags — 80-day window closes now",
-            "bed_id": "potato_bags",
-            "urgency": "high",
-            "due_date": "2026-08-08",
-            "description": "Yukon Gold at 80 days has hit the outer edge of its 65–80 day harvest window — probe one bag Saturday morning before heat-accelerated vine dieback closes the opportunity."
-          }
-        ]
-      },
-      "suggestions_state": {
-        "accepted": [],
-        "rejected": []
-      },
-      "generated_at": "2026-08-07T13:43:12+00:00"
-    },
-    {
-      "payload": {
-        "headline": "Extreme heat through Sunday — zone 2 overdue, harvest berries.",
-        "weather_notes": [
-          "Run zone 2 today — 4 days without irrigation under the Extreme Heat Warning; zone 1 ran this morning but zone 2 beds remain dry.",
-          "Do all outdoor work before 8 AM through Sunday — Extreme Heat Warning active through Aug 10 with 100°F today, 103°F Friday, and 102°F Saturday.",
-          "Shade e1–e4 tomato beds by 11 AM through the weekend — 100–103°F puts 47-day transplants at sunscald risk with first harvest still 18+ days out.",
-          "Move or shade potato bags from direct afternoon sun — grow bag root zones reach lethal temperatures under sustained 100°F+ heat."
-        ],
-        "surfaced_tasks": [
-          {
-            "title": "Tip new blackberry primocanes if 3–4 ft tall",
-            "bed_id": "blackberry",
-            "reason": "27 days overdue — today and tomorrow morning before 8 AM are the last outdoor windows before 103°F Friday closes cane work through the weekend.",
-            "task_id": "116"
-          }
-        ],
-        "suggested_tasks": [
-          {
-            "title": "Harvest ripe blackberries before Friday",
-            "bed_id": "blackberry",
-            "urgency": "high",
-            "due_date": "2026-08-07",
-            "description": "Berries confirmed June 14 are 53 days in — 103°F Friday will bake any remaining ripe Triple Crown fruit still on the canes."
-          },
-          {
-            "title": "Probe potato bags — end of harvest window",
-            "bed_id": "potato_bags",
-            "urgency": "high",
-            "due_date": "2026-08-06",
-            "description": "Yukon Gold at 79 days hits the end of the 65–80 day harvest window — probe one bag today before heat-accelerated vine dieback closes the opportunity."
-          }
-        ]
-      },
-      "suggestions_state": {
-        "accepted": [],
-        "rejected": []
-      },
-      "generated_at": "2026-08-06T13:42:16+00:00"
     }
   ]
 }
